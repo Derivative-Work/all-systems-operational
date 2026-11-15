@@ -1,4 +1,4 @@
-<!-- Plain-text mirror of the Claude Doc https://claude.ai/artifact/VPEaJhs55vieCdQcS6C79E (rev 113), read with the docs tools. The doc is the source of truth. Regenerate: scripts/mirror_brief.py. -->
+<!-- Plain-text mirror of the Claude Doc https://claude.ai/artifact/VPEaJhs55vieCdQcS6C79E (rev 116), read with the docs tools. The doc is the source of truth. Regenerate: scripts/mirror_brief.py. -->
 
 # All Systems Operational: Shot List and Production Brief
 
@@ -166,7 +166,7 @@ operational?
 
 | # | Section | Lyric or beat | Shot | Asset | Reads incident.json |
 | --- | --- | --- | --- | --- | --- |
-| O01 | Opening bookend | Before the music | Three beats. First, the outage-report spike: a made-up, unlabeled chart drawn from reported Downdetector counts (about 2,400 Outlook reports at 9:50 a.m. PT, past 130,000 by 10:17, GV Wire). Then the creator's real screenshots: a Microsoft 365 app failing (placeholder until permission or a new capture), then Microsoft's service status page failing to load, timestamped and captioned "real screenshot". Last, the creator's #it-self-help post, recreated for this song in a generic chat UI with the creator's real name and photo: "no video yet" is struck through, then the cursor clicks play and the song starts | Remotion (chart, chat post) + screen captures | No |
+| O01 | Opening bookend | Before the music | Three beats. First, the outage-report spike: a made-up, unlabeled chart drawn from reported Downdetector counts (about 2,400 Outlook reports at 9:50 a.m. PT, past 130,000 by 10:17, GV Wire). Then the creator's real screenshots: a Microsoft 365 app failing on Friday, Nov 13 (placeholder until permission or a new capture), then Microsoft's service status page failing to load, timestamped and captioned "real screenshot". Last, the creator's #it-self-help post, recreated for this song in a generic chat UI with the creator's real name and photo, describing this song: "(my last meme about this, I promise)" is struck through, then "no video yet", then the cursor clicks play and the song starts | Remotion (chart, chat post) + screen captures | No |
 | O02 | Intro | Whistled hook | Hard cut to the made-up status page, every row green, each stamped "Last updated: Thu 12:58 p.m." A page that can't load can't update. One row flips to "Investigating" | Remotion | Yes (status phrases) |
 | O03 | Intro | "We're investigating reports" | The live room: rain on the windows, band backlit in silhouette, a small standing crowd. Lower third: "All Systems Operational · Live at Session 503" | Blender (live room, kit) + Remotion lower third | No |
 | O04 | Verse 1 | "inbox went still" | Over a crowd member's shoulder, a phone shows a generic team-chat message in #it-help: "is email down for anyone else?" Its +1 count climbs on each Hey! | Blender + Remotion phone texture | No |
@@ -240,7 +240,7 @@ Blender and image-to-video need the 5090, so schedule those renders around the p
 
 ## Bookends, fact card, disclosure and end card
 
-**Opening bookend (O01).** The outage-report spike as a made-up chart from reported counts, then the creator's real screenshots with timestamps on screen (no more than 3 seconds together), then the creator's #it-self-help post sharing the song, recreated in a generic chat UI and captioned as a recreation. "No video yet" gets struck through, and clicking play starts the song on the cut to the green status page.
+**Opening bookend (O01).** The outage-report spike as a made-up chart from reported counts, then the creator's real screenshots with timestamps on screen (no more than 3 seconds together), then the creator's #it-self-help post sharing the song, recreated in a generic chat UI and captioned as a recreation. "(my last meme about this, I promise)" and "no video yet" get struck through, one after the other, and clicking play starts the song on the cut to the green status page.
 
 **Fact card (after O24).** Each line is sourced, and checked against the full report at render time.
 - Exchange Online problems began around 11:17 a.m. ET on Thursday, Nov 12, and the wider outage followed at 1:26 p.m. ([Digital Trends](https://www.digitaltrends.com/computing/microsoft-365-outage-resolved/)). It hit Outlook, Teams, SharePoint, Copilot and Defender in at least 74 countries ([Wire](https://wire.com/en/blog/microsoft-365-outage-november-2026)).

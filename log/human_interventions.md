@@ -39,3 +39,11 @@ Append-only. Every human action: when, what, and why.
 - **Outage-report spike:** "See about finding the outage report spike online -- I don't have one for you" (production log 4).
 - **Licence:** "This one will be like the rest of the series (CC video, MIT repo)" (decisions 5).
 - **Transcription:** "Hold off on the transcription for now."
+
+## 7. 2026-11-15 — Clap, bookend post, capture date, spike, licence
+
+- **Clap:** "That explains why it fit musically when I put it in that way, so I won't change it for this." Decisions 4 approved: the clap stays on the beat, stop 2 has none.
+- **Bookend post:** "keep the "meme" bit, but animate crossing it out for self-awareness". The post describes this song (agent's draft accepted without changes: "“All Systems Operational” — a singalong for the M365 services, as a mid-2010s stomp-clap song", player at 3:59). "(my last meme about this, I promise)" and "no video yet" are struck through in turn before play. Brief rev 116.
+- **"No license found" capture:** "it was on Friday" (Nov 13).
+- **Spike chart from reported counts:** "works for me".
+- **Licence:** "yes, relicense": the generic Ever Present people and band kit (`blender/ep/`) is MIT in this repository; Ever Present stays private. Decisions 5 closed.

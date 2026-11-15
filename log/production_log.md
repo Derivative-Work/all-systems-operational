@@ -39,3 +39,8 @@ Append-only. One entry per generation, render or analysis step.
   - [BleepingComputer](https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/): "complaints surged Thursday afternoon" (no counts).
   - The creator's #it-self-help thread starts at 12:57 p.m. ET (9:57 PT), inside the climb.
 - Brief edited directly (human's directions; rev 106 → 113): the O01 row and the "Opening bookend" paragraph now hold the spike chart, the real screenshots (≤ 3 s, the "No license found" one a placeholder) and the recreated chat post ("no video yet" struck through, play clicked, the song starts on the cut to O02); the faces guardrail gets the creator's name and photo as the one exception. Mirror regenerated: `python3 -I scripts/mirror_brief.py <saved read> docs/brief.md` (diff: those three places and the header only).
+
+## 5. 2026-11-15 — Brief rev 116; licence files (human interventions 7)
+
+- Brief edited directly (rev 113 → 116): the O01 row dates the placeholder capture to Friday, Nov 13, and the post now strikes through "(my last meme about this, I promise)", then "no video yet", before play. The bookend paragraph matches. Mirror regenerated with `scripts/mirror_brief.py`.
+- `LICENSE-media.md` (CC BY-NC-SA 4.0, modelled on The Distillation Job's) and `LICENSES/CC-BY-NC-SA-4.0.txt` (copied from it); `LICENSE` (MIT) was added in step 4. `blender/ep/README.md` and `CLAUDE.md` record the relicensed kit. Checked first: the copied Ever Present files hold no sanctuary set, scripture or AI-pastor code, only generic poses, walk, people builder and stage props.
