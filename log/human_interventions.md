@@ -30,3 +30,12 @@ Append-only. Every human action: when, what, and why.
 ## 5. 2026-11-15 — Production started
 
 - **What:** "Let's get started with the brief … The planning chat, which you'll also need to archive … The previous projects are in the parent directory -- you can look but don't touch. In particular, pay attention to Ever Present (band and audience kits), Sandbox Rhapsody (probe kit), Default On (switch kit). The song, including master and stems, are in ~/Downloads. I generated it in Suno …, got their stems, then added the hard stops and mastered in Apple Logic Pro, then ran the postfilter. … Just plan and import for now: don't start any large renders or generations as Ever Present is still rendering."
+
+## 6. 2026-11-15 — Answers to the M0 questions
+
+- **Lone clap:** "I couldn't figure out how to properly time these, so this is what made sense musically based solely on the text. How do these flow into the scenes?" (agent's reading in decisions 4, open).
+- **Bookend:** "I'm good with my photo being here (it's also the same one as my GitHub photo that goes on the repository). The video could be better suited as an opening bookend: make it accurate to this song, and then cross out the "no video yet" before clicking play." Brief rev 113.
+- **"No license found" capture:** "I will get permission for that capture or create my own. Use it for now as a placeholder if it works conceptually."
+- **Outage-report spike:** "See about finding the outage report spike online -- I don't have one for you" (production log 4).
+- **Licence:** "This one will be like the rest of the series (CC video, MIT repo)" (decisions 5).
+- **Transcription:** "Hold off on the transcription for now."
