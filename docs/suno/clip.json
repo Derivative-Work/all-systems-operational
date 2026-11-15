@@ -1,0 +1,169 @@
+{
+ "status": "complete",
+ "title": "Remember Wednesday",
+ "play_count": 10,
+ "upvote_count": 1,
+ "allow_comments": true,
+ "is_verified": false,
+ "id": "e7994418-9310-4096-8663-99aa58d5fc76",
+ "entity_type": "song_schema",
+ "video_url": "",
+ "audio_url": "https://studio-api.prod.suno.com/api/forbidden",
+ "media_urls": [
+  {
+   "url": "https://d2lwuy8qc234o3.cloudfront.net/1/clip/e7994418-9310-4096-8663-99aa58d5fc76.m4a",
+   "content_type": "m4a-opus",
+   "delivery": "progressive",
+   "encoding": "1.0.0"
+  }
+ ],
+ "image_url": "https://cdn2.suno.ai/image_e7994418-9310-4096-8663-99aa58d5fc76.jpeg",
+ "image_large_url": "https://cdn2.suno.ai/image_large_e7994418-9310-4096-8663-99aa58d5fc76.jpeg",
+ "major_model_version": "v6",
+ "model_name": "chirp-hawk",
+ "metadata": {
+  "tags": "Mid-2010s indie folk pop, dry up-front raspy male lead with clipped staccato phrasing and wide climbs into top notes; acoustic guitar strums, banjo, whistled hook, stomping kick, handclaps, tambourine, cello and pump-organ drone, gang-vocal hey shouts; 100 bpm stomp-clap drive with abrupt full-band stops and a big singalong chorus; thin filtered verses opening into warm choruses, warm tape saturation, borrowed minor iv at the close.",
+  "prompt": "$c5",
+  "type": "gen",
+  "duration": 236.8,
+  "refund_credits": false,
+  "stream": true,
+  "make_instrumental": false,
+  "is_max_mode": true,
+  "control_sliders": {
+   "style_weight": 0.8,
+   "aug_creativity": 3
+  },
+  "can_remix": true,
+  "is_remix": false,
+  "priority": 10,
+  "has_stem": true,
+  "uses_latest_model": true,
+  "model_badges": {
+   "songcard": {
+    "display_name": "V6",
+    "light": {
+     "text_color": "FD429C",
+     "background_color": "0000004D",
+     "border_color": "00000000"
+    },
+    "dark": {
+     "text_color": "FD429C",
+     "background_color": "0000004D",
+     "border_color": "00000000"
+    }
+   },
+   "songrow": {
+    "display_name": "V6",
+    "light": {
+     "text_color": "FD429C",
+     "text_color_gradient": [
+      "FD429C",
+      "FF5126"
+     ],
+     "background_color": "00000000",
+     "border_color": "00000000"
+    },
+    "dark": {
+     "text_color": "FD429C",
+     "text_color_gradient": [
+      "FD429C",
+      "FF5126"
+     ],
+     "background_color": "00000000",
+     "border_color": "00000000"
+    }
+   }
+  },
+  "image_config": {
+   "use_image_config_template": true,
+   "id": "cyanotype",
+   "default_cover_style": "brand_refresh"
+  },
+  "is_mumble": false
+ },
+ "is_liked": false,
+ "user_id": "b136ba79-b707-4129-8a0f-c20e3d41f767",
+ "display_name": "Derivative Work",
+ "handle": "derivativework",
+ "is_handle_updated": false,
+ "avatar_image_url": "https://cdn2.suno.ai/image_9bd3501a-1684-4bd8-ac0f-d3f0b88a4fa3.jpeg",
+ "is_trashed": false,
+ "is_hidden": false,
+ "created_at": "2026-11-15T01:49:19.954Z",
+ "updated_at": "2026-11-15T01:49:50.643Z",
+ "is_public": false,
+ "is_persona_root": false,
+ "is_following_creator": false,
+ "albums": [],
+ "ownership": {
+  "ownership_reason": "subscribed"
+ },
+ "explicit": false,
+ "comment_count": 0,
+ "flag_count": 0,
+ "display_tags": "indie folk, pop",
+ "can_download_remix": true,
+ "is_contest_clip": false,
+ "has_hook": false,
+ "batch_index": 0,
+ "action_config": {
+  "actions": [
+   {
+    "action_type": "add_to_playlist",
+    "disabled": false,
+    "visible": true
+   },
+   {
+    "action_type": "like_song",
+    "disabled": false,
+    "visible": true
+   },
+   {
+    "action_type": "share_song",
+    "disabled": false,
+    "visible": true
+   },
+   {
+    "action_type": "dislike_song",
+    "disabled": false,
+    "visible": true
+   },
+   {
+    "action_type": "report_song",
+    "disabled": false,
+    "visible": true
+   },
+   {
+    "action_type": "remove_from_playlist",
+    "disabled": false,
+    "visible": true
+   },
+   {
+    "action_type": "play_next",
+    "disabled": false,
+    "visible": true
+   },
+   {
+    "action_type": "add_to_queue",
+    "disabled": false,
+    "visible": true
+   },
+   {
+    "action_type": "remix_extend",
+    "disabled": false,
+    "visible": true
+   },
+   {
+    "action_type": "remix_cover",
+    "disabled": false,
+    "visible": true
+   },
+   {
+    "action_type": "remix_reuse_style",
+    "disabled": false,
+    "visible": true
+   }
+  ]
+ }
+}

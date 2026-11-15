@@ -1,0 +1,63 @@
+{
+  "_doc": "Look numbers read by blender/lib/sr_kit.py (vendored unchanged from Sandbox Rhapsody). Palette and materials are Sandbox Rhapsody's as imported; 'standby' (#5fe39a, Not Yet's green probe LED) added for the green probe. Retune for the four Seattle rooms at the grey-box step and log the change.",
+  "fps": 60,
+  "agx_look": "AgX - Punchy",
+  "exposure": 0.0,
+  "palette": {
+    "void": "#0a0814",
+    "floor": "#08070d",
+    "chrome": "#c9ccd2",
+    "probe": "#d4d7dd",
+    "lens": "#0b0d12",
+    "shadow": "#0a0c12",
+    "amber": "#ffa21f",
+    "lab": "#b9cbe8",
+    "lab_dark": "#2a3442",
+    "riser": "#161b24",
+    "lab_glow": "#3f8cff",
+    "glass": "#f4f8ff",
+    "brass": "#c8963c",
+    "note": "#f2d64b",
+    "key": "#ffcf8f",
+    "fill": "#7a63d6",
+    "rim": "#a9d2ff",
+    "horizon": "#2a2046",
+    "web": "#e040c8",
+    "web2": "#7a3bff",
+    "platform": "#14b8a6",
+    "alarm": "#ff3b30",
+    "paper": "#efe8da",
+    "copper": "#b36f44",
+    "decal_film": "#b8b2a8",
+    "decal_ink": "#c41e14",
+    "lcd": "#9fd04a",
+    "standby": "#5fe39a"
+  },
+  "materials": {
+    "plastic_roughness": 0.12,
+    "plastic_coat": 0.6,
+    "chrome_roughness": 0.05,
+    "floor_roughness": 0.1
+  },
+  "lights": {
+    "key": 3600,
+    "fill": 2600,
+    "rim": 4500,
+    "key_specular": 0.6,
+    "rim_specular": 0.0
+  },
+  "stars": 1.2,
+  "cards": {
+    "warm": 0.5,
+    "cool": 0.7,
+    "top": 0.15
+  },
+  "probe_resolution": "1024",
+  "vent_glow": 8.0,
+  "floor_ring": 4.0,
+  "bloom": {
+    "threshold": 4.0,
+    "size": 0.3,
+    "strength": 0.5
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "all-systems-operational",
+  "private": true,
+  "type": "module",
+  "description": "All Systems Operational: Seattle live-session stomp-clap music video about the Nov 2026 Microsoft 365 outage; captures in Puppeteer, screens and cards in Remotion.",
+  "dependencies": {
+    "puppeteer": "24.43.1"
+  }
+}

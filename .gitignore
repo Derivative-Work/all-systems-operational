@@ -1,0 +1,50 @@
+# Large files: excluded from git, listed in MANIFEST.sha256 (scripts/manifest.sh), published separately.
+audio/
+renders/
+assets/gen/
+# M6 look test (production log 29): re-fetchable or rebuildable; sources and checksums are in the log
+assets/mpfb/
+assets/figures/
+assets/textures/*/
+*.blend
+edit/
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.zip
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.blend1
+
+# Regenerable: never archived; versions and regen commands are logged instead.
+frames/
+**/frames/
+cache/
+**/__pycache__/
+.venv/
+node_modules/
+models/
+*.pt
+*.safetensors
+*.gguf
+
+# Capture dumps: regenerate with scripts/fetch_*.mjs. The clip record and lyrics (suno_clip.py) and the chat
+# snapshot JSON and Markdown are kept; the raw page dumps and API responses are not.
+docs/suno/resp_*.json
+docs/suno/page.html
+docs/planning_chat/planning_chat.html
+
+# Review stills (large): in the manifest; the contact sheets (review/*.jpg) stay in git
+review/**/*.png
+archive/**/*.png
+# Remotion build output
+out/
+remotion/public/gen/
+
+# All Systems Operational: the creator's real screenshots and Slack captures (private; bookend and text-style
+# reference only), Ever Present's figure library and the MakeHuman assets it links. In MANIFEST.sha256.
+assets/screenshots/
+*.aif
