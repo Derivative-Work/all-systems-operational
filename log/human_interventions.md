@@ -57,3 +57,8 @@ Append-only. Every human action: when, what, and why.
 ## 9. 2026-11-15 — M2 cues approved
 
 - **What:** "These all make sense to me, keep going." M2 gate passed: `config/shot_cues.json` as committed in cead0e1, with every call in decisions 6–9 accepted as proposed (8.4 s bookend; disclosure as an overlay on O17's chorus plus the full card at the end; O09/O17 holding their post-choruses; O23 on "operational?"; O13 at 1.8 s; the end order and the smaller calls as logged). Next: M4.
+
+## 10. 2026-11-15 — GPU freed; memory setting
+
+- **GPU:** "I've paused work on Ever Present, so the GPU is all yours until this is done."
+- **Memory:** the human realised this session was started without their memory environment variable, so generations might fail. The M4 batch did stop on low RAM (production log 10); the agent is to be restarted with the variable before the rest of M4 runs.
