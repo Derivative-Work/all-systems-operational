@@ -62,3 +62,8 @@ Append-only. Every human action: when, what, and why.
 
 - **GPU:** "I've paused work on Ever Present, so the GPU is all yours until this is done."
 - **Memory:** the human realised this session was started without their memory environment variable, so generations might fail. The M4 batch did stop on low RAM (production log 10); the agent is to be restarted with the variable before the rest of M4 runs.
+
+## 11. 2026-11-15 — Restarted with the memory setting; fax take picked
+
+- **Restart:** the session was restarted with `CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP` set, so background jobs aren't killed under memory pressure.
+- **Pick:** "a_s45 is good. Keep going." O06 uses `O06_fax_a_s45` (the agent's first pick). Next: image-to-video of that still.
