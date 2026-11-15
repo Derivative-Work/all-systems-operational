@@ -71,3 +71,7 @@ Append-only. Every human action: when, what, and why.
 ## 12. 2026-11-15 — M4 takes picked
 
 - **What:** "Go with your recommendations. I'll review the field of green shot in context once we have it." O06 is `O06_s41` kept as a slow push (no counter-crop). O07 stays the server on green, with `O07_fogtower_s44` (the tower on the lawn) as the spare; the human will judge O07 in the animatic. M4 gate passed; next: M5.
+
+## 13. 2026-11-15 — Animatic: needs more motion and cuts
+
+- **What:** "What's the plan for adding motion and interest to these while fleshing out the models? Without more cuts it's going to be slow and dry if it doesn't read as musical." The agent proposed coverage, stem-driven performance and music-cued camera and light (decisions 12); the human: "Yes go ahead." The M5 staging calls (decisions 11) and the 290 s length are still open for the human.

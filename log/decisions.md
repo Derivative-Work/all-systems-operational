@@ -71,3 +71,8 @@ Append-only. Deviations from the brief, each with why and who decided.
 - **O07 alternate** (excerpt only): the fog-tower plate s44 with the void's server rack laid on the lawn as a cut-out, the tower's top half pixelated (the stalled block), a slow push, the same caption.
 - **End sequence:** end card, "Next incident: TBD", fact card (as approved), then the full disclosure card (18 s, the overlay's length), which decisions 7 promised "full length in the end sequence" but the M2 post-roll left out. The animatic is 289.97 s, not 271.98. If approved, M7 adds it to `config/shot_cues.json` `post_roll`; or it can go before the fact card.
 - **O22:** the park is empty from the start of the shot (the crowd is gone after the freeze); one walker goes up the path and over the crest.
+
+## 12. 2026-11-15 — More coverage and motion before the final look (human asked; agent's plan, approved)
+
+- **Why:** the M5 animatic holds one angle per O-shot, up to 19–31 s (O03, O09, O17, O18, O20, O22). The human: "Without more cuts it's going to be slow and dry if it doesn't read as musical."
+- **Plan:** two new milestones before M7 (`docs/plan.md`). M5b: a music map from the stems, each O-shot split into wide/mid/close angles cut to bars and hits (the brief's wide-to-close live-session pattern), camera and light cued to the music, ambient motion, first-pass crowd motion; reviewed as a grey-box animatic. M5c: the figure-library rebuild with stem-driven performances. Shot IDs stay the scene IDs; angles are sub-shots (O09a, O09b…). No faces in any close: hands, feet, instruments, backs and backlit profiles only.
