@@ -13,14 +13,16 @@ export const SW = 1080; // square transparent plane for Blender
 const jit = (() => { const r = rng(11); return Array.from({length: 64}, () => [r() - 0.5, r() - 0.5]); })();
 
 /** `sagAt`: frame the sag starts; `hold`: frames he holds before the paddle drops (O21 holds a beat longer than O12). */
-export const SwitchPlane: React.FC<{state: SwitchState; sagAt?: number; hold?: number}> = ({state, sagAt = 6, hold = BEAT}) => {
+/** M5: `strainAt` (straining only) holds him still until that frame, then the shudder grows over two beats. */
+export const SwitchPlane: React.FC<{state: SwitchState; sagAt?: number; hold?: number; strainAt?: number}> = ({state, sagAt = 6, hold = BEAT, strainAt = 0}) => {
   const f = useCurrentFrame();
   const NEVER = 1e9;
   const flip = state === 'off' ? -100 : state === 'sagging' ? sagAt + hold : NEVER;
   let tx = 0, ty = 0, rot = 0, sx = 1, sy = 1;
   if (state === 'straining') {
     const [a, b] = jit[f % jit.length];
-    tx = a * 10; ty = b * 8; sy = 0.97 + 0.02 * Math.sin(f * 1.7); sx = 2 - sy;
+    const g = interpolate(f, [strainAt, strainAt + 2 * BEAT], [0, 1], clamp);
+    tx = a * 10 * g; ty = b * 8 * g; sy = 1 - g * (0.03 - 0.02 * Math.sin(f * 1.7)); sx = 2 - sy;
   }
   if (state === 'sagging') {
     // he sinks and leans while holding on, then drops with the paddle

@@ -1,11 +1,11 @@
 // Textures for the Blender sets, each at its own size (Root.tsx): the kick-drum head (O09), the cafe table tent
 // (O14), the band Polaroid (O14), the ON AIR sign (O10/O12), the station sign, and the treehouse whiteboard (O18).
 import React from 'react';
-import {Img, staticFile, useCurrentFrame} from 'remotion';
+import {Img, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {Branch, INCIDENT} from '../config';
 import {HAND, STATION, UI} from '../Fonts';
 import {T} from '../theme';
-import {Frame} from './Common';
+import {clamp, Frame} from './Common';
 
 /* ---------- kick-drum head, round, transparent outside the head ---------- */
 export const KICK = 2048;
@@ -113,14 +113,19 @@ export const boardSegments = (inc = INCIDENT): Seg[] => {
 
 /** `fill` 0..1 writes the board in, character by character; branch C ends the root cause in a blinking cursor;
  * branch A shows the one-line config diff after the board is full, when configDiff is set. */
-export const Whiteboard: React.FC<{fill: number; branch?: Branch; configDiff?: string | null; caption?: boolean}> = ({
-  fill, branch = INCIDENT.branch, configDiff = INCIDENT.configDiff, caption = true,
+/** M5: `reveal` maps a segment key to [start frame, end frame]: that segment is written in over its own window, on
+ * the sung line's cue (the board's order isn't the bridge's: lessons learned is sung after the full report). Segments
+ * with no window wait for `fill` as before. */
+export const Whiteboard: React.FC<{fill: number; branch?: Branch; configDiff?: string | null; caption?: boolean; reveal?: Record<string, [number, number]>}> = ({
+  fill, branch = INCIDENT.branch, configDiff = INCIDENT.configDiff, caption = true, reveal,
 }) => {
   const f = useCurrentFrame();
   const segs = boardSegments();
   const total = segs.reduce((n, s) => n + s.text.length, 0);
   let budget = Math.round(fill * total);
-  const shown = segs.map((s) => { const n = Math.max(0, Math.min(s.text.length, budget)); budget -= s.text.length; return n; });
+  const shown = reveal
+    ? segs.map((s) => { const w = reveal[s.key]; return w ? Math.round(interpolate(f, w, [0, s.text.length], clamp)) : 0; })
+    : segs.map((s) => { const n = Math.max(0, Math.min(s.text.length, budget)); budget -= s.text.length; return n; });
   const blink = Math.floor(f / 12) % 2 === 0;
   // lay out as lines: a label and its value share a line where the brief pairs them (root cause, full report)
   const span = (i: number) => {

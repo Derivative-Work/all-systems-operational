@@ -1,5 +1,7 @@
 import seeds from '../../config/seeds.json';
 import incidentJson from '../../config/incident.json';
+import cues from '../../config/shot_cues.json';
+import shotTimes from '../../timing/shot_times.json';
 
 export const SEED: number = seeds.main;
 export const FPS = 30;
@@ -9,34 +11,19 @@ export const H = 1080;
 export const PW = 1080;
 export const PH = 2340;
 
-/** Song tempo about 100 bpm (M0 tracker: 99.4): one beat = 0.6 s = 18 frames. */
+/** Song tempo 100.0 bpm (M2 timing map): one beat = 0.6 s = 18 frames (shot_cues.json remotion.BEAT_frames). */
 export const BEAT = Math.round(0.6 * FPS);
 export const sec = (s: number) => Math.round(s * FPS);
 
-// PLACEHOLDER durations (seconds). No timing map exists yet: M2 replaces these from timing/shot_times.json
-// (as Ever Present's config.ts reads SHOTS[id].start_frame/end_frame). Lengths are sensible guesses only.
+// Durations (seconds) from config/shot_cues.json: the M2 "remotion" block (DUR_s, approved at the M2 gate, human
+// interventions 9) and the post-roll (end card, final card). Set at M5 (production log 13); the placeholders before
+// that were guesses. Exact shot lengths in frames are in SHOT below (timing/shot_times.json).
+const C = cues.remotion.DUR_s;
 export const DUR = {
-  O01_spike: 2.0, // the line shoots up (quick beat)
-  O01_real: 2.6, // two real screenshots, <= 3 s together (brief)
-  O01_chat: 3.6, // strike, strike, cursor, click; the song starts on the cut
-  O02: 6.0,
-  O03: 5.0,
-  O04: 5.0,
-  O05: 4.8,
-  O08: 9.6, // four echoes, two bars apart
-  O09: 6.0,
-  O10: 3.0,
-  O11: 3.0,
-  O12: 2.4,
-  O13: 3.0,
-  O18: 12.0,
-  O19: 5.0,
-  O20: 4.0,
-  O21: 2.4,
-  O22: 6.0,
-  O23: 4.0,
-  card: 6.0,
-  finalCard: 3.0,
+  ...C,
+  card: cues.post_roll.O24_end_card_s,
+  finalCard: cues.post_roll.O24_final_card_s,
+  factCard: cues.post_roll.fact_card_s,
 } as const;
 export const dur = (k: keyof typeof DUR) => sec(DUR[k]);
 export const O01_TOTAL = dur('O01_spike') + dur('O01_real') + dur('O01_chat');
@@ -69,3 +56,13 @@ export const rng = (salt: number) => {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 };
+
+/* ---------- M5: exact shot lengths and in-shot cue frames (timing/shot_times.json, scripts/shot_times.py) ---------- */
+type ShotT = {start_frame: number; end_frame: number; marks?: {what: string; frame_in_shot: number}[]};
+const SH = shotTimes.shots as unknown as Record<string, ShotT>;
+/** A shot's length in frames (end_frame - start_frame), as the edit cuts it. */
+export const shotFrames = (id: string) => SH[id].end_frame - SH[id].start_frame;
+/** The frame (from the shot's start) of the i-th mark of a shot. */
+export const mark = (id: string, i: number) => (SH[id].marks ?? [])[i].frame_in_shot;
+/** The disclosure overlay's length (config/shot_cues.json overlays; decisions 7). */
+export const DISCLOSURE_FRAMES = (() => { const o = (shotTimes as unknown as {overlays: Record<string, {start_frame: number; end_frame: number}>}).overlays.disclosure; return o.end_frame - o.start_frame; })();

@@ -37,15 +37,19 @@ const Panel: React.FC<{inP: number; kicker?: string; children: React.ReactNode; 
 
 export type LowerThirdVariant = 'title' | 'uptime' | 'echo' | 'restored' | 'sorry';
 
-export const LowerThird: React.FC<{variant: LowerThirdVariant; echoEvery?: number}> = ({variant, echoEvery = 72}) => {
-  const f = useCurrentFrame();
+/** M5: `inAt` delays the panel to a cue frame; `echoAt` gives each echo's frame (else every `echoEvery`); `tickAt` is
+ * the frame the uptime ticker settles at 99.9% (cues: timing/shot_times.json marks). */
+export const LowerThird: React.FC<{variant: LowerThirdVariant; echoEvery?: number; inAt?: number; echoAt?: number[]; tickAt?: number}> = ({
+  variant, echoEvery = 72, inAt = 0, echoAt, tickAt = 40,
+}) => {
+  const f = useCurrentFrame() - inAt;
   const inP = interpolate(f, [0, 10], [0, 1], clamp);
   let body: React.ReactNode, kicker: string | undefined, right: React.ReactNode;
   if (variant === 'title' || variant === 'uptime') {
     body = <div style={{fontSize: 48, fontWeight: 600}}>{TITLE}<span style={{fontWeight: 400, color: T.inkSoft}}> · {SUBTITLE}</span></div>;
     if (variant === 'uptime') {
       // the ticker rolls up and settles at 99.9%
-      const v = interpolate(f, [8, 40], [98.2, 99.9], clamp);
+      const v = interpolate(f + inAt, [Math.max(8, tickAt - 32), tickAt], [98.2, 99.9], clamp);
       right = (
         <div style={{background: T.evergreen, color: T.paper, fontFamily: STATION, display: 'flex', alignItems: 'center', gap: 14, padding: '0 32px',
           fontSize: 40, fontWeight: 600}}>
@@ -56,8 +60,10 @@ export const LowerThird: React.FC<{variant: LowerThirdVariant; echoEvery?: numbe
     }
   } else if (variant === 'echo') {
     // the host's echoes, one per call; each one pops in (placeholder spacing until M2)
-    const i = Math.min(ECHOES.length - 1, Math.floor(f / echoEvery));
-    const pop = interpolate(f - i * echoEvery, [0, 6], [0, 1], clamp);
+    const at = echoAt ?? ECHOES.map((_, k) => k * echoEvery);
+    const fa = f + inAt;
+    const i = Math.max(0, at.filter((a) => fa >= a).length - 1);
+    const pop = interpolate(fa - at[i], [0, 6], [0, 1], clamp);
     kicker = KICKER;
     body = <div style={{fontSize: 60, fontWeight: 600, opacity: pop, transform: `translateY(${(1 - pop) * 10}px)`, minWidth: 520}}>{ECHOES[i]}</div>;
   } else if (variant === 'restored') {
@@ -72,6 +78,7 @@ export const LowerThird: React.FC<{variant: LowerThirdVariant; echoEvery?: numbe
     kicker = KICKER;
     body = <div style={{fontSize: 52, fontWeight: 500}}>{SORRY}</div>;
   }
+  if (f < 0) return <Frame><Bug /></Frame>;
   return (
     <Frame>
       <Bug />

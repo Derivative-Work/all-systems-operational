@@ -27,10 +27,11 @@ export type PhoneChatProps = {
   heys?: number[]; // frames on which the count goes up by one (each Hey!; placeholder until M2)
   reply?: boolean; // O08: IT's reply
   replyAt?: number;
+  askAt?: number; // M5: the frame the question arrives (O04: on 'is email down'); default: already there
 };
 
 /** The screen content (PW wide). */
-export const PhoneChatScreen: React.FC<PhoneChatProps> = ({base = 6, heys = [], reply = false, replyAt = 0}) => {
+export const PhoneChatScreen: React.FC<PhoneChatProps> = ({base = 6, heys = [], reply = false, replyAt = 0, askAt = -100}) => {
   const f = useCurrentFrame();
   const n = heys.filter((h) => f >= h).length;
   const lastHey = [...heys].reverse().find((h) => f >= h);
@@ -44,8 +45,9 @@ export const PhoneChatScreen: React.FC<PhoneChatProps> = ({base = 6, heys = [], 
       <div style={{padding: '40px 40px', display: 'flex', flexDirection: 'column', gap: 30}}>
         <div style={{textAlign: 'center', fontSize: 34, color: T.chatMuted, fontWeight: 500}}>Today</div>
         {IT_HELP.earlier.map((m, i) => <Message key={i} p={m.p} time={m.time} s={s}>{m.text}</Message>)}
-        <Message p={IT_HELP.ask.p} time={IT_HELP.ask.time} s={s}
-          footer={<PlusOne count={base + n} s={s} bump={bump} />}>{IT_HELP.ask.text}</Message>
+        {f >= askAt && <div style={{opacity: interpolate(f, [askAt, askAt + 6], [0, 1], clamp), transform: `translateY(${interpolate(f, [askAt, askAt + 6], [30, 0], clamp)}px)`}}>
+          <Message p={IT_HELP.ask.p} time={IT_HELP.ask.time} s={s}
+            footer={<PlusOne count={base + n} s={s} bump={bump} />}>{IT_HELP.ask.text}</Message></div>}
         {reply && rIn > 0 && (
           <div style={{opacity: rIn, transform: `translateY(${(1 - rIn) * 30}px)`}}>
             <Message p={IT_HELP.reply.p} time={IT_HELP.reply.time} s={s}>{IT_HELP.reply.text}</Message>

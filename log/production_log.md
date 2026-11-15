@@ -213,3 +213,15 @@ Append-only. One entry per generation, render or analysis step.
     - None looks like the Space Needle: no saucer, only a plain column with a small platform.
     - The tops are clearer than "mostly hidden in fog" asked for; the fog could be thickened at the grade.
     - No water, no skyline, no people.
+
+## 13. 2026-11-15 — M5: Remotion durations set; the animatic's Remotion pieces rendered
+
+- **Checks first:** the RTX 5090 idle (361 MiB), 34 GB RAM available, 33 GB free on disk. Remotion runs on the CPU (`--gl=swangle`, concurrency 2).
+- **Durations:** `remotion/src/config.ts` now takes `DUR` from `config/shot_cues.json`: the M2 `remotion.DUR_s` block (approved, human interventions 9) and the post-roll (end card 6 s, final card 3 s, fact card 15 s). The M3 placeholders are gone. It also reads `timing/shot_times.json` for exact shot lengths (`shotFrames`) and cue frames (`mark`), as Ever Present's config did.
+- **Components** (small changes, defaults unchanged so the M3 compositions still render as before):
+  - `LowerThird`: `inAt` (enter on a cue), `echoAt` (each echo on its sung frame), `tickAt` (the uptime ticker settles on its cue).
+  - `CaptionOverlay`: `at`, `corner`, `size`. `PhoneChatScreen`: `askAt` (the question arrives on "is email down"). `SwitchPlane`: `strainAt`. `Whiteboard`: `reveal`, each segment written in on its bridge line.
+  - New `components/M5.tsx`: `LiveOverlay` (O11: viewer count, chat flood on the Hey!s, Switch straining in a small inset; invented handles) and `DisclosurePanel` (O17, decisions 7). The disclosure text is the brief's (`Cards.tsx`).
+- **Compositions:** `M5-*` in `Root.tsx`, each its shot's exact length, events on the M2 cue frames (O02 row flips at 4.86 s song time; O05 drains to empty on "empty"; O08 echoes on 44.75/47.16/49.51/50.91 s; O13 card then the red row on "errors"; O18 board lines on their sung lines).
+- **Command:** `scripts/m5_remotion.sh` (new; adapted from Ever Present's, 9301de4) → `renders/m5/remotion/`: 13 h264 files (full-frame shots, end cards, the O04 phone screen at 540×1170 and the O18 whiteboard at 1200×750 as textures) and 11 ProRes 4444 overlays with alpha, all at `--scale=0.5`. 3 min 48 s wall time; per piece in `log/render_logs/m5_remotion.log`.
+- **Checked** at single frames before the run (scratchpad stills): the O11 overlay (the chat column first overlapped the Switch inset; shortened), the disclosure panel, the O08 lower third, the whiteboard at frame 470 and the phone screen.

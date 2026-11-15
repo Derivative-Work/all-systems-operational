@@ -23,6 +23,7 @@ export const BufferingFreeze: React.FC<{caption?: string; dim?: number}> = ({cap
 };
 
 /** A transparent overlay with one caption in the lower right, e.g. "dramatization" (O08 cutaway, O18). */
-export const CaptionOverlay: React.FC<{text: string}> = ({text}) => (
-  <Frame><span style={{fontFamily: UI}} /><Tag text={text} corner="br" inset={48} size={30} /></Frame>
-);
+export const CaptionOverlay: React.FC<{text: string; at?: number; corner?: 'tl' | 'tr' | 'bl' | 'br'; size?: number}> = ({text, at = 0, corner = 'br', size = 30}) => {
+  const f = useCurrentFrame();
+  return <Frame><span style={{fontFamily: UI}} />{f >= at && <Tag text={text} corner={corner} inset={48} size={size} />}</Frame>;
+};
