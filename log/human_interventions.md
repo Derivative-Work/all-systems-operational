@@ -47,3 +47,9 @@ Append-only. Every human action: when, what, and why.
 - **"No license found" capture:** "it was on Friday" (Nov 13).
 - **Spike chart from reported counts:** "works for me".
 - **Licence:** "yes, relicense": the generic Ever Present people and band kit (`blender/ep/`) is MIT in this repository; Ever Present stays private. Decisions 5 closed.
+
+## 8. 2026-11-15 — M3 board approved; stop 1 heard as "fai—"
+
+- **Board:** "The board is good." M3 grey-box gate passed (production log 8, `review/m3_board.jpg`).
+- **Pose note:** "I see a people with hands held to their heads as if confused, but I'm assuming that will be fixed with the figure library." Most likely the face-height claps of `push` and `clap_open` (O11, O12c, O17). Taken as a pose fix for the figure-library rebuild: claps at chest height, hands never resting at the head.
+- **Stop 1:** "By ear, it is cut at "fai--"." Overrides the agent's reading in AI changes 2 (AI changes 3). No re-cut needed; the brief stands as written.
