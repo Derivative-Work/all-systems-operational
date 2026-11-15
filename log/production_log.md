@@ -188,3 +188,28 @@ Append-only. One entry per generation, render or analysis step.
     - v2 s44: the strongest push; the page grows tall and the mug leaves the frame.
   - No take shows faces, people, logos or water.
   - Notes are in `config/m4_clips.json` `review`; `kept` is left for the human.
+
+## 12. 2026-11-15 — M4: remaining stills (O06 variant C, O07 fog tower)
+
+- **Checks first:** 33 GB free on disk, 34 GB RAM available, the GPU idle, and nothing else on ComfyUI.
+- **ComfyUI:** started fresh by the agent with the same command (log `log/m4_comfy_stills2.log`), then stopped after the batch.
+- **Command:** `.venv/bin/python -I scripts/stills.py O06_fax_c O07_fogtower > log/m4_batch2.log`, one process. The model and settings are as in production log 10.
+  - 9 takes, 49–70 s each; 483 s wall time.
+  - Not run: O06_fax_b seed 45. The task named only C and the fog tower; `scripts/stills.py O06_fax_b` would resume it.
+- **Memory** (sampled every 2 s): peak 35.7 GB RAM used (about 2–3.4 GB available) and 11.9 GB swap. VRAM peak 32.1 GB. Nothing was killed.
+- **Outputs:**
+  - `assets/gen/stills/O06_fax_c/O06_fax_c_s4{1..5}.png` and `assets/gen/stills/O07_fogtower/O07_fogtower_s4{1..4}.png` (git-ignored, in the manifest).
+  - Rows are in `log/prompts/m4_fax.md`.
+- **Sheets** (notes in `config/m4_stills.json` `review`):
+  - `.venv/bin/python -I scripts/m4_sheet.py review/m4_fax_sheet.jpg O06_fax_a O06_fax_b O06_fax_c --title "…"` → `review/m4_fax_sheet.jpg` (14 takes).
+  - `.venv/bin/python -I scripts/m4_sheet.py review/m4_fogtower_sheet.jpg O07_fogtower --cols 2 --title "…"` → `review/m4_fogtower_sheet.jpg`.
+- **Agent review:** every take was viewed at full size, with crops of the fax panels and the tower bases.
+  - **O06 C:** keep s45 (pick 1), s42 (pick 2) and s44; maybe s41 and s43.
+    - C is wider, so the fax is smaller than in the picked A s45.
+    - s41 and s43 have upright pages with lines of unreadable pseudo-text. s43 also has a small orange badge-like label on the fax.
+    - No people, logos or boats.
+  - **O07 fog tower:** keep s44 (pick 1) and s43 (pick 2); maybe s41 and s42.
+    - s41's top makes a cross-like silhouette. s42 has a pagoda roof and graffiti-like marks.
+    - None looks like the Space Needle: no saucer, only a plain column with a small platform.
+    - The tops are clearer than "mostly hidden in fog" asked for; the fog could be thickened at the grade.
+    - No water, no skyline, no people.

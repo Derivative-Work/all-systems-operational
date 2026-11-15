@@ -62,6 +62,15 @@
     "O06_fax_b_s41": "KEEP: low angle, the empty trading floor out of focus behind. Bare desk (not cluttered). Panel sticker is unreadable.",
     "O06_fax_b_s42": "REJECT: silhouetted people at the back desks; small emblem on the machine's front. Reads as a printer.",
     "O06_fax_b_s43": "REJECT: heads silhouetted on the trading floor behind; a badge-like plate on top of the fax.",
-    "O06_fax_b_s44": "REJECT: a person's silhouette behind at left; the panel carries a near-readable pseudo-wordmark ('FAX ... System')."
+    "O06_fax_b_s44": "REJECT: a person's silhouette behind at left; the panel carries a near-readable pseudo-wordmark ('FAX ... System').",
+    "O06_fax_c_s41": "maybe: symmetrical wide desk, eight monitors, empty chair at right; the page stands straight up (no curl) and carries lines of pseudo-text, unreadable at full size.",
+    "O06_fax_c_s42": "KEEP (C pick 2): page curls out of the front tray across the desk under the lamp, five monitors, empty chair silhouetted in the foreground. Faint unreadable lines on the page.",
+    "O06_fax_c_s43": "maybe: six monitors and rain window, page upright with faint lines; a small orange label and pseudo-markings on the fax's top right read as a badge (unreadable).",
+    "O06_fax_c_s44": "KEEP: wide and symmetrical, six monitors, two empty chairs as dark shapes; page upright, one light point in the rain window. The fax is small in frame.",
+    "O06_fax_c_s45": "KEEP (C pick 1): three-quarter angle, the page curls up and a second sheet runs out the front, lamp beside it, rain window behind; nobody. Wider than A s45, so the fax is smaller.",
+    "O07_fogtower_s41": "maybe: plain column, but the platform and cap make a cross-like silhouette; a small spire shape and a doorway at the base. Top is crisp, not lost in fog.",
+    "O07_fogtower_s42": "maybe: watchtower with a pagoda-like roof; grey graffiti-like marks on the lower shaft (unreadable).",
+    "O07_fogtower_s43": "KEEP (pick 2): plain column with a small cab, reads as an airport control tower; fog softens the top. Not Space Needle-like.",
+    "O07_fogtower_s44": "KEEP (pick 1): the cleanest: thin plain concrete column, small flat open platform with an antenna, centred on a striped lawn between dark firs. Not Space Needle-like; the top is fairly crisp rather than half-hidden."
   }
 }

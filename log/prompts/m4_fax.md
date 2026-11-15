@@ -81,3 +81,20 @@ A fixed tripod shot: the framing stays exactly the same from the first frame to 
 | --- | --- | --- | --- | --- | --- |
 | O06 v2 | `assets/gen/stills/O06_fax_a/O06_fax_a_s45.png` | 43 | `assets/gen/clips/O06/O06_v2_s43.mp4` | 20.2 | 2026-11-15T09:37:14-05:00 |
 | O06 v2 | `assets/gen/stills/O06_fax_a/O06_fax_a_s45.png` | 44 | `assets/gen/clips/O06/O06_v2_s44.mp4` | 18.0 | 2026-11-15T09:37:32-05:00 |
+
+| Item | Seed | Size | Output | Seconds | When |
+| --- | --- | --- | --- | --- | --- |
+| O06_fax_c | 41 | 1920×1088 | `assets/gen/stills/O06_fax_c/O06_fax_c_s41.png` | 69.5 | 2026-11-15T09:41:19-05:00 |
+| O06_fax_c | 42 | 1920×1088 | `assets/gen/stills/O06_fax_c/O06_fax_c_s42.png` | 49.2 | 2026-11-15T09:42:08-05:00 |
+| O06_fax_c | 43 | 1920×1088 | `assets/gen/stills/O06_fax_c/O06_fax_c_s43.png` | 50.1 | 2026-11-15T09:42:58-05:00 |
+| O06_fax_c | 44 | 1920×1088 | `assets/gen/stills/O06_fax_c/O06_fax_c_s44.png` | 50.1 | 2026-11-15T09:43:48-05:00 |
+| O06_fax_c | 45 | 1920×1088 | `assets/gen/stills/O06_fax_c/O06_fax_c_s45.png` | 51.1 | 2026-11-15T09:44:39-05:00 |
+
+| Item | Seed | Size | Output | Seconds | When |
+| --- | --- | --- | --- | --- | --- |
+| O07_fogtower | 41 | 1920×1088 | `assets/gen/stills/O07_fogtower/O07_fogtower_s41.png` | 52.1 | 2026-11-15T09:45:32-05:00 |
+| O07_fogtower | 42 | 1920×1088 | `assets/gen/stills/O07_fogtower/O07_fogtower_s42.png` | 50.1 | 2026-11-15T09:46:22-05:00 |
+| O07_fogtower | 43 | 1920×1088 | `assets/gen/stills/O07_fogtower/O07_fogtower_s43.png` | 59.3 | 2026-11-15T09:47:21-05:00 |
+| O07_fogtower | 44 | 1920×1088 | `assets/gen/stills/O07_fogtower/O07_fogtower_s44.png` | 51.1 | 2026-11-15T09:48:12-05:00 |
+
+Note: the two tables just above are batch 2 of the stills (production log 12), O06_fax_c seeds 41–45 and O07_fogtower seeds 41–44, run in one process, alone on ComfyUI. `scripts/stills.py` appended them after the clip tables. Their prompts are verbatim in the Prompts section at the top (where they're still marked "queued, not run yet").
