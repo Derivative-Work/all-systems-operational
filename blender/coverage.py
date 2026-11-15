@@ -321,7 +321,7 @@ def kick_leg(b, n, e):
     P = poses.P
     kf = [round((h["t"] - song_t(b, 1)) * FPS) + 1 for h in KICKS]
     kf = [f for f in kf if 3 <= f <= n]
-    for bone, up in (("RightUpLeg", -14.0), ("RightLeg", 10.0), ("RightFoot", 18.0)):
+    for bone, up in (("RightUpLeg", 14.0), ("RightLeg", -6.0), ("RightFoot", -15.0)):
         pb = rig.pose.bones.get(P + bone)
         if pb is None:
             continue

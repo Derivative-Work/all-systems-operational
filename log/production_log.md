@@ -393,3 +393,19 @@ Append-only. One entry per generation, render or analysis step.
   - Checked on frame strips: ON AIR flickering, the bulb cascade from the hub, the claps, the mugs going up on the Hey! and coming down, the lamp and Switch before stop 2, the drizzle.
   - Frame-to-frame change (mean difference 1.4–4.5 out of 255) shows the drift and the kick bumps without jumps.
 - The people motion in the same script is logged in the next entry.
+
+## 19. 2026-11-15 — M5b: first-pass motion for the people (`blender/coverage.py`)
+
+- **Crowd** (every crowd member, the umbrella holder too; seeded per person, `m5b_crowd_<O-shot>`):
+  - A bounce on the half notes (1.8–4.8 cm) and a side-to-side sway (1.2–3.4°), both on the grid with each person's own lag (−0.14 to +0.21 beat), scaled by the bar's mix energy.
+  - A surge toward the band (10–32 cm) through the choruses and builds, eased over a bar; they settle back in the verses.
+  - A small hop (2–7 cm) and a forward lean (up to 1.5°) on each Hey!.
+- **Claps:** each clapper gets their own copy of M5's clap rig and keys (claps on the backbeat), shifted by their own lag of −1 to +3 frames. Before this, every clapper of one library person clapped in unison. O20 and O19b have 10 such clappers; O09 6; O17 7.
+- **Band** (`m5b_band_<O-shot>`):
+  - A bob on every beat (0.8–1.8 cm and a 1.2° nod), on half notes in the bridge.
+  - The four singers lean 7° into their mics on each Hey!; the mic stands no longer follow the singer.
+  - The kick player is a local copy of the library person, with his own copy of the library's loop. His right leg lifts the foot 13 cm two frames before each main kick and drops on it. The first try had the signs reversed and pushed the foot into the floor (checked on bone positions, then fixed).
+  - The tambourine shakes on the percussion hits (above 0.35 strength).
+- **Kick closes reframed:** from the front, the foot was hidden behind the drum. The kick closes now look from the player's right, low, so the foot on the pedal side and the SESSION 503 head share the frame (O03c, O08e, O09d, O11c, O14b, O17a, O19c, O20d; checked on stills).
+- **Pose rules:** nothing here changes an arm pose. The sway and lean turn whole people about their feet; the claps and mugs are M5's poses. `blender/poses.py` is unchanged.
+- **Not done (M5c):** strumming, the banjo hand, the tambourine arm, fist pumps on the Hey!s, the walk-off's planted feet, singing heads. The library's own sway loops still run under all of it.

@@ -123,22 +123,22 @@
    },
    "close_kick": {
     "loc": [
-     0.3,
-     6.25,
+     -0.9,
+     6.6,
      0.42
     ],
     "target": [
-     0.0,
-     7.42,
-     0.38
+     -0.05,
+     7.7,
+     0.3
     ],
-    "lens": 40,
+    "lens": 35,
     "framing": "close",
     "dof": {
      "focus": "target",
      "fstop": 2.0
     },
-    "what": "the kick foot and the SESSION 503 head"
+    "what": "the kick foot on the pedal side and the SESSION 503 head"
    },
    "close_hands": {
     "expo": -0.5,
@@ -612,22 +612,22 @@
    },
    "close_kick": {
     "loc": [
-     -0.15,
-     6.35,
+     -1.3,
+     6.3,
      0.42
     ],
     "target": [
-     -0.4,
-     7.12,
-     0.38
+     -0.45,
+     7.4,
+     0.3
     ],
-    "lens": 40,
+    "lens": 35,
     "framing": "close",
     "dof": {
      "focus": "target",
      "fstop": 2.0
     },
-    "what": "the kick foot and the SESSION 503 head"
+    "what": "the kick foot on the pedal side and the SESSION 503 head"
    },
    "close_banjo": {
     "expo": -0.8,
@@ -787,22 +787,22 @@
    },
    "close_kick": {
     "loc": [
-     0.3,
-     4.35,
-     0.15
+     -0.9,
+     4.7,
+     0.42
     ],
     "target": [
-     0.0,
-     5.52,
-     0.36
+     -0.05,
+     5.8,
+     0.3
     ],
-    "lens": 40,
+    "lens": 35,
     "framing": "close",
     "dof": {
      "focus": "target",
      "fstop": 2.0
     },
-    "what": "the kick foot and the SESSION 503 head"
+    "what": "the kick foot on the pedal side and the SESSION 503 head"
    },
    "close_hands": {
     "expo": -0.5,
@@ -1111,7 +1111,7 @@
    "source": "blender",
    "camera": "close_kick",
    "framing": "close",
-   "lens": 40,
+   "lens": 35,
    "move": {
     "type": "push",
     "k": 0.04
@@ -1404,7 +1404,7 @@
    "source": "blender",
    "camera": "close_kick",
    "framing": "close",
-   "lens": 40,
+   "lens": 35,
    "move": {
     "type": "push",
     "k": 0.05
@@ -1556,7 +1556,7 @@
    "source": "blender",
    "camera": "close_kick",
    "framing": "close",
-   "lens": 40,
+   "lens": 35,
    "move": {
     "type": "push",
     "k": 0.04
@@ -1877,7 +1877,7 @@
    "source": "blender",
    "camera": "close_kick",
    "framing": "close",
-   "lens": 40,
+   "lens": 35,
    "move": {
     "type": "push",
     "k": 0.08
@@ -2085,7 +2085,7 @@
    "source": "blender",
    "camera": "close_kick",
    "framing": "close",
-   "lens": 40,
+   "lens": 35,
    "move": {
     "type": "push",
     "k": 0.04
@@ -2269,7 +2269,7 @@
    "source": "blender",
    "camera": "close_kick",
    "framing": "close",
-   "lens": 40,
+   "lens": 35,
    "move": {
     "type": "push",
     "k": 0.04
@@ -2782,7 +2782,7 @@
    "source": "blender",
    "camera": "close_kick",
    "framing": "close",
-   "lens": 40,
+   "lens": 35,
    "move": {
     "type": "push",
     "k": 0.06,
@@ -2935,7 +2935,7 @@
    "source": "blender",
    "camera": "close_kick",
    "framing": "close",
-   "lens": 40,
+   "lens": 35,
    "move": {
     "type": "push",
     "k": 0.05
