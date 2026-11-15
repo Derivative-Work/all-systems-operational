@@ -315,3 +315,27 @@ Append-only. One entry per generation, render or analysis step.
   - The O04 phone text can't be read at 540p.
   - The O07 alternate's server is a flat cut-out on the lawn with a drawn shadow.
 - `scripts/manifest.sh` → 303 files.
+
+## 16. 2026-11-15 — M5b: the music map
+
+- **Why:** the human finds the M5 animatic slow and dry (human interventions 13; decisions 12). Cuts, camera and light in M5b follow this map.
+- **Script:** `scripts/music_map.py` (new; reads the stems as Ever Present's `scripts/vocal_env.py` does). Inputs: the 12 stems, the master, the clap track and the M2 grid in `timing/timing_map.json`. No random process, so no seed.
+- **Command:** `.venv/bin/python -I scripts/music_map.py --plot` → `timing/music_map.json`, `review/m5b_music_map.png`, log `timing/music_map.log`. 5 s on the CPU.
+- **What's in it:**
+  - Per-bar energy (101 bars) for the master and every stem, in dB and 0–1.
+  - Hits on the grid, each with its beat, bar.beat and offset:
+    - kick: 497, 240 of them "main" (on the beat and strong); the rest are 8th-note pickups.
+    - tambourine: 439, on the percussion stem.
+    - guitar strums: 434, with a count per bar.
+    - lead syllable onsets: 450.
+    - the four stop-1 claps from the clap track.
+  - Backbeat list: beats 2 and 4 wherever the drums play (157 beats).
+  - Envelopes at 30 fps: lead, backing (the gang swell), drums, mix.
+  - The stops, copied from M2.
+- **Hey!s:** all 23 cross-checked on the backing stem. 21 are clear onsets (rise 8–37 dB).
+  - The two M2 flagged are still weak. At 56.24 s the rise is 6.4 dB and the level step +0.9 dB: the gang sustains through it. At 186.21 s the rise is 8.4 dB, the step +6.4 dB.
+  - Two more are soft (rise under 8 dB, no level step), at 124.69 and 129.24 s, but Whisper heard "hey" at both.
+  - Where they're clear, the Hey!s sit on beat 4 or about 0.25 s after beat 3 or 4 (an 8th late).
+- **Limits:**
+  - The claps can't be told from the stomp in the drums stem: the stomp is broadband and hits every beat, and no band shows a steady 2-and-4 accent (`beat_profile`). The animation claps on the backbeat list, as M5 did.
+  - The kick band also catches the 8th-note pickups, so only the "main" kicks drive bumps and the kick foot.

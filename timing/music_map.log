@@ -1,0 +1,26 @@
+timing/music_map.json: 101 bars, kick 497, snare/clap 289, tamb 439, strums 434, lead onsets 450, heys 23 (2 weak)
+  hey   30.64   13.4  -32 ms  rise  28.5 dB  step +55.5 dB  m2 onset/True  
+  hey   35.44   15.4  -48 ms  rise  22.5 dB  step +56.1 dB  m2 onset/True  
+  hey   39.98   17.3 +268 ms  rise  36.2 dB  step +69.3 dB  m2 onset/True  
+  hey   56.24   24.2 +293 ms  rise   6.4 dB  step  +0.9 dB  m2 onset/False  WEAK
+  hey   59.53   25.4  -22 ms  rise  28.4 dB  step +55.3 dB  m2 onset/True  
+  hey   62.24   26.4 +283 ms  rise  10.5 dB  step  +3.2 dB  m2 onset/True  
+  hey   64.35   27.4  -13 ms  rise  30.8 dB  step +50.6 dB  m2 onset/True  
+  hey   86.24   36.4 +235 ms  rise  26.6 dB  step +60.3 dB  m2 onset/True  
+  hey   88.69   37.4 +290 ms  rise  13.0 dB  step  +6.6 dB  m2 onset/True  
+  hey   91.04   38.4 +232 ms  rise  37.3 dB  step +68.4 dB  m2 onset/True  
+  hey  107.24   45.3 +217 ms  rise  17.7 dB  step +46.8 dB  m2 onset/True  
+  hey  112.06   47.3 +229 ms  rise  20.2 dB  step +48.0 dB  m2 onset/True  
+  hey  124.69   52.4 +258 ms  rise   7.8 dB  step  -0.0 dB  m2 whisper/True  
+  hey  126.86   53.4  +14 ms  rise  28.2 dB  step +31.0 dB  m2 whisper/True  
+  hey  129.24   54.4   +0 ms  rise   7.7 dB  step  +1.3 dB  m2 whisper/True  
+  hey  131.60   55.4  -41 ms  rise  26.8 dB  step +51.8 dB  m2 onset/True  
+  hey  174.80   73.4  -33 ms  rise  12.3 dB  step +26.1 dB  m2 whisper/True  
+  hey  179.68   75.4  +33 ms  rise  10.4 dB  step  +8.0 dB  m2 whisper/True  
+  hey  184.71   77.4 +282 ms  rise  20.6 dB  step +19.6 dB  m2 whisper/True  
+  hey  186.21   78.3  -10 ms  rise   8.4 dB  step  +6.4 dB  m2 onset/False  WEAK
+  hey  189.51   79.4 +292 ms  rise  19.5 dB  step +21.9 dB  m2 whisper/True  
+  hey  191.61   80.4   -2 ms  rise  11.5 dB  step +12.8 dB  m2 whisper/True  
+  hey  209.84   88.2  +18 ms  rise  35.8 dB  step +41.0 dB  m2 onset/True  
+kick: median offset +7 ms, 49% within 40 ms of a beat
+review/m5b_music_map.png
