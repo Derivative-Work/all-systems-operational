@@ -259,3 +259,59 @@ Append-only. One entry per generation, render or analysis step.
   - O04's camera now eases toward the phone; with the old push, the phone slid out of frame and its screen couldn't be pinned.
   - O14's push was shortened (it cropped the probes).
   - O22's walker stays on the gravel path, which floats up to 0.5 m over the slope near its far end. Below it, his legs were hidden.
+
+## 15. 2026-11-15 — M5: the animatic assembled and reviewed; the two O07 excerpts
+
+- **Script:** `scripts/animatic.py` (new; adapted from Ever Present's, 9301de4). Every shot is exactly its `shot_times.json` frame count. Frames are composited in numpy:
+  - the Remotion overlays (alpha);
+  - O04's phone screen pinned to the Blender phone: the bright quad found per frame, corners smoothed over 3 frames;
+  - O06's clip;
+  - O08's inserts;
+  - O19's cross-fade;
+  - O22's warm grade and grain from "Remember Wednesday" (208.52 s; grain seeded from `config/seeds.json` main 41).
+  - A small label at the top centre gives each shot's ID and source.
+  - The master goes under it from 8.4 s (`adelay`), with silence after the music.
+- **Commands:**
+  - `.venv/bin/python -I scripts/animatic.py` → `review/m5_animatic.mp4`: 960×540, 30 fps, h264 + AAC 192k, 8,699 frames = 289.97 s, 96 MB. 62 s wall time, 5.2 GB peak RSS. Log: `log/render_logs/m5_assembly.log`; sources in `renders/m5/m5_animatic_sources.json`; segments in `renders/m5/segments/`.
+  - `… --excerpt O05:O08 --o07 server --out review/m5_o07_server.mp4` and `… --o07 fogtower --out review/m5_o07_fogtower.mp4`: 722 frames, 24.07 s each (video 39.67–63.73 s, with audio).
+  - `.venv/bin/python -I scripts/m5_sheet.py review/m5_animatic.mp4 review/m5_animatic_sheet.jpg` (new): one frame per shot and per end card, 27 frames.
+- **Per-shot sources:**
+  - Remotion: O01, O02, O05, O13, O23, O24 and the end cards.
+  - Blender motion: O03, O04 (+ the Remotion screen), O07, O08 (+ the phone and treehouse inserts), O09, O10, O11, O14–O20, O22.
+  - Blender freezes: O12, O21.
+  - Clip: O06 (`O06_s41`, cropped to fill from 1280×704, native speed from frame 0; nothing to align, decisions 11).
+  - O07 alternate: the fog-tower still with a slow push.
+  - No shot is a held still, except the O07 alternate, which is a still by design.
+- **Checks:**
+  - **Cuts:** frames on both sides of every cut. The label and picture change exactly on each shot's `start_frame`, so every cut is on its cue to the frame.
+  - **Audio:** the master is cross-correlated at 36.27 s song time against the animatic (44.67 s) and the excerpt. Lag 0 at 8 kHz.
+  - **Events checked on frames:**
+    - O01's two strike-throughs and the click on play.
+    - O02's row flip.
+    - O04's question, then its +1.
+    - O08's reply and the cutaway.
+    - O09's ticker at 99.9%.
+    - O10 before and after the flip.
+    - O12's clap in and out, with ON AIR dark.
+    - O13's card, then the red row.
+    - O15's LED dimmed and back.
+    - O16 dark after the cascade.
+    - O17's mugs up and the disclosure panel (122.65–140.65 s).
+    - O18's board lines.
+    - O19's cross-fade.
+    - O21's Switch before and after the drop.
+    - O22's grade.
+  - **Guardrails:** Blender frames viewed at full size (O03, O04, O09, O11, O12, O14, O16–O22).
+    - No arm points straight forward. Claps are at chest height. Fists are clear of the head. No open palms held high.
+    - The cafe's toast arm reads as out to the side.
+    - No water or boats. No tower in the park.
+    - Still open, as at M3: faint side profiles at O17's left edge, and the band's dim faces in O09/O18. The park's people are lit and coloured, not silhouettes, as on the approved M3 board; at 540p the band's faces are a few pixels.
+  - **Fixes from this review:** O12 (camera and clapper) and O20/O21 (lamp post), production log 14.
+- **Weak, for the human:**
+  - O12's clap is visible but small under the freeze's dimming.
+  - O15's LED dim is subtle: the dome and iris lose their glow; the iris keeps its green base colour.
+  - O19's first second is near black (the closed door from inside).
+  - O22's walker hasn't quite gone over the crest by the cut.
+  - The O04 phone text can't be read at 540p.
+  - The O07 alternate's server is a flat cut-out on the lawn with a drawn shadow.
+- `scripts/manifest.sh` → 303 files.
