@@ -75,3 +75,7 @@ Append-only. Every human action: when, what, and why.
 ## 13. 2026-11-15 — Animatic: needs more motion and cuts
 
 - **What:** "What's the plan for adding motion and interest to these while fleshing out the models? Without more cuts it's going to be slow and dry if it doesn't read as musical." The agent proposed coverage, stem-driven performance and music-cued camera and light (decisions 12); the human: "Yes go ahead." The M5 staging calls (decisions 11) and the 290 s length are still open for the human.
+
+## 14. 2026-11-15 — M5b reviewed; go ahead with M5c
+
+- **What:** after the M5b animatic (94 shots), the human: "yes go ahead with the figure-library rebuild". Taken as approval of the M5b rhythm and coverage; the M5 staging calls (decisions 11), the 290 s length and the M5b calls (decisions 13–14) are not yet ruled on. The agent noted for later: the SESSION 503 kick-head close repeats about eight times and the tambourine close four.
