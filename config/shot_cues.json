@@ -1,0 +1,462 @@
+{
+ "_doc": "Start cue of every shot in the brief's shot list (O01-O24, rev 116); a shot ends where the next starts. Cues (scripts/shot_times.py): 'Section|line|word' = that word's start in timing/timing_map.json (indices from 0, as in lyrics/as_sung.txt); 'end:'/'mid:' its end or middle; 't:<s>' a song time; 'event:<name>' an event in the timing map ('event:claps:<i>' the i-th clap); 'hey:Section|line' / 'echo:Section|line' the backing Hey! or echo after that line; 'bars_before:<ID>:<n>' / 'beats_after:<ID or cue>:<n>' n bars or beats from the beat nearest that time; 'pre'/'post' for shots before or after the music. 'snap': 'downbeat' or 'beat' moves the start onto the nearest one within max_snap_s (default 0.45 s for a downbeat, 0.3 s for a beat), only inside the grid's reliable spans. 'marks': timed events inside a shot, same cue syntax, for the animatic and the Remotion compositions. Times are song time (the master); video time = song time + lead_in_s.",
+ "fps": 30,
+ "lead_in_s": 8.4,
+ "_lead_in_why": "The opening bookend (O01) plays before the song; the click on play is the cut to O02 at song time 0. Proposed 8.4 s = 252 frames = 14 beats of 18 frames: the outage-report spike 2.4 s (4 beats), the two real screenshots 2.4 s together (the brief caps them at 3 s), the recreated #it-self-help post 3.6 s (the two strike-throughs, the cursor, the click on play). The Remotion placeholder is 8.2 s (2.0 + 2.6 + 3.6). The song's own grid, extended back, has a beat at 0.06 s, so the bookend's beats run into the song's to within 60 ms. The master opens with 1.09 s of silence after the click (first sound 1.09 s, first beat 1.26 s).",
+ "lead_in_parts_s": {
+  "O01_spike": 2.4,
+  "O01_real": 2.4,
+  "O01_chat": 3.6
+ },
+ "post_roll": {
+  "_why": "After the music (239.58 s; last sound 239.35 s). O24 is the end card then 'Next incident: TBD' (brief); the fact card is 'after O24' in the brief's Bookends section, while the Remotion end sequence (production log 6) runs disclosure, fact card, end card, final card. Lengths proposed: reading time at about 3 words a second.",
+  "O24_end_card_s": 6.0,
+  "O24_final_card_s": 3.0,
+  "fact_card_s": 15.0
+ },
+ "remotion": {
+  "_why": "Recommended values for remotion/src/config.ts (not changed here). BEAT = 18 frames at 30 fps is 0.600 s, 100.0 bpm. The drums track at 99.79 bpm up to stop 1 (0.6012 s a beat), 99.99 bpm from stop 1 to stop 2 (0.6000 s) and about 100.5 bpm in the outro, where the grid is loose. The 99.4 bpm from M0 was the 22 kHz, hop-256 tracker rounding to its 11.6 ms frames. So BEAT = 18 fits: a beat-locked loop drifts 3.7 frames per 100 beats before stop 1 and 0.1 frame after it. Start each beat-locked composition on its shot's start (every musical cut is on a beat) and, for shots longer than about 40 beats before stop 1 (O03, O09), take beat times from timing/timing_map.json instead of multiples of BEAT. DUR: replace the placeholders with these (seconds; frames in timing/shot_times.json).",
+  "BEAT_frames": 18,
+  "DUR_s": {
+   "O01_spike": 2.4,
+   "O01_real": 2.4,
+   "O01_chat": 3.6,
+   "O02": 7.256,
+   "O03": 19.229,
+   "O04": 4.774,
+   "O05": 4.84,
+   "O08": 10.824,
+   "O09": 28.864,
+   "O10": 2.389,
+   "O11": 7.203,
+   "O12": 2.99,
+   "O13": 1.825,
+   "O18": 19.198,
+   "O19": 11.994,
+   "O20": 19.159,
+   "O21": 1.393,
+   "O22": 31.007,
+   "O23": 5.379
+  }
+ },
+ "overlays": [
+  {
+   "id": "disclosure",
+   "start": "Chorus 2|0|1",
+   "start_snap": "downbeat",
+   "end": "Post-Chorus 2|0|0",
+   "end_snap": "beat",
+   "note": "The brief puts the disclosure 'after O16' (O15: 'Disclosure card follows'). A full-frame card there would stop the song for the ~25 s its 77 words need, so it's proposed as an overlay panel on O17's chorus (8 lines, about 18 s), off before 'Five-oh-three'. Repeated in the end sequence and the description."
+  }
+ ],
+ "shots": [
+  {
+   "id": "O01",
+   "cue": "pre",
+   "note": "opening bookend, before the music: lead_in_s"
+  },
+  {
+   "id": "O02",
+   "cue": "t:0",
+   "note": "the click on play cuts here; 1.09 s of silence, then the whistled hook",
+   "marks": [
+    {
+     "what": "one row flips to 'Investigating'",
+     "cue": "bars_before:O03:1"
+    }
+   ]
+  },
+  {
+   "id": "O03",
+   "cue": "Intro vocal|0|0",
+   "snap": "downbeat",
+   "note": "runs through the stomp-clap instrumental (drums in at 16.5 s) to verse 1: about 19 s in the live room",
+   "marks": [
+    {
+     "what": "lower third 'All Systems Operational · Live at Session 503'",
+     "cue": "Intro vocal|0|1"
+    },
+    {
+     "what": "stomp-clap enters (crowd starts clapping)",
+     "cue": "event:drums_in"
+    }
+   ]
+  },
+  {
+   "id": "O04",
+   "cue": "Verse 1|0|0",
+   "snap": "downbeat",
+   "marks": [
+    {
+     "what": "'is email down for anyone else?' on the phone",
+     "cue": "Verse 1|0|7"
+    },
+    {
+     "what": "+1 count climbs (Hey!)",
+     "cue": "hey:Verse 1|0"
+    }
+   ]
+  },
+  {
+   "id": "O05",
+   "cue": "Verse 1|1|0",
+   "snap": "downbeat",
+   "marks": [
+    {
+     "what": "calendar empties on 'empty'",
+     "cue": "Verse 1|1|3"
+    },
+    {
+     "what": "Hey! (no +1 here unless the phone shows a badge)",
+     "cue": "hey:Verse 1|1"
+    }
+   ]
+  },
+  {
+   "id": "O06",
+   "cue": "Verse 1|2|0",
+   "snap": "downbeat",
+   "marks": [
+    {
+     "what": "page curls out on 'fax machine'",
+     "cue": "Verse 1|2|7"
+    }
+   ]
+  },
+  {
+   "id": "O07",
+   "cue": "Verse 1|3|0",
+   "snap": "downbeat",
+   "note": "the downbeat falls on '-where'; 'Some-' is heard over the fax",
+   "marks": [
+    {
+     "what": "caption [background failed to load]",
+     "cue": "Verse 1|3|6"
+    }
+   ]
+  },
+  {
+   "id": "O08",
+   "cue": "Pre-Chorus|0|0",
+   "snap": "beat",
+   "note": "on beat 3, as 'green' ends; the call starts mid-bar",
+   "marks": [
+    {
+     "what": "lower third: 'We are aware'",
+     "cue": "Pre-Chorus|0|0"
+    },
+    {
+     "what": "echo 1; IT replies 'we are aware' in #it-help",
+     "cue": "echo:Pre-Chorus|0"
+    },
+    {
+     "what": "optional treehouse cutaway, 4 beats (2.4 s)",
+     "cue": "echo:Pre-Chorus|0"
+    },
+    {
+     "what": "lower third: 'Some users may'",
+     "cue": "Pre-Chorus|1|0"
+    },
+    {
+     "what": "echo 2",
+     "cue": "echo:Pre-Chorus|1"
+    },
+    {
+     "what": "lower third: 'Be experiencing'",
+     "cue": "Pre-Chorus|2|0"
+    },
+    {
+     "what": "echo 3",
+     "cue": "echo:Pre-Chorus|2"
+    },
+    {
+     "what": "lower third: 'Everything'",
+     "cue": "Pre-Chorus|3|0"
+    }
+   ]
+  },
+  {
+   "id": "O09",
+   "cue": "Chorus 1|0|1",
+   "snap": "downbeat",
+   "note": "the downbeat is on 'SYS-'; 'All' is the pickup. Holds chorus 1 and the 'Five-oh-three' post-chorus (about 29 s): the shot list has one shot for both",
+   "marks": [
+    {
+     "what": "Hey! 1 (crowd joins)",
+     "cue": "hey:Chorus 1|0"
+    },
+    {
+     "what": "Hey! 2",
+     "cue": "hey:Chorus 1|1"
+    },
+    {
+     "what": "Hey! 3",
+     "cue": "hey:Chorus 1|2"
+    },
+    {
+     "what": "Hey! 4",
+     "cue": "hey:Chorus 1|3"
+    },
+    {
+     "what": "uptime ticks at 99.9%",
+     "cue": "Chorus 1|7|0"
+    },
+    {
+     "what": "post-chorus 'Five-oh-three' (a cut to a new angle fits here)",
+     "cue": "Post-Chorus 1|0|0"
+    }
+   ]
+  },
+  {
+   "id": "O10",
+   "cue": "Build 1|0|0",
+   "snap": "downbeat",
+   "note": "one bar (2.4 s)",
+   "marks": [
+    {
+     "what": "host flips Switch ON; ON AIR glows",
+     "cue": "Build 1|0|3"
+    }
+   ]
+  },
+  {
+   "id": "O11",
+   "cue": "Build 1|1|0",
+   "snap": "downbeat",
+   "marks": [
+    {
+     "what": "Hey! (viewer count spins)",
+     "cue": "hey:Build 1|1"
+    },
+    {
+     "what": "Hey! (chat floods)",
+     "cue": "hey:Build 1|2"
+    },
+    {
+     "what": "'fai—' held; Switch strains",
+     "cue": "Build 1|3|6"
+    }
+   ]
+  },
+  {
+   "id": "O12",
+   "cue": "event:stop1",
+   "note": "hard stop 1: the freeze lands on the band's cut (93.80 s, a downbeat)",
+   "marks": [
+    {
+     "what": "Switch sags to OFF, ON AIR goes dark",
+     "cue": "event:stop1"
+    },
+    {
+     "what": "clap 1 (one silhouette, late)",
+     "cue": "event:claps:0"
+    },
+    {
+     "what": "clap 2",
+     "cue": "event:claps:1"
+    }
+   ]
+  },
+  {
+   "id": "O13",
+   "cue": "event:claps:2",
+   "note": "cut on the third clap (96.79 s), 0.43 s before 'We're seeing renewed errors'; the card holds to the band's return (1.8 s)",
+   "marks": [
+    {
+     "what": "status row back to red",
+     "cue": "After stop 1|0|2"
+    },
+    {
+     "what": "clap 4",
+     "cue": "event:claps:3"
+    }
+   ]
+  },
+  {
+   "id": "O14",
+   "cue": "event:band_back1",
+   "note": "the cafe comes in with the band (98.62 s, a downbeat), two bars before 'The agents'",
+   "marks": [
+    {
+     "what": "'The agents that we hired'",
+     "cue": "Verse 2|0|0"
+    },
+    {
+     "what": "Hey!",
+     "cue": "hey:Verse 2|0"
+    },
+    {
+     "what": "Hey!",
+     "cue": "hey:Verse 2|1"
+    }
+   ]
+  },
+  {
+   "id": "O15",
+   "cue": "Verse 2|2|0",
+   "snap": "downbeat",
+   "marks": [
+    {
+     "what": "green LED dims",
+     "cue": "Verse 2|2|7"
+    },
+    {
+     "what": "LED back green: '(It wrote it anyway)'",
+     "cue": "Verse 2|3|0"
+    }
+   ]
+  },
+  {
+   "id": "O16",
+   "cue": "Verse 2|4|0",
+   "snap": "beat",
+   "marks": [
+    {
+     "what": "one bulb goes out",
+     "cue": "Verse 2|4|2"
+    },
+    {
+     "what": "the dark reaches the last strand",
+     "cue": "Verse 2|4|8"
+    }
+   ]
+  },
+  {
+   "id": "O17",
+   "cue": "Chorus 2|0|1",
+   "snap": "downbeat",
+   "note": "holds chorus 2 and its post-chorus (about 29 s); disclosure overlay over the chorus (overlays)",
+   "marks": [
+    {
+     "what": "mugs up (Hey!)",
+     "cue": "hey:Chorus 2|0"
+    },
+    {
+     "what": "mugs up (Hey!)",
+     "cue": "hey:Chorus 2|1"
+    },
+    {
+     "what": "mugs up (Hey!)",
+     "cue": "hey:Chorus 2|2"
+    },
+    {
+     "what": "mugs up (Hey!)",
+     "cue": "hey:Chorus 2|3"
+    },
+    {
+     "what": "post-chorus 'Five-oh-three'",
+     "cue": "Post-Chorus 2|0|0"
+    }
+   ]
+  },
+  {
+   "id": "O18",
+   "cue": "Bridge|0|0",
+   "snap": "downbeat",
+   "note": "eight bars (19.2 s); caption 'dramatization'",
+   "marks": [
+    {
+     "what": "whiteboard: root cause",
+     "cue": "Bridge|0|1"
+    },
+    {
+     "what": "whiteboard: an earlier upgrade",
+     "cue": "Bridge|1|0"
+    },
+    {
+     "what": "whiteboard: met a recent change",
+     "cue": "Bridge|2|0"
+    },
+    {
+     "what": "whiteboard: contributing factors",
+     "cue": "Bridge|3|0"
+    },
+    {
+     "what": "whiteboard: not related to cyber, AI or agents (Microsoft, Nov 13)",
+     "cue": "Bridge|4|0"
+    },
+    {
+     "what": "whiteboard: full report",
+     "cue": "Bridge|5|0"
+    },
+    {
+     "what": "whiteboard: to follow",
+     "cue": "Bridge|6|0"
+    },
+    {
+     "what": "whiteboard: lessons learned",
+     "cue": "Bridge|7|0"
+    },
+    {
+     "what": "whiteboard: we're committed to doing better",
+     "cue": "Bridge|8|0"
+    }
+   ]
+  },
+  {
+   "id": "O19",
+   "cue": "Build 2|0|0",
+   "snap": "downbeat",
+   "note": "one continuous camera move, five bars (12 s)",
+   "marks": [
+    {
+     "what": "lower third back to green",
+     "cue": "hey:Build 2|0"
+    },
+    {
+     "what": "second 'Service has been restored'",
+     "cue": "Build 2|1|0"
+    }
+   ]
+  },
+  {
+   "id": "O20",
+   "cue": "Final Chorus|0|1",
+   "snap": "downbeat"
+  },
+  {
+   "id": "O21",
+   "cue": "event:stop2",
+   "note": "hard stop 2: the freeze lands on the cut to silence after 'the' (201.80 s, a downbeat); 1.39 s",
+   "marks": [
+    {
+     "what": "caption 'Incident reopened'",
+     "cue": "event:stop2"
+    },
+    {
+     "what": "Switch drops, one beat after the freeze",
+     "cue": "beats_after:event:stop2:1"
+    }
+   ]
+  },
+  {
+   "id": "O22",
+   "cue": "event:back2",
+   "note": "on the whistle's first sound after the silence",
+   "marks": [
+    {
+     "what": "film grain and warm grade from here",
+     "cue": "Outro|0|0"
+    },
+    {
+     "what": "lower third 'We are deeply sorry for the disruption'",
+     "cue": "Spoken|0|0"
+    },
+    {
+     "what": "'All systems' (sung small)",
+     "cue": "Sung, small|0|0"
+    }
+   ]
+  },
+  {
+   "id": "O23",
+   "cue": "Sung, small|1|0",
+   "note": "on 'operational?' itself, 4.8 s after 'All systems'; runs to the end of the music"
+  },
+  {
+   "id": "O24",
+   "cue": "post",
+   "note": "end card, then 'Next incident: TBD' (post_roll)"
+  }
+ ]
+}

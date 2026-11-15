@@ -1,0 +1,32 @@
+segment [0.0, 93.9]: 99.793 bpm (ibi 0.60124 s, sd 9.2 ms), tracked [1.261, 90.808]
+segment [96.7, 201.8]: 99.994 bpm (ibi 0.60004 s, sd 11.4 ms), tracked [98.615, 194.015]
+segment [203.19, 239.58]: 100.481 bpm (ibi 0.59713 s, sd 39.0 ms), tracked [204.422, 235.558]
+gaps: [{'after_segment': 0, 'kind': 'interpolated', 'beats': 12, 'steps': 12.984, 'ibi_s': np.float64(0.60051)}, {'after_segment': 1, 'kind': 'phase jump', 'beats': 16, 'steps': 17.344, 'jump_s': 0.207}] | continuity: {'segments_0_1_same_bar_phase': True}
+399 beats, 100 downbeats; Remotion drift (frames per 100 beats at 18 f/beat): {'segment 0': 3.72, 'segment 1': 0.12, 'segment 2': -8.61}
+events: {'stop1': 93.8, 'stop2': 201.8, 'back2': 203.193, 'first_vocal': 7.54, 'last_vocal': 234.94, 'drums_in': 16.535, 'band_back1': 98.615, 'music_end': 239.579} claps [94.385, 95.59, 96.79, 97.995]
+Intro             0.00-   7.54  0 lines
+Intro vocal       7.54-  16.54  3 lines
+Stomp-clap       16.54-  26.57  0 lines
+Verse 1          26.57-  44.75  4 lines
+Pre-Chorus       44.75-  55.09  4 lines
+Chorus 1         55.09-  73.66  8 lines
+Post-Chorus 1    73.66-  84.30  2 lines
+Build 1          84.30-  93.80  4 lines
+Stop 1           93.80-  97.22  0 lines
+After stop 1     97.22-  98.61  1 lines
+Band back        98.61- 103.12  0 lines
+Verse 2         103.12- 122.37  5 lines
+Chorus 2        122.37- 140.94  8 lines
+Post-Chorus 2   140.94- 151.40  2 lines
+Bridge          151.40- 170.57  9 lines
+Build 2         170.57- 182.38  2 lines
+Final Chorus    182.38- 201.80  8 lines
+Stop 2          201.80- 203.19  0 lines
+Outro hook      203.19- 208.52  0 lines
+Outro           208.52- 222.13  5 lines
+Spoken          222.13- 229.42  1 lines
+Sung, small     229.42- 234.94  2 lines
+Tail            234.94- 239.58  0 lines
+307 lead words; low score (<0.3): [('up', 89.42, np.float64(0.2)), ('up', 90.6, np.float64(0.21)), ('fine', np.float64(195.836), np.float64(0.259)), ('it', np.float64(217.623), np.float64(0.0))]
+heys: [(30.64, 'onset', True, 72.2), (35.44, 'onset', True, 64.9), (39.98, 'onset', True, 99.0), (56.24, 'onset', False, 6.2), (59.53, 'onset', True, 70.8), (62.24, 'onset', True, 10.4), (64.35, 'onset', True, 71.1), (86.24, 'onset', True, 77.0), (88.69, 'onset', True, 10.4), (91.04, 'onset', True, 77.5), (107.24, 'onset', True, 59.3), (112.06, 'onset', True, 72.9), (124.694, 'whisper', True, None), (126.855, 'whisper', True, None), (129.236, 'whisper', True, None), (131.6, 'onset', True, 68.6), (174.798, 'whisper', True, None), (179.682, 'whisper', True, None), (184.705, 'whisper', True, None), (186.21, 'onset', False, 6.7), (189.509, 'whisper', True, None), (191.61, 'whisper', True, None), (209.84, 'onset', True, 48.9)]
+echoes: [('we are aware', np.float64(46.017), np.float64(47.039)), ('some users may', np.float64(48.345), np.float64(49.576)), ('experiencing', np.float64(50.886), np.float64(51.569))]

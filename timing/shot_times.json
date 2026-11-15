@@ -1,0 +1,818 @@
+{
+ "generated_by": "scripts/shot_times.py",
+ "fps": 30,
+ "lead_in_s": 8.4,
+ "music_end_song": 239.579,
+ "video_length_s": 271.979,
+ "video_frames": 8159,
+ "master_sha256": "99ac525861ce50c53c2ee75d794d4a86914c40234889bd3306d6a116809b91b0",
+ "shots": {
+  "O01": {
+   "placement": "before the music",
+   "song_start": -8.4,
+   "song_end": 0.0,
+   "video_start": 0.0,
+   "video_end": 8.4,
+   "duration": 8.4,
+   "start_frame": 0,
+   "end_frame": 252,
+   "parts_s": {
+    "O01_spike": 2.4,
+    "O01_real": 2.4,
+    "O01_chat": 3.6
+   },
+   "note": "opening bookend, before the music: lead_in_s"
+  },
+  "O02": {
+   "song_start": 0.0,
+   "song_end": 7.256,
+   "duration": 7.256,
+   "video_start": 8.4,
+   "video_end": 15.656,
+   "start_frame": 252,
+   "end_frame": 470,
+   "frames": 218,
+   "bar_beat": "1.1~",
+   "cue": "t:0",
+   "snapped_ms": 0,
+   "note": "the click on play cuts here; 1.09 s of silence, then the whistled hook",
+   "marks": [
+    {
+     "what": "one row flips to 'Investigating'",
+     "song_t": 4.859,
+     "video_t": 13.259,
+     "frame_in_shot": 146,
+     "cue": "1 bars before O03"
+    }
+   ]
+  },
+  "O03": {
+   "song_start": 7.256,
+   "song_end": 26.485,
+   "duration": 19.229,
+   "video_start": 15.656,
+   "video_end": 34.885,
+   "start_frame": 470,
+   "end_frame": 1047,
+   "frames": 577,
+   "bar_beat": "4.1",
+   "cue": "\"We're\" (Intro vocal 0.0)",
+   "snapped_ms": -284,
+   "note": "runs through the stomp-clap instrumental (drums in at 16.5 s) to verse 1: about 19 s in the live room",
+   "marks": [
+    {
+     "what": "lower third 'All Systems Operational · Live at Session 503'",
+     "song_t": 7.887,
+     "video_t": 16.287,
+     "frame_in_shot": 19,
+     "cue": "'investigating' (Intro vocal 0.1)"
+    },
+    {
+     "what": "stomp-clap enters (crowd starts clapping)",
+     "song_t": 16.535,
+     "video_t": 24.935,
+     "frame_in_shot": 278,
+     "cue": "event:drums_in"
+    }
+   ]
+  },
+  "O04": {
+   "song_start": 26.485,
+   "song_end": 31.259,
+   "duration": 4.774,
+   "video_start": 34.885,
+   "video_end": 39.659,
+   "start_frame": 1047,
+   "end_frame": 1190,
+   "frames": 143,
+   "bar_beat": "12.1",
+   "cue": "'One' (Verse 1 0.0)",
+   "snapped_ms": -90,
+   "marks": [
+    {
+     "what": "'is email down for anyone else?' on the phone",
+     "song_t": 28.857,
+     "video_t": 37.257,
+     "frame_in_shot": 71,
+     "cue": "'inbox' (Verse 1 0.7)"
+    },
+    {
+     "what": "+1 count climbs (Hey!)",
+     "song_t": 30.64,
+     "video_t": 39.04,
+     "frame_in_shot": 125,
+     "cue": "hey after Verse 1 0"
+    }
+   ]
+  },
+  "O05": {
+   "song_start": 31.259,
+   "song_end": 36.099,
+   "duration": 4.84,
+   "video_start": 39.659,
+   "video_end": 44.499,
+   "start_frame": 1190,
+   "end_frame": 1335,
+   "frames": 145,
+   "bar_beat": "14.1",
+   "cue": "'The' (Verse 1 1.0)",
+   "snapped_ms": 137,
+   "marks": [
+    {
+     "what": "calendar empties on 'empty'",
+     "song_t": 32.528,
+     "video_t": 40.928,
+     "frame_in_shot": 38,
+     "cue": "'empty' (Verse 1 1.3)"
+    },
+    {
+     "what": "Hey! (no +1 here unless the phone shows a badge)",
+     "song_t": 35.44,
+     "video_t": 43.84,
+     "frame_in_shot": 125,
+     "cue": "hey after Verse 1 1"
+    }
+   ]
+  },
+  "O06": {
+   "song_start": 36.099,
+   "song_end": 40.909,
+   "duration": 4.81,
+   "video_start": 44.499,
+   "video_end": 49.309,
+   "start_frame": 1335,
+   "end_frame": 1479,
+   "frames": 144,
+   "bar_beat": "16.1",
+   "cue": "'The' (Verse 1 2.0)",
+   "snapped_ms": 179,
+   "marks": [
+    {
+     "what": "page curls out on 'fax machine'",
+     "song_t": 38.478,
+     "video_t": 46.878,
+     "frame_in_shot": 71,
+     "cue": "'fax' (Verse 1 2.7)"
+    }
+   ]
+  },
+  "O07": {
+   "song_start": 40.909,
+   "song_end": 44.52,
+   "duration": 3.611,
+   "video_start": 49.309,
+   "video_end": 52.92,
+   "start_frame": 1479,
+   "end_frame": 1588,
+   "frames": 109,
+   "bar_beat": "18.1",
+   "cue": "'Somewhere' (Verse 1 3.0)",
+   "snapped_ms": 338,
+   "note": "the downbeat falls on '-where'; 'Some-' is heard over the fax",
+   "marks": [
+    {
+     "what": "caption [background failed to load]",
+     "song_t": 43.284,
+     "video_t": 51.684,
+     "frame_in_shot": 71,
+     "cue": "'field' (Verse 1 3.6)"
+    }
+   ]
+  },
+  "O08": {
+   "song_start": 44.52,
+   "song_end": 55.344,
+   "duration": 10.824,
+   "video_start": 52.92,
+   "video_end": 63.744,
+   "start_frame": 1588,
+   "end_frame": 1912,
+   "frames": 324,
+   "bar_beat": "19.3",
+   "cue": "'We' (Pre-Chorus 0.0)",
+   "snapped_ms": -232,
+   "note": "on beat 3, as 'green' ends; the call starts mid-bar",
+   "marks": [
+    {
+     "what": "lower third: 'We are aware'",
+     "song_t": 44.752,
+     "video_t": 53.152,
+     "frame_in_shot": 7,
+     "cue": "'We' (Pre-Chorus 0.0)"
+    },
+    {
+     "what": "echo 1; IT replies 'we are aware' in #it-help",
+     "song_t": 46.017,
+     "video_t": 54.417,
+     "frame_in_shot": 45,
+     "cue": "echo after Pre-Chorus 0"
+    },
+    {
+     "what": "optional treehouse cutaway, 4 beats (2.4 s)",
+     "song_t": 46.017,
+     "video_t": 54.417,
+     "frame_in_shot": 45,
+     "cue": "echo after Pre-Chorus 0"
+    },
+    {
+     "what": "lower third: 'Some users may'",
+     "song_t": 47.158,
+     "video_t": 55.558,
+     "frame_in_shot": 79,
+     "cue": "'Some' (Pre-Chorus 1.0)"
+    },
+    {
+     "what": "echo 2",
+     "song_t": 48.345,
+     "video_t": 56.745,
+     "frame_in_shot": 115,
+     "cue": "echo after Pre-Chorus 1"
+    },
+    {
+     "what": "lower third: 'Be experiencing'",
+     "song_t": 49.514,
+     "video_t": 57.914,
+     "frame_in_shot": 150,
+     "cue": "'Be' (Pre-Chorus 2.0)"
+    },
+    {
+     "what": "echo 3",
+     "song_t": 50.886,
+     "video_t": 59.286,
+     "frame_in_shot": 191,
+     "cue": "echo after Pre-Chorus 2"
+    },
+    {
+     "what": "lower third: 'Everything'",
+     "song_t": 50.908,
+     "video_t": 59.308,
+     "frame_in_shot": 192,
+     "cue": "'Everything' (Pre-Chorus 3.0)"
+    }
+   ]
+  },
+  "O09": {
+   "song_start": 55.344,
+   "song_end": 84.208,
+   "duration": 28.864,
+   "video_start": 63.744,
+   "video_end": 92.608,
+   "start_frame": 1912,
+   "end_frame": 2778,
+   "frames": 866,
+   "bar_beat": "24.1",
+   "cue": "'systems' (Chorus 1 0.1)",
+   "snapped_ms": 30,
+   "note": "the downbeat is on 'SYS-'; 'All' is the pickup. Holds chorus 1 and the 'Five-oh-three' post-chorus (about 29 s): the shot list has one shot for both",
+   "marks": [
+    {
+     "what": "Hey! 1 (crowd joins)",
+     "song_t": 56.24,
+     "video_t": 64.64,
+     "frame_in_shot": 27,
+     "cue": "hey after Chorus 1 0 (weak: check by ear)"
+    },
+    {
+     "what": "Hey! 2",
+     "song_t": 59.53,
+     "video_t": 67.93,
+     "frame_in_shot": 126,
+     "cue": "hey after Chorus 1 1"
+    },
+    {
+     "what": "Hey! 3",
+     "song_t": 62.24,
+     "video_t": 70.64,
+     "frame_in_shot": 207,
+     "cue": "hey after Chorus 1 2"
+    },
+    {
+     "what": "Hey! 4",
+     "song_t": 64.35,
+     "video_t": 72.75,
+     "frame_in_shot": 270,
+     "cue": "hey after Chorus 1 3"
+    },
+    {
+     "what": "uptime ticks at 99.9%",
+     "song_t": 71.527,
+     "video_t": 79.927,
+     "frame_in_shot": 485,
+     "cue": "'Please' (Chorus 1 7.0)"
+    },
+    {
+     "what": "post-chorus 'Five-oh-three' (a cut to a new angle fits here)",
+     "song_t": 73.66,
+     "video_t": 82.06,
+     "frame_in_shot": 549,
+     "cue": "'Five-oh-three,' (Post-Chorus 1 0.0)"
+    }
+   ]
+  },
+  "O10": {
+   "song_start": 84.208,
+   "song_end": 86.597,
+   "duration": 2.389,
+   "video_start": 92.608,
+   "video_end": 94.997,
+   "start_frame": 2778,
+   "end_frame": 2850,
+   "frames": 72,
+   "bar_beat": "36.1",
+   "cue": "'Early' (Build 1 0.0)",
+   "snapped_ms": -96,
+   "note": "one bar (2.4 s)",
+   "marks": [
+    {
+     "what": "host flips Switch ON; ON AIR glows",
+     "song_t": 85.38,
+     "video_t": 93.78,
+     "frame_in_shot": 35,
+     "cue": "'stabilization' (Build 1 0.3)"
+    }
+   ]
+  },
+  "O11": {
+   "song_start": 86.597,
+   "song_end": 93.8,
+   "duration": 7.203,
+   "video_start": 94.997,
+   "video_end": 102.2,
+   "start_frame": 2850,
+   "end_frame": 3066,
+   "frames": 216,
+   "bar_beat": "37.1",
+   "cue": "'Everybody' (Build 1 1.0)",
+   "snapped_ms": -73,
+   "marks": [
+    {
+     "what": "Hey! (viewer count spins)",
+     "song_t": 88.69,
+     "video_t": 97.09,
+     "frame_in_shot": 63,
+     "cue": "hey after Build 1 1"
+    },
+    {
+     "what": "Hey! (chat floods)",
+     "song_t": 91.04,
+     "video_t": 99.44,
+     "frame_in_shot": 133,
+     "cue": "hey after Build 1 2"
+    },
+    {
+     "what": "'fai—' held; Switch strains",
+     "song_t": 93.154,
+     "video_t": 101.554,
+     "frame_in_shot": 197,
+     "cue": "'fai—' (Build 1 3.6)"
+    }
+   ]
+  },
+  "O12": {
+   "song_start": 93.8,
+   "song_end": 96.79,
+   "duration": 2.99,
+   "video_start": 102.2,
+   "video_end": 105.19,
+   "start_frame": 3066,
+   "end_frame": 3156,
+   "frames": 90,
+   "bar_beat": "40.1",
+   "cue": "event:stop1",
+   "snapped_ms": 0,
+   "note": "hard stop 1: the freeze lands on the band's cut (93.80 s, a downbeat)",
+   "marks": [
+    {
+     "what": "Switch sags to OFF, ON AIR goes dark",
+     "song_t": 93.8,
+     "video_t": 102.2,
+     "frame_in_shot": 0,
+     "cue": "event:stop1"
+    },
+    {
+     "what": "clap 1 (one silhouette, late)",
+     "song_t": 94.385,
+     "video_t": 102.785,
+     "frame_in_shot": 18,
+     "cue": "event:claps:0"
+    },
+    {
+     "what": "clap 2",
+     "song_t": 95.59,
+     "video_t": 103.99,
+     "frame_in_shot": 54,
+     "cue": "event:claps:1"
+    }
+   ]
+  },
+  "O13": {
+   "song_start": 96.79,
+   "song_end": 98.615,
+   "duration": 1.825,
+   "video_start": 105.19,
+   "video_end": 107.015,
+   "start_frame": 3156,
+   "end_frame": 3210,
+   "frames": 54,
+   "bar_beat": "41.2",
+   "cue": "event:claps:2",
+   "snapped_ms": 0,
+   "note": "cut on the third clap (96.79 s), 0.43 s before 'We're seeing renewed errors'; the card holds to the band's return (1.8 s)",
+   "marks": [
+    {
+     "what": "status row back to red",
+     "song_t": 97.748,
+     "video_t": 106.148,
+     "frame_in_shot": 29,
+     "cue": "'renewed' (After stop 1 0.2)"
+    },
+    {
+     "what": "clap 4",
+     "song_t": 97.995,
+     "video_t": 106.395,
+     "frame_in_shot": 36,
+     "cue": "event:claps:3"
+    }
+   ]
+  },
+  "O14": {
+   "song_start": 98.615,
+   "song_end": 113.031,
+   "duration": 14.416,
+   "video_start": 107.015,
+   "video_end": 121.431,
+   "start_frame": 3210,
+   "end_frame": 3643,
+   "frames": 433,
+   "bar_beat": "42.1",
+   "cue": "event:band_back1",
+   "snapped_ms": 0,
+   "note": "the cafe comes in with the band (98.62 s, a downbeat), two bars before 'The agents'",
+   "marks": [
+    {
+     "what": "'The agents that we hired'",
+     "song_t": 103.125,
+     "video_t": 111.525,
+     "frame_in_shot": 135,
+     "cue": "'The' (Verse 2 0.0)"
+    },
+    {
+     "what": "Hey!",
+     "song_t": 107.24,
+     "video_t": 115.64,
+     "frame_in_shot": 259,
+     "cue": "hey after Verse 2 0"
+    },
+    {
+     "what": "Hey!",
+     "song_t": 112.06,
+     "video_t": 120.46,
+     "frame_in_shot": 403,
+     "cue": "hey after Verse 2 1"
+    }
+   ]
+  },
+  "O15": {
+   "song_start": 113.031,
+   "song_end": 118.441,
+   "duration": 5.41,
+   "video_start": 121.431,
+   "video_end": 126.841,
+   "start_frame": 3643,
+   "end_frame": 3805,
+   "frames": 162,
+   "bar_beat": "48.1",
+   "cue": "'The' (Verse 2 2.0)",
+   "snapped_ms": 295,
+   "marks": [
+    {
+     "what": "green LED dims",
+     "song_t": 115.398,
+     "video_t": 123.798,
+     "frame_in_shot": 71,
+     "cue": "\"couldn't\" (Verse 2 2.7)"
+    },
+    {
+     "what": "LED back green: '(It wrote it anyway)'",
+     "song_t": 117.04,
+     "video_t": 125.44,
+     "frame_in_shot": 120,
+     "cue": "'(It' (Verse 2 3.0)"
+    }
+   ]
+  },
+  "O16": {
+   "song_start": 118.441,
+   "song_end": 122.647,
+   "duration": 4.206,
+   "video_start": 126.841,
+   "video_end": 131.047,
+   "start_frame": 3805,
+   "end_frame": 3931,
+   "frames": 126,
+   "bar_beat": "50.2",
+   "cue": "'Everything' (Verse 2 4.0)",
+   "snapped_ms": -62,
+   "marks": [
+    {
+     "what": "one bulb goes out",
+     "song_t": 119.047,
+     "video_t": 127.447,
+     "frame_in_shot": 18,
+     "cue": "'wired' (Verse 2 4.2)"
+    },
+    {
+     "what": "the dark reaches the last strand",
+     "song_t": 121.481,
+     "video_t": 129.881,
+     "frame_in_shot": 91,
+     "cue": "'gone' (Verse 2 4.8)"
+    }
+   ]
+  },
+  "O17": {
+   "song_start": 122.647,
+   "song_end": 151.449,
+   "duration": 28.802,
+   "video_start": 131.047,
+   "video_end": 159.849,
+   "start_frame": 3931,
+   "end_frame": 4795,
+   "frames": 864,
+   "bar_beat": "52.1",
+   "cue": "'systems' (Chorus 2 0.1)",
+   "snapped_ms": 39,
+   "note": "holds chorus 2 and its post-chorus (about 29 s); disclosure overlay over the chorus (overlays)",
+   "marks": [
+    {
+     "what": "mugs up (Hey!)",
+     "song_t": 124.694,
+     "video_t": 133.094,
+     "frame_in_shot": 61,
+     "cue": "hey after Chorus 2 0"
+    },
+    {
+     "what": "mugs up (Hey!)",
+     "song_t": 126.855,
+     "video_t": 135.255,
+     "frame_in_shot": 126,
+     "cue": "hey after Chorus 2 1"
+    },
+    {
+     "what": "mugs up (Hey!)",
+     "song_t": 129.236,
+     "video_t": 137.636,
+     "frame_in_shot": 198,
+     "cue": "hey after Chorus 2 2"
+    },
+    {
+     "what": "mugs up (Hey!)",
+     "song_t": 131.6,
+     "video_t": 140.0,
+     "frame_in_shot": 269,
+     "cue": "hey after Chorus 2 3"
+    },
+    {
+     "what": "post-chorus 'Five-oh-three'",
+     "song_t": 140.94,
+     "video_t": 149.34,
+     "frame_in_shot": 549,
+     "cue": "'Five-oh-three,' (Post-Chorus 2 0.0)"
+    }
+   ]
+  },
+  "O18": {
+   "song_start": 151.449,
+   "song_end": 170.647,
+   "duration": 19.198,
+   "video_start": 159.849,
+   "video_end": 179.047,
+   "start_frame": 4795,
+   "end_frame": 5371,
+   "frames": 576,
+   "bar_beat": "64.1",
+   "cue": "'Root' (Bridge 0.0)",
+   "snapped_ms": 51,
+   "note": "eight bars (19.2 s); caption 'dramatization'",
+   "marks": [
+    {
+     "what": "whiteboard: root cause",
+     "song_t": 152.04,
+     "video_t": 160.44,
+     "frame_in_shot": 18,
+     "cue": "'cause' (Bridge 0.1)"
+    },
+    {
+     "what": "whiteboard: an earlier upgrade",
+     "song_t": 152.542,
+     "video_t": 160.942,
+     "frame_in_shot": 33,
+     "cue": "'An' (Bridge 1.0)"
+    },
+    {
+     "what": "whiteboard: met a recent change",
+     "song_t": 154.69,
+     "video_t": 163.09,
+     "frame_in_shot": 97,
+     "cue": "'Met' (Bridge 2.0)"
+    },
+    {
+     "what": "whiteboard: contributing factors",
+     "song_t": 156.284,
+     "video_t": 164.684,
+     "frame_in_shot": 145,
+     "cue": "'Contributing' (Bridge 3.0)"
+    },
+    {
+     "what": "whiteboard: not related to cyber, AI or agents (Microsoft, Nov 13)",
+     "song_t": 158.866,
+     "video_t": 167.266,
+     "frame_in_shot": 223,
+     "cue": "'(Not' (Bridge 4.0)"
+    },
+    {
+     "what": "whiteboard: full report",
+     "song_t": 161.625,
+     "video_t": 170.025,
+     "frame_in_shot": 305,
+     "cue": "'Full' (Bridge 5.0)"
+    },
+    {
+     "what": "whiteboard: to follow",
+     "song_t": 164.277,
+     "video_t": 172.677,
+     "frame_in_shot": 385,
+     "cue": "'To' (Bridge 6.0)"
+    },
+    {
+     "what": "whiteboard: lessons learned",
+     "song_t": 165.206,
+     "video_t": 173.606,
+     "frame_in_shot": 413,
+     "cue": "'Lessons' (Bridge 7.0)"
+    },
+    {
+     "what": "whiteboard: we're committed to doing better",
+     "song_t": 166.366,
+     "video_t": 174.766,
+     "frame_in_shot": 448,
+     "cue": "\"(We're\" (Bridge 8.0)"
+    }
+   ]
+  },
+  "O19": {
+   "song_start": 170.647,
+   "song_end": 182.641,
+   "duration": 11.994,
+   "video_start": 179.047,
+   "video_end": 191.041,
+   "start_frame": 5371,
+   "end_frame": 5731,
+   "frames": 360,
+   "bar_beat": "72.1",
+   "cue": "'Service' (Build 2 0.0)",
+   "snapped_ms": 77,
+   "note": "one continuous camera move, five bars (12 s)",
+   "marks": [
+    {
+     "what": "lower third back to green",
+     "song_t": 174.798,
+     "video_t": 183.198,
+     "frame_in_shot": 125,
+     "cue": "hey after Build 2 0"
+    },
+    {
+     "what": "second 'Service has been restored'",
+     "song_t": 175.388,
+     "video_t": 183.788,
+     "frame_in_shot": 142,
+     "cue": "'Service' (Build 2 1.0)"
+    }
+   ]
+  },
+  "O20": {
+   "song_start": 182.641,
+   "song_end": 201.8,
+   "duration": 19.159,
+   "video_start": 191.041,
+   "video_end": 210.2,
+   "start_frame": 5731,
+   "end_frame": 6306,
+   "frames": 575,
+   "bar_beat": "77.1",
+   "cue": "'systems' (Final Chorus 0.1)",
+   "snapped_ms": 17
+  },
+  "O21": {
+   "song_start": 201.8,
+   "song_end": 203.193,
+   "duration": 1.393,
+   "video_start": 210.2,
+   "video_end": 211.593,
+   "start_frame": 6306,
+   "end_frame": 6348,
+   "frames": 42,
+   "bar_beat": "85.1",
+   "cue": "event:stop2",
+   "snapped_ms": 0,
+   "note": "hard stop 2: the freeze lands on the cut to silence after 'the' (201.80 s, a downbeat); 1.39 s",
+   "marks": [
+    {
+     "what": "caption 'Incident reopened'",
+     "song_t": 201.8,
+     "video_t": 210.2,
+     "frame_in_shot": 0,
+     "cue": "event:stop2"
+    },
+    {
+     "what": "Switch drops, one beat after the freeze",
+     "song_t": 202.415,
+     "video_t": 210.815,
+     "frame_in_shot": 18,
+     "cue": "1 beats after event:stop2"
+    }
+   ]
+  },
+  "O22": {
+   "song_start": 203.193,
+   "song_end": 234.2,
+   "duration": 31.007,
+   "video_start": 211.593,
+   "video_end": 242.6,
+   "start_frame": 6348,
+   "end_frame": 7278,
+   "frames": 930,
+   "bar_beat": "85.3~",
+   "cue": "event:back2",
+   "snapped_ms": 0,
+   "note": "on the whistle's first sound after the silence",
+   "marks": [
+    {
+     "what": "film grain and warm grade from here",
+     "song_t": 208.522,
+     "video_t": 216.922,
+     "frame_in_shot": 160,
+     "cue": "'Remember' (Outro 0.0)"
+    },
+    {
+     "what": "lower third 'We are deeply sorry for the disruption'",
+     "song_t": 222.135,
+     "video_t": 230.535,
+     "frame_in_shot": 568,
+     "cue": "'We' (Spoken 0.0)"
+    },
+    {
+     "what": "'All systems' (sung small)",
+     "song_t": 229.417,
+     "video_t": 237.817,
+     "frame_in_shot": 787,
+     "cue": "'All' (Sung, small 0.0)"
+    }
+   ]
+  },
+  "O23": {
+   "song_start": 234.2,
+   "song_end": 239.579,
+   "duration": 5.379,
+   "video_start": 242.6,
+   "video_end": 247.979,
+   "start_frame": 7278,
+   "end_frame": 7439,
+   "frames": 161,
+   "bar_beat": "98.3~",
+   "cue": "'operational?' (Sung, small 1.0)",
+   "snapped_ms": 0,
+   "note": "on 'operational?' itself, 4.8 s after 'All systems'; runs to the end of the music"
+  },
+  "O24": {
+   "placement": "after the music",
+   "song_start": 239.579,
+   "song_end": 248.579,
+   "video_start": 247.979,
+   "video_end": 256.979,
+   "duration": 9.0,
+   "start_frame": 7439,
+   "end_frame": 7709,
+   "note": "end card, then 'Next incident: TBD' (post_roll)"
+  }
+ },
+ "overlays": {
+  "disclosure": {
+   "song_start": 122.647,
+   "song_end": 140.649,
+   "duration": 18.002,
+   "start_frame": 3931,
+   "end_frame": 4471,
+   "note": "The brief puts the disclosure 'after O16' (O15: 'Disclosure card follows'). A full-frame card there would stop the song for the ~25 s its 77 words need, so it's proposed as an overlay panel on O17's chorus (8 lines, about 18 s), off before 'Five-oh-three'. Repeated in the end sequence and the description."
+  }
+ },
+ "fact_card_after_O24": {
+  "song_start": 248.579,
+  "duration": 15.0,
+  "start_frame": 7709,
+  "end_frame": 8159
+ },
+ "short_shots": [
+  "O21: 1.39 s"
+ ]
+}

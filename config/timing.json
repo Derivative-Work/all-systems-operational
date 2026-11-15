@@ -1,0 +1,132 @@
+{
+ "_doc": "Inputs for scripts/timing_map.py that the transcripts can't give. Times in song time (s) on the master's timeline (Logic master and post-filtered master: 0-sample lag, production log 2).",
+ "master": "audio/track/All Systems Operational.wav",
+ "review_audio": "audio/postfilter/all-systems-operational-master-deslopped.wav",
+ "stems": {
+  "lead": "audio/stems/0 Lead Vocals.aif",
+  "backing": "audio/stems/1 Backing Vocals.aif",
+  "drums": "audio/stems/2 Drums.aif"
+ },
+ "line_window_overrides": {
+  "_why": "Lines the lead transcript can't anchor: Whisper wrote 'Five-oh-three' as '503' (post-chorus 1) and missed it in post-chorus 2 (it's on the lead stem: level -17 to -21 dB through 141-144 s). The aligner put 'We're' (after stop 1) in the band's fade, 'Remember' (outro) and 'operational?' (last line) in the whistle on the lead stem, and the final chorus's 'All' on the build's Hey!; those windows are set around Whisper's words.",
+  "Post-Chorus 1|0": [
+   73.6,
+   77.5
+  ],
+  "Post-Chorus 2|0": [
+   140.9,
+   144.78
+  ],
+  "After stop 1|0": [
+   96.9,
+   99.0
+  ],
+  "Outro|0": [
+   208.2,
+   211.2
+  ],
+  "Sung, small|1": [
+   233.6,
+   235.6
+  ],
+  "Final Chorus|0": [
+   182.0,
+   185.2
+  ]
+ },
+ "beats": {
+  "_why": "Tracked on the drums stem (steady stomp, sd 9-11 ms) in three segments split at the hard stops; the master's tracker wanders through the stops. Inside stop 1 the grid is interpolated between segments (the claps land on it); at stop 2 the edit inserted time, so the outro's grid has its own phase.",
+  "segments": [
+   [
+    0.0,
+    93.9
+   ],
+   [
+    96.7,
+    201.8
+   ],
+   [
+    203.19,
+    239.58
+   ]
+  ],
+  "start_bpm": 100,
+  "hop": 128,
+  "downbeat_anchors": {
+   "_why": "Low-band strength can't find bar 1 here (the stomp hits every beat). Bar 1 is where the chorus's stressed 'SYS-' lands, which also puts verse 1, build 1, verse 2, build 2, the bridge and both stops on downbeats. The outro's bar 1 is the drums' first tracked beat after the stop: unchecked by ear.",
+   "0": "Chorus 1|0|1",
+   "1": "Final Chorus|0|1",
+   "2": "first"
+  },
+  "reliable_span": [
+   [
+    1.2,
+    201.8
+   ],
+   [
+    203.19,
+    214.0
+   ]
+  ],
+  "_reliable_why": "The outro slows and the drums drop out from 214 to 226 s; the grid there is extrapolated. Cues after 214 s are on words, not beats."
+ },
+ "stops": {
+  "_why": "Where the band cuts: stop 1 is a fast fade (10 ms windows: -23 dB to -41 dB from 93.80 to 94.00 s, then the claps ring to digital silence at 95.06 s); stop 2 is a cut to near-silence (-90 dB and below). Measured: the first 10 ms window from search_from that falls 3 dB below the median of the 0.3 s before it and stays there for 0.1 s (stop 1); the first sample after which the peak stays under -80 dBFS for 0.1 s (stop 2); the first sample over -60 dBFS (back2).",
+  "stop1": {
+   "search_from": 93.5,
+   "search_to": 94.2,
+   "mode": "drop"
+  },
+  "stop2": {
+   "search_from": 201.5,
+   "search_to": 202.0,
+   "mode": "silence"
+  },
+  "back2": {
+   "search_from": 202.0,
+   "search_to": 204.0,
+   "mode": "sound"
+  }
+ },
+ "clap_track": {
+  "file": "audio/extra/Clap 2 - Warm Embers.aif",
+  "_why": "The human's clap track (decisions 4); onsets found by level."
+ },
+ "instrumental_sections": [
+  {
+   "name": "Intro",
+   "note": "whistled hook over acoustic guitar",
+   "start": "t:0"
+  },
+  {
+   "name": "Stomp-clap",
+   "note": "drums enter; instrumental before verse 1",
+   "start": "event:drums_in"
+  },
+  {
+   "name": "Stop 1",
+   "note": "band cut at 'fai—'; claps only",
+   "start": "event:stop1"
+  },
+  {
+   "name": "Band back",
+   "note": "band returns before verse 2",
+   "start": "event:band_back1"
+  },
+  {
+   "name": "Stop 2",
+   "note": "band cut after 'the'; silence, no clap",
+   "start": "event:stop2"
+  },
+  {
+   "name": "Outro hook",
+   "note": "whistled hook, alone, slowing",
+   "start": "event:back2"
+  },
+  {
+   "name": "Tail",
+   "note": "last notes ring out",
+   "start": "event:last_vocal"
+  }
+ ]
+}
