@@ -362,3 +362,34 @@ Append-only. One entry per generation, render or analysis step.
   - O17e's mug close was replaced by the mugs from behind, from the other side. O17k's steamed window read blank, so it was replaced by the string lights.
   - O08d's console close was replaced by a view over the host's shoulder to the band.
 - **Spare presets, not used:** Switch's conduit, the treehouse skylight, the probe's mug with steam.
+
+## 18. 2026-11-15 — M5b: camera, light and ambient motion (`blender/coverage.py`)
+
+- **Script:** `blender/coverage.py` (new). It renders every Blender shot in `config/coverage.json`.
+  - Each O-shot is built once, as M5 did (`blender/animatic.py` `shot()`), with all of M5's cued events. Then the M5b layers are keyed on that build's timeline, and each of its shots renders its own frame range through its own camera.
+  - The freezes (O12, O21) get no M5b layers.
+- **Seeds:** every random draw is a `gb.rng(name)` stream off `config/seeds.json` main 41: `m5b_cam_<shot>`, `m5b_crowd_<O-shot>`, `m5b_band_<O-shot>`, `m5b_onair_O11`, `m5b_lamp_O20`.
+- **Camera** (keyed every frame):
+  - Each shot's preset and move, eased: a push, a truck, M5's own keys, or tracking the walker. The builds push faster.
+  - Handheld drift: three sines per channel at 0.12–0.75 Hz. Position drifts up to 1.4 cm on wides and 0.6 cm on closes; rotation up to 0.22° on wides and 0.45° on closes. None on the freezes, on O20j (it matches O21) or on O04 (its phone screen is pinned in the edit).
+  - A 7 mm drop and a 0.18° nod on each main kick, decaying over about 70 ms, scaled by the hit and the bar's drums energy (half that on closes).
+  - Eevee depth of field on the closes and mids (f/1.8–2.8). The live room's and the park's backs-of-heads shots, the mugs and the treehouse table rack from the foreground to the band or the whiteboard, 0.6 s in, over 0.4 s.
+- **Light:**
+  - Practicals (the live room's bulbs and lamp, the cafe's strand and hub lights, the bulb emission) pulse with the main kicks, ×0.8 to ×1.34.
+  - The window lights (the sun in the park) lift ×1.55 on every Hey!, decaying over 0.22 s.
+  - Haze, as an Eevee volume (density 0.022 in the live room, 0.007 in the cafe, 0.015 in the treehouse), with a spot through each window. The spots light little but the haze, so the beams show.
+    - Cost: the O09 stills rendered in 0.4 s a frame with the haze; a sequence test ran at about 0.2 s a frame.
+    - It doesn't light the faces: an A/B with and without (scratchpad) showed the same faces; the beams read as a glow, not hard shafts.
+  - ON AIR flickers through the last beat and a half before stop 1 (from beat 39.3), more off than on as it nears 93.80 s. Before stop 2, the park lamp flickers and Switch strains on his box (from 199.41 s).
+  - "Service has been restored" (170.57 and 175.39 s): the door light ramps up in O19a, and the sky (sun) in O19b.
+  - The cafe's string lights chase the lead vocal: each sung syllable (the music map's lead onsets) sends a pulse out from the hub along every strand, 0.9 s to the hooks. O16's cascade still puts each bulb out on M5's frame.
+- **Ambient:**
+  - Rain streaks run down every pane: the window shader's streak texture is keyed.
+  - The drizzle falls at 3.2 m/s, looped with a copy stacked above.
+  - Three fog cards drift across the park's skyline.
+  - Steam rises off the probes' mugs (an animated noise on crossed planes).
+  - The umbrella turns slowly on a pivot at the hand.
+- **Test** (`--subs O11f,O11g,O16a,O09b,O20i,O17c`, scratchpad): 2 min 20 s, 4.5 GB peak RSS, about 0.2 s a frame.
+  - Checked on frame strips: ON AIR flickering, the bulb cascade from the hub, the claps, the mugs going up on the Hey! and coming down, the lamp and Switch before stop 2, the drizzle.
+  - Frame-to-frame change (mean difference 1.4–4.5 out of 255) shows the drift and the kick bumps without jumps.
+- The people motion in the same script is logged in the next entry.
