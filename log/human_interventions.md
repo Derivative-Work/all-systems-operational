@@ -67,3 +67,7 @@ Append-only. Every human action: when, what, and why.
 
 - **Restart:** the session was restarted with `CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP` set, so background jobs aren't killed under memory pressure.
 - **Pick:** "a_s45 is good. Keep going." O06 uses `O06_fax_a_s45` (the agent's first pick). Next: image-to-video of that still.
+
+## 12. 2026-11-15 — M4 takes picked
+
+- **What:** "Go with your recommendations. I'll review the field of green shot in context once we have it." O06 is `O06_s41` kept as a slow push (no counter-crop). O07 stays the server on green, with `O07_fogtower_s44` (the tower on the lawn) as the spare; the human will judge O07 in the animatic. M4 gate passed; next: M5.

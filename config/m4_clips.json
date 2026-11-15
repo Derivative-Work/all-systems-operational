@@ -18,7 +18,9 @@
       "_v2": "v1 (seeds 41-42) pushed in on both seeds; v2 is the one revised prompt allowed, seeds m4_clips_v2 (43-44), tag v2"
     }
   },
-  "kept": {},
+  "kept": [
+    "O06_s41"
+  ],
   "review": {
     "_doc": "Agent's notes after viewing frames 1, 30, 60, 90 and 121 of each take at full size, crops of the window and monitors, and a camera-motion estimate (ORB + partial affine, frame 1 to frame 121; production log 11). None is locked-off: LTX pushed in on all four. The human picks at the M4 gate.",
     "O06_s41": "RECOMMENDED (with a flaw): slow, smooth push-in (scale 1.12, 49 px left by the end); the page curls further up and out naturally and keeps its shape; monitors and rain on glass shimmer faintly; lamp steady; no people, no new text. The push can be held off at the edit by a matching counter-crop (framed as frame 121; about 12% softer) or kept as a slow push.",
