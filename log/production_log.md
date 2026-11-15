@@ -339,3 +339,26 @@ Append-only. One entry per generation, render or analysis step.
 - **Limits:**
   - The claps can't be told from the stomp in the drums stem: the stomp is broadband and hits every beat, and no band shows a steady 2-and-4 accent (`beat_profile`). The animation claps on the backbeat list, as M5 did.
   - The kick band also catches the 8th-note pickups, so only the "main" kicks drive bumps and the kick foot.
+
+## 17. 2026-11-15 — M5b: the coverage plan
+
+- **Script:** `scripts/coverage.py` (new) → `config/coverage.json` and `docs/coverage.md` (the readable table). Inputs: `timing/music_map.json` and `timing/shot_times.json`. No random process.
+- **Command:** `.venv/bin/python -I scripts/coverage.py`.
+- **Result:** 94 shots, 93 cuts (M5: 27 shots). The O-shot boundaries stay on the M2 cues. Same 8,699 frames and end order as M5.
+  - Cuts per section: stomp-clap 4 (plus O03's two intro shots), chorus 1 8, post-chorus 1 4, build 1 8 (O10 plus seven in O11), verse 2 6, chorus 2 8, post-chorus 2 4, bridge 5, build 2 5, final chorus 10, outro 8.
+  - Choruses cut every 1–2 bars, on downbeats or Hey!s. Verses and the bridge cut every 2 bars. Both builds speed up into their stops: bars, then half bars, then single beats (O08e–g, O11c–g, O19c–e, O20g–j).
+  - The freezes O12 and O21 hold one angle. O21's angle is O20's last shot (O20j), so the stream freezes on the frame it was showing.
+  - The longest hold in the music is O02 (7.27 s, Remotion). The longest Blender hold is O19a (5.8 s, M5's door move).
+- **Cuts:** every cut is on a downbeat, a beat, or a Hey!, with three exceptions:
+  - O17i cuts on the sung "Five-oh-three" (140.94 s), as M2 marked it.
+  - M5's O08 insert boundaries and O19's dissolve keep M5's frames.
+  - The weak Hey! at 56.24 s isn't used as a cut; O09's first shot runs to the next downbeat.
+- **Cameras:** 62 presets across the five rooms, listed in `config/coverage.json` `cameras`. Some are fixed. Others are found per shot: a crowd member by pose, with a clear line to their hands or head, or the walker, tracked.
+- **Camera test:** `blender -b --factory-startup --python blender/coverage.py -- --still --out <scratchpad>` rendered one frame per shot (83 Blender shots, 4 min 42 s). The script is logged in the next entry. Fixed from the test:
+  - Hands closes were black or blocked. The camera now aims at the hand bones and checks for a clear line, trying either side.
+  - The backs of heads were too close (the frame was black). The camera is now 1 m back, with the head in a third of the frame.
+  - Faces in the mids and closes: the backing singer's profile read as a face, so it was replaced by a close on the guitar. The tambourine closes went to 85 mm, aimed at the tambourine. The mids and closes on people get darker exposure (−0.3 to −1.3 stops, more in the cafe, whose band is side-lit). The cafe's backs-of-heads shot no longer racks to the band.
+  - O11c: the crush fills the floor in front of the kick, so its kick close is an oblique angle from the right.
+  - O17e's mug close was replaced by the mugs from behind, from the other side. O17k's steamed window read blank, so it was replaced by the string lights.
+  - O08d's console close was replaced by a view over the host's shoulder to the band.
+- **Spare presets, not used:** Switch's conduit, the treehouse skylight, the probe's mug with steam.

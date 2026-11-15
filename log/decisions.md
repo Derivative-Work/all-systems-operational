@@ -76,3 +76,14 @@ Append-only. Deviations from the brief, each with why and who decided.
 
 - **Why:** the M5 animatic holds one angle per O-shot, up to 19–31 s (O03, O09, O17, O18, O20, O22). The human: "Without more cuts it's going to be slow and dry if it doesn't read as musical."
 - **Plan:** two new milestones before M7 (`docs/plan.md`). M5b: a music map from the stems, each O-shot split into wide/mid/close angles cut to bars and hits (the brief's wide-to-close live-session pattern), camera and light cued to the music, ambient motion, first-pass crowd motion; reviewed as a grey-box animatic. M5c: the figure-library rebuild with stem-driven performances. Shot IDs stay the scene IDs; angles are sub-shots (O09a, O09b…). No faces in any close: hands, feet, instruments, backs and backlit profiles only.
+
+## 13. 2026-11-15 — M5b coverage: calls for the human (agent)
+
+- **Cut count:** 94 shots (93 cuts), in the 80–110 range the plan set. M5's single-shot pieces stay single: O01, O02, O04, O05, O06, O07, O10, O12, O13, O15, O21, O23 and the end cards. O15 holds 5.4 s on the probe so the LED's dim and return read in one angle.
+- **O17i cuts on a word, not the grid:** the post-chorus cut is on the sung "Five-oh-three" (140.94 s, 0.29 s after beat 59.3, an 8th late like the Hey!s), not on a downbeat. The disclosure panel (to 140.65 s) is gone 9 frames before it.
+- **The weak Hey! (56.24 s)** isn't used as a cut point. O09a runs to the downbeat at 57.75 s.
+- **No backlit-profile close:** the brief allows backlit profiles, but at 540p the backing singer's profile showed a nose and mouth, so it was replaced by the guitar. Profiles come back only if the M5c figures are darker against the glass.
+- **O21's angle is O20j's:** the last half bar of the final chorus cuts to the angle the freeze holds. In M5, O20 pushed into O21's framing.
+- **O22's Switch is OFF:** in M5, the outro's lamp post showed Switch ON after he dropped in O21. M5b keeps him OFF (AI changes 4).
+- **Stop 2's warning:** the park has no ON AIR sign, so the warning before stop 2 is the lamp flickering and Switch straining on his box (O20i).
+- **O19 stays a dissolve:** M5's two moves and the 10-frame dissolve (decisions 11) stay, and three fast closes (kick, hands, tambourine) end the build. The brief's single camera move is still M7 work.

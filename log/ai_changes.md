@@ -17,3 +17,7 @@ Lyrics as sung are checked at M1 (WhisperX on the lead and backing stems), defer
 ## 3. 2026-11-15 — Correction to entry 2: stop 1 is cut at "fai—" (human, by ear)
 
 - The human hears the stop at "fai—", as the brief writes it. Entry 2's "sung whole" came from WhisperX word timing (which pads word ends) and the lead's held pitch, which is the vowel, not a final "l". The stop's timing in production log 7 (band gone at about 93.9 s, three claps, "We're seeing renewed errors" at 97.08 s) is unchanged. No generator change here: the take matches the lyrics.
+
+## 4. 2026-11-15 — O22's Switch OFF (M5b)
+
+- M5's O22 rebuilt the park with its default state, so Switch was back ON in the outro after dropping in O21. M5b swaps in the OFF texture for O22 (blender/coverage.py), so he stays down after the stop. Decisions 13.
