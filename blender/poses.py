@@ -64,29 +64,33 @@ def _pose_fist(rig, u):
     side = "Left" if s > 0 else "Right"
     # elbow out and down below the shoulder, forearm upright: a fist pump beside the head. (With the upper arm level,
     # a fist hidden behind the next head left a straight sideways arm in silhouette, O20 r9.)
-    F.arm(rig, s, (s * 0.7, -0.25, -0.6), (s * 0.08, -0.12, 1.0), (0.0, -0.05, 1))
+    # M5: the fist clears the head (human interventions 8: a fist beside the head read as a hand to the head): the
+    # upper arm out to the side and a little up, the forearm upright, the elbow bent about 70 degrees.
+    F.arm(rig, s, (s * 0.8, -0.2, 0.3), (s * 0.12, -0.12, 1.0), (0.0, -0.05, 1))
     F.arm(rig, -s, (-s * 0.12, -0.03, -1), (-s * 0.05, -0.15, -1))
     F.curl_fingers(rig, 80, 40, sides=(side,))
     F.aim(rig, "Head", (0, 0.1, 1))
 
 
 def _pose_clap_open(rig, u):
-    """Mid-clap, hands apart at face height, elbows out (O12's late clapper): a silhouette no one else in the frozen
-    crowd has, so the one person still clapping reads in a still."""
+    """Mid-clap, hands apart at chest height, elbows out (O12's late clapper): a silhouette no one else in the frozen
+    crowd has, so the one person still clapping reads in a still. M5: lowered from face height (human interventions 8:
+    hands near the head read as "confused")."""
     for sd in (1, -1):
-        F.arm(rig, sd, (sd * 0.5, -0.5, -0.3), (-sd * 0.05, -0.7, 0.7), (sd * 0.15, -0.5, 0.85))
+        F.arm(rig, sd, (sd * 0.45, -0.35, -0.82), (-sd * 0.12, -0.9, 0.42), (sd * 0.1, -0.85, 0.5))
     F.curl_fingers(rig, 18, 10)                             # cupped, as in a clap; not a spread-fingered wave
     F.aim(rig, "Head", (0, -0.1, 1))
 
 
 def _pose_push(rig, u):
-    """The crush toward the mics (O11): leaning in, head tilted forward toward the mics, clapping at face height on
-    bent elbows (upper arms down and forward, forearms up). No arm reaches out: extended arms read as a salute or a
-    rifle in silhouette (lead review)."""
+    """The crush toward the mics (O11): leaning in, head tilted forward toward the mics, clapping at chest height on
+    bent elbows (upper arms down, forearms forward and a little up, hands meeting in front of the chest). No arm
+    reaches out: extended arms read as a salute or a rifle in silhouette (lead review). M5: lowered from face height
+    (human interventions 8: hands at the head read as "confused")."""
     F.aim(rig, "Spine", (0, -0.2, 1))
     F.aim(rig, "Spine1", (0, -0.32, 1))
     for s in (1, -1):
-        F.arm(rig, s, (s * 0.35, -0.45, -0.82), (-s * 0.28, -0.3, 0.9), (-s * 0.35, -0.3, 0.9))
+        F.arm(rig, s, (s * 0.3, -0.25, -0.92), (-s * 0.6, -0.72, 0.36), (-s * 0.3, -0.92, 0.25))
     F.curl_fingers(rig, 15, 8)
     F.aim(rig, "Neck", (0, -0.25, 1))
     F.aim(rig, "Head", (0, -0.35 + 0.15 * u, 1))
@@ -98,6 +102,12 @@ def _pose_reach(rig, u):
     F.arm(rig, 1, (0.8, -0.25, -0.45), (0.75, -0.45, 0.45), (0.6, -0.6, 0.3))
     F.arm(rig, -1, (-0.12, -0.03, -1), (-0.05, -0.15, -1))
     F.aim(rig, "Head", (0, -0.3, 1))
+
+
+def _pose_mug_low(rig, u):
+    """M5: the mug held low between toasts: upper arm down at the side, forearm forward and up, the hand still
+    upright so the mug (parented to the hand) stays level; the toast (_pose_mug) is keyed on the Hey!s."""
+    F.arm(rig, -1, (-0.2, -0.12, -1), (-0.05, -0.75, 0.66), (0.0, -0.1, 1))
 
 
 POSES = {"clap": _pose_clap, "clap_open": _pose_clap_open, "mug_raise": _pose_mug, "push": _pose_push,
@@ -153,6 +163,12 @@ def _mug(coll, rig, u):
     o.location = (a + b) / 2 + Vector((0.0, -0.045, -0.02))
     o.rotation_euler.z = 1.4
     coll.objects.link(o)
+    # M5: parented to the hand bone, keeping its place, so it follows a keyed arm (key_mugs)
+    bpy.context.view_layer.update()
+    mw_ = o.matrix_world.copy()
+    o.parent, o.parent_type, o.parent_bone = rig, "BONE", P + "RightHand"
+    bpy.context.view_layer.update()
+    o.matrix_world = mw_
 
 
 _MUGS = {}
@@ -203,3 +219,80 @@ def clap_loop(coll, period=20, start=1, lag=0, cycles=24):
                 pb.rotation_mode = "QUATERNION"
                 pb.rotation_quaternion = shots[closed][b]
                 pb.keyframe_insert("rotation_quaternion", frame=f)
+
+
+# ---------------------------------------------------------------- M5: animation (blender/animatic.py)
+
+_ARM_BONES = [P + f"{s}{b}" for s in ("Left", "Right") for b in ("Arm", "ForeArm", "Hand")]
+
+
+def _snap(rig, bones):
+    for b in bones:
+        rig.pose.bones[b].rotation_mode = "QUATERNION"
+    return {b: rig.pose.bones[b].rotation_quaternion.copy() for b in bones}
+
+
+def _key(rig, shot, frame, bones):
+    for b in bones:
+        pb = rig.pose.bones[b]
+        pb.rotation_quaternion = shot[b]
+        pb.keyframe_insert("rotation_quaternion", frame=frame)
+
+
+def key_claps(coll, frames, open_frames=5, wide=False):
+    """Key a clap on a posed variant: hands meet on each frame in `frames` (the beat grid), open `open_frames` before
+    and after. Every instance of the variant claps together (they share its rig). Chest height (_pose_clap).
+    wide: open to _pose_clap_open (hands well apart, elbows out), so one clapper reads in a frozen crowd (O12)."""
+    rig = next(o for o in coll.objects if o.type == "ARMATURE")
+    shots = {}
+    for closed in (True, False):
+        if wide and not closed:
+            _pose_clap_open(rig, 0.5)
+        else:
+            _pose_clap(rig, 0.5, closed)
+        shots[closed] = _snap(rig, _ARM_BONES)
+    _key(rig, shots[False], 1, _ARM_BONES)
+    for f in frames:
+        _key(rig, shots[False], f - open_frames, _ARM_BONES)
+        _key(rig, shots[True], f, _ARM_BONES)
+        _key(rig, shots[False], f + open_frames, _ARM_BONES)
+
+
+def key_mugs(coll, frames, up=18, ease=6):
+    """Key a mug_raise variant: held low, raised on each frame in `frames` (the Hey!s; reaching the top on the frame),
+    held `up` frames, then lowered."""
+    rig = next(o for o in coll.objects if o.type == "ARMATURE")
+    bones = [P + f"Right{b}" for b in ("Arm", "ForeArm", "Hand")]
+    _pose_mug_low(rig, 0.5)
+    low = _snap(rig, bones)
+    _pose_mug(rig, 0.5)
+    high = _snap(rig, bones)
+    _key(rig, low, 1, bones)
+    for f in frames:
+        _key(rig, low, f - ease, bones)
+        _key(rig, high, f, bones)
+        _key(rig, high, f + up, bones)
+        _key(rig, low, f + up + 2 * ease, bones)
+
+
+def still(src):
+    """A frozen copy of any linked library person collection (its rig's motion loop dropped, the pose kept): the hard
+    stops' freezes (O12, O21), where only the late clapper and Switch move."""
+    name = f"st_{src.name}"
+    if name in bpy.data.collections:
+        return bpy.data.collections[name]
+    coll = bpy.data.collections.new(name)
+    _holding().children.link(coll)
+    m = {o: o.copy() for o in src.objects}
+    for o, c in m.items():
+        coll.objects.link(c)
+        if o.parent in m:
+            c.parent = m[o.parent]
+        for md in getattr(c, "modifiers", []):
+            if md.type == "ARMATURE" and md.object in m:
+                md.object = m[md.object]
+    for c in m.values():
+        if c.type == "ARMATURE" and c.animation_data:
+            c.animation_data.action = None
+    coll["pose"] = src.get("pose", src.name)
+    return coll

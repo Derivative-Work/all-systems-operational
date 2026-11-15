@@ -225,3 +225,37 @@ Append-only. One entry per generation, render or analysis step.
 - **Compositions:** `M5-*` in `Root.tsx`, each its shot's exact length, events on the M2 cue frames (O02 row flips at 4.86 s song time; O05 drains to empty on "empty"; O08 echoes on 44.75/47.16/49.51/50.91 s; O13 card then the red row on "errors"; O18 board lines on their sung lines).
 - **Command:** `scripts/m5_remotion.sh` (new; adapted from Ever Present's, 9301de4) → `renders/m5/remotion/`: 13 h264 files (full-frame shots, end cards, the O04 phone screen at 540×1170 and the O18 whiteboard at 1200×750 as textures) and 11 ProRes 4444 overlays with alpha, all at `--scale=0.5`. 3 min 48 s wall time; per piece in `log/render_logs/m5_remotion.log`.
 - **Checked** at single frames before the run (scratchpad stills): the O11 overlay (the chat column first overlapped the Switch inset; shortened), the disclosure panel, the O08 lower third, the whiteboard at frame 470 and the phone screen.
+
+## 14. 2026-11-15 — M5: pose fixes; Blender shots rendered with motion
+
+- **Poses** (`blender/poses.py`; human interventions 8, "hands held to their heads as if confused"):
+  - `push` (O11) and `clap_open` (O12's clapper) now clap at chest height, not face height.
+  - `fist` lifts the fist clear of the head on a bent elbow (upper arm out and a little up, forearm upright). From behind, the old fist beside the head also read as a hand at the head.
+  - No arm points straight forward or forward-and-up; claps are at the chest. Checked at board size (`blender/board.py --only O11,O12c`, scratchpad) and in the animatic.
+  - New for animation: `key_claps` (claps keyed on given frames; `wide` opens to `clap_open`), `key_mugs` (a lowered mug pose and the toast keyed on given frames; the mug is now parented to the hand bone) and `still` (a frozen copy of a library person, for the freezes).
+- **Script:** `blender/animatic.py` (new; adapted from Ever Present's `blender/shots.py`, 9301de4). It builds each shot from the M3 board's room, state and camera (`board.FRAMES`), adds a camera move and keys the cued events on the cue frames from `timing/shot_times.json`. Per shot in decisions 11:
+  - claps on beats 2 and 4 of the grid (O03 from the drums' entry, O09, O11, O17, O19b, O20);
+  - O10: Switch ON and ON AIR lit at 85.38 s;
+  - O12: frozen, with the late clapper closing on 94.39 and 95.59 s (the 96.79 s clap is the cut) and Switch dropping as ON AIR goes dark;
+  - O15: the LED dims on "song" (115.40 s) and is back on "(It wrote it anyway)" (117.04 s);
+  - O16: the bulb cascade from 119.05 to 121.48 s, with the strand lights keyed out;
+  - O17: mugs up on the four Hey!s;
+  - O18: the Remotion whiteboard as a movie texture;
+  - O19: two parts (decisions 11);
+  - O21: frozen, Switch drops at 202.42 s;
+  - O22: one walker up the path and over the crest.
+  - Small fix to `blender/sets.py`: optional `clapper_at`/`clapper_face` state keys (O12 only; the board's defaults are unchanged).
+- **Settings:** 960×540, 30 fps, Eevee, 8 samples, JPEG q92. No random process beyond the sets' seeded ones (`config/seeds.json` main 41).
+- **Command:** `/usr/bin/time -v blender -b --factory-startup --python blender/animatic.py -- --out renders/m5/blender` → 19 sequences, 6,957 frames (O08c's 72-frame cutaway and O19 in two parts included).
+  - 20 min 31 s wall time; per shot 4–178 s, about 0.15–0.2 s a frame (log `log/render_logs/m5_blender.log`).
+  - Peak: Blender 4.4 GB RSS; system RAM 8.5 GB used of 38; VRAM 3.4 GB (sampled every 2 s, `log/render_logs/m5_blender_mem.log`).
+  - The sequences were then moved to `renders/m5/frames_blender/` (frame sequences stay out of the manifest, as `scripts/manifest.sh` intends); the script's default is now that path.
+- **Re-renders after review:**
+  - O20/O21: the lamp post with Switch had left the frame. O20's push was shortened. 155 s (`m5_blender_r2.log`).
+  - O12: the clapper was unreadable. First the board's O12c camera, then the clapper side-on against a window with wider claps (`m5_blender_r3.log`, `m5_blender_r4.log`; 13 s each).
+  - Superseded sequences are in `archive/renders/m5/frames_blender_v1/` (O12, O12_r2, O12_r3, O20, O21).
+- **O07t:** `blender … -- --only O07t` → `renders/m5/O07t.png`, the server rack on a transparent film for the fog-tower alternate.
+- **Tests before the run** (scratchpad, `--frames`): every shot at 3–4 frames. Fixes made before the full run:
+  - O04's camera now eases toward the phone; with the old push, the phone slid out of frame and its screen couldn't be pinned.
+  - O14's push was shortened (it cropped the probes).
+  - O22's walker stays on the gravel path, which floats up to 0.5 m over the slope near its far end. Below it, his legs were hidden.

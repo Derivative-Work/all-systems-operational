@@ -57,3 +57,17 @@ Append-only. Deviations from the brief, each with why and who decided.
 
 - The plan says 1280×720. LTX-2.3 works in multiples of 32, so the template's output is 1280×704, as Ever Present's clips were. The still is cropped to 16:9 at the edit or scaled to fit; nothing important is near the top or bottom edge.
 - The brief asks for a locked-off camera. All four takes push in (production log 11). The agent recommends s41, the gentlest. At the edit it can either be counter-cropped to hold still (framed as its last frame, about 12% softer) or kept as a slow push. The human decides at the gate.
+
+## 11. 2026-11-15 — M5 animatic: how some shots are staged (agent; for the human at the M5 gate)
+
+- **O08's inserts:** the brief puts IT's "we are aware" reply and the optional treehouse cutaway both on the first echo. Both are in: the framed phone with the reply lands on echo 1 (46.02 s) and holds to echo 2 (48.35 s), then the treehouse cutaway (night, "dramatization") holds 4 beats to 50.75 s, then back to the host. The lower-third echoes run over all three. Either insert can be dropped.
+- **O19 in two parts:** the treehouse and the park are separate Blender sets, so the "one continuous camera move" is two moves cross-faded through the drizzle (10 frames): the door opens and the camera goes out onto the deck and up into the trees (5.8 s), then it rises over the hill's crest to the crowd (6.2 s). A single move needs both sets in one scene; that's M7 work.
+- **O11's Switch:** Switch is on the wall by the door, out of O11's frame, so he strains in a small inset in the livestream overlay (bottom right), from the second Hey!.
+- **O13:** the "We'll be right back" card holds to "errors" (97.75 s), then the status page with the row back to red, to the band's return.
+- **O12 and O21 freezes:** everyone is a frozen copy of their pose; only the late clapper (O12), Switch and the ON AIR sign move. O12: the sign is lit for 3 frames, then dark as Switch drops. O21: Switch sags for one beat, then drops on 202.42 s.
+- **O12's camera and clapper:** from the board's O12 wide the late clapper was too small to read, so O12 uses the board's close camera (O12c, same state; ON AIR, Switch and the 50.3 FM sign are still in frame). The clapper stands side-on to it, against a window (`clapper_at`/`clapper_face` in `blender/sets.py`, used only here), and opens wider between claps. M3's board is unchanged.
+- **O21's camera** is O20's last frame. O20's push was shortened so the lamp post with Switch stays in frame through both.
+- **O06:** the clip plays from its first frame at its own speed. Its curl is continuous, with no single page event to put on "fax", so nothing was shifted.
+- **O07 alternate** (excerpt only): the fog-tower plate s44 with the void's server rack laid on the lawn as a cut-out, the tower's top half pixelated (the stalled block), a slow push, the same caption.
+- **End sequence:** end card, "Next incident: TBD", fact card (as approved), then the full disclosure card (18 s, the overlay's length), which decisions 7 promised "full length in the end sequence" but the M2 post-roll left out. The animatic is 289.97 s, not 271.98. If approved, M7 adds it to `config/shot_cues.json` `post_roll`; or it can go before the fact card.
+- **O22:** the park is empty from the start of the shot (the crowd is gone after the freeze); one walker goes up the path and over the crest.

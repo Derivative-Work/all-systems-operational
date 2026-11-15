@@ -327,7 +327,8 @@ def live_room(st):
         fixed.append(("phone_holder", "phone", (1.3, 3.25), 40))
     if st.get("clapper"):
         # the crowd's back edge, nearest the camera, turned a little off the band so O12c's camera sees both hands
-        fixed.append(("late_clapper", "clap_open", (-0.5, 3.0), 33, (-2.3, 5.2)))
+        # M5: clapper_at / clapper_face (optional) move them for the animatic's O12, side-on against a window
+        fixed.append(("late_clapper", "clap_open", st.get("clapper_at", (-0.5, 3.0)), 33, st.get("clapper_face", (-2.3, 5.2))))
     crowd("crowd", 20, center, size, target, mix, "live_crowd", fixed, aisle=0.5 if mode == "cheer" else 0.0)
     finish("#b9bdc0", R["fill"])
 
