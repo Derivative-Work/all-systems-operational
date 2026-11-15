@@ -156,3 +156,35 @@ Append-only. One entry per generation, render or analysis step.
   - Length: 5 s for a 4.81 s shot. The page should curl at 2.38 s into the shot, on "fax" (the cue mark); the timing is fitted at the edit.
   - Motion: a locked-off camera; the page slowly curls further up and out of the tray; the monitors flicker faintly; soft rain light drifts across the desk; the lamp stays steady; nobody enters the frame.
   - Memory: LTX is heavier than FLUX in RAM. Run it with nothing else open, or start ComfyUI with a lower RAM cache.
+
+## 11. 2026-11-15 — M4: O06 image-to-video, four LTX-2.3 takes (none locked-off; s41 recommended)
+
+- **Checks first:** 33 GB free on disk; 34 GB RAM available, 8.8 GB swap already in use; the GPU idle (361 MiB); ComfyUI not running.
+- **ComfyUI:** v0.42.1, started by the agent with Ever Present's command and no extra memory flags, as Ever Present ran LTX: `~/ComfyUI/.venv/bin/python ~/ComfyUI/main.py --listen 127.0.0.1 --port 8188` (log `log/m4_comfy_clips.log`). One job at a time. Stopped by the agent afterwards; RAM went back to 3 GB used.
+- **Scripts and graph:**
+  - `comfy/api/video_ltx2_3_i2v.api.json` is copied unchanged from Ever Present (90c999d; sha256 `5d537d56…760718d`). It is the API form of ComfyUI's `video_ltx2_3_i2v` template, Comfy Org, MIT.
+  - `scripts/clips.py` is adapted from Ever Present's (up to 9645c9b). The still comes from `config/m4_clips.json`, seeds from `config/seeds.json` by name, and rows go to `log/prompts/m4_fax.md`. Node settings are unchanged.
+  - `scripts/m4_clip_review.py` is new, with its frame sheet adapted from Ever Present's `scripts/clip_sheet.py` (6a9070b).
+- **Config:** `config/m4_clips.json` is new. `config/seeds.json` gains `m4_clips` (41, 42: the main seed and the next) and `m4_clips_v2` (43, 44, for the one allowed revision).
+- **Models** (sha256):
+  - `ltx-2.3-22b-dev-fp8.safetensors` `28606c5b5a06ce56f896d4dfcb20f212739e07a68fbe48e53638188449d26450`
+  - `ltx_2.3_22b_distilled_1.1_lora_dynamic_fro09_avg_rank_111_bf16.safetensors` (strength 0.5) `31e0c0195fb841bf31af78e8b60858f489e87ddcea4a5239abc80943da65e3ac`
+  - `gemma_3_12B_it_fp4_mixed.safetensors` `aaca463d11e6d8d2a4bdb0d6299214c15ef78a3f73e0ef8113d5a9d0219b3f6d`
+  - `ltx-2.3-spatial-upscaler-x2-1.1.safetensors` `5f416311fa8172b65af67530758964708d29a317b830d689a51143b7f91913ed`
+- **Settings:** the template's two stages (8 + 3 sigmas, euler, CFG 1), prompt enhancer off. 1280×704 (LTX rounds to 32; decisions 10), 24 fps, 5 s = 121 frames, from `assets/gen/stills/O06_fax_a/O06_fax_a_s45.png`.
+- **Commands:**
+  - `.venv/bin/python -I scripts/clips.py O06 > log/m4_clips.log`: seeds 41, 42. 40.9 s and 19.0 s; 60 s wall time with model loading.
+  - Both takes pushed in, so the one allowed revision followed: `.venv/bin/python -I scripts/clips.py O06 --tag v2 --seeds-key m4_clips_v2 --motion "<v2>" >> log/m4_clips.log`, seeds 43, 44. 20.2 s and 18.0 s; 38 s wall time.
+  - Wall times are in `log/m4_clips.time`. Prompts (v1, v2) are verbatim in `log/prompts/m4_fax.md`.
+- **Memory** (sampled every 2 s): peak 37.0 GB RAM used of 38 (2.0 GB available), swap up from 8.8 to 11.5 GB, VRAM peak 31.9 GB of 32.6. Nothing was killed. Idle ComfyUI held about 32 GB until stopped.
+- **Outputs:** `assets/gen/clips/O06/O06_s41.mp4`, `O06_s42.mp4`, `O06_v2_s43.mp4`, `O06_v2_s44.mp4` (git-ignored, in the manifest).
+- **Review:** `.venv/bin/python -I scripts/m4_clip_review.py O06 review/m4_fax_clips.jpg review/m4_fax_clips.mp4` → `review/m4_fax_clips.jpg` (frames 1, 30, 60, 90, 121 per take, with notes) and `review/m4_fax_clips.mp4` (2×2 preview, 640 px each; in the manifest).
+  - The agent viewed every frame on the sheet at full size, plus crops of the window and the monitors. Camera motion was measured from frame 1 to frame 121 (ORB features and a similarity fit).
+  - **All four push in**, despite "locked-off" (v1) and "fixed tripod … no zoom, no push-in" (v2). Scale by the last frame: s41 1.12, s42 1.31, v2 s43 1.09, v2 s44 1.22.
+  - **s41, recommended:** a smooth, slow push. The page curls further up and out and keeps its shape. The monitors and the rain on the glass shimmer faintly, the lamp stays steady, and nobody appears. The monitor pseudo-text stays unreadable, as in the still.
+  - **Rejected:**
+    - s42: a strong push that crops the lamp; the page barely moves.
+    - v2 s43: the page stands up, then folds forward like a lid.
+    - v2 s44: the strongest push; the page grows tall and the mug leaves the frame.
+  - No take shows faces, people, logos or water.
+  - Notes are in `config/m4_clips.json` `review`; `kept` is left for the human.

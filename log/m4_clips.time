@@ -1,0 +1,46 @@
+	Command being timed: ".venv/bin/python -I scripts/clips.py O06"
+	User time (seconds): 0.05
+	System time (seconds): 0.04
+	Percent of CPU this job got: 0%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:00.11
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 24864
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1524
+	Minor (reclaiming a frame) page faults: 5211
+	Voluntary context switches: 1721
+	Involuntary context switches: 1
+	Swaps: 0
+	File system inputs: 83888
+	File system outputs: 3608
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+	Command being timed: ".venv/bin/python -I scripts/clips.py O06 --tag v2 --seeds-key m4_clips_v2 --motion A fixed tripod shot: the framing stays exactly the same from the first frame to the last, no zoom, no push-in, no pan, no tilt; the desk, the fax machine, the monitors, the lamp, the phone and the mug stay exactly where they are. The only motion: the white sheet of paper in the fax machine's top slot slowly curls further up and back; the charts on the monitors flicker faintly; a soft shimmer of rain-light drifts slowly across the desk. Nobody enters the frame. No new text or logos appear"
+	User time (seconds): 0.04
+	System time (seconds): 0.01
+	Percent of CPU this job got: 0%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:38.25
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 25376
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 3
+	Minor (reclaiming a frame) page faults: 4812
+	Voluntary context switches: 159
+	Involuntary context switches: 0
+	Swaps: 0
+	File system inputs: 18720
+	File system outputs: 3856
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

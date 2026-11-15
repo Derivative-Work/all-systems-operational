@@ -1,0 +1,29 @@
+{
+  "_doc": "M4 image-to-video clips (scripts/clips.py): LTX-2.3 i2v, ComfyUI template video_ltx2_3_i2v (comfy/api/video_ltx2_3_i2v.api.json, copied from Ever Present 90c999d), as in Ever Present's M4. Prompt = motion + '. ' + style. 1280x720, 24 fps; seconds = the shot rounded up. Seeds from config/seeds.json (m4_clips). The prompt enhancer stays off, so the prompt is used as written. The template's audio branch runs but its audio is discarded. Picks go in 'kept' after the human's gate.",
+  "size": [
+    1280,
+    720
+  ],
+  "fps": 24,
+  "seconds": 5,
+  "style": "Realistic film footage, night interior, dark and moody, low-key light, subtle 35mm film grain, a completely static locked-off camera, every object keeps its exact shape, the room stays empty, no people, no hands, no faces, no text, no logos",
+  "clips": {
+    "O06": {
+      "still": "assets/gen/stills/O06_fax_a/O06_fax_a_s45.png",
+      "shot_s": 4.81,
+      "mark_s": 2.38,
+      "seeds_key": "m4_clips",
+      "motion": "Locked-off static shot, the camera does not move. The single white sheet of paper slowly curls further up and out of the fax machine's output tray. The computer monitors flicker faintly. Soft light from the rain on the window drifts slowly across the desk. The desk lamp stays steady. Nobody enters the frame. No new text or logos appear",
+      "motion_v2": "A fixed tripod shot: the framing stays exactly the same from the first frame to the last, no zoom, no push-in, no pan, no tilt; the desk, the fax machine, the monitors, the lamp, the phone and the mug stay exactly where they are. The only motion: the white sheet of paper in the fax machine's top slot slowly curls further up and back; the charts on the monitors flicker faintly; a soft shimmer of rain-light drifts slowly across the desk. Nobody enters the frame. No new text or logos appear",
+      "_v2": "v1 (seeds 41-42) pushed in on both seeds; v2 is the one revised prompt allowed, seeds m4_clips_v2 (43-44), tag v2"
+    }
+  },
+  "kept": {},
+  "review": {
+    "_doc": "Agent's notes after viewing frames 1, 30, 60, 90 and 121 of each take at full size, crops of the window and monitors, and a camera-motion estimate (ORB + partial affine, frame 1 to frame 121; production log 11). None is locked-off: LTX pushed in on all four. The human picks at the M4 gate.",
+    "O06_s41": "RECOMMENDED (with a flaw): slow, smooth push-in (scale 1.12, 49 px left by the end); the page curls further up and out naturally and keeps its shape; monitors and rain on glass shimmer faintly; lamp steady; no people, no new text. The push can be held off at the edit by a matching counter-crop (framed as frame 121; about 12% softer) or kept as a slow push.",
+    "O06_s42": "REJECT: strong push-in (scale 1.31, 211 px) that crops the lamp and the left monitor; the page barely moves.",
+    "O06_v2_s43": "REJECT: the page morphs: it stands up straight at mid-clip, then folds forward into a flat flap like a lid; push-in 1.09.",
+    "O06_v2_s44": "REJECT: strongest push-in (scale 1.22-1.30) to a close shot of the fax; the page grows into a tall sheet; the mug leaves the frame."
+  }
+}

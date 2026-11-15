@@ -52,3 +52,8 @@ Append-only. Deviations from the brief, each with why and who decided.
 ## 9. 2026-11-15 — O17's "Ho!s" read as the Hey!s (agent)
 
 - O17 has mugs raised "on the Ho!s", but since v1.1 the only shout is "Hey!". The mug raises are cued on chorus 2's four Hey!s (124.69, 126.86, 129.24, 131.60 s).
+
+## 10. 2026-11-15 — O06 clip is 1280×704 and not locked-off (agent)
+
+- The plan says 1280×720. LTX-2.3 works in multiples of 32, so the template's output is 1280×704, as Ever Present's clips were. The still is cropped to 16:9 at the edit or scaled to fit; nothing important is near the top or bottom edge.
+- The brief asks for a locked-off camera. All four takes push in (production log 11). The agent recommends s41, the gentlest. At the edit it can either be counter-cropped to hold still (framed as its last frame, about 12% softer) or kept as a slow push. The human decides at the gate.

@@ -53,3 +53,31 @@ A wide empty mown lawn on a hilltop under a heavy pale grey sky, an open patch o
 | O06_fax_b | 42 | 1920×1088 | `assets/gen/stills/O06_fax_b/O06_fax_b_s42.png` | 108.9 | 2026-11-15T09:21:07-05:00 |
 | O06_fax_b | 43 | 1920×1088 | `assets/gen/stills/O06_fax_b/O06_fax_b_s43.png` | 55.1 | 2026-11-15T09:22:02-05:00 |
 | O06_fax_b | 44 | 1920×1088 | `assets/gen/stills/O06_fax_b/O06_fax_b_s44.png` | — | 2026-11-15T09:22:55-05:00 (ComfyUI output file time) |
+
+## Clips: LTX-2.3 image-to-video
+
+ComfyUI template `video_ltx2_3_i2v` (`ltx-2.3-22b-dev-fp8` + distilled LoRA 0.5, Gemma 3 12B fp4 encoder, x2 spatial upscaler), via `scripts/clips.py`; graph as in Ever Present. Prompt = motion + '. ' + the clip style (`config/m4_clips.json`), prompt enhancer off. The template's own negative prompt is unchanged ("pc game, console game, video game, cartoon, childish, ugly"; CFG 1, as in the template). 1280×720, 24 fps, 5 s (121 frames). Seeds from `config/seeds.json` `m4_clips` (41, 42); the second-stage noise seed is seed + 1 (42, 43).
+
+### O06 (from `assets/gen/stills/O06_fax_a/O06_fax_a_s45.png`), prompt v1
+
+```
+Locked-off static shot, the camera does not move. The single white sheet of paper slowly curls further up and out of the fax machine's output tray. The computer monitors flicker faintly. Soft light from the rain on the window drifts slowly across the desk. The desk lamp stays steady. Nobody enters the frame. No new text or logos appear. Realistic film footage, night interior, dark and moody, low-key light, subtle 35mm film grain, a completely static locked-off camera, every object keeps its exact shape, the room stays empty, no people, no hands, no faces, no text, no logos
+```
+
+| Clip | Still | Seed | Output | Seconds | When |
+| --- | --- | --- | --- | --- | --- |
+| O06 | `assets/gen/stills/O06_fax_a/O06_fax_a_s45.png` | 41 | `assets/gen/clips/O06/O06_s41.mp4` | 40.9 | 2026-11-15T09:35:57-05:00 |
+| O06 | `assets/gen/stills/O06_fax_a/O06_fax_a_s45.png` | 42 | `assets/gen/clips/O06/O06_s42.mp4` | 19.0 | 2026-11-15T09:36:16-05:00 |
+
+### O06, prompt v2 (one revision: both v1 seeds pushed in)
+
+Seeds `m4_clips_v2` (43, 44); second-stage seeds 44, 45. Same still, style and settings.
+
+```
+A fixed tripod shot: the framing stays exactly the same from the first frame to the last, no zoom, no push-in, no pan, no tilt; the desk, the fax machine, the monitors, the lamp, the phone and the mug stay exactly where they are. The only motion: the white sheet of paper in the fax machine's top slot slowly curls further up and back; the charts on the monitors flicker faintly; a soft shimmer of rain-light drifts slowly across the desk. Nobody enters the frame. No new text or logos appear. Realistic film footage, night interior, dark and moody, low-key light, subtle 35mm film grain, a completely static locked-off camera, every object keeps its exact shape, the room stays empty, no people, no hands, no faces, no text, no logos
+```
+
+| Clip | Still | Seed | Output | Seconds | When |
+| --- | --- | --- | --- | --- | --- |
+| O06 v2 | `assets/gen/stills/O06_fax_a/O06_fax_a_s45.png` | 43 | `assets/gen/clips/O06/O06_v2_s43.mp4` | 20.2 | 2026-11-15T09:37:14-05:00 |
+| O06 v2 | `assets/gen/stills/O06_fax_a/O06_fax_a_s45.png` | 44 | `assets/gen/clips/O06/O06_v2_s44.mp4` | 18.0 | 2026-11-15T09:37:32-05:00 |
