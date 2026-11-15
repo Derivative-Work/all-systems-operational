@@ -69,3 +69,31 @@ Append-only. One entry per generation, render or analysis step.
 - Lyrics as sung: `log/ai_changes.md` 2. "fail" is sung whole.
 - **Correction to entry 2:** stop 1 starts at about 93.9 s, not 95.06. The master in 0.1 s windows: −22 dB through "fail", −34.5 dB at 93.9, −50 dB at 94.1. The 94.39 s clap rings (−28 dB), then it decays to digital silence at 95.06. So three claps fall in the stop (94.39, 95.59 and 96.79 s), then the solo "We're seeing renewed errors" (97.08–98.44 s), then the band. Decisions 4 still holds: one steady clap every two beats.
 - Listening clips from the post-filtered master: `audio/check/listen_stop1.wav` (89–100 s), `audio/check/listen_stop2.wav` (196–210 s).
+
+## 8. 2026-11-15 — M3: grey-box sets and lighting board (built by a subagent; reviewed by the agent)
+
+- **Code** (all new; `blender/ep/` and `blender/lib/` untouched):
+  - `blender/aso_kit.py`: links the people, puts the Remotion textures on planes, and holds the rain-on-glass, fog and string-light materials, the world and Eevee settings.
+  - `blender/poses.py`: the poses the library lacks. They are built at set time from a linked person's rig, re-aimed with figlib.
+  - `blender/aso_props.py`: acoustic guitar, banjo, tambourine, the 22" kick drum with the SESSION 503 head, chairs, mugs, server rack, laptops, speakerphone, chargers, evergreens, the lamp post with its outlet box, an umbrella. All blank.
+  - `blender/sets.py`: `build(room, state)` for live, cafe, treehouse, park and void.
+  - `blender/board.py`; `scripts/board_sheet.py` (from Ever Present); `config/aso_look.json`, holding this video's palette and light levels (`config/look.json` is unchanged).
+- **Textures:** `npx remotion still <id> assets/gen/tex/<name>.png --frame=<f> --image-format=png --concurrency=2 --gl=swangle`. That gives kick_head, table_tent, polaroid, onair_lit/unlit, station_sign, whiteboard_full (f300), switch_on/off, and phone_chat (f140, not yet mapped).
+- **Board:** `blender -b --factory-startup --python blender/board.py -- --out review/m3/board`. 18 stills at 1280×720, Eevee, 32 samples, 0.5–1.6 s each on the RTX 5090; building each set takes 0.1–25 s, about 3.5 min for the whole board. Shots: O03, O04, O07, O08, O08c, O09, O10, O11, O12, O12c, O14–O18, O19, O20, O22. Sheet: `.venv/bin/python -I scripts/board_sheet.py review/m3/board review/m3_board.jpg 3`.
+- **Rooms** (metres):
+  - Live room 14 × 10 × 4.6: five tall rainy windows in a dark panelled wall, nothing outside (no plaza), warm practicals, red rugs, no blue light.
+  - Cafe 12 × 9 × 3.6: steamed windows, string lights.
+  - Treehouse 7 × 6.
+  - Park: hill crest, generic skyline 430–490 m away in fog; no Needle, no water.
+- **Cast and crowds:** crowds of 20 (live room), 16 (cafe) and 24 (park), and 3 in the treehouse; library people 3, 8, 12, 17 and 22 are the band, 30 the host. Probes at 1.7× scale: green Anthropic, amber OpenAI.
+- **Agent review**, three rounds; drafts in `archive/review/m3/board_v1_intermediate/` (`_d1`–`_d7`, `_r1`–`_r10`):
+  1. **Faces:** O18's band and O17's crowd were front-lit with readable faces. The light came from bounce under the skylights, and Eevee doesn't support the camera-ray world trick. Fix: an emissive sky dome over a near-black world, the skylights moved behind the band, the whiteboard glowing at 2.4, O18 at −1.0 EV, O17's string lights cut to 5 W practicals at −0.6 EV. Both now read as silhouettes.
+  2. **Worship gesture:** the crowds used Ever Present's "raised" pose (open palms overhead), which reads as worship. Replaced in every crowd with clap, clap_open, fist, mug_raise and phone. Only the tambourine player keeps a raised arm.
+  3. **Salute/rifle read:** O11's first "push" pose gave single arms extended straight forward and up, which reads as a straight-arm salute or a rifle in silhouette. Rule now at the top of `blender/poses.py`: no arm straight from shoulder to wrist pointing forward or forward-and-up. `push` became a lean-in crush with face-height claps; `fist` is an elbow-down pump; `mug_raise` is an L-shaped toast. O10's host uses a new bent-arm `reach`. Checked at full size by both agents: O09, O11, O17, O20.
+- **Open for the final look:**
+  - O19's evergreens and fog are flat; the park trees are cones and the drizzle is heavy near the camera.
+  - O04's phone has the placeholder screen (the chat texture isn't mapped yet).
+  - Faint profiles at frame edges: O04 (band 3 m away, the holder's cheek), O11 (one at the top right), O17 (left and right edges), O12/O12c (side profiles against the wall).
+  - Poses needing a figure-library rebuild (`blender/ep/make_figures.py`) for grips and motion loops: clap, mug_raise (mug parented to the hand), push, fist, instrument holds for guitar and banjo, tambourine, kick drum.
+  - The probes' folded arms dip into their coasters; the Polaroid photo is a placeholder.
+  - O22's home-movie grain and warm grade are post work.

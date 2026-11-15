@@ -1,0 +1,108 @@
+{
+  "_doc": "Look numbers for the four Session 503 rooms and the O07 void (M3 grey-box, blender/aso_kit.py and blender/sets.py). Grey Seattle daylight backlights everyone; interiors warm wood and felt, no blue stage light (brief: blue rejected). config/look.json stays the probe kit's (sr_kit.py).",
+  "agx_look": "AgX - Medium High Contrast",
+  "exposure": 0.0,
+  "palette": {
+    "floor_wood": "#4a3222",
+    "wall": "#8c8579",
+    "wall_dark": "#4a4540",
+    "panel": "#5a4a3c",
+    "panel2": "#3e4a44",
+    "ceiling": "#7d776e",
+    "trim": "#3a2c22",
+    "rug1": "#5a221a",
+    "rug2": "#3f4a3a",
+    "rug3": "#8a6a3a",
+    "console": "#2a2624",
+    "metal": "#3a3b3e",
+    "door": "#4a3626",
+    "conduit": "#9a9a98",
+    "cafe_wall": "#7a6650",
+    "cafe_floor": "#3e2a1e",
+    "counter": "#3a2a20",
+    "table": "#6e4e34",
+    "chair_a": "#6e2e24",
+    "chair_b": "#2f4a3e",
+    "chair_c": "#b08a50",
+    "chair_d": "#2c2c30",
+    "mug": "#e8e2d6",
+    "mug2": "#c46a3a",
+    "mug3": "#3f5a6a",
+    "frame": "#2a2018",
+    "cedar": "#6a4430",
+    "cedar_dark": "#3e2818",
+    "moss": "#4f6a2a",
+    "whiteboard_frame": "#c8c8c4",
+    "laptop": "#9a9ca0",
+    "cable": "#18181a",
+    "grass": "#4a5a38",
+    "path": "#6a665e",
+    "evergreen": "#24342a",
+    "trunk": "#3a2a20",
+    "lamp_post": "#2a2c2e",
+    "outlet_box": "#5a5e60",
+    "umbrella": "#7a2a24",
+    "chroma": "#1fbf3a",
+    "rack": "#1a1b1e",
+    "rack_face": "#2c2e32",
+    "fog": "#c6cacc",
+    "sky_top": "#dfe2e3",
+    "sky_low": "#c3c8cb",
+    "bulb": "#ffc27a",
+    "practical": "#ffcf9a",
+    "daylight": "#e9ecee",
+    "spruce": "#c9a36a",
+    "rosewood": "#3a2216",
+    "banjo_head": "#e6dfcc",
+    "banjo_rim": "#5a3a22",
+    "tamb": "#3a2a1c",
+    "kick_shell": "#6a2a1e",
+    "kick_hoop": "#2a1c14",
+    "phone_body": "#2a2b2d",
+    "brick": "#e4e2dc",
+    "paper": "#efe8da"
+  },
+  "rooms": {
+    "live": {
+      "size": [
+        14.0,
+        10.0,
+        4.6
+      ],
+      "window_strength": 6.0,
+      "window_light": 55,
+      "fill": 0.03,
+      "practicals": 25
+    },
+    "cafe": {
+      "size": [
+        12.0,
+        9.0,
+        3.6
+      ],
+      "window_strength": 4.0,
+      "window_light": 220,
+      "fill": 0.03,
+      "bulbs": 18.0
+    },
+    "treehouse": {
+      "size": [
+        7.0,
+        6.0,
+        3.2
+      ],
+      "window_strength": 2.8,
+      "window_light": 110,
+      "fill": 0.08
+    },
+    "park": {
+      "sky": 1.6,
+      "sun": 2.5,
+      "fog_dist": 70.0,
+      "sky_light": 0.3
+    },
+    "void": {
+      "chroma_emit": 0.55
+    }
+  }
+}
