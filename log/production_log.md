@@ -409,3 +409,43 @@ Append-only. One entry per generation, render or analysis step.
 - **Kick closes reframed:** from the front, the foot was hidden behind the drum. The kick closes now look from the player's right, low, so the foot on the pedal side and the SESSION 503 head share the frame (O03c, O08e, O09d, O11c, O14b, O17a, O19c, O20d; checked on stills).
 - **Pose rules:** nothing here changes an arm pose. The sway and lean turn whole people about their feet; the claps and mugs are M5's poses. `blender/poses.py` is unchanged.
 - **Not done (M5c):** strumming, the banjo hand, the tambourine arm, fist pumps on the Hey!s, the walk-off's planted feet, singing heads. The library's own sway loops still run under all of it.
+
+## 20. 2026-11-15 — M5b: rendered, assembled and reviewed
+
+- **Checks first:** the RTX 5090 idle (361 MiB), 34 GB RAM available, 32 GB free on disk.
+- **Blender:** `/usr/bin/time -v blender -b --factory-startup --python blender/coverage.py -- --out renders/m5b/frames` → 83 shot sequences, 6,405 frames (960×540, Eevee, 8 samples, JPEG q92).
+  - 21 min 36 s wall time, per O-shot 4–219 s; about 0.2 s a frame with the haze (log `log/render_logs/m5b_blender.log`).
+  - Peak: Blender 4.4 GB RSS; system RAM 11.1 GB used of 38; VRAM 3.4 GB (sampled every 5 s, `log/render_logs/m5b_blender_mem.log`).
+  - Frames: 521 MB in `renders/m5b/frames/` (out of the manifest, like M5's).
+- **Assembly:** `scripts/m5b_animatic.py` (new). It reuses M5's `scripts/animatic.py` composites: overlays, O04's pinned screen, O06's clip, O08's inserts, O19's dissolve, O22's grade, the end sequence. Each Blender O-shot is now the concatenation of its shots. The label names the shot and its angle.
+  - `.venv/bin/python -I scripts/m5b_animatic.py` → `review/m5b_animatic.mp4`: 960×540, 30 fps, h264 + AAC 192k, the post-filtered master, 8,699 frames = 289.97 s (M5's length and end order). 108 MB. 1 min 4 s, 5.2 GB peak RSS. Logs: `log/render_logs/m5b_assembly.log`, `m5b_assembly_final.log`. Segments in `renders/m5b/segments/`.
+  - `… --share` → `review/m5b_animatic_share.mp4` (h264 650 kb/s, AAC 128k): 25.0 MB.
+  - `… --sheet` → `review/m5b_coverage_sheet.jpg`: one frame per shot (its middle), with its id, length and framing; 94 tiles.
+  - M5's outputs (`review/m5_*`, `renders/m5/`) are untouched.
+- **Checks:**
+  - **Cuts:** `… --check` (`log/render_logs/m5b_cut_check.log`).
+    - For all 93 cuts, the review label changes on the planned frame. For 91 of them, the biggest picture change within ±2 frames is that frame too.
+    - The two exceptions are ON AIR flickering on and off 2 frames into O11g, and 1 frame before O12a's cut. The cut itself is on the frame.
+    - O19b is M5's dissolve.
+  - **Audio:** cross-correlated against M5's animatic at 40–50 s: lag 0.
+  - **Events:** each checked on frames in the shot that covers it:
+    - O03's lower third; O04's phone screen (pinned); O08's echoes, reply and cutaway; O09's 503 head and uptime ticker.
+    - O10's Switch and ON AIR; O11's viewer count, chat and inset, with ON AIR flickering in O11g; O12's freeze.
+    - O14's table tent and Polaroid; O15's LED; O16's cascade from the hub (O16a) out the strands (O16b).
+    - O17's mugs on the Hey!s (O17b–e) and the disclosure panel over O17a–h; O18's whiteboard lines.
+    - O19's lower third back to green; O20's umbrella, Switch straining and the lamp; O21's freeze on O20j's angle; O22's grade, Switch OFF and the walker.
+  - **Guardrails:** every Blender shot viewed at full size (960×540), 122 frames (two each for the shots with people), in 2×2 grids (scratchpad).
+    - No arm points straight forward or forward-and-up; claps are at the chest, and the fists are M5's bent-elbow pumps.
+    - No hand rests at a head; no open palms held high. The tambourine is held up in the library's raised hand (approved at M3).
+    - No water, boats or tower: the skyline is the generic boxes in fog.
+- **Fixes from this review** (14 shots re-rendered: `--subs O03e,O08g,O09c,O09g,O11d,O11f,O17c,O17e,O17g,O17l,O18b,O18c,O18e,O20g`, 4 min 30 s, `log/render_logs/m5b_blender_r2.log`; then O20g, `m5b_blender_r3.log`). Superseded frames are in `archive/renders/m5b/frames_v1/` and `frames_v2/`.
+  - The racks to the band brought its faces into focus. The live room's backs-of-heads shots now rack past the band to the rain on the glass. The cafe's mugs rack to the glass. The cafe's backs-of-heads shot doesn't rack.
+  - The mids over the crowd now focus on the heads in front, with the band soft.
+  - The treehouse's whiteboard mid, side and table shots are 0.5–0.8 stops darker.
+  - The park's backs-of-heads shot (O20g) looked over a woman's shoulder at the band, whose faces are lit in the park. It now frames heads and a fist against the fog and the skyline, with the band out of frame.
+- **Still open (for the human, decisions 14):** faces that are dim but present, as on the M3 board, in the wides and some mids:
+  - the band in the live room's wides and the treehouse;
+  - the cafe crowd's sideways-turned heads (O17c, O17d);
+  - the guitarist at the edge of O09g after its rack;
+  - blurred band faces behind the park's banjo close (O20f).
+- `scripts/manifest.sh` → 337 files.

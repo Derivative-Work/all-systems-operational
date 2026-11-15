@@ -1,0 +1,44 @@
+/home/antiai-aiclub/Projects/all-systems-operational/blender/coverage.py:618: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+M5b build O20: 575 frames, 18.1 s; claps (16); crowd motion on 24 people (10 clappers with their own lag); band bob, kick leg on 17 kicks, tambourine shakes; window/sky light lifts on the Hey!s; rain runs on 0 panes; drizzle falls (1 volumes, looped); fog cards drift; umbrella turns; lamp flickers, Switch strains 199.41-201.80 s
+00:21.012  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0432.jpg'
+00:21.202  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0433.jpg'
+00:21.387  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0434.jpg'
+00:21.565  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0435.jpg'
+00:21.765  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0436.jpg'
+00:21.949  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0437.jpg'
+00:22.134  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0438.jpg'
+00:22.319  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0439.jpg'
+00:22.495  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0440.jpg'
+00:22.684  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0441.jpg'
+00:22.869  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0442.jpg'
+00:23.054  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0443.jpg'
+00:23.231  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0444.jpg'
+00:23.414  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0445.jpg'
+00:23.589  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0446.jpg'
+00:23.771  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0447.jpg'
+00:23.956  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0448.jpg'
+00:24.134  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0449.jpg'
+00:24.327  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0450.jpg'
+00:24.534  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0451.jpg'
+00:24.748  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0452.jpg'
+00:24.960  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0453.jpg'
+00:25.169  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0454.jpg'
+00:25.383  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0455.jpg'
+00:25.584  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0456.jpg'
+00:25.781  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0457.jpg'
+00:25.980  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0458.jpg'
+00:26.178  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0459.jpg'
+00:26.374  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0460.jpg'
+00:26.574  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0461.jpg'
+00:26.768  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0462.jpg'
+00:26.966  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0463.jpg'
+00:27.160  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0464.jpg'
+00:27.355  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0465.jpg'
+00:27.538  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0466.jpg'
+00:27.722  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5b/frames/O20g/0467.jpg'
+M5b O20g: frames 432-467 (36), backs on crowd11, 8.3 s
+M5b build O20 done in 26.4 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit

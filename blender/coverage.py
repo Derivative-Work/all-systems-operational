@@ -687,7 +687,7 @@ def person_cam(c, e, sgn):
     else:                                                        # the back of the head, a third of the frame
         hd = bone_world(e, "Head")
         loc = hd - f * 1.05 + r * 0.3 * sgn + Vector((0, 0, 0.12))
-        tgt = Vector(c["dof"].get("rack_to") or c.get("aim") or (0, 8, 1.4))
+        tgt = Vector(c.get("aim") or c["dof"].get("rack_to") or (0, 8, 1.4))
         focus = hd + Vector((0, 0, 0.08))
         tgt = loc + (tgt - loc).normalized() * 3.0
     return loc, tgt, focus

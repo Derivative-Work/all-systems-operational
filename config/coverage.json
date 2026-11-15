@@ -98,13 +98,13 @@
     "framing": "mid",
     "dof": {
      "focus": [
-      0.1,
-      7.9,
-      1.3
+      0.6,
+      5.2,
+      1.6
      ],
      "fstop": 2.8
     },
-    "what": "the band over the crowd's shoulders"
+    "what": "the band, soft, over the crowd's shoulders (focus on the heads in front)"
    },
    "crush": {
     "loc": [
@@ -232,12 +232,17 @@
      "focus": "person",
      "fstop": 2.0,
      "rack_to": [
-      0.0,
-      7.9,
-      1.4
+      0.4,
+      10.0,
+      2.4
      ]
     },
-    "what": "the back of a head, racking to the band"
+    "aim": [
+     0.0,
+     7.9,
+     1.4
+    ],
+    "what": "the back of a head, racking past the band to the rain on the glass"
    },
    "rain": {
     "expo": -1.3,
@@ -380,6 +385,7 @@
     "what": "the board's O18: the band before the whiteboard"
    },
    "board_mid": {
+    "expo": -0.8,
     "loc": [
      -0.95,
      1.4,
@@ -395,6 +401,7 @@
     "what": "the whiteboard over the band's shoulders"
    },
    "side": {
+    "expo": -0.7,
     "loc": [
      -2.9,
      1.15,
@@ -425,6 +432,7 @@
     "what": "close on the whiteboard's lines, a shoulder at the edge"
    },
    "table": {
+    "expo": -0.5,
     "loc": [
      1.55,
      1.35,
@@ -710,12 +718,12 @@
      ],
      "fstop": 2.8,
      "rack_to": [
-      -0.4,
-      7.4,
-      1.5
+      -0.5,
+      9.0,
+      2.0
      ]
     },
-    "what": "raised mugs against the steamed windows, from behind"
+    "what": "raised mugs against the steamed windows, from behind, racking to the glass"
    },
    "backs": {
     "expo": -0.3,
@@ -755,13 +763,13 @@
     "framing": "mid",
     "dof": {
      "focus": [
-      -0.4,
-      7.5,
-      1.3
+      0.2,
+      5.0,
+      1.6
      ],
      "fstop": 2.8
     },
-    "what": "the band over the crowd's shoulders"
+    "what": "the band, soft, over the crowd's shoulders (focus on the heads in front)"
    }
   },
   "park": {
@@ -901,12 +909,17 @@
      "focus": "person",
      "fstop": 2.0,
      "rack_to": [
-      0.0,
-      5.9,
-      1.4
+      2.5,
+      80.0,
+      12.0
      ]
     },
-    "what": "the back of a head, racking to the band"
+    "aim": [
+     2.5,
+     30.0,
+     7.5
+    ],
+    "what": "the back of a head against the fog and the skyline, the band out of frame (its faces are lit)"
    },
    "switch": {
     "loc": [

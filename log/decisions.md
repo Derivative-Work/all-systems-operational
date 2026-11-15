@@ -87,3 +87,12 @@ Append-only. Deviations from the brief, each with why and who decided.
 - **O22's Switch is OFF:** in M5, the outro's lamp post showed Switch ON after he dropped in O21. M5b keeps him OFF (AI changes 4).
 - **Stop 2's warning:** the park has no ON AIR sign, so the warning before stop 2 is the lamp flickering and Switch straining on his box (O20i).
 - **O19 stays a dissolve:** M5's two moves and the 10-frame dissolve (decisions 11) stay, and three fast closes (kick, hands, tambourine) end the build. The brief's single camera move is still M7 work.
+
+## 14. 2026-11-15 — M5b review: what the human should rule on (agent)
+
+- **Faces at the M3 level:** no close shows a face. The wides and some mids show the same dim faces the approved M3 board has: the live room's and treehouse's band, the cafe crowd, and the park's lit, coloured people. The mids are darker than the wides (−0.5 to −1.3 stops) and focus on the foreground. Fixing them for real (darker skin values or hoods under the backlight, or fewer front-lit sources in the cafe and park) is M5c's or M7's. The worst remaining frames: O17c, O17d (cafe crowd), O09g's last second (the guitarist), O20f's background.
+- **The haze is a glow, not shafts:** Eevee's volume over the room, with a spot through each window, reads as atmosphere. Hard beams need the panes to let light through (they're emissive and opaque so nothing outside shows). Left for M7.
+- **The kick close is from the player's right**, so the foot on the pedal reads; the 503 head is seen at an angle. The front-on head is in the wides.
+- **O20g frames fists against the skyline**, not the band, because the park band's faces are lit.
+- **Rain closes (O03b, O09l) are pale:** the streaks are faint at 540p. A stronger streak shader is a one-line change for M7.
+- **O14d (the Polaroid)** is a flat grey placeholder photo (M3's texture). The close makes that obvious.
