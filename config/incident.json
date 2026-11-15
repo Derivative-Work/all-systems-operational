@@ -1,0 +1,10 @@
+{
+  "asOf": "2026-11-13",
+  "statusPhrases": ["Investigating", "Early signs of stabilization", "Renewed errors", "Restored for most users"],
+  "rootCause": "An earlier network capacity upgrade, surfaced by a recent network change",
+  "contributingFactors": ["Not related to cyber or AI / agents"],
+  "configDiff": null,
+  "branch": "A",
+  "factCardQuotes": [],
+  "sources": []
+}

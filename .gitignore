@@ -48,3 +48,5 @@ remotion/public/gen/
 # reference only), Ever Present's figure library and the MakeHuman assets it links. In MANIFEST.sha256.
 assets/screenshots/
 *.aif
+# The creator's real screenshots and avatar crop for the O01 bookend: copied and cropped from assets/screenshots/ by remotion/render_stills.sh
+remotion/public/real/

@@ -44,3 +44,21 @@ Append-only. One entry per generation, render or analysis step.
 
 - Brief edited directly (rev 113 → 116): the O01 row dates the placeholder capture to Friday, Nov 13, and the post now strikes through "(my last meme about this, I promise)", then "no video yet", before play. The bookend paragraph matches. Mirror regenerated with `scripts/mirror_brief.py`.
 - `LICENSE-media.md` (CC BY-NC-SA 4.0, modelled on The Distillation Job's) and `LICENSES/CC-BY-NC-SA-4.0.txt` (copied from it); `LICENSE` (MIT) was added in step 4. `blender/ep/README.md` and `CLAUDE.md` record the relicensed kit. Checked first: the copied Ever Present files hold no sanctuary set, scripture or AI-pastor code, only generic poses, walk, people builder and stage props.
+
+## 6. 2026-11-15 — M3: Remotion screen kit (built by a subagent; reviewed by the agent)
+
+- **Setup:** `package.json` pins Ever Present's versions (remotion and @remotion/cli 4.0.534, react/react-dom 18.3.1, typescript 5.6.3, @types/react 18.3.12; puppeteer 24.43.1); `PUPPETEER_SKIP_DOWNLOAD=1 npm install` (node_modules 771 MB). `tsconfig.json` from Ever Present; `remotion.config.ts` (entry `remotion/src/index.ts`, public dir `remotion/public`, concurrency 2). `npx tsc --noEmit` is clean; Remotion prints a harmless zod version warning.
+- **Data:** `config/incident.json`, the brief's block verbatim; every changeable detail reads it.
+- **Compositions:** 43 at 30 fps, in `remotion/src/Root.tsx`. Durations are placeholders in `remotion/src/config.ts` until M2.
+  - O01 bookend (8.2 s): spike chart, then the real screens (2.6 s), then the recreated post with both strike-throughs and the click on play.
+  - Status page in four states: green, investigating, renewed errors, flicker. The flicker is seeded from `config/seeds.json` with salt 23.
+  - Lower thirds; the #it-help phone chat, framed and as a bare screen texture; the calendar; buffering freezes; the technical-difficulties card.
+  - Little Switch in six states. `SwitchCameo` is wrapped unchanged; strain and sag are wrapper transforms only.
+  - Textures: kick-drum head (plus the branch-B LGTM version), table tent, Polaroid (placeholder photo), ON AIR lit and unlit, the 50.3 FM station sign, and the whiteboard in four versions (two fill levels, full, branch C, diff preview).
+  - End sequence: disclosure, fact card, end card, final card.
+  - Text not dictated by the brief or the human (service names, the invented #it-help names and messages, calendar events, kickers) is listed in the subagent's report and visible on the sheet.
+- **Fonts** (OFL 1.1, licence files and sha256 in `remotion/public/fonts/SOURCES.md`): Inter (copied from Ever Present), Work Sans and Caveat (from github.com/google/fonts).
+- **Real assets** (git-ignored `remotion/public/real/`, re-created by `render_stills.sh`): the two screenshots, plus `creator_avatar.png`, a 66×66 crop of slack-5.png at (29,1019).
+- **Stills:** `remotion/render_stills.sh` → 58 stills in `review/m3/screens/`, then the sheet `review/m3_screens.jpg` (`scripts/contact_sheet.py`, adapted from Ever Present). `npx remotion still … --gl=swangle`, CPU only; no videos rendered.
+- **Agent review:** looked at the sheet and at full size at the chat post, spike, status page, whiteboard and fact card. One fix: the spike chart's labels were Pacific while the screenshot captions are Eastern. Now the axis reads 12:50–1:20 p.m., "2 a.m. Fri" and "Eastern time"; the data stay in PT as reported, shifted only at display. This also lines up with the fact card's "just after 1 p.m." (Washington Post). O01a f59 re-rendered and the sheet rebuilt.
+- **For a later check:** the fact card's "wider outage followed at 1:26 p.m." (Digital Trends) falls after the spike's 130,000 at 1:17 p.m. ET. The counts likely track the Exchange problems that began at 11:17, but the fact-card check at M7 should confirm the wording.
