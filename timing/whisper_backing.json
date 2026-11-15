@@ -1,0 +1,812 @@
+{
+ "model": "large-v3",
+ "stem": "audio/stems/1 Backing Vocals.aif",
+ "whisperx": null,
+ "segments": [
+  {
+   "start": 12.824,
+   "end": 12.864,
+   "text": "oh",
+   "words": [
+    {
+     "w": "oh",
+     "start": 12.824,
+     "end": 12.864,
+     "score": 0.16
+    }
+   ]
+  },
+  {
+   "start": 44.773,
+   "end": 73.637,
+   "text": "We are aware, we are aware Some users live, experience it All systems operational All systems operational Nothing here is broken, everything is fine All systems operational, please stay on the line",
+   "words": [
+    {
+     "w": "We",
+     "start": 44.773,
+     "end": 45.013,
+     "score": 0.984
+    },
+    {
+     "w": "are",
+     "start": 45.273,
+     "end": 45.394,
+     "score": 0.866
+    },
+    {
+     "w": "aware,",
+     "start": 45.494,
+     "end": 45.854,
+     "score": 0.767
+    },
+    {
+     "w": "we",
+     "start": 46.014,
+     "end": 46.234,
+     "score": 0.927
+    },
+    {
+     "w": "are",
+     "start": 46.454,
+     "end": 46.595,
+     "score": 0.643
+    },
+    {
+     "w": "aware",
+     "start": 46.715,
+     "end": 47.115,
+     "score": 0.554
+    },
+    {
+     "w": "Some",
+     "start": 48.356,
+     "end": 48.636,
+     "score": 0.686
+    },
+    {
+     "w": "users",
+     "start": 48.796,
+     "end": 49.597,
+     "score": 0.664
+    },
+    {
+     "w": "live,",
+     "start": 49.617,
+     "end": 49.717,
+     "score": 0.201
+    },
+    {
+     "w": "experience",
+     "start": 50.898,
+     "end": 52.159,
+     "score": 0.648
+    },
+    {
+     "w": "it",
+     "start": 52.179,
+     "end": 52.219,
+     "score": 0.014
+    },
+    {
+     "w": "All",
+     "start": 55.102,
+     "end": 55.262,
+     "score": 0.712
+    },
+    {
+     "w": "systems",
+     "start": 55.322,
+     "end": 55.942,
+     "score": 0.866
+    },
+    {
+     "w": "operational",
+     "start": 56.042,
+     "end": 57.804,
+     "score": 0.731
+    },
+    {
+     "w": "All",
+     "start": 57.844,
+     "end": 60.086,
+     "score": 0.853
+    },
+    {
+     "w": "systems",
+     "start": 60.146,
+     "end": 60.746,
+     "score": 0.874
+    },
+    {
+     "w": "operational",
+     "start": 60.866,
+     "end": 62.628,
+     "score": 0.759
+    },
+    {
+     "w": "Nothing",
+     "start": 64.97,
+     "end": 65.51,
+     "score": 0.858
+    },
+    {
+     "w": "here",
+     "start": 65.59,
+     "end": 65.91,
+     "score": 0.695
+    },
+    {
+     "w": "is",
+     "start": 65.99,
+     "end": 66.091,
+     "score": 0.746
+    },
+    {
+     "w": "broken,",
+     "start": 66.151,
+     "end": 67.472,
+     "score": 0.845
+    },
+    {
+     "w": "everything",
+     "start": 67.532,
+     "end": 68.272,
+     "score": 0.924
+    },
+    {
+     "w": "is",
+     "start": 68.372,
+     "end": 68.472,
+     "score": 0.6
+    },
+    {
+     "w": "fine",
+     "start": 69.313,
+     "end": 69.473,
+     "score": 0.2
+    },
+    {
+     "w": "All",
+     "start": 69.553,
+     "end": 69.714,
+     "score": 0.556
+    },
+    {
+     "w": "systems",
+     "start": 69.754,
+     "end": 70.374,
+     "score": 0.906
+    },
+    {
+     "w": "operational,",
+     "start": 70.514,
+     "end": 71.495,
+     "score": 0.768
+    },
+    {
+     "w": "please",
+     "start": 71.615,
+     "end": 72.276,
+     "score": 0.45
+    },
+    {
+     "w": "stay",
+     "start": 72.436,
+     "end": 72.816,
+     "score": 0.879
+    },
+    {
+     "w": "on",
+     "start": 72.936,
+     "end": 73.056,
+     "score": 0.839
+    },
+    {
+     "w": "the",
+     "start": 73.096,
+     "end": 73.216,
+     "score": 0.821
+    },
+    {
+     "w": "line",
+     "start": 73.256,
+     "end": 73.637,
+     "score": 0.656
+    }
+   ]
+  },
+  {
+   "start": 74.855,
+   "end": 76.137,
+   "text": "Five on three.",
+   "words": [
+    {
+     "w": "Five",
+     "start": 74.855,
+     "end": 75.115,
+     "score": 0.528
+    },
+    {
+     "w": "on",
+     "start": 75.556,
+     "end": 75.716,
+     "score": 0.656
+    },
+    {
+     "w": "three.",
+     "start": 75.776,
+     "end": 76.137,
+     "score": 0.618
+    }
+   ]
+  },
+  {
+   "start": 77.558,
+   "end": 86.61,
+   "text": "Please stay on the line.",
+   "words": [
+    {
+     "w": "Please",
+     "start": 77.558,
+     "end": 78.299,
+     "score": 0.821
+    },
+    {
+     "w": "stay",
+     "start": 78.419,
+     "end": 78.84,
+     "score": 0.754
+    },
+    {
+     "w": "on",
+     "start": 78.9,
+     "end": 79.781,
+     "score": 0.688
+    },
+    {
+     "w": "the",
+     "start": 79.801,
+     "end": 83.646,
+     "score": 0.622
+    },
+    {
+     "w": "line.",
+     "start": 86.289,
+     "end": 86.61,
+     "score": 0.504
+    }
+   ]
+  },
+  {
+   "start": 86.69,
+   "end": 88.652,
+   "text": "Everybody sing it, everybody at once.",
+   "words": [
+    {
+     "w": "Everybody",
+     "start": 86.69,
+     "end": 87.15,
+     "score": 0.866
+    },
+    {
+     "w": "sing",
+     "start": 87.19,
+     "end": 87.371,
+     "score": 0.753
+    },
+    {
+     "w": "it,",
+     "start": 87.411,
+     "end": 87.531,
+     "score": 0.77
+    },
+    {
+     "w": "everybody",
+     "start": 87.591,
+     "end": 88.091,
+     "score": 0.867
+    },
+    {
+     "w": "at",
+     "start": 88.212,
+     "end": 88.332,
+     "score": 0.264
+    },
+    {
+     "w": "once.",
+     "start": 88.492,
+     "end": 88.652,
+     "score": 0.842
+    }
+   ]
+  },
+  {
+   "start": 122.373,
+   "end": 146.945,
+   "text": "All systems operational, hey, hey All systems operational, hey, hey Nothing here is broken, everything is fine All systems operational, please stay on the line 503, please stay on the line",
+   "words": [
+    {
+     "w": "All",
+     "start": 122.373,
+     "end": 122.573,
+     "score": 0.774
+    },
+    {
+     "w": "systems",
+     "start": 122.613,
+     "end": 123.233,
+     "score": 0.73
+    },
+    {
+     "w": "operational,",
+     "start": 123.334,
+     "end": 124.654,
+     "score": 0.693
+    },
+    {
+     "w": "hey,",
+     "start": 124.694,
+     "end": 125.154,
+     "score": 0.584
+    },
+    {
+     "w": "hey",
+     "start": 126.855,
+     "end": 127.115,
+     "score": 0.475
+    },
+    {
+     "w": "All",
+     "start": 127.175,
+     "end": 127.375,
+     "score": 0.707
+    },
+    {
+     "w": "systems",
+     "start": 127.415,
+     "end": 128.036,
+     "score": 0.71
+    },
+    {
+     "w": "operational,",
+     "start": 128.136,
+     "end": 129.216,
+     "score": 0.607
+    },
+    {
+     "w": "hey,",
+     "start": 129.236,
+     "end": 129.717,
+     "score": 0.784
+    },
+    {
+     "w": "hey",
+     "start": 129.757,
+     "end": 129.897,
+     "score": 0.238
+    },
+    {
+     "w": "Nothing",
+     "start": 129.917,
+     "end": 132.498,
+     "score": 0.487
+    },
+    {
+     "w": "here",
+     "start": 132.878,
+     "end": 133.158,
+     "score": 0.766
+    },
+    {
+     "w": "is",
+     "start": 133.258,
+     "end": 133.358,
+     "score": 0.736
+    },
+    {
+     "w": "broken,",
+     "start": 133.438,
+     "end": 134.519,
+     "score": 0.557
+    },
+    {
+     "w": "everything",
+     "start": 134.779,
+     "end": 135.539,
+     "score": 0.636
+    },
+    {
+     "w": "is",
+     "start": 135.619,
+     "end": 135.739,
+     "score": 0.327
+    },
+    {
+     "w": "fine",
+     "start": 135.82,
+     "end": 136.64,
+     "score": 0.472
+    },
+    {
+     "w": "All",
+     "start": 136.82,
+     "end": 136.98,
+     "score": 0.631
+    },
+    {
+     "w": "systems",
+     "start": 137.02,
+     "end": 137.66,
+     "score": 0.781
+    },
+    {
+     "w": "operational,",
+     "start": 137.82,
+     "end": 138.781,
+     "score": 0.72
+    },
+    {
+     "w": "please",
+     "start": 138.861,
+     "end": 139.501,
+     "score": 0.628
+    },
+    {
+     "w": "stay",
+     "start": 139.661,
+     "end": 140.102,
+     "score": 0.879
+    },
+    {
+     "w": "on",
+     "start": 140.222,
+     "end": 140.322,
+     "score": 0.864
+    },
+    {
+     "w": "the",
+     "start": 140.362,
+     "end": 140.462,
+     "score": 0.883
+    },
+    {
+     "w": "line",
+     "start": 140.502,
+     "end": 140.882,
+     "score": 0.96
+    },
+    {
+     "w": "503,",
+     "start": 140.902,
+     "end": 143.463,
+     "score": 0.836
+    },
+    {
+     "w": "please",
+     "start": 144.804,
+     "end": 145.444,
+     "score": 0.712
+    },
+    {
+     "w": "stay",
+     "start": 145.644,
+     "end": 146.084,
+     "score": 0.825
+    },
+    {
+     "w": "on",
+     "start": 146.204,
+     "end": 146.305,
+     "score": 0.938
+    },
+    {
+     "w": "the",
+     "start": 146.365,
+     "end": 146.485,
+     "score": 0.738
+    },
+    {
+     "w": "line",
+     "start": 146.545,
+     "end": 146.945,
+     "score": 0.976
+    }
+   ]
+  },
+  {
+   "start": 174.798,
+   "end": 175.338,
+   "text": "Hey!",
+   "words": [
+    {
+     "w": "Hey!",
+     "start": 174.798,
+     "end": 175.338,
+     "score": 0.609
+    }
+   ]
+  },
+  {
+   "start": 175.419,
+   "end": 179.642,
+   "text": "Service has been restored for most users.",
+   "words": [
+    {
+     "w": "Service",
+     "start": 175.419,
+     "end": 176.179,
+     "score": 0.551
+    },
+    {
+     "w": "has",
+     "start": 176.259,
+     "end": 176.579,
+     "score": 0.765
+    },
+    {
+     "w": "been",
+     "start": 176.639,
+     "end": 177.04,
+     "score": 0.357
+    },
+    {
+     "w": "restored",
+     "start": 177.5,
+     "end": 178.201,
+     "score": 0.704
+    },
+    {
+     "w": "for",
+     "start": 178.261,
+     "end": 178.501,
+     "score": 0.753
+    },
+    {
+     "w": "most",
+     "start": 178.581,
+     "end": 178.941,
+     "score": 0.694
+    },
+    {
+     "w": "users.",
+     "start": 179.181,
+     "end": 179.642,
+     "score": 0.834
+    }
+   ]
+  },
+  {
+   "start": 179.682,
+   "end": 180.322,
+   "text": "Hey!",
+   "words": [
+    {
+     "w": "Hey!",
+     "start": 179.682,
+     "end": 180.322,
+     "score": 0.54
+    }
+   ]
+  },
+  {
+   "start": 182.784,
+   "end": 184.345,
+   "text": "Systems operational.",
+   "words": [
+    {
+     "w": "Systems",
+     "start": 182.784,
+     "end": 183.164,
+     "score": 0.543
+    },
+    {
+     "w": "operational.",
+     "start": 183.384,
+     "end": 184.345,
+     "score": 0.721
+    }
+   ]
+  },
+  {
+   "start": 184.705,
+   "end": 185.226,
+   "text": "Hey!",
+   "words": [
+    {
+     "w": "Hey!",
+     "start": 184.705,
+     "end": 185.226,
+     "score": 0.706
+    }
+   ]
+  },
+  {
+   "start": 185.326,
+   "end": 186.807,
+   "text": "Every light was green.",
+   "words": [
+    {
+     "w": "Every",
+     "start": 185.326,
+     "end": 185.586,
+     "score": 0.45
+    },
+    {
+     "w": "light",
+     "start": 185.626,
+     "end": 185.886,
+     "score": 0.34
+    },
+    {
+     "w": "was",
+     "start": 185.926,
+     "end": 186.146,
+     "score": 0.642
+    },
+    {
+     "w": "green.",
+     "start": 186.206,
+     "end": 186.807,
+     "score": 0.768
+    }
+   ]
+  },
+  {
+   "start": 187.207,
+   "end": 189.169,
+   "text": "All systems operational.",
+   "words": [
+    {
+     "w": "All",
+     "start": 187.207,
+     "end": 187.367,
+     "score": 0.582
+    },
+    {
+     "w": "systems",
+     "start": 187.407,
+     "end": 187.988,
+     "score": 0.624
+    },
+    {
+     "w": "operational.",
+     "start": 188.188,
+     "end": 189.169,
+     "score": 0.725
+    }
+   ]
+  },
+  {
+   "start": 189.509,
+   "end": 190.029,
+   "text": "Hey!",
+   "words": [
+    {
+     "w": "Hey!",
+     "start": 189.509,
+     "end": 190.029,
+     "score": 0.711
+    }
+   ]
+  },
+  {
+   "start": 190.089,
+   "end": 191.55,
+   "text": "Believe the screen.",
+   "words": [
+    {
+     "w": "Believe",
+     "start": 190.089,
+     "end": 190.67,
+     "score": 0.754
+    },
+    {
+     "w": "the",
+     "start": 190.73,
+     "end": 190.91,
+     "score": 0.71
+    },
+    {
+     "w": "screen.",
+     "start": 190.93,
+     "end": 191.55,
+     "score": 0.717
+    }
+   ]
+  },
+  {
+   "start": 191.61,
+   "end": 192.031,
+   "text": "Hey!",
+   "words": [
+    {
+     "w": "Hey!",
+     "start": 191.61,
+     "end": 192.031,
+     "score": 0.542
+    }
+   ]
+  },
+  {
+   "start": 192.051,
+   "end": 193.932,
+   "text": "Nothing here is broken.",
+   "words": [
+    {
+     "w": "Nothing",
+     "start": 192.051,
+     "end": 192.211,
+     "score": 0.075
+    },
+    {
+     "w": "here",
+     "start": 192.271,
+     "end": 192.391,
+     "score": 0.174
+    },
+    {
+     "w": "is",
+     "start": 193.232,
+     "end": 193.332,
+     "score": 0.726
+    },
+    {
+     "w": "broken.",
+     "start": 193.432,
+     "end": 193.932,
+     "score": 0.341
+    }
+   ]
+  },
+  {
+   "start": 194.172,
+   "end": 196.234,
+   "text": "Everything is fine.",
+   "words": [
+    {
+     "w": "Everything",
+     "start": 194.172,
+     "end": 195.674,
+     "score": 0.431
+    },
+    {
+     "w": "is",
+     "start": 195.694,
+     "end": 195.734,
+     "score": 0.394
+    },
+    {
+     "w": "fine.",
+     "start": 195.854,
+     "end": 196.234,
+     "score": 0.352
+    }
+   ]
+  },
+  {
+   "start": 196.654,
+   "end": 198.716,
+   "text": "All systems operational.",
+   "words": [
+    {
+     "w": "All",
+     "start": 196.654,
+     "end": 196.934,
+     "score": 0.582
+    },
+    {
+     "w": "systems",
+     "start": 196.994,
+     "end": 197.615,
+     "score": 0.795
+    },
+    {
+     "w": "operational.",
+     "start": 197.795,
+     "end": 198.716,
+     "score": 0.626
+    }
+   ]
+  }
+ ]
+}

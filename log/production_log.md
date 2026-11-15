@@ -62,3 +62,10 @@ Append-only. One entry per generation, render or analysis step.
 - **Stills:** `remotion/render_stills.sh` → 58 stills in `review/m3/screens/`, then the sheet `review/m3_screens.jpg` (`scripts/contact_sheet.py`, adapted from Ever Present). `npx remotion still … --gl=swangle`, CPU only; no videos rendered.
 - **Agent review:** looked at the sheet and at full size at the chat post, spike, status page, whiteboard and fact card. One fix: the spike chart's labels were Pacific while the screenshot captions are Eastern. Now the axis reads 12:50–1:20 p.m., "2 a.m. Fri" and "Eastern time"; the data stay in PT as reported, shifted only at display. This also lines up with the fact card's "just after 1 p.m." (Washington Post). O01a f59 re-rendered and the sheet rebuilt.
 - **For a later check:** the fact card's "wider outage followed at 1:26 p.m." (Digital Trends) falls after the spike's 130,000 at 1:17 p.m. ET. The counts likely track the Exchange problems that began at 11:17, but the fact-card check at M7 should confirm the wording.
+
+## 7. 2026-11-15 — Transcription (M1 evidence); stop 1 re-measured
+
+- `cp -r ../ever-present/.venv/nltk_data .venv/ && chmod -R go-w .venv/nltk_data`; then `NLTK_DATA=$PWD/.venv/nltk_data .venv/bin/python scripts/transcribe_vocals.py "audio/stems/0 Lead Vocals.aif" timing/whisper_lead.json`, and the same on `1 Backing Vocals.aif` → `timing/whisper_backing.json` (WhisperX 3.8.6, large-v3; the script is copied from Ever Present; logs beside the outputs). Run on the GPU next to the M3 board renders.
+- Lyrics as sung: `log/ai_changes.md` 2. "fail" is sung whole.
+- **Correction to entry 2:** stop 1 starts at about 93.9 s, not 95.06. The master in 0.1 s windows: −22 dB through "fail", −34.5 dB at 93.9, −50 dB at 94.1. The 94.39 s clap rings (−28 dB), then it decays to digital silence at 95.06. So three claps fall in the stop (94.39, 95.59 and 96.79 s), then the solo "We're seeing renewed errors" (97.08–98.44 s), then the band. Decisions 4 still holds: one steady clap every two beats.
+- Listening clips from the post-filtered master: `audio/check/listen_stop1.wav` (89–100 s), `audio/check/listen_stop2.wav` (196–210 s).

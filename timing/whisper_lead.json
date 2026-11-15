@@ -1,0 +1,2013 @@
+{
+ "model": "large-v3",
+ "stem": "audio/stems/0 Lead Vocals.aif",
+ "whisperx": null,
+ "segments": [
+  {
+   "start": 7.523,
+   "end": 16.327,
+   "text": "We're investigating reports that some of you can't reach anything.",
+   "words": [
+    {
+     "w": "We're",
+     "start": 7.523,
+     "end": 7.844,
+     "score": 0.645
+    },
+    {
+     "w": "investigating",
+     "start": 7.884,
+     "end": 8.746,
+     "score": 0.866
+    },
+    {
+     "w": "reports",
+     "start": 8.806,
+     "end": 9.448,
+     "score": 0.86
+    },
+    {
+     "w": "that",
+     "start": 11.193,
+     "end": 11.353,
+     "score": 0.625
+    },
+    {
+     "w": "some",
+     "start": 11.433,
+     "end": 11.654,
+     "score": 0.549
+    },
+    {
+     "w": "of",
+     "start": 11.714,
+     "end": 11.794,
+     "score": 0.327
+    },
+    {
+     "w": "you",
+     "start": 11.835,
+     "end": 13.82,
+     "score": 0.814
+    },
+    {
+     "w": "can't",
+     "start": 14.742,
+     "end": 15.103,
+     "score": 0.733
+    },
+    {
+     "w": "reach",
+     "start": 15.244,
+     "end": 15.605,
+     "score": 0.757
+    },
+    {
+     "w": "anything.",
+     "start": 15.805,
+     "end": 16.327,
+     "score": 0.856
+    }
+   ]
+  },
+  {
+   "start": 26.595,
+   "end": 45.752,
+   "text": "1pm on a Thursday and the inbox went still The calendar was empty and the queue began to fill The trading desk went looking for a fax machine Somewhere a server's lying in a field of green We are away",
+   "words": [
+    {
+     "w": "1pm",
+     "start": 26.595,
+     "end": 27.376,
+     "score": 0.797
+    },
+    {
+     "w": "on",
+     "start": 27.456,
+     "end": 27.556,
+     "score": 0.772
+    },
+    {
+     "w": "a",
+     "start": 27.576,
+     "end": 27.616,
+     "score": 0.219
+    },
+    {
+     "w": "Thursday",
+     "start": 27.676,
+     "end": 28.217,
+     "score": 0.854
+    },
+    {
+     "w": "and",
+     "start": 28.377,
+     "end": 28.537,
+     "score": 0.477
+    },
+    {
+     "w": "the",
+     "start": 28.577,
+     "end": 28.717,
+     "score": 0.721
+    },
+    {
+     "w": "inbox",
+     "start": 28.837,
+     "end": 29.418,
+     "score": 0.895
+    },
+    {
+     "w": "went",
+     "start": 29.498,
+     "end": 29.738,
+     "score": 0.794
+    },
+    {
+     "w": "still",
+     "start": 29.978,
+     "end": 30.379,
+     "score": 0.894
+    },
+    {
+     "w": "The",
+     "start": 31.139,
+     "end": 31.219,
+     "score": 0.953
+    },
+    {
+     "w": "calendar",
+     "start": 31.259,
+     "end": 32.16,
+     "score": 0.822
+    },
+    {
+     "w": "was",
+     "start": 32.24,
+     "end": 32.38,
+     "score": 0.878
+    },
+    {
+     "w": "empty",
+     "start": 32.52,
+     "end": 33.001,
+     "score": 0.732
+    },
+    {
+     "w": "and",
+     "start": 33.181,
+     "end": 33.321,
+     "score": 0.685
+    },
+    {
+     "w": "the",
+     "start": 33.381,
+     "end": 33.481,
+     "score": 0.787
+    },
+    {
+     "w": "queue",
+     "start": 33.541,
+     "end": 33.942,
+     "score": 0.566
+    },
+    {
+     "w": "began",
+     "start": 34.022,
+     "end": 34.562,
+     "score": 0.891
+    },
+    {
+     "w": "to",
+     "start": 34.582,
+     "end": 34.622,
+     "score": 0.042
+    },
+    {
+     "w": "fill",
+     "start": 34.742,
+     "end": 35.163,
+     "score": 0.981
+    },
+    {
+     "w": "The",
+     "start": 35.923,
+     "end": 36.003,
+     "score": 0.985
+    },
+    {
+     "w": "trading",
+     "start": 36.043,
+     "end": 36.524,
+     "score": 0.863
+    },
+    {
+     "w": "desk",
+     "start": 36.544,
+     "end": 36.824,
+     "score": 0.74
+    },
+    {
+     "w": "went",
+     "start": 36.964,
+     "end": 37.245,
+     "score": 0.765
+    },
+    {
+     "w": "looking",
+     "start": 37.305,
+     "end": 37.705,
+     "score": 0.87
+    },
+    {
+     "w": "for",
+     "start": 37.865,
+     "end": 38.245,
+     "score": 0.793
+    },
+    {
+     "w": "a",
+     "start": 38.305,
+     "end": 38.325,
+     "score": 0.755
+    },
+    {
+     "w": "fax",
+     "start": 38.466,
+     "end": 39.046,
+     "score": 0.912
+    },
+    {
+     "w": "machine",
+     "start": 39.126,
+     "end": 39.807,
+     "score": 0.902
+    },
+    {
+     "w": "Somewhere",
+     "start": 40.587,
+     "end": 41.228,
+     "score": 0.878
+    },
+    {
+     "w": "a",
+     "start": 41.308,
+     "end": 41.368,
+     "score": 0.86
+    },
+    {
+     "w": "server's",
+     "start": 41.468,
+     "end": 42.029,
+     "score": 0.649
+    },
+    {
+     "w": "lying",
+     "start": 42.129,
+     "end": 42.709,
+     "score": 0.763
+    },
+    {
+     "w": "in",
+     "start": 42.809,
+     "end": 42.909,
+     "score": 0.958
+    },
+    {
+     "w": "a",
+     "start": 43.009,
+     "end": 43.069,
+     "score": 0.725
+    },
+    {
+     "w": "field",
+     "start": 43.29,
+     "end": 43.95,
+     "score": 0.786
+    },
+    {
+     "w": "of",
+     "start": 44.05,
+     "end": 44.11,
+     "score": 0.908
+    },
+    {
+     "w": "green",
+     "start": 44.19,
+     "end": 44.591,
+     "score": 0.93
+    },
+    {
+     "w": "We",
+     "start": 44.791,
+     "end": 45.031,
+     "score": 0.988
+    },
+    {
+     "w": "are",
+     "start": 45.371,
+     "end": 45.492,
+     "score": 0.632
+    },
+    {
+     "w": "away",
+     "start": 45.512,
+     "end": 45.752,
+     "score": 0.566
+    }
+   ]
+  },
+  {
+   "start": 47.162,
+   "end": 53.131,
+   "text": "Some users may be experiencing everything.",
+   "words": [
+    {
+     "w": "Some",
+     "start": 47.162,
+     "end": 47.443,
+     "score": 0.87
+    },
+    {
+     "w": "users",
+     "start": 47.643,
+     "end": 48.023,
+     "score": 0.831
+    },
+    {
+     "w": "may",
+     "start": 48.104,
+     "end": 48.564,
+     "score": 0.819
+    },
+    {
+     "w": "be",
+     "start": 49.506,
+     "end": 49.666,
+     "score": 0.563
+    },
+    {
+     "w": "experiencing",
+     "start": 49.726,
+     "end": 50.848,
+     "score": 0.778
+    },
+    {
+     "w": "everything.",
+     "start": 50.928,
+     "end": 53.131,
+     "score": 0.7
+    }
+   ]
+  },
+  {
+   "start": 55.114,
+   "end": 57.057,
+   "text": "All systems operational.",
+   "words": [
+    {
+     "w": "All",
+     "start": 55.114,
+     "end": 55.254,
+     "score": 0.752
+    },
+    {
+     "w": "systems",
+     "start": 55.314,
+     "end": 55.935,
+     "score": 0.864
+    },
+    {
+     "w": "operational.",
+     "start": 56.075,
+     "end": 57.057,
+     "score": 0.774
+    }
+   ]
+  },
+  {
+   "start": 58.078,
+   "end": 59.46,
+   "text": "Every light is green.",
+   "words": [
+    {
+     "w": "Every",
+     "start": 58.078,
+     "end": 58.319,
+     "score": 0.863
+    },
+    {
+     "w": "light",
+     "start": 58.359,
+     "end": 58.699,
+     "score": 0.59
+    },
+    {
+     "w": "is",
+     "start": 58.779,
+     "end": 58.86,
+     "score": 0.814
+    },
+    {
+     "w": "green.",
+     "start": 58.94,
+     "end": 59.46,
+     "score": 0.927
+    }
+   ]
+  },
+  {
+   "start": 59.921,
+   "end": 61.804,
+   "text": "All systems operational.",
+   "words": [
+    {
+     "w": "All",
+     "start": 59.921,
+     "end": 60.081,
+     "score": 0.66
+    },
+    {
+     "w": "systems",
+     "start": 60.142,
+     "end": 60.762,
+     "score": 0.891
+    },
+    {
+     "w": "operational.",
+     "start": 60.903,
+     "end": 61.804,
+     "score": 0.849
+    }
+   ]
+  },
+  {
+   "start": 62.855,
+   "end": 64.337,
+   "text": "Believe the screen.",
+   "words": [
+    {
+     "w": "Believe",
+     "start": 62.855,
+     "end": 63.416,
+     "score": 0.785
+    },
+    {
+     "w": "the",
+     "start": 63.476,
+     "end": 63.616,
+     "score": 0.828
+    },
+    {
+     "w": "screen.",
+     "start": 63.676,
+     "end": 64.337,
+     "score": 0.869
+    }
+   ]
+  },
+  {
+   "start": 64.357,
+   "end": 67.281,
+   "text": "Nothing here is broken.",
+   "words": [
+    {
+     "w": "Nothing",
+     "start": 64.357,
+     "end": 65.619,
+     "score": 0.659
+    },
+    {
+     "w": "here",
+     "start": 65.759,
+     "end": 65.899,
+     "score": 0.48
+    },
+    {
+     "w": "is",
+     "start": 65.98,
+     "end": 66.08,
+     "score": 0.698
+    },
+    {
+     "w": "broken.",
+     "start": 66.16,
+     "end": 67.281,
+     "score": 0.81
+    }
+   ]
+  },
+  {
+   "start": 67.562,
+   "end": 69.344,
+   "text": "Everything is fine.",
+   "words": [
+    {
+     "w": "Everything",
+     "start": 67.562,
+     "end": 68.283,
+     "score": 0.871
+    },
+    {
+     "w": "is",
+     "start": 68.383,
+     "end": 68.483,
+     "score": 0.778
+    },
+    {
+     "w": "fine.",
+     "start": 68.563,
+     "end": 69.344,
+     "score": 0.849
+    }
+   ]
+  },
+  {
+   "start": 69.484,
+   "end": 71.487,
+   "text": "All systems operational.",
+   "words": [
+    {
+     "w": "All",
+     "start": 69.484,
+     "end": 69.685,
+     "score": 0.86
+    },
+    {
+     "w": "systems",
+     "start": 69.725,
+     "end": 70.426,
+     "score": 0.671
+    },
+    {
+     "w": "operational.",
+     "start": 70.546,
+     "end": 71.487,
+     "score": 0.866
+    }
+   ]
+  },
+  {
+   "start": 71.547,
+   "end": 73.63,
+   "text": "Please stay on the line.",
+   "words": [
+    {
+     "w": "Please",
+     "start": 71.547,
+     "end": 72.328,
+     "score": 0.405
+    },
+    {
+     "w": "stay",
+     "start": 72.409,
+     "end": 72.829,
+     "score": 0.828
+    },
+    {
+     "w": "on",
+     "start": 72.969,
+     "end": 73.049,
+     "score": 0.989
+    },
+    {
+     "w": "the",
+     "start": 73.09,
+     "end": 73.21,
+     "score": 0.763
+    },
+    {
+     "w": "line.",
+     "start": 73.25,
+     "end": 73.63,
+     "score": 0.663
+    }
+   ]
+  },
+  {
+   "start": 73.67,
+   "end": 74.492,
+   "text": "503.",
+   "words": [
+    {
+     "w": "503.",
+     "start": 73.67,
+     "end": 74.492,
+     "score": 0.874
+    }
+   ]
+  },
+  {
+   "start": 74.532,
+   "end": 74.852,
+   "text": "503.",
+   "words": [
+    {
+     "w": "503.",
+     "start": 74.532,
+     "end": 74.852,
+     "score": 0.626
+    }
+   ]
+  },
+  {
+   "start": 75.653,
+   "end": 77.295,
+   "text": "503.",
+   "words": [
+    {
+     "w": "503.",
+     "start": 75.653,
+     "end": 77.295,
+     "score": 0.88
+    }
+   ]
+  },
+  {
+   "start": 77.556,
+   "end": 79.739,
+   "text": "Please stay on the line.",
+   "words": [
+    {
+     "w": "Please",
+     "start": 77.556,
+     "end": 78.277,
+     "score": 0.852
+    },
+    {
+     "w": "stay",
+     "start": 78.417,
+     "end": 78.838,
+     "score": 0.843
+    },
+    {
+     "w": "on",
+     "start": 78.998,
+     "end": 79.078,
+     "score": 0.875
+    },
+    {
+     "w": "the",
+     "start": 79.118,
+     "end": 79.238,
+     "score": 0.877
+    },
+    {
+     "w": "line.",
+     "start": 79.278,
+     "end": 79.739,
+     "score": 0.679
+    }
+   ]
+  },
+  {
+   "start": 84.325,
+   "end": 86.327,
+   "text": "Early signs of stabilization.",
+   "words": [
+    {
+     "w": "Early",
+     "start": 84.325,
+     "end": 84.586,
+     "score": 0.803
+    },
+    {
+     "w": "signs",
+     "start": 84.646,
+     "end": 85.106,
+     "score": 0.708
+    },
+    {
+     "w": "of",
+     "start": 85.166,
+     "end": 85.266,
+     "score": 0.883
+    },
+    {
+     "w": "stabilization.",
+     "start": 85.326,
+     "end": 86.327,
+     "score": 0.813
+    }
+   ]
+  },
+  {
+   "start": 86.667,
+   "end": 88.949,
+   "text": "Everybody sing it, everybody at once.",
+   "words": [
+    {
+     "w": "Everybody",
+     "start": 86.667,
+     "end": 87.147,
+     "score": 0.888
+    },
+    {
+     "w": "sing",
+     "start": 87.188,
+     "end": 87.368,
+     "score": 0.948
+    },
+    {
+     "w": "it,",
+     "start": 87.408,
+     "end": 87.508,
+     "score": 0.796
+    },
+    {
+     "w": "everybody",
+     "start": 87.568,
+     "end": 88.088,
+     "score": 0.917
+    },
+    {
+     "w": "at",
+     "start": 88.208,
+     "end": 88.308,
+     "score": 0.831
+    },
+    {
+     "w": "once.",
+     "start": 88.468,
+     "end": 88.949,
+     "score": 0.875
+    }
+   ]
+  },
+  {
+   "start": 89.049,
+   "end": 91.05,
+   "text": "Open up the laptop, open up the mail.",
+   "words": [
+    {
+     "w": "Open",
+     "start": 89.049,
+     "end": 89.289,
+     "score": 0.718
+    },
+    {
+     "w": "up",
+     "start": 89.369,
+     "end": 89.429,
+     "score": 0.955
+    },
+    {
+     "w": "the",
+     "start": 89.469,
+     "end": 89.549,
+     "score": 0.834
+    },
+    {
+     "w": "laptop,",
+     "start": 89.589,
+     "end": 90.17,
+     "score": 0.921
+    },
+    {
+     "w": "open",
+     "start": 90.27,
+     "end": 90.51,
+     "score": 0.72
+    },
+    {
+     "w": "up",
+     "start": 90.57,
+     "end": 90.63,
+     "score": 0.978
+    },
+    {
+     "w": "the",
+     "start": 90.67,
+     "end": 90.75,
+     "score": 0.929
+    },
+    {
+     "w": "mail.",
+     "start": 90.79,
+     "end": 91.05,
+     "score": 0.879
+    }
+   ]
+  },
+  {
+   "start": 91.451,
+   "end": 93.852,
+   "text": "10 million voices singing out without fail.",
+   "words": [
+    {
+     "w": "10",
+     "start": 91.451,
+     "end": 91.611,
+     "score": 0.665
+    },
+    {
+     "w": "million",
+     "start": 91.671,
+     "end": 91.951,
+     "score": 0.911
+    },
+    {
+     "w": "voices",
+     "start": 91.971,
+     "end": 92.251,
+     "score": 0.528
+    },
+    {
+     "w": "singing",
+     "start": 92.271,
+     "end": 92.571,
+     "score": 0.836
+    },
+    {
+     "w": "out",
+     "start": 92.652,
+     "end": 92.732,
+     "score": 0.943
+    },
+    {
+     "w": "without",
+     "start": 92.772,
+     "end": 93.092,
+     "score": 0.856
+    },
+    {
+     "w": "fail.",
+     "start": 93.172,
+     "end": 93.852,
+     "score": 0.761
+    }
+   ]
+  },
+  {
+   "start": 97.075,
+   "end": 98.436,
+   "text": "We're seeing renewed errors.",
+   "words": [
+    {
+     "w": "We're",
+     "start": 97.075,
+     "end": 97.375,
+     "score": 0.352
+    },
+    {
+     "w": "seeing",
+     "start": 97.415,
+     "end": 97.715,
+     "score": 0.853
+    },
+    {
+     "w": "renewed",
+     "start": 97.735,
+     "end": 98.076,
+     "score": 0.86
+    },
+    {
+     "w": "errors.",
+     "start": 98.156,
+     "end": 98.436,
+     "score": 0.95
+    }
+   ]
+  },
+  {
+   "start": 103.127,
+   "end": 120.143,
+   "text": "The agents that we hired to read the mail for us Are waiting in the lobby asking where the server was The chatbot lost its inbox so it couldn't write this song It wrote it anyway Everything is wired to everything",
+   "words": [
+    {
+     "w": "The",
+     "start": 103.127,
+     "end": 103.387,
+     "score": 0.87
+    },
+    {
+     "w": "agents",
+     "start": 103.547,
+     "end": 103.948,
+     "score": 0.823
+    },
+    {
+     "w": "that",
+     "start": 103.988,
+     "end": 104.228,
+     "score": 0.75
+    },
+    {
+     "w": "we",
+     "start": 104.288,
+     "end": 104.508,
+     "score": 0.974
+    },
+    {
+     "w": "hired",
+     "start": 104.568,
+     "end": 105.209,
+     "score": 0.752
+    },
+    {
+     "w": "to",
+     "start": 105.489,
+     "end": 105.609,
+     "score": 0.994
+    },
+    {
+     "w": "read",
+     "start": 105.689,
+     "end": 105.93,
+     "score": 0.925
+    },
+    {
+     "w": "the",
+     "start": 106.09,
+     "end": 106.21,
+     "score": 0.724
+    },
+    {
+     "w": "mail",
+     "start": 106.25,
+     "end": 106.57,
+     "score": 0.888
+    },
+    {
+     "w": "for",
+     "start": 106.67,
+     "end": 106.85,
+     "score": 0.883
+    },
+    {
+     "w": "us",
+     "start": 107.031,
+     "end": 107.151,
+     "score": 0.906
+    },
+    {
+     "w": "Are",
+     "start": 108.011,
+     "end": 108.152,
+     "score": 0.532
+    },
+    {
+     "w": "waiting",
+     "start": 108.212,
+     "end": 108.812,
+     "score": 0.86
+    },
+    {
+     "w": "in",
+     "start": 108.952,
+     "end": 109.092,
+     "score": 0.828
+    },
+    {
+     "w": "the",
+     "start": 109.133,
+     "end": 109.213,
+     "score": 0.988
+    },
+    {
+     "w": "lobby",
+     "start": 109.293,
+     "end": 109.913,
+     "score": 0.911
+    },
+    {
+     "w": "asking",
+     "start": 110.073,
+     "end": 110.514,
+     "score": 0.824
+    },
+    {
+     "w": "where",
+     "start": 110.614,
+     "end": 110.914,
+     "score": 0.804
+    },
+    {
+     "w": "the",
+     "start": 110.954,
+     "end": 111.074,
+     "score": 0.887
+    },
+    {
+     "w": "server",
+     "start": 111.174,
+     "end": 111.635,
+     "score": 0.773
+    },
+    {
+     "w": "was",
+     "start": 111.675,
+     "end": 112.095,
+     "score": 0.814
+    },
+    {
+     "w": "The",
+     "start": 112.756,
+     "end": 112.876,
+     "score": 0.93
+    },
+    {
+     "w": "chatbot",
+     "start": 112.956,
+     "end": 113.557,
+     "score": 0.708
+    },
+    {
+     "w": "lost",
+     "start": 113.597,
+     "end": 113.937,
+     "score": 0.87
+    },
+    {
+     "w": "its",
+     "start": 114.037,
+     "end": 114.177,
+     "score": 0.718
+    },
+    {
+     "w": "inbox",
+     "start": 114.317,
+     "end": 114.818,
+     "score": 0.897
+    },
+    {
+     "w": "so",
+     "start": 114.838,
+     "end": 115.078,
+     "score": 0.946
+    },
+    {
+     "w": "it",
+     "start": 115.238,
+     "end": 115.318,
+     "score": 0.564
+    },
+    {
+     "w": "couldn't",
+     "start": 115.398,
+     "end": 115.819,
+     "score": 0.715
+    },
+    {
+     "w": "write",
+     "start": 115.899,
+     "end": 116.199,
+     "score": 0.84
+    },
+    {
+     "w": "this",
+     "start": 116.299,
+     "end": 116.499,
+     "score": 0.778
+    },
+    {
+     "w": "song",
+     "start": 116.599,
+     "end": 117.0,
+     "score": 0.941
+    },
+    {
+     "w": "It",
+     "start": 117.1,
+     "end": 117.18,
+     "score": 0.375
+    },
+    {
+     "w": "wrote",
+     "start": 117.22,
+     "end": 117.46,
+     "score": 0.78
+    },
+    {
+     "w": "it",
+     "start": 117.5,
+     "end": 117.56,
+     "score": 0.624
+    },
+    {
+     "w": "anyway",
+     "start": 117.66,
+     "end": 118.081,
+     "score": 0.813
+    },
+    {
+     "w": "Everything",
+     "start": 118.501,
+     "end": 118.881,
+     "score": 0.917
+    },
+    {
+     "w": "is",
+     "start": 118.941,
+     "end": 119.002,
+     "score": 0.826
+    },
+    {
+     "w": "wired",
+     "start": 119.062,
+     "end": 119.462,
+     "score": 0.896
+    },
+    {
+     "w": "to",
+     "start": 119.522,
+     "end": 119.602,
+     "score": 0.802
+    },
+    {
+     "w": "everything",
+     "start": 119.722,
+     "end": 120.143,
+     "score": 0.93
+    }
+   ]
+  },
+  {
+   "start": 120.743,
+   "end": 146.92,
+   "text": "and everything is gone all systems operational every light is green all systems operational believe the screen nothing here is broken everything is fine all systems operational please stay on the line please stay on the line",
+   "words": [
+    {
+     "w": "and",
+     "start": 120.743,
+     "end": 120.843,
+     "score": 0.97
+    },
+    {
+     "w": "everything",
+     "start": 120.923,
+     "end": 121.303,
+     "score": 0.901
+    },
+    {
+     "w": "is",
+     "start": 121.363,
+     "end": 121.424,
+     "score": 0.768
+    },
+    {
+     "w": "gone",
+     "start": 121.464,
+     "end": 121.964,
+     "score": 0.838
+    },
+    {
+     "w": "all",
+     "start": 121.984,
+     "end": 122.544,
+     "score": 0.735
+    },
+    {
+     "w": "systems",
+     "start": 122.604,
+     "end": 123.245,
+     "score": 0.822
+    },
+    {
+     "w": "operational",
+     "start": 123.385,
+     "end": 124.365,
+     "score": 0.808
+    },
+    {
+     "w": "every",
+     "start": 125.346,
+     "end": 125.606,
+     "score": 0.881
+    },
+    {
+     "w": "light",
+     "start": 125.646,
+     "end": 125.966,
+     "score": 0.715
+    },
+    {
+     "w": "is",
+     "start": 126.026,
+     "end": 126.086,
+     "score": 0.278
+    },
+    {
+     "w": "green",
+     "start": 126.207,
+     "end": 126.727,
+     "score": 0.757
+    },
+    {
+     "w": "all",
+     "start": 126.747,
+     "end": 126.807,
+     "score": 0.001
+    },
+    {
+     "w": "systems",
+     "start": 127.407,
+     "end": 128.048,
+     "score": 0.814
+    },
+    {
+     "w": "operational",
+     "start": 128.188,
+     "end": 129.168,
+     "score": 0.842
+    },
+    {
+     "w": "believe",
+     "start": 130.129,
+     "end": 130.729,
+     "score": 0.768
+    },
+    {
+     "w": "the",
+     "start": 130.769,
+     "end": 130.89,
+     "score": 0.781
+    },
+    {
+     "w": "screen",
+     "start": 130.95,
+     "end": 131.61,
+     "score": 0.806
+    },
+    {
+     "w": "nothing",
+     "start": 131.63,
+     "end": 132.791,
+     "score": 0.927
+    },
+    {
+     "w": "here",
+     "start": 132.851,
+     "end": 133.171,
+     "score": 0.735
+    },
+    {
+     "w": "is",
+     "start": 133.271,
+     "end": 133.371,
+     "score": 0.652
+    },
+    {
+     "w": "broken",
+     "start": 133.431,
+     "end": 134.532,
+     "score": 0.878
+    },
+    {
+     "w": "everything",
+     "start": 134.812,
+     "end": 135.572,
+     "score": 0.869
+    },
+    {
+     "w": "is",
+     "start": 135.673,
+     "end": 135.753,
+     "score": 0.819
+    },
+    {
+     "w": "fine",
+     "start": 135.853,
+     "end": 136.593,
+     "score": 0.719
+    },
+    {
+     "w": "all",
+     "start": 136.753,
+     "end": 136.953,
+     "score": 0.857
+    },
+    {
+     "w": "systems",
+     "start": 137.013,
+     "end": 137.654,
+     "score": 0.794
+    },
+    {
+     "w": "operational",
+     "start": 137.814,
+     "end": 138.755,
+     "score": 0.864
+    },
+    {
+     "w": "please",
+     "start": 138.835,
+     "end": 139.495,
+     "score": 0.756
+    },
+    {
+     "w": "stay",
+     "start": 139.675,
+     "end": 140.115,
+     "score": 0.88
+    },
+    {
+     "w": "on",
+     "start": 140.235,
+     "end": 140.316,
+     "score": 0.983
+    },
+    {
+     "w": "the",
+     "start": 140.376,
+     "end": 140.456,
+     "score": 0.991
+    },
+    {
+     "w": "line",
+     "start": 140.496,
+     "end": 140.876,
+     "score": 0.782
+    },
+    {
+     "w": "please",
+     "start": 144.818,
+     "end": 145.499,
+     "score": 0.813
+    },
+    {
+     "w": "stay",
+     "start": 145.659,
+     "end": 146.099,
+     "score": 0.911
+    },
+    {
+     "w": "on",
+     "start": 146.219,
+     "end": 146.339,
+     "score": 0.639
+    },
+    {
+     "w": "the",
+     "start": 146.379,
+     "end": 146.479,
+     "score": 0.847
+    },
+    {
+     "w": "line",
+     "start": 146.539,
+     "end": 146.92,
+     "score": 0.992
+    }
+   ]
+  },
+  {
+   "start": 152.022,
+   "end": 179.588,
+   "text": "cause an earlier upgrade met a recent change contributing factors not related to cyber AI or agents full report to follow lessons learned we're committed to doing better service has been restored for most users service has been restored for most users",
+   "words": [
+    {
+     "w": "cause",
+     "start": 152.022,
+     "end": 152.502,
+     "score": 0.949
+    },
+    {
+     "w": "an",
+     "start": 152.562,
+     "end": 152.622,
+     "score": 0.811
+    },
+    {
+     "w": "earlier",
+     "start": 152.702,
+     "end": 153.102,
+     "score": 0.788
+    },
+    {
+     "w": "upgrade",
+     "start": 153.222,
+     "end": 153.863,
+     "score": 0.715
+    },
+    {
+     "w": "met",
+     "start": 154.683,
+     "end": 154.883,
+     "score": 0.955
+    },
+    {
+     "w": "a",
+     "start": 154.943,
+     "end": 154.983,
+     "score": 0.901
+    },
+    {
+     "w": "recent",
+     "start": 155.043,
+     "end": 155.523,
+     "score": 0.848
+    },
+    {
+     "w": "change",
+     "start": 155.623,
+     "end": 156.183,
+     "score": 0.879
+    },
+    {
+     "w": "contributing",
+     "start": 156.263,
+     "end": 157.343,
+     "score": 0.921
+    },
+    {
+     "w": "factors",
+     "start": 157.503,
+     "end": 158.343,
+     "score": 0.857
+    },
+    {
+     "w": "not",
+     "start": 158.884,
+     "end": 159.064,
+     "score": 0.851
+    },
+    {
+     "w": "related",
+     "start": 159.104,
+     "end": 159.544,
+     "score": 0.982
+    },
+    {
+     "w": "to",
+     "start": 159.604,
+     "end": 159.704,
+     "score": 0.77
+    },
+    {
+     "w": "cyber",
+     "start": 159.824,
+     "end": 160.464,
+     "score": 0.805
+    },
+    {
+     "w": "AI",
+     "start": 160.484,
+     "end": 160.824,
+     "score": 0.914
+    },
+    {
+     "w": "or",
+     "start": 160.864,
+     "end": 160.964,
+     "score": 0.356
+    },
+    {
+     "w": "agents",
+     "start": 161.104,
+     "end": 161.484,
+     "score": 0.831
+    },
+    {
+     "w": "full",
+     "start": 161.624,
+     "end": 161.964,
+     "score": 0.54
+    },
+    {
+     "w": "report",
+     "start": 161.984,
+     "end": 162.764,
+     "score": 0.858
+    },
+    {
+     "w": "to",
+     "start": 164.265,
+     "end": 164.405,
+     "score": 0.981
+    },
+    {
+     "w": "follow",
+     "start": 164.505,
+     "end": 165.105,
+     "score": 0.927
+    },
+    {
+     "w": "lessons",
+     "start": 165.205,
+     "end": 165.665,
+     "score": 0.913
+    },
+    {
+     "w": "learned",
+     "start": 165.725,
+     "end": 166.145,
+     "score": 0.684
+    },
+    {
+     "w": "we're",
+     "start": 166.385,
+     "end": 166.645,
+     "score": 0.664
+    },
+    {
+     "w": "committed",
+     "start": 166.725,
+     "end": 168.266,
+     "score": 0.541
+    },
+    {
+     "w": "to",
+     "start": 168.506,
+     "end": 168.626,
+     "score": 0.946
+    },
+    {
+     "w": "doing",
+     "start": 168.686,
+     "end": 169.026,
+     "score": 0.529
+    },
+    {
+     "w": "better",
+     "start": 169.126,
+     "end": 169.506,
+     "score": 0.875
+    },
+    {
+     "w": "service",
+     "start": 170.586,
+     "end": 171.366,
+     "score": 0.895
+    },
+    {
+     "w": "has",
+     "start": 171.546,
+     "end": 171.806,
+     "score": 0.809
+    },
+    {
+     "w": "been",
+     "start": 171.846,
+     "end": 172.106,
+     "score": 0.643
+    },
+    {
+     "w": "restored",
+     "start": 172.706,
+     "end": 173.367,
+     "score": 0.812
+    },
+    {
+     "w": "for",
+     "start": 173.467,
+     "end": 173.707,
+     "score": 0.977
+    },
+    {
+     "w": "most",
+     "start": 173.787,
+     "end": 174.127,
+     "score": 0.869
+    },
+    {
+     "w": "users",
+     "start": 174.347,
+     "end": 174.787,
+     "score": 0.793
+    },
+    {
+     "w": "service",
+     "start": 175.387,
+     "end": 176.207,
+     "score": 0.848
+    },
+    {
+     "w": "has",
+     "start": 176.327,
+     "end": 176.967,
+     "score": 0.858
+    },
+    {
+     "w": "been",
+     "start": 176.987,
+     "end": 177.067,
+     "score": 0.001
+    },
+    {
+     "w": "restored",
+     "start": 177.507,
+     "end": 178.188,
+     "score": 0.845
+    },
+    {
+     "w": "for",
+     "start": 178.268,
+     "end": 178.508,
+     "score": 0.868
+    },
+    {
+     "w": "most",
+     "start": 178.588,
+     "end": 178.948,
+     "score": 0.978
+    },
+    {
+     "w": "users",
+     "start": 179.188,
+     "end": 179.588,
+     "score": 0.901
+    }
+   ]
+  },
+  {
+   "start": 182.378,
+   "end": 201.766,
+   "text": "All systems operational Every light was green All systems operational Believe the screen Nothing here is broken Everything is fine All systems operational Please stay on the...",
+   "words": [
+    {
+     "w": "All",
+     "start": 182.378,
+     "end": 182.538,
+     "score": 0.484
+    },
+    {
+     "w": "systems",
+     "start": 182.598,
+     "end": 183.218,
+     "score": 0.74
+    },
+    {
+     "w": "operational",
+     "start": 183.379,
+     "end": 184.319,
+     "score": 0.91
+    },
+    {
+     "w": "Every",
+     "start": 185.319,
+     "end": 185.559,
+     "score": 0.896
+    },
+    {
+     "w": "light",
+     "start": 185.6,
+     "end": 185.88,
+     "score": 0.517
+    },
+    {
+     "w": "was",
+     "start": 185.94,
+     "end": 186.12,
+     "score": 0.763
+    },
+    {
+     "w": "green",
+     "start": 186.22,
+     "end": 186.84,
+     "score": 0.816
+    },
+    {
+     "w": "All",
+     "start": 187.18,
+     "end": 187.34,
+     "score": 0.706
+    },
+    {
+     "w": "systems",
+     "start": 187.4,
+     "end": 188.041,
+     "score": 0.87
+    },
+    {
+     "w": "operational",
+     "start": 188.201,
+     "end": 189.141,
+     "score": 0.901
+    },
+    {
+     "w": "Believe",
+     "start": 190.101,
+     "end": 190.682,
+     "score": 0.832
+    },
+    {
+     "w": "the",
+     "start": 190.742,
+     "end": 190.862,
+     "score": 0.897
+    },
+    {
+     "w": "screen",
+     "start": 190.922,
+     "end": 191.602,
+     "score": 0.864
+    },
+    {
+     "w": "Nothing",
+     "start": 192.122,
+     "end": 192.863,
+     "score": 0.697
+    },
+    {
+     "w": "here",
+     "start": 192.903,
+     "end": 193.143,
+     "score": 0.555
+    },
+    {
+     "w": "is",
+     "start": 193.223,
+     "end": 193.323,
+     "score": 0.832
+    },
+    {
+     "w": "broken",
+     "start": 193.423,
+     "end": 194.503,
+     "score": 0.807
+    },
+    {
+     "w": "Everything",
+     "start": 194.723,
+     "end": 195.544,
+     "score": 0.912
+    },
+    {
+     "w": "is",
+     "start": 195.644,
+     "end": 195.724,
+     "score": 0.84
+    },
+    {
+     "w": "fine",
+     "start": 195.804,
+     "end": 196.584,
+     "score": 0.761
+    },
+    {
+     "w": "All",
+     "start": 196.724,
+     "end": 196.904,
+     "score": 0.965
+    },
+    {
+     "w": "systems",
+     "start": 196.984,
+     "end": 197.625,
+     "score": 0.799
+    },
+    {
+     "w": "operational",
+     "start": 197.785,
+     "end": 198.725,
+     "score": 0.85
+    },
+    {
+     "w": "Please",
+     "start": 198.805,
+     "end": 200.706,
+     "score": 0.743
+    },
+    {
+     "w": "stay",
+     "start": 200.806,
+     "end": 201.206,
+     "score": 0.882
+    },
+    {
+     "w": "on",
+     "start": 201.366,
+     "end": 201.486,
+     "score": 0.805
+    },
+    {
+     "w": "the...",
+     "start": 201.526,
+     "end": 201.766,
+     "score": 0.784
+    }
+   ]
+  },
+  {
+   "start": 208.529,
+   "end": 209.63,
+   "text": "Remember Wednesday?",
+   "words": [
+    {
+     "w": "Remember",
+     "start": 208.529,
+     "end": 208.95,
+     "score": 0.928
+    },
+    {
+     "w": "Wednesday?",
+     "start": 209.01,
+     "end": 209.63,
+     "score": 0.78
+    }
+   ]
+  },
+  {
+   "start": 211.447,
+   "end": 234.898,
+   "text": "The inbox always loaded The meetings had a link And no one knew how good we had it Back when the cloud was new We are deeply sorry for the disruption All systems Operational",
+   "words": [
+    {
+     "w": "The",
+     "start": 211.447,
+     "end": 211.567,
+     "score": 0.886
+    },
+    {
+     "w": "inbox",
+     "start": 211.667,
+     "end": 212.187,
+     "score": 0.901
+    },
+    {
+     "w": "always",
+     "start": 212.307,
+     "end": 212.608,
+     "score": 0.914
+    },
+    {
+     "w": "loaded",
+     "start": 212.688,
+     "end": 213.088,
+     "score": 0.902
+    },
+    {
+     "w": "The",
+     "start": 213.108,
+     "end": 213.968,
+     "score": 0.853
+    },
+    {
+     "w": "meetings",
+     "start": 214.008,
+     "end": 214.468,
+     "score": 0.857
+    },
+    {
+     "w": "had",
+     "start": 214.508,
+     "end": 214.709,
+     "score": 0.823
+    },
+    {
+     "w": "a",
+     "start": 214.769,
+     "end": 214.789,
+     "score": 0.998
+    },
+    {
+     "w": "link",
+     "start": 214.849,
+     "end": 215.149,
+     "score": 0.873
+    },
+    {
+     "w": "And",
+     "start": 215.909,
+     "end": 216.009,
+     "score": 0.684
+    },
+    {
+     "w": "no",
+     "start": 216.069,
+     "end": 216.209,
+     "score": 0.86
+    },
+    {
+     "w": "one",
+     "start": 216.309,
+     "end": 216.409,
+     "score": 0.99
+    },
+    {
+     "w": "knew",
+     "start": 216.469,
+     "end": 216.649,
+     "score": 0.779
+    },
+    {
+     "w": "how",
+     "start": 216.729,
+     "end": 216.89,
+     "score": 0.891
+    },
+    {
+     "w": "good",
+     "start": 216.95,
+     "end": 217.15,
+     "score": 0.784
+    },
+    {
+     "w": "we",
+     "start": 217.19,
+     "end": 217.33,
+     "score": 0.986
+    },
+    {
+     "w": "had",
+     "start": 217.39,
+     "end": 217.63,
+     "score": 0.792
+    },
+    {
+     "w": "it",
+     "start": 217.67,
+     "end": 217.73,
+     "score": 0.74
+    },
+    {
+     "w": "Back",
+     "start": 218.93,
+     "end": 219.151,
+     "score": 1.0
+    },
+    {
+     "w": "when",
+     "start": 219.191,
+     "end": 219.351,
+     "score": 0.895
+    },
+    {
+     "w": "the",
+     "start": 219.391,
+     "end": 219.471,
+     "score": 0.829
+    },
+    {
+     "w": "cloud",
+     "start": 219.531,
+     "end": 220.011,
+     "score": 0.831
+    },
+    {
+     "w": "was",
+     "start": 220.091,
+     "end": 220.231,
+     "score": 0.784
+    },
+    {
+     "w": "new",
+     "start": 220.311,
+     "end": 220.471,
+     "score": 0.978
+    },
+    {
+     "w": "We",
+     "start": 222.132,
+     "end": 222.252,
+     "score": 1.0
+    },
+    {
+     "w": "are",
+     "start": 222.312,
+     "end": 222.412,
+     "score": 0.716
+    },
+    {
+     "w": "deeply",
+     "start": 222.492,
+     "end": 222.912,
+     "score": 0.862
+    },
+    {
+     "w": "sorry",
+     "start": 222.992,
+     "end": 223.353,
+     "score": 0.878
+    },
+    {
+     "w": "for",
+     "start": 223.553,
+     "end": 223.693,
+     "score": 0.867
+    },
+    {
+     "w": "the",
+     "start": 223.713,
+     "end": 223.773,
+     "score": 0.941
+    },
+    {
+     "w": "disruption",
+     "start": 223.833,
+     "end": 224.413,
+     "score": 0.874
+    },
+    {
+     "w": "All",
+     "start": 229.415,
+     "end": 229.635,
+     "score": 0.733
+    },
+    {
+     "w": "systems",
+     "start": 229.775,
+     "end": 230.396,
+     "score": 0.927
+    },
+    {
+     "w": "Operational",
+     "start": 234.117,
+     "end": 234.898,
+     "score": 0.881
+    }
+   ]
+  }
+ ]
+}

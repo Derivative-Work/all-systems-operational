@@ -1,0 +1,58 @@
+/home/antiai-aiclub/Projects/all-systems-operational/.venv/lib/python3.12/site-packages/pyannote/audio/core/io.py:48: UserWarning: 
+torchcodec is not installed correctly so built-in audio decoding will fail. Solutions are:
+* use audio preloaded in-memory as a {'waveform': (channel, time) torch.Tensor, 'sample_rate': int} dictionary;
+* fix torchcodec installation. Error message was:
+
+Could not load libtorchcodec. Likely causes:
+          1. FFmpeg is not properly installed in your environment. We support
+             versions 4, 5, 6 and 7.
+          2. The PyTorch version (2.8.0+cu128) is not compatible with
+             this version of TorchCodec. Refer to the version compatibility
+             table:
+             https://github.com/pytorch/torchcodec?tab=readme-ov-file#installing-torchcodec.
+          3. Another runtime dependency; see exceptions below.
+        The following exceptions were raised as we tried to load libtorchcodec:
+        
+[start of libtorchcodec loading traceback]
+FFmpeg version 7: libavutil.so.59: cannot open shared object file: No such file or directory
+FFmpeg version 6: libavutil.so.58: cannot open shared object file: No such file or directory
+FFmpeg version 5: libavutil.so.57: cannot open shared object file: No such file or directory
+FFmpeg version 4: libavutil.so.56: cannot open shared object file: No such file or directory
+[end of libtorchcodec loading traceback].
+  warnings.warn(
+2026-11-15 06:12:46 - whisperx.vads.pyannote - INFO - Performing voice activity detection using Pyannote...
+Lightning automatically upgraded your loaded checkpoint from v1.5.4 to v2.6.6. To apply the upgrade to your files permanently, run `python -m lightning.pytorch.utilities.upgrade_checkpoint .venv/lib/python3.12/site-packages/whisperx/assets/pytorch_model.bin`
+/home/antiai-aiclub/Projects/all-systems-operational/.venv/lib/python3.12/site-packages/pyannote/audio/utils/reproducibility.py:74: ReproducibilityWarning: TensorFloat-32 (TF32) has been disabled as it might lead to reproducibility issues and lower accuracy.
+It can be re-enabled by calling
+   >>> import torch
+   >>> torch.backends.cuda.matmul.allow_tf32 = True
+   >>> torch.backends.cudnn.allow_tf32 = True
+See https://github.com/pyannote/pyannote-audio/issues/1370 for more details.
+
+  warnings.warn(
+[   7.52 -   16.33] We're investigating reports that some of you can't reach anything.
+[  26.59 -   45.75] 1pm on a Thursday and the inbox went still The calendar was empty and the queue began to fill The trading desk went looking for a fax machine Somewhere a server's lying in a field of green We are away
+[  47.16 -   53.13] Some users may be experiencing everything.
+[  55.11 -   57.06] All systems operational.
+[  58.08 -   59.46] Every light is green.
+[  59.92 -   61.80] All systems operational.
+[  62.85 -   64.34] Believe the screen.
+[  64.36 -   67.28] Nothing here is broken.
+[  67.56 -   69.34] Everything is fine.
+[  69.48 -   71.49] All systems operational.
+[  71.55 -   73.63] Please stay on the line.
+[  73.67 -   74.49] 503.
+[  74.53 -   74.85] 503.
+[  75.65 -   77.30] 503.
+[  77.56 -   79.74] Please stay on the line.
+[  84.33 -   86.33] Early signs of stabilization.
+[  86.67 -   88.95] Everybody sing it, everybody at once.
+[  89.05 -   91.05] Open up the laptop, open up the mail.
+[  91.45 -   93.85] 10 million voices singing out without fail.
+[  97.08 -   98.44] We're seeing renewed errors.
+[ 103.13 -  120.14] The agents that we hired to read the mail for us Are waiting in the lobby asking where the server was The chatbot lost its inbox so it couldn't write this song It wrote it anyway Everything is wired to everything
+[ 120.74 -  146.92] and everything is gone all systems operational every light is green all systems operational believe the screen nothing here is broken everything is fine all systems operational please stay on the line please stay on the line
+[ 152.02 -  179.59] cause an earlier upgrade met a recent change contributing factors not related to cyber AI or agents full report to follow lessons learned we're committed to doing better service has been restored for most users service has been restored for most users
+[ 182.38 -  201.77] All systems operational Every light was green All systems operational Believe the screen Nothing here is broken Everything is fine All systems operational Please stay on the...
+[ 208.53 -  209.63] Remember Wednesday?
+[ 211.45 -  234.90] The inbox always loaded The meetings had a link And no one knew how good we had it Back when the cloud was new We are deeply sorry for the disruption All systems Operational
