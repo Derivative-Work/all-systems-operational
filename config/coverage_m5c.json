@@ -1,0 +1,3809 @@
+{
+ "generated_by": "scripts/coverage_m5c.py (from config/coverage.json, M5b)",
+ "fps": 30,
+ "lead_in_s": 8.4,
+ "rules": "(from the human's note, human interventions 13, and the plan):\n- Choruses (and the stomp-clap instrumental) cut every 1-2 bars, on downbeats or Hey!s; verses every 2-4 bars; the\n  cuts speed up through each build into its stop (bars, then half bars, then beats); the freezes (O12, O21) hold one\n  angle. The O-shot boundaries stay on the M2 cues (approved, human interventions 9).\n- The Remotion shots (O01, O02, O05, O13, O23, O24, the cards), O06's clip, O07 and O10 stay one shot each; O08's\n  inserts (IT's reply, the treehouse cutaway) stay where M5 put them (decisions 11).\n- Every cued event (Switch, ON AIR, the LED, the string lights, the whiteboard lines, the mugs, the disclosure panel,\n  the lower thirds) falls in a sub-shot whose camera shows it; each sub-shot lists the marks it covers.\n- Closes never show a face: hands, the kick foot and the SESSION 503 head, the banjo neck, the tambourine, mugs,\n  rain on glass, ON AIR, Switch and his conduit, backs of heads, backlit profiles. Cameras sit on the audience side\n  looking toward the windows (the backlight), so no reverse angle shows a lit face.\n- Not any one famous stomp-clap video's look: no single-take walk-through, no lens-flare wash, no barn or field band\n  in a line; the coverage is the live-session pattern the brief names (wide to close, cutting on the music).",
+ "total_shots": 94,
+ "cuts": 93,
+ "video_frames": 8699,
+ "per_section": {
+  "Bookend": 1,
+  "Intro": 2,
+  "Intro vocal": 1,
+  "Stomp-clap": 4,
+  "Verse 1": 5,
+  "Pre-Chorus": 6,
+  "Chorus 1": 8,
+  "Post-Chorus 1": 4,
+  "Build 1": 8,
+  "Stop 1": 2,
+  "Band back": 2,
+  "Verse 2": 6,
+  "Chorus 2": 8,
+  "Post-Chorus 2": 4,
+  "Bridge": 5,
+  "Build 2": 5,
+  "Final Chorus": 10,
+  "Stop 2": 1,
+  "Outro hook": 2,
+  "Outro": 3,
+  "Spoken": 1,
+  "Sung, small": 2,
+  "End sequence": 4
+ },
+ "longest_hold": {
+  "id": "O02",
+  "seconds": 7.27
+ },
+ "cameras": {
+  "live": {
+   "wide_back": {
+    "loc": [
+     2.2,
+     0.5,
+     2.0
+    ],
+    "target": [
+     -0.3,
+     8.5,
+     1.5
+    ],
+    "lens": 24,
+    "framing": "wide",
+    "what": "the M3 board's O03 wide: room, windows, band, crowd"
+   },
+   "wide_high": {
+    "loc": [
+     0.0,
+     2.2,
+     2.9
+    ],
+    "target": [
+     0.0,
+     8.2,
+     1.0
+    ],
+    "lens": 30,
+    "framing": "wide",
+    "what": "the board's O09 wide down the aisle: the SESSION 503 head"
+   },
+   "wide_left": {
+    "loc": [
+     -5.6,
+     1.4,
+     2.5
+    ],
+    "target": [
+     0.6,
+     7.9,
+     1.3
+    ],
+    "lens": 22,
+    "framing": "wide",
+    "what": "wide from the front left corner, crowd and band against all five windows"
+   },
+   "mid_band": {
+    "expo": -1.2,
+    "loc": [
+     0.9,
+     4.15,
+     1.62
+    ],
+    "target": [
+     0.1,
+     8.0,
+     1.35
+    ],
+    "lens": 40,
+    "framing": "mid",
+    "dof": {
+     "focus": [
+      0.6,
+      5.2,
+      1.6
+     ],
+     "fstop": 2.8
+    },
+    "what": "the band, soft, over the crowd's shoulders (focus on the heads in front)"
+   },
+   "crush": {
+    "loc": [
+     0.6,
+     3.2,
+     1.55
+    ],
+    "target": [
+     0.0,
+     8.4,
+     1.7
+    ],
+    "lens": 30,
+    "framing": "wide",
+    "what": "the board's O11: the crowd crushed at the mics"
+   },
+   "close_kick": {
+    "loc": [
+     -0.9,
+     6.6,
+     0.42
+    ],
+    "target": [
+     -0.05,
+     7.7,
+     0.3
+    ],
+    "lens": 35,
+    "framing": "close",
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the kick foot on the pedal side and the SESSION 503 head"
+   },
+   "close_hands": {
+    "expo": -0.5,
+    "kind": "person",
+    "pose": "clap",
+    "near": [
+     0.6,
+     5.2
+    ],
+    "part": "hands",
+    "side": 0.85,
+    "lens": 50,
+    "framing": "close",
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "a clapper's hands, side-on against the windows (chin down out of frame)"
+   },
+   "close_hands2": {
+    "expo": -0.5,
+    "kind": "person",
+    "pose": "clap",
+    "near": [
+     2.2,
+     4.5
+    ],
+    "part": "hands",
+    "side": 0.85,
+    "lens": 50,
+    "framing": "close",
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "another clapper's hands, from the other side"
+   },
+   "close_banjo": {
+    "expo": -0.8,
+    "loc": [
+     2.05,
+     6.95,
+     1.12
+    ],
+    "target": [
+     0.95,
+     7.5,
+     1.08
+    ],
+    "lens": 50,
+    "framing": "close",
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the banjo's neck and the strumming hand"
+   },
+   "close_tamb": {
+    "kind": "band",
+    "role": "tamb",
+    "loc": [
+     -0.78,
+     -1.25,
+     0.95
+    ],
+    "target": [
+     -0.18,
+     -0.4,
+     1.2
+    ],
+    "lens": 85,
+    "framing": "close",
+    "expo": -0.4,
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the tambourine in the player's hand, backlit"
+   },
+   "backs": {
+    "expo": -0.3,
+    "kind": "person",
+    "pose": "any",
+    "near": [
+     0.0,
+     5.6
+    ],
+    "part": "back",
+    "lens": 45,
+    "framing": "close",
+    "dof": {
+     "focus": "person",
+     "fstop": 2.0,
+     "rack_to": [
+      0.4,
+      10.0,
+      2.4
+     ]
+    },
+    "aim": [
+     0.0,
+     7.9,
+     1.4
+    ],
+    "what": "the back of a head, racking past the band to the rain on the glass"
+   },
+   "rain": {
+    "expo": -1.3,
+    "loc": [
+     2.3,
+     9.05,
+     2.2
+    ],
+    "target": [
+     2.75,
+     10.0,
+     2.55
+    ],
+    "lens": 32,
+    "framing": "close",
+    "dof": {
+     "focus": "target",
+     "fstop": 2.8
+    },
+    "what": "rain on a window behind the band"
+   },
+   "close_guitar": {
+    "expo": -0.7,
+    "loc": [
+     0.15,
+     6.75,
+     1.1
+    ],
+    "target": [
+     -0.9,
+     7.6,
+     1.05
+    ],
+    "lens": 50,
+    "framing": "close",
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the acoustic guitar's body and strumming hand"
+   },
+   "onair": {
+    "loc": [
+     -5.7,
+     2.45,
+     2.35
+    ],
+    "target": [
+     -7.0,
+     2.8,
+     2.72
+    ],
+    "lens": 35,
+    "framing": "close",
+    "what": "the ON AIR sign over the door"
+   },
+   "switch_cord": {
+    "loc": [
+     -4.75,
+     4.5,
+     1.7
+    ],
+    "target": [
+     -7.0,
+     3.35,
+     1.95
+    ],
+    "lens": 24,
+    "framing": "close",
+    "what": "Switch on the wall, his conduit up to ON AIR"
+   },
+   "console": {
+    "loc": [
+     5.75,
+     1.55,
+     1.75
+    ],
+    "target": [
+     2.2,
+     7.6,
+     1.15
+    ],
+    "lens": 35,
+    "framing": "mid",
+    "dof": {
+     "focus": [
+      4.75,
+      2.9,
+      1.3
+     ],
+     "fstop": 2.8,
+     "rack_to": [
+      0.5,
+      7.7,
+      1.3
+     ]
+    },
+    "what": "over the host's shoulder: the mixer, the band beyond against the windows"
+   },
+   "board:O04": {
+    "board": "O04",
+    "framing": "close",
+    "what": "M5's O04 over-shoulder phone (screen pinned in the edit)"
+   },
+   "board:O08": {
+    "board": "O08",
+    "framing": "mid",
+    "what": "the board's O08: the host's silhouette at the console"
+   },
+   "board:O10": {
+    "board": "O10",
+    "framing": "mid",
+    "what": "the board's O10: Switch by the door, ON AIR"
+   },
+   "board:O12c": {
+    "board": "O12c",
+    "framing": "mid",
+    "what": "M5's O12 freeze camera (the late clapper)"
+   },
+   "close_beater": {
+    "kind": "band",
+    "role": "kick",
+    "loc": [
+     -0.42,
+     -0.36,
+     0.62
+    ],
+    "target": [
+     0.0,
+     -0.7,
+     0.14
+    ],
+    "lens": 35,
+    "framing": "close",
+    "expo": -0.2,
+    "dof": {
+     "focus": [
+      0.0,
+      -0.69,
+      0.22
+     ],
+     "fstop": 2.8
+    },
+    "what": "the kick pedal: the beater hitting the batter head, the foot on the board"
+   },
+   "close_strum": {
+    "kind": "band",
+    "role": "guitar",
+    "loc": [
+     -0.55,
+     -0.72,
+     0.86
+    ],
+    "target": [
+     -0.06,
+     -0.3,
+     1.0
+    ],
+    "lens": 50,
+    "framing": "close",
+    "expo": 0.3,
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the guitar's strumming hand over the sound hole"
+   },
+   "close_fret": {
+    "kind": "band",
+    "role": "banjo",
+    "loc": [
+     0.12,
+     -0.62,
+     1.02
+    ],
+    "target": [
+     0.45,
+     -0.18,
+     1.3
+    ],
+    "lens": 55,
+    "framing": "close",
+    "expo": -0.6,
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the banjo's fretting hand on the neck"
+   },
+   "lean_back": {
+    "kind": "band",
+    "role": "singer",
+    "loc": [
+     0.5,
+     0.6,
+     1.25
+    ],
+    "target": [
+     -0.02,
+     -0.45,
+     1.78
+    ],
+    "lens": 40,
+    "framing": "close",
+    "expo": -0.6,
+    "dof": {
+     "focus": [
+      0.0,
+      -0.12,
+      1.52
+     ],
+     "fstop": 2.0
+    },
+    "what": "the singer's lean-in to the mic, from behind"
+   }
+  },
+  "treehouse": {
+   "board:O08c": {
+    "board": "O08c",
+    "framing": "wide",
+    "what": "M5's O08 cutaway: the treehouse at night"
+   },
+   "wide": {
+    "loc": [
+     0.25,
+     0.35,
+     1.75
+    ],
+    "target": [
+     0.05,
+     6.0,
+     1.65
+    ],
+    "lens": 28,
+    "framing": "wide",
+    "what": "the board's O18: the band before the whiteboard"
+   },
+   "board_mid": {
+    "expo": -0.8,
+    "loc": [
+     -0.95,
+     1.4,
+     1.8
+    ],
+    "target": [
+     0.1,
+     5.98,
+     1.9
+    ],
+    "lens": 38,
+    "framing": "mid",
+    "what": "the whiteboard over the band's shoulders"
+   },
+   "side": {
+    "expo": -0.7,
+    "loc": [
+     -2.9,
+     1.15,
+     1.7
+    ],
+    "target": [
+     0.6,
+     5.4,
+     1.6
+    ],
+    "lens": 26,
+    "framing": "wide",
+    "what": "from the far corner: the table, the band in profile, the whiteboard"
+   },
+   "board_close": {
+    "loc": [
+     0.95,
+     5.3,
+     1.7
+    ],
+    "target": [
+     0.25,
+     5.98,
+     1.75
+    ],
+    "lens": 26,
+    "framing": "close",
+    "what": "close on the whiteboard's lines, a shoulder at the edge"
+   },
+   "table": {
+    "expo": -0.5,
+    "loc": [
+     1.55,
+     1.35,
+     1.2
+    ],
+    "target": [
+     0.4,
+     2.6,
+     0.8
+    ],
+    "lens": 35,
+    "framing": "close",
+    "dof": {
+     "focus": [
+      0.55,
+      2.55,
+      0.78
+     ],
+     "fstop": 2.0,
+     "rack_to": [
+      0.1,
+      5.98,
+      1.8
+     ]
+    },
+    "what": "the speakerphone and the chargers, racking to the whiteboard"
+   },
+   "skylight": {
+    "loc": [
+     -0.9,
+     4.0,
+     1.75
+    ],
+    "target": [
+     -1.6,
+     5.25,
+     3.1
+    ],
+    "lens": 30,
+    "framing": "close",
+    "what": "rain on a skylight over the band"
+   },
+   "o19a": {
+    "m5": "O19a",
+    "framing": "wide",
+    "what": "M5's O19a move: the door opens, out onto the deck and up"
+   },
+   "close_beater": {
+    "kind": "band",
+    "role": "kick",
+    "loc": [
+     -0.42,
+     -0.36,
+     0.62
+    ],
+    "target": [
+     0.0,
+     -0.7,
+     0.14
+    ],
+    "lens": 35,
+    "framing": "close",
+    "expo": -0.2,
+    "dof": {
+     "focus": [
+      0.0,
+      -0.69,
+      0.22
+     ],
+     "fstop": 2.8
+    },
+    "what": "the kick pedal: the beater hitting the batter head, the foot on the board"
+   },
+   "close_strum": {
+    "kind": "band",
+    "role": "guitar",
+    "loc": [
+     -0.55,
+     -0.72,
+     0.86
+    ],
+    "target": [
+     -0.06,
+     -0.3,
+     1.0
+    ],
+    "lens": 50,
+    "framing": "close",
+    "expo": 0.3,
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the guitar's strumming hand over the sound hole"
+   },
+   "close_fret": {
+    "kind": "band",
+    "role": "banjo",
+    "loc": [
+     0.12,
+     -0.62,
+     1.02
+    ],
+    "target": [
+     0.45,
+     -0.18,
+     1.3
+    ],
+    "lens": 55,
+    "framing": "close",
+    "expo": -0.6,
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the banjo's fretting hand on the neck"
+   },
+   "lean_back": {
+    "kind": "band",
+    "role": "singer",
+    "loc": [
+     0.5,
+     0.6,
+     1.25
+    ],
+    "target": [
+     -0.02,
+     -0.45,
+     1.78
+    ],
+    "lens": 40,
+    "framing": "close",
+    "expo": -0.6,
+    "dof": {
+     "focus": [
+      0.0,
+      -0.12,
+      1.52
+     ],
+     "fstop": 2.0
+    },
+    "what": "the singer's lean-in to the mic, from behind"
+   },
+   "close_tamb": {
+    "kind": "band",
+    "role": "tamb",
+    "loc": [
+     -0.78,
+     -1.25,
+     0.95
+    ],
+    "target": [
+     -0.18,
+     -0.4,
+     1.2
+    ],
+    "lens": 85,
+    "framing": "close",
+    "expo": -0.4,
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the tambourine in the player's hand, backlit"
+   }
+  },
+  "cafe": {
+   "wide": {
+    "loc": [
+     0.5,
+     1.2,
+     1.9
+    ],
+    "target": [
+     -0.4,
+     8.0,
+     1.5
+    ],
+    "lens": 26,
+    "framing": "wide",
+    "what": "the board's O17: the crowd, the band, the steamed windows"
+   },
+   "wide_side": {
+    "loc": [
+     4.6,
+     1.3,
+     2.35
+    ],
+    "target": [
+     -1.0,
+     7.4,
+     1.35
+    ],
+    "lens": 24,
+    "framing": "wide",
+    "what": "wide from the right front corner over the tables"
+   },
+   "wide_high": {
+    "loc": [
+     -4.2,
+     1.1,
+     2.9
+    ],
+    "target": [
+     0.0,
+     7.0,
+     1.2
+    ],
+    "lens": 22,
+    "framing": "wide",
+    "what": "high wide from the counter side, the string lights overhead"
+   },
+   "probes": {
+    "board": "O14",
+    "framing": "mid",
+    "what": "the board's O14: the probes, the table tent, the Polaroid"
+   },
+   "probe_close": {
+    "board": "O15",
+    "framing": "close",
+    "what": "the board's O15: the green probe"
+   },
+   "strands": {
+    "board": "O16",
+    "framing": "wide",
+    "what": "the board's O16: the string lights"
+   },
+   "tent": {
+    "loc": [
+     4.3,
+     2.92,
+     0.88
+    ],
+    "target": [
+     4.83,
+     3.0,
+     0.8
+    ],
+    "lens": 55,
+    "framing": "close",
+    "dof": {
+     "focus": "target",
+     "fstop": 2.2
+    },
+    "what": "the table tent: connector unavailable"
+   },
+   "polaroid": {
+    "loc": [
+     5.05,
+     2.35,
+     1.25
+    ],
+    "target": [
+     5.99,
+     3.0,
+     1.35
+    ],
+    "lens": 35,
+    "framing": "close",
+    "what": "the Polaroid on the pier, the probes below"
+   },
+   "mug_steam": {
+    "loc": [
+     4.2,
+     2.3,
+     0.93
+    ],
+    "target": [
+     4.73,
+     2.63,
+     0.84
+    ],
+    "lens": 60,
+    "framing": "close",
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "steam off the green probe's mug"
+   },
+   "hub": {
+    "loc": [
+     -0.7,
+     3.1,
+     2.0
+    ],
+    "target": [
+     0.4,
+     4.6,
+     3.3
+    ],
+    "lens": 35,
+    "framing": "close",
+    "dof": {
+     "focus": [
+      0.4,
+      4.6,
+      3.37
+     ],
+     "fstop": 2.8
+    },
+    "what": "the hub bulb and the strands leaving it"
+   },
+   "close_kick": {
+    "loc": [
+     -1.3,
+     6.3,
+     0.42
+    ],
+    "target": [
+     -0.45,
+     7.4,
+     0.3
+    ],
+    "lens": 35,
+    "framing": "close",
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the kick foot on the pedal side and the SESSION 503 head"
+   },
+   "close_banjo": {
+    "expo": -0.8,
+    "loc": [
+     1.55,
+     6.65,
+     1.12
+    ],
+    "target": [
+     0.46,
+     7.2,
+     1.08
+    ],
+    "lens": 50,
+    "framing": "close",
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the banjo's neck and hands"
+   },
+   "close_tamb": {
+    "kind": "band",
+    "role": "tamb",
+    "loc": [
+     -0.78,
+     -1.25,
+     0.95
+    ],
+    "target": [
+     -0.18,
+     -0.4,
+     1.2
+    ],
+    "lens": 85,
+    "framing": "close",
+    "expo": -0.4,
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the tambourine in the player's hand, backlit"
+   },
+   "close_hands": {
+    "expo": -0.5,
+    "kind": "person",
+    "pose": "clap",
+    "near": [
+     0.6,
+     5.3
+    ],
+    "part": "hands",
+    "side": 0.85,
+    "lens": 50,
+    "framing": "close",
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "a clapper's hands"
+   },
+   "mugs_backs": {
+    "expo": -0.3,
+    "loc": [
+     -0.85,
+     3.75,
+     1.75
+    ],
+    "target": [
+     -0.5,
+     8.5,
+     2.0
+    ],
+    "lens": 40,
+    "framing": "mid",
+    "dof": {
+     "focus": [
+      -0.6,
+      5.3,
+      1.9
+     ],
+     "fstop": 2.8,
+     "rack_to": [
+      -0.5,
+      9.0,
+      2.0
+     ]
+    },
+    "what": "raised mugs against the steamed windows, from behind, racking to the glass"
+   },
+   "backs": {
+    "expo": -0.3,
+    "kind": "person",
+    "pose": "any",
+    "near": [
+     -1.0,
+     5.6
+    ],
+    "part": "back",
+    "lens": 45,
+    "framing": "close",
+    "dof": {
+     "focus": "person",
+     "fstop": 1.8
+    },
+    "aim": [
+     -0.4,
+     7.5,
+     1.4
+    ],
+    "what": "the back of a head, the band soft beyond (no rack: the cafe band's faces are side-lit)"
+   },
+   "mid_band": {
+    "expo": -1.2,
+    "loc": [
+     0.5,
+     3.95,
+     1.6
+    ],
+    "target": [
+     -0.4,
+     7.6,
+     1.35
+    ],
+    "lens": 40,
+    "framing": "mid",
+    "dof": {
+     "focus": [
+      0.2,
+      5.0,
+      1.6
+     ],
+     "fstop": 2.8
+    },
+    "what": "the band, soft, over the crowd's shoulders (focus on the heads in front)"
+   },
+   "close_beater": {
+    "kind": "band",
+    "role": "kick",
+    "loc": [
+     -0.42,
+     -0.36,
+     0.62
+    ],
+    "target": [
+     0.0,
+     -0.7,
+     0.14
+    ],
+    "lens": 35,
+    "framing": "close",
+    "expo": -0.2,
+    "dof": {
+     "focus": [
+      0.0,
+      -0.69,
+      0.22
+     ],
+     "fstop": 2.8
+    },
+    "what": "the kick pedal: the beater hitting the batter head, the foot on the board"
+   },
+   "close_strum": {
+    "kind": "band",
+    "role": "guitar",
+    "loc": [
+     -0.55,
+     -0.72,
+     0.86
+    ],
+    "target": [
+     -0.06,
+     -0.3,
+     1.0
+    ],
+    "lens": 50,
+    "framing": "close",
+    "expo": 0.3,
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the guitar's strumming hand over the sound hole"
+   },
+   "close_fret": {
+    "kind": "band",
+    "role": "banjo",
+    "loc": [
+     0.12,
+     -0.62,
+     1.02
+    ],
+    "target": [
+     0.45,
+     -0.18,
+     1.3
+    ],
+    "lens": 55,
+    "framing": "close",
+    "expo": -0.6,
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the banjo's fretting hand on the neck"
+   },
+   "lean_back": {
+    "kind": "band",
+    "role": "singer",
+    "loc": [
+     0.5,
+     0.6,
+     1.25
+    ],
+    "target": [
+     -0.02,
+     -0.45,
+     1.78
+    ],
+    "lens": 40,
+    "framing": "close",
+    "expo": -0.6,
+    "dof": {
+     "focus": [
+      0.0,
+      -0.12,
+      1.52
+     ],
+     "fstop": 2.0
+    },
+    "what": "the singer's lean-in to the mic, from behind"
+   }
+  },
+  "park": {
+   "wide": {
+    "board": "O20",
+    "framing": "wide",
+    "what": "the board's O20: the singalong from behind the crowd"
+   },
+   "wide_high": {
+    "loc": [
+     -6.5,
+     -5.5,
+     4.6
+    ],
+    "target": [
+     0.0,
+     4.0,
+     0.8
+    ],
+    "lens": 24,
+    "framing": "wide",
+    "what": "high wide over the crowd to the band and the skyline in fog"
+   },
+   "close_kick": {
+    "loc": [
+     -0.9,
+     4.7,
+     0.42
+    ],
+    "target": [
+     -0.05,
+     5.8,
+     0.3
+    ],
+    "lens": 35,
+    "framing": "close",
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the kick foot on the pedal side and the SESSION 503 head"
+   },
+   "close_hands": {
+    "expo": -0.5,
+    "kind": "person",
+    "pose": "clap",
+    "near": [
+     0.5,
+     2.6
+    ],
+    "part": "hands",
+    "side": 0.85,
+    "lens": 50,
+    "framing": "close",
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "a clapper's hands in the drizzle"
+   },
+   "close_banjo": {
+    "expo": -0.8,
+    "loc": [
+     2.05,
+     4.95,
+     1.1
+    ],
+    "target": [
+     0.95,
+     5.6,
+     1.06
+    ],
+    "lens": 50,
+    "framing": "close",
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the banjo against the fog"
+   },
+   "close_tamb": {
+    "kind": "band",
+    "role": "tamb",
+    "loc": [
+     -0.78,
+     -1.25,
+     0.95
+    ],
+    "target": [
+     -0.18,
+     -0.4,
+     1.2
+    ],
+    "lens": 85,
+    "framing": "close",
+    "expo": -0.4,
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the tambourine in the player's hand, backlit"
+   },
+   "umbrella": {
+    "loc": [
+     2.75,
+     0.05,
+     1.85
+    ],
+    "target": [
+     1.85,
+     1.4,
+     2.25
+    ],
+    "lens": 40,
+    "framing": "close",
+    "dof": {
+     "focus": [
+      1.9,
+      1.3,
+      2.2
+     ],
+     "fstop": 2.8
+    },
+    "what": "the one umbrella, turning"
+   },
+   "backs": {
+    "expo": -0.3,
+    "kind": "person",
+    "pose": "any",
+    "near": [
+     0.0,
+     2.9
+    ],
+    "part": "back",
+    "lens": 45,
+    "framing": "close",
+    "dof": {
+     "focus": "person",
+     "fstop": 2.0,
+     "rack_to": [
+      2.5,
+      80.0,
+      12.0
+     ]
+    },
+    "aim": [
+     2.5,
+     30.0,
+     7.5
+    ],
+    "what": "the back of a head against the fog and the skyline, the band out of frame (its faces are lit)"
+   },
+   "switch": {
+    "loc": [
+     3.05,
+     -3.75,
+     1.4
+    ],
+    "target": [
+     2.7,
+     -2.77,
+     1.12
+    ],
+    "lens": 35,
+    "framing": "close",
+    "what": "Switch on the lamp post's outlet box"
+   },
+   "o21": {
+    "loc": [
+     1.0,
+     -6.1,
+     1.62
+    ],
+    "target": [
+     0.3,
+     6.0,
+     2.0
+    ],
+    "lens": 28,
+    "framing": "wide",
+    "what": "M5's O21 freeze camera (O20's last), the lamp post and Switch in frame"
+   },
+   "empty": {
+    "board": "O22",
+    "framing": "wide",
+    "what": "the board's O22: the emptied park"
+   },
+   "walker_feet": {
+    "kind": "walker",
+    "part": "feet",
+    "lens": 40,
+    "framing": "close",
+    "dof": {
+     "focus": "person",
+     "fstop": 2.0
+    },
+    "what": "the walker's feet on the gravel, tracked"
+   },
+   "walker_back": {
+    "kind": "walker",
+    "part": "back",
+    "lens": 50,
+    "framing": "mid",
+    "dof": {
+     "focus": "person",
+     "fstop": 2.8
+    },
+    "what": "the walker from behind, tracked"
+   },
+   "skyline": {
+    "loc": [
+     -1.0,
+     -1.5,
+     1.65
+    ],
+    "target": [
+     8.0,
+     430.0,
+     30.0
+    ],
+    "lens": 60,
+    "framing": "wide",
+    "what": "the fog over the generic skyline, drifting"
+   },
+   "lamp_rain": {
+    "expo": -0.8,
+    "loc": [
+     1.95,
+     -4.3,
+     3.0
+    ],
+    "target": [
+     2.7,
+     -2.6,
+     3.75
+    ],
+    "lens": 35,
+    "framing": "close",
+    "what": "drizzle past the lamp"
+   },
+   "o19b": {
+    "m5": "O19b",
+    "framing": "wide",
+    "what": "M5's O19b move: rising over the crest to the crowd"
+   },
+   "close_beater": {
+    "kind": "band",
+    "role": "kick",
+    "loc": [
+     -0.42,
+     -0.36,
+     0.62
+    ],
+    "target": [
+     0.0,
+     -0.7,
+     0.14
+    ],
+    "lens": 35,
+    "framing": "close",
+    "expo": -0.2,
+    "dof": {
+     "focus": [
+      0.0,
+      -0.69,
+      0.22
+     ],
+     "fstop": 2.8
+    },
+    "what": "the kick pedal: the beater hitting the batter head, the foot on the board"
+   },
+   "close_strum": {
+    "kind": "band",
+    "role": "guitar",
+    "loc": [
+     -0.55,
+     -0.72,
+     0.86
+    ],
+    "target": [
+     -0.06,
+     -0.3,
+     1.0
+    ],
+    "lens": 50,
+    "framing": "close",
+    "expo": 0.3,
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the guitar's strumming hand over the sound hole"
+   },
+   "close_fret": {
+    "kind": "band",
+    "role": "banjo",
+    "loc": [
+     0.12,
+     -0.62,
+     1.02
+    ],
+    "target": [
+     0.45,
+     -0.18,
+     1.3
+    ],
+    "lens": 55,
+    "framing": "close",
+    "expo": -0.6,
+    "dof": {
+     "focus": "target",
+     "fstop": 2.0
+    },
+    "what": "the banjo's fretting hand on the neck"
+   },
+   "lean_back": {
+    "kind": "band",
+    "role": "singer",
+    "loc": [
+     0.5,
+     0.6,
+     1.25
+    ],
+    "target": [
+     -0.02,
+     -0.45,
+     1.78
+    ],
+    "lens": 40,
+    "framing": "close",
+    "expo": -0.6,
+    "dof": {
+     "focus": [
+      0.0,
+      -0.12,
+      1.52
+     ],
+     "fstop": 2.0
+    },
+    "what": "the singer's lean-in to the mic, from behind"
+   }
+  },
+  "void": {
+   "board:O07": {
+    "board": "O07",
+    "framing": "mid",
+    "what": "M5's O07: the server on chroma green"
+   }
+  }
+ },
+ "subs": [
+  {
+   "id": "O01",
+   "shot": "O01",
+   "source": "remotion",
+   "camera": null,
+   "framing": "screen",
+   "start_t": -8.4,
+   "end_t": 0.0,
+   "start_frame": 0,
+   "end_frame": 252,
+   "snap": "shot start (M2 cue)",
+   "note": "Remotion bookend (spike, real screenshots, chat post)",
+   "frames": 252,
+   "seconds": 8.4,
+   "covers": [],
+   "section": "Bookend"
+  },
+  {
+   "id": "O02",
+   "shot": "O02",
+   "source": "remotion",
+   "camera": null,
+   "framing": "screen",
+   "start_t": 0.0,
+   "end_t": 7.256,
+   "start_frame": 252,
+   "end_frame": 470,
+   "snap": "shot start (M2 cue)",
+   "note": "Remotion status page",
+   "frames": 218,
+   "seconds": 7.27,
+   "covers": [
+    "one row flips to 'Investigating'"
+   ],
+   "section": "Intro"
+  },
+  {
+   "id": "O03a",
+   "shot": "O03",
+   "build": "O03",
+   "room": "live",
+   "source": "blender",
+   "camera": "wide_back",
+   "framing": "wide",
+   "lens": 24,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 7.256,
+   "end_t": 12.061,
+   "start_frame": 470,
+   "end_frame": 614,
+   "snap": "shot start (M2 cue)",
+   "note": "intro vocal; lower third in",
+   "frames": 144,
+   "seconds": 4.8,
+   "covers": [
+    "lower third 'All Systems Operational \u00b7 Live at Session 503'"
+   ],
+   "section": "Intro"
+  },
+  {
+   "id": "O03b",
+   "shot": "O03",
+   "build": "O03",
+   "room": "live",
+   "source": "blender",
+   "camera": "rain",
+   "framing": "close",
+   "lens": 32,
+   "move": {
+    "type": "truck",
+    "d": [
+     0.25,
+     0,
+     0.05
+    ]
+   },
+   "start_t": 12.061,
+   "end_t": 16.861,
+   "start_frame": 614,
+   "end_frame": 758,
+   "snap": "downbeat, bar 6",
+   "note": "rain on glass, two bars before the stomp",
+   "frames": 144,
+   "seconds": 4.8,
+   "covers": [
+    "stomp-clap enters (crowd starts clapping)"
+   ],
+   "section": "Intro vocal"
+  },
+  {
+   "id": "O03c",
+   "shot": "O03",
+   "build": "O03",
+   "room": "live",
+   "source": "blender",
+   "camera": "close_kick",
+   "framing": "close",
+   "lens": 35,
+   "move": {
+    "type": "push",
+    "k": 0.04
+   },
+   "start_t": 16.861,
+   "end_t": 19.264,
+   "start_frame": 758,
+   "end_frame": 830,
+   "snap": "downbeat, bar 8",
+   "note": "first full stomp bar",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [],
+   "section": "Stomp-clap"
+  },
+  {
+   "id": "O03d",
+   "shot": "O03",
+   "build": "O03",
+   "room": "live",
+   "source": "blender",
+   "camera": "close_hands",
+   "framing": "close",
+   "lens": 50,
+   "move": {
+    "type": "truck",
+    "d": [
+     0.0,
+     0.1,
+     0
+    ]
+   },
+   "start_t": 19.264,
+   "end_t": 21.672,
+   "start_frame": 830,
+   "end_frame": 902,
+   "snap": "downbeat, bar 9",
+   "note": "the claps",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [],
+   "section": "Stomp-clap"
+  },
+  {
+   "id": "O03e",
+   "shot": "O03",
+   "build": "O03",
+   "room": "live",
+   "source": "blender",
+   "camera": "mid_band",
+   "framing": "mid",
+   "lens": 40,
+   "move": {
+    "type": "push",
+    "k": 0.06
+   },
+   "start_t": 21.672,
+   "end_t": 24.075,
+   "start_frame": 902,
+   "end_frame": 974,
+   "snap": "downbeat, bar 10",
+   "note": "band over the crowd",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [],
+   "section": "Stomp-clap"
+  },
+  {
+   "id": "O03f",
+   "shot": "O03",
+   "build": "O03",
+   "room": "live",
+   "source": "blender",
+   "camera": "wide_high",
+   "framing": "wide",
+   "lens": 30,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 24.075,
+   "end_t": 26.485,
+   "start_frame": 974,
+   "end_frame": 1047,
+   "snap": "downbeat, bar 11",
+   "note": "wide into verse 1",
+   "frames": 73,
+   "seconds": 2.43,
+   "covers": [],
+   "section": "Stomp-clap"
+  },
+  {
+   "id": "O04a",
+   "shot": "O04",
+   "build": "O04",
+   "room": "live",
+   "source": "blender",
+   "camera": "board:O04",
+   "framing": "close",
+   "lens": null,
+   "move": {
+    "type": "m5"
+   },
+   "start_t": 26.485,
+   "end_t": 31.259,
+   "start_frame": 1047,
+   "end_frame": 1190,
+   "snap": "shot start (M2 cue)",
+   "note": "M5's phone shot (screen pinned in the edit)",
+   "frames": 143,
+   "seconds": 4.77,
+   "covers": [
+    "'is email down for anyone else?' on the phone",
+    "+1 count climbs (Hey!)"
+   ],
+   "section": "Verse 1"
+  },
+  {
+   "id": "O05",
+   "shot": "O05",
+   "source": "remotion",
+   "camera": null,
+   "framing": "screen",
+   "start_t": 31.259,
+   "end_t": 36.099,
+   "start_frame": 1190,
+   "end_frame": 1335,
+   "snap": "shot start (M2 cue)",
+   "note": "Remotion calendar",
+   "frames": 145,
+   "seconds": 4.83,
+   "covers": [
+    "calendar empties on 'empty'",
+    "Hey! (no +1 here unless the phone shows a badge)"
+   ],
+   "section": "Verse 1"
+  },
+  {
+   "id": "O06",
+   "shot": "O06",
+   "source": "clip",
+   "camera": null,
+   "framing": "close",
+   "start_t": 36.099,
+   "end_t": 40.909,
+   "start_frame": 1335,
+   "end_frame": 1479,
+   "snap": "shot start (M2 cue)",
+   "note": "clip O06_s41 (M4)",
+   "frames": 144,
+   "seconds": 4.8,
+   "covers": [
+    "page curls out on 'fax machine'"
+   ],
+   "section": "Verse 1"
+  },
+  {
+   "id": "O07a",
+   "shot": "O07",
+   "build": "O07",
+   "room": "void",
+   "source": "blender",
+   "camera": "board:O07",
+   "framing": "mid",
+   "lens": null,
+   "move": {
+    "type": "m5"
+   },
+   "start_t": 40.909,
+   "end_t": 44.52,
+   "start_frame": 1479,
+   "end_frame": 1588,
+   "snap": "shot start (M2 cue)",
+   "note": "M5's server on green",
+   "frames": 109,
+   "seconds": 3.63,
+   "covers": [
+    "caption [background failed to load]"
+   ],
+   "section": "Verse 1"
+  },
+  {
+   "id": "O08a",
+   "shot": "O08",
+   "build": "O08",
+   "room": "live",
+   "source": "blender",
+   "camera": "board:O08",
+   "framing": "mid",
+   "lens": null,
+   "move": {
+    "type": "m5"
+   },
+   "start_t": 44.52,
+   "end_t": 46.033,
+   "start_frame": 1588,
+   "end_frame": 1633,
+   "snap": "shot start (M2 cue)",
+   "note": "host at the console; 'We are aware'",
+   "frames": 45,
+   "seconds": 1.5,
+   "covers": [
+    "lower third: 'We are aware'"
+   ],
+   "section": "Verse 1"
+  },
+  {
+   "id": "O08b",
+   "shot": "O08",
+   "build": "O08",
+   "room": "live",
+   "source": "remotion-insert",
+   "camera": null,
+   "framing": "screen",
+   "lens": null,
+   "move": null,
+   "start_t": 46.033,
+   "end_t": 48.367,
+   "start_frame": 1633,
+   "end_frame": 1703,
+   "snap": "frame 45 of O08 (M5 insert/dissolve)",
+   "note": "IT's reply (Remotion insert, M5), echo 1 to echo 2",
+   "frames": 70,
+   "seconds": 2.33,
+   "covers": [
+    "echo 1; IT replies 'we are aware' in #it-help",
+    "optional treehouse cutaway, 4 beats (2.4 s)",
+    "lower third: 'Some users may'"
+   ],
+   "section": "Pre-Chorus"
+  },
+  {
+   "id": "O08c",
+   "shot": "O08",
+   "build": "O08c",
+   "room": "treehouse",
+   "source": "blender",
+   "camera": "board:O08c",
+   "framing": "wide",
+   "lens": null,
+   "move": {
+    "type": "m5"
+   },
+   "start_t": 48.367,
+   "end_t": 50.767,
+   "start_frame": 1703,
+   "end_frame": 1775,
+   "snap": "frame 115 of O08 (M5 insert/dissolve)",
+   "note": "treehouse cutaway (dramatization), 4 beats",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [
+    "echo 2",
+    "lower third: 'Be experiencing'"
+   ],
+   "section": "Pre-Chorus"
+  },
+  {
+   "id": "O08d",
+   "shot": "O08",
+   "build": "O08",
+   "room": "live",
+   "source": "blender",
+   "camera": "console",
+   "framing": "mid",
+   "lens": 35,
+   "move": {
+    "type": "push",
+    "k": 0.06
+   },
+   "start_t": 50.767,
+   "end_t": 52.947,
+   "start_frame": 1775,
+   "end_frame": 1840,
+   "snap": "frame 187 of O08 (M5 insert/dissolve)",
+   "note": "back to the host; 'Everything'",
+   "frames": 65,
+   "seconds": 2.17,
+   "covers": [
+    "echo 3",
+    "lower third: 'Everything'"
+   ],
+   "section": "Pre-Chorus"
+  },
+  {
+   "id": "O08e",
+   "shot": "O08",
+   "build": "O08",
+   "room": "live",
+   "source": "blender",
+   "camera": "close_beater",
+   "framing": "close",
+   "lens": 35,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 52.947,
+   "end_t": 54.152,
+   "start_frame": 1840,
+   "end_frame": 1877,
+   "snap": "downbeat, bar 23",
+   "note": "the beater hitting the head: two beats",
+   "frames": 37,
+   "seconds": 1.23,
+   "covers": [],
+   "section": "Pre-Chorus",
+   "m5b_camera": "close_kick"
+  },
+  {
+   "id": "O08f",
+   "shot": "O08",
+   "build": "O08",
+   "room": "live",
+   "source": "blender",
+   "camera": "close_hands",
+   "framing": "close",
+   "lens": 50,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 54.152,
+   "end_t": 54.752,
+   "start_frame": 1877,
+   "end_frame": 1895,
+   "snap": "beat 23.3",
+   "note": "one beat",
+   "frames": 18,
+   "seconds": 0.6,
+   "covers": [],
+   "section": "Pre-Chorus"
+  },
+  {
+   "id": "O08g",
+   "shot": "O08",
+   "build": "O08",
+   "room": "live",
+   "source": "blender",
+   "camera": "backs",
+   "framing": "close",
+   "lens": 45,
+   "move": {
+    "type": "push",
+    "k": 0.08
+   },
+   "start_t": 54.752,
+   "end_t": 55.344,
+   "start_frame": 1895,
+   "end_frame": 1912,
+   "snap": "beat 23.4",
+   "note": "one beat, into the chorus",
+   "frames": 17,
+   "seconds": 0.57,
+   "covers": [],
+   "section": "Pre-Chorus"
+  },
+  {
+   "id": "O09a",
+   "shot": "O09",
+   "build": "O09",
+   "room": "live",
+   "source": "blender",
+   "camera": "wide_high",
+   "framing": "wide",
+   "lens": 30,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 55.344,
+   "end_t": 57.752,
+   "start_frame": 1912,
+   "end_frame": 1985,
+   "snap": "shot start (M2 cue)",
+   "note": "chorus 1: the SESSION 503 head down the aisle",
+   "frames": 73,
+   "seconds": 2.43,
+   "covers": [
+    "Hey! 1 (crowd joins)"
+   ],
+   "section": "Chorus 1"
+  },
+  {
+   "id": "O09b",
+   "shot": "O09",
+   "build": "O09",
+   "room": "live",
+   "source": "blender",
+   "camera": "close_hands",
+   "framing": "close",
+   "lens": 50,
+   "move": {
+    "type": "truck",
+    "d": [
+     0.0,
+     0.12,
+     0
+    ]
+   },
+   "start_t": 57.752,
+   "end_t": 59.53,
+   "start_frame": 1985,
+   "end_frame": 2038,
+   "snap": "downbeat, bar 25",
+   "note": "the claps, to Hey! 2",
+   "frames": 53,
+   "seconds": 1.77,
+   "covers": [],
+   "section": "Chorus 1"
+  },
+  {
+   "id": "O09c",
+   "shot": "O09",
+   "build": "O09",
+   "room": "live",
+   "source": "blender",
+   "camera": "mid_band",
+   "framing": "mid",
+   "lens": 40,
+   "move": {
+    "type": "push",
+    "k": 0.07
+   },
+   "start_t": 59.53,
+   "end_t": 62.24,
+   "start_frame": 2038,
+   "end_frame": 2119,
+   "snap": "Hey! 59.53",
+   "note": "Hey! 2 to Hey! 3",
+   "frames": 81,
+   "seconds": 2.7,
+   "covers": [
+    "Hey! 2"
+   ],
+   "section": "Chorus 1"
+  },
+  {
+   "id": "O09d",
+   "shot": "O09",
+   "build": "O09",
+   "room": "live",
+   "source": "blender",
+   "camera": "lean_back",
+   "framing": "close",
+   "lens": 40,
+   "move": {
+    "type": "push",
+    "k": 0.04
+   },
+   "start_t": 62.24,
+   "end_t": 64.35,
+   "start_frame": 2119,
+   "end_frame": 2182,
+   "snap": "Hey! 62.24",
+   "note": "Hey! 3: the singer leans in, from behind",
+   "frames": 63,
+   "seconds": 2.1,
+   "covers": [
+    "Hey! 3"
+   ],
+   "section": "Chorus 1",
+   "m5b_camera": "close_kick"
+  },
+  {
+   "id": "O09e",
+   "shot": "O09",
+   "build": "O09",
+   "room": "live",
+   "source": "blender",
+   "camera": "wide_left",
+   "framing": "wide",
+   "lens": 22,
+   "move": {
+    "type": "truck",
+    "d": [
+     0.4,
+     0.2,
+     0
+    ]
+   },
+   "start_t": 64.35,
+   "end_t": 67.384,
+   "start_frame": 2182,
+   "end_frame": 2274,
+   "snap": "Hey! 64.35",
+   "note": "Hey! 4: the whole room",
+   "frames": 92,
+   "seconds": 3.07,
+   "covers": [
+    "Hey! 4"
+   ],
+   "section": "Chorus 1"
+  },
+  {
+   "id": "O09f",
+   "shot": "O09",
+   "build": "O09",
+   "room": "live",
+   "source": "blender",
+   "camera": "close_banjo",
+   "framing": "close",
+   "lens": 50,
+   "move": {
+    "type": "truck",
+    "d": [
+     -0.06,
+     0.06,
+     0
+    ]
+   },
+   "start_t": 67.384,
+   "end_t": 69.781,
+   "start_frame": 2274,
+   "end_frame": 2345,
+   "snap": "downbeat, bar 29",
+   "note": "banjo",
+   "frames": 71,
+   "seconds": 2.37,
+   "covers": [],
+   "section": "Chorus 1"
+  },
+  {
+   "id": "O09g",
+   "shot": "O09",
+   "build": "O09",
+   "room": "live",
+   "source": "blender",
+   "camera": "backs",
+   "framing": "close",
+   "lens": 45,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 69.781,
+   "end_t": 72.187,
+   "start_frame": 2345,
+   "end_frame": 2418,
+   "snap": "downbeat, bar 30",
+   "note": "backs of heads, racking to the band",
+   "frames": 73,
+   "seconds": 2.43,
+   "covers": [
+    "uptime ticks at 99.9%"
+   ],
+   "section": "Chorus 1"
+  },
+  {
+   "id": "O09h",
+   "shot": "O09",
+   "build": "O09",
+   "room": "live",
+   "source": "blender",
+   "camera": "close_fret",
+   "framing": "close",
+   "lens": 55,
+   "move": {
+    "type": "truck",
+    "d": [
+     0.0,
+     0.06,
+     0.0
+    ]
+   },
+   "start_t": 72.187,
+   "end_t": 74.589,
+   "start_frame": 2418,
+   "end_frame": 2490,
+   "snap": "downbeat, bar 31",
+   "note": "the banjo's fretting hand, to the post-chorus",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [
+    "post-chorus 'Five-oh-three' (a cut to a new angle fits here)"
+   ],
+   "section": "Chorus 1",
+   "m5b_camera": "close_tamb"
+  },
+  {
+   "id": "O09i",
+   "shot": "O09",
+   "build": "O09",
+   "room": "live",
+   "source": "blender",
+   "camera": "wide_back",
+   "framing": "wide",
+   "lens": 24,
+   "move": {
+    "type": "push",
+    "k": 0.06
+   },
+   "start_t": 74.589,
+   "end_t": 76.995,
+   "start_frame": 2490,
+   "end_frame": 2562,
+   "snap": "downbeat, bar 32",
+   "note": "post-chorus 'Five-oh-three'",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [],
+   "section": "Post-Chorus 1"
+  },
+  {
+   "id": "O09j",
+   "shot": "O09",
+   "build": "O09",
+   "room": "live",
+   "source": "blender",
+   "camera": "close_guitar",
+   "framing": "close",
+   "lens": 50,
+   "move": {
+    "type": "truck",
+    "d": [
+     0.06,
+     0.08,
+     0.0
+    ]
+   },
+   "start_t": 76.995,
+   "end_t": 79.403,
+   "start_frame": 2562,
+   "end_frame": 2634,
+   "snap": "downbeat, bar 33",
+   "note": "the guitar",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [],
+   "section": "Post-Chorus 1"
+  },
+  {
+   "id": "O09k",
+   "shot": "O09",
+   "build": "O09",
+   "room": "live",
+   "source": "blender",
+   "camera": "close_hands2",
+   "framing": "close",
+   "lens": 50,
+   "move": {
+    "type": "truck",
+    "d": [
+     0.0,
+     0.1,
+     0
+    ]
+   },
+   "start_t": 79.403,
+   "end_t": 81.805,
+   "start_frame": 2634,
+   "end_frame": 2706,
+   "snap": "downbeat, bar 34",
+   "note": "hands",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [],
+   "section": "Post-Chorus 1"
+  },
+  {
+   "id": "O09l",
+   "shot": "O09",
+   "build": "O09",
+   "room": "live",
+   "source": "blender",
+   "camera": "rain",
+   "framing": "close",
+   "lens": 32,
+   "move": {
+    "type": "truck",
+    "d": [
+     -0.2,
+     0,
+     0
+    ]
+   },
+   "start_t": 81.805,
+   "end_t": 84.208,
+   "start_frame": 2706,
+   "end_frame": 2778,
+   "snap": "downbeat, bar 35",
+   "note": "rain on glass into the build",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [],
+   "section": "Post-Chorus 1"
+  },
+  {
+   "id": "O10a",
+   "shot": "O10",
+   "build": "O10",
+   "room": "live",
+   "source": "blender",
+   "camera": "board:O10",
+   "framing": "mid",
+   "lens": null,
+   "move": {
+    "type": "push",
+    "k": 0.1
+   },
+   "start_t": 84.208,
+   "end_t": 86.597,
+   "start_frame": 2778,
+   "end_frame": 2850,
+   "snap": "shot start (M2 cue)",
+   "note": "Switch ON, ON AIR lit (M5)",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [
+    "host flips Switch ON; ON AIR glows"
+   ],
+   "section": "Build 1"
+  },
+  {
+   "id": "O11a",
+   "shot": "O11",
+   "build": "O11",
+   "room": "live",
+   "source": "blender",
+   "camera": "crush",
+   "framing": "wide",
+   "lens": 30,
+   "move": {
+    "type": "push",
+    "k": 0.08,
+    "speed": 1.4
+   },
+   "start_t": 86.597,
+   "end_t": 88.69,
+   "start_frame": 2850,
+   "end_frame": 2913,
+   "snap": "shot start (M2 cue)",
+   "note": "the crush; viewer count",
+   "frames": 63,
+   "seconds": 2.1,
+   "covers": [],
+   "section": "Build 1"
+  },
+  {
+   "id": "O11b",
+   "shot": "O11",
+   "build": "O11",
+   "room": "live",
+   "source": "blender",
+   "camera": "close_hands",
+   "framing": "close",
+   "lens": 50,
+   "move": {
+    "type": "push",
+    "k": 0.06
+   },
+   "start_t": 88.69,
+   "end_t": 90.211,
+   "start_frame": 2913,
+   "end_frame": 2958,
+   "snap": "Hey! 88.69",
+   "note": "Hey!: hands",
+   "frames": 45,
+   "seconds": 1.5,
+   "covers": [
+    "Hey! (viewer count spins)"
+   ],
+   "section": "Build 1"
+  },
+  {
+   "id": "O11c",
+   "shot": "O11",
+   "build": "O11",
+   "room": "live",
+   "source": "blender",
+   "camera": "switch_cord",
+   "framing": "close",
+   "lens": 24,
+   "move": {
+    "type": "push",
+    "k": 0.08
+   },
+   "start_t": 90.211,
+   "end_t": 91.04,
+   "start_frame": 2958,
+   "end_frame": 2983,
+   "snap": "beat 38.3",
+   "note": "half a bar: Switch on the wall, his conduit up to ON AIR",
+   "frames": 25,
+   "seconds": 0.83,
+   "covers": [],
+   "section": "Build 1",
+   "m5b_camera": "close_kick",
+   "m5b_cam_override": true
+  },
+  {
+   "id": "O11d",
+   "shot": "O11",
+   "build": "O11",
+   "room": "live",
+   "source": "blender",
+   "camera": "backs",
+   "framing": "close",
+   "lens": 45,
+   "move": {
+    "type": "push",
+    "k": 0.1
+   },
+   "start_t": 91.04,
+   "end_t": 92.009,
+   "start_frame": 2983,
+   "end_frame": 3012,
+   "snap": "Hey! 91.04",
+   "note": "Hey!: chat floods",
+   "frames": 29,
+   "seconds": 0.97,
+   "covers": [
+    "Hey! (chat floods)"
+   ],
+   "section": "Build 1"
+  },
+  {
+   "id": "O11e",
+   "shot": "O11",
+   "build": "O11",
+   "room": "live",
+   "source": "blender",
+   "camera": "close_banjo",
+   "framing": "close",
+   "lens": 50,
+   "move": {
+    "type": "push",
+    "k": 0.08
+   },
+   "start_t": 92.009,
+   "end_t": 92.61,
+   "start_frame": 3012,
+   "end_frame": 3030,
+   "snap": "beat 39.2",
+   "note": "one beat",
+   "frames": 18,
+   "seconds": 0.6,
+   "covers": [],
+   "section": "Build 1"
+  },
+  {
+   "id": "O11f",
+   "shot": "O11",
+   "build": "O11",
+   "room": "live",
+   "source": "blender",
+   "camera": "mid_band",
+   "framing": "mid",
+   "lens": 40,
+   "move": {
+    "type": "push",
+    "k": 0.12
+   },
+   "start_t": 92.61,
+   "end_t": 93.21,
+   "start_frame": 3030,
+   "end_frame": 3048,
+   "snap": "beat 39.3",
+   "note": "one beat",
+   "frames": 18,
+   "seconds": 0.6,
+   "covers": [
+    "'fai\u2014' held; Switch strains"
+   ],
+   "section": "Build 1"
+  },
+  {
+   "id": "O11g",
+   "shot": "O11",
+   "build": "O11",
+   "room": "live",
+   "source": "blender",
+   "camera": "onair",
+   "framing": "close",
+   "lens": 35,
+   "move": {
+    "type": "push",
+    "k": 0.1
+   },
+   "start_t": 93.21,
+   "end_t": 93.8,
+   "start_frame": 3048,
+   "end_frame": 3066,
+   "snap": "beat 39.4",
+   "note": "ON AIR flickers on 'fai\u2014'",
+   "frames": 18,
+   "seconds": 0.6,
+   "covers": [],
+   "section": "Build 1"
+  },
+  {
+   "id": "O12a",
+   "shot": "O12",
+   "build": "O12",
+   "room": "live",
+   "source": "blender",
+   "camera": "board:O12c",
+   "framing": "mid",
+   "lens": null,
+   "move": {
+    "type": "hold"
+   },
+   "start_t": 93.8,
+   "end_t": 96.79,
+   "start_frame": 3066,
+   "end_frame": 3156,
+   "snap": "shot start (M2 cue)",
+   "note": "the freeze: one angle, one frame held but the clapper",
+   "frames": 90,
+   "seconds": 3.0,
+   "covers": [
+    "Switch sags to OFF, ON AIR goes dark",
+    "clap 1 (one silhouette, late)",
+    "clap 2"
+   ],
+   "section": "Stop 1"
+  },
+  {
+   "id": "O13",
+   "shot": "O13",
+   "source": "remotion",
+   "camera": null,
+   "framing": "screen",
+   "start_t": 96.79,
+   "end_t": 98.615,
+   "start_frame": 3156,
+   "end_frame": 3210,
+   "snap": "shot start (M2 cue)",
+   "note": "Remotion card, then the status page",
+   "frames": 54,
+   "seconds": 1.8,
+   "covers": [
+    "status row back to red",
+    "clap 4"
+   ],
+   "section": "Stop 1"
+  },
+  {
+   "id": "O14a",
+   "shot": "O14",
+   "build": "O14",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "wide",
+   "framing": "wide",
+   "lens": 26,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 98.615,
+   "end_t": 101.02,
+   "start_frame": 3210,
+   "end_frame": 3283,
+   "snap": "shot start (M2 cue)",
+   "note": "the band comes back, in the cafe",
+   "frames": 73,
+   "seconds": 2.43,
+   "covers": [],
+   "section": "Band back"
+  },
+  {
+   "id": "O14b",
+   "shot": "O14",
+   "build": "O14",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "mug_steam",
+   "framing": "close",
+   "lens": 60,
+   "move": {
+    "type": "push",
+    "k": 0.04
+   },
+   "start_t": 101.02,
+   "end_t": 103.423,
+   "start_frame": 3283,
+   "end_frame": 3355,
+   "snap": "downbeat, bar 43",
+   "note": "the stomp back: steam off the green probe's mug",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [
+    "'The agents that we hired'"
+   ],
+   "section": "Band back",
+   "m5b_camera": "close_kick"
+  },
+  {
+   "id": "O14c",
+   "shot": "O14",
+   "build": "O14",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "probes",
+   "framing": "mid",
+   "lens": null,
+   "move": {
+    "type": "push",
+    "k": 0.06
+   },
+   "start_t": 103.423,
+   "end_t": 108.223,
+   "start_frame": 3355,
+   "end_frame": 3499,
+   "snap": "downbeat, bar 44",
+   "note": "'The agents that we hired': probes, tent, Polaroid",
+   "frames": 144,
+   "seconds": 4.8,
+   "covers": [
+    "Hey!"
+   ],
+   "section": "Verse 2"
+  },
+  {
+   "id": "O14d",
+   "shot": "O14",
+   "build": "O14",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "polaroid",
+   "framing": "close",
+   "lens": 35,
+   "move": {
+    "type": "truck",
+    "d": [
+     0.0,
+     0.15,
+     0.0
+    ]
+   },
+   "start_t": 108.223,
+   "end_t": 110.628,
+   "start_frame": 3499,
+   "end_frame": 3571,
+   "snap": "downbeat, bar 46",
+   "note": "the Polaroid, Wed 11/11",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [],
+   "section": "Verse 2"
+  },
+  {
+   "id": "O14e",
+   "shot": "O14",
+   "build": "O14",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "tent",
+   "framing": "close",
+   "lens": 55,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 110.628,
+   "end_t": 113.031,
+   "start_frame": 3571,
+   "end_frame": 3643,
+   "snap": "downbeat, bar 47",
+   "note": "connector unavailable",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [
+    "Hey!"
+   ],
+   "section": "Verse 2"
+  },
+  {
+   "id": "O15a",
+   "shot": "O15",
+   "build": "O15",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "probe_close",
+   "framing": "close",
+   "lens": null,
+   "move": {
+    "type": "push",
+    "k": 0.08
+   },
+   "start_t": 113.031,
+   "end_t": 118.441,
+   "start_frame": 3643,
+   "end_frame": 3805,
+   "snap": "shot start (M2 cue)",
+   "note": "the LED dims and comes back",
+   "frames": 162,
+   "seconds": 5.4,
+   "covers": [
+    "green LED dims",
+    "LED back green: '(It wrote it anyway)'"
+   ],
+   "section": "Verse 2"
+  },
+  {
+   "id": "O16a",
+   "shot": "O16",
+   "build": "O16",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "hub",
+   "framing": "close",
+   "lens": 35,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 118.441,
+   "end_t": 120.249,
+   "start_frame": 3805,
+   "end_frame": 3859,
+   "snap": "shot start (M2 cue)",
+   "note": "the hub bulb goes out",
+   "frames": 54,
+   "seconds": 1.8,
+   "covers": [
+    "one bulb goes out"
+   ],
+   "section": "Verse 2"
+  },
+  {
+   "id": "O16b",
+   "shot": "O16",
+   "build": "O16",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "strands",
+   "framing": "wide",
+   "lens": null,
+   "move": {
+    "type": "m5"
+   },
+   "start_t": 120.249,
+   "end_t": 122.647,
+   "start_frame": 3859,
+   "end_frame": 3931,
+   "snap": "downbeat, bar 51",
+   "note": "the dark runs down every strand",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [
+    "the dark reaches the last strand"
+   ],
+   "section": "Verse 2"
+  },
+  {
+   "id": "O17a",
+   "shot": "O17",
+   "build": "O17",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "close_strum",
+   "framing": "close",
+   "lens": 50,
+   "move": {
+    "type": "push",
+    "k": 0.04
+   },
+   "start_t": 122.647,
+   "end_t": 124.694,
+   "start_frame": 3931,
+   "end_frame": 3993,
+   "snap": "shot start (M2 cue)",
+   "note": "chorus 2's first downbeat: the strumming hand",
+   "frames": 62,
+   "seconds": 2.07,
+   "covers": [
+    "mugs up (Hey!)"
+   ],
+   "section": "Chorus 2",
+   "m5b_camera": "close_kick"
+  },
+  {
+   "id": "O17b",
+   "shot": "O17",
+   "build": "O17",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "wide",
+   "framing": "wide",
+   "lens": 26,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 124.694,
+   "end_t": 126.855,
+   "start_frame": 3993,
+   "end_frame": 4058,
+   "snap": "Hey! 124.69",
+   "note": "Hey! 1: mugs up",
+   "frames": 65,
+   "seconds": 2.17,
+   "covers": [
+    "mugs up (Hey!)"
+   ],
+   "section": "Chorus 2"
+  },
+  {
+   "id": "O17c",
+   "shot": "O17",
+   "build": "O17",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "mugs_backs",
+   "framing": "mid",
+   "lens": 40,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 126.855,
+   "end_t": 129.236,
+   "start_frame": 4058,
+   "end_frame": 4129,
+   "snap": "Hey! 126.86",
+   "note": "Hey! 2: mugs against the glass",
+   "frames": 71,
+   "seconds": 2.37,
+   "covers": [],
+   "section": "Chorus 2"
+  },
+  {
+   "id": "O17d",
+   "shot": "O17",
+   "build": "O17",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "wide_side",
+   "framing": "wide",
+   "lens": 24,
+   "move": {
+    "type": "truck",
+    "d": [
+     -0.3,
+     0.2,
+     0
+    ]
+   },
+   "start_t": 129.236,
+   "end_t": 131.6,
+   "start_frame": 4129,
+   "end_frame": 4200,
+   "snap": "Hey! 129.24",
+   "note": "Hey! 3: mugs up",
+   "frames": 71,
+   "seconds": 2.37,
+   "covers": [
+    "mugs up (Hey!)"
+   ],
+   "section": "Chorus 2"
+  },
+  {
+   "id": "O17e",
+   "shot": "O17",
+   "build": "O17",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "mugs_backs",
+   "framing": "mid",
+   "lens": 40,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 131.6,
+   "end_t": 134.649,
+   "start_frame": 4200,
+   "end_frame": 4291,
+   "snap": "Hey! 131.60",
+   "note": "Hey! 4: mugs up, from the other side",
+   "cam_override": {
+    "loc": [
+     1.0,
+     3.8,
+     1.75
+    ],
+    "target": [
+     0.3,
+     8.5,
+     2.0
+    ]
+   },
+   "frames": 91,
+   "seconds": 3.03,
+   "covers": [
+    "mugs up (Hey!)"
+   ],
+   "section": "Chorus 2"
+  },
+  {
+   "id": "O17f",
+   "shot": "O17",
+   "build": "O17",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "close_banjo",
+   "framing": "close",
+   "lens": 50,
+   "move": {
+    "type": "truck",
+    "d": [
+     -0.05,
+     0.06,
+     0
+    ]
+   },
+   "start_t": 134.649,
+   "end_t": 137.049,
+   "start_frame": 4291,
+   "end_frame": 4363,
+   "snap": "downbeat, bar 57",
+   "note": "banjo",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [],
+   "section": "Chorus 2"
+  },
+  {
+   "id": "O17g",
+   "shot": "O17",
+   "build": "O17",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "backs",
+   "framing": "close",
+   "lens": 45,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 137.049,
+   "end_t": 139.449,
+   "start_frame": 4363,
+   "end_frame": 4435,
+   "snap": "downbeat, bar 58",
+   "note": "backs, racking to the band",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [],
+   "section": "Chorus 2"
+  },
+  {
+   "id": "O17h",
+   "shot": "O17",
+   "build": "O17",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "close_hands",
+   "framing": "close",
+   "lens": 50,
+   "move": {
+    "type": "truck",
+    "d": [
+     0,
+     0.1,
+     0
+    ]
+   },
+   "start_t": 139.449,
+   "end_t": 140.94,
+   "start_frame": 4435,
+   "end_frame": 4480,
+   "snap": "downbeat, bar 59",
+   "note": "hands, to the post-chorus",
+   "frames": 45,
+   "seconds": 1.5,
+   "covers": [],
+   "section": "Chorus 2"
+  },
+  {
+   "id": "O17i",
+   "shot": "O17",
+   "build": "O17",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "wide_high",
+   "framing": "wide",
+   "lens": 22,
+   "move": {
+    "type": "push",
+    "k": 0.06
+   },
+   "start_t": 140.94,
+   "end_t": 144.247,
+   "start_frame": 4480,
+   "end_frame": 4579,
+   "snap": "on the sung word (post-chorus 'Five-oh-three'; +291 ms from beat 59.3)",
+   "note": "post-chorus 'Five-oh-three'",
+   "frames": 99,
+   "seconds": 3.3,
+   "covers": [
+    "post-chorus 'Five-oh-three'"
+   ],
+   "section": "Post-Chorus 2"
+  },
+  {
+   "id": "O17j",
+   "shot": "O17",
+   "build": "O17",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "close_tamb",
+   "framing": "close",
+   "lens": 85,
+   "move": {
+    "type": "push",
+    "k": 0.04
+   },
+   "start_t": 144.247,
+   "end_t": 146.649,
+   "start_frame": 4579,
+   "end_frame": 4651,
+   "snap": "downbeat, bar 61",
+   "note": "tambourine",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [],
+   "section": "Post-Chorus 2"
+  },
+  {
+   "id": "O17k",
+   "shot": "O17",
+   "build": "O17",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "strands",
+   "framing": "wide",
+   "lens": null,
+   "move": {
+    "type": "push",
+    "k": 0.06
+   },
+   "start_t": 146.649,
+   "end_t": 149.049,
+   "start_frame": 4651,
+   "end_frame": 4723,
+   "snap": "downbeat, bar 62",
+   "note": "the string lights chasing the melody",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [],
+   "section": "Post-Chorus 2"
+  },
+  {
+   "id": "O17l",
+   "shot": "O17",
+   "build": "O17",
+   "room": "cafe",
+   "source": "blender",
+   "camera": "mid_band",
+   "framing": "mid",
+   "lens": 40,
+   "move": {
+    "type": "push",
+    "k": 0.08
+   },
+   "start_t": 149.049,
+   "end_t": 151.449,
+   "start_frame": 4723,
+   "end_frame": 4795,
+   "snap": "downbeat, bar 63",
+   "note": "into the bridge",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [],
+   "section": "Post-Chorus 2"
+  },
+  {
+   "id": "O18a",
+   "shot": "O18",
+   "build": "O18",
+   "room": "treehouse",
+   "source": "blender",
+   "camera": "wide",
+   "framing": "wide",
+   "lens": 28,
+   "move": {
+    "type": "push",
+    "k": 0.04
+   },
+   "start_t": 151.449,
+   "end_t": 156.241,
+   "start_frame": 4795,
+   "end_frame": 4939,
+   "snap": "shot start (M2 cue)",
+   "note": "half-time; root cause, an earlier upgrade, a recent change",
+   "frames": 144,
+   "seconds": 4.8,
+   "covers": [
+    "whiteboard: root cause",
+    "whiteboard: an earlier upgrade",
+    "whiteboard: met a recent change"
+   ],
+   "section": "Bridge"
+  },
+  {
+   "id": "O18b",
+   "shot": "O18",
+   "build": "O18",
+   "room": "treehouse",
+   "source": "blender",
+   "camera": "board_mid",
+   "framing": "mid",
+   "lens": 38,
+   "move": {
+    "type": "truck",
+    "d": [
+     0.25,
+     0,
+     0
+    ]
+   },
+   "start_t": 156.241,
+   "end_t": 161.031,
+   "start_frame": 4939,
+   "end_frame": 5083,
+   "snap": "downbeat, bar 66",
+   "note": "contributing factors; not related ...",
+   "frames": 144,
+   "seconds": 4.8,
+   "covers": [
+    "whiteboard: contributing factors",
+    "whiteboard: not related to cyber, AI or agents (Microsoft, Nov 13)"
+   ],
+   "section": "Bridge"
+  },
+  {
+   "id": "O18c",
+   "shot": "O18",
+   "build": "O18",
+   "room": "treehouse",
+   "source": "blender",
+   "camera": "side",
+   "framing": "wide",
+   "lens": 26,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 161.031,
+   "end_t": 165.847,
+   "start_frame": 5083,
+   "end_frame": 5227,
+   "snap": "downbeat, bar 68",
+   "note": "full report, to follow, lessons learned",
+   "frames": 144,
+   "seconds": 4.8,
+   "covers": [
+    "whiteboard: full report",
+    "whiteboard: to follow",
+    "whiteboard: lessons learned"
+   ],
+   "section": "Bridge"
+  },
+  {
+   "id": "O18d",
+   "shot": "O18",
+   "build": "O18",
+   "room": "treehouse",
+   "source": "blender",
+   "camera": "board_close",
+   "framing": "close",
+   "lens": 26,
+   "move": {
+    "type": "truck",
+    "d": [
+     -0.2,
+     0,
+     0
+    ]
+   },
+   "start_t": 165.847,
+   "end_t": 168.247,
+   "start_frame": 5227,
+   "end_frame": 5299,
+   "snap": "downbeat, bar 70",
+   "note": "we're committed ...",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [
+    "whiteboard: we're committed to doing better"
+   ],
+   "section": "Bridge"
+  },
+  {
+   "id": "O18e",
+   "shot": "O18",
+   "build": "O18",
+   "room": "treehouse",
+   "source": "blender",
+   "camera": "table",
+   "framing": "close",
+   "lens": 35,
+   "move": {
+    "type": "push",
+    "k": 0.04
+   },
+   "start_t": 168.247,
+   "end_t": 170.647,
+   "start_frame": 5299,
+   "end_frame": 5371,
+   "snap": "downbeat, bar 71",
+   "note": "the speakerphone and chargers, racking to the board",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [],
+   "section": "Bridge"
+  },
+  {
+   "id": "O19a",
+   "shot": "O19",
+   "build": "O19a",
+   "room": "treehouse",
+   "source": "blender",
+   "camera": "o19a",
+   "framing": "wide",
+   "lens": null,
+   "move": {
+    "type": "m5"
+   },
+   "start_t": 170.647,
+   "end_t": 176.467,
+   "start_frame": 5371,
+   "end_frame": 5546,
+   "snap": "shot start (M2 cue)",
+   "note": "the door opens; light breaks through on 'Service has been restored'",
+   "frames": 175,
+   "seconds": 5.83,
+   "covers": [
+    "lower third back to green",
+    "second 'Service has been restored'"
+   ],
+   "section": "Build 2"
+  },
+  {
+   "id": "O19b",
+   "shot": "O19",
+   "build": "O19b",
+   "room": "park",
+   "source": "blender",
+   "camera": "o19b",
+   "framing": "wide",
+   "lens": null,
+   "move": {
+    "type": "m5"
+   },
+   "start_t": 176.467,
+   "end_t": 180.244,
+   "start_frame": 5546,
+   "end_frame": 5659,
+   "snap": "frame 175 of O19 (M5 insert/dissolve)",
+   "note": "dissolve (10 frames, M5) into the rise over the crest",
+   "xfade_in": 10,
+   "frames": 113,
+   "seconds": 3.77,
+   "covers": [],
+   "section": "Build 2"
+  },
+  {
+   "id": "O19c",
+   "shot": "O19",
+   "build": "O19b",
+   "room": "park",
+   "source": "blender",
+   "camera": "close_kick",
+   "framing": "close",
+   "lens": 35,
+   "move": {
+    "type": "push",
+    "k": 0.06,
+    "speed": 1.4
+   },
+   "start_t": 180.244,
+   "end_t": 181.444,
+   "start_frame": 5659,
+   "end_frame": 5695,
+   "snap": "downbeat, bar 76",
+   "note": "stomps return: two beats",
+   "frames": 36,
+   "seconds": 1.2,
+   "covers": [],
+   "section": "Build 2"
+  },
+  {
+   "id": "O19d",
+   "shot": "O19",
+   "build": "O19b",
+   "room": "park",
+   "source": "blender",
+   "camera": "close_hands",
+   "framing": "close",
+   "lens": 50,
+   "move": {
+    "type": "push",
+    "k": 0.06
+   },
+   "start_t": 181.444,
+   "end_t": 182.044,
+   "start_frame": 5695,
+   "end_frame": 5713,
+   "snap": "beat 76.3",
+   "note": "one beat",
+   "frames": 18,
+   "seconds": 0.6,
+   "covers": [],
+   "section": "Build 2"
+  },
+  {
+   "id": "O19e",
+   "shot": "O19",
+   "build": "O19b",
+   "room": "park",
+   "source": "blender",
+   "camera": "close_beater",
+   "framing": "close",
+   "lens": 35,
+   "move": {
+    "type": "push",
+    "k": 0.08
+   },
+   "start_t": 182.044,
+   "end_t": 182.641,
+   "start_frame": 5713,
+   "end_frame": 5731,
+   "snap": "beat 76.4",
+   "note": "one beat into the final chorus: the beater",
+   "frames": 18,
+   "seconds": 0.6,
+   "covers": [],
+   "section": "Build 2",
+   "m5b_camera": "close_tamb"
+  },
+  {
+   "id": "O20a",
+   "shot": "O20",
+   "build": "O20",
+   "room": "park",
+   "source": "blender",
+   "camera": "wide",
+   "framing": "wide",
+   "lens": null,
+   "move": {
+    "type": "push",
+    "k": 0.04
+   },
+   "start_t": 182.641,
+   "end_t": 184.705,
+   "start_frame": 5731,
+   "end_frame": 5793,
+   "snap": "shot start (M2 cue)",
+   "note": "final chorus, the whole hill",
+   "frames": 62,
+   "seconds": 2.07,
+   "covers": [],
+   "section": "Final Chorus"
+  },
+  {
+   "id": "O20b",
+   "shot": "O20",
+   "build": "O20",
+   "room": "park",
+   "source": "blender",
+   "camera": "close_hands",
+   "framing": "close",
+   "lens": 50,
+   "move": {
+    "type": "truck",
+    "d": [
+     0,
+     0.12,
+     0
+    ]
+   },
+   "start_t": 184.705,
+   "end_t": 187.431,
+   "start_frame": 5793,
+   "end_frame": 5875,
+   "snap": "Hey! 184.71",
+   "note": "Hey! 1: hands",
+   "frames": 82,
+   "seconds": 2.73,
+   "covers": [],
+   "section": "Final Chorus"
+  },
+  {
+   "id": "O20c",
+   "shot": "O20",
+   "build": "O20",
+   "room": "park",
+   "source": "blender",
+   "camera": "umbrella",
+   "framing": "close",
+   "lens": 40,
+   "move": {
+    "type": "truck",
+    "d": [
+     -0.15,
+     0.05,
+     0
+    ]
+   },
+   "start_t": 187.431,
+   "end_t": 189.509,
+   "start_frame": 5875,
+   "end_frame": 5937,
+   "snap": "downbeat, bar 79",
+   "note": "the one umbrella",
+   "frames": 62,
+   "seconds": 2.07,
+   "covers": [],
+   "section": "Final Chorus"
+  },
+  {
+   "id": "O20d",
+   "shot": "O20",
+   "build": "O20",
+   "room": "park",
+   "source": "blender",
+   "camera": "lean_back",
+   "framing": "close",
+   "lens": 40,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 189.509,
+   "end_t": 191.61,
+   "start_frame": 5937,
+   "end_frame": 6000,
+   "snap": "Hey! 189.51",
+   "note": "Hey! 3: the singer leans in, from behind",
+   "frames": 63,
+   "seconds": 2.1,
+   "covers": [],
+   "section": "Final Chorus",
+   "m5b_camera": "close_kick"
+  },
+  {
+   "id": "O20e",
+   "shot": "O20",
+   "build": "O20",
+   "room": "park",
+   "source": "blender",
+   "camera": "wide_high",
+   "framing": "wide",
+   "lens": 24,
+   "move": {
+    "type": "truck",
+    "d": [
+     0.8,
+     0.4,
+     0.3
+    ]
+   },
+   "start_t": 191.61,
+   "end_t": 194.615,
+   "start_frame": 6000,
+   "end_frame": 6090,
+   "snap": "Hey! 191.61",
+   "note": "Hey! 4: high wide",
+   "frames": 90,
+   "seconds": 3.0,
+   "covers": [],
+   "section": "Final Chorus"
+  },
+  {
+   "id": "O20f",
+   "shot": "O20",
+   "build": "O20",
+   "room": "park",
+   "source": "blender",
+   "camera": "close_banjo",
+   "framing": "close",
+   "lens": 50,
+   "move": {
+    "type": "truck",
+    "d": [
+     -0.06,
+     0.06,
+     0
+    ]
+   },
+   "start_t": 194.615,
+   "end_t": 197.015,
+   "start_frame": 6090,
+   "end_frame": 6162,
+   "snap": "downbeat, bar 82",
+   "note": "banjo",
+   "frames": 72,
+   "seconds": 2.4,
+   "covers": [],
+   "section": "Final Chorus"
+  },
+  {
+   "id": "O20g",
+   "shot": "O20",
+   "build": "O20",
+   "room": "park",
+   "source": "blender",
+   "camera": "backs",
+   "framing": "close",
+   "lens": 45,
+   "move": {
+    "type": "push",
+    "k": 0.08,
+    "speed": 1.3
+   },
+   "start_t": 197.015,
+   "end_t": 198.215,
+   "start_frame": 6162,
+   "end_frame": 6198,
+   "snap": "downbeat, bar 83",
+   "note": "half bar: backs",
+   "frames": 36,
+   "seconds": 1.2,
+   "covers": [],
+   "section": "Final Chorus"
+  },
+  {
+   "id": "O20h",
+   "shot": "O20",
+   "build": "O20",
+   "room": "park",
+   "source": "blender",
+   "camera": "close_strum",
+   "framing": "close",
+   "lens": 50,
+   "move": {
+    "type": "push",
+    "k": 0.08
+   },
+   "start_t": 198.215,
+   "end_t": 199.415,
+   "start_frame": 6198,
+   "end_frame": 6234,
+   "snap": "beat 83.3",
+   "note": "half bar: the strumming hand",
+   "frames": 36,
+   "seconds": 1.2,
+   "covers": [],
+   "section": "Final Chorus",
+   "m5b_camera": "close_tamb"
+  },
+  {
+   "id": "O20i",
+   "shot": "O20",
+   "build": "O20",
+   "room": "park",
+   "source": "blender",
+   "camera": "switch",
+   "framing": "close",
+   "lens": 35,
+   "move": {
+    "type": "push",
+    "k": 0.1
+   },
+   "start_t": 199.415,
+   "end_t": 200.615,
+   "start_frame": 6234,
+   "end_frame": 6270,
+   "snap": "downbeat, bar 84",
+   "note": "half bar: Switch strains, the lamp flickers",
+   "frames": 36,
+   "seconds": 1.2,
+   "covers": [],
+   "section": "Final Chorus"
+  },
+  {
+   "id": "O20j",
+   "shot": "O20",
+   "build": "O20",
+   "room": "park",
+   "source": "blender",
+   "camera": "o21",
+   "framing": "wide",
+   "lens": 28,
+   "move": {
+    "type": "hold"
+   },
+   "start_t": 200.615,
+   "end_t": 201.8,
+   "start_frame": 6270,
+   "end_frame": 6306,
+   "snap": "beat 84.3",
+   "note": "half bar: O21's angle, so the freeze holds the same frame",
+   "frames": 36,
+   "seconds": 1.2,
+   "covers": [],
+   "section": "Final Chorus"
+  },
+  {
+   "id": "O21a",
+   "shot": "O21",
+   "build": "O21",
+   "room": "park",
+   "source": "blender",
+   "camera": "o21",
+   "framing": "wide",
+   "lens": 28,
+   "move": {
+    "type": "hold"
+   },
+   "start_t": 201.8,
+   "end_t": 203.193,
+   "start_frame": 6306,
+   "end_frame": 6348,
+   "snap": "shot start (M2 cue)",
+   "note": "the freeze: Switch holds one beat, then drops",
+   "frames": 42,
+   "seconds": 1.4,
+   "covers": [
+    "caption 'Incident reopened'",
+    "Switch drops, one beat after the freeze"
+   ],
+   "section": "Stop 2"
+  },
+  {
+   "id": "O22a",
+   "shot": "O22",
+   "build": "O22",
+   "room": "park",
+   "source": "blender",
+   "camera": "empty",
+   "framing": "wide",
+   "lens": null,
+   "move": {
+    "type": "push",
+    "k": 0.04
+   },
+   "start_t": 203.193,
+   "end_t": 206.825,
+   "start_frame": 6348,
+   "end_frame": 6457,
+   "snap": "shot start (M2 cue)",
+   "note": "the park empties; the whistle",
+   "frames": 109,
+   "seconds": 3.63,
+   "covers": [],
+   "section": "Outro hook"
+  },
+  {
+   "id": "O22b",
+   "shot": "O22",
+   "build": "O22",
+   "room": "park",
+   "source": "blender",
+   "camera": "switch",
+   "framing": "close",
+   "lens": 35,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 206.825,
+   "end_t": 211.622,
+   "start_frame": 6457,
+   "end_frame": 6601,
+   "snap": "downbeat, bar 87",
+   "note": "Switch, off; 'Remember Wednesday?' (grade in)",
+   "frames": 144,
+   "seconds": 4.8,
+   "covers": [
+    "film grain and warm grade from here"
+   ],
+   "section": "Outro hook"
+  },
+  {
+   "id": "O22c",
+   "shot": "O22",
+   "build": "O22",
+   "room": "park",
+   "source": "blender",
+   "camera": "walker_feet",
+   "framing": "close",
+   "lens": 40,
+   "move": {
+    "type": "track"
+   },
+   "start_t": 211.622,
+   "end_t": 216.478,
+   "start_frame": 6601,
+   "end_frame": 6746,
+   "snap": "downbeat, bar 89",
+   "note": "the walker's feet on the gravel",
+   "frames": 145,
+   "seconds": 4.83,
+   "covers": [],
+   "section": "Outro"
+  },
+  {
+   "id": "O22d",
+   "shot": "O22",
+   "build": "O22",
+   "room": "park",
+   "source": "blender",
+   "camera": "skyline",
+   "framing": "wide",
+   "lens": 60,
+   "move": {
+    "type": "truck",
+    "d": [
+     0.6,
+     0,
+     0
+    ]
+   },
+   "start_t": 216.478,
+   "end_t": 221.169,
+   "start_frame": 6746,
+   "end_frame": 6887,
+   "snap": "downbeat, bar 91",
+   "note": "fog drifting over the skyline",
+   "frames": 141,
+   "seconds": 4.7,
+   "covers": [],
+   "section": "Outro"
+  },
+  {
+   "id": "O22e",
+   "shot": "O22",
+   "build": "O22",
+   "room": "park",
+   "source": "blender",
+   "camera": "walker_back",
+   "framing": "mid",
+   "lens": 50,
+   "move": {
+    "type": "track"
+   },
+   "start_t": 221.169,
+   "end_t": 225.873,
+   "start_frame": 6887,
+   "end_frame": 7028,
+   "snap": "downbeat, bar 93",
+   "note": "the walker from behind; the apology lower third",
+   "frames": 141,
+   "seconds": 4.7,
+   "covers": [
+    "lower third 'We are deeply sorry for the disruption'"
+   ],
+   "section": "Outro"
+  },
+  {
+   "id": "O22f",
+   "shot": "O22",
+   "build": "O22",
+   "room": "park",
+   "source": "blender",
+   "camera": "empty",
+   "framing": "wide",
+   "lens": null,
+   "move": {
+    "type": "push",
+    "k": 0.08
+   },
+   "start_t": 225.873,
+   "end_t": 230.715,
+   "start_frame": 7028,
+   "end_frame": 7173,
+   "snap": "downbeat, bar 95",
+   "note": "the hill, the walker near the crest",
+   "frames": 145,
+   "seconds": 4.83,
+   "covers": [
+    "'All systems' (sung small)"
+   ],
+   "section": "Spoken"
+  },
+  {
+   "id": "O22g",
+   "shot": "O22",
+   "build": "O22",
+   "room": "park",
+   "source": "blender",
+   "camera": "lamp_rain",
+   "framing": "close",
+   "lens": 35,
+   "move": {
+    "type": "push",
+    "k": 0.05
+   },
+   "start_t": 230.715,
+   "end_t": 234.2,
+   "start_frame": 7173,
+   "end_frame": 7278,
+   "snap": "downbeat, bar 97",
+   "note": "drizzle past the lamp; 'All systems'",
+   "frames": 105,
+   "seconds": 3.5,
+   "covers": [],
+   "section": "Sung, small"
+  },
+  {
+   "id": "O23",
+   "shot": "O23",
+   "source": "remotion",
+   "camera": null,
+   "framing": "screen",
+   "start_t": 234.2,
+   "end_t": 239.579,
+   "start_frame": 7278,
+   "end_frame": 7439,
+   "snap": "shot start (M2 cue)",
+   "note": "Remotion status page",
+   "frames": 161,
+   "seconds": 5.37,
+   "covers": [],
+   "section": "Sung, small"
+  },
+  {
+   "id": "O24-end",
+   "shot": "O24",
+   "source": "remotion",
+   "camera": null,
+   "framing": "screen",
+   "start_frame": 7439,
+   "end_frame": 7619,
+   "snap": "end sequence (M5)",
+   "note": "O24 end card",
+   "frames": 180,
+   "seconds": 6.0,
+   "covers": [],
+   "section": "End sequence"
+  },
+  {
+   "id": "O24-final",
+   "shot": "O24",
+   "source": "remotion",
+   "camera": null,
+   "framing": "screen",
+   "start_frame": 7619,
+   "end_frame": 7709,
+   "snap": "end sequence (M5)",
+   "note": "O24 'Next incident: TBD'",
+   "frames": 90,
+   "seconds": 3.0,
+   "covers": [],
+   "section": "End sequence"
+  },
+  {
+   "id": "fact",
+   "shot": "fact",
+   "source": "remotion",
+   "camera": null,
+   "framing": "screen",
+   "start_frame": 7709,
+   "end_frame": 8159,
+   "snap": "end sequence (M5)",
+   "note": "fact card",
+   "frames": 450,
+   "seconds": 15.0,
+   "covers": [],
+   "section": "End sequence"
+  },
+  {
+   "id": "disclosure",
+   "shot": "disclosure",
+   "source": "remotion",
+   "camera": null,
+   "framing": "screen",
+   "start_frame": 8159,
+   "end_frame": 8699,
+   "snap": "end sequence (M5)",
+   "note": "full disclosure card",
+   "frames": 540,
+   "seconds": 18.0,
+   "covers": [],
+   "section": "End sequence"
+  }
+ ]
+}

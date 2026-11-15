@@ -96,3 +96,15 @@ Append-only. Deviations from the brief, each with why and who decided.
 - **O20g frames fists against the skyline**, not the band, because the park band's faces are lit.
 - **Rain closes (O03b, O09l) are pale:** the streaks are faint at 540p. A stronger streak shader is a one-line change for M7.
 - **O14d (the Polaroid)** is a flat grey placeholder photo (M3's texture). The close makes that obvious.
+
+## 15. 2026-11-15 — M5c: performances added at set time, not a library rebuild; what changed on set (agent)
+
+- **No rebuild:** every person in `assets/figures/figures.blend` is already a full Mixamo rig with deforming meshes. A rebuild through `blender/ep/make_figures.py` (MPFB, every person in every pose) would only re-bake the same rigs with other loops, and grips and per-song timing need the music map at set time anyway. So each performer gets their own copy of their library person at build time (as `blender/poses.py` and M5b's clappers already did), posed and keyed per frame by a small FK/IK solver (`blender/perf.py`). The library file is untouched; `blender/ep/` is untouched (only `gait.py` is called, as is).
+- **The library's sway loops are dropped** on every performer and crowd member: the solver keys the whole body, with the feet re-solved every frame so nothing slides. M5b's whole-person bounce, surge and lean (which moved the feet) are gone.
+- **The kick player sits 17 cm to his left** of where M5's kit put him, so his right foot is on the pedal at the drum's centre; the kick drum stays where the cameras expect it. The pedal and beater are new separate parts (`blender/perf_props.py`).
+- **The kit's snare is gone:** nobody played it. The kick player claps on the backbeat instead (stomp-clap).
+- **The lead singer is person 22** (M3's "backing singer" spot, the only band member without an instrument): a male lead, as the style prompt has. Head and upper body follow the lead vocal envelope. No jaw: the Mixamo rig has no jaw bone.
+- **The tambourine is held at chest height**, not raised overhead (M3's raised arm): shakes on the percussion hits, slaps into the open left hand on 2 and 4.
+- **Mic stands are rebuilt per singer** at their own mouth height, the mic 9 cm off; the lean-ins bring the mouth to 3–5 cm.
+- **Fists are 11 cm lower** than M5's fist pose, so a pumping fist stays below the top of the head.
+- **Closes:** nine repeated closes swapped (`docs/coverage_m5c.md`), cuts unchanged. M5b's fixed tambourine close is now aimed at the tambourine where it's held (only O17j uses it). The treehouse skylight spare isn't used: no repeat falls in a treehouse shot.

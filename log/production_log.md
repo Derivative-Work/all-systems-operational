@@ -449,3 +449,24 @@ Append-only. One entry per generation, render or analysis step.
   - the guitarist at the edge of O09g after its rack;
   - blurred band faces behind the park's banjo close (O20f).
 - `scripts/manifest.sh` → 337 files.
+
+## 21. 2026-11-15 — M5c: holds, grips and stem-driven performances (code and tests)
+
+- **Why at set time, not a rebuild:** decisions 15. Nothing in `blender/ep/` or `assets/figures/figures.blend` changes.
+- **Code** (all new):
+  - `blender/perf.py`: per-person copies, an FK/IK body solver (two-bone IK for arms and legs, as `blender/ep/gait.py` does the walk), keying, and the pose-rule check.
+  - `blender/perf_band.py`: the five holds and performances. Guitar: fretting hand on the neck, sliding chord positions per bar (seeded `m5c_chords`); strumming hand on eighths, crossing the strings on each strum onset (`hits.strums`), ghost strokes between, scaled by the bar's guitar energy. Banjo: fretting hand; picking fingers on 16ths, from the guitar stem's energy. Kick: footboard and beater on every kick hit above 0.4, heel lift on the main kicks, claps on the backbeat. Tambourine: shakes on the percussion hits above 0.35, slaps into the left palm on 2 and 4. Lead singer: hand on the stand, head and upper body from the lead envelope, a nod per syllable. All standing players: a bob on the beat (half-time in O18), a weight shift, breathing, lean-ins on the Hey!s and with the backing envelope, feet planted.
+  - `blender/perf_crowd.py`: every crowd member keyed per person (`m5c_crowd_<build>`): half-note bounce with their own lag, sway, chorus lean and a 2.5–6 cm surge (hips, feet planted), Hey! hops for some, stomps on the main kicks of beats 1 and 3 for a third, claps at chest height with their own lag (−1 to +3 frames; about half of the standing people join in the choruses), fist pumps on the Hey!s, mug toasts on the cafe Hey!s (the mug in front of the shoulder). O22's walker: `gait.py`'s planted-foot walk, 0.49 m/s, 1.45 steps/s, along M5's 15.2 m path.
+  - `blender/perf_props.py`: kick drum, pedal and beater, mic stands at each singer's mouth, the tambourine.
+  - `blender/coverage_m5c.py`: runs M5b's `blender/coverage.py` with all of this, band-relative camera presets, cameras aimed at the solved pose, and the freezes holding the performers' poses at the stop (seeded as the shot before, so O20j's last frame matches O21).
+  - `scripts/coverage_m5c.py` → `config/coverage_m5c.json`, `docs/coverage_m5c.md`: nine close swaps, cuts and frames asserted unchanged. Command: `.venv/bin/python -I scripts/coverage_m5c.py`.
+  - `blender/perf_sheet.py`: the performance sheet and a frame-timing check. `scripts/m5c_animatic.py`: assembly.
+- **Tests** (stills in the scratchpad, `--still` at mid, first and last frames): the holds from the front and side; every swapped close; O20j's last frame against O21a's first (same poses); O12a, O22c, O22e.
+- **Fixed from the tests:**
+  - The kick player's toe reached the batter head's plane: ankle and toe moved back 4 cm.
+  - Fists pumped 0–3 cm above the head's top: lowered 11 cm.
+  - O11c kept M5b's camera override (a kick close): overrides are now dropped on swapped shots. M5b's spare `switch_cord` aimed above Switch: re-aimed.
+  - The beater close first hid the beater behind the shoe: now from above the pedal. The fret close showed the banjo player's chin: now from below the neck. The lean-in from behind first framed only the back of the head, then a crowd face: now from below, the head and mic against the dark upper wall. The kept tambourine close aimed at where the tambourine was held up in M5b: now band-relative.
+  - The walker's foot check measured against the hill below the crest: now the plank only.
+- **Timing check** (O09, whole build, by frame): the beater is most forward on the kick's frame for 48 of 58 kicks and within one frame for all; the strumming hand crosses the strings on the onset's frame for 39 of 67 strums, within one frame for 63 (the rest are 16th-note onsets between eighths); the tambourine is lowest one frame before 9 of 9 slaps.
+- **Walker:** feet planted on the plank, at most 3.2 mm of movement in a stance frame (mean 0.07 mm).
