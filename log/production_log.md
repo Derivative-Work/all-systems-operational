@@ -489,3 +489,23 @@ Append-only. One entry per generation, render or analysis step.
   - The fist pump is capped 13 cm below the top of the head.
 - **Unchanged and seen to work:** the band holds in every room, the kick pedal and beater, the tambourine, the mic heights, the toasts in O17b, the freezes (O20j's last frame and O21a's first match), the walker's planted feet.
 - Superseded frames: `archive/renders/m5c/frames_v1/`.
+
+## 23. 2026-11-15 — M5c: rendered, assembled and reviewed
+
+- **Fixes after the first render** (entry 22), checked on stills first. Two went back: O20g re-aimed lower showed the park band's lit faces, so it keeps M5b's camera; the first fret-close fix framed the floor without the hand, so it now looks down onto the hand on the neck.
+- **Checks first:** the RTX 5090 idle (363 MiB), 33 GB RAM available, 30 GB free on disk.
+- **Blender:** `/usr/bin/time -v blender -b --factory-startup --python blender/coverage_m5c.py -- --out renders/m5c/frames` → 83 shot sequences, 6,405 frames, 317 MB in `renders/m5c/frames/` (out of the manifest, like M5b's).
+  - 23 min 51 s wall time. Peak: Blender 5.5 GB RSS; system RAM 8.5 GB used of 38; VRAM 3.45 GB (`log/render_logs/m5c_blender.log`, `m5c_blender_mem.log`).
+- **Pose check** (`log/render_logs/m5c_pose_check.log`): 110,985 solved frames, 330 figures (every band member and crowd member in every build). No violations: no straight arm pointing forward or forward-and-up, no hand within 0.20 m of a head (closest: the banjo's fretting hand, 0.35 m), no hand above the top of a head. The closest mouth to a mic grille is 3.2 cm (the lead on the final chorus's Hey!s). No leg inside the kick drum. Walker: feet planted on the plank, at most 3.2 mm in a stance frame.
+- **Performance sheet:** `blender -b --factory-startup --python blender/perf_sheet.py` (33 s; `log/render_logs/m5c_perf_sheet.log`), then `.venv/bin/python -I scripts/m5c_animatic.py --perfsheet` → `review/m5c_performance_sheet.jpg`: the five band members and three crowd members (a clapper, a fist, a standing person) through bar 30 (chorus 1), one frame per sixteenth, front-lit for inspection, each tile labelled with the hits on its frame.
+  - Timing over O09's whole build, by frame: the beater is most forward on the kick's own frame for 48 of 58 kicks and within one frame for all 58; the strumming hand crosses the strings on the onset's frame for 39 of 67 strums and within one frame for 63; the tambourine is lowest one frame before each of the 9 slaps.
+- **Assembly:** `.venv/bin/python -I scripts/m5c_animatic.py` → `review/m5c_animatic.mp4`: 960×540, 30 fps, h264 + AAC 192k, the post-filtered master, 8,699 frames = 289.97 s (M5b's length and end order), 107 MB, 1 min 4 s (`log/render_logs/m5c_assembly.log`). Segments in `renders/m5c/segments/`.
+  - `--share` → `review/m5c_animatic_share.mp4` (650 kb/s, AAC 128k): 25.0 MB. `--sheet` → `review/m5c_coverage_sheet.jpg` (94 tiles).
+  - `--check` (`log/render_logs/m5c_cut_check.log`): the label changes on the planned frame for all 93 cuts; the biggest picture change is on the cut for 91, the same two exceptions as M5b (ON AIR flickering in O11g and before O12a).
+  - Audio cross-correlated with M5b's animatic at 40–50 s: lag 0, identical samples.
+  - M5 and M5b outputs (`review/m5_*`, `review/m5b_*`, `renders/m5/`, `renders/m5b/`) are untouched.
+- **Review** of every Blender sub-shot at full size (two frames each, then the swapped closes and every hand close again on this render):
+  - Held and played: the guitar and banjo in hand with the fretting hands on the necks, the tambourine at the chest, the kick player's foot on the pedal and the beater on the head, mics at mouth height, in every room.
+  - The claps meet without the fingers crossing. No hand at a head, no open palms up, no straight forward arm.
+  - Faces as in M5b (decisions 14), no new ones: the dim band faces in the live room's and treehouse's wides, the park band's lit faces blurred behind the park's hand closes (O19d, O20b), the guitarist at the edge of O09f and O09g.
+- `scripts/manifest.sh` → 498 files.

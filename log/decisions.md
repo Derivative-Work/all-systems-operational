@@ -108,3 +108,11 @@ Append-only. Deviations from the brief, each with why and who decided.
 - **Mic stands are rebuilt per singer** at their own mouth height, the mic 9 cm off; the lean-ins bring the mouth to 3–5 cm.
 - **Fists are 11 cm lower** than M5's fist pose, so a pumping fist stays below the top of the head.
 - **Closes:** nine repeated closes swapped (`docs/coverage_m5c.md`), cuts unchanged. M5b's fixed tambourine close is now aimed at the tambourine where it's held (only O17j uses it). The treehouse skylight spare isn't used: no repeat falls in a treehouse shot.
+
+## 16. 2026-11-15 — M5c review: calls for the human (agent)
+
+- **The swaps** (`docs/coverage_m5c.md`): kick close kept in O03c and O19c, tambourine close in O17j; the beater (O08e, O19e), the singer's lean-in from behind (O09d, O20d), the banjo's fretting hand (O09h), Switch and his conduit (O11c), the probe's mug (O14b), the strumming hand (O17a, O20h). The treehouse skylight isn't used.
+- **The lead singer is the fifth band member** (decisions 15). If the human hears the lead as the guitarist, the head motion moves to the guitarist in one line.
+- **O20g** keeps M5b's camera: with the fists pumping lower, it's mostly the skyline with the tops of heads. Re-aiming it showed the park band's lit faces. M7 could give it a fist in frame or a different person.
+- **O03c** shows the 503 head but not the pedal (the player moved to put his foot on it); the pedal is in the beater closes.
+- **The hand closes** (O03d, O08f, O09b, O11b, O17h, O19d, O20b) are still seven of the same framing, now with different people clapping at different lags. Not asked for; an M7 candidate.
