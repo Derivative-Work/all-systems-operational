@@ -79,3 +79,8 @@ Append-only. Every human action: when, what, and why.
 ## 14. 2026-11-15 — M5b reviewed; go ahead with M5c
 
 - **What:** after the M5b animatic (94 shots), the human: "yes go ahead with the figure-library rebuild". Taken as approval of the M5b rhythm and coverage; the M5 staging calls (decisions 11), the 290 s length and the M5b calls (decisions 13–14) are not yet ruled on. The agent noted for later: the SESSION 503 kick-head close repeats about eight times and the tambourine close four.
+
+## 15. 2026-11-15 — M5c review: guitar, wrists, clipping
+
+- **What:** "For the guitar (and parts shared with the banjo, likely the neck etc.), check Ever Present again. Its guitar has been updated since you imported it. The hand positions are a bit awkward: when clapping, people look like they have broken wrists; and it's clipping through the instruments."
+- **Agent's check:** the vendored `blender/ep/stage_props.py` is from 726343c, Ever Present's guitar rebuild (its production log 96: 648 mm scale, 43–56 mm neck, 22 true-spaced frets, nut, generic 3+3 headstock), and is unchanged since. But M3 built this video's acoustic guitar and banjo from scratch in `blender/aso_props.py` and never used that neck, so the instruments here have the old problems (bare neck, wrong scale). Next: rebuild both instruments on Ever Present's neck, fix the wrists and the clipping.
