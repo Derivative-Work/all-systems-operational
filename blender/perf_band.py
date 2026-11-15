@@ -181,7 +181,7 @@ def guitarist(e, b, coll, rig):
     g.location = (0, dy, dz)
     tail, ax, perp = guitar_frame(dy, dz)
     hole = tail + ax * 0.31 + Vector((0, -0.051, 0))
-    sp = hole - ax * 0.07 - Y * 0.02                       # strum point: over the strings, toward the bridge
+    sp = hole - ax * 0.07 - Y * 0.035                      # strum point: over the strings, toward the bridge
     info = dict(tail=tail, ax=ax, perp=perp, sp=sp, neck=(0.62, 0.86))
     # strumming arm: elbow over the upper bout, back and out; hand down to the strings
     sh = body.head("RightArm")
@@ -286,11 +286,11 @@ def clap_targets(body):
 
 def clap(body, c, shL, shR, k):
     """k: 0 open .. 1 hands together, at chest height."""
-    gap = 0.045 + (1 - k) * 0.14
+    gap = 0.052 + (1 - k) * 0.13
     for s, sh, sg in (("Left", shL, 1), ("Right", shR, -1)):
         w = c + Vector((sg * gap, 0.02 * (1 - k), 0.0))
         body.two_bone(f"{s}Arm", f"{s}ForeArm", w, sh + Vector((sg * 0.4, 0.15, -0.35)))
-        body.aim(f"{s}Hand", Vector((-sg * 0.35 * k, -0.75, 0.55)))
+        body.aim(f"{s}Hand", Vector((-sg * 0.08 * k, -0.75, 0.55)))
 
 
 def clap_amount(t, lag=0.0, times=None):

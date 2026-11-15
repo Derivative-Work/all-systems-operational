@@ -60,6 +60,11 @@ def layers(b, n, room, notes):
             notes.append(PC.perform(b, n, room, seed_build=sb, freeze_t=t))
     if b == "O22":
         notes.append(PC.walker(b, n))
+    for nm in ("pmug0", "pmug1"):                 # the probes' mugs sat 1.8 cm above the table (M3), seen in O14b's close
+        mg = bpy.data.objects.get(nm)
+        if mg is not None:
+            mg.location.z -= 0.018
+            notes.append(f"{nm} set down on the table")
     _layers(b, n, room, notes)
     if b == "O22":
         fs = PC.foot_slide(b, n)

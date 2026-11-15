@@ -470,3 +470,22 @@ Append-only. One entry per generation, render or analysis step.
   - The walker's foot check measured against the hill below the crest: now the plank only.
 - **Timing check** (O09, whole build, by frame): the beater is most forward on the kick's frame for 48 of 58 kicks and within one frame for all; the strumming hand crosses the strings on the onset's frame for 39 of 67 strums, within one frame for 63 (the rest are 16th-note onsets between eighths); the tambourine is lowest one frame before 9 of 9 slaps.
 - **Walker:** feet planted on the plank, at most 3.2 mm of movement in a stance frame (mean 0.07 mm).
+
+## 22. 2026-11-15 — M5c: first full render and review (superseded)
+
+- **Checks first:** the RTX 5090 idle (363 MiB), 34 GB RAM available, 31 GB free on disk.
+- **Command:** `/usr/bin/time -v blender -b --factory-startup --python blender/coverage_m5c.py -- --out renders/m5c/frames` → 83 shot sequences, 6,405 frames (960×540, Eevee, 8 samples, JPEG q92), 318 MB.
+  - 23 min 40 s wall time (M5b: 21 min 36 s); per O-shot 4–221 s; the performances add 1–5 s per build.
+  - Peak: Blender 5.4 GB RSS; system RAM 8.6 GB used; VRAM 3.45 GB (sampled every 5 s).
+  - Logs: `log/render_logs/m5c_blender_v1.log`, `m5c_blender_mem_v1.log`, `m5c_pose_check_v1.log`.
+- **Pose check (every solved frame, 330 figures):** no straight forward arm, no hand within 0.20 m of a head (closest 0.35 m: the banjo's fretting hand). One crowd fist cleared the top of the head by 1 cm on 4 frames over three builds at Hey!s.
+- **Review** of every Blender sub-shot at full size, two frames each (2×1 grids in the scratchpad). Found:
+  - Claps: at the closed frame the fingers of the two hands crossed into each other (O03d, O08f, O19d and the other hand closes). The hands now meet with a 5 cm half-gap, pointing forward, not inward.
+  - O09d (the lean-in from behind): the singer's ear and cheek edge, and a dim face low in the background. Moved more directly behind and 0.4 stops darker.
+  - O09h (fretting hand): the singer's blurred face behind the hand. Now looking down past the hand to the floor.
+  - O14b: the probe's mug floated 1.8 cm over the table (M3's placement; the close made it show). Set down.
+  - O20g: with the fists lower, M5b's aim showed only sky. Aimed lower (heads and fists against the skyline); logged in `docs/coverage_m5c.md`.
+  - O20h: the strumming hand lay against the guitar's top. The strum point is 1.5 cm further out.
+  - The fist pump is capped 13 cm below the top of the head.
+- **Unchanged and seen to work:** the band holds in every room, the kick pedal and beater, the tambourine, the mic heights, the toasts in O17b, the freezes (O20j's last frame and O21a's first match), the walker's planted feet.
+- Superseded frames: `archive/renders/m5c/frames_v1/`.

@@ -128,14 +128,15 @@ def solve(p, t, ch, en, hey, kick13, room):
         k = PB.clap_amount(t, p.lag_s)
         w_join = 1.0 if p.pose in ("clap", "push") else min(1.0, ch * 1.4)
         for s, sg in (("Left", 1), ("Right", -1)):
-            gap = 0.045 + (1 - k) * 0.14
+            gap = 0.052 + (1 - k) * 0.13
             wc = c + Vector((sg * gap, 0.02 * (1 - k), 0.0))
             w = (rel @ p.wr[s]).lerp(wc, w_join)
-            aimd = Vector((-sg * 0.35 * k, -0.75, 0.55)) if w_join > 0.5 else None
+            aimd = Vector((-sg * 0.08 * k, -0.75, 0.55)) if w_join > 0.5 else None
             _arm(body, s, w, aim=aimd)
     elif p.pose == "fist" and p.fist_side:
         s = p.fist_side
         up = rel @ p.wr[s] + Vector((0, 0, -0.11))        # M5's fist, lower: the fist below the head's top
+        up.z = min(up.z, body.tail("Head").z - 0.13)      # (the wrist; the fist is ~8 cm above it)
         down = up + Vector((0, -0.05, -0.17))
         k = max(hey, (p.pumper * ch) * PB.hit_env(t, [x for x in C.BEATS if abs(x - t) < 1.5], pre=0.12, tau=0.25) * 0.8)
         _arm(body, s, down.lerp(up, min(1.0, k)), pole_out=0.6)
