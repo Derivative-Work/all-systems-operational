@@ -1,4 +1,12 @@
 {
   "_doc": "Every random process reads its seed from here by name (series rule). Main video seed 41, the series default.",
-  "main": 41
+  "main": 41,
+  "m4_stills": [
+    41,
+    42,
+    43,
+    44,
+    45
+  ],
+  "_m4": "M4 generated stills (scripts/stills.py): seeds 41-45 per prompt variant, the main seed 41 and the next four (Ever Present's M4 used 41-44 the same way). The O07 fog-tower plate uses the first four."
 }

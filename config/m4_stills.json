@@ -1,0 +1,67 @@
+{
+  "_doc": "M4 generated stills (scripts/stills.py): O06's fax still in three prompt variants and the optional O07 fog-tower plate. Prompt = subject + ', ' + style_sets[style]. FLUX.2 [dev] has no negative prompt (guidance-distilled), so the brief's negatives (faces, logos, boat, ship, ferry, water) are written into every style as 'no ...', as Ever Present did. Seeds from config/seeds.json m4_stills. 1920x1088 as in Ever Present (cropped to 1080 at the edit). Picks go in 'kept' after the human's gate.",
+  "model": {
+    "unet": "flux2_dev_fp8mixed.safetensors",
+    "clip": "mistral_3_small_flux2_fp4_mixed.safetensors",
+    "vae": "flux2-vae.safetensors",
+    "steps": 28,
+    "guidance": 4.0,
+    "sampler": "euler"
+  },
+  "style_sets": {
+    "night_desk": "cinematic film still, night interior, photorealistic, dark and moody, low-key lighting, a warm tungsten desk lamp is the main light against deep shadow, cool faint glow from the screens, muted colour, shallow depth of field, subtle 35mm film grain, 16:9 widescreen, nobody in the room, no people, no hands, no faces, no text, no letters or numbers, no logos, no brand names, no labels, no boats, no ships, no ferries, no water",
+    "fog_lawn": "cinematic film still, overcast daylight exterior, soft flat grey light, light drizzle, photorealistic, muted greens and greys, 16:9 widescreen, no people, no faces, no text, no letters or numbers, no logos, no brand names, no city skyline, no boats, no ships, no ferries, no water, no lake, no fountain"
+  },
+  "items": {
+    "O06_fax_a": {
+      "shot": "O06",
+      "style": "night_desk",
+      "size": [
+        1920,
+        1088
+      ],
+      "subject": "A boxy beige plastic office fax machine from the early 2000s sits on a cluttered trading desk late at night, a single white sheet of paper curling up and out of its output tray, lit warmly by a desk lamp beside it; behind it a row of three computer monitors glows dimly with abstract blurred candlestick charts and coloured lines that cannot be read; a corded desk phone, scattered blank papers, a plain mug and tangled cables around it; rain streaks on a dark window in the far background"
+    },
+    "O06_fax_b": {
+      "shot": "O06",
+      "style": "night_desk",
+      "size": [
+        1920,
+        1088
+      ],
+      "subject": "Close low angle at desk height on an old grey office fax machine, one blank sheet of paper curling up and out of the tray toward the camera and catching the warm lamp light; out of focus behind it a dark empty trading floor at night, rows of desks with banks of monitors glowing faint amber and green with abstract unreadable charts; heavy shadows"
+    },
+    "O06_fax_c": {
+      "shot": "O06",
+      "style": "night_desk",
+      "size": [
+        1920,
+        1088
+      ],
+      "subject": "Medium wide shot of an empty trading desk at night in a dark office, a boxy fax machine in the middle of the desk under a warm desk lamp, one page curling out of it, a multi-monitor rig of six screens glowing dimly with abstract blurred charts, an empty office chair pushed back, scattered blank paper and sticky notes, a tall dark window behind with rain on the glass"
+    },
+    "O07_fogtower": {
+      "shot": "O07 alternate",
+      "style": "fog_lawn",
+      "size": [
+        1920,
+        1088
+      ],
+      "seeds": 4,
+      "subject": "A wide empty mown lawn on a hilltop under a heavy pale grey sky, an open patch of grass in the foreground, dark evergreen trees at the edges; far in the distance a single tall slender plain concrete tower, a thin column with a small simple flat platform at the top, mostly hidden in thick fog, its upper part faint and washed out"
+    }
+  },
+  "kept": {},
+  "review": {
+    "_doc": "Agent's notes after looking at every take at full size, plus crops of the monitor UI, bezels and fax panels (production log 10). The human picks at the M4 gate.",
+    "O06_fax_a_s41": "maybe: strong frame, page curls high; but each monitor ends in a row of round app icons that reads as an OS taskbar (blurred). Crop or blur at the edit if picked.",
+    "O06_fax_a_s42": "KEEP (pick 2): lamp right over the fax, page curling up, three monitors, rainy window at right. Panel labels are unreadable smudges.",
+    "O06_fax_a_s43": "KEEP (pick 3): fax fills the centre, page out of the top and the front tray, phone and mug. Tiny key labels unreadable.",
+    "O06_fax_a_s44": "KEEP: four monitors, wider desk, phone with a blank display. Monitors are busier; still unreadable.",
+    "O06_fax_a_s45": "KEEP (pick 1): lamp at left, page curling, rain on a dark window filling the right third: closest to the board's grade, and the rain gives the clip its light.",
+    "O06_fax_b_s41": "KEEP: low angle, the empty trading floor out of focus behind. Bare desk (not cluttered). Panel sticker is unreadable.",
+    "O06_fax_b_s42": "REJECT: silhouetted people at the back desks; small emblem on the machine's front. Reads as a printer.",
+    "O06_fax_b_s43": "REJECT: heads silhouetted on the trading floor behind; a badge-like plate on top of the fax.",
+    "O06_fax_b_s44": "REJECT: a person's silhouette behind at left; the panel carries a near-readable pseudo-wordmark ('FAX ... System')."
+  }
+}

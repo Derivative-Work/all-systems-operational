@@ -114,3 +114,45 @@ Append-only. One entry per generation, render or analysis step.
 - **SRTs:** `scripts/export_srt.py` → `lyrics/as_sung_lines.srt` (68 cues) and `lyrics/as_sung_words.srt` (337), song time; `--video` writes `_video` copies offset by the lead-in.
 - **Review video:** `scripts/m2_review.py` → `review/m2_timing.mp4` (960×540, 30 fps, 271.98 s, 6.6 MB, libx264 CPU; git-ignored, in the manifest). It plays 8.4 s of silence for the bookend, then the post-filtered master with a click on every beat (higher on bar 1), then the silent post-roll. On screen: shot ID, the brief's section, lyric cue and shot text, the cue note, the marks as they happen, the section and the as-sung line with the current word, Hey!s and echoes, bar.beat, song and video time. Intermediates in `timing/check/` (git-ignored). Seven frames checked (O01, O04, O08, O12, O13, O22, O24).
 - `scripts/manifest.sh` → 215 files.
+
+## 10. 2026-11-15 — M4 started: O06 fax still, first batch (9 takes; stopped for low memory)
+
+- **Checks first:** the RTX 5090 was idle (361 MiB, desktop only), ComfyUI was not running and its queue was empty, and 33 GB were free on disk.
+- **ComfyUI:** v0.42.1 in `~/ComfyUI`, started by the agent with `~/ComfyUI/.venv/bin/python ~/ComfyUI/main.py --listen 127.0.0.1 --port 8188`, and stopped by the agent after the batch.
+- **Model:** FLUX.2 [dev], the same files Ever Present used (its `config/models.tsv`, HF revision `ed33133c` of Comfy-Org/flux2-dev). Ever Present logged no hashes, so the agent hashed them (sha256):
+  - `flux2_dev_fp8mixed.safetensors` `863a82e4ff950a42a6b0e80bea824828f129eb1a8fbbdbd9e8cb29859127b486`
+  - `mistral_3_small_flux2_fp4_mixed.safetensors` `1ee1ff334d78228d73049ef0ee4fcd21c1700536b5a45c06547af057f92463a7`
+  - `flux2-vae.safetensors` `d64f3a68e1cc4f9f4e29b6e0da38a0204fe9a49f2d4053f0ec1fa1ca02f9c4b5`
+  - 28 steps, euler, guidance 4, 1920×1088, as Ever Present.
+- **Scripts:**
+  - `scripts/comfy_client.py` is copied from Ever Present (90c999d); only the client id changed.
+  - `scripts/stills.py` is adapted from Ever Present's (90c999d). It reads `config/m4_stills.json` and the seeds in `config/seeds.json`, and it drops the reference images and the pick grid. The graph is unchanged.
+  - `scripts/m4_sheet.py` is new: a contact sheet with the agent's notes.
+- **Config:**
+  - `config/m4_stills.json` holds three O06 prompt variants (A: a cluttered desk; B: a low angle with the trading floor behind; C: a wider empty desk) and the O07 fog-tower plate.
+  - FLUX.2 [dev] takes no negative prompt, so the brief's negatives (faces, people, logos, brands, text, boat, ship, ferry, water) are written into each prompt as "no …", as in Ever Present.
+  - `config/seeds.json` gains `m4_stills`: 41–45, the main seed and the next four.
+- **Commands:**
+  - `.venv/bin/python -I scripts/stills.py O06_fax_a > log/m4_batch1.log`
+  - then, while that was still running, `.venv/bin/python -I scripts/stills.py O06_fax_b O06_fax_c O07_fogtower >> log/m4_batch1.log`. The two shared one ComfyUI queue, so some times include waits.
+  - 50–60 s per take when run alone.
+- **Stopped:** Claude Code killed the second process for low system memory after B seed 43. ComfyUI held 32 GB of the machine's 38 GB of RAM.
+  - B seed 44 was already queued and finished. It was copied from `~/ComfyUI/output/aso/` to `assets/gen/stills/O06_fax_b/O06_fax_b_s44.png`.
+  - Not run: B seed 45, all of C, and the fog tower.
+  - The agent did not restart the batch. The same command resumes it, since existing takes are skipped.
+- **Outputs:** `assets/gen/stills/O06_fax_{a,b}/` (9 PNGs, 25 MB; git-ignored, in the manifest). ComfyUI's own copies are in `~/ComfyUI/output/aso/`. Prompts and seeds are verbatim in `log/prompts/m4_fax.md` and `log/prompts/m4/*.txt`.
+- **Sheet:** `.venv/bin/python -I scripts/m4_sheet.py review/m4_fax_sheet.jpg O06_fax_a O06_fax_b --title "…"` → `review/m4_fax_sheet.jpg`. The notes are in `config/m4_stills.json` `review`.
+- **Agent review:** every take was viewed at full size, with enlarged crops of the monitor UI, bezels and fax panels.
+  - **Kept: 5.** A s41–s45 and B s41, apart from A s41 below.
+  - **Maybe: 1.** A s41: the bottom of each monitor has a blurred row of round app icons that reads as an OS taskbar.
+  - **Rejected: 3, all from variant B.** B s42, s43 and s44 have silhouetted people on the trading floor behind. They also have a logo-like emblem or badge, and in s44 a near-readable pseudo-wordmark ("FAX … System").
+  - Variant B's "trading floor, rows of desks" brings in people. A v2 would need "deserted", or would drop the floor.
+  - Every take carries unreadable pseudo-text on the monitors and the fax keys. None reads as a brand.
+  - Nothing shows water beyond rain on the window glass (as in the M3 board), and there are no boats.
+  - The agent's order is A s45, A s42, A s43. The human picks.
+- **Planned image-to-video** (not run; it waits for the human's pick):
+  - Model: LTX-2.3 image-to-video, as in Ever Present: ComfyUI template `video_ltx2_3_i2v` (Ever Present's `comfy/api/video_ltx2_3_i2v.api.json` and `scripts/clips.py`, to be copied in). It uses `ltx-2.3-22b-dev-fp8` with the distilled LoRA at 0.5, the Gemma 3 12B fp4 encoder and the ×2 spatial upscaler, all installed. `ltx-2.3-22b-distilled-fp8` is also installed.
+  - Format: 1280×720 at 24 fps, two seeds.
+  - Length: 5 s for a 4.81 s shot. The page should curl at 2.38 s into the shot, on "fax" (the cue mark); the timing is fitted at the edit.
+  - Motion: a locked-off camera; the page slowly curls further up and out of the tray; the monitors flicker faintly; soft rain light drifts across the desk; the lamp stays steady; nobody enters the frame.
+  - Memory: LTX is heavier than FLUX in RAM. Run it with nothing else open, or start ComfyUI with a lower RAM cache.
