@@ -26,6 +26,7 @@ Usage: blender -b --factory-startup --python blender/coverage.py -- [--out rende
 import argparse
 import json
 import math
+import os
 import sys
 import time
 from pathlib import Path
@@ -45,7 +46,8 @@ import sets as S  # noqa: E402
 ROOT = gb.ROOT
 FPS = 30
 COV = json.loads((ROOT / "config" / "coverage.json").read_text())
-MM = json.loads((ROOT / "timing" / "music_map.json").read_text())
+# M1b: ASO_MUSIC_MAP picks another map in timing/ (coverage_m7.py: the v1.3 one); unset, M5c3's
+MM = json.loads((ROOT / "timing" / os.environ.get("ASO_MUSIC_MAP", "music_map.json")).read_text())
 TS = A.TS
 SHOTS = A.SHOTS
 BEATS = np.array(A.TM["beats"]["beats"])

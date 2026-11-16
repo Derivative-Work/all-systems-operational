@@ -1151,5 +1151,11 @@
         "empty"
       ]
     }
+  },
+  "_doc_m1b": "M1b (production log 52-53, 57; human interventions 24): lyrics v1.3 in the M7 render. music_map: the map in timing/ the build reads (scripts/music_map.py --v13: the repainted bridge's lead envelope and onsets, the v1.2 lead's scales); whiteboard: O18's board, an image sequence (scripts/m1b_remotion.sh), mapped as the M7b screens.",
+  "m1b": {
+    "on": true,
+    "music_map": "music_map_v13.json",
+    "whiteboard": "assets/gen/tex/m1b/M7-O18-Whiteboard/frames"
   }
 }

@@ -56,6 +56,9 @@ M7C = bool(CFG.get("m7c", {}).get("on"))
 # shading, thinner bare trees, the far plate's seam, O08c's night outside, the drop cues, the instrument closes, the
 # back path at O19b's start); on whenever the look is (config m7d.on)
 M7D = bool(CFG.get("m7d", {}).get("on"))
+# M1b (production log 57; human interventions 24): lyrics v1.3 on screen: O18's v1.3 whiteboard (config m1b.on); the v1.3
+# music map is chosen in coverage_m7.py, before coverage.py reads it
+M1B = bool(CFG.get("m1b", {}).get("on"))
 
 
 def enable(engine="eevee"):
@@ -1615,6 +1618,27 @@ def after_layers(b, n, room, notes):
         notes += STATE.pop("park_notes")
     if M7B and room != "void":
         notes.append(clock(b, n))
+    if M1B and b == "O18":
+        notes.append(whiteboard_v13(n))
+
+
+def whiteboard_v13(n):
+    """M1b (production log 53, 57): O18's whiteboard shows the v1.3 board (written in on the v1.3 lines, the July fix
+    circled), an image sequence at 1800x1125 in place of M5's v1.2 movie, mapped as the M7b screens are (build frame 1
+    shows file 000)."""
+    d = gb.ROOT / CFG["m1b"]["whiteboard"]
+    files = sorted(d.glob("*.jpeg"))
+    if not files:
+        raise FileNotFoundError(f"{d}: run scripts/m1b_remotion.sh first")
+    wb = S.OBJ["whiteboard"]
+    node = next(nd for nd in wb.active_material.node_tree.nodes if nd.type == "TEX_IMAGE")
+    img = bpy.data.images.load(str(files[0]), check_existing=True)
+    img.source = "SEQUENCE"
+    node.image = img
+    iu = node.image_user
+    iu.frame_duration, iu.frame_start, iu.frame_offset = len(files), 1, -1
+    iu.use_auto_refresh, iu.use_cyclic = True, False
+    return f"M1b: the v1.3 whiteboard ({len(files)} frames, {img.size[0]}x{img.size[1]})"
 
 
 def crowd_phones():

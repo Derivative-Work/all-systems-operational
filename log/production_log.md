@@ -1018,3 +1018,16 @@ Append-only. One entry per generation, render or analysis step.
 - **GPU and RAM:** only this project's jobs ran, one Blender or ComfyUI at a time (ComfyUI only with Blender stopped, production log 51); the RTX 5090 back to 361 MiB, 34 GB RAM available. Blender peaked at 5.6 GB RSS. The coordinator's M1b audio jobs ran alongside some Blender runs, as agreed.
 - **Superseded, in `archive/`:** the M7c panorama and its Blender texture (`archive/assets/gen/stills/m7c_park/pano_m7c/`, `archive/assets/gen/tex/m7c/backdrop_m7c/`), the first banjo closes (`archive/renders/m7d/raw_r1/`). The stopped O19b run's log kept as `_r0_stopped`. Nothing deleted.
 - **Calls for the human:** decisions 43.
+
+## 57. 2026-11-16 — M1b: the v1.3 board and music map in the M7 render path
+
+- **Why:** production log 53 left the M7 path on M5's v1.2 board movie and `timing/music_map.json`, until M7d had finished with `blender/look.py` (it has: production log 56).
+- **Code:**
+  - `blender/coverage.py` reads the map named by `ASO_MUSIC_MAP` in `timing/`. Unset, it reads `music_map.json` as before, so M5c3 is untouched.
+  - `blender/coverage_m7.py` sets `ASO_MUSIC_MAP` to `config/look_m7.json` `m1b.music_map` (`music_map_v13.json`) before it imports the M5c3 code, and prints the map it uses.
+  - `blender/look.py` (`M1B`, `whiteboard_v13`): after O18's layers, the whiteboard shows `m1b.whiteboard` (`assets/gen/tex/m1b/M7-O18-Whiteboard/frames`, 576 frames, 1800×1125), mapped as the M7b screens are.
+  - `blender/m1b_o18.py` (production log 53) is now redundant; it is kept as the record of that review render.
+- **Check:** `blender -b --factory-startup --python blender/coverage_m7.py -- --out renders/m1b/m7path --still --at 0.5 --subs O18c,O18d --size 1920x1080 --log log/render_logs/m1b_m7path_pose_check.log` (33 s, 3.1 GB RSS; `log/render_logs/m1b_m7path.log`).
+  - It prints "M1b: music map timing/music_map_v13.json", and the build notes say "M1b: the v1.3 whiteboard (576 frames, 1800x1125)".
+  - Against production log 53's `renders/m1b/raw/` stills: O18c PSNR 72.8 dB, O18d 97.7 dB, with no pixel off by more than 30. The O18c difference is the singer's pose on the v1.3 lead envelope.
+- **Left for the M7 assembly:** composite `renders/m1b/remotion/M7-O18-DenialTags.mov` over O18.

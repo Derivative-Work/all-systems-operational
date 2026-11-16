@@ -31,6 +31,15 @@ LOGP = _opt("--log", "log/render_logs/m7a_pose_check.log")
 WIDES_Z = _opt("--wides-z")            # M7d comparison renders only: the eye-level park wides at this camera height
 M7D_OFF = _opt("--m7d-off", "")        # M7d comparison renders only: M7d parts switched off (e.g. brow)
 
+# M1b (production log 57; human interventions 24): the v1.3 master's music map (the repainted bridge's lead envelope and
+# onsets) for the M7 render, set before coverage.py reads it; config/look_m7.json m1b
+import json as _json  # noqa: E402
+import os as _os  # noqa: E402
+_M1B = _json.loads((HERE.parent / "config" / "look_m7.json").read_text()).get("m1b", {})
+if _M1B.get("on"):
+    _os.environ.setdefault("ASO_MUSIC_MAP", _M1B["music_map"])
+print(f"M1b: music map timing/{_os.environ.get('ASO_MUSIC_MAP', 'music_map.json')}", flush=True)
+
 import coverage_m5c as CM  # noqa: E402  (patches coverage.py with the M5c3 performances; its __main__ doesn't run)
 import look as LK  # noqa: E402
 
