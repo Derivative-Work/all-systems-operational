@@ -1,0 +1,30 @@
+M5b build O19b: 195 frames, 47.9 s; camera rises over the crest; claps (5); M7c: O19b rises up the back slope over the crest; crowd performances on 23 people (10 clap, 8 fist, 5 stand; 9 stompers, 0 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 18 kicks, tambourine on 18 hits, lead from the vocal envelope, lean-ins on Hey!s); window/sky light lifts on the Hey!s; rain runs on 0 panes; drizzle falls (1 volumes, looped); M7c fog curtains drift on the clock; umbrella turns; sky brightens on the restored lines; the far plate on its cylinder; M7c park: ground 92680 verts, path with 140 kerbs and a 12-block wall, 9 puddles, 8040 blades, 218 firs (10 prototypes) and 122 bare trees, 12 houses, 4 fog curtains; M7b clock on 6 shaders from song time 176.15 s
+00:55.939  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7d/m7c_ref/raw_first/O19b.png'
+M5b O19b: frames 1-123 (123), o19b, 7.1 s
+M5b build O19b done in 55.0 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+	Command being timed: "blender -b --factory-startup --python blender/coverage_m7.py -- --out renders/m7d/m7c_ref/raw_first --still --at 0.1 --subs O19b --size 1920x1080 --log log/render_logs/m7d_m7c_ref_o19b_pose_check.log"
+	User time (seconds): 318.79
+	System time (seconds): 300.15
+	Percent of CPU this job got: 1095%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:56.48
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 4032076
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1406495
+	Voluntary context switches: 261665
+	Involuntary context switches: 11754625
+	Swaps: 0
+	File system inputs: 168
+	File system outputs: 19960
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
