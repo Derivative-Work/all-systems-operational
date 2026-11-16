@@ -780,3 +780,9 @@ Append-only. One entry per generation, render or analysis step.
 - **Superseded, in `archive/`:** M7a's Polaroid and the first band-only take; the hero rounds before the final one; the first motion frames; the pre-rev-136 dashboard sequences. Nothing deleted.
 - **Calls for the human:** decisions 34.
 - `scripts/manifest.sh` → 2,409 files.
+
+## 44. 2026-11-16 — M7c: M7b reference stills of every park hero (before any M7c change)
+
+- **Why:** the coordinator's M7c brief (human interventions 22: rebuild the hilltop park in the direction of concepts 1–2, with the generated far plate; three small fixes). The M7c park board pairs each park hero with its M7b look, and only O19a, O20a, O20c and O22d were on an earlier board, so every park hero is rendered here with the code as committed (93b6de6), before any M7c change.
+- **Checks first:** the RTX 5090 idle (361 MiB, 0%), 34 GB RAM available, 25 GB free on disk, no other job running.
+- **Command:** `/usr/bin/time -v blender -b --factory-startup --python blender/coverage_m7.py -- --out renders/m7c/m7b_ref/raw --still --subs O19a,O19b,O19e,O20a,O20c,O20e,O20g,O20i,O21a,O22a,O22b,O22c,O22d,O22f,O22g --size 1920x1080 --log log/render_logs/m7c_m7b_ref_pose_check.log` → `renders/m7c/m7b_ref/raw/<id>.png` (16-bit, each sub-shot's middle frame). 4 min 0 s wall for 5 builds; peak 4.6 GB RSS (`log/render_logs/m7c_m7b_ref.log`). Pose check: no violations.

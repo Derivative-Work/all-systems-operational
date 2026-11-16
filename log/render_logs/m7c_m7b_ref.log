@@ -1,0 +1,66 @@
+M5b build O19a: 175 frames, 17.8 s; door opens frames 1-40; camera out onto the deck and up; band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 5 kicks, tambourine on 13 hits, lead from the vocal envelope, lean-ins on Hey!s); window/sky light lifts on the Hey!s; M7 haze 0.02 (noise-modulated), daylight shafts through the window openings (sun 2.0); rain runs on 9 panes; drizzle falls (3 volumes, looped); door light breaks through; M7b clock on 10 shaders from song time 170.65 s
+00:25.285  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7c/m7b_ref/raw/O19a.png'
+M5b O19a: frames 1-175 (175), o19a, 5.4 s
+M5b build O19a done in 23.2 s
+M5b build O19b: 195 frames, 44.5 s; camera rises over the crest; claps (5); crowd performances on 23 people (10 clap, 8 fist, 5 stand; 9 stompers, 0 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 18 kicks, tambourine on 18 hits, lead from the vocal envelope, lean-ins on Hey!s); window/sky light lifts on the Hey!s; rain runs on 0 panes; drizzle falls (1 volumes, looped); fog cards drift; umbrella turns; sky brightens on the restored lines; M7b clock on 0 shaders from song time 176.15 s
+01:15.590  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7c/m7b_ref/raw/O19b.png'
+M5b O19b: frames 1-123 (123), o19b, 5.8 s
+01:17.193  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7c/m7b_ref/raw/O19e.png'
+M5b O19e: frames 178-195 (18), close_beater, 1.6 s
+M5b build O19b done in 51.9 s
+M5b build O20: 575 frames, 55.6 s; claps (16); crowd performances on 23 people (10 clap, 8 fist, 5 stand; 5 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 27 kicks, tambourine on 37 hits, lead from the vocal envelope, lean-ins on Hey!s); window/sky light lifts on the Hey!s; rain runs on 0 panes; drizzle falls (1 volumes, looped); fog cards drift; umbrella turns; lamp flickers, Switch strains 199.41-201.80 s; M7b clock on 0 shaders from song time 182.64 s
+02:16.196  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7c/m7b_ref/raw/O20a.png'
+M5b O20a: frames 1-62 (62), wide, 3.4 s
+02:18.827  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7c/m7b_ref/raw/O20c.png'
+M5b O20c: frames 145-206 (62), umbrella, 2.6 s
+02:21.519  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7c/m7b_ref/raw/O20e.png'
+M5b O20e: frames 270-359 (90), wide_high, 2.7 s
+02:24.549  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7c/m7b_ref/raw/O20g.png'
+M5b O20g: frames 432-467 (36), backs on crowd20, 3.0 s
+02:26.837  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7c/m7b_ref/raw/O20i.png'
+M5b O20i: frames 504-539 (36), switch, 2.3 s
+M5b build O20 done in 69.6 s
+M5b build O21: 42 frames, 37.4 s; frozen; Switch holds to frame 19, then drops; band frozen at 201.77 s in their M5c holds; crowd frozen at 201.77 s in their M5c poses (23 people, seeds of O20); freeze: no M5b motion; M7b clock on 0 shaders from song time 201.80 s
+03:07.703  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7c/m7b_ref/raw/O21a.png'
+M5b O21a: frames 1-42 (42), o21, 3.5 s
+M5b build O21 done in 40.9 s
+M5b build O22: 930 frames, 38.8 s; walker 15.2 m up the path and over the crest; walker: planted-foot gait (blender/ep/gait.py), 0.49 m/s, 1.45 steps/s, 0.34 m steps, 15.2 m; no crowd; no band; window/sky light lifts on the Hey!s; rain runs on 0 panes; drizzle falls (1 volumes, looped); fog cards drift; Switch OFF (after O21's drop); walker feet: {'Left': (418, 0.003201059172034232, 6.847239246233706e-05), 'Right': (422, 0.0032000809911229915, 6.0290133901147935e-05)}; M7b clock on 0 shaders from song time 203.19 s
+03:49.152  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7c/m7b_ref/raw/O22a.png'
+M5b O22a: frames 1-109 (109), empty, 2.6 s
+03:50.996  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7c/m7b_ref/raw/O22b.png'
+M5b O22b: frames 110-253 (144), switch, 1.8 s
+03:52.862  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7c/m7b_ref/raw/O22c.png'
+M5b O22c: frames 254-398 (145), walker_feet, 1.9 s
+03:55.556  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7c/m7b_ref/raw/O22d.png'
+M5b O22d: frames 399-539 (141), skyline, 2.7 s
+03:57.816  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7c/m7b_ref/raw/O22f.png'
+M5b O22f: frames 681-825 (145), empty, 2.3 s
+03:59.685  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7c/m7b_ref/raw/O22g.png'
+M5b O22g: frames 826-930 (105), lamp_rain, 1.9 s
+M5b build O22 done in 51.9 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+	Command being timed: "blender -b --factory-startup --python blender/coverage_m7.py -- --out renders/m7c/m7b_ref/raw --still --subs O19a,O19b,O19e,O20a,O20c,O20e,O20g,O20i,O21a,O22a,O22b,O22c,O22d,O22f,O22g --size 1920x1080 --log log/render_logs/m7c_m7b_ref_pose_check.log"
+	User time (seconds): 1247.13
+	System time (seconds): 1444.13
+	Percent of CPU this job got: 1120%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 4:00.23
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 4616556
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 243
+	Minor (reclaiming a frame) page faults: 3858052
+	Voluntary context switches: 1110991
+	Involuntary context switches: 58807457
+	Swaps: 0
+	File system inputs: 1074216
+	File system outputs: 216504
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
