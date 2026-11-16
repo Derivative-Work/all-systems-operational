@@ -1,0 +1,27 @@
+length 212.400 s; sample peaks: input -4.12 dBFS, post-filtered -3.98 dBFS
+post-filter change re its input: whole -33.2 dB
+  the 5 seconds it changed most (dB re the music): 211 s -28.6, 152 s -30.5, 181 s -30.5, 177 s -30.8, 148 s -30.8
+tracked beats: 310, 20.565-197.616 s; spacing by 30 s: 0-30 s 0.5813, 30-60 s 0.5760, 60-90 s 0.5760, 90-120 s 0.5760, 120-150 s 0.5707, 150-180 s 0.5707, 180-210 s 0.5707
+intro bar lines (from the first beat back, 2.325 s a bar): 4.485, 6.512, 8.976, 11.157, 13.616, 15.925, 18.245
+section changes (downbeat, beat index, level and low-band change in dB):
+    22.869  beat   4  level  +1.7  low  +21.8
+    34.453  beat  24  level  -1.7  low  -10.5
+    39.077  beat  32  level  -0.6  low  -14.2
+    41.381  beat  36  level  +2.6  low  +20.5
+    60.043  beat  68  level  +2.3  low  +18.8
+    76.080  beat  96  level  -3.0  low  -12.7
+    89.952  beat 120  level  -2.7  low   -8.4
+    94.571  beat 128  level  -0.8  low  -14.7
+    96.869  beat 132  level  +6.3  low  +28.8
+   115.291  beat 164  level  -2.4  low  -24.1
+   117.451  beat 168  level  +1.7  low  +22.2
+   124.469  beat 180  level  -4.5  low  -10.6
+   133.643  beat 196  level  +3.2  low  +14.4
+   135.952  beat 200  level  -4.1  low   -5.8
+   142.677  beat 212  level  +4.3  low   +6.4
+   153.691  beat 232  level  -5.4  low  -13.4
+   155.979  beat 236  level  +2.8  low   +9.9
+   158.267  beat 240  level  -2.5  low   -9.6
+   160.560  beat 244  level  +5.1  low  +18.1
+fade-out points: 154.641, 212.400
+first sound above -60 dBFS at 0.000 s; last at 212.400 s
