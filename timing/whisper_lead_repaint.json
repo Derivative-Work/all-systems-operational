@@ -1,0 +1,326 @@
+{
+ "model": "large-v3",
+ "stem": "audio/stems/0a Lead Vocals repaint.aif",
+ "whisperx": null,
+ "segments": [
+  {
+   "start": 151.761,
+   "end": 169.746,
+   "text": "Root cause a fix from back in July Tested on the smaller machines Contributing factors Teams came over for the night An unrelated issue and a separate issue Not related to cyber, AI, or agents Full report on the 20th Lessons learned We're committed to doing better We're committed to doing better",
+   "words": [
+    {
+     "w": "Root",
+     "start": 151.761,
+     "end": 152.021,
+     "score": 0.756
+    },
+    {
+     "w": "cause",
+     "start": 152.061,
+     "end": 152.521,
+     "score": 0.823
+    },
+    {
+     "w": "a",
+     "start": 152.561,
+     "end": 152.621,
+     "score": 0.627
+    },
+    {
+     "w": "fix",
+     "start": 152.681,
+     "end": 152.922,
+     "score": 0.854
+    },
+    {
+     "w": "from",
+     "start": 152.942,
+     "end": 153.082,
+     "score": 0.94
+    },
+    {
+     "w": "back",
+     "start": 153.142,
+     "end": 153.402,
+     "score": 0.989
+    },
+    {
+     "w": "in",
+     "start": 153.442,
+     "end": 153.522,
+     "score": 0.98
+    },
+    {
+     "w": "July",
+     "start": 153.562,
+     "end": 154.082,
+     "score": 0.875
+    },
+    {
+     "w": "Tested",
+     "start": 154.422,
+     "end": 154.762,
+     "score": 0.908
+    },
+    {
+     "w": "on",
+     "start": 154.822,
+     "end": 154.882,
+     "score": 0.776
+    },
+    {
+     "w": "the",
+     "start": 154.902,
+     "end": 154.982,
+     "score": 0.831
+    },
+    {
+     "w": "smaller",
+     "start": 155.022,
+     "end": 155.342,
+     "score": 0.837
+    },
+    {
+     "w": "machines",
+     "start": 155.382,
+     "end": 155.882,
+     "score": 0.833
+    },
+    {
+     "w": "Contributing",
+     "start": 156.122,
+     "end": 156.662,
+     "score": 0.898
+    },
+    {
+     "w": "factors",
+     "start": 156.742,
+     "end": 157.223,
+     "score": 0.841
+    },
+    {
+     "w": "Teams",
+     "start": 157.303,
+     "end": 157.663,
+     "score": 0.863
+    },
+    {
+     "w": "came",
+     "start": 157.743,
+     "end": 158.043,
+     "score": 0.814
+    },
+    {
+     "w": "over",
+     "start": 158.123,
+     "end": 158.303,
+     "score": 0.92
+    },
+    {
+     "w": "for",
+     "start": 158.343,
+     "end": 158.483,
+     "score": 0.992
+    },
+    {
+     "w": "the",
+     "start": 158.523,
+     "end": 158.623,
+     "score": 0.67
+    },
+    {
+     "w": "night",
+     "start": 158.683,
+     "end": 158.903,
+     "score": 0.806
+    },
+    {
+     "w": "An",
+     "start": 159.163,
+     "end": 159.243,
+     "score": 0.778
+    },
+    {
+     "w": "unrelated",
+     "start": 159.323,
+     "end": 159.843,
+     "score": 0.813
+    },
+    {
+     "w": "issue",
+     "start": 159.903,
+     "end": 160.183,
+     "score": 0.842
+    },
+    {
+     "w": "and",
+     "start": 160.223,
+     "end": 160.283,
+     "score": 0.437
+    },
+    {
+     "w": "a",
+     "start": 160.323,
+     "end": 160.363,
+     "score": 0.489
+    },
+    {
+     "w": "separate",
+     "start": 160.483,
+     "end": 160.984,
+     "score": 0.82
+    },
+    {
+     "w": "issue",
+     "start": 161.024,
+     "end": 161.344,
+     "score": 0.886
+    },
+    {
+     "w": "Not",
+     "start": 161.384,
+     "end": 161.544,
+     "score": 0.792
+    },
+    {
+     "w": "related",
+     "start": 161.584,
+     "end": 161.944,
+     "score": 0.883
+    },
+    {
+     "w": "to",
+     "start": 161.984,
+     "end": 162.044,
+     "score": 0.994
+    },
+    {
+     "w": "cyber,",
+     "start": 162.124,
+     "end": 162.544,
+     "score": 0.796
+    },
+    {
+     "w": "AI,",
+     "start": 162.644,
+     "end": 162.744,
+     "score": 0.843
+    },
+    {
+     "w": "or",
+     "start": 163.004,
+     "end": 163.124,
+     "score": 0.442
+    },
+    {
+     "w": "agents",
+     "start": 163.264,
+     "end": 163.584,
+     "score": 0.81
+    },
+    {
+     "w": "Full",
+     "start": 163.644,
+     "end": 163.864,
+     "score": 0.466
+    },
+    {
+     "w": "report",
+     "start": 163.904,
+     "end": 164.344,
+     "score": 0.952
+    },
+    {
+     "w": "on",
+     "start": 164.404,
+     "end": 164.485,
+     "score": 0.832
+    },
+    {
+     "w": "the",
+     "start": 164.505,
+     "end": 164.585,
+     "score": 0.832
+    },
+    {
+     "w": "20th",
+     "start": 164.785,
+     "end": 165.165,
+     "score": 0.73
+    },
+    {
+     "w": "Lessons",
+     "start": 165.245,
+     "end": 165.665,
+     "score": 0.8
+    },
+    {
+     "w": "learned",
+     "start": 165.725,
+     "end": 166.085,
+     "score": 0.697
+    },
+    {
+     "w": "We're",
+     "start": 166.145,
+     "end": 166.305,
+     "score": 0.7
+    },
+    {
+     "w": "committed",
+     "start": 166.325,
+     "end": 166.725,
+     "score": 0.884
+    },
+    {
+     "w": "to",
+     "start": 166.765,
+     "end": 166.845,
+     "score": 0.89
+    },
+    {
+     "w": "doing",
+     "start": 166.905,
+     "end": 167.505,
+     "score": 0.713
+    },
+    {
+     "w": "better",
+     "start": 167.665,
+     "end": 168.305,
+     "score": 0.779
+    },
+    {
+     "w": "We're",
+     "start": 168.406,
+     "end": 168.546,
+     "score": 0.788
+    },
+    {
+     "w": "committed",
+     "start": 168.586,
+     "end": 169.026,
+     "score": 0.934
+    },
+    {
+     "w": "to",
+     "start": 169.046,
+     "end": 169.106,
+     "score": 0.778
+    },
+    {
+     "w": "doing",
+     "start": 169.166,
+     "end": 169.426,
+     "score": 0.915
+    },
+    {
+     "w": "better",
+     "start": 169.466,
+     "end": 169.746,
+     "score": 0.918
+    }
+   ]
+  }
+ ]
+}

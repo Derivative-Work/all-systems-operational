@@ -59,15 +59,19 @@ Please stay on the line
 Five-oh-three, five-oh-three
 Please stay on the line
 
-[Bridge] (half-time, guitar and voice only)
+[Bridge] (half-time, guitar and voice only; lyrics v1.3, the repaint)
 Root cause
-An earlier upgrade
-Met a recent change
+A fix from back in July
+Tested on the smaller machines
 Contributing factors
+Teams came over for the night
+An unrelated issue
+And a separate issue
 (Not related to cyber, AI or agents)
 Full report
-To follow
+On the twentieth
 Lessons learned
+(We're committed to doing better)
 (We're committed to doing better)
 
 [Build 2] (stomps return, one at a time)

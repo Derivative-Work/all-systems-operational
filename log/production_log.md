@@ -878,3 +878,58 @@ Append-only. One entry per generation, render or analysis step.
 - **Review** (each take at full size and pasted into the panorama at 1:1; `config/m7d_plate.json` review): **pick seam_s41** (the hill tapers into horizontal fog banks and a lower tree line descends behind the blocks; no vertical wall; its thin pale band has soft edges and tree tops through it: fog, not water). seam_s42 rejected (a bright flat band with a hard top edge: lake-like); seam_s43 not picked (a bright flat patch, and the upper ridge again ends in a soft vertical fade). No take has water, boats, a tower or landmark, text, faces or logos.
 - **Compose:** the approved panorama and its Blender texture moved first (`mv`: `archive/assets/gen/stills/m7c_park/pano_m7c/pano.png`, `archive/assets/gen/tex/m7c/backdrop_m7c/park_backdrop.png` and `.json`), then `.venv/bin/python -I scripts/m7d_plate.py --compose` → `assets/gen/stills/m7c_park/pano/pano.png` (the approved panorama with seam_s41 pasted through the same mask: 0 of 10,575,600 pixels outside the mask changed) and `assets/gen/tex/m7c/park_backdrop.png` and `.json` through `scripts/m7c_plate.py` backdrop (the inverse view transform, as M7c). The texture's scale and its sky, horizon-haze and valley-fog colours are unchanged (the JSON is identical), so the 3D fog still meets the plate.
 - **Sheet:** `.venv/bin/python -I scripts/m7d_plate.py --sheet` → `review/m7d_plates.jpg` (1930×2574, 0.58 MB): the seam band before and after with the mask outlined, 1:1 crops, the panorama after, the canvas, the mask and the three takes with verdicts.
+
+## 52. 2026-11-16 — M1b: the v1.3 master post-filtered, compared with v1.2 and re-timed
+
+- **Inputs** (human interventions 24), copied from `~/Downloads`; the v1.2 files moved to `archive/audio/v1.2/` (`mv`):
+  - `audio/track/All Systems Operational.wav`: the v1.3 Logic master. 48 kHz stereo f32, 239.58 s (the same length to the sample), sample peak −1.04 dBFS, sha256 `79255b2f…`.
+  - `audio/stems/0a Lead Vocals repaint.aif`: the repainted lead. AIFF 48 kHz stereo s16, 170.67 s from 0, sounding 150.98–170.10 s, sha256 `32428988…`.
+  - The other stems are the Nov 15 exports; `0 Lead Vocals.aif` in the export folder is byte-identical to `audio/stems/`.
+- **Post-filter** (run by the agent; the human ran v1.2's):
+  - Run in `~/Code/music-deslop` at 68441e2, clean tree, the same commit as v1.2: `uv run --frozen python -m postfilter.infer --in <repo>/audio/track/All\ Systems\ Operational.wav --out <repo>/audio/postfilter/.new-deslopped.wav --ckpt ../music-deslop-data/release/m6f_10k.safetensors --source suno`.
+  - 21.9 s, 6.7 GB peak RSS, no fallback passages (`log/render_logs/m1b_postfilter.log`).
+  - Renamed to `audio/postfilter/all-systems-operational-master-deslopped.wav`: s24, sample peak −0.57 dBFS, sha256 `f04d35a0…`.
+- **Comparison:** `.venv/bin/python -I scripts/m1b_compare.py > log/render_logs/m1b_compare.log` (new).
+  - **Outside the bridge:** v1.3 equals v1.2 to float rounding (−126 to −167 dB re the music), with one exception. Stop 1's first clap (94.385 s) has the same timing (0-sample lag), but its first 20 ms differ (−7 dB re the clap) and it is 0.3 dB quieter. The other three claps are identical (−117 to −123 dB). This is for the human's ear.
+  - **Bridge:** the master changes from 150.98 to 171.45 s. The change correlates 0.964 with the lead swap (repaint minus old lead, at the master's 47-sample latency behind the stems).
+    - What's left after removing the best-fit swap is 9–19 dB below the music. That is consistent with the master bus reacting to the new vocal, but it can't be checked without re-exported stems.
+  - **Post-filter:** it changes v1.3 by −33.6 dB re the music (v1.2: −33.5; bridge −32.9 against −31.8). Outside 145–175 s the two outputs match to −58 dB re the music; the clap is the exception.
+- **Transcript:** `NLTK_DATA=$PWD/.venv/nltk_data .venv/bin/python scripts/transcribe_vocals.py "audio/stems/0a Lead Vocals repaint.aif" timing/whisper_lead_repaint.json` (WhisperX 3.8.6 large-v3; log beside it). The bridge is sung as v1.3 writes it, with "(We're committed to doing better)" twice (AI changes 9).
+- **The lead as it sits in the master:** `.venv/bin/python -I scripts/m1b_lead_v13.py` (new).
+  - It writes `audio/stems/0 Lead Vocals v1.3.aif`, the old lead with the repaint spliced over 150.980–170.095 s, the repaint's sounding span. The master's change starts at the same sample, and the old lead's tail after 170.10 s is still in the master.
+  - It writes `timing/whisper_lead_v13.json`, the transcripts merged the same way at word level.
+  - `config/timing.json` points `stems.lead` and a new `transcript` key at them; `scripts/timing_map.py` reads `transcript` (default: the old path).
+- **Lyrics:** `lyrics/as_sung.txt`'s bridge is now v1.3 as sung (13 lines).
+- **Re-timed:** `scripts/timing_map.py`, `scripts/shot_times.py`, `scripts/export_srt.py` and `--video` (logs in `timing/`). These are M2's steps less the click-track review video.
+  - **Bridge:** 151.758–170.569 s.
+    - 151.76–152.50 s: Root cause
+    - 152.54–154.42 s: A fix from back in July
+    - 154.43–156.14 s: Tested on the smaller machines
+    - 156.15–157.18 s: Contributing factors
+    - 157.30–159.16 s: Teams came over for the night
+    - 159.17–160.16 s: An unrelated issue
+    - 160.22–161.32 s: And a separate issue
+    - 161.36–163.58 s: (Not related to cyber, AI or agents)
+    - 163.67–164.32 s: Full report
+    - 164.41–165.10 s: On the twentieth
+    - 165.23–166.06 s: Lessons learned
+    - 166.10–168.38 s: (We're committed to doing better)
+    - 168.39–170.06 s: (We're committed to doing better)
+  - **Outside the bridge:** beats, bars, events, Hey!s and echoes are identical. 15 word edges moved by 1–100 ms (the largest: "you" ends at 13.44 s, was 13.54), because the lead-stem threshold for word edges is the whole stem's median, now −34.3 dB (was −34.7).
+  - **Shots:** every shot's start and end frame is unchanged. O18 is still 151.449–170.647 s; its cue "Root" now sits 309 ms after the downbeat it snaps to, inside the 450 ms limit. In `timing/shot_times.json` only `master_sha256` and O18's marks change.
+  - **O18's marks** (`config/shot_cues.json`, v1.3; decisions 40):
+    - 152.079 s (frame 19 of 576): whiteboard: root cause
+    - 152.541 s (frame 33 of 576): whiteboard: the July fix (circled, branch A)
+    - 154.425 s (frame 89 of 576): whiteboard: tested on smaller machines
+    - 156.146 s (frame 141 of 576): whiteboard: contributing factors
+    - 157.304 s (frame 176 of 576): whiteboard: Teams failover onto the gateway
+    - 159.167 s (frame 232 of 576): whiteboard: capacity out (unrelated issue)
+    - 160.223 s (frame 263 of 576): whiteboard: bulkheads failed (separate issue)
+    - 161.364 s (frame 297 of 576): whiteboard: not related to cyber, AI or agents; denial tag 1 pins to it ('Microsoft, Nov 13, two days before its root-cause report.')
+    - 162.847 s (frame 342 of 576): denial tag 2 ('The report doesn't say who or what wrote the July fix.'), a beat later: one half-time beat (two beats of the grid)
+    - 163.666 s (frame 367 of 576): whiteboard: full report
+    - 164.405 s (frame 389 of 576): whiteboard: on the 20th
+    - 165.233 s (frame 414 of 576): whiteboard: lessons learned
+    - 166.105 s (frame 440 of 576): whiteboard: we're committed to doing better
+    - 168.386 s (frame 508 of 576): 'we're committed to doing better', sung again (the repaint doubles the line)
+- **Next:** the Remotion whiteboard (v1.3 text, the July fix circled), the two denial tags, the status stamp (Thu 11:15 a.m.) and the fact card.

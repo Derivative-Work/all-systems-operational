@@ -355,11 +355,11 @@
      "cue": "Bridge|0|1"
     },
     {
-     "what": "whiteboard: an earlier upgrade",
+     "what": "whiteboard: the July fix (circled, branch A)",
      "cue": "Bridge|1|0"
     },
     {
-     "what": "whiteboard: met a recent change",
+     "what": "whiteboard: tested on smaller machines",
      "cue": "Bridge|2|0"
     },
     {
@@ -367,24 +367,44 @@
      "cue": "Bridge|3|0"
     },
     {
-     "what": "whiteboard: not related to cyber, AI or agents (Microsoft, Nov 13)",
+     "what": "whiteboard: Teams failover onto the gateway",
      "cue": "Bridge|4|0"
     },
     {
-     "what": "whiteboard: full report",
+     "what": "whiteboard: capacity out (unrelated issue)",
      "cue": "Bridge|5|0"
     },
     {
-     "what": "whiteboard: to follow",
+     "what": "whiteboard: bulkheads failed (separate issue)",
      "cue": "Bridge|6|0"
     },
     {
-     "what": "whiteboard: lessons learned",
+     "what": "whiteboard: not related to cyber, AI or agents; denial tag 1 pins to it ('Microsoft, Nov 13, two days before its root-cause report.')",
      "cue": "Bridge|7|0"
     },
     {
-     "what": "whiteboard: we're committed to doing better",
+     "what": "denial tag 2 ('The report doesn't say who or what wrote the July fix.'), a beat later: one half-time beat (two beats of the grid)",
+     "cue": "beats_after:Bridge|7|0:2"
+    },
+    {
+     "what": "whiteboard: full report",
      "cue": "Bridge|8|0"
+    },
+    {
+     "what": "whiteboard: on the 20th",
+     "cue": "Bridge|9|0"
+    },
+    {
+     "what": "whiteboard: lessons learned",
+     "cue": "Bridge|10|0"
+    },
+    {
+     "what": "whiteboard: we're committed to doing better",
+     "cue": "Bridge|11|0"
+    },
+    {
+     "what": "'we're committed to doing better', sung again (the repaint doubles the line)",
+     "cue": "Bridge|12|0"
     }
    ]
   },

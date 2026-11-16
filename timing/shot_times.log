@@ -15,13 +15,12 @@ O14 song   98.61- 113.03 (14.42 s) video  107.02 f3210-3643 42.1   snap   +0ms  
 O15 song  113.03- 118.44 ( 5.41 s) video  121.43 f3643-3805 48.1   snap +295ms  'The' (Verse 2 2.0)
 O16 song  118.44- 122.65 ( 4.21 s) video  126.84 f3805-3931 50.2   snap  -62ms  'Everything' (Verse 2 4.0)
 O17 song  122.65- 151.45 (28.80 s) video  131.05 f3931-4795 52.1   snap  +39ms  'systems' (Chorus 2 0.1)
-O18 song  151.45- 170.65 (19.20 s) video  159.85 f4795-5371 64.1   snap  +51ms  'Root' (Bridge 0.0)
-O19 song  170.65- 182.64 (11.99 s) video  179.05 f5371-5731 72.1   snap  +77ms  'Service' (Build 2 0.0)
+O18 song  151.45- 170.65 (19.20 s) video  159.85 f4795-5371 64.1   snap -309ms  'Root' (Bridge 0.0)
+O19 song  170.65- 182.64 (11.99 s) video  179.05 f5371-5731 72.1   snap  +78ms  'Service' (Build 2 0.0)
 O20 song  182.64- 201.80 (19.16 s) video  191.04 f5731-6306 77.1   snap  +17ms  'systems' (Final Chorus 0.1)
 O21 song  201.80- 203.19 ( 1.39 s) video  210.20 f6306-6348 85.1   snap   +0ms  event:stop2
 O22 song  203.19- 234.20 (31.01 s) video  211.59 f6348-7278 85.3~  snap   +0ms  event:back2
 O23 song  234.20- 239.58 ( 5.38 s) video  242.60 f7278-7439 98.3~  snap   +0ms  'operational?' (Sung, small 1.0)
 O24 song  239.58- 248.58 ( 9.00 s) video  247.98 f7439-7709        snap   +0ms  after the music
-overlay disclosure: 122.65-140.65 (18.00 s)
 music ends 239.58 s (song); video 271.98 s; shots under 1.5 s:
   O21: 1.39 s

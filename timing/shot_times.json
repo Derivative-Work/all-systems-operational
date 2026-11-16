@@ -5,7 +5,7 @@
  "music_end_song": 239.579,
  "video_length_s": 271.979,
  "video_frames": 8159,
- "master_sha256": "99ac525861ce50c53c2ee75d794d4a86914c40234889bd3306d6a116809b91b0",
+ "master_sha256": "79255b2f875f1557c35dcdbcf63b3b36f354ecf6be019f467d65aa38eae43676",
  "shots": {
   "O01": {
    "placement": "before the music",
@@ -592,71 +592,106 @@
    "frames": 576,
    "bar_beat": "64.1",
    "cue": "'Root' (Bridge 0.0)",
-   "snapped_ms": 51,
+   "snapped_ms": -309,
    "note": "eight bars (19.2 s); caption 'dramatization'",
    "marks": [
     {
      "what": "whiteboard: root cause",
-     "song_t": 152.04,
-     "video_t": 160.44,
-     "frame_in_shot": 18,
+     "song_t": 152.079,
+     "video_t": 160.479,
+     "frame_in_shot": 19,
      "cue": "'cause' (Bridge 0.1)"
     },
     {
-     "what": "whiteboard: an earlier upgrade",
-     "song_t": 152.542,
-     "video_t": 160.942,
+     "what": "whiteboard: the July fix (circled, branch A)",
+     "song_t": 152.541,
+     "video_t": 160.941,
      "frame_in_shot": 33,
-     "cue": "'An' (Bridge 1.0)"
+     "cue": "'A' (Bridge 1.0)"
     },
     {
-     "what": "whiteboard: met a recent change",
-     "song_t": 154.69,
-     "video_t": 163.09,
-     "frame_in_shot": 97,
-     "cue": "'Met' (Bridge 2.0)"
+     "what": "whiteboard: tested on smaller machines",
+     "song_t": 154.425,
+     "video_t": 162.825,
+     "frame_in_shot": 89,
+     "cue": "'Tested' (Bridge 2.0)"
     },
     {
      "what": "whiteboard: contributing factors",
-     "song_t": 156.284,
-     "video_t": 164.684,
-     "frame_in_shot": 145,
+     "song_t": 156.146,
+     "video_t": 164.546,
+     "frame_in_shot": 141,
      "cue": "'Contributing' (Bridge 3.0)"
     },
     {
-     "what": "whiteboard: not related to cyber, AI or agents (Microsoft, Nov 13)",
-     "song_t": 158.866,
-     "video_t": 167.266,
-     "frame_in_shot": 223,
-     "cue": "'(Not' (Bridge 4.0)"
+     "what": "whiteboard: Teams failover onto the gateway",
+     "song_t": 157.304,
+     "video_t": 165.704,
+     "frame_in_shot": 176,
+     "cue": "'Teams' (Bridge 4.0)"
+    },
+    {
+     "what": "whiteboard: capacity out (unrelated issue)",
+     "song_t": 159.167,
+     "video_t": 167.567,
+     "frame_in_shot": 232,
+     "cue": "'An' (Bridge 5.0)"
+    },
+    {
+     "what": "whiteboard: bulkheads failed (separate issue)",
+     "song_t": 160.223,
+     "video_t": 168.623,
+     "frame_in_shot": 263,
+     "cue": "'And' (Bridge 6.0)"
+    },
+    {
+     "what": "whiteboard: not related to cyber, AI or agents; denial tag 1 pins to it ('Microsoft, Nov 13, two days before its root-cause report.')",
+     "song_t": 161.364,
+     "video_t": 169.764,
+     "frame_in_shot": 297,
+     "cue": "'(Not' (Bridge 7.0)"
+    },
+    {
+     "what": "denial tag 2 ('The report doesn't say who or what wrote the July fix.'), a beat later: one half-time beat (two beats of the grid)",
+     "song_t": 162.847,
+     "video_t": 171.247,
+     "frame_in_shot": 342,
+     "cue": "2 beats after Bridge|7|0"
     },
     {
      "what": "whiteboard: full report",
-     "song_t": 161.625,
-     "video_t": 170.025,
-     "frame_in_shot": 305,
-     "cue": "'Full' (Bridge 5.0)"
+     "song_t": 163.666,
+     "video_t": 172.066,
+     "frame_in_shot": 367,
+     "cue": "'Full' (Bridge 8.0)"
     },
     {
-     "what": "whiteboard: to follow",
-     "song_t": 164.277,
-     "video_t": 172.677,
-     "frame_in_shot": 385,
-     "cue": "'To' (Bridge 6.0)"
+     "what": "whiteboard: on the 20th",
+     "song_t": 164.405,
+     "video_t": 172.805,
+     "frame_in_shot": 389,
+     "cue": "'On' (Bridge 9.0)"
     },
     {
      "what": "whiteboard: lessons learned",
-     "song_t": 165.206,
-     "video_t": 173.606,
-     "frame_in_shot": 413,
-     "cue": "'Lessons' (Bridge 7.0)"
+     "song_t": 165.233,
+     "video_t": 173.633,
+     "frame_in_shot": 414,
+     "cue": "'Lessons' (Bridge 10.0)"
     },
     {
      "what": "whiteboard: we're committed to doing better",
-     "song_t": 166.366,
-     "video_t": 174.766,
-     "frame_in_shot": 448,
-     "cue": "\"(We're\" (Bridge 8.0)"
+     "song_t": 166.105,
+     "video_t": 174.505,
+     "frame_in_shot": 440,
+     "cue": "\"(We're\" (Bridge 11.0)"
+    },
+    {
+     "what": "'we're committed to doing better', sung again (the repaint doubles the line)",
+     "song_t": 168.386,
+     "video_t": 176.786,
+     "frame_in_shot": 508,
+     "cue": "\"(We're\" (Bridge 12.0)"
     }
    ]
   },
@@ -671,7 +706,7 @@
    "frames": 360,
    "bar_beat": "72.1",
    "cue": "'Service' (Build 2 0.0)",
-   "snapped_ms": 77,
+   "snapped_ms": 78,
    "note": "one continuous camera move, five bars (12 s)",
    "marks": [
     {

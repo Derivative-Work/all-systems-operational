@@ -303,3 +303,11 @@ Only the park presets below changed (`config/look_m7.json` m7c.cameras; `blender
 6. **Switch** sits 12.5 cm nearer the ground than before, because the ground at the lamp rose and Switch kept its M7b world position (decisions 37). Recommendation: accept; no camera's framing changed.
 7. **The crowd phones' content** (decisions 38). Recommendation: keep.
 8. **Pre-existing, not changed here:** O08c's lower window panes show pale, flat shapes behind the forest at night. M7a and M7b have them too (the night sky behind the panes reads light), and the new firs change their outline. Recommendation: fix in the M7 render pass with the treehouse's night background.
+
+## 40. 2026-11-16 — M1b: timing the v1.3 bridge (agent)
+
+1. **The timing reads the lead as it sits in the master:** the old lead with the repaint spliced in. The repaint stem alone would leave the rest of the song without a lead. Every non-bridge cue holds (production log 52).
+2. **Denial tag 2, "a beat later":** two beats of the grid after tag 1. The bridge is half-time, so that is one felt beat, 1.2 s (162.847 s against tag 1's 161.364 s). Tag 1 lands on "(Not", the line's first word.
+3. **The doubled "(We're committed to doing better)":** the whiteboard writes it once, on the first; the second is marked but writes nothing.
+4. **Stop 1's first clap** sounds slightly different in v1.3 (production log 52). It is left as delivered and flagged for the human.
+5. **M1 lock:** recommended, with the post-filtered v1.3 master as the video's audio. The plan's M1 gate is the human's.

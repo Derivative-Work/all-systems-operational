@@ -3,7 +3,7 @@
  "master": "audio/track/All Systems Operational.wav",
  "review_audio": "audio/postfilter/all-systems-operational-master-deslopped.wav",
  "stems": {
-  "lead": "audio/stems/0 Lead Vocals.aif",
+  "lead": "audio/stems/0 Lead Vocals v1.3.aif",
   "backing": "audio/stems/1 Backing Vocals.aif",
   "drums": "audio/stems/2 Drums.aif"
  },
@@ -128,5 +128,7 @@
    "note": "last notes ring out",
    "start": "event:last_vocal"
   }
- ]
+ ],
+ "transcript": "timing/whisper_lead_v13.json",
+ "_lead_v13": "Lyrics v1.3 (human interventions 24): the lead is the old lead stem with the bridge repaint spliced in over 150.98-170.10 s, and its transcript merged the same way (scripts/m1b_lead_v13.py)."
 }

@@ -64,3 +64,8 @@ Relative to M7b (approved as the M7 base, human interventions 22). Cut, performa
 - **Treehouse screens:** the assistant's screen reads "assistant · read-only", with no name or initial; its composer reads "Ask about the logs…".
 - **O04:** the question and its +1 count are on the phone from the shot's first frame. The +1 still climbs on the Hey!.
 - **Live room:** the crowd's phones show a camera view of the band, a lock screen or the #it-help chat (generic, unreadable at that size) instead of blank white.
+
+## 9. 2026-11-16 — The v1.3 bridge repaint, as sung
+
+- The bridge is sung as lyrics v1.3 writes it, in order. "On the twentieth" is sung; Whisper writes "20th".
+- "(We're committed to doing better)" is sung twice: 166.11–168.38 s and 168.39–170.06 s. The brief writes it once; the old bridge sang it once.

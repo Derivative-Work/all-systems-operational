@@ -33,7 +33,7 @@ CFG = json.load(open("config/timing.json"))
 MASTER = Path(CFG["master"])
 STEMS = CFG["stems"]
 LYRICS = Path("lyrics/as_sung.txt")
-TRANSCRIPT = Path("timing/whisper_lead.json")
+TRANSCRIPT = Path(CFG.get("transcript", "timing/whisper_lead.json"))  # v1.3: the merged transcript (M1b)
 OUT = Path("timing/timing_map.json")
 FPS = 30  # Remotion (remotion/src/config.ts)
 

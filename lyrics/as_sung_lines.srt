@@ -3,7 +3,7 @@
 We're investigating reports
 
 2
-00:00:11,173 --> 00:00:14,540
+00:00:11,173 --> 00:00:14,440
 that some of you
 
 3
@@ -79,7 +79,7 @@ Please stay on the line
 Five-oh-three, five-oh-three
 
 21
-00:01:17,540 --> 00:01:20,860
+00:01:17,540 --> 00:01:20,840
 Please stay on the line
 
 22
@@ -163,110 +163,126 @@ Five-oh-three, five-oh-three
 Please stay on the line
 
 42
-00:02:31,398 --> 00:02:32,542
+00:02:31,758 --> 00:02:32,541
 Root cause
 
 43
-00:02:32,542 --> 00:02:34,690
-An earlier upgrade
+00:02:32,541 --> 00:02:34,425
+A fix from back in July
 
 44
-00:02:34,690 --> 00:02:36,284
-Met a recent change
+00:02:34,425 --> 00:02:36,146
+Tested on the smaller machines
 
 45
-00:02:36,284 --> 00:02:38,800
+00:02:36,146 --> 00:02:37,304
 Contributing factors
 
 46
-00:02:38,866 --> 00:02:41,625
-(Not related to cyber, AI or agents)
+00:02:37,304 --> 00:02:39,167
+Teams came over for the night
 
 47
-00:02:41,625 --> 00:02:43,580
-Full report
+00:02:39,167 --> 00:02:40,223
+An unrelated issue
 
 48
-00:02:44,277 --> 00:02:45,206
-To follow
+00:02:40,223 --> 00:02:41,364
+And a separate issue
 
 49
-00:02:45,206 --> 00:02:46,366
-Lessons learned
+00:02:41,364 --> 00:02:43,666
+(Not related to cyber, AI or agents)
 
 50
-00:02:46,366 --> 00:02:50,570
-(We're committed to doing better)
+00:02:43,666 --> 00:02:44,405
+Full report
 
 51
-00:02:50,570 --> 00:02:55,388
-Service has been restored for most users (Hey!)
+00:02:44,405 --> 00:02:45,233
+On the twentieth
 
 52
+00:02:45,233 --> 00:02:46,105
+Lessons learned
+
+53
+00:02:46,105 --> 00:02:48,386
+(We're committed to doing better)
+
+54
+00:02:48,386 --> 00:02:50,569
+(We're committed to doing better)
+
+55
+00:02:50,569 --> 00:02:55,388
+Service has been restored for most users (Hey!)
+
+56
 00:02:55,388 --> 00:03:01,420
 Service has been restored for most users (Hey!)
 
-53
+57
 00:03:02,382 --> 00:03:05,321
 All systems operational (Hey!)
 
-54
+58
 00:03:05,321 --> 00:03:07,222
 Every light was green (Hey!)
 
-55
+59
 00:03:07,222 --> 00:03:10,108
 All systems operational (Hey!)
 
-56
+60
 00:03:10,108 --> 00:03:12,085
 Believe the screen (Hey!)
 
-57
+61
 00:03:12,085 --> 00:03:14,725
 Nothing here is broken
 
-58
+62
 00:03:14,725 --> 00:03:16,786
 Everything is fine
 
-59
+63
 00:03:16,786 --> 00:03:18,785
 All systems operational
 
-60
+64
 00:03:18,785 --> 00:03:22,700
 Please stay on the—
 
-61
+65
 00:03:28,522 --> 00:03:31,441
 Remember Wednesday? (Hey...)
 
-62
+66
 00:03:31,441 --> 00:03:33,854
 The inbox always loaded
 
-63
+67
 00:03:33,854 --> 00:03:35,893
 The meetings had a link
 
-64
+68
 00:03:35,893 --> 00:03:38,720
 And no one knew how good we had it
 
-65
+69
 00:03:38,936 --> 00:03:41,460
 Back when the cloud was new
 
-66
+70
 00:03:42,135 --> 00:03:45,140
 We are deeply sorry for the disruption
 
-67
+71
 00:03:49,417 --> 00:03:51,640
 All systems
 
-68
+72
 00:03:54,200 --> 00:03:55,940
 operational?
 

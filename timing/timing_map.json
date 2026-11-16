@@ -4,15 +4,15 @@
  "fps": 30,
  "audio": {
   "master": "audio/track/All Systems Operational.wav",
-  "sha256": "99ac525861ce50c53c2ee75d794d4a86914c40234889bd3306d6a116809b91b0",
+  "sha256": "79255b2f875f1557c35dcdbcf63b3b36f354ecf6be019f467d65aa38eae43676",
   "duration_s": 239.579,
   "review_audio": "audio/postfilter/all-systems-operational-master-deslopped.wav"
  },
  "alignment": {
   "method": "whisperx.align (wav2vec2 en), one segment per lyric line; lead lines on the lead stem, echoes on the backing stem",
   "lyrics": "lyrics/as_sung.txt",
-  "anchors": "timing/whisper_lead.json",
-  "refined": "lead-stem level threshold -34.7 dB; originals kept as start_aligner/end_aligner",
+  "anchors": "timing/whisper_lead_v13.json",
+  "refined": "lead-stem level threshold -34.3 dB; originals kept as start_aligner/end_aligner",
   "heys": "strongest backing-stem onset after the line (found=false: weak, check by ear)"
  },
  "beats": {
@@ -2276,7 +2276,7 @@
       {
        "w": "you",
        "start": 11.854,
-       "end": 13.54,
+       "end": 13.44,
        "score": 0.548,
        "end_aligner": 12.015
       }
@@ -2286,7 +2286,7 @@
       14.722
      ],
      "start": 11.173,
-     "end": 13.54
+     "end": 13.44
     },
     {
      "text": "can't reach anything",
@@ -2479,7 +2479,7 @@
       {
        "w": "fill",
        "start": 34.82,
-       "end": 35.1,
+       "end": 35.08,
        "score": 0.978,
        "start_aligner": 34.758,
        "end_aligner": 35.079
@@ -2490,7 +2490,7 @@
       35.903
      ],
      "start": 31.122,
-     "end": 35.1,
+     "end": 35.08,
      "hey": {
       "text": "Hey!",
       "stem": "backing",
@@ -3197,7 +3197,7 @@
       {
        "w": "line",
        "start": 79.261,
-       "end": 79.86,
+       "end": 79.84,
        "score": 0.655,
        "end_aligner": 79.702
       }
@@ -3207,7 +3207,7 @@
       84.305
      ],
      "start": 77.54,
-     "end": 79.86
+     "end": 79.84
     }
    ],
    "start": 73.66,
@@ -3359,7 +3359,7 @@
       },
       {
        "w": "up",
-       "start": 90.6,
+       "start": 90.62,
        "end": 90.643,
        "score": 0.21,
        "start_aligner": 90.562
@@ -4147,9 +4147,10 @@
       },
       {
        "w": "stay",
-       "start": 139.657,
+       "start": 139.72,
        "end": 140.098,
-       "score": 0.816
+       "score": 0.816,
+       "start_aligner": 139.657
       },
       {
        "w": "on",
@@ -4215,332 +4216,513 @@
       {
        "w": "Please",
        "start": 144.8,
-       "end": 145.462,
-       "score": 0.82
+       "end": 145.522,
+       "score": 0.75
       },
       {
        "w": "stay",
        "start": 145.643,
        "end": 146.084,
-       "score": 0.895
+       "score": 0.912
       },
       {
        "w": "on",
        "start": 146.204,
        "end": 146.325,
-       "score": 0.951
+       "score": 0.955
       },
       {
        "w": "the",
        "start": 146.385,
        "end": 146.485,
-       "score": 0.839
+       "score": 0.796
       },
       {
        "w": "line",
        "start": 146.545,
        "end": 147.24,
-       "score": 0.972,
+       "score": 0.981,
        "end_aligner": 146.906
       }
      ],
      "window": [
       144.8,
-      152.002
+      151.741
      ],
      "start": 144.8,
      "end": 147.24
     }
    ],
    "start": 140.94,
-   "end": 151.398
+   "end": 151.758
   },
   {
    "name": "Bridge",
-   "note": "half-time, guitar and voice only",
+   "note": "half-time, guitar and voice only; lyrics v1.3, the repaint",
    "lines": [
     {
      "text": "Root cause",
      "words": [
       {
        "w": "Root",
-       "start": 151.398,
-       "end": 151.62,
-       "score": 0.665,
-       "end_aligner": 151.659
+       "start": 151.758,
+       "end": 151.999,
+       "score": 0.666
       },
       {
        "w": "cause",
-       "start": 152.04,
-       "end": 152.482,
-       "score": 0.614
+       "start": 152.079,
+       "end": 152.501,
+       "score": 0.511
       }
      ],
      "window": [
       146.94,
-      152.542
+      152.541
      ],
-     "start": 151.398,
-     "end": 152.482
+     "start": 151.758,
+     "end": 152.501
     },
     {
-     "text": "An earlier upgrade",
+     "text": "A fix from back in July",
      "words": [
       {
-       "w": "An",
-       "start": 152.542,
-       "end": 152.623,
-       "score": 0.806
+       "w": "A",
+       "start": 152.541,
+       "end": 152.602,
+       "score": 0.655
       },
       {
-       "w": "earlier",
-       "start": 152.684,
-       "end": 153.108,
+       "w": "fix",
+       "start": 152.683,
+       "end": 152.905,
+       "score": 0.937
+      },
+      {
+       "w": "from",
+       "start": 152.946,
+       "end": 153.107,
+       "score": 0.865
+      },
+      {
+       "w": "back",
+       "start": 153.148,
+       "end": 153.411,
+       "score": 0.912
+      },
+      {
+       "w": "in",
+       "start": 153.451,
+       "end": 153.532,
+       "score": 0.903
+      },
+      {
+       "w": "July",
+       "start": 153.573,
+       "end": 154.42,
+       "score": 0.949,
+       "end_aligner": 154.078
+      }
+     ],
+     "window": [
+      152.541,
+      154.402
+     ],
+     "start": 152.541,
+     "end": 154.42
+    },
+    {
+     "text": "Tested on the smaller machines",
+     "words": [
+      {
+       "w": "Tested",
+       "start": 154.425,
+       "end": 154.769,
+       "score": 0.917
+      },
+      {
+       "w": "on",
+       "start": 154.809,
+       "end": 154.89,
        "score": 0.744
       },
       {
-       "w": "upgrade",
-       "start": 153.5,
-       "end": 153.9,
-       "score": 0.671,
-       "start_aligner": 153.229,
-       "end_aligner": 153.815
+       "w": "the",
+       "start": 154.91,
+       "end": 154.991,
+       "score": 0.82
+      },
+      {
+       "w": "smaller",
+       "start": 155.051,
+       "end": 155.355,
+       "score": 0.984
+      },
+      {
+       "w": "machines",
+       "start": 155.395,
+       "end": 156.14,
+       "score": 0.793,
+       "end_aligner": 155.86
       }
      ],
      "window": [
-      152.522,
-      154.663
+      154.102,
+      156.102
      ],
-     "start": 152.542,
-     "end": 153.9
-    },
-    {
-     "text": "Met a recent change",
-     "words": [
-      {
-       "w": "Met",
-       "start": 154.69,
-       "end": 154.912,
-       "score": 0.906
-      },
-      {
-       "w": "a",
-       "start": 154.952,
-       "end": 155.013,
-       "score": 0.856
-      },
-      {
-       "w": "recent",
-       "start": 155.053,
-       "end": 155.557,
-       "score": 0.908
-      },
-      {
-       "w": "change",
-       "start": 155.618,
-       "end": 156.142,
-       "score": 0.946
-      }
-     ],
-     "window": [
-      153.883,
-      156.243
-     ],
-     "start": 154.69,
-     "end": 156.142
+     "start": 154.425,
+     "end": 156.14
     },
     {
      "text": "Contributing factors",
      "words": [
       {
        "w": "Contributing",
-       "start": 156.284,
-       "end": 157.332,
-       "score": 0.928
+       "start": 156.146,
+       "end": 156.674,
+       "score": 0.92
       },
       {
        "w": "factors",
-       "start": 157.513,
-       "end": 157.8,
-       "score": 0.941,
-       "end_aligner": 158.259
+       "start": 156.755,
+       "end": 157.181,
+       "score": 0.994
       }
      ],
      "window": [
-      156.203,
-      158.864
+      155.902,
+      157.283
      ],
-     "start": 156.284,
-     "end": 157.8
+     "start": 156.146,
+     "end": 157.181
+    },
+    {
+     "text": "Teams came over for the night",
+     "words": [
+      {
+       "w": "Teams",
+       "start": 157.304,
+       "end": 157.667,
+       "score": 0.862
+      },
+      {
+       "w": "came",
+       "start": 157.748,
+       "end": 158.052,
+       "score": 0.91
+      },
+      {
+       "w": "over",
+       "start": 158.132,
+       "end": 158.294,
+       "score": 0.999
+      },
+      {
+       "w": "for",
+       "start": 158.355,
+       "end": 158.516,
+       "score": 0.914
+      },
+      {
+       "w": "the",
+       "start": 158.537,
+       "end": 158.617,
+       "score": 0.847
+      },
+      {
+       "w": "night",
+       "start": 158.698,
+       "end": 159.16,
+       "score": 0.905,
+       "end_aligner": 158.88
+      }
+     ],
+     "window": [
+      157.243,
+      159.143
+     ],
+     "start": 157.304,
+     "end": 159.16
+    },
+    {
+     "text": "An unrelated issue",
+     "words": [
+      {
+       "w": "An",
+       "start": 159.167,
+       "end": 159.248,
+       "score": 0.81
+      },
+      {
+       "w": "unrelated",
+       "start": 159.329,
+       "end": 159.858,
+       "score": 0.955
+      },
+      {
+       "w": "issue",
+       "start": 159.919,
+       "end": 160.162,
+       "score": 0.767
+      }
+     ],
+     "window": [
+      158.923,
+      160.203
+     ],
+     "start": 159.167,
+     "end": 160.162
+    },
+    {
+     "text": "And a separate issue",
+     "words": [
+      {
+       "w": "And",
+       "start": 160.223,
+       "end": 160.284,
+       "score": 0.406
+      },
+      {
+       "w": "a",
+       "start": 160.325,
+       "end": 160.346,
+       "score": 0.011
+      },
+      {
+       "w": "separate",
+       "start": 160.468,
+       "end": 160.997,
+       "score": 0.806
+      },
+      {
+       "w": "issue",
+       "start": 161.038,
+       "end": 161.323,
+       "score": 0.89
+      }
+     ],
+     "window": [
+      160.203,
+      161.364
+     ],
+     "start": 160.223,
+     "end": 161.323
     },
     {
      "text": "(Not related to cyber, AI or agents)",
      "words": [
       {
        "w": "(Not",
-       "start": 158.866,
-       "end": 159.068,
-       "score": 0.74
+       "start": 161.364,
+       "end": 161.525,
+       "score": 0.75
       },
       {
        "w": "related",
-       "start": 159.108,
-       "end": 159.551,
-       "score": 0.917
+       "start": 161.566,
+       "end": 161.949,
+       "score": 0.89
       },
       {
        "w": "to",
-       "start": 159.611,
-       "end": 159.712,
-       "score": 0.996
+       "start": 161.969,
+       "end": 162.05,
+       "score": 0.971
       },
       {
        "w": "cyber,",
-       "start": 159.833,
-       "end": 160.336,
-       "score": 0.79
+       "start": 162.131,
+       "end": 162.534,
+       "score": 0.763
       },
       {
        "w": "AI",
-       "start": 160.416,
-       "end": 160.799,
-       "score": 0.922
+       "start": 162.655,
+       "end": 162.958,
+       "score": 0.835
       },
       {
        "w": "or",
-       "start": 160.879,
-       "end": 161.0,
-       "score": 0.579
+       "start": 163.039,
+       "end": 163.12,
+       "score": 0.751
       },
       {
        "w": "agents)",
-       "start": 161.121,
-       "end": 161.523,
-       "score": 0.887
+       "start": 163.281,
+       "end": 163.584,
+       "score": 0.895
       }
      ],
      "window": [
-      158.363,
-      161.604
+      161.364,
+      163.624
      ],
-     "start": 158.866,
-     "end": 161.523
+     "start": 161.364,
+     "end": 163.584
     },
     {
      "text": "Full report",
      "words": [
       {
        "w": "Full",
-       "start": 161.625,
-       "end": 161.968,
-       "score": 0.561
+       "start": 163.666,
+       "end": 163.871,
+       "score": 0.519
       },
       {
        "w": "report",
-       "start": 161.988,
-       "end": 162.58,
-       "score": 0.812,
-       "end_aligner": 162.552
+       "start": 163.912,
+       "end": 164.322,
+       "score": 0.93
       }
      ],
      "window": [
-      161.504,
-      164.245
+      163.604,
+      164.384
      ],
-     "start": 161.625,
-     "end": 162.58
+     "start": 163.666,
+     "end": 164.322
     },
     {
-     "text": "To follow",
+     "text": "On the twentieth",
      "words": [
       {
-       "w": "To",
-       "start": 164.277,
-       "end": 164.418,
-       "score": 0.998
+       "w": "On",
+       "start": 164.405,
+       "end": 164.466,
+       "score": 0.997
       },
       {
-       "w": "follow",
-       "start": 164.519,
-       "end": 164.963,
-       "score": 0.895
+       "w": "the",
+       "start": 164.507,
+       "end": 164.59,
+       "score": 0.908
+      },
+      {
+       "w": "twentieth",
+       "start": 164.651,
+       "end": 165.102,
+       "score": 0.894
       }
      ],
      "window": [
-      162.784,
-      165.185
+      164.364,
+      165.225
      ],
-     "start": 164.277,
-     "end": 164.963
+     "start": 164.405,
+     "end": 165.102
     },
     {
      "text": "Lessons learned",
      "words": [
       {
        "w": "Lessons",
-       "start": 165.206,
-       "end": 165.654,
-       "score": 0.808
+       "start": 165.233,
+       "end": 165.659,
+       "score": 0.89
       },
       {
        "w": "learned",
-       "start": 165.715,
-       "end": 166.162,
-       "score": 0.569
+       "start": 165.74,
+       "end": 166.064,
+       "score": 0.645
       }
      ],
      "window": [
-      165.125,
-      166.365
+      164.605,
+      166.125
      ],
-     "start": 165.206,
-     "end": 166.162
+     "start": 165.233,
+     "end": 166.064
     },
     {
      "text": "(We're committed to doing better)",
      "words": [
       {
        "w": "(We're",
-       "start": 166.366,
-       "end": 166.667,
-       "score": 0.611
+       "start": 166.105,
+       "end": 166.287,
+       "score": 0.653
       },
       {
        "w": "committed",
-       "start": 166.708,
-       "end": 168.355,
-       "score": 0.667
+       "start": 166.307,
+       "end": 166.731,
+       "score": 0.905
       },
       {
        "w": "to",
-       "start": 168.536,
-       "end": 168.657,
-       "score": 0.736
+       "start": 166.771,
+       "end": 166.852,
+       "score": 0.962
       },
       {
        "w": "doing",
-       "start": 168.697,
-       "end": 169.039,
-       "score": 0.754
+       "start": 166.892,
+       "end": 167.538,
+       "score": 0.675
       },
       {
        "w": "better)",
-       "start": 169.139,
-       "end": 169.64,
-       "score": 0.99,
-       "end_aligner": 169.461
+       "start": 167.659,
+       "end": 168.38,
+       "score": 0.901,
+       "end_aligner": 168.002
       }
      ],
      "window": [
-      166.165,
+      166.105,
+      168.386
+     ],
+     "start": 166.105,
+     "end": 168.38
+    },
+    {
+     "text": "(We're committed to doing better)",
+     "words": [
+      {
+       "w": "(We're",
+       "start": 168.386,
+       "end": 168.547,
+       "score": 0.574
+      },
+      {
+       "w": "committed",
+       "start": 168.567,
+       "end": 169.011,
+       "score": 0.694
+      },
+      {
+       "w": "to",
+       "start": 169.032,
+       "end": 169.112,
+       "score": 0.519
+      },
+      {
+       "w": "doing",
+       "start": 169.153,
+       "end": 169.435,
+       "score": 0.736
+      },
+      {
+       "w": "better)",
+       "start": 169.476,
+       "end": 170.06,
+       "score": 0.81,
+       "end_aligner": 169.779
+      }
+     ],
+     "window": [
+      168.325,
       170.566
      ],
-     "start": 166.366,
-     "end": 169.64
+     "start": 168.386,
+     "end": 170.06
     }
    ],
-   "start": 151.398,
-   "end": 170.57
+   "start": 151.758,
+   "end": 170.569
   },
   {
    "name": "Build 2",
@@ -4552,54 +4734,54 @@
      "words": [
       {
        "w": "Service",
-       "start": 170.57,
-       "end": 171.413,
-       "score": 0.662
+       "start": 170.569,
+       "end": 171.412,
+       "score": 0.705
       },
       {
        "w": "has",
        "start": 171.533,
-       "end": 171.794,
-       "score": 0.912
+       "end": 171.814,
+       "score": 0.911
       },
       {
        "w": "been",
-       "start": 171.854,
+       "start": 171.834,
        "end": 172.22,
-       "score": 0.364,
+       "score": 0.342,
        "end_aligner": 172.155
       },
       {
        "w": "restored",
        "start": 172.717,
        "end": 173.38,
-       "score": 0.874
+       "score": 0.859
       },
       {
        "w": "for",
        "start": 173.46,
        "end": 173.701,
-       "score": 0.799
+       "score": 0.953
       },
       {
        "w": "most",
        "start": 173.801,
-       "end": 174.143,
-       "score": 0.91
+       "end": 174.142,
+       "score": 0.901
       },
       {
        "w": "users",
        "start": 174.363,
        "end": 175.38,
-       "score": 0.909,
+       "score": 0.919,
        "end_aligner": 174.765
       }
      ],
      "window": [
-      169.526,
+      169.766,
       175.367
      ],
-     "start": 170.57,
+     "start": 170.569,
      "end": 175.38,
      "hey": {
       "text": "Hey!",
@@ -4675,7 +4857,7 @@
      }
     }
    ],
-   "start": 170.57,
+   "start": 170.569,
    "end": 182.382
   },
   {
