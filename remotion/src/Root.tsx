@@ -10,6 +10,7 @@ import {LowerThird, LowerThirdVariant} from './components/LowerThird';
 import {PhoneChatBig, PhoneChatProps, PhoneChatScreen} from './components/PhoneChat';
 import {Agent, AlertCall, Dashboard, LAP, ScreenProps, Terminal, TwoFactor, VideoCall} from './components/TreehouseScreens';
 import {FramedPhone, Screen} from './components/Phone';
+import {CrowdCamera, CrowdLock} from './components/CrowdPhones';
 import {CalendarScreen} from './components/Calendar';
 import {BufferingFreeze, CaptionOverlay} from './components/Freeze';
 import {DisclosureCard, EndCard, FactCard, FinalCard, TechnicalDifficulties} from './components/Cards';
@@ -112,7 +113,8 @@ const TREE_SCREENS: [string, React.FC<ScreenProps>, 'phone' | 'laptop', number, 
 ];
 const M7B: React.FC = () => (
   <>
-    <Composition id="M7-O04-PhoneScreen" component={BigChat} defaultProps={{base: 6, heys: [mark('O04', 1)], askAt: mark('O04', 0)}} durationInFrames={shotFrames('O04')} fps={FPS} width={PW} height={PH} />
+    {/* M7c (human interventions 22): the question is on the phone from the shot's first frame; the +1 still climbs on the Hey! */}
+    <Composition id="M7-O04-PhoneScreen" component={BigChat} defaultProps={{base: 6, heys: [mark('O04', 1)], askAt: -100}} durationInFrames={shotFrames('O04')} fps={FPS} width={PW} height={PH} />
     {TREE_SCREENS.flatMap(([id, C, kind, pn, pd]) => (['night', 'day'] as const).map((v) => (
       <Composition key={`${id}-${v}`} id={`M7-Tree-${id}-${v}`} component={kind === 'phone' ? onPhone(C) : onLaptop(C)}
         defaultProps={{night: v === 'night', phase: v === 'night' ? pn : pd}} durationInFrames={v === 'night' ? 72 : shotFrames('O18')} fps={FPS}
@@ -121,10 +123,21 @@ const M7B: React.FC = () => (
   </>
 );
 
+/* ---------- M7c: the live room's crowd phones (blender/look.py crowd_phones; stills) ---------- */
+const ChatStill: React.FC = () => <Frame><Screen bg={T.chatBg}><PhoneChatScreen base={7} /></Screen></Frame>;
+const M7C: React.FC = () => (
+  <>
+    <Composition id="M7c-Crowd-Lock" component={() => <Frame><Screen bg="#121b1f"><CrowdLock /></Screen></Frame>} durationInFrames={1} fps={FPS} width={PW} height={PH} />
+    <Composition id="M7c-Crowd-Camera" component={() => <Frame><Screen bg="#000"><CrowdCamera /></Screen></Frame>} durationInFrames={1} fps={FPS} width={PW} height={PH} />
+    <Composition id="M7c-Crowd-Chat" component={ChatStill} durationInFrames={1} fps={FPS} width={PW} height={PH} />
+  </>
+);
+
 export const Root: React.FC = () => (
   <>
     <M5 />
     <M7B />
+    <M7C />
     {/* O01 */}
     <Composition id="O01-Bookend" component={Bookend} durationInFrames={O01_TOTAL} {...full} />
     <Composition id="O01a-SpikeChart" component={SpikeChart} durationInFrames={dur('O01_spike')} {...full} />

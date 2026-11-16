@@ -306,8 +306,9 @@ export const Terminal: React.FC<ScreenProps> = ({night, phase = 0}) => {
 };
 
 /* ---------- 5. a laptop: a generic, unbranded assistant that can't reach the mail connector and reads logs ---------- */
-// The agent is "Kestrel" (invented). It only reads: it is blocked on the connector (O14's table tent) and summarises
-// the health-check log. It never writes, commits or deploys anything.
+// An unnamed assistant (M7c, human interventions 22: M7b's invented name collided with a real Microsoft product, so the
+// screen is labelled "assistant · read-only" and carries no name or initial). It only reads: it is blocked on the
+// connector (O14's table tent) and summarises the health-check log. It never writes, commits or deploys anything.
 // a cool light theme in the video's evergreen and teal (not a warm cream with a coral accent: no real assistant's look)
 const A = {bg: '#eaf0ef', head: '#f7faf9', line: '#cfdcda', accent: '#2f8f8a'};
 const AGENT_TEXT = 'Reading the health-check log instead: mailflow-west has returned 503s and timeouts since 10:26 a.m. PT, ' +
@@ -320,10 +321,11 @@ export const Agent: React.FC<ScreenProps> = ({night, phase = 0}) => {
     <div style={{position: 'absolute', inset: 0, background: A.bg, fontFamily: UI, color: T.ink}}>
       <div style={{height: 76, display: 'flex', alignItems: 'center', gap: 18, padding: '0 34px', borderBottom: `2px solid ${A.line}`,
         background: A.head}}>
-        <div style={{width: 46, height: 46, borderRadius: 12, background: T.evergreen, color: '#fff', display: 'flex', alignItems: 'center',
-          justifyContent: 'center', fontSize: 28, fontWeight: 800}}>K</div>
-        <div style={{fontSize: 32, fontWeight: 750}}>Kestrel</div>
-        <div style={{fontSize: 22, color: T.inkSoft, border: `2px solid ${A.line}`, borderRadius: 999, padding: '3px 14px'}}>read-only · logs</div>
+        <div style={{width: 46, height: 46, borderRadius: 12, background: T.evergreen, display: 'flex', flexDirection: 'column',
+          justifyContent: 'center', gap: 5, padding: '0 11px'}}>
+          {[1, 0.7, 0.85].map((w, i) => <div key={i} style={{height: 4, width: `${w * 100}%`, borderRadius: 2, background: '#fff'}} />)}
+        </div>
+        <div style={{fontSize: 32, fontWeight: 750}}>assistant · read-only</div>
         <div style={{marginLeft: 'auto', fontSize: 24, color: T.inkSoft}}>{clockAt(night, f / 30)}</div>
       </div>
       <div style={{padding: '30px 46px', display: 'flex', flexDirection: 'column', gap: 24}}>
@@ -342,7 +344,7 @@ export const Agent: React.FC<ScreenProps> = ({night, phase = 0}) => {
         </div>
       </div>
       <div style={{position: 'absolute', left: 46, right: 46, bottom: 34, height: 74, borderRadius: 37, border: `2px solid ${A.line}`,
-        background: '#fff', display: 'flex', alignItems: 'center', padding: '0 30px', fontSize: 26, color: T.inkFaint}}>Ask Kestrel about the logs…</div>
+        background: '#fff', display: 'flex', alignItems: 'center', padding: '0 30px', fontSize: 26, color: T.inkFaint}}>Ask about the logs…</div>
     </div>
   );
 };
