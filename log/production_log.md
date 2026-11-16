@@ -676,3 +676,10 @@ Append-only. One entry per generation, render or analysis step.
 - **Disk used by M7a:** about 335 MB in the repository's folders (`renders/m7a/` 254 MB, of which the motion-test frames 131 MB; `archive/renders/m7a/` 67 MB; `remotion/public/gen/` 6.5 MB; the review files 3 MB), plus about 140 MB of test stills in the scratchpad. 27 GB free.
 - **GPU:** only this project's renders ran (the 5090 idle at 361 MiB before each); one heavy job at a time, except one build-only clearance check (no render) during the Cycles timing run.
 - `scripts/manifest.sh` → 2,337 files.
+
+## 36. 2026-11-16 — M7b: M7a reference stills for the new heroes (before any M7b change)
+
+- **Why:** the M7b look board pairs each changed hero with its M7a version (human interventions 18–19). O03c (kick close), O04a (the phone), O08c (the night cutaway), O09f (banjo close), O17j (tambourine close) and O19b (the rise over the crest, for the park sheet) were not on the M7a board, so they are rendered here with the M7a code as committed (e4766b2), before any M7b change.
+- **Checks first:** the RTX 5090 idle (361 MiB, 0%), 33 GB RAM available, 27 GB free on disk.
+- **Command:** `/usr/bin/time -v blender -b --factory-startup --python blender/coverage_m7.py -- --out renders/m7b/m7a_ref/raw --still --subs O03c,O04a,O08c,O09f,O17j,O19b --size 1920x1080 --log log/render_logs/m7b_m7a_ref_pose_check.log` → `renders/m7b/m7a_ref/raw/<id>.png` (16-bit, each sub-shot's middle frame). 3 min 12 s wall for 6 builds; peak 4.8 GB RSS (`log/render_logs/m7b_m7a_ref.log`). Pose check: no violations.
+- **Seen:** O04a's phone is a blank white quad about 330 × 150 px at 1080p (the chat is pinned onto it in the edit, production log 13); O08c is near black apart from the clipped laptop and phone screens, and daylight shafts land on the floor at night (the M7 haze adds its daylight sun whatever the time: a bug, fixed in M7b); the closes are dark, the banjo's and tambourine's wood barely reads.
