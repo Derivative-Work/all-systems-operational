@@ -269,11 +269,21 @@ def person_index(c):
     return int(c.name.split("_")[1])
 
 
+# Recasting (M5c review 2): person -> person swaps applied wherever a person is picked by index, so a recast moves
+# no one: the new player takes the old one's place and the old one takes the new one's (crowd draws, fixed extras).
+# Empty for M5 and M5b; blender/coverage_m5c.py sets it.
+SWAP = {}
+
+
 def pick(pose, u=None, who=None):
     pool = LIB[pose]
     if who is not None:
+        who = SWAP.get(who, who)
         return next(c for c in pool if person_index(c) == who)
-    return pool[int(u * len(pool)) % len(pool)]
+    c = pool[int(u * len(pool)) % len(pool)]
+    if SWAP and person_index(c) in SWAP:
+        return next(x for x in pool if person_index(x) == SWAP[person_index(c)])
+    return c
 
 
 def person(name, pose, loc, rot_z=0.0, u=0.0, who=None, coll=None):

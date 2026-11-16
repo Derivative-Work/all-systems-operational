@@ -21,3 +21,7 @@ Lyrics as sung are checked at M1 (WhisperX on the lead and backing stems), defer
 ## 4. 2026-11-15 — O22's Switch OFF (M5b)
 
 - M5's O22 rebuilt the park with its default state, so Switch was back ON in the outro after dropping in O21. M5b swaps in the OFF texture for O22 (blender/coverage.py), so he stays down after the stop. Decisions 13.
+
+## 5. 2026-11-15 — The guitarist and banjo player recast (M5c review 2)
+
+- The board's band was people 3, 8, 12, 17, 22. The guitarist is now person 33 and the banjo player person 36 (decisions 19): the real-size guitar was too big for person 3, and the banjo for person 8. They swap places with 3 and 8 elsewhere, so no position changes: 3 is now O12's late clapper, 8 a treehouse meeting chair.

@@ -75,13 +75,14 @@ class Person:
         self.abduct = {sd: G.clear_hanging(body, sd, obs) for sd in hang}
         if self.pose == "mug_raise":
             G.mug_pose(body, 0.0)
+            G.grip(body, "Right", (45, 60, 35), (25, 20, 10))             # round the mug's body
             seat_mug(coll, body)
+        if self.pose == "phone":                    # the library's phone grip bent the fingers sideways (local X)
+            for sd in ("Left", "Right"):
+                G.grip(body, sd, (20, 30, 18), (15, 15, 10))
         if self.pose == "fist" and self.fist_side:
             G.fist_pose(body, self.fist_side, 0.0)
-            for fg in ("Index", "Middle", "Ring", "Pinky"):            # a closed fist, the thumb across it
-                G.curl3(body, self.fist_side, fg, 10, 25, 20)
-            for k_ in (2, 3):
-                body.rot(f"{self.fist_side}HandThumb{k_}", x=35)
+            G.grip(body, self.fist_side, (80, 95, 60), (20, 35, 35))     # a closed fist, the thumb across it
         if self.pose in ("clap", "push") or self.joiner:
             G.clap_fingers(body)
         body.keep()
@@ -174,6 +175,9 @@ def solve(p, t, ch, en, hey, kick13, room):
     labels, ck = labels_of(p, ch)
     PF.check(body, p.e.name, t, PF.rig_offset(body), labels=labels)
     p.checker.run(t, labels, clap_k=ck(t) if ck else None, other_ok=ck is None)
+    if ck and ck(t) >= 0.97 and PF.CHECK_ON[0]:
+        import arm_checks as AC
+        AC.clap_facing(body, labels["Left"], f"{PF.BUILD[0]}:{p.e.name}", t)
 
 
 def labels_of(p, ch):
@@ -257,6 +261,9 @@ def late_clapper(b, n, close_frames, open_frames=7):
         rec.add()
         PF.check(body, "late_clapper", f / 30.0, labels=lab)
         chk.run(f / 30.0, lab, clap_k=k)
+        if k >= 0.97:
+            import arm_checks as AC
+            AC.clap_facing(body, lab["Left"], f"{b}:late_clapper", f / 30.0)
     rec.write(np.arange(1, n + 1))
     PF.REG[rig.name] = rec
     PF.apply_static(body, PF.FINGERS)

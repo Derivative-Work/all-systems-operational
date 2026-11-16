@@ -35,6 +35,7 @@ ap.add_argument("--frame", type=int, default=452)
 ap.add_argument("--size", default="900x900")
 ap.add_argument("--n", type=int, default=0, help="frames to solve (0: up to --frame + 2)")
 ap.add_argument("--only", default="")
+ap.add_argument("--palms", action="store_true", help="test only: paint the palm sides (blender/palm_test.py)")
 a = ap.parse_args(argv)
 out = C.ROOT / a.out
 out.mkdir(parents=True, exist_ok=True)
@@ -56,6 +57,10 @@ for o in bpy.data.objects:
         o.data.energy *= 0.5
 sc.frame_set(a.frame)
 band = S.OBJ["band"]
+if a.palms:
+    import palm_test
+    for e in list(band.values()) + PC.instances():
+        palm_test.paint_palms(e.instance_collection)
 allp = [o for o in bpy.data.objects if o.type == "EMPTY" and o.instance_type == "COLLECTION"]
 man = {"frame": a.frame, "t": C.song_t(b, a.frame), "tiles": []}
 

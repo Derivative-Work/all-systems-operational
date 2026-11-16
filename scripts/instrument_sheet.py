@@ -31,8 +31,9 @@ for name, tiles in groups:
         ims.append(np.full_like(ims[0], 24))
     rows.append(np.hstack(ims))
 head = np.full((40, rows[0].shape[1], 3), 24, np.uint8)
-cv2.putText(head, f"M5c review: the acoustic guitar and banjo on Ever Present's neck (blender/instruments.py), their grips, "
-                  f"and the other hands; O09, frame {man['frame']} ({man['t']:.2f} s)"
+title = sys.argv[3] if len(sys.argv) > 3 else ("M5c review: the acoustic guitar and banjo on Ever Present's neck "
+                                                "(blender/instruments.py), their grips, and the other hands")
+cv2.putText(head, f"{title}; O09, frame {man['frame']} ({man['t']:.2f} s)"
                   + (f", the clap at frame {man['clap_frame']}" if "clap_frame" in man else ""),
             (10, 27), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (240, 240, 240), 1, cv2.LINE_AA)
 cv2.imwrite(out, np.vstack([head] + rows), [cv2.IMWRITE_JPEG_QUALITY, 88])

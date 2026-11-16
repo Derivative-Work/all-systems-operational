@@ -1,0 +1,3278 @@
+[
+ {
+  "who": 33,
+  "dz": 0.06,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.06
+  },
+  "shoulder": 1.571,
+  "head_top": 1.952,
+  "hips": 1.099,
+  "upper_arm": 0.292,
+  "forearm": 0.264,
+  "hand": 0.078,
+  "body_centre_z": 1.106,
+  "body_centre_above_hips": 0.006,
+  "body_centre_height_frac": 0.566,
+  "strum_hold": {
+   "res": 0.0072,
+   "rest_gap": 0.0069,
+   "pen": 0.0071,
+   "upper": 54.0,
+   "fore": 30.3,
+   "th": 54,
+   "ph": 245,
+   "elbow_torso": 0.141,
+   "cost": 7.24,
+   "dEP": 0.336,
+   "hand": 0.136,
+   "n_ok": 51,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.0071
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0015,
+   "along": 0.28,
+   "face": 0.92,
+   "pen": 0.0,
+   "th": 55,
+   "ph": 324,
+   "elbow_torso": 0.184,
+   "cost": 0.12
+  },
+  "geo": {
+   "S": [
+    -0.185,
+    -0.047,
+    1.571
+   ],
+   "P": [
+    -0.001,
+    -0.362,
+    1.186
+   ],
+   "rest_first": [
+    -0.37,
+    -0.199,
+    1.144
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.209,
+    1.25
+   ],
+   "rest_last": [
+    -0.179,
+    -0.247,
+    1.266
+   ],
+   "S_to_rest_min": 0.354,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     54.0,
+     "33 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     30.4237,
+     "33 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     0.0068,
+     "33 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.995,
+     "33 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.0194,
+     "33 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     0
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.885,
+    "tip_miss_mm": 1.0,
+    "wrist": [
+     40.0,
+     -0.2,
+     -0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.887,
+    "tip_miss_mm": 7.4,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.89,
+    "tip_miss_mm": 13.9,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.89,
+    "tip_miss_mm": 16.0,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 33,
+  "dz": 0.1,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.1
+  },
+  "shoulder": 1.571,
+  "head_top": 1.952,
+  "hips": 1.099,
+  "upper_arm": 0.292,
+  "forearm": 0.264,
+  "hand": 0.078,
+  "body_centre_z": 1.146,
+  "body_centre_above_hips": 0.046,
+  "body_centre_height_frac": 0.587,
+  "strum_hold": {
+   "res": 0.0021,
+   "rest_gap": 0.0042,
+   "pen": 0.0065,
+   "upper": 48.0,
+   "fore": 27.0,
+   "th": 48,
+   "ph": 240,
+   "elbow_torso": 0.164,
+   "cost": 5.64,
+   "dEP": 0.344,
+   "hand": 0.136,
+   "n_ok": 26,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.0065
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0021,
+   "along": 0.3,
+   "face": 0.91,
+   "pen": 0.0,
+   "th": 52,
+   "ph": 324,
+   "elbow_torso": 0.194,
+   "cost": 0.18
+  },
+  "geo": {
+   "S": [
+    -0.185,
+    -0.047,
+    1.571
+   ],
+   "P": [
+    -0.001,
+    -0.369,
+    1.226
+   ],
+   "rest_first": [
+    -0.37,
+    -0.206,
+    1.184
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.216,
+    1.29
+   ],
+   "rest_last": [
+    -0.179,
+    -0.255,
+    1.306
+   ],
+   "S_to_rest_min": 0.325,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     48.0001,
+     "33 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     27.0494,
+     "33 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     0.0041,
+     "33 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.9952,
+     "33 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.0202,
+     "33 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     0
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.872,
+    "tip_miss_mm": 0.8,
+    "wrist": [
+     40.0,
+     1.6,
+     -0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.872,
+    "tip_miss_mm": 6.7,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.874,
+    "tip_miss_mm": 13.4,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.871,
+    "tip_miss_mm": 16.3,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 39,
+  "dz": 0.06,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.06
+  },
+  "shoulder": 1.541,
+  "head_top": 1.913,
+  "hips": 1.083,
+  "upper_arm": 0.29,
+  "forearm": 0.26,
+  "hand": 0.077,
+  "body_centre_z": 1.089,
+  "body_centre_above_hips": 0.006,
+  "body_centre_height_frac": 0.569,
+  "strum_hold": {
+   "res": 0.0027,
+   "rest_gap": 0.0059,
+   "pen": 0.0071,
+   "upper": 52.0,
+   "fore": 29.5,
+   "th": 52,
+   "ph": 240,
+   "elbow_torso": 0.152,
+   "cost": 6.18,
+   "dEP": 0.34,
+   "hand": 0.134,
+   "n_ok": 43,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.0071
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0006,
+   "along": 0.27,
+   "face": 0.91,
+   "pen": 0.0,
+   "th": 55,
+   "ph": 324,
+   "elbow_torso": 0.184,
+   "cost": 0.04
+  },
+  "geo": {
+   "S": [
+    -0.176,
+    -0.051,
+    1.541
+   ],
+   "P": [
+    -0.001,
+    -0.363,
+    1.17
+   ],
+   "rest_first": [
+    -0.37,
+    -0.2,
+    1.127
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.21,
+    1.233
+   ],
+   "rest_last": [
+    -0.179,
+    -0.249,
+    1.249
+   ],
+   "S_to_rest_min": 0.343,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     52.0,
+     "39 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     29.6008,
+     "39 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     0.0058,
+     "39 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.9898,
+     "39 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.0161,
+     "39 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     0
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.884,
+    "tip_miss_mm": 0.3,
+    "wrist": [
+     40.0,
+     -7.1,
+     -0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.884,
+    "tip_miss_mm": 5.3,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.888,
+    "tip_miss_mm": 13.2,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.89,
+    "tip_miss_mm": 18.5,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 39,
+  "dz": 0.1,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.1
+  },
+  "shoulder": 1.541,
+  "head_top": 1.913,
+  "hips": 1.083,
+  "upper_arm": 0.29,
+  "forearm": 0.26,
+  "hand": 0.077,
+  "body_centre_z": 1.129,
+  "body_centre_above_hips": 0.046,
+  "body_centre_height_frac": 0.59,
+  "strum_hold": {
+   "res": 0.0025,
+   "rest_gap": 0.0053,
+   "pen": 0.0068,
+   "upper": 46.0,
+   "fore": 27.1,
+   "th": 46,
+   "ph": 240,
+   "elbow_torso": 0.164,
+   "cost": 6.1,
+   "dEP": 0.335,
+   "hand": 0.134,
+   "n_ok": 25,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.0068
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0003,
+   "along": 0.29,
+   "face": 0.92,
+   "pen": 0.0,
+   "th": 55,
+   "ph": 318,
+   "elbow_torso": 0.18,
+   "cost": 0.03
+  },
+  "geo": {
+   "S": [
+    -0.176,
+    -0.051,
+    1.541
+   ],
+   "P": [
+    -0.001,
+    -0.37,
+    1.21
+   ],
+   "rest_first": [
+    -0.37,
+    -0.206,
+    1.167
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.217,
+    1.273
+   ],
+   "rest_last": [
+    -0.179,
+    -0.255,
+    1.289
+   ],
+   "S_to_rest_min": 0.314,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     46.0,
+     "39 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     27.2026,
+     "39 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     0.0052,
+     "39 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.9919,
+     "39 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.0196,
+     "39 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     1
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.869,
+    "tip_miss_mm": 0.1,
+    "wrist": [
+     40.0,
+     -12.8,
+     0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.87,
+    "tip_miss_mm": 10.4,
+    "wrist": [
+     40.0,
+     0.4,
+     -0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.872,
+    "tip_miss_mm": 17.4,
+    "wrist": [
+     40.0,
+     10.0,
+     0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.876,
+    "tip_miss_mm": 27.7,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 25,
+  "dz": 0.06,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.06
+  },
+  "shoulder": 1.481,
+  "head_top": 1.845,
+  "hips": 1.03,
+  "upper_arm": 0.278,
+  "forearm": 0.247,
+  "hand": 0.073,
+  "body_centre_z": 1.036,
+  "body_centre_above_hips": 0.006,
+  "body_centre_height_frac": 0.562,
+  "strum_hold": {
+   "res": 0.0038,
+   "rest_gap": 0.0076,
+   "pen": 0.0071,
+   "upper": 50.0,
+   "fore": 32.3,
+   "th": 50,
+   "ph": 250,
+   "elbow_torso": 0.118,
+   "cost": 6.49,
+   "dEP": 0.317,
+   "hand": 0.127,
+   "n_ok": 28,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.0071
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0014,
+   "along": 0.25,
+   "face": 0.92,
+   "pen": 0.0,
+   "th": 49,
+   "ph": 318,
+   "elbow_torso": 0.177,
+   "cost": 0.08
+  },
+  "geo": {
+   "S": [
+    -0.172,
+    -0.035,
+    1.481
+   ],
+   "P": [
+    -0.001,
+    -0.355,
+    1.117
+   ],
+   "rest_first": [
+    -0.37,
+    -0.192,
+    1.074
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.203,
+    1.18
+   ],
+   "rest_last": [
+    -0.179,
+    -0.241,
+    1.196
+   ],
+   "S_to_rest_min": 0.343,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     49.9997,
+     "25 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     32.4609,
+     "25 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     0.0074,
+     "25 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.985,
+     "25 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.0128,
+     "25 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     1
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.918,
+    "tip_miss_mm": 0.9,
+    "wrist": [
+     40.0,
+     -9.0,
+     -0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.917,
+    "tip_miss_mm": 5.5,
+    "wrist": [
+     40.0,
+     10.0,
+     0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.919,
+    "tip_miss_mm": 13.8,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.917,
+    "tip_miss_mm": 17.6,
+    "wrist": [
+     40.0,
+     10.0,
+     0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 25,
+  "dz": 0.1,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.1
+  },
+  "shoulder": 1.481,
+  "head_top": 1.845,
+  "hips": 1.03,
+  "upper_arm": 0.278,
+  "forearm": 0.247,
+  "hand": 0.073,
+  "body_centre_z": 1.076,
+  "body_centre_above_hips": 0.046,
+  "body_centre_height_frac": 0.583,
+  "strum_hold": {
+   "res": 0.015,
+   "rest_gap": -0.0056,
+   "pen": 0.0041,
+   "upper": 46.0,
+   "fore": 28.5,
+   "th": 46,
+   "ph": 250,
+   "elbow_torso": 0.124,
+   "cost": 17.02,
+   "dEP": 0.307,
+   "hand": 0.127,
+   "n_ok": 8,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.0041
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0007,
+   "along": 0.33,
+   "face": 0.91,
+   "pen": 0.0,
+   "th": 52,
+   "ph": 306,
+   "elbow_torso": 0.153,
+   "cost": 0.03
+  },
+  "geo": {
+   "S": [
+    -0.172,
+    -0.035,
+    1.481
+   ],
+   "P": [
+    -0.001,
+    -0.364,
+    1.157
+   ],
+   "rest_first": [
+    -0.37,
+    -0.201,
+    1.114
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.212,
+    1.22
+   ],
+   "rest_last": [
+    -0.179,
+    -0.25,
+    1.236
+   ],
+   "S_to_rest_min": 0.316,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     45.9998,
+     "25 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     28.6574,
+     "25 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     -0.0058,
+     "25 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.9857,
+     "25 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.0144,
+     "25 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     1
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.912,
+    "tip_miss_mm": 0.2,
+    "wrist": [
+     40.0,
+     -20.0,
+     0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.918,
+    "tip_miss_mm": 15.4,
+    "wrist": [
+     40.0,
+     -14.6,
+     0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.921,
+    "tip_miss_mm": 22.9,
+    "wrist": [
+     40.0,
+     3.5,
+     0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.928,
+    "tip_miss_mm": 36.1,
+    "wrist": [
+     40.0,
+     10.0,
+     0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 23,
+  "dz": 0.06,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.06
+  },
+  "shoulder": 1.506,
+  "head_top": 1.855,
+  "hips": 1.062,
+  "upper_arm": 0.284,
+  "forearm": 0.247,
+  "hand": 0.073,
+  "body_centre_z": 1.068,
+  "body_centre_above_hips": 0.006,
+  "body_centre_height_frac": 0.576,
+  "strum_hold": {
+   "res": 0.0129,
+   "rest_gap": 0.007,
+   "pen": 0.0041,
+   "upper": 46.0,
+   "fore": 32.6,
+   "th": 46,
+   "ph": 255,
+   "elbow_torso": 0.105,
+   "cost": 7.29,
+   "dEP": 0.309,
+   "hand": 0.127,
+   "n_ok": 5,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.0041
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0024,
+   "along": 0.39,
+   "face": 0.9,
+   "pen": 0.0,
+   "th": 52,
+   "ph": 300,
+   "elbow_torso": 0.109,
+   "cost": 0.24
+  },
+  "geo": {
+   "S": [
+    -0.169,
+    -0.04,
+    1.506
+   ],
+   "P": [
+    -0.001,
+    -0.384,
+    1.149
+   ],
+   "rest_first": [
+    -0.37,
+    -0.221,
+    1.106
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.231,
+    1.212
+   ],
+   "rest_last": [
+    -0.179,
+    -0.269,
+    1.228
+   ],
+   "S_to_rest_min": 0.35,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     45.9999,
+     "23 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     32.8073,
+     "23 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     0.0067,
+     "23 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.9717,
+     "23 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.0099,
+     "23 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     1
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.94,
+    "tip_miss_mm": 1.1,
+    "wrist": [
+     40.0,
+     -20.0,
+     0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.949,
+    "tip_miss_mm": 16.4,
+    "wrist": [
+     40.0,
+     -20.0,
+     0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.954,
+    "tip_miss_mm": 26.8,
+    "wrist": [
+     40.0,
+     -8.7,
+     0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.965,
+    "tip_miss_mm": 64.0,
+    "wrist": [
+     40.0,
+     -4.2,
+     0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 5,
+  "dz": 0.06,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.06
+  },
+  "shoulder": 1.486,
+  "head_top": 1.854,
+  "hips": 1.031,
+  "upper_arm": 0.276,
+  "forearm": 0.249,
+  "hand": 0.073,
+  "body_centre_z": 1.037,
+  "body_centre_above_hips": 0.006,
+  "body_centre_height_frac": 0.56,
+  "strum_hold": {
+   "res": 0.0028,
+   "rest_gap": 0.007,
+   "pen": 0.0074,
+   "upper": 50.0,
+   "fore": 32.2,
+   "th": 50,
+   "ph": 250,
+   "elbow_torso": 0.128,
+   "cost": 6.71,
+   "dEP": 0.325,
+   "hand": 0.128,
+   "n_ok": 22,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.0074
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0005,
+   "along": 0.28,
+   "face": 0.91,
+   "pen": 0.0,
+   "th": 46,
+   "ph": 318,
+   "elbow_torso": 0.189,
+   "cost": 0.03
+  },
+  "geo": {
+   "S": [
+    -0.176,
+    -0.037,
+    1.486
+   ],
+   "P": [
+    -0.001,
+    -0.364,
+    1.118
+   ],
+   "rest_first": [
+    -0.37,
+    -0.2,
+    1.076
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.211,
+    1.182
+   ],
+   "rest_last": [
+    -0.179,
+    -0.249,
+    1.198
+   ],
+   "S_to_rest_min": 0.348,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     50.0002,
+     "5 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     32.3473,
+     "5 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     0.0068,
+     "5 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.9935,
+     "5 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.0137,
+     "5 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     0
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.926,
+    "tip_miss_mm": 0.4,
+    "wrist": [
+     40.0,
+     1.9,
+     -0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.928,
+    "tip_miss_mm": 9.4,
+    "wrist": [
+     40.0,
+     10.0,
+     0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.93,
+    "tip_miss_mm": 22.1,
+    "wrist": [
+     40.0,
+     10.0,
+     0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.922,
+    "tip_miss_mm": 20.1,
+    "wrist": [
+     40.0,
+     10.0,
+     0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 5,
+  "dz": 0.1,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.1
+  },
+  "shoulder": 1.486,
+  "head_top": 1.854,
+  "hips": 1.031,
+  "upper_arm": 0.276,
+  "forearm": 0.249,
+  "hand": 0.073,
+  "body_centre_z": 1.077,
+  "body_centre_above_hips": 0.046,
+  "body_centre_height_frac": 0.581,
+  "strum_hold": {
+   "res": 0.014,
+   "rest_gap": -0.0011,
+   "pen": 0.0045,
+   "upper": 46.0,
+   "fore": 29.2,
+   "th": 46,
+   "ph": 250,
+   "elbow_torso": 0.132,
+   "cost": 11.46,
+   "dEP": 0.309,
+   "hand": 0.128,
+   "n_ok": 12,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.0045
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0007,
+   "along": 0.45,
+   "face": 0.9,
+   "pen": 0.0,
+   "th": 55,
+   "ph": 294,
+   "elbow_torso": 0.129,
+   "cost": 0.05
+  },
+  "geo": {
+   "S": [
+    -0.176,
+    -0.037,
+    1.486
+   ],
+   "P": [
+    -0.001,
+    -0.363,
+    1.158
+   ],
+   "rest_first": [
+    -0.37,
+    -0.2,
+    1.116
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.21,
+    1.222
+   ],
+   "rest_last": [
+    -0.179,
+    -0.248,
+    1.238
+   ],
+   "S_to_rest_min": 0.315,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     45.9999,
+     "5 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     29.4009,
+     "5 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     -0.0012,
+     "5 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.9826,
+     "5 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.0162,
+     "5 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     1
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.911,
+    "tip_miss_mm": 0.1,
+    "wrist": [
+     40.0,
+     -20.0,
+     -0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.923,
+    "tip_miss_mm": 20.4,
+    "wrist": [
+     40.0,
+     -20.0,
+     -0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.933,
+    "tip_miss_mm": 37.2,
+    "wrist": [
+     40.0,
+     -20.0,
+     -0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.948,
+    "tip_miss_mm": 52.5,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 2,
+  "dz": 0.06,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.06
+  },
+  "shoulder": 1.577,
+  "head_top": 1.952,
+  "hips": 1.119,
+  "upper_arm": 0.286,
+  "forearm": 0.272,
+  "hand": 0.079,
+  "body_centre_z": 1.125,
+  "body_centre_above_hips": 0.006,
+  "body_centre_height_frac": 0.576,
+  "strum_hold": {
+   "res": 0.0031,
+   "rest_gap": 0.0098,
+   "pen": 0.0067,
+   "upper": 48.0,
+   "fore": 30.5,
+   "th": 48,
+   "ph": 250,
+   "elbow_torso": 0.14,
+   "cost": 5.93,
+   "dEP": 0.35,
+   "hand": 0.138,
+   "n_ok": 15,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.0067
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0003,
+   "along": 0.27,
+   "face": 0.91,
+   "pen": 0.0,
+   "th": 55,
+   "ph": 312,
+   "elbow_torso": 0.158,
+   "cost": 0.03
+  },
+  "geo": {
+   "S": [
+    -0.198,
+    -0.015,
+    1.577
+   ],
+   "P": [
+    -0.001,
+    -0.363,
+    1.205
+   ],
+   "rest_first": [
+    -0.37,
+    -0.2,
+    1.163
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.21,
+    1.269
+   ],
+   "rest_last": [
+    -0.179,
+    -0.249,
+    1.285
+   ],
+   "S_to_rest_min": 0.36,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     48.0,
+     "2 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     30.6314,
+     "2 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     0.0097,
+     "2 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.9888,
+     "2 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.0174,
+     "2 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     0
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.906,
+    "tip_miss_mm": 0.2,
+    "wrist": [
+     40.0,
+     -4.9,
+     -0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.908,
+    "tip_miss_mm": 6.6,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.913,
+    "tip_miss_mm": 14.5,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.915,
+    "tip_miss_mm": 20.3,
+    "wrist": [
+     40.0,
+     10.0,
+     0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 2,
+  "dz": 0.1,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.1
+  },
+  "shoulder": 1.577,
+  "head_top": 1.952,
+  "hips": 1.119,
+  "upper_arm": 0.286,
+  "forearm": 0.272,
+  "hand": 0.079,
+  "body_centre_z": 1.165,
+  "body_centre_above_hips": 0.046,
+  "body_centre_height_frac": 0.597,
+  "strum_hold": {
+   "res": 0.001,
+   "rest_gap": -0.0065,
+   "pen": 0.0075,
+   "upper": 46.0,
+   "fore": 25.2,
+   "th": 46,
+   "ph": 245,
+   "elbow_torso": 0.157,
+   "cost": 16.33,
+   "dEP": 0.352,
+   "hand": 0.138,
+   "n_ok": 5,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.0075
+   }
+  },
+  "fret_hold": {
+   "miss": 0.001,
+   "along": 0.44,
+   "face": 0.9,
+   "pen": 0.0,
+   "th": 58,
+   "ph": 282,
+   "elbow_torso": 0.107,
+   "cost": 0.11
+  },
+  "geo": {
+   "S": [
+    -0.198,
+    -0.015,
+    1.577
+   ],
+   "P": [
+    -0.001,
+    -0.366,
+    1.245
+   ],
+   "rest_first": [
+    -0.37,
+    -0.203,
+    1.203
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.213,
+    1.309
+   ],
+   "rest_last": [
+    -0.179,
+    -0.252,
+    1.325
+   ],
+   "S_to_rest_min": 0.331,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     46.0,
+     "2 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     25.3786,
+     "2 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     -0.0066,
+     "2 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.9873,
+     "2 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.02,
+     "2 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     0
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.89,
+    "tip_miss_mm": 0.1,
+    "wrist": [
+     40.0,
+     -20.0,
+     0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.904,
+    "tip_miss_mm": 20.7,
+    "wrist": [
+     40.0,
+     -20.0,
+     0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.916,
+    "tip_miss_mm": 38.0,
+    "wrist": [
+     40.0,
+     -19.4,
+     0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.936,
+    "tip_miss_mm": 53.7,
+    "wrist": [
+     40.0,
+     10.0,
+     0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 20,
+  "dz": 0.06,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.06
+  },
+  "shoulder": 1.502,
+  "head_top": 1.867,
+  "hips": 1.055,
+  "upper_arm": 0.275,
+  "forearm": 0.273,
+  "hand": 0.079,
+  "body_centre_z": 1.061,
+  "body_centre_above_hips": 0.006,
+  "body_centre_height_frac": 0.569,
+  "strum_hold": {
+   "res": 0.0029,
+   "rest_gap": 0.0091,
+   "pen": 0.007,
+   "upper": 46.0,
+   "fore": 30.8,
+   "th": 46,
+   "ph": 250,
+   "elbow_torso": 0.134,
+   "cost": 6.54,
+   "dEP": 0.351,
+   "hand": 0.139,
+   "n_ok": 2,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.007
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0004,
+   "along": 0.46,
+   "face": 0.9,
+   "pen": 0.0,
+   "th": 58,
+   "ph": 282,
+   "elbow_torso": 0.094,
+   "cost": 0.08
+  },
+  "geo": {
+   "S": [
+    -0.195,
+    -0.02,
+    1.502
+   ],
+   "P": [
+    -0.001,
+    -0.372,
+    1.142
+   ],
+   "rest_first": [
+    -0.37,
+    -0.209,
+    1.1
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.219,
+    1.206
+   ],
+   "rest_last": [
+    -0.179,
+    -0.257,
+    1.222
+   ],
+   "S_to_rest_min": 0.354,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     45.9999,
+     "20 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     30.9667,
+     "20 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     0.0089,
+     "20 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.9665,
+     "20 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.0156,
+     "20 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     0
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.918,
+    "tip_miss_mm": 0.1,
+    "wrist": [
+     40.0,
+     -20.0,
+     -0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.931,
+    "tip_miss_mm": 19.5,
+    "wrist": [
+     40.0,
+     -20.0,
+     -0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.942,
+    "tip_miss_mm": 35.8,
+    "wrist": [
+     40.0,
+     -20.0,
+     -0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.961,
+    "tip_miss_mm": 52.7,
+    "wrist": [
+     40.0,
+     6.7,
+     -0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 45,
+  "dz": 0.06,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.06
+  },
+  "shoulder": 1.491,
+  "head_top": 1.843,
+  "hips": 1.045,
+  "upper_arm": 0.283,
+  "forearm": 0.245,
+  "hand": 0.072,
+  "body_centre_z": 1.051,
+  "body_centre_above_hips": 0.006,
+  "body_centre_height_frac": 0.57,
+  "strum_hold": {
+   "res": 0.0064,
+   "rest_gap": 0.0107,
+   "pen": 0.006,
+   "upper": 48.0,
+   "fore": 32.5,
+   "th": 48,
+   "ph": 250,
+   "elbow_torso": 0.122,
+   "cost": 5.97,
+   "dEP": 0.311,
+   "hand": 0.126,
+   "n_ok": 25,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.006
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0004,
+   "along": 0.25,
+   "face": 0.92,
+   "pen": 0.0,
+   "th": 49,
+   "ph": 318,
+   "elbow_torso": 0.186,
+   "cost": 0.01
+  },
+  "geo": {
+   "S": [
+    -0.169,
+    -0.031,
+    1.491
+   ],
+   "P": [
+    -0.001,
+    -0.353,
+    1.132
+   ],
+   "rest_first": [
+    -0.37,
+    -0.19,
+    1.089
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.2,
+    1.195
+   ],
+   "rest_last": [
+    -0.179,
+    -0.239,
+    1.211
+   ],
+   "S_to_rest_min": 0.34,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     48.0,
+     "45 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     32.6442,
+     "45 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     0.0106,
+     "45 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.9836,
+     "45 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.0123,
+     "45 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     1
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.917,
+    "tip_miss_mm": 0.2,
+    "wrist": [
+     40.0,
+     -11.2,
+     0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.915,
+    "tip_miss_mm": 4.7,
+    "wrist": [
+     40.0,
+     10.0,
+     0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.918,
+    "tip_miss_mm": 13.8,
+    "wrist": [
+     40.0,
+     10.0,
+     0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.916,
+    "tip_miss_mm": 19.7,
+    "wrist": [
+     40.0,
+     10.0,
+     0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 45,
+  "dz": 0.1,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.1
+  },
+  "shoulder": 1.491,
+  "head_top": 1.843,
+  "hips": 1.045,
+  "upper_arm": 0.283,
+  "forearm": 0.245,
+  "hand": 0.072,
+  "body_centre_z": 1.091,
+  "body_centre_above_hips": 0.046,
+  "body_centre_height_frac": 0.592,
+  "strum_hold": {
+   "res": 0.0021,
+   "rest_gap": -0.011,
+   "pen": 0.007,
+   "upper": 46.0,
+   "fore": 26.2,
+   "th": 46,
+   "ph": 245,
+   "elbow_torso": 0.139,
+   "cost": 23.69,
+   "dEP": 0.316,
+   "hand": 0.126,
+   "n_ok": 7,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.007
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0011,
+   "along": 0.28,
+   "face": 0.93,
+   "pen": 0.0,
+   "th": 49,
+   "ph": 312,
+   "elbow_torso": 0.172,
+   "cost": 0.05
+  },
+  "geo": {
+   "S": [
+    -0.169,
+    -0.031,
+    1.491
+   ],
+   "P": [
+    -0.001,
+    -0.362,
+    1.172
+   ],
+   "rest_first": [
+    -0.37,
+    -0.199,
+    1.129
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.209,
+    1.235
+   ],
+   "rest_last": [
+    -0.179,
+    -0.248,
+    1.251
+   ],
+   "S_to_rest_min": 0.314,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     46.0001,
+     "45 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     26.3426,
+     "45 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     -0.0111,
+     "45 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.9856,
+     "45 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.0148,
+     "45 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     1
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.909,
+    "tip_miss_mm": 0.3,
+    "wrist": [
+     40.0,
+     -18.1,
+     0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.91,
+    "tip_miss_mm": 10.8,
+    "wrist": [
+     40.0,
+     -3.4,
+     0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.91,
+    "tip_miss_mm": 17.3,
+    "wrist": [
+     40.0,
+     10.0,
+     0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.912,
+    "tip_miss_mm": 28.1,
+    "wrist": [
+     40.0,
+     10.0,
+     0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 47,
+  "dz": 0.06,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.06
+  },
+  "shoulder": 1.442,
+  "head_top": 1.804,
+  "hips": 1.001,
+  "upper_arm": 0.264,
+  "forearm": 0.244,
+  "hand": 0.072,
+  "body_centre_z": 1.007,
+  "body_centre_above_hips": 0.006,
+  "body_centre_height_frac": 0.558,
+  "strum_hold": {
+   "res": 0.0014,
+   "rest_gap": 0.008,
+   "pen": 0.0069,
+   "upper": 50.0,
+   "fore": 32.5,
+   "th": 50,
+   "ph": 250,
+   "elbow_torso": 0.125,
+   "cost": 5.83,
+   "dEP": 0.315,
+   "hand": 0.126,
+   "n_ok": 30,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.0069
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0008,
+   "along": 0.37,
+   "face": 0.92,
+   "pen": 0.0,
+   "th": 55,
+   "ph": 306,
+   "elbow_torso": 0.152,
+   "cost": 0.05
+  },
+  "geo": {
+   "S": [
+    -0.174,
+    -0.046,
+    1.442
+   ],
+   "P": [
+    -0.001,
+    -0.356,
+    1.088
+   ],
+   "rest_first": [
+    -0.37,
+    -0.193,
+    1.046
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.203,
+    1.152
+   ],
+   "rest_last": [
+    -0.179,
+    -0.242,
+    1.168
+   ],
+   "S_to_rest_min": 0.328,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     50.0002,
+     "47 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     32.6062,
+     "47 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     0.0078,
+     "47 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.969,
+     "47 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.011,
+     "47 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     1
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.924,
+    "tip_miss_mm": 0.2,
+    "wrist": [
+     40.0,
+     -20.0,
+     0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.933,
+    "tip_miss_mm": 16.8,
+    "wrist": [
+     40.0,
+     -20.0,
+     0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.937,
+    "tip_miss_mm": 23.1,
+    "wrist": [
+     40.0,
+     1.3,
+     0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.95,
+    "tip_miss_mm": 61.9,
+    "wrist": [
+     40.0,
+     8.3,
+     0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 47,
+  "dz": 0.1,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.1
+  },
+  "shoulder": 1.442,
+  "head_top": 1.804,
+  "hips": 1.001,
+  "upper_arm": 0.264,
+  "forearm": 0.244,
+  "hand": 0.072,
+  "body_centre_z": 1.047,
+  "body_centre_above_hips": 0.046,
+  "body_centre_height_frac": 0.581,
+  "strum_hold": {
+   "res": 0.0138,
+   "rest_gap": -0.0049,
+   "pen": 0.0043,
+   "upper": 46.0,
+   "fore": 28.6,
+   "th": 46,
+   "ph": 250,
+   "elbow_torso": 0.131,
+   "cost": 15.22,
+   "dEP": 0.303,
+   "hand": 0.126,
+   "n_ok": 11,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.0043
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0009,
+   "along": 0.35,
+   "face": 0.91,
+   "pen": 0.0,
+   "th": 52,
+   "ph": 306,
+   "elbow_torso": 0.158,
+   "cost": 0.03
+  },
+  "geo": {
+   "S": [
+    -0.174,
+    -0.046,
+    1.442
+   ],
+   "P": [
+    -0.001,
+    -0.363,
+    1.128
+   ],
+   "rest_first": [
+    -0.37,
+    -0.2,
+    1.086
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.21,
+    1.192
+   ],
+   "rest_last": [
+    -0.179,
+    -0.248,
+    1.208
+   ],
+   "S_to_rest_min": 0.3,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     46.0001,
+     "47 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     28.7967,
+     "47 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     -0.005,
+     "47 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.9858,
+     "47 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.0142,
+     "47 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     1
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.913,
+    "tip_miss_mm": 0.3,
+    "wrist": [
+     40.0,
+     -20.0,
+     -0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.92,
+    "tip_miss_mm": 16.6,
+    "wrist": [
+     40.0,
+     -17.3,
+     -0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.923,
+    "tip_miss_mm": 24.9,
+    "wrist": [
+     40.0,
+     0.8,
+     0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.931,
+    "tip_miss_mm": 38.9,
+    "wrist": [
+     40.0,
+     10.0,
+     0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 31,
+  "dz": 0.06,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.06
+  },
+  "shoulder": 1.628,
+  "head_top": 2.017,
+  "hips": 1.139,
+  "upper_arm": 0.308,
+  "forearm": 0.271,
+  "hand": 0.079,
+  "body_centre_z": 1.145,
+  "body_centre_above_hips": 0.006,
+  "body_centre_height_frac": 0.568,
+  "strum_hold": {
+   "res": 0.001,
+   "rest_gap": 0.0066,
+   "pen": 0.0074,
+   "upper": 56.0,
+   "fore": 29.3,
+   "th": 56,
+   "ph": 240,
+   "elbow_torso": 0.157,
+   "cost": 6.29,
+   "dEP": 0.35,
+   "hand": 0.139,
+   "n_ok": 60,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.0074
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0003,
+   "along": 0.27,
+   "face": 0.92,
+   "pen": 0.0,
+   "th": 61,
+   "ph": 324,
+   "elbow_torso": 0.174,
+   "cost": 0.14
+  },
+  "geo": {
+   "S": [
+    -0.187,
+    -0.037,
+    1.628
+   ],
+   "P": [
+    -0.001,
+    -0.35,
+    1.225
+   ],
+   "rest_first": [
+    -0.37,
+    -0.187,
+    1.183
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.197,
+    1.289
+   ],
+   "rest_last": [
+    -0.179,
+    -0.236,
+    1.305
+   ],
+   "S_to_rest_min": 0.369,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     55.9999,
+     "31 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     29.4117,
+     "31 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     0.0065,
+     "31 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.9877,
+     "31 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.0188,
+     "31 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     1
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.872,
+    "tip_miss_mm": 0.1,
+    "wrist": [
+     40.0,
+     -8.0,
+     -0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.876,
+    "tip_miss_mm": 5.2,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.881,
+    "tip_miss_mm": 13.5,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.887,
+    "tip_miss_mm": 20.0,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   }
+  }
+ },
+ {
+  "who": 31,
+  "dz": 0.1,
+  "fit": {
+   "ang": 25.0,
+   "yaw": 16.0,
+   "tilt": -12.0,
+   "anchor": "hole",
+   "x": -0.045,
+   "dz": 0.1
+  },
+  "shoulder": 1.628,
+  "head_top": 2.017,
+  "hips": 1.139,
+  "upper_arm": 0.308,
+  "forearm": 0.271,
+  "hand": 0.079,
+  "body_centre_z": 1.185,
+  "body_centre_above_hips": 0.046,
+  "body_centre_height_frac": 0.587,
+  "strum_hold": {
+   "res": 0.009,
+   "rest_gap": 0.0098,
+   "pen": 0.0066,
+   "upper": 50.0,
+   "fore": 26.3,
+   "th": 50,
+   "ph": 235,
+   "elbow_torso": 0.183,
+   "cost": 7.69,
+   "dEP": 0.359,
+   "hand": 0.139,
+   "n_ok": 45,
+   "pen_parts": {
+    "forearm": 0.0,
+    "palm": 0.0,
+    "finger": 0.0066
+   }
+  },
+  "fret_hold": {
+   "miss": 0.0009,
+   "along": 0.29,
+   "face": 0.92,
+   "pen": 0.0,
+   "th": 52,
+   "ph": 330,
+   "elbow_torso": 0.215,
+   "cost": 0.04
+  },
+  "geo": {
+   "S": [
+    -0.187,
+    -0.037,
+    1.628
+   ],
+   "P": [
+    -0.001,
+    -0.351,
+    1.265
+   ],
+   "rest_first": [
+    -0.37,
+    -0.188,
+    1.223
+   ],
+   "rest_mid": [
+    -0.286,
+    -0.199,
+    1.329
+   ],
+   "rest_last": [
+    -0.179,
+    -0.237,
+    1.345
+   ],
+   "S_to_rest_min": 0.335,
+   "P_to_rest": [
+    0.406,
+    0.385,
+    0.359,
+    0.33,
+    0.298,
+    0.259
+   ]
+  },
+  "checks": {
+   "strum": {
+    "upper arm below horizontal, min (deg)": [
+     50.0,
+     "31 0.00s"
+    ],
+    "forearm below horizontal, min (deg)": [
+     26.3313,
+     "31 0.00s"
+    ],
+    "upper arm under 45 deg below horizontal": [
+     1,
+     0
+    ],
+    "hand above the elbow": [
+     1,
+     0
+    ],
+    "forearm (first half) to the rest edge, max (m)": [
+     0.0098,
+     "31 0.00s"
+    ],
+    "forearm more than 2.5 cm off the rest edge": [
+     1,
+     0
+    ]
+   },
+   "fret": {
+    "palm not facing the neck (more than 60 deg off)": [
+     1,
+     0
+    ],
+    "palm facing the neck, min (cos)": [
+     0.9987,
+     "31 0.00s"
+    ],
+    "palm more than 3.5 cm off the neck": [
+     1,
+     0
+    ],
+    "palm to the neck's surface, max (m)": [
+     0.0239,
+     "31 0.00s"
+    ],
+    "thumb neither behind the neck nor over its top": [
+     1,
+     0
+    ],
+    "knuckles not below the treble edge": [
+     1,
+     0
+    ],
+    "index, middle or ring tip off the fretboard": [
+     1,
+     0
+    ]
+   }
+  },
+  "fret_reach": {
+   "1": {
+    "wrist_reach": 0.848,
+    "tip_miss_mm": 0.1,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   },
+   "2": {
+    "wrist_reach": 0.849,
+    "tip_miss_mm": 8.0,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   },
+   "3": {
+    "wrist_reach": 0.849,
+    "tip_miss_mm": 12.3,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   },
+   "5": {
+    "wrist_reach": 0.843,
+    "tip_miss_mm": 10.9,
+    "wrist": [
+     40.0,
+     10.0,
+     -0.0
+    ]
+   }
+  }
+ }
+]

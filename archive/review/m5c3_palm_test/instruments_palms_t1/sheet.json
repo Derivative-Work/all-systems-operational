@@ -1,0 +1,167 @@
+{
+ "frame": 452,
+ "t": 70.37733333333334,
+ "tiles": [
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/guitar_front_alone.png",
+   "tag": "guitar_front_alone",
+   "label": "guitar: front, alone"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/guitar_side_alone.png",
+   "tag": "guitar_side_alone",
+   "label": "guitar: from the tail, alone"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/guitar_headstock.png",
+   "tag": "guitar_headstock",
+   "label": "guitar: headstock"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/guitar_on_player.png",
+   "tag": "guitar_on_player",
+   "label": "guitar: on the player"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/guitar_fret_hand.png",
+   "tag": "guitar_fret_hand",
+   "label": "guitar: fretting hand"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/guitar_fret_hand_under.png",
+   "tag": "guitar_fret_hand_under",
+   "label": "guitar: fretting hand from below"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/guitar_fret_hand_along.png",
+   "tag": "guitar_fret_hand_along",
+   "label": "guitar: fretting hand, along the neck"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/guitar_pick_hand.png",
+   "tag": "guitar_pick_hand",
+   "label": "guitar: strumming hand"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/guitar_pick_hand_side.png",
+   "tag": "guitar_pick_hand_side",
+   "label": "guitar: forearm on the edge"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/guitar_strap_back.png",
+   "tag": "guitar_strap_back",
+   "label": "guitar: strap from behind"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/banjo_front_alone.png",
+   "tag": "banjo_front_alone",
+   "label": "banjo: front, alone"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/banjo_side_alone.png",
+   "tag": "banjo_side_alone",
+   "label": "banjo: from the tail, alone"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/banjo_headstock.png",
+   "tag": "banjo_headstock",
+   "label": "banjo: headstock"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/banjo_on_player.png",
+   "tag": "banjo_on_player",
+   "label": "banjo: on the player"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/banjo_fret_hand.png",
+   "tag": "banjo_fret_hand",
+   "label": "banjo: fretting hand"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/banjo_fret_hand_under.png",
+   "tag": "banjo_fret_hand_under",
+   "label": "banjo: fretting hand from below"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/banjo_fret_hand_along.png",
+   "tag": "banjo_fret_hand_along",
+   "label": "banjo: fretting hand, along the neck"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/banjo_pick_hand.png",
+   "tag": "banjo_pick_hand",
+   "label": "banjo: picking hand"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/banjo_pick_hand_side.png",
+   "tag": "banjo_pick_hand_side",
+   "label": "banjo: forearm on the armrest"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/banjo_strap_back.png",
+   "tag": "banjo_strap_back",
+   "label": "banjo: strap from behind"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/tamb_hands_front.png",
+   "tag": "tamb_hands_front",
+   "label": "tamb: hands, front"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/tamb_hands_side.png",
+   "tag": "tamb_hands_side",
+   "label": "tamb: hands, from the left"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/tamb_hands_top.png",
+   "tag": "tamb_hands_top",
+   "label": "tamb: hands, from above"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/singer_hands_front.png",
+   "tag": "singer_hands_front",
+   "label": "singer: hands, front"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/singer_hands_side.png",
+   "tag": "singer_hands_side",
+   "label": "singer: hands, from the left"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/singer_hands_top.png",
+   "tag": "singer_hands_top",
+   "label": "singer: hands, from above"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/kick_hands_front.png",
+   "tag": "kick_hands_front",
+   "label": "kick: hands, front"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/kick_hands_side.png",
+   "tag": "kick_hands_side",
+   "label": "kick: hands, from the left"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/kick_hands_top.png",
+   "tag": "kick_hands_top",
+   "label": "kick: hands, from above"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/crowd_clap_front.png",
+   "tag": "crowd_clap_front",
+   "label": "crowd clapper at the clap, front"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/crowd_clap_side.png",
+   "tag": "crowd_clap_side",
+   "label": "crowd clapper at the clap, side"
+  },
+  {
+   "file": "archive/review/m5c3_palm_test/instruments_palms_t1/crowd_clap_body.png",
+   "tag": "crowd_clap_body",
+   "label": "crowd clapper at the clap"
+  }
+ ],
+ "clap_frame": 452
+}

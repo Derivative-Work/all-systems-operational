@@ -31,6 +31,12 @@ import perf_crowd as PC  # noqa: E402
 import sets as S  # noqa: E402
 
 C.COV = json.loads((C.ROOT / "config" / "coverage_m5c.json").read_text())
+# M5c review 2 (human interventions 16; decisions 19): the guitarist recast from person 3 to person 33 and the banjo
+# player from person 8 to person 36 (blender/cast_probe.py: the real-size guitar and banjo sit on them with the
+# strumming arm down and the fretting hand round the neck). Swapped, not moved: 33 and 36 take the band's places and
+# 3 and 8 take theirs (33 was O12's late clapper, 36 a treehouse meeting chair; crowd draws by index swap too).
+import aso_kit as K  # noqa: E402
+K.SWAP.update({3: 33, 33: 3, 8: 36, 36: 8})
 FREEZE_AT = {"O12": ("O11", 93.80 - 1 / 30), "O21": ("O20", 201.80 - 1 / 30)}
 LOG = C.ROOT / "log" / "render_logs" / "m5c_pose_check.log"
 

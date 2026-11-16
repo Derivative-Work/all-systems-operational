@@ -153,7 +153,10 @@ class Standing:
 
 # ---------------------------------------------------------------- the instruments: holds
 
-FRETS = {"guitar": (2, 3, 5), "banjo": (2, 3, 5)}     # the index finger's fret for each chord shape (_CH)
+FRETS = {"guitar": (1, 2, 3), "banjo": (1, 2, 3)}     # the index finger's fret for each chord shape (_CH); open positions (M5c review 2)
+
+
+PF.WRIST_LABEL.update({"guitar fretting": G.Fretting.LIM, "banjo fretting": G.Fretting.LIM})
 
 
 def guitarist(e, b, coll, rig, obs):
@@ -315,8 +318,9 @@ def perform(b, n, freeze_t=None, seed_build=None):
     tam = [h for h in TAMB_H if t0 - 1 <= h[0] <= t1 + 1]
     stand = {role: Standing(roles[role]["body"], r, half) for role in ("guitar", "banjo", "tamb", "singer")}
     recs = {role: PF.Rec(roles[role]["body"], PF.CORE + PF.ARMS + PF.LEGS + (
-        ["LeftHandIndex1", "LeftHandMiddle1", "LeftHandRing1", "RightHandIndex1", "RightHandMiddle1",
-         "RightHandThumb1"] if role == "banjo" else [])) for role in roles}
+        ["RightHandIndex1", "RightHandMiddle1", "RightHandThumb1"] if role == "banjo" else []) + (
+        [f"LeftHand{f}{k}" for f in ("Index", "Middle", "Ring", "Pinky") for k in (1, 2, 3)]
+        if role in ("guitar", "banjo") else [])) for role in roles}
     board_v, beater_v = [], []
     PF.CHECK_ON[0] = True
     for i, t in enumerate(ts):
@@ -339,7 +343,7 @@ def perform(b, n, freeze_t=None, seed_build=None):
         e8, a8 = strum_phase(t)
         A = a8 * (0.25 + 0.75 * min(1.0, ge / 0.7)) if ge > 0.05 else 0.05
         h = -A * math.sin(math.pi * e8) * 0.065
-        ginfo["strum"].solve(rel, h, 10.0 + 8.0 * A * math.cos(math.pi * e8))
+        ginfo["strum"].solve(rel, h, ginfo["strum"].flex0 - 8.0 * A * math.cos(math.pi * e8))   # the wrist leads the stroke
         fk = FRETS["guitar"][prev_k] * (1 - wslide) + FRETS["guitar"][cur_k] * wslide
         ginfo["fret"].solve(rel, fk)
         ginfo["strap"].add()
@@ -353,10 +357,10 @@ def perform(b, n, freeze_t=None, seed_build=None):
         drive = min(1.0, ge / 0.7) if ge > 0.05 else 0.0
         bp = C.beat_pos(t)
         bounce = 0.006 * drive * math.sin(2 * math.pi * bp * 2)
-        binfo["strum"].solve(rel, bounce, 20.0 + 4.0 * drive * math.sin(2 * math.pi * bp * 2))
+        binfo["strum"].solve(rel, bounce, binfo["strum"].flex0 + 4.0 * drive * math.sin(2 * math.pi * bp * 2))
         for f_, ph in (("Index", 0.0), ("Middle", 0.5)):
-            body.rot(f"RightHand{f_}1", x=14 * drive * math.sin(2 * math.pi * (bp * 4 + ph)))
-        body.rot("RightHandThumb1", z=8 * drive * math.sin(2 * math.pi * (bp * 4 + 0.75)))
+            body.flex("Right", f_, 1, 14 * drive * math.sin(2 * math.pi * (bp * 4 + ph)))
+        body.flex("Right", "Thumb", 1, 8 * drive * math.sin(2 * math.pi * (bp * 4 + 0.75)))
         fk = FRETS["banjo"][prev_k] * (1 - wslide) + FRETS["banjo"][cur_k] * wslide
         binfo["fret"].solve(rel, fk)
         binfo["strap"].add()
@@ -409,6 +413,8 @@ def perform(b, n, freeze_t=None, seed_build=None):
         ck = clap_amount(t) * min(1.0, 0.3 + en)
         G.clap_pose(body, ck)
         recs["kick"].add()
+        arm_checks(b, t, roles, ginfo, binfo, ck, FRETS["guitar"][prev_k] * (1 - wslide) + FRETS["guitar"][cur_k] * wslide,
+                   FRETS["banjo"][prev_k] * (1 - wslide) + FRETS["banjo"][cur_k] * wslide)
         for role in ("guitar", "banjo", "tamb", "singer", "kick"):
             PF.check(roles[role]["body"], f"band_{role}", t, labels=LABELS[role])
             checkers[role].run(t, LABELS[role], clap_k=ck if role == "kick" else None,
@@ -450,6 +456,24 @@ def perform(b, n, freeze_t=None, seed_build=None):
 
 
 _SPINV = {}
+
+
+def arm_checks(b, t, roles, ginfo, binfo, ck, fk_g, fk_b):
+    """M5c review 2: the strumming/picking arms, the fretting hands and the kick player's claps
+    (blender/arm_checks.py), on this frame's solved poses."""
+    import arm_checks as AC
+    if not PF.CHECK_ON[0]:
+        return
+    for role, info, fk, ls, lf in (("guitar", ginfo, fk_g, "guitar strumming", "guitar fretting"),
+                                   ("banjo", binfo, fk_b, "banjo picking", "banjo fretting")):
+        body = roles[role]["body"]
+        ins = info["ins"]
+        Gm = body.M("Spine") @ gbody_spine_inv(body) @ ins.G
+        key = f"{b}:band_{role}"
+        AC.strum_arm(body, "Right", Gm, ins.spec, ls, key, t)
+        AC.fret_wrap(body, "Left", Gm, ins.spec, fk, lf, key, t)
+    if ck is not None and ck >= 0.97:
+        AC.clap_facing(roles["kick"]["body"], "kick player clap", f"{b}:band_kick", t)
 
 LABELS = {"guitar": {"Left": "guitar fretting", "Right": "guitar strumming"},
           "banjo": {"Left": "banjo fretting", "Right": "banjo picking"},

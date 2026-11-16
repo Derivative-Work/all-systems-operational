@@ -1,0 +1,1965 @@
+{
+ "bar": 30,
+ "section": "Chorus 1",
+ "build": "O09",
+ "times": [
+  69.781,
+  69.93100000000001,
+  70.081,
+  70.231,
+  70.381,
+  70.5325,
+  70.684,
+  70.8355,
+  70.987,
+  71.137,
+  71.287,
+  71.437,
+  71.587,
+  71.737,
+  71.887,
+  72.037
+ ],
+ "frames": [
+  434,
+  439,
+  443,
+  448,
+  452,
+  457,
+  461,
+  466,
+  470,
+  475,
+  479,
+  484,
+  488,
+  493,
+  497,
+  502
+ ],
+ "rows": [
+  {
+   "who": "band_guitar",
+   "tiles": [
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_0.png",
+     "t": 69.781,
+     "frame": 434,
+     "beat": "30.1",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_1.png",
+     "t": 69.931,
+     "frame": 439,
+     "beat": "30.1e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_2.png",
+     "t": 70.081,
+     "frame": 443,
+     "beat": "30.1&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_3.png",
+     "t": 70.231,
+     "frame": 448,
+     "beat": "30.1a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_4.png",
+     "t": 70.381,
+     "frame": 452,
+     "beat": "30.2",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_5.png",
+     "t": 70.532,
+     "frame": 457,
+     "beat": "30.2e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_6.png",
+     "t": 70.684,
+     "frame": 461,
+     "beat": "30.2&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_7.png",
+     "t": 70.836,
+     "frame": 466,
+     "beat": "30.2a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_8.png",
+     "t": 70.987,
+     "frame": 470,
+     "beat": "30.3",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_9.png",
+     "t": 71.137,
+     "frame": 475,
+     "beat": "30.3e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_10.png",
+     "t": 71.287,
+     "frame": 479,
+     "beat": "30.3&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_11.png",
+     "t": 71.437,
+     "frame": 484,
+     "beat": "30.3a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_12.png",
+     "t": 71.587,
+     "frame": 488,
+     "beat": "30.4",
+     "hits": [
+      "kick",
+      "tamb",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_13.png",
+     "t": 71.737,
+     "frame": 493,
+     "beat": "30.4e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_14.png",
+     "t": 71.887,
+     "frame": 497,
+     "beat": "30.4&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_15.png",
+     "t": 72.037,
+     "frame": 502,
+     "beat": "30.4a",
+     "hits": []
+    }
+   ]
+  },
+  {
+   "who": "band_banjo",
+   "tiles": [
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_0.png",
+     "t": 69.781,
+     "frame": 434,
+     "beat": "30.1",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_1.png",
+     "t": 69.931,
+     "frame": 439,
+     "beat": "30.1e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_2.png",
+     "t": 70.081,
+     "frame": 443,
+     "beat": "30.1&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_3.png",
+     "t": 70.231,
+     "frame": 448,
+     "beat": "30.1a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_4.png",
+     "t": 70.381,
+     "frame": 452,
+     "beat": "30.2",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_5.png",
+     "t": 70.532,
+     "frame": 457,
+     "beat": "30.2e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_6.png",
+     "t": 70.684,
+     "frame": 461,
+     "beat": "30.2&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_7.png",
+     "t": 70.836,
+     "frame": 466,
+     "beat": "30.2a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_8.png",
+     "t": 70.987,
+     "frame": 470,
+     "beat": "30.3",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_9.png",
+     "t": 71.137,
+     "frame": 475,
+     "beat": "30.3e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_10.png",
+     "t": 71.287,
+     "frame": 479,
+     "beat": "30.3&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_11.png",
+     "t": 71.437,
+     "frame": 484,
+     "beat": "30.3a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_12.png",
+     "t": 71.587,
+     "frame": 488,
+     "beat": "30.4",
+     "hits": [
+      "kick",
+      "tamb",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_13.png",
+     "t": 71.737,
+     "frame": 493,
+     "beat": "30.4e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_14.png",
+     "t": 71.887,
+     "frame": 497,
+     "beat": "30.4&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_15.png",
+     "t": 72.037,
+     "frame": 502,
+     "beat": "30.4a",
+     "hits": []
+    }
+   ]
+  },
+  {
+   "who": "band_kick",
+   "tiles": [
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_kick_0.png",
+     "t": 69.781,
+     "frame": 434,
+     "beat": "30.1",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_kick_1.png",
+     "t": 69.931,
+     "frame": 439,
+     "beat": "30.1e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_kick_2.png",
+     "t": 70.081,
+     "frame": 443,
+     "beat": "30.1&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_kick_3.png",
+     "t": 70.231,
+     "frame": 448,
+     "beat": "30.1a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_kick_4.png",
+     "t": 70.381,
+     "frame": 452,
+     "beat": "30.2",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_kick_5.png",
+     "t": 70.532,
+     "frame": 457,
+     "beat": "30.2e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_kick_6.png",
+     "t": 70.684,
+     "frame": 461,
+     "beat": "30.2&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_kick_7.png",
+     "t": 70.836,
+     "frame": 466,
+     "beat": "30.2a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_kick_8.png",
+     "t": 70.987,
+     "frame": 470,
+     "beat": "30.3",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_kick_9.png",
+     "t": 71.137,
+     "frame": 475,
+     "beat": "30.3e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_kick_10.png",
+     "t": 71.287,
+     "frame": 479,
+     "beat": "30.3&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_kick_11.png",
+     "t": 71.437,
+     "frame": 484,
+     "beat": "30.3a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_kick_12.png",
+     "t": 71.587,
+     "frame": 488,
+     "beat": "30.4",
+     "hits": [
+      "kick",
+      "tamb",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_kick_13.png",
+     "t": 71.737,
+     "frame": 493,
+     "beat": "30.4e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_kick_14.png",
+     "t": 71.887,
+     "frame": 497,
+     "beat": "30.4&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_kick_15.png",
+     "t": 72.037,
+     "frame": 502,
+     "beat": "30.4a",
+     "hits": []
+    }
+   ]
+  },
+  {
+   "who": "band_tamb",
+   "tiles": [
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_tamb_0.png",
+     "t": 69.781,
+     "frame": 434,
+     "beat": "30.1",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_tamb_1.png",
+     "t": 69.931,
+     "frame": 439,
+     "beat": "30.1e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_tamb_2.png",
+     "t": 70.081,
+     "frame": 443,
+     "beat": "30.1&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_tamb_3.png",
+     "t": 70.231,
+     "frame": 448,
+     "beat": "30.1a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_tamb_4.png",
+     "t": 70.381,
+     "frame": 452,
+     "beat": "30.2",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_tamb_5.png",
+     "t": 70.532,
+     "frame": 457,
+     "beat": "30.2e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_tamb_6.png",
+     "t": 70.684,
+     "frame": 461,
+     "beat": "30.2&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_tamb_7.png",
+     "t": 70.836,
+     "frame": 466,
+     "beat": "30.2a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_tamb_8.png",
+     "t": 70.987,
+     "frame": 470,
+     "beat": "30.3",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_tamb_9.png",
+     "t": 71.137,
+     "frame": 475,
+     "beat": "30.3e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_tamb_10.png",
+     "t": 71.287,
+     "frame": 479,
+     "beat": "30.3&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_tamb_11.png",
+     "t": 71.437,
+     "frame": 484,
+     "beat": "30.3a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_tamb_12.png",
+     "t": 71.587,
+     "frame": 488,
+     "beat": "30.4",
+     "hits": [
+      "kick",
+      "tamb",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_tamb_13.png",
+     "t": 71.737,
+     "frame": 493,
+     "beat": "30.4e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_tamb_14.png",
+     "t": 71.887,
+     "frame": 497,
+     "beat": "30.4&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_tamb_15.png",
+     "t": 72.037,
+     "frame": 502,
+     "beat": "30.4a",
+     "hits": []
+    }
+   ]
+  },
+  {
+   "who": "band_singer",
+   "tiles": [
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_singer_0.png",
+     "t": 69.781,
+     "frame": 434,
+     "beat": "30.1",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_singer_1.png",
+     "t": 69.931,
+     "frame": 439,
+     "beat": "30.1e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_singer_2.png",
+     "t": 70.081,
+     "frame": 443,
+     "beat": "30.1&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_singer_3.png",
+     "t": 70.231,
+     "frame": 448,
+     "beat": "30.1a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_singer_4.png",
+     "t": 70.381,
+     "frame": 452,
+     "beat": "30.2",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_singer_5.png",
+     "t": 70.532,
+     "frame": 457,
+     "beat": "30.2e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_singer_6.png",
+     "t": 70.684,
+     "frame": 461,
+     "beat": "30.2&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_singer_7.png",
+     "t": 70.836,
+     "frame": 466,
+     "beat": "30.2a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_singer_8.png",
+     "t": 70.987,
+     "frame": 470,
+     "beat": "30.3",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_singer_9.png",
+     "t": 71.137,
+     "frame": 475,
+     "beat": "30.3e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_singer_10.png",
+     "t": 71.287,
+     "frame": 479,
+     "beat": "30.3&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_singer_11.png",
+     "t": 71.437,
+     "frame": 484,
+     "beat": "30.3a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_singer_12.png",
+     "t": 71.587,
+     "frame": 488,
+     "beat": "30.4",
+     "hits": [
+      "kick",
+      "tamb",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_singer_13.png",
+     "t": 71.737,
+     "frame": 493,
+     "beat": "30.4e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_singer_14.png",
+     "t": 71.887,
+     "frame": 497,
+     "beat": "30.4&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_singer_15.png",
+     "t": 72.037,
+     "frame": 502,
+     "beat": "30.4a",
+     "hits": []
+    }
+   ]
+  },
+  {
+   "who": "crowd_clap",
+   "tiles": [
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_0.png",
+     "t": 69.781,
+     "frame": 434,
+     "beat": "30.1",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_1.png",
+     "t": 69.931,
+     "frame": 439,
+     "beat": "30.1e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_2.png",
+     "t": 70.081,
+     "frame": 443,
+     "beat": "30.1&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3.png",
+     "t": 70.231,
+     "frame": 448,
+     "beat": "30.1a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_4.png",
+     "t": 70.381,
+     "frame": 452,
+     "beat": "30.2",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_5.png",
+     "t": 70.532,
+     "frame": 457,
+     "beat": "30.2e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_6.png",
+     "t": 70.684,
+     "frame": 461,
+     "beat": "30.2&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_7.png",
+     "t": 70.836,
+     "frame": 466,
+     "beat": "30.2a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_8.png",
+     "t": 70.987,
+     "frame": 470,
+     "beat": "30.3",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_9.png",
+     "t": 71.137,
+     "frame": 475,
+     "beat": "30.3e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_10.png",
+     "t": 71.287,
+     "frame": 479,
+     "beat": "30.3&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_11.png",
+     "t": 71.437,
+     "frame": 484,
+     "beat": "30.3a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_12.png",
+     "t": 71.587,
+     "frame": 488,
+     "beat": "30.4",
+     "hits": [
+      "kick",
+      "tamb",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_13.png",
+     "t": 71.737,
+     "frame": 493,
+     "beat": "30.4e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_14.png",
+     "t": 71.887,
+     "frame": 497,
+     "beat": "30.4&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_15.png",
+     "t": 72.037,
+     "frame": 502,
+     "beat": "30.4a",
+     "hits": []
+    }
+   ]
+  },
+  {
+   "who": "crowd_fist",
+   "tiles": [
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_fist_0.png",
+     "t": 69.781,
+     "frame": 434,
+     "beat": "30.1",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_fist_1.png",
+     "t": 69.931,
+     "frame": 439,
+     "beat": "30.1e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_fist_2.png",
+     "t": 70.081,
+     "frame": 443,
+     "beat": "30.1&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_fist_3.png",
+     "t": 70.231,
+     "frame": 448,
+     "beat": "30.1a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_fist_4.png",
+     "t": 70.381,
+     "frame": 452,
+     "beat": "30.2",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_fist_5.png",
+     "t": 70.532,
+     "frame": 457,
+     "beat": "30.2e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_fist_6.png",
+     "t": 70.684,
+     "frame": 461,
+     "beat": "30.2&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_fist_7.png",
+     "t": 70.836,
+     "frame": 466,
+     "beat": "30.2a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_fist_8.png",
+     "t": 70.987,
+     "frame": 470,
+     "beat": "30.3",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_fist_9.png",
+     "t": 71.137,
+     "frame": 475,
+     "beat": "30.3e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_fist_10.png",
+     "t": 71.287,
+     "frame": 479,
+     "beat": "30.3&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_fist_11.png",
+     "t": 71.437,
+     "frame": 484,
+     "beat": "30.3a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_fist_12.png",
+     "t": 71.587,
+     "frame": 488,
+     "beat": "30.4",
+     "hits": [
+      "kick",
+      "tamb",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_fist_13.png",
+     "t": 71.737,
+     "frame": 493,
+     "beat": "30.4e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_fist_14.png",
+     "t": 71.887,
+     "frame": 497,
+     "beat": "30.4&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_fist_15.png",
+     "t": 72.037,
+     "frame": 502,
+     "beat": "30.4a",
+     "hits": []
+    }
+   ]
+  },
+  {
+   "who": "crowd_stand",
+   "tiles": [
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_stand_0.png",
+     "t": 69.781,
+     "frame": 434,
+     "beat": "30.1",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_stand_1.png",
+     "t": 69.931,
+     "frame": 439,
+     "beat": "30.1e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_stand_2.png",
+     "t": 70.081,
+     "frame": 443,
+     "beat": "30.1&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_stand_3.png",
+     "t": 70.231,
+     "frame": 448,
+     "beat": "30.1a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_stand_4.png",
+     "t": 70.381,
+     "frame": 452,
+     "beat": "30.2",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_stand_5.png",
+     "t": 70.532,
+     "frame": 457,
+     "beat": "30.2e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_stand_6.png",
+     "t": 70.684,
+     "frame": 461,
+     "beat": "30.2&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_stand_7.png",
+     "t": 70.836,
+     "frame": 466,
+     "beat": "30.2a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_stand_8.png",
+     "t": 70.987,
+     "frame": 470,
+     "beat": "30.3",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_stand_9.png",
+     "t": 71.137,
+     "frame": 475,
+     "beat": "30.3e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_stand_10.png",
+     "t": 71.287,
+     "frame": 479,
+     "beat": "30.3&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_stand_11.png",
+     "t": 71.437,
+     "frame": 484,
+     "beat": "30.3a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_stand_12.png",
+     "t": 71.587,
+     "frame": 488,
+     "beat": "30.4",
+     "hits": [
+      "kick",
+      "tamb",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_stand_13.png",
+     "t": 71.737,
+     "frame": 493,
+     "beat": "30.4e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_stand_14.png",
+     "t": 71.887,
+     "frame": 497,
+     "beat": "30.4&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_stand_15.png",
+     "t": 72.037,
+     "frame": 502,
+     "beat": "30.4a",
+     "hits": []
+    }
+   ]
+  },
+  {
+   "who": "crowd_clap_3x",
+   "tiles": [
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3x_0.png",
+     "t": 69.781,
+     "frame": 434,
+     "beat": "30.1",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3x_1.png",
+     "t": 69.931,
+     "frame": 439,
+     "beat": "30.1e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3x_2.png",
+     "t": 70.081,
+     "frame": 443,
+     "beat": "30.1&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3x_3.png",
+     "t": 70.231,
+     "frame": 448,
+     "beat": "30.1a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3x_4.png",
+     "t": 70.381,
+     "frame": 452,
+     "beat": "30.2",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3x_5.png",
+     "t": 70.532,
+     "frame": 457,
+     "beat": "30.2e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3x_6.png",
+     "t": 70.684,
+     "frame": 461,
+     "beat": "30.2&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3x_7.png",
+     "t": 70.836,
+     "frame": 466,
+     "beat": "30.2a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3x_8.png",
+     "t": 70.987,
+     "frame": 470,
+     "beat": "30.3",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3x_9.png",
+     "t": 71.137,
+     "frame": 475,
+     "beat": "30.3e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3x_10.png",
+     "t": 71.287,
+     "frame": 479,
+     "beat": "30.3&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3x_11.png",
+     "t": 71.437,
+     "frame": 484,
+     "beat": "30.3a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3x_12.png",
+     "t": 71.587,
+     "frame": 488,
+     "beat": "30.4",
+     "hits": [
+      "kick",
+      "tamb",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3x_13.png",
+     "t": 71.737,
+     "frame": 493,
+     "beat": "30.4e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3x_14.png",
+     "t": 71.887,
+     "frame": 497,
+     "beat": "30.4&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/crowd_clap_3x_15.png",
+     "t": 72.037,
+     "frame": 502,
+     "beat": "30.4a",
+     "hits": []
+    }
+   ]
+  },
+  {
+   "who": "band_guitar_fret_3x",
+   "tiles": [
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_fret_3x_0.png",
+     "t": 69.781,
+     "frame": 434,
+     "beat": "30.1",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_fret_3x_1.png",
+     "t": 69.931,
+     "frame": 439,
+     "beat": "30.1e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_fret_3x_2.png",
+     "t": 70.081,
+     "frame": 443,
+     "beat": "30.1&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_fret_3x_3.png",
+     "t": 70.231,
+     "frame": 448,
+     "beat": "30.1a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_fret_3x_4.png",
+     "t": 70.381,
+     "frame": 452,
+     "beat": "30.2",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_fret_3x_5.png",
+     "t": 70.532,
+     "frame": 457,
+     "beat": "30.2e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_fret_3x_6.png",
+     "t": 70.684,
+     "frame": 461,
+     "beat": "30.2&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_fret_3x_7.png",
+     "t": 70.836,
+     "frame": 466,
+     "beat": "30.2a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_fret_3x_8.png",
+     "t": 70.987,
+     "frame": 470,
+     "beat": "30.3",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_fret_3x_9.png",
+     "t": 71.137,
+     "frame": 475,
+     "beat": "30.3e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_fret_3x_10.png",
+     "t": 71.287,
+     "frame": 479,
+     "beat": "30.3&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_fret_3x_11.png",
+     "t": 71.437,
+     "frame": 484,
+     "beat": "30.3a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_fret_3x_12.png",
+     "t": 71.587,
+     "frame": 488,
+     "beat": "30.4",
+     "hits": [
+      "kick",
+      "tamb",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_fret_3x_13.png",
+     "t": 71.737,
+     "frame": 493,
+     "beat": "30.4e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_fret_3x_14.png",
+     "t": 71.887,
+     "frame": 497,
+     "beat": "30.4&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_fret_3x_15.png",
+     "t": 72.037,
+     "frame": 502,
+     "beat": "30.4a",
+     "hits": []
+    }
+   ]
+  },
+  {
+   "who": "band_guitar_arm",
+   "tiles": [
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_arm_0.png",
+     "t": 69.781,
+     "frame": 434,
+     "beat": "30.1",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_arm_1.png",
+     "t": 69.931,
+     "frame": 439,
+     "beat": "30.1e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_arm_2.png",
+     "t": 70.081,
+     "frame": 443,
+     "beat": "30.1&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_arm_3.png",
+     "t": 70.231,
+     "frame": 448,
+     "beat": "30.1a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_arm_4.png",
+     "t": 70.381,
+     "frame": 452,
+     "beat": "30.2",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_arm_5.png",
+     "t": 70.532,
+     "frame": 457,
+     "beat": "30.2e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_arm_6.png",
+     "t": 70.684,
+     "frame": 461,
+     "beat": "30.2&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_arm_7.png",
+     "t": 70.836,
+     "frame": 466,
+     "beat": "30.2a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_arm_8.png",
+     "t": 70.987,
+     "frame": 470,
+     "beat": "30.3",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_arm_9.png",
+     "t": 71.137,
+     "frame": 475,
+     "beat": "30.3e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_arm_10.png",
+     "t": 71.287,
+     "frame": 479,
+     "beat": "30.3&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_arm_11.png",
+     "t": 71.437,
+     "frame": 484,
+     "beat": "30.3a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_arm_12.png",
+     "t": 71.587,
+     "frame": 488,
+     "beat": "30.4",
+     "hits": [
+      "kick",
+      "tamb",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_arm_13.png",
+     "t": 71.737,
+     "frame": 493,
+     "beat": "30.4e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_arm_14.png",
+     "t": 71.887,
+     "frame": 497,
+     "beat": "30.4&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_guitar_arm_15.png",
+     "t": 72.037,
+     "frame": 502,
+     "beat": "30.4a",
+     "hits": []
+    }
+   ]
+  },
+  {
+   "who": "band_banjo_fret_3x",
+   "tiles": [
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_fret_3x_0.png",
+     "t": 69.781,
+     "frame": 434,
+     "beat": "30.1",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_fret_3x_1.png",
+     "t": 69.931,
+     "frame": 439,
+     "beat": "30.1e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_fret_3x_2.png",
+     "t": 70.081,
+     "frame": 443,
+     "beat": "30.1&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_fret_3x_3.png",
+     "t": 70.231,
+     "frame": 448,
+     "beat": "30.1a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_fret_3x_4.png",
+     "t": 70.381,
+     "frame": 452,
+     "beat": "30.2",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_fret_3x_5.png",
+     "t": 70.532,
+     "frame": 457,
+     "beat": "30.2e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_fret_3x_6.png",
+     "t": 70.684,
+     "frame": 461,
+     "beat": "30.2&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_fret_3x_7.png",
+     "t": 70.836,
+     "frame": 466,
+     "beat": "30.2a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_fret_3x_8.png",
+     "t": 70.987,
+     "frame": 470,
+     "beat": "30.3",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_fret_3x_9.png",
+     "t": 71.137,
+     "frame": 475,
+     "beat": "30.3e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_fret_3x_10.png",
+     "t": 71.287,
+     "frame": 479,
+     "beat": "30.3&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_fret_3x_11.png",
+     "t": 71.437,
+     "frame": 484,
+     "beat": "30.3a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_fret_3x_12.png",
+     "t": 71.587,
+     "frame": 488,
+     "beat": "30.4",
+     "hits": [
+      "kick",
+      "tamb",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_fret_3x_13.png",
+     "t": 71.737,
+     "frame": 493,
+     "beat": "30.4e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_fret_3x_14.png",
+     "t": 71.887,
+     "frame": 497,
+     "beat": "30.4&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_fret_3x_15.png",
+     "t": 72.037,
+     "frame": 502,
+     "beat": "30.4a",
+     "hits": []
+    }
+   ]
+  },
+  {
+   "who": "band_banjo_arm",
+   "tiles": [
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_arm_0.png",
+     "t": 69.781,
+     "frame": 434,
+     "beat": "30.1",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_arm_1.png",
+     "t": 69.931,
+     "frame": 439,
+     "beat": "30.1e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_arm_2.png",
+     "t": 70.081,
+     "frame": 443,
+     "beat": "30.1&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_arm_3.png",
+     "t": 70.231,
+     "frame": 448,
+     "beat": "30.1a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_arm_4.png",
+     "t": 70.381,
+     "frame": 452,
+     "beat": "30.2",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_arm_5.png",
+     "t": 70.532,
+     "frame": 457,
+     "beat": "30.2e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_arm_6.png",
+     "t": 70.684,
+     "frame": 461,
+     "beat": "30.2&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_arm_7.png",
+     "t": 70.836,
+     "frame": 466,
+     "beat": "30.2a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_arm_8.png",
+     "t": 70.987,
+     "frame": 470,
+     "beat": "30.3",
+     "hits": [
+      "kick",
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_arm_9.png",
+     "t": 71.137,
+     "frame": 475,
+     "beat": "30.3e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_arm_10.png",
+     "t": 71.287,
+     "frame": 479,
+     "beat": "30.3&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_arm_11.png",
+     "t": 71.437,
+     "frame": 484,
+     "beat": "30.3a",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_arm_12.png",
+     "t": 71.587,
+     "frame": 488,
+     "beat": "30.4",
+     "hits": [
+      "kick",
+      "tamb",
+      "clap"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_arm_13.png",
+     "t": 71.737,
+     "frame": 493,
+     "beat": "30.4e",
+     "hits": []
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_arm_14.png",
+     "t": 71.887,
+     "frame": 497,
+     "beat": "30.4&",
+     "hits": [
+      "tamb",
+      "strum"
+     ]
+    },
+    {
+     "file": "archive/review/m5c3_palm_test/perf_sheet_palms_t3/band_banjo_arm_15.png",
+     "t": 72.037,
+     "frame": 502,
+     "beat": "30.4a",
+     "hits": []
+    }
+   ]
+  }
+ ],
+ "timing": {
+  "build": "O09",
+  "beater_most_forward_vs_kick_frame": {
+   "n": 58,
+   "on_frame": 48,
+   "within_1": 58,
+   "median": 0.0,
+   "worst": 1
+  },
+  "strum_hand_crossing_vs_strum_onset_frame": {
+   "n": 67,
+   "on_frame": 39,
+   "within_1": 63,
+   "median": 0.0,
+   "worst": 5
+  },
+  "tambourine_lowest_vs_slap_frame": {
+   "n": 9,
+   "on_frame": 0,
+   "within_1": 9,
+   "median": -1.0,
+   "worst": 1
+  }
+ }
+}

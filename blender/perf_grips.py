@@ -72,11 +72,15 @@ def top_z(cloud, x, y, r=0.03):
 class Instr:
     """The instrument's frame on the player (hold), in armature space: P(local point), D(local direction)."""
 
-    FIT = {"guitar": dict(ang=30.0, yaw=6.0, tilt=6.0, anchor="hole", x=-0.045, dz=0.18),
-           "banjo": dict(ang=34.0, yaw=8.0, tilt=10.0, anchor="pot", x=-0.06, dz=0.18)}
+    # M5c review 2 (decisions 19): necks 25 degrees up, the head turned 16 degrees toward the room so the lower bout
+    # sits back by the right hip, the top tilted 12 degrees up toward the player (instruments.frame_matrix's tilt is
+    # positive top-down: M5c2's +6/+10 tipped the tops away), the sound hole (pot centre) 10 cm over the hip joint
+    FIT = {"guitar": dict(ang=25.0, yaw=16.0, tilt=-12.0, anchor="hole", x=-0.045, dz=0.10),
+           "banjo": dict(ang=25.0, yaw=16.0, tilt=-12.0, anchor="pot", x=-0.06, dz=0.10)}
 
     def __init__(self, body, coll, kind, obs, name):
         self.body, self.kind = body, kind
+        self.key = body.rig.data.name                 # the library person (rig data is shared by every copy)
         self.obj, self.spec = (IN.acoustic_guitar if kind == "guitar" else IN.banjo)(name)
         f = self.FIT[kind]
         anchor = self.spec.points["hole" if f["anchor"] == "hole" else "pot"].copy()
@@ -107,75 +111,181 @@ class Instr:
 
 
 def curl3(body, side, finger, a, b, c):
-    body.rot(f"{side}Hand{finger}1", x=a)
-    body.rot(f"{side}Hand{finger}2", x=b)
-    body.rot(f"{side}Hand{finger}3", x=c)
+    """A finger's three joints set to these flexions toward the palm, from the rest (straight) hand
+    (perf.flex_matrix: the rig's flexion axes). The library's own finger poses bent about local X, which on this
+    rig fans the fingers sideways, so they're replaced, not added to."""
+    for k, ang in zip((1, 2, 3), (a, b, c)):
+        body.basis[PF.bn(f"{side}Hand{finger}{k}")] = PF.flex_matrix(side, finger, ang)
+    body.memo = {}
+
+
+def thumb3(body, side, a, b, c):
+    """The thumb's three joints set to these flexions (across toward the palm) from rest."""
+    for k, ang in zip((1, 2, 3), (a, b, c)):
+        body.basis[PF.bn(f"{side}HandThumb{k}")] = PF.flex_matrix(side, "Thumb", ang)
+    body.memo = {}
+
+
+def grip(body, side, curls, thumb):
+    """Every finger and the thumb set from rest: curls = (a, b, c) for all four fingers, or a dict per finger."""
+    for f in ("Index", "Middle", "Ring", "Pinky"):
+        curl3(body, side, f, *(curls[f] if isinstance(curls, dict) else curls))
+    thumb3(body, side, *thumb)
 
 
 def set_curl(body, side, finger, base, s):
     """Reset a finger's three joints to the hold's base and curl them by s x (a, b, c)."""
     for k, ang in zip((1, 2, 3), base):
         nm = PF.bn(f"{side}Hand{finger}{k}")
-        body.basis[nm] = body.lib[nm] @ Matrix.Rotation(math.radians(ang * s), 4, "X")
+        body.basis[nm] = PF.flex_matrix(side, finger, ang * s)
     body.memo = {}
 
 
-def fit_finger(body, side, finger, base, plane_p, plane_n, dist, s_lo=0.3, s_hi=1.6):
-    """Curl a finger (its three joints scaled together) until its tip is `dist` off a plane (the skin offset);
-    bisection on the curl scale. Returns the scale and the tip's final distance."""
+def fit_finger(body, side, finger, base, plane_p, plane_n, dist, s_lo=0.3, s_hi=1.6, near=None):
+    """Curl a finger (its three joints scaled together) until its tip is `dist` off a plane (the skin offset). The
+    distance isn't monotonic in the curl (a curling tip can cross the plane and come back out), so the curl is
+    scanned from straight to tight for the first crossing, then bisected there. Out of reach: the curl that comes
+    nearest without going into the plane. Returns the scale and the tip's final distance."""
     def d_at(s):
         set_curl(body, side, finger, base, s)
         tip = body.tail(f"{side}Hand{finger}3")
         return (tip - plane_p).dot(plane_n)
-    lo, hi = s_lo, s_hi
-    dlo, dhi = d_at(lo), d_at(hi)
-    if (dlo - dist) * (dhi - dist) > 0:            # out of reach: the end that comes nearer, never into the plane
-        s = lo if abs(dlo - dist) < abs(dhi - dist) else hi
-        if d_at(s) < dist:
-            s = lo if dlo > dhi else hi
+    ss = list(np.linspace(s_lo, s_hi, 33))
+    ds = [d_at(x) for x in ss]
+    found = []
+    for i in range(len(ss) - 1):
+        if (ds[i] - dist) * (ds[i + 1] - dist) <= 0:
+            lo, hi, dlo = ss[i], ss[i + 1], ds[i]
+            for _ in range(16):
+                m = (lo + hi) / 2
+                dm = d_at(m)
+                if (dlo - dist) * (dm - dist) <= 0:
+                    hi = m
+                else:
+                    lo, dlo = m, dm
+            s = (lo + hi) / 2
+            d_at(s)
+            miss = (body.tail(f"{side}Hand{finger}3") - near).length if near is not None else 0.0
+            found.append((miss, s))
+            if near is None:
+                break
+    if found:
+        s = min(found)[1]
         return s, d_at(s)
-    for _ in range(18):
-        m = (lo + hi) / 2
-        dm = d_at(m)
-        if (dlo - dist) * (dm - dist) <= 0:
-            hi, dhi = m, dm
-        else:
-            lo, dlo = m, dm
-    s = (lo + hi) / 2
+    ok = [(abs(d - dist), x) for x, d in zip(ss, ds) if d >= dist]
+    s = min(ok)[1] if ok else ss[int(np.argmax(ds))]
     return s, d_at(s)
 
 
 # ---------------------------------------------------------------- fretting
 
 FRET_CURL = {"Index": (38, 62, 30), "Middle": (44, 68, 34), "Ring": (44, 68, 34), "Pinky": (40, 62, 30)}
+KNUCKLE = [0.010, 0.030]
+FRET_FLEX = [40.0]
+FRET_TARGET = ["tip"]
+FRET_THUMB = [-20.0, 30.0, 20.0]   # the fretting thumb: its root turned -20 about local Y, flexed 30, then 20 and 12
+#                                   (behind the neck, the tip over its bass edge; searched for no contact at frets 1-3)
+FRET_Y = [0.30, 0.42, 0.86]     # wrist to knuckles (instrument frame): toward the nut, up, out past the board's face
+FRET_N = [0.0, 0.90, -0.44]     # the palm: up at the neck's underside, a little back
+DEBUG = [False, {}]
+FRET_ELBOW_MIN = 32.0       # the fretting arm's upper arm at least this far below horizontal (no raised elbow)
 
 
 class Fretting:
-    """The fretting (left) hand: palm under the neck, thumb behind it, fingers curled onto the strings."""
+    """The fretting (left) hand round the neck, M5c review 2 (human interventions 16: "The left hands ... are not
+    wrapping the neck"): the palm (the side verified on the mesh, blender/palm_test.py) under the neck facing its
+    back and treble side, the thumb behind the neck, the knuckles just below the treble edge and a little in front
+    of the fretboard, the fingers rising past the edge and curling down onto the strings. The middle finger's
+    knuckle is put at its place for the chord (the index finger's fret plus one), the elbow chosen so the hand
+    continues the forearm with a small flexion (perf.Body.arm_to), hanging toward the player's side; then each
+    finger is curled until its tip is on the strings."""
+
+    # fretting wrists flex further than the general limit (perf.WRIST: 25): 30-45 degrees is usual at the first
+    # frets; decisions 19
+    LIM = {"flex": FRET_FLEX[0], "ext": 25.0, "uln": 20.0, "rad": 10.0}
 
     def __init__(self, body, ins, frets):
         self.body, self.ins = body, ins
         sp, N = ins.spec, ins.spec.neck
         self.frets = frets                   # the index finger's fret per chord shape
-        self.y_l = Vector((0.24, 0.62, 0.75)).normalized()        # wrist to knuckles: up, toward the front, the nut
-        n = Vector((0.0, 0.77, -0.64))
-        self.n_l = (n - self.y_l * n.dot(self.y_l)).normalized()  # the palm faces the neck
+        # wrist to knuckles: up past the treble edge, out toward the fretboard's face, a little toward the nut; the
+        # palm up and back, toward the neck's back and treble side
+        self.y_l = Vector(FRET_Y).normalized()
+        n = Vector(FRET_N)
+        self.n_l = (n - self.y_l * n.dot(self.y_l)).normalized()
         self.z_tip = N.board_top + 0.0012 + 0.0062                # pressing the string onto the fret, skin offset
         for f, c in FRET_CURL.items():
             curl3(body, "Left", f, *c)
-        for k in (2, 3):
-            body.rot(f"LeftHandThumb{k}", x=8)
+        thumb3(body, "Left", FRET_THUMB[1], FRET_THUMB[2], FRET_THUMB[2] * 0.6)
+        b1 = PF.bn("LeftHandThumb1")
+        body.basis[b1] = Matrix.Rotation(math.radians(FRET_THUMB[0]), 4, "Y") @ body.basis[b1]
+        body.memo = {}
         self.base = {f: FRET_CURL[f] for f in FRET_CURL}
-        self.wrist = None
         self.ob = CT.mesh_obstacle("probe", "instrument", ins.obj, body)
+        from mathutils.kdtree import KDTree
+        cl = ins.cloud
+        self.kd = KDTree(len(cl))
+        for i, p in enumerate(cl):
+            self.kd.insert(Vector(p), i)
+        self.kd.balance()
+        # a hold per chord position (the index finger's fret): the elbow searched for it, then every fingertip
+        # flexed onto its string; per frame the elbow and the finger flexions are interpolated between them as the
+        # hand slides (M5c review 2: one elbow for all positions put the palm in the neck on the slides)
+        base = dict(body.basis)
+        self.holds = {}
+        for fr_ in sorted(set(frets)):
+            key = ("fret", ins.key, ins.kind, fr_, tuple(sorted(ins.FIT[ins.kind].items())))
+            if key not in _HOLD_CACHE:
+                body.reset(base)
+                _, E, W, info = self.search(fr_)
+                self.E_hold, self.W_hold = E, W
+                self.fit = {f: 1.0 for f in FRET_CURL}
+                self.solve(Matrix.Identity(4), fr_, first=True)
+                T, Np, Nn = self.targets(Matrix.Identity(4), fr_)
+                fit = {}
+                for f in ("Index", "Middle", "Ring", "Pinky"):
+                    fit[f], _ = fit_finger(body, "Left", f, FRET_CURL[f], Np, Nn, 0.0062, 0.2, 1.8,
+                                           near=self.finger_target(f, fr_))
+                _HOLD_CACHE[key] = (E, W, fit, info)
+            self.holds[fr_] = _HOLD_CACHE[key]
+        body.reset(base)
+        self.E_hold, self.W_hold, self.fit, self.hold_info = self.holds[frets[0]]
         self.solve(Matrix.Identity(4), frets[0], first=True)
-        # the other fingertips onto the fretboard (the strings' plane), where they reach
-        T, Np, Nn = self.targets(Matrix.Identity(4), frets[0])
-        self.fit = {}
-        for f in ("Index", "Ring", "Pinky"):
-            s, d = fit_finger(body, "Left", f, FRET_CURL[f], Np, Nn, 0.0062)
-            self.fit[f] = s
-        self.fit["Middle"] = 1.0
+
+    def hold_at(self, fret):
+        """The hold for a (sliding, fractional) chord position: elbow and finger flexions interpolated."""
+        ks = sorted(self.holds)
+        fret = min(max(fret, ks[0]), ks[-1])
+        lo = max(k for k in ks if k <= fret)
+        hi = min(k for k in ks if k >= fret)
+        w = 0.0 if hi == lo else (fret - lo) / (hi - lo)
+        (E0, W0, F0, _), (E1, W1, F1, _) = self.holds[lo], self.holds[hi]
+        return E0.lerp(E1, w), W0.lerp(W1, w), {f: F0[f] * (1 - w) + F1[f] * w for f in F0}
+
+    def anchor(self, rel, fret):
+        """The point the hand is placed by: the middle fingertip on its string (FRET_TARGET "tip") or the middle
+        knuckle under the treble edge ("knuckle")."""
+        return self.targets(rel, fret)[0] if FRET_TARGET[0] == "tip" else self.knuckle(rel, fret)
+
+    def knuckle(self, rel, fret):
+        """Where the middle finger's knuckle goes: between frets fret+1 and fret+2, KNUCKLE[0] below the treble
+        edge and KNUCKLE[1] in front of the fretboard's face (the fingers arch over the strings)."""
+        ins, N = self.ins, self.ins.spec.neck
+        x = N.fret_x(fret + 2) + 0.55 * (N.fret_x(fret + 1) - N.fret_x(fret + 2))
+        return rel @ ins.P((x, -(N.half(x) + KNUCKLE[0]), N.board_top + KNUCKLE[1]))
+
+    # each finger's string and fret offset (from the index finger's fret) in a generic open-position shape
+    SHAPE = {"Index": (1, 0), "Middle": (3, 1), "Ring": (4, 2), "Pinky": (2, 2)}
+
+    def finger_target(self, f, fret, rel=None):
+        """Where finger f presses (instrument string index from the treble side, fret behind which it presses)."""
+        ins, sp, N = self.ins, self.ins.spec, self.ins.spec.neck
+        si, df = self.SHAPE[f]
+        si = min(si, sp.n_strings - 1)
+        fr = fret + df
+        x = N.fret_x(fr) + 0.3 * (N.fret_x(fr - 1) - N.fret_x(fr))
+        p = ins.P((x, sp.string_y(x, si), self.z_tip))
+        return p if rel is None else rel @ p
 
     def targets(self, rel, fret):
         ins, sp, N = self.ins, self.ins.spec, self.ins.spec.neck
@@ -186,42 +296,103 @@ class Fretting:
         Nn = (rel.to_3x3() @ ins.D((0, 0, 1))).normalized()
         return T, Np, Nn
 
-    FLEX, DEV = 20.0, -6.0          # the wrist a little flexed and toward the little finger, as fretting has
+    def place(self, E, K_, y, n, W=None, iters=5):
+        """The arm through elbow E, the middle knuckle on K_, the hand bent toward y (palm toward n) within the
+        fretting wrist limits. Returns (W, knuckle miss)."""
+        body = self.body
+        L2 = body.len[PF.bn("LeftForeArm")]
+        W = E + (K_ - E).normalized() * L2 if W is None else E + (W - E).normalized() * L2
+        pt = (lambda: body.tail("LeftHandMiddle3")) if FRET_TARGET[0] == "tip" else \
+            (lambda: body.head("LeftHandMiddle1"))
+        for _ in range(iters):
+            body.two_bone("LeftArm", "LeftForeArm", W, E)
+            body.hand_to("Left", y, n, self.LIM)
+            off = pt() - body.head("LeftHand")
+            W = E + ((K_ - off) - E).normalized() * L2
+        body.two_bone("LeftArm", "LeftForeArm", W, E)
+        body.hand_to("Left", y, n, self.LIM)
+        return W, (pt() - K_).length
+
+    def search(self, fret):
+        """The hold's elbow: on the sphere round the shoulder, the one from which the hand (within the wrist
+        limits) crosses the neck with its palm to it, the knuckle on its place, the elbow below the neck and out of
+        the torso."""
+        body, ins = self.body, self.ins
+        S = body.head("LeftArm")
+        L1 = body.len[PF.bn("LeftArm")]
+        L2 = body.len[PF.bn("LeftForeArm")]
+        K_ = self.anchor(Matrix.Identity(4), fret)
+        y = ins.D(self.y_l)
+        n = ins.D(self.n_l)
+        Xn = ins.D((1, 0, 0))
+        N = ins.spec.neck
+        x = N.fret_x(fret + 1)
+        axis = ins.P((x, 0, N.board_top - (N.board_t + N.shaft_t) / 2))
+        base = dict(body.basis)
+        best = None
+        for th in range(4, 86, 3):
+            for ph in range(0, 360, 6):
+                c, s_ = math.cos(math.radians(th)), math.sin(math.radians(th))
+                E = S + Vector((c * math.cos(math.radians(ph)), c * math.sin(math.radians(ph)), -s_)) * L1
+                if E.x < S.x - 0.04 or E.y > S.y + 0.08:      # not across the chest, not behind the back
+                    continue
+                if not (L2 - 0.03 < (K_ - E).length < L2 + 0.13):
+                    continue
+                body.reset(base)
+                W, miss = self.place(E, K_, y, n, iters=4)
+                yh, nh, th_ = body.palm("Left")
+                pc = body.palm_point("Left")
+                face = nh.dot((axis - pc).normalized())
+                along = abs(yh.dot(Xn))
+                pen = arm_penetration(body, "Left", self.ob, ("forearm", "palm"))
+                _, _, d_el = self.kd.find(E)
+                cost = (miss / 0.005) ** 2 + (max(0.0, along - 0.45) / 0.08) ** 2 + (max(0.0, 0.75 - face) / 0.1) ** 2
+                cost += (pen / 0.003) ** 2 + (((0.05 - d_el) / 0.01) ** 2 if d_el < 0.05 else 0.0)
+                cost += ((th - 50) / 30.0) ** 2 + (((FRET_ELBOW_MIN - th) / 4.0) ** 2 if th < FRET_ELBOW_MIN else 0.0)
+                if DEBUG[0]:
+                    k_ = th
+                    if k_ not in DEBUG[1] or cost < DEBUG[1][k_][0]:
+                        DEBUG[1][k_] = (round(cost, 1), ph, round(miss, 3), round(along, 2), round(face, 2), round(pen, 3),
+                                        tuple(round(v, 2) for v in yh))
+                if best is None or cost < best[0]:
+                    best = (cost, E.copy(), W.copy(), dict(miss=round(miss, 4), along=round(along, 2),
+                                                           face=round(face, 2), pen=round(pen, 4), th=th, ph=ph,
+                                                           elbow_torso=round(d_el, 3), cost=round(cost, 2)))
+        body.reset(base)
+        if best is None:
+            raise RuntimeError("fretting: no elbow reaches the neck")
+        return best
 
     def solve(self, rel, fret, first=False, iters=3):
-        """The elbow hangs by the player's side (pole down, out and a little forward); the hand follows the forearm
-        with a small bend, the palm turned to the neck by the forearm; the wrist moves until the middle fingertip
-        is on its string."""
+        """Each frame: the hold's elbow carried by the spine, the knuckle on its place for the (sliding) chord
+        position, the hand bent toward the hold's direction across the neck; pushed out of the neck if a palm or
+        finger sphere is in it (at most 1.5 cm)."""
         body, ins = self.body, self.ins
-        T, _, _ = self.targets(rel, fret)
+        if first:
+            E_l, W_l, fit = self.E_hold, self.W_hold, self.fit
+        else:
+            E_l, W_l, fit = self.hold_at(fret)
+        for f, sc in fit.items():
+            set_curl(body, "Left", f, FRET_CURL[f], sc)
+        K_ = self.anchor(rel, fret)
         R3 = rel.to_3x3()
         y = (R3 @ ins.D(self.y_l)).normalized()
         n = (R3 @ ins.D(self.n_l)).normalized()
-        w = T - y * 0.12 - n * 0.03 if self.wrist is None else rel @ self.wrist
-        sh = body.head("LeftArm")
-        pole = sh + Vector((0.25, -0.12, -0.45))
-        for _ in range(8 if first else iters):
-            body.two_bone("LeftArm", "LeftForeArm", w, pole)
-            body.hand_follow("Left", n, self.FLEX, self.DEV)
-            tip = body.tail("LeftHandMiddle3")
-            w = w + (T - tip)
-        body.two_bone("LeftArm", "LeftForeArm", w, pole)
-        body.hand_follow("Left", n, self.FLEX, self.DEV)
+        E = rel @ E_l
+        W, _ = self.place(E, K_, y, n, None if first else rel @ W_l, iters=8 if first else iters)
         ob = getattr(self, "ob", None)
-        if ob is not None:                       # a palm or finger in the neck: the hand out, away from it
+        if ob is not None:
             pushed = 0.0
             for _ in range(8):
-                pen = arm_penetration_rel(body, "Left", ob, rel, ("palm", "finger"))
-                if pen <= 0.003 or pushed > 0.015:      # at most 1.5 cm: the fingertips stay on the strings
+                pen = arm_penetration_rel(body, "Left", ob, rel, ("palm",))     # fingers press on the board
+                if pen <= 0.003 or pushed > 0.015:
                     break
-                y_, n_, t_ = body.palm("Left")
-                w = w - n_ * (pen + 0.002)
+                _, n_, _ = body.palm("Left")
+                W = W - n_ * (pen + 0.002)
                 pushed += pen + 0.002
-                body.two_bone("LeftArm", "LeftForeArm", w, pole)
-                body.hand_follow("Left", n, self.FLEX, self.DEV)
-        if first:
-            self.wrist = rel.inverted() @ w
-        return w
+                body.two_bone("LeftArm", "LeftForeArm", W, E)
+                body.hand_to("Left", y, n, self.LIM)
+        return W
 
 
 # ---------------------------------------------------------------- strumming and picking
@@ -304,132 +475,188 @@ def seg_dist(p, a, b):
     return (p - (a + ab * t)).length
 
 
-REST_CLEAR = 0.012        # the sleeve's axis this far beyond its radius over the edge: resting, with room to strum
-PICK_CURL = {"Index": (55, 60, 35), "Middle": (60, 70, 40), "Ring": (62, 72, 40), "Pinky": (60, 70, 40)}
+REST_CLEAR = 0.006        # the sleeve this far over the edge or armrest: resting on it, with room to strum
+PICK_CURL = {"Index": (35, 50, 25), "Middle": (65, 85, 45), "Ring": (68, 88, 45), "Pinky": (66, 85, 45)}
+UPPER_PREF = 62.0         # the upper arm's preferred angle below horizontal (at least arm_checks.UPPER_MIN)
+STRUM_DX = {"guitar": 0.06, "banjo": 0.05}   # the pick point along the strings: guitar from the sound hole's centre, banjo from the bridge (+ toward the neck)
+PICK_Z = [0.016]           # the index fingertip over the strings: the pick held in it reaches them
+FLEX0 = {"guitar": 25.0, "banjo": 15.0}   # the hold's wrist bend (+ flexion, toward the palm; - extension, the hand off the top)
+_HOLD_CACHE = {}          # (person, instrument, fit) -> the hold's elbow and wrist: the same in every build
 
 
 class Strumming:
-    """The strumming (guitar) or picking (banjo) right hand: forearm resting on the edge or armrest."""
+    """The strumming (guitar) or picking (banjo) right arm, M5c review 2 (human interventions 16: "the strumming
+    arms are all angled out the wrong way -- they should be resting downwards rather than coming from the top"):
+    the upper arm hangs down from the shoulder (at least 45 degrees below horizontal, about 62 preferred), the
+    forearm rests on the body's bass-side edge over the lower bout (guitar) or the armrest (banjo) near the elbow
+    and comes down across the top to the pick point by the sound hole or the bridge, the hand along the forearm
+    with a small flexion. The hold is searched over elbow positions on the sphere round the shoulder; each frame the
+    elbow stays where the hold put it (riding the lower spine) and the forearm turns about it to strum, the wrist
+    leading the stroke."""
 
     def __init__(self, body, ins):
+        import arm_checks as AC
         self.body, self.ins = body, ins
         sp = ins.spec
         if ins.kind == "guitar":
-            cands = []
-            for xc in (-0.14, -0.10, -0.06, -0.02, 0.02):
-                w = interp_half(sp.outline, xc)
-                cands.append((Vector((xc, w, 0.0)), Vector((0, 0.42, 1.0)).normalized()))     # the top's edge
-                cands.append((Vector((xc, w, -0.045)), Vector((0, 1.0, 0.0))))                # the side, higher up
-            self.P0 = Vector((sp.points["hole"].x - 0.035, -0.004, sp.string_z(0.08) + 0.006))
+            self.P0 = Vector((sp.points["hole"].x + STRUM_DX["guitar"], -0.004, sp.string_z(0.30) + PICK_Z[0]))
             curls = PICK_CURL
             self.pick_finger = "Index"
+            out = Vector((0, 0.42, 1.0)).normalized()
+            self.rest_l = [(p, out) for p in AC.rest_points(sp)]
         else:
             c = sp.points["pot"]
-            cands = []
-            for ang in (102, 116, 130, 144, 158, 172, 186):
-                a = math.radians(ang)
-                d = Vector((math.cos(a), math.sin(a), 0))
-                cands.append((c + d * (sp.points["head_r"] + 0.008) + Vector((0, 0, 0.015)),
-                              Vector((d.x * 0.3, d.y * 0.3, 1.0)).normalized()))               # on the armrest
-            self.P0 = Vector((0.015, -0.006, sp.string_z(0.015) + 0.006))
+            self.P0 = Vector((STRUM_DX["banjo"], -0.006, sp.string_z(0.015) + 0.006))
             curls = {"Index": (50, 62, 35), "Middle": (55, 66, 35), "Ring": (30, 40, 20), "Pinky": (28, 38, 20)}
             self.pick_finger = "Middle"
+            self.rest_l = []
+            for p in AC.rest_points(sp):
+                d = (p - c)
+                d.z = 0
+                d.normalize()
+                self.rest_l.append((p, Vector((d.x * 0.3, d.y * 0.3, 1.0)).normalized()))
         for f, cc in curls.items():
             curl3(body, "Right", f, *cc)
-        body.rot("RightHandThumb2", x=10)
-        body.rot("RightHandThumb3", x=12)
+        thumb3(body, "Right", 20, 15, 10)              # the thumb on the index's side, holding the pick
         self.curls = curls
         self.n_l = Vector((0, 0, -1))                 # the palm toward the top
-        self.flex0 = 10.0 if ins.kind == "guitar" else 20.0
-        self.dz = 0.0
-        # where the forearm can rest: of the candidate points on the edge (or armrest), the one the forearm passes
-        # nearest once the pick finger is on its point
+        self.flex0 = FLEX0[ins.kind]
+        self.ob = CT.mesh_obstacle("probe", "instrument", ins.obj, body)
+        from mathutils.kdtree import KDTree
+        cl = ins.cloud
+        self.kd = KDTree(len(cl))
+        for i, p in enumerate(cl):
+            self.kd.insert(Vector(p), i)
+        self.kd.balance()
+        key = (ins.key, ins.kind, tuple(sorted(ins.FIT[ins.kind].items())))
         base = dict(body.basis)
-        best = None
-        ob = CT.mesh_obstacle("probe", "instrument", ins.obj, body)
-        self.ob = ob
-        for edge, out in cands:
-            body.reset(base)
-            self.edge_l, self.C_l = edge, edge + out * (R_FORE + REST_CLEAR)
-            self.W_hold = None
-            self.solve(Matrix.Identity(4), 0.0, self.flex0, first=True)
-            d = seg_dist(ins.P(self.C_l), body.head("RightForeArm"), body.head("RightHand"))
-            pen = arm_penetration(body, "Right", ob)
-            cost = d + 10.0 * pen
-            if best is None or cost < best[0]:
-                best = (cost, edge, out, d, pen)
-        self.rest_gap, self.rest_pen = best[3], best[4]
+        if key in _HOLD_CACHE:
+            self.E_hold, self.W_hold, self.hold_info = _HOLD_CACHE[key]
+        else:
+            self.search()
+            _HOLD_CACHE[key] = (self.E_hold, self.W_hold, self.hold_info)
         body.reset(base)
-        self.edge_l, self.C_l = best[1], best[1] + best[2] * (R_FORE + REST_CLEAR)
-        self.W_hold = None
-        self.solve(Matrix.Identity(4), 0.0, self.flex0, first=True)
+        self.place(self.E_hold, ins.P(self.P0), self.flex0, self.W_hold, iters=6)
         if ins.kind == "banjo":                       # ring and little fingers planted on the head
             for f in ("Ring", "Pinky"):
                 fit_finger(body, "Right", f, curls[f], ins.P((0, 0, 0)), ins.D((0, 0, 1)), 0.0065, 0.2, 2.2)
 
+    # ---- the arm through a given elbow, the pick finger on its point
+    def place(self, E, P, flex, W=None, iters=5, n=None):
+        body = self.body
+        L2 = body.len[PF.bn("RightForeArm")]
+        n = (self.ins.D(self.n_l) if n is None else n)
+        W = E + (P - E).normalized() * L2 if W is None else E + (W - E).normalized() * L2
+        res = 1.0
+        for _ in range(iters):
+            body.two_bone("RightArm", "RightForeArm", W, E)
+            body.hand_follow("Right", n, flex, 0.0)
+            tip = body.tail(f"RightHand{self.pick_finger}3")
+            res = (tip - P).length
+            off = tip - body.head("RightHand")
+            W = E + ((P - off) - E).normalized() * L2
+        body.two_bone("RightArm", "RightForeArm", W, E)
+        body.hand_follow("Right", n, flex, 0.0)
+        res = (body.tail(f"RightHand{self.pick_finger}3") - P).length
+        return W, res
+
+    def rest_gap(self, E, W, rel=None):
+        """The first half of the forearm to the rest edge, from the sleeve's surface (+ over, - into it)."""
+        mid = E.lerp(W, 0.5)
+        best = 1e9
+        for p, out in self.rest_l:
+            q = self.ins.P(p) if rel is None else rel @ self.ins.P(p)
+            best = min(best, seg_dist(q, E, mid) - R_FORE)
+        return best
+
+    def outside(self, E, margin=0.0):
+        """The elbow over the rest edge (beyond the bass-side outline, guitar; beyond the armrest's radius, banjo)
+        or in front of the top, never behind the body or under it."""
+        ins = self.ins
+        q = ins.G.inverted() @ E
+        if q.z > 0.025:
+            return True
+        if ins.kind == "guitar":
+            ol = ins.spec.outline
+            w = float(np.interp(q.x, [a for a, _ in ol], [w_ for _, w_ in ol]))
+            return q.y > w + margin and q.z > -0.01           # over the edge, level with the top or in front of it
+        c = ins.spec.points["pot"]
+        d = Vector((q.x - c.x, q.y - c.y))
+        r = ins.spec.points["head_r"]
+        return q.y > c.y and ((d.length > r + 0.02 + margin and q.z > -0.01) or (d.length > r + 0.05 and q.z > -0.07))
+
+    def search(self):
+        body, ins = self.body, self.ins
+        S = body.head("RightArm")
+        L1 = body.len[PF.bn("RightArm")]
+        L2 = body.len[PF.bn("RightForeArm")]
+        P = ins.P(self.P0)
+        best = None
+        n_ok = 0
+        base = dict(body.basis)
+        for th in range(46, 88, 2):
+            for ph in range(0, 360, 5):
+                c, s_ = math.cos(math.radians(th)), math.sin(math.radians(th))
+                E = S + Vector((c * math.cos(math.radians(ph)), c * math.sin(math.radians(ph)), -s_)) * L1
+                dEP = (P - E).length
+                if not (L2 + 0.02 < dEP < L2 + 0.17):
+                    continue
+                if E.y > S.y + 0.06 or E.x > S.x + 0.10:          # not behind the back, not across the chest
+                    continue
+                if not self.outside(E):                           # over the edge or in front, never behind
+                    continue
+                body.reset(base)
+                W, res = self.place(E, P, self.flex0, iters=4)
+                g = self.rest_gap(E, W)
+                pen = arm_penetration(body, "Right", self.ob)
+                _, _, d_el = self.kd.find(E)
+                up, fore = body.arm_angles("Right")
+                cost = (res / 0.006) ** 2 + ((g - REST_CLEAR) / 0.01) ** 2 * (1.0 if g >= REST_CLEAR else 6.0)
+                cost += (pen / 0.003) ** 2 + ((th - UPPER_PREF) / 18.0) ** 2
+                cost += ((5.0 - fore) / 5.0) ** 2 if fore < 5.0 else 0.0
+                cost += ((0.045 - d_el) / 0.01) ** 2 if d_el < 0.045 else 0.0          # the elbow outside the torso
+                if best is None or cost < best[0]:
+                    best = (cost, E.copy(), W.copy(), dict(res=round(res, 4), rest_gap=round(g, 4), pen=round(pen, 4),
+                                                           upper=round(up, 1), fore=round(fore, 1), th=th, ph=ph,
+                                                           elbow_torso=round(d_el, 3), cost=round(cost, 2),
+                                                           dEP=round(dEP, 3), hand=round((body.tail(
+                                                               f"RightHand{self.pick_finger}3") - body.head(
+                                                               "RightHand")).length, 3), n_ok=0,
+                                                           pen_parts={pt: round(arm_penetration(body, "Right", self.ob, (pt,)), 4)
+                                                                      for pt in ("forearm", "palm", "finger")}))
+                n_ok += 1
+        body.reset(base)
+        if best is None:
+            raise RuntimeError("strumming: no elbow reaches the pick point")
+        best[3]["n_ok"] = n_ok
+        self.E_hold, self.W_hold, self.hold_info = best[1], best[2], best[3]
+
     def solve(self, rel, h, flex, first=False):
-        """first (the hold): search the elbow so the forearm rests over C, the pick finger on its point. Then each
-        frame: the hold's wrist and elbow carried by the spine, the wrist moved by the stroke h across the strings
-        and corrected so the pick finger is on its point, the elbow kept where the hold had it (stable, no search),
-        the hand lifted off the top if any sphere is still in the body."""
+        """Each frame: the hold's elbow carried by the spine; the pick point moved by the stroke h across the
+        strings; the forearm turns about the elbow to put the pick finger on it, the wrist bent by flex; the hand
+        lifted off the top a little at a time if any sphere is still in the body."""
         body, ins = self.body, self.ins
         R3 = rel.to_3x3()
         Y = (R3 @ ins.D((0, 1, 0))).normalized()
         Zt = (R3 @ ins.D((0, 0, 1))).normalized()
-        C = rel @ ins.P(self.C_l)
+        E = rel @ self.E_hold
         P = rel @ ins.P(self.P0) + Y * h
         n = (R3 @ ins.D(self.n_l)).normalized()
-        av = (self.ob, rel) if getattr(self, "ob", None) is not None else None
-        sh = body.head("RightArm")
-        reach = (body.len[PF.bn("RightArm")] + body.len[PF.bn("RightForeArm")]) * 0.94   # never a straight arm
-
-        def clamp(w):
-            d = w - sh
-            return sh + d.normalized() * min(d.length, reach)
-
-        if first:
-            W = P + (C - P).normalized() * 0.11 + Zt * 0.03
-            for _ in range(12):
-                W = clamp(W)
-                two_bone_over(body, "Right", W, C, 0.0, W - (W - C).normalized() * 0.213, av)
-                body.hand_follow("Right", n, flex, 0.0)
-                tip = body.tail(f"RightHand{self.pick_finger}3")
-                W = W + (P - tip) * 0.7                  # the pick finger onto its point (damped)
-            W = clamp(W)
-            two_bone_over(body, "Right", W, C, 0.0, W - (W - C).normalized() * 0.213, av)
-            body.hand_follow("Right", n, flex, 0.0)
-            self.E_hold = body.head("RightForeArm").copy()
-        else:
-            E = rel @ self.E_hold
-            W = rel @ self.W_hold + Y * (h * 0.9)
-            for _ in range(3):
-                W = clamp(W)
-                body.two_bone("RightArm", "RightForeArm", W, E)
-                body.hand_follow("Right", n, flex, 0.0)
-                tip = body.tail(f"RightHand{self.pick_finger}3")
-                W = W + (P - tip) * 0.8
-            W = clamp(W)
+        W, _ = self.place(E, P, flex, rel @ self.W_hold, iters=3, n=n)
+        for _ in range(12):
+            pen = arm_penetration_rel(body, "Right", self.ob, rel)
+            if pen <= 0.002:
+                break
+            W = W + Zt * (pen * 0.6 + 0.002)
             body.two_bone("RightArm", "RightForeArm", W, E)
             body.hand_follow("Right", n, flex, 0.0)
-        if av is not None:     # still into the body: the elbow up and the hand off the top, a little at a time
-            Ecur = rel @ self.E_hold
-            for _ in range(16):
-                pen = arm_penetration_rel(body, "Right", self.ob, rel)
-                if pen <= 0.002:
-                    break
-                Ecur = Ecur + Vector((0, 0, 1)) * (pen * 0.8 + 0.003)
-                W = clamp(W + Zt * (pen * 0.6 + 0.002))
-                body.two_bone("RightArm", "RightForeArm", W, Ecur)
-                body.hand_follow("Right", n, flex, 0.0)
-        if first:
-            self.W_hold = rel.inverted() @ W
-            self.E_hold = body.head("RightForeArm").copy()
         return W
 
 
 # ---------------------------------------------------------------- claps
 
 CLAP_CURL = (4, 6, 4)
+CLAP_ITERS = [16]
 POLE_K = [0.4]
 
 
@@ -442,7 +669,7 @@ def clap_pose(body, k, c=None, open_gap=0.13, cross=8.0):
     if c is None:
         c = mid + Vector((0, -0.30, -0.07))
     out = {}
-    for it in range(6):
+    for it in range(CLAP_ITERS[0]):
         for s, sg in (("Left", 1), ("Right", -1)):
             pitch = 54.0 - (cross / 2) * sg                      # fingers' elevation above horizontal
             y = Vector((0, -math.cos(math.radians(pitch)), math.sin(math.radians(pitch))))
@@ -463,7 +690,8 @@ def clap_fingers(body):
     """Fingers together and nearly straight for a clap (the library's relaxed hands are spread)."""
     for s in ("Left", "Right"):
         for f in ("Index", "Middle", "Ring", "Pinky"):
-            curl3(body, s, f, -6, -6, -3)
+            curl3(body, s, f, -4, -4, -2)
+        thumb3(body, s, 0, 4, 4)
 
 
 def palm_gap(body):
@@ -692,6 +920,8 @@ class Tambourine:
     to its back face 5 cm off; a slap brings the disc back onto the palm (the right arm moves), a shake turns the
     forearm."""
 
+    POLE_L = Vector((0.4, -0.15, -0.3))      # the left elbow's pole, from the left shoulder: out and forward, off the chest
+
     def __init__(self, body, make_tamb):
         self.body = body
         sh = body.head("RightArm")
@@ -705,7 +935,7 @@ class Tambourine:
         curl3(body, "Right", "Index", 55, 70, 40)
         for fg in ("Middle", "Ring", "Pinky"):
             curl3(body, "Right", fg, 62, 75, 40)
-        body.rot("RightHandThumb2", x=20)
+        thumb3(body, "Right", 10, 20, 10)
         # the frame's band lies in the palm, the fingers round its edge: the disc's centre is out from the palm
         # (along its normal), its face along the fingers
         y, n, t = body.palm("Right")
@@ -718,13 +948,14 @@ class Tambourine:
         self.obj.matrix_basis = body.rig.matrix_basis @ (Matrix.Translation(self.centre) @ R.to_4x4())
         # the left palm, 5 cm off the disc's face, facing it
         shl = body.head("LeftArm")
-        self.poleL = shl + Vector((0.3, 0.0, -0.4))
+        self.poleL = shl + self.POLE_L
         down = Vector((0, 0, -1)) - self.N * (-self.N.z)
         # behind the disc (between it and the chest), palm to its back face: the left arm never crosses the ring
         self.QL = self.centre - self.N * (0.0235 + 0.05) + down.normalized() * 0.03
         curl3(body, "Left", "Index", 6, 8, 4)
         for fg in ("Middle", "Ring", "Pinky"):
             curl3(body, "Left", fg, 8, 10, 5)
+        thumb3(body, "Left", 0, 0, 0)
         place_palm(body, "Left", self.QL, self.N, self.poleL, 0.0, 0.0, iters=8)
         self.WL = body.head("LeftHand").copy()
 
@@ -752,7 +983,7 @@ class StandGrip:
         self.n = Vector((-1.0, 0.25, 0.0)).normalized()
         for fg in ("Index", "Middle", "Ring", "Pinky"):
             curl3(body, "Left", fg, 55, 70, 40)
-        body.rot("LeftHandThumb2", x=25)
+        thumb3(body, "Left", 15, 25, 15)
         self.target = self.grip - self.n * (0.011 + 0.004)
         place_palm(body, "Left", self.target, self.n, self.pole, 10.0, 0.0, iters=8)
 

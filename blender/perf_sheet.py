@@ -37,6 +37,9 @@ ap.add_argument("--bar", type=int, default=30)
 ap.add_argument("--build", default="O09")
 ap.add_argument("--out", default="renders/m5c/perf_sheet")
 ap.add_argument("--closeup", action="store_true", help="add the crowd clapper's hands at 3x (M5c review)")
+ap.add_argument("--hands", action="store_true",
+                help="M5c review 2: also the guitar's and banjo's fretting hands at 3x and their strumming/picking arms")
+ap.add_argument("--palms", action="store_true", help="test only: paint the palm sides (blender/palm_test.py)")
 a = ap.parse_args(argv)
 out = C.ROOT / a.out
 out.mkdir(parents=True, exist_ok=True)
@@ -73,6 +76,17 @@ for nm, e in (("crowd_clap", pick("clap")), ("crowd_fist", pick("fist")), ("crow
         people[nm] = e
 if a.closeup and "crowd_clap" in people:          # M5c review: the clapper's hands at 3x, so wrists can be judged
     people["crowd_clap_3x"] = people["crowd_clap"]
+if a.hands:
+    for r in ("guitar", "banjo"):
+        people[f"band_{r}_fret_3x"] = band[r]
+        people[f"band_{r}_arm"] = band[r]
+if a.palms:
+    import palm_test
+    done = set()
+    for e in people.values():
+        if e.instance_collection.name not in done:
+            palm_test.paint_palms(e.instance_collection)
+            done.add(e.instance_collection.name)
 allp = [o for o in bpy.data.objects if o.type == "EMPTY" and o.instance_type == "COLLECTION"]
 gb.into(None)
 K.world("#8a8f94", 0.6)
@@ -106,10 +120,24 @@ for nm, e in people.items():
         tgt = p + fwd * 0.2 + Vector((0, 0, hz - p.z - 0.38))
         loc = tgt + fwd * 2.3 - left * 0.7 + Vector((0, 0, 0.12))
         lens = 70
-        if nm.endswith("_3x"):                  # the same camera, three times the focal length, on the hands
-            tgt = (C.bone_world(e, "LeftHand") + C.bone_world(e, "RightHand")) / 2
-            loc = tgt + fwd * 2.3 - left * 0.7 + Vector((0, 0, 0.12))
-            lens = 210
+        if nm.endswith(("_3x", "_arm")):
+            # M5c review 2: framed on what the row checks, through the whole bar (so open and closed claps both fit):
+            # the points' centre, the focal length from their spread (3x = 210 mm unless they need a wider view)
+            bones = {"crowd_clap_3x": ("LeftHand", "RightHand", "LeftHandMiddle3", "RightHandMiddle3"),
+                     "_fret_3x": ("LeftHand", "LeftHandMiddle3", "LeftHandThumb3", "LeftHandIndex3"),
+                     "_arm": ("RightArm", "RightForeArm", "RightHand", "RightHandIndex3")}
+            key = next(k for k in bones if nm.endswith(k))
+            pts = []
+            for f in fr:
+                sc.frame_set(f)
+                pts += [C.bone_world(e, bb) for bb in bones[key]]
+            ctr = sum(pts, Vector()) / len(pts)
+            rad = max((q - ctr).length for q in pts) + 0.04
+            side = left * (0.8 if key == "_fret_3x" else -0.7)
+            dirv = (fwd * 2.3 + side + Vector((0, 0, 0.12))).normalized()
+            dist = 2.4
+            tgt, loc = ctr, ctr + dirv * dist
+            lens = min(210.0, 0.8 * 18.0 * dist / rad)
     cam = gb.camera(f"sheet_{nm}", tuple(loc), tuple(tgt), lens)
     cam.data.clip_start = 0.05
     lt = K.area(f"sheet_fill_{nm}", tuple(loc + Vector((0, 0, 0.8)) + left * 0.6), tuple(tgt), 260, 2.0, "#ffffff")
