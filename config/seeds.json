@@ -17,5 +17,10 @@
     43,
     44
   ],
-  "_m4_clips": "M4 image-to-video clips (scripts/clips.py): seeds 41-42, the main seed and the next, as Ever Present's M4 clips. The second noise seed of the two-stage graph is seed + 1, as in Ever Present. m4_clips_v2 (43-44) is only for one revised prompt if both first seeds fail."
+  "_m4_clips": "M4 image-to-video clips (scripts/clips.py): seeds 41-42, the main seed and the next, as Ever Present's M4 clips. The second noise seed of the two-stage graph is seed + 1, as in Ever Present. m4_clips_v2 (43-44) is only for one revised prompt if both first seeds fail.",
+  "m7b_park_concepts": [
+    41,
+    42
+  ],
+  "_m7b_park_concepts": "M7b park concept stills and far-plate candidates (scripts/m7b_concepts.py, FLUX.2 [dev]): seeds 41-42, the main seed and the next, two takes per prompt. Reference for agreeing the park's direction, not footage (production log 40)."
 }

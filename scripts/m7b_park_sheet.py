@@ -87,22 +87,24 @@ def concepts(out="review/m7b_park_concepts.jpg"):
         im = cv2.resize(im, (tw, int(tw * im.shape[0] / im.shape[1])), interpolation=cv2.INTER_AREA)[:th]
         im = np.vstack([im, np.full((th - im.shape[0], tw, 3), 24, np.uint8)]) if im.shape[0] < th else im
         tiles.append(label(im, f"{v['label']}  [{k}]"))
-    rows = [head, grid(cur, 2), np.full((12, W, 3), 24, np.uint8)]
+    def padw(g):
+        return np.hstack([g, np.full((g.shape[0], W - g.shape[1], 3), 24, np.uint8)]) if g.shape[1] < W else g
+    rows = [head, padw(grid(cur, 2)), np.full((12, W, 3), 24, np.uint8)]
     note = np.full((34, W, 3), 24, np.uint8)
     cv2.putText(note, "Concept stills (the direction for the rebuilt hill) and far-plate candidates (the generated backdrop "
                 "behind the Blender set).", (8, 24), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (120, 220, 255), 1, cv2.LINE_AA)
-    rows += [note, grid(tiles, 2)]
+    rows += [note, padw(grid(tiles, 2))]
     if rej:
         sm = []
         for k, v in rej:
             item = k.rsplit("_s", 1)[0]
             im = cv2.imread(str(STILLS / item / f"{k}.png"))
-            sm.append(label(cv2.resize(im, (472, 266), interpolation=cv2.INTER_AREA), f"REJECTED {k}: {v['why']}", 0.38))
+            sm.append(label(cv2.resize(im, (472, 266), interpolation=cv2.INTER_AREA), f"{k}: {v['why']}", 0.36))
         note2 = np.full((34, W, 3), 24, np.uint8)
-        cv2.putText(note2, "Rejected takes (logged in config/m7b_park_concepts.json review and log/prompts/m7b_park.md).",
+        cv2.putText(note2, "Takes not on the sheet: rejected (a constraint) or not kept (weaker); logged in config/m7b_park_concepts.json review and log/prompts/m7b_park.md.",
                     (8, 24), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (140, 140, 255), 1, cv2.LINE_AA)
         g = grid(sm, 4)
-        rows += [np.full((12, W, 3), 24, np.uint8), note2, np.hstack([g, np.full((g.shape[0], W - g.shape[1], 3), 24, np.uint8)])]
+        rows += [np.full((12, W, 3), 24, np.uint8), note2, padw(g)]
     img = np.vstack(rows)
     q = 88
     while True:

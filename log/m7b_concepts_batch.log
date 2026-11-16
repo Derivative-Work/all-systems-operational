@@ -1,0 +1,33 @@
+park_crest_a seed 41: assets/gen/stills/m7b_park/park_crest_a/park_crest_a_s41.png (82.0 s)
+park_crest_a seed 42: assets/gen/stills/m7b_park/park_crest_a/park_crest_a_s42.png (50.1 s)
+park_crest_b seed 41: assets/gen/stills/m7b_park/park_crest_b/park_crest_b_s41.png (59.8 s)
+park_crest_b seed 42: assets/gen/stills/m7b_park/park_crest_b/park_crest_b_s42.png (49.3 s)
+park_rise seed 41: assets/gen/stills/m7b_park/park_rise/park_rise_s41.png (51.1 s)
+park_rise seed 42: assets/gen/stills/m7b_park/park_rise/park_rise_s42.png (50.1 s)
+plate_city seed 41: assets/gen/stills/m7b_park/plate_city/plate_city_s41.png (107.2 s)
+plate_city seed 42: assets/gen/stills/m7b_park/plate_city/plate_city_s42.png (108.4 s)
+plate_ridges seed 41: assets/gen/stills/m7b_park/plate_ridges/plate_ridges_s41.png (106.1 s)
+plate_ridges seed 42: assets/gen/stills/m7b_park/plate_ridges/plate_ridges_s42.png (108.3 s)
+	Command being timed: ".venv/bin/python -I scripts/m7b_concepts.py"
+	User time (seconds): 0.29
+	System time (seconds): 0.44
+	Percent of CPU this job got: 0%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 12:52.60
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 28444
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1986
+	Minor (reclaiming a frame) page faults: 10189
+	Voluntary context switches: 3573
+	Involuntary context switches: 5
+	Swaps: 0
+	File system inputs: 113728
+	File system outputs: 84232
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

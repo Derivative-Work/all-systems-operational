@@ -1,0 +1,116 @@
+{
+  "_doc": "M7b park concepts (human interventions 18-19; production log 40): concept stills of a generic hilltop park in drizzle and fog over a generic city far below, to agree the park's direction before it is rebuilt, and far-plate candidates (the distant city and tree lines in layered fog, no foreground) for the generated plate the human chose. Reference only, not footage. Prompt = subject + ', ' + style_sets[style]; FLUX.2 [dev] has no negative prompt, so the constraints are written into each style as 'no ...' (as M4). Seeds from config/seeds.json m7b_park_concepts. Model and sampler as M4 (config/m4_stills.json).",
+  "model": {
+    "unet": "flux2_dev_fp8mixed.safetensors",
+    "clip": "mistral_3_small_flux2_fp4_mixed.safetensors",
+    "vae": "flux2-vae.safetensors",
+    "steps": 28,
+    "guidance": 4.0,
+    "sampler": "euler"
+  },
+  "style_sets": {
+    "park": "cinematic film still, overcast autumn afternoon, light drizzle, soft flat grey daylight, layered fog and mist, photorealistic, muted greens and slate greys, natural colour, 35mm lens, 16:9 widescreen, no people, no faces, no text, no letters or numbers, no signs, no logos, no brand names, no landmarks, no observation towers, every building a generic anonymous office or apartment block, no boats, no ships, no ferries, no water, no lake, no bay, no river, no sea, no fountain",
+    "plate": "matte painting background plate, photorealistic, overcast, soft flat grey light, layered atmospheric fog, high detail, sharp, no foreground objects, no people, no text, no letters or numbers, no signs, no logos, no landmarks, no observation towers, every building a generic anonymous office or apartment block, no boats, no ships, no ferries, no water, no lake, no bay, no river, no sea"
+  },
+  "items": {
+    "park_crest_a": {
+      "shot": "O20a",
+      "style": "park",
+      "size": [
+        1920,
+        1088
+      ],
+      "subject": "Eye-level view from the grassy crest of a small hilltop city park, standing where the back of a crowd would be: wet mown lawn and a worn gravel path in the foreground rising gently to a rounded brow about twenty metres ahead, beyond which the ground drops away steeply out of sight; tall dark Douglas firs and cedars frame both sides, some close, more further down the slope; a slender black cast-iron park lamp post on the right; far below and several kilometres away, across misty air, a generic downtown of anonymous office towers and mid-rise blocks fades into layers of fog, with wooded ridges and rooftops of residential streets descending toward it; a low uniform grey cloud base"
+    },
+    "park_crest_b": {
+      "shot": "O20a",
+      "style": "park",
+      "size": [
+        1920,
+        1088
+      ],
+      "subject": "An empty hilltop park lawn at the top of a steep wooded slope, seen at eye level: a gravel viewpoint path and a low worn stone edging along the brow, wet uneven grass with darker trodden patches, a few tall firs on each side and the tops of more firs just visible below the brow; far below the horizon line, a generic city skyline of plain rectangular towers in the distance, layered in pale fog, the nearer neighbourhoods of houses and bare trees in grey-green layers between; drizzle in the air"
+    },
+    "park_rise": {
+      "shot": "O19b",
+      "style": "park",
+      "size": [
+        1920,
+        1088
+      ],
+      "subject": "View from about fifteen metres up, rising just above the wet tops of dark fir trees on a hillside, looking over the rounded grassy crest of a small hilltop park with a single lamp post on the crest, toward a generic distant downtown of anonymous towers in layered fog far below and far away; fir tops close in the lower foreground, the lawn's brow in the middle distance, wooded slopes falling away beyond it"
+    },
+    "plate_city": {
+      "shot": "far plate (O20 wides, O22d)",
+      "style": "plate",
+      "size": [
+        2560,
+        1440
+      ],
+      "subject": "Wide distant view from a hilltop, nothing in the foreground: a generic downtown skyline of anonymous office towers and mid-rise blocks about three kilometres away and well below the viewer, in layered fog; in front of it, wooded ridges and residential neighbourhoods of small houses and street trees descend in successively paler grey-green layers; the tops of the tallest towers dissolve into a low flat cloud base; the lower edge of the frame is mist over the dark tops of distant conifers"
+    },
+    "plate_ridges": {
+      "shot": "far plate (O20 wides, O22d)",
+      "style": "plate",
+      "size": [
+        2560,
+        1440
+      ],
+      "subject": "Wide view across layered forested hills and ridgelines of dark conifers receding into thick fog, each ridge paler than the one before, with a generic distant city of plain low towers barely visible in the farthest layer, under a low uniform grey cloud base; no foreground, the nearest ridge already a hundred metres away and below the viewer"
+    }
+  },
+  "review": {
+    "_doc": "Agent's notes after viewing every take at full size (production log 42). keep = on the sheet; rejected = breaks a constraint; otherwise not kept (weaker or redundant). The human picks the direction.",
+    "park_crest_b_s41": {
+      "keep": true,
+      "label": "CONCEPT 1 (O20a): the brow - lawn to an edge, the ground falls away, roofs and bare trees below, towers far off in fog",
+      "notes": "The closest to the diagnosis: a crest with a brow, a stone-edged gravel path, worn wet lawn with rain puddles (not a body of water), the drop beyond it, a descending neighbourhood, the city kilometres away and below the horizon. No people, text or landmark."
+    },
+    "park_crest_b_s42": {
+      "keep": true,
+      "label": "CONCEPT 2 (O20a): the same brow, taller firs framing, denser fog over the city",
+      "notes": "As s41, flatter light; trodden mud along the path edge. No people, text or landmark."
+    },
+    "park_crest_a_s42": {
+      "keep": true,
+      "label": "CONCEPT 3 (O20a): lamp post and firs at the crest, towers dissolving into the cloud base",
+      "notes": "Strong city and fog layering, a descending street of houses; but the foreground is a striped mown mound rather than a brow (the same dome problem as the current hill)."
+    },
+    "park_rise_s42": {
+      "keep": true,
+      "label": "CONCEPT 4 (O19b): rising over fir tops toward the crest's lamp post and the city in fog",
+      "notes": "The O19b move: fir tops close, the crest, autumn trees below, downtown in the cloud base. The hill is again a dome."
+    },
+    "park_rise_s41": {
+      "keep": true,
+      "label": "CONCEPT 5 (O19b): higher, the crest as a green dome under the city",
+      "notes": "As s42; the city sits too close and too high over the hill (scale like the current set)."
+    },
+    "plate_city_s42": {
+      "keep": true,
+      "label": "FAR PLATE 1 (recommended): the city 2-4 km off, tops in the cloud base, streets and conifer lines in layered fog",
+      "notes": "2560x1440. The best plate: generic towers (no landmark, no needle), the fog bands read as fog (conifers stand in them), mid-ground streets give scale. Wide enough for the O20 wides; would need extending sideways (outpaint or a second take) for O20e's truck."
+    },
+    "plate_ridges_s41": {
+      "keep": true,
+      "label": "FAR PLATE 2 (tree lines): forested ridges receding in fog, a far town",
+      "notes": "2560x1440. The tree-line layers the park's far slopes need; its town is slab apartment blocks that read less like the Northwest: use the ridges, not the town."
+    },
+    "plate_ridges_s42": {
+      "keep": true,
+      "label": "FAR PLATE 3 (tree lines): valleys of conifers filled with fog, a band of far blocks",
+      "notes": "2560x1440. The most atmospheric fog layering; the far blocks are a low band of slab housing. Tree lines only."
+    },
+    "park_crest_a_s41": {
+      "keep": false,
+      "why": "not kept: as s42 with a busier, more lit skyline and the same mound",
+      "notes": "No guardrail issue."
+    },
+    "plate_city_s41": {
+      "keep": false,
+      "rejected": true,
+      "why": "rejected: the pale fog band under the city reads as a lake; the tallest dark stepped tower may evoke a real one",
+      "notes": "Water guardrail and the real-skyline rule: a city across what looks like a lake, under a dark stepped tower, risks reading as a real view across water."
+    }
+  }
+}
