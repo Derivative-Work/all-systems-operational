@@ -190,3 +190,8 @@ Append-only. Every human action: when, what, and why.
 - **What:** "it's in ~/Downloads/All Systems Operational (credits EDM).wav -- you'll need to run the postfilter on it too".
 - **File:** `~/Downloads/All Systems Operational (credits EDM).wav` (file time 17:07; 212.4 s, 16-bit 48 kHz stereo; sha256 `faf569d6…`), copied to `audio/credits/`. The human's instrumental for the credits and end cards (human interventions 25). How it was made isn't stated; the post-filter ran with `--source suno`, as for the master.
 - **Post-filter:** run by the agent (production log 61).
+
+## 27. 2026-11-16 — The credits track's sections asked for
+
+- **What:** after the end-sequence preview: "send me the sections as you have them so I can review".
+- **Sent** (production log 63): the section map, the track with a click on each change, and the changes as labels. The human is checking the agent's section changes by ear before the end sequence's timing is settled; decisions 45's options are still open.
