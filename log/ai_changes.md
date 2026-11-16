@@ -34,3 +34,14 @@ Relative to the approved M5c3 grey box (decisions 21–24); cameras, cut and per
 - **Coffee shop:** red brick walls; steamed windows with clear drip trails; string lights at 14 (emission) with weaker fill; glazed mugs; painted and wood chairs. Added: two warm pendants over the counter, group heads and a drip tray on the (blank) espresso machine, potted plants on the back sills, a small picture light on the Polaroid, and the Polaroid's photo (decisions 24).
 - **Treehouse:** the roof turned the right way (decisions 23), so the room is closed and two skylights show rain; cedar boards; firs through the rainy glass; whiteboard markers in the tray; finer moss on the deck's edge and rails; drizzle beyond the back and left windows; a spot over the conference table (the pendant stays off by day).
 - **Hilltop park:** conifers in place of cones; a generic skyline massing in fog in place of boxes (no tower, no water); the sun from behind the band, so the crowd and band are silhouettes; wet grass and gravel; a thin fog over the crest; finer drizzle.
+
+## 7. 2026-11-16 — M7b look pass: what is new or different on screen (agent)
+
+Relative to M7a (approved as the base, human interventions 18); cut, performances and every camera but O04a's unchanged (decisions 27–31).
+- **Rain on glass** (every pane and skylight): the beads appear, grow and merge; drops slide down in jerks, leaving trails and tiny beads; on the cafe's steamed glass they wipe clear paths.
+- **Haze:** its texture drifts slowly, so the shafts move. None at night (O08c had daylight shafts at night in M7a).
+- **Steam:** rising, curling wisps over the probes' mugs and about half the cafe's table mugs.
+- **O04:** a new framing, closer over the shoulder; the phone shows one big message ("is email down for anyone else?") and the +1 count, readable; the band is no longer in the frame.
+- **Treehouse:** the cedar walls, roof and floor show; the band stays in silhouette. New on screen: invented incident-night content on every laptop and phone (a failing sign-in, an automated alert call from a 555 number, a service dashboard, a health-check terminal, an unbranded assistant that can't reach the mail connector, a bridge call); a fourth laptop beside the speakerphone; a phone face up on the table. O18e racks from the dashboard to the whiteboard.
+- **Closes:** the instrument closes are a third of a stop brighter.
+- **Polaroid:** the band alone, backlit, from nearer the front.
