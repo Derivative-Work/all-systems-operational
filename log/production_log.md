@@ -771,3 +771,12 @@ Append-only. One entry per generation, render or analysis step.
   - **Far plate:** plate_city s42 is the recommended plate (generic towers in the cloud base, streets and conifer lines in fog; it would need extending sideways for O20e's truck); plate_ridges s41 and s42 give the far tree lines, their towns are slab housing (use the ridges only).
 - **Sheet:** `.venv/bin/python -I scripts/m7b_park_sheet.py --concepts` → `review/m7b_park_concepts.jpg` (1930×3111, 0.9 MB): the current O20a and O19b, the five concepts and three plates labelled, the two takes not kept small at the bottom.
 - `assets/gen/stills/m7b_park/` is out of git (in the manifest); ComfyUI's own copies are in `~/ComfyUI/output/aso_m7b/`.
+
+## 43. 2026-11-16 — M7b: M5c3 reproducibility, disk, GPU; ready for the human
+
+- **M5c3 still reproduces** with the M7 hooks off (`coverage.CAMERA_HOOK` is new in shared code): `blender -b --factory-startup --python blender/coverage_m5c.py -- --out <scratch>/repro --still --subs O03a,O04a,O20a --log <scratch>/repro_pose.log` against `renders/m5c3/frames/O03a/0073.jpg`, `O04a/0072.jpg`, `O20a/0032.jpg`: PSNR 45.8, 47.8 and 42.8 dB (mean absolute difference 0.84, 0.57, 1.14 of 255), the JPEG error of the M5c3 frames, as in production log 35.
+- **Disk used by M7b:** about 1.2 GB in the repository's folders (`assets/gen/tex/m7b/` 536 MB of screen-texture sequences, `renders/m7b/` 348 MB of which the motion frames are most, `archive/renders/m7b/` 138 MB, `archive/assets/gen/tex/m7b_v1/` 82 MB, `assets/gen/stills/m7b_park/` 42 MB, the Polaroid and review files about 20 MB), plus 43 MB of test stills in the scratchpad and ComfyUI's own 42 MB copy of the stills. 25 GB free.
+- **GPU and RAM:** only this project's jobs ran, one heavy job at a time (the RTX 5090 at 361 MiB before each); ComfyUI ran only with Blender stopped and was shut down afterwards (production log 42).
+- **Superseded, in `archive/`:** M7a's Polaroid and the first band-only take; the hero rounds before the final one; the first motion frames; the pre-rev-136 dashboard sequences. Nothing deleted.
+- **Calls for the human:** decisions 34.
+- `scripts/manifest.sh` → 2,409 files.

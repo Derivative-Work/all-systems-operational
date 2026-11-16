@@ -249,3 +249,12 @@ Append-only. Deviations from the brief, each with why and who decided.
   - **Kept out of every screen:** the July fix, who or what wrote it, the load tests (the whiteboard's and the tags'). The assistant reads logs and is blocked; the terminal probes endpoints; neither hints that an AI wrote or caused anything.
   - **O08c** stays Thursday 11:47 p.m., after the wider outage and once "Teams came over for the night"; the alert call and the timing-out sign-ins fit it. The bridge (O18) stays Thursday 2:52 p.m.
 - Not changed here (waiting for the new master): the O02/O23 stamp, O18's whiteboard text and its two tags, the fact card.
+
+## 34. 2026-11-16 — M7b: calls for the human (agent)
+
+1. **The M7b look** (`review/m7b_look_board.jpg`, `review/m7b_motion_test.mp4`): living drops, haze drift, steam wisps, the treehouse lift, the closes' +⅓ stop, the band-only Polaroid, as the base for the full M7 render. Recommendation: approve.
+2. **O04a** (decisions 28): the new framing loses the band behind the phone in exchange for a readable screen; and the question still arrives halfway (the approved M5 cue). Recommendation: keep the framing; consider showing the question from the shot's start so it reads for all 4.8 s.
+3. **The treehouse screens** (decisions 30, 33; `review/m7b_screens.jpg`): the content and wording, especially the assistant ("Kestrel", read-only, "I can't reach the mail connector.", its log summary), seat 1's phone showing the users' #it-help thread, the fourth laptop on the call, and the dashboard echoing the report's numbers (past 80% unresponsive, 13.8% capacity offline, auto-reroute). The caller ID and the timeout read only as shapes (O08c, O18e); an insert would make them readable if wanted. Recommendation: keep; no insert.
+4. **close_beater** in the +⅓ stop with the six named closes (decisions 29). Recommendation: keep.
+5. **The park** (production log 41–42, `review/m7b_park_concepts.jpg`): pick a direction. Recommendation: concept 1/2's brow for the rebuilt crest; far plate 1 (plate_city s42) for the city, extended sideways for O20e, with plates 2–3's ridges as the far tree lines; firs within about 60 m, the crest, the brow, the lamp post and the umbrella stay 3D. Then an image-to-video take of the plate for O22d.
+6. **The live room's crowd phones** stay blank glowing screens in the wides (too small for text). Recommendation: leave them.
