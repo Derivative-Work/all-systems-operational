@@ -29,11 +29,15 @@ BAND_CAMS = {
                      "lens": 35, "framing": "close", "expo": -0.2, "dof": {"focus": [0.0, -0.69, 0.22], "fstop": 2.8},
                      "what": "the kick pedal: the beater hitting the batter head, the foot on the board"},
     # the strumming hand over the sound hole, from below the player's right elbow, the face out of frame
-    "close_strum": {"kind": "band", "role": "guitar", "loc": [-0.55, -0.72, 0.86], "target": [-0.06, -0.3, 1.0],
+    # (M5c review 2: offsets from the solved strumming hand, so it follows the recast guitarist; same direction)
+    "close_strum": {"kind": "band", "role": "guitar", "anchor": "RightHand", "loc": [-0.49, -0.42, -0.14],
+                    "target": [0.0, 0.0, 0.0],
                     "lens": 50, "framing": "close", "expo": 0.3, "dof": {"focus": "target", "fstop": 2.0},
                     "what": "the guitar's strumming hand over the sound hole"},
     # the banjo's fretting hand on the neck, from beside the player's head looking down past the hand to the floor
-    "close_fret": {"kind": "band", "role": "banjo", "loc": [0.05, -0.62, 1.55], "target": [0.34, -0.22, 1.2],
+    # (M5c review 2: offsets from the solved fretting hand, so it follows the recast banjo player; same direction)
+    "close_fret": {"kind": "band", "role": "banjo", "anchor": "LeftHand", "loc": [-0.29, -0.40, 0.35],
+                   "target": [0.0, 0.0, 0.0],
                    "lens": 55, "framing": "close", "expo": -0.6, "dof": {"focus": "target", "fstop": 2.0},
                    "what": "the banjo's fretting hand on the neck"},
     # the lead singer leaning in to the mic, from behind and below the shoulder, looking up past the head at the mic
@@ -61,6 +65,11 @@ SWAPS = {
 }
 
 
+# M5b's closes on the guitar and banjo, fixed in each room: re-centred on the recast player's hand (role, bone,
+# figure-frame offset; M5c review 2)
+REANCHOR = {"close_guitar": ["guitar", "RightHand", [0.10, 0.0, 0.04]],
+            "close_banjo": ["banjo", "RightHand", [0.14, 0.0, 0.04]]}
+
 # other sub-shots whose camera needs a change now that the people move differently: {sub-shot: (override, why)}
 ADJUST = {}       # (O20g was re-aimed lower in the first review; it showed the park band's lit faces: back to M5b's)
 
@@ -74,6 +83,11 @@ def main():
             out["cameras"][room][k] = v
         for k, v in ROOM_CAMS.get(room, {}).items():
             out["cameras"][room][k] = v
+    # M5c review 2: M5b's fixed guitar and banjo closes follow the recast players' hands (same direction, distance)
+    for room, cams in out["cameras"].items():
+        for k, v in REANCHOR.items():
+            if k in cams:
+                cams[k] = {**cams[k], "reanchor": v}
     rows = []
     for s in out["subs"]:
         if s["id"] in SWAPS:

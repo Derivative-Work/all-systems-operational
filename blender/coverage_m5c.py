@@ -110,17 +110,37 @@ _cam_base = C.cam_base
 def cam_base(sub, c, b):
     over = sub.get("cam_override") or {}
     c2 = {**c, **over}
+    if c2.get("reanchor") and c2.get("kind") != "band":
+        # M5c review 2: an M5b close on a recast player (fixed in the room): the same direction and distance,
+        # re-centred on the player's hand at the sub-shot's middle frame (plus a figure-frame offset)
+        base = _cam_base(sub, c, b)
+        role, bone, off = c2["reanchor"]
+        e = S.OBJ["band"][role]
+        bpy.context.scene.frame_set(int((sub["start_frame"] + sub["end_frame"]) / 2 - C.build_vstart(b) + 1))
+        p = C.bone_world(e, bone) + e.matrix_world.to_3x3().normalized() @ Vector(off)
+        d = p - Vector(base["tgt"])
+        base["loc"], base["tgt"] = Vector(base["loc"]) + d, p
+        if base.get("focus") is not None:
+            base["focus"] = Vector(base["focus"]) + d
+        return base
     if c2.get("kind") != "band":
         return _cam_base(sub, c, b)
     e = S.OBJ["band"][c2["role"]]
     bpy.context.view_layer.update()
     mw = e.matrix_world
     loc, tgt = mw @ Vector(c2["loc"]), mw @ Vector(c2["target"])
+    if c2.get("anchor"):
+        # M5c review 2: loc and target are offsets (figure frame) from a bone of the solved pose at the sub-shot's
+        # middle frame, so the close follows the hand whoever plays (the recast players are taller)
+        bpy.context.scene.frame_set(int((sub["start_frame"] + sub["end_frame"]) / 2 - C.build_vstart(b) + 1))
+        p = C.bone_world(e, c2["anchor"])
+        R = mw.to_3x3().normalized()
+        loc, tgt = p + R @ Vector(c2["loc"]), p + R @ Vector(c2["target"])
     dof = c2.get("dof")
     focus = None
     if dof:
         fp = dof.get("focus", "target")
-        focus = tgt.copy() if fp == "target" else mw @ Vector(fp)
+        focus = tgt.copy() if fp == "target" or c2.get("anchor") else mw @ Vector(fp)
     return dict(loc=loc, tgt=tgt, lens=c2.get("lens", 50), focus=focus, fstop=(dof or {}).get("fstop"), rack=None,
                 kind="band", part=None, framing=c2.get("framing", "close"))
 

@@ -1,0 +1,70 @@
+claps (12); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 36 kicks, tambourine on 39 hits, lead from the vocal envelope, lean-ins on Hey!s); crowd performances on 17 people (6 clap, 6 fist, 5 stand; 6 stompers, 3 join the chorus claps)
+00:20.736  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/guitar_front_alone.png'
+still guitar_front_alone
+00:20.971  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/guitar_side_alone.png'
+still guitar_side_alone
+00:21.423  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/guitar_headstock.png'
+still guitar_headstock
+00:21.698  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/guitar_on_player.png'
+still guitar_on_player
+00:21.965  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/guitar_fret_hand.png'
+still guitar_fret_hand
+00:22.222  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/guitar_fret_hand_under.png'
+still guitar_fret_hand_under
+00:22.483  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/guitar_fret_hand_along.png'
+still guitar_fret_hand_along
+00:22.753  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/guitar_pick_hand.png'
+still guitar_pick_hand
+00:22.997  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/guitar_pick_hand_side.png'
+still guitar_pick_hand_side
+00:23.250  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/guitar_strap_back.png'
+still guitar_strap_back
+00:23.500  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/banjo_front_alone.png'
+still banjo_front_alone
+00:23.728  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/banjo_side_alone.png'
+still banjo_side_alone
+00:24.031  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/banjo_headstock.png'
+still banjo_headstock
+00:24.285  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/banjo_on_player.png'
+still banjo_on_player
+00:24.533  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/banjo_fret_hand.png'
+still banjo_fret_hand
+00:24.780  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/banjo_fret_hand_under.png'
+still banjo_fret_hand_under
+00:25.038  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/banjo_fret_hand_along.png'
+still banjo_fret_hand_along
+00:25.295  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/banjo_pick_hand.png'
+still banjo_pick_hand
+00:25.544  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/banjo_pick_hand_side.png'
+still banjo_pick_hand_side
+00:25.791  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/banjo_strap_back.png'
+still banjo_strap_back
+00:26.102  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/tamb_hands_front.png'
+still tamb_hands_front
+00:26.344  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/tamb_hands_side.png'
+still tamb_hands_side
+00:26.611  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/tamb_hands_top.png'
+still tamb_hands_top
+00:27.087  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/singer_hands_front.png'
+still singer_hands_front
+00:27.326  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/singer_hands_side.png'
+still singer_hands_side
+00:27.585  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/singer_hands_top.png'
+still singer_hands_top
+00:27.905  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/kick_hands_front.png'
+still kick_hands_front
+00:28.168  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/kick_hands_side.png'
+still kick_hands_side
+00:28.436  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/kick_hands_top.png'
+still kick_hands_top
+00:28.771  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/crowd_clap_front.png'
+still crowd_clap_front
+00:29.002  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/crowd_clap_side.png'
+still crowd_clap_side
+00:29.218  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/crowd_clap_body.png'
+still crowd_clap_body
+wrote /home/antiai-aiclub/Projects/all-systems-operational/renders/m5c3/instruments/sheet.json
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+29.72 s

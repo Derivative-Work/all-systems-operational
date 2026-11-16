@@ -657,7 +657,10 @@ class Strumming:
 
 CLAP_CURL = (4, 6, 4)
 CLAP_ITERS = [16]
-POLE_K = [0.4]
+CLAP_FWD = [0.30]           # the clap's centre in front of the shoulders
+CLAP_PITCH = [40.0]          # the fingers' elevation at the clap (degrees; M5c2 54)
+CLAP_LIM = {**PF.WRIST, "ext": 40.0}   # clapping wrists extend up to 40 (decisions 20): the palms meet, not just the fingertips
+POLE_K = [0.5]
 
 
 def clap_pose(body, k, c=None, open_gap=0.13, cross=8.0):
@@ -667,17 +670,18 @@ def clap_pose(body, k, c=None, open_gap=0.13, cross=8.0):
     shL, shR = body.head("LeftArm"), body.head("RightArm")
     mid = (shL + shR) / 2
     if c is None:
-        c = mid + Vector((0, -0.30, -0.07))
+        c = mid + Vector((0, -CLAP_FWD[0], -0.07))
     out = {}
     for it in range(CLAP_ITERS[0]):
         for s, sg in (("Left", 1), ("Right", -1)):
-            pitch = 54.0 - (cross / 2) * sg                      # fingers' elevation above horizontal
+            pitch = CLAP_PITCH[0] - (cross / 2) * sg              # fingers' elevation above horizontal
             y = Vector((0, -math.cos(math.radians(pitch)), math.sin(math.radians(pitch))))
             nrm = Vector((-sg, 0, 0))
             sep = out.get(s, 0.0)
             w = c + Vector((sg * (0.022 + (1 - k) * open_gap + sep), 0.035, -0.055))
             sh = body.head(f"{s}Arm")
-            body.arm_to(s, w, y, nrm, flex0=-6.0, pole=sh + Vector((sg * 0.22, -0.2, -0.35)), pole_k=POLE_K[0])
+            body.arm_to(s, w, y, nrm, flex0=-6.0, pole=sh + Vector((sg * 0.22, -0.2, -0.35)), pole_k=POLE_K[0],
+                        lim=CLAP_LIM)
         # at the clap close the remaining gap (or undo an overlap): palms touching; opening, never overlapping
         g = palm_gap(body)
         if (abs(g) < 0.0015) if k >= 0.9 else (g >= -0.0005):

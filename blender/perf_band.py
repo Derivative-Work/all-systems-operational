@@ -156,7 +156,9 @@ class Standing:
 FRETS = {"guitar": (1, 2, 3), "banjo": (1, 2, 3)}     # the index finger's fret for each chord shape (_CH); open positions (M5c review 2)
 
 
-PF.WRIST_LABEL.update({"guitar fretting": G.Fretting.LIM, "banjo fretting": G.Fretting.LIM})
+PF.WRIST_LABEL.update({"guitar fretting": G.Fretting.LIM, "banjo fretting": G.Fretting.LIM,
+                       "kick player clap": G.CLAP_LIM, "crowd clap": G.CLAP_LIM, "crowd clap (joining in)": G.CLAP_LIM,
+                       "O12 late clapper": G.CLAP_LIM})
 
 
 def guitarist(e, b, coll, rig, obs):

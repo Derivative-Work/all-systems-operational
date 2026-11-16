@@ -169,8 +169,9 @@ def solve(p, t, ch, en, hey, kick13, room):
         G.fist_pose(body, p.fist_side, min(1.0, k))
     elif p.pose == "mug_raise":
         G.mug_pose(body, toast(t, C.HEYS) if room == "cafe" else 0.0)
+    clapping = p.pose in ("clap", "push") or (p.joiner and ch > 0.05)
     for s_ in ("Left", "Right"):
-        body.limit_wrist(s_)
+        body.limit_wrist(s_, G.CLAP_LIM if clapping else None)     # clapping wrists: decisions 20
     p.rec.add()
     labels, ck = labels_of(p, ch)
     PF.check(body, p.e.name, t, PF.rig_offset(body), labels=labels)
