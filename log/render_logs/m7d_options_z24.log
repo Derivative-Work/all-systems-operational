@@ -1,0 +1,40 @@
+M5b build O20: 575 frames, 64.8 s; claps (16); crowd performances on 23 people (10 clap, 8 fist, 5 stand; 5 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 27 kicks, tambourine on 37 hits, lead from the vocal envelope, lean-ins on Hey!s); window/sky light lifts on the Hey!s; rain runs on 0 panes; drizzle falls (1 volumes, looped); M7c fog curtains drift on the clock; umbrella turns; lamp flickers, Switch strains 199.41-201.80 s; the far plate on its cylinder; M7c park: ground 92680 verts, path with 140 kerbs and a 12-block wall, 9 puddles, 8040 blades, 218 firs (10 prototypes) and 122 bare trees, 12 houses, 4 fog curtains; M7b clock on 6 shaders from song time 182.64 s
+01:10.799  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7d/options/z24/raw/O20a.png'
+M5b O20a: frames 1-62 (62), wide, 5.0 s
+M5b build O20 done in 69.8 s
+M5b build O21: 42 frames, 43.2 s; frozen; Switch holds to frame 19, then drops; band frozen at 201.77 s in their M5c holds; crowd frozen at 201.77 s in their M5c poses (23 people, seeds of O20); freeze: no M5b motion; the far plate on its cylinder; M7c park: ground 92680 verts, path with 140 kerbs and a 12-block wall, 9 puddles, 8040 blades, 218 firs (10 prototypes) and 122 bare trees, 12 houses, 4 fog curtains; M7b clock on 6 shaders from song time 201.80 s
+01:58.359  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7d/options/z24/raw/O21a.png'
+M5b O21a: frames 1-42 (42), o21, 4.3 s
+M5b build O21 done in 47.6 s
+M5b build O22: 930 frames, 43.7 s; walker 15.2 m up the path and over the crest; walker: planted-foot gait (blender/ep/gait.py), 0.49 m/s, 1.45 steps/s, 0.34 m steps, 15.2 m; no crowd; no band; window/sky light lifts on the Hey!s; rain runs on 0 panes; drizzle falls (1 volumes, looped); M7c fog curtains drift on the clock; Switch OFF (after O21's drop); walker feet: {'Left': (418, 0.003201059172034232, 6.847239246233706e-05), 'Right': (422, 0.0032000809911229915, 6.0290133901147935e-05)}; the far plate on its cylinder; M7c park: ground 92680 verts, path with 140 kerbs and a 12-block wall, 9 puddles, 8040 blades, 218 firs (10 prototypes) and 122 bare trees, 12 houses, 4 fog curtains; M7b clock on 6 shaders from song time 203.19 s
+02:45.409  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7d/options/z24/raw/O22a.png'
+M5b O22a: frames 1-109 (109), empty, 3.3 s
+02:48.200  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7d/options/z24/raw/O22f.png'
+M5b O22f: frames 681-825 (145), empty, 2.8 s
+M5b build O22 done in 49.8 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+	Command being timed: "blender -b --factory-startup --python blender/coverage_m7.py -- --wides-z 2.4 --m7d-off brow --out renders/m7d/options/z24/raw --still --subs O20a,O21a,O22a,O22f --size 1920x1080 --log log/render_logs/m7d_options_z24_pose_check.log"
+	User time (seconds): 787.04
+	System time (seconds): 874.66
+	Percent of CPU this job got: 984%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:48.70
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 4369104
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 2797144
+	Voluntary context switches: 816638
+	Involuntary context switches: 116169785
+	Swaps: 0
+	File system inputs: 146
+	File system outputs: 79208
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
