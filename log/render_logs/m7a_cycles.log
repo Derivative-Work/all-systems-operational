@@ -1,0 +1,35 @@
+00:23.296  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+M5b build O03: 577 frames, 22.4 s; claps on 2 and 4 from the drums' entry (8); crowd performances on 20 people (1 clap, 6 phone, 13 stand; 1 stompers, 4 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 26 kicks, tambourine on 36 hits, lead from the vocal envelope, lean-ins on Hey!s); 5 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.024 (noise-modulated), daylight shafts through the window openings (sun 3.5); rain runs on 5 panes
+00:37.255  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7a/cycles/O03a.png'
+M5b O03a: frames 1-144 (144), wide_back, 13.9 s
+M5b build O03 done in 36.3 s
+M5b build O20: 575 frames, 57.0 s; claps (16); crowd performances on 23 people (10 clap, 8 fist, 5 stand; 5 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 27 kicks, tambourine on 37 hits, lead from the vocal envelope, lean-ins on Hey!s); window/sky light lifts on the Hey!s; rain runs on 0 panes; drizzle falls (1 volumes, looped); fog cards drift; umbrella turns; lamp flickers, Switch strains 199.41-201.80 s
+01:40.423  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7a/cycles/O20a.png'
+M5b O20a: frames 1-62 (62), wide, 6.1 s
+M5b build O20 done in 63.2 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+	Command being timed: "blender -b --factory-startup --python blender/coverage_m7.py -- --engine cycles --out renders/m7a/cycles --still --subs O03a,O20a --size 1920x1080 --log log/render_logs/m7a_pose_check_cycles.log"
+	User time (seconds): 330.61
+	System time (seconds): 326.33
+	Percent of CPU this job got: 649%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:41.21
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 4767408
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 97
+	Minor (reclaiming a frame) page faults: 2370068
+	Voluntary context switches: 284287
+	Involuntary context switches: 11345372
+	Swaps: 0
+	File system inputs: 331190
+	File system outputs: 40384
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
