@@ -96,3 +96,15 @@ Append-only. Every human action: when, what, and why.
 - **What:** after the M5c3 animatic, instrument sheet and performance sheet: "Better, try the look pass". Taken as approval of the M5c3 performance pass (recast 3 → 33 and 8 → 36, arms down, fretting grips, palm-to-palm claps, disclosure at the end only) as a base for the look work.
 - **Not yet ruled on:** the calls in decisions 19–20 (the recast and the band no longer having an Asian member; the raised fretting and clap wrist limits; the banjo player's blurred face in O09g; O03d's opening crowd back), and the earlier open calls (decisions 11, 13–14, the 290 s length). They stand as proposed until the human rules.
 - **Next:** a look board before the full M7 render: hero frames per set (live room, coffee shop, treehouse, hilltop park) with final materials, set dressing, haze and grade, for approval.
+
+## 18. 2026-11-16 — M7a look board reviewed
+
+- **What:** "Eevee is fine." On decisions 26:
+  1. "Yes those are mostly fine as the base, though we could use some motion on the water droplets and make sure that the phone's Slack messages are readable when it is visible". The look per set is approved as the M7 base. The beaded drops on glass should move, and the O04 phone's chat (the brief's generic chat UI, which the human calls Slack) must be readable whenever it is on screen.
+  2. "In addition to what you pointed out, the whole hilltop scene is off, not just what you pointed out, starting from the hill itself." The park is to be redone from the ground up, not just the firs and skyline.
+  3. "Keep the light shafts".
+  4. "Keep the near-black silhouettes".
+  5. "Band only Polaroid".
+  6. "Station sign is good as-is" (the 50.3 FM · listener-supported radio sign, checked for likeness to KEXP's 90.3).
+- **Also accepted, from the agent's list:** the treehouse lift, O18e, the ⅓-stop lift on instrument closes, mug steam and haze drift go ahead. The roof and park-sun fixes (decisions 26.5) and the Eevee JPEG plan (26.6) were not objected to.
+- **Asked:** whether any shots could be generated without losing much, especially ones with nothing composited (kick head, Switch); and whether anything is planned for the treehouse laptop and phone screens. The agent found nothing planned: they are blank emissive white.
