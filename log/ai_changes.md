@@ -25,3 +25,12 @@ Lyrics as sung are checked at M1 (WhisperX on the lead and backing stems), defer
 ## 5. 2026-11-15 — The guitarist and banjo player recast (M5c review 2)
 
 - The board's band was people 3, 8, 12, 17, 22. The guitarist is now person 33 and the banjo player person 36 (decisions 19): the real-size guitar was too big for person 3, and the banjo for person 8. They swap places with 3 and 8 elsewhere, so no position changes: 3 is now O12's late clapper, 8 a treehouse meeting chair.
+
+## 6. 2026-11-16 — M7a look pass: what is new or different on screen (agent)
+
+Relative to the approved M5c3 grey box (decisions 21–24); cameras, cut and performances unchanged.
+- **Every set:** procedural materials on everything that was a flat colour; darker values; performers in silhouette against the windows, sky or whiteboard, with rims; the grade (`scripts/grade.py`).
+- **Live room:** rain on the five windows (rivulets, beaded drops); daylight shafts in the haze and window-shaped pools on the floor; flat-woven rugs, fabric panels and clouds, a planked floor that reflects the windows. Added: sills under the windows; fader strips, knobs, small amber and green meter LEDs and two dimly lit monitor screens on the host's console (no text or logos); two road cases and an amp at the ends of the window wall; three cable runs along its foot (nobody stands there); a warm spill light high by the door; the ON AIR sign's red spill raised (60 W). Little Switch's plane is untouched.
+- **Coffee shop:** red brick walls; steamed windows with clear drip trails; string lights at 14 (emission) with weaker fill; glazed mugs; painted and wood chairs. Added: two warm pendants over the counter, group heads and a drip tray on the (blank) espresso machine, potted plants on the back sills, a small picture light on the Polaroid, and the Polaroid's photo (decisions 24).
+- **Treehouse:** the roof turned the right way (decisions 23), so the room is closed and two skylights show rain; cedar boards; firs through the rainy glass; whiteboard markers in the tray; finer moss on the deck's edge and rails; drizzle beyond the back and left windows; a spot over the conference table (the pendant stays off by day).
+- **Hilltop park:** conifers in place of cones; a generic skyline massing in fog in place of boxes (no tower, no water); the sun from behind the band, so the crowd and band are silhouettes; wet grass and gravel; a thin fog over the crest; finer drizzle.

@@ -59,6 +59,10 @@ BARS = MM["bars"]
 DRUMS_E = MM["energy"]["drums"]["norm"]
 MIX_E = MM["energy"]["mix"]["norm"]
 FREEZE = {"O12", "O21"}
+# M7 (blender/coverage_m7.py, blender/look.py): f(build, room) run after the render settings, and f(sub, room, build
+# exposure, camera preset) -> the view exposure. None keeps M5b-M5c3's.
+SETTINGS = None
+EXPOSURE = None
 NOHAZE = "--nohaze" in sys.argv
 CHORUS = {"Stomp-clap": 0.7, "Chorus 1": 1.0, "Post-Chorus 1": 0.8, "Build 1": 1.0, "Chorus 2": 1.0,
           "Post-Chorus 2": 0.8, "Build 2": 0.6, "Final Chorus": 1.0}
@@ -973,6 +977,8 @@ def main():
         sc.eevee.volumetric_samples = 32
         if b in ("O10", "O14", "O15", "O16", "O17"):           # as M5
             K.bloom()
+        if SETTINGS is not None:
+            SETTINGS(b, room)
         gb.into(None)
         tb = time.time()
         print(f"M5b build {b}: {n} frames, {time.time() - t0:.1f} s; " + "; ".join(x for x in notes if x), flush=True)
@@ -985,8 +991,11 @@ def main():
             # the cafe's crowd and band are lit more from the front than the other rooms': its people angles go darker
             extra = -0.9 if room == "cafe" and (c_.get("expo") or c_.get("kind")) else 0.0
             sc.view_settings.exposure = K.LOOK["exposure"] + expo + c_.get("expo", 0.0) + extra
+            if EXPOSURE is not None:
+                sc.view_settings.exposure = EXPOSURE(s, room, expo, c_)
             out = ROOT / a.out / s["id"]
-            out.mkdir(parents=True, exist_ok=True)
+            if not a.still:
+                out.mkdir(parents=True, exist_ok=True)
             if a.still:
                 fr = {"mid": (f0 + f1) // 2, "first": f0, "last": f1 - 1}.get(a.at)
                 if fr is None:

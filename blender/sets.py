@@ -41,6 +41,10 @@ import poses  # noqa: E402
 ROOMS = K.LOOK["rooms"]
 STATE = {}
 OBJ = {}          # named handles for cameras and board checks
+# M7 (blender/look.py, enabled by blender/coverage_m7.py): functions f(room, state) run after each room is built (the
+# look pass: materials, set dressing, light), and a replacement for drizzle(). Empty and None for M3-M5c3.
+POST_BUILD = []
+DRIZZLE_HOOK = None
 
 # The band, cast by person index from the library (adults, mixed; chosen once and reused in every room, brief: "Built
 # once in Blender and reused in every room"). Host: 30. The crowd draws from everyone else.
@@ -194,6 +198,8 @@ def wall_with_openings(name, axis, at, span, height, openings, m, thick=0.2):
 def drizzle(name, lo, hi, n, rng_name, length=(0.16, 0.3), alpha=0.35, emit=0.6):
     """Drizzle: n thin streaks (4 mm wide) scattered through the box lo..hi, tilted a few degrees by the wind;
     one merged mesh, seeded. Cheaper than particles and identical every render."""
+    if DRIZZLE_HOOK is not None:
+        return DRIZZLE_HOOK(name, lo, hi, n, rng_name, length, alpha, emit)
     r = gb.rng(rng_name)
     m = gb.mat(f"{name}_mat", "#eef1f3", 0.2, emit=emit, alpha=alpha)
     b = gb.Builder([m])
@@ -820,4 +826,6 @@ def build(room, st=None):
     if room != "void":
         K.load_people()
     BUILDERS[room](st)
+    for h in POST_BUILD:
+        h(room, st)
     return OBJ

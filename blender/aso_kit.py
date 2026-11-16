@@ -196,6 +196,7 @@ def window_mat(name, top="#d9dde0", bottom="#b9bfc4", strength=3.0, rain=1.0, st
         m.surface_render_method = "DITHERED"
     L(shader, out.inputs["Surface"])
     m["window"] = True
+    m["win"] = dict(top=top, bottom=bottom, strength=strength, rain=rain, steam=steam, seed=seed, see=see)  # for M7
     return m
 
 
@@ -227,6 +228,7 @@ def fog_mat(name, hexcol, fog="#c4c9cc", dist=60.0, rough=0.9, emit_fog=1.0):
     L(b.outputs[0], mix.inputs[1])
     L(e.outputs[0], mix.inputs[2])
     L(mix.outputs[0], out.inputs["Surface"])
+    m["fog"] = dict(hex=hexcol, fog=fog, dist=dist, emit=emit_fog)        # kept for the M7 look (blender/look.py)
     return m
 
 

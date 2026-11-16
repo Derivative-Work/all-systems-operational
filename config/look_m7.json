@@ -1,0 +1,92 @@
+{
+  "_doc": "M7 look numbers (blender/look.py, the M7a look board; production log 30+). Read only when blender/look.py is enabled (blender/coverage_m7.py), so M3-M5c3 renders stay reproducible from config/aso_look.json. Exposure is the view exposure for each room before the build's and the camera's own offsets (blender/coverage.py). Light energies in W, emission strengths as Blender's.",
+  "render": {
+    "eevee_samples": 64,
+    "volumetric_tile": "2",
+    "volumetric_samples": 96,
+    "volumetric_shadow_samples": 24,
+    "motion_blur": true,
+    "shutter": 0.5,
+    "cycles_samples": 384,
+    "filter_size": 1.2,
+    "bloom": {
+      "threshold": 1.0,
+      "size": 0.45,
+      "strength": 0.22
+    }
+  },
+  "cam_expo_scale": 1.0,
+  "rooms": {
+    "live": {
+      "exposure": -0.6,
+      "window_emit": 3.2,
+      "window_area": 55.0,
+      "haze": 0.024,
+      "fill": [
+        "#b9bdc0",
+        0.02
+      ],
+      "bulb_light": 6.0,
+      "lamp_light": 5.0,
+      "sun": 3.5,
+      "sun_pitch": 40.0,
+      "sun_yaw": 14.0,
+      "sun_angle": 2.5,
+      "sun_volume": 14.0,
+      "door_spill": 14.0,
+      "onair_glow": 60.0
+    },
+    "cafe": {
+      "exposure": -0.6,
+      "window_emit": 5.0,
+      "window_area": 70.0,
+      "haze": 0.012,
+      "fill": [
+        "#c9c2b6",
+        0.03
+      ],
+      "bulbs": 14.0,
+      "strand_light": 4.0,
+      "polaroid_light": 10.0,
+      "sun": 1.6,
+      "sun_pitch": 36.0,
+      "sun_yaw": -10.0,
+      "sun_angle": 4.0,
+      "sun_volume": 5.0
+    },
+    "treehouse": {
+      "exposure": -0.55,
+      "window_emit": 4.2,
+      "window_area": 45.0,
+      "haze": 0.02,
+      "fill": [
+        "#cfd3d5",
+        0.01
+      ],
+      "whiteboard": 3.0,
+      "sun": 2.0,
+      "sun_pitch": 38.0,
+      "sun_yaw": 12.0,
+      "sun_angle": 3.0,
+      "sun_volume": 6.0,
+      "table_light": 600.0,
+      "forest_fog": [
+        "#b4babd",
+        48.0
+      ],
+      "skylight_gain": 2.2
+    },
+    "park": {
+      "exposure": -0.2,
+      "sky_cam": 1.55,
+      "sky_light": 0.8,
+      "back_bias": 2.6,
+      "sun": 0.9,
+      "fog": "#cdd1d3",
+      "sun_elev": 50.0,
+      "sun_yaw": 8.0,
+      "sun_angle": 60.0,
+      "near_fog": 0.012
+    }
+  }
+}

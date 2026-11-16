@@ -289,8 +289,14 @@ def charger_tangle(name, loc, rng, n=7, spread=0.45):
     return b.obj(name, None, loc)
 
 
+# M7 (blender/look.py): a replacement for evergreen(), f(b, base, h, r, role, trunk, tiers). None for M3-M5c3.
+TREE_HOOK = None
+
+
 def evergreen(b, base, h, r, role="evergreen", trunk="trunk", tiers=5):
     """A conifer from stacked cones into builder b (role names must be in b.roles)."""
+    if TREE_HOOK is not None:
+        return TREE_HOOK(b, base, h, r, role, trunk, tiers)
     b.cyl(Vector(base) + Vector((0, 0, h * 0.08)), r * 0.08, h * 0.16, trunk, segs=6)
     for k in range(tiers):
         t = k / tiers
