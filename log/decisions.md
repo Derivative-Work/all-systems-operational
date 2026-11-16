@@ -358,3 +358,12 @@ Human interventions 25: the credits and end cards go over an instrumental, so "d
 - **Order**: the brief's (end card, "Next incident: TBD", fact card, disclosure), as in the M5 animatic.
 - **Not changed**: the words; the M5 cards and `timing/shot_times.json` (O24 still 9 s and the fact card 15 s there, so M5 and the animatics reproduce). The M7 assembly takes the end sequence from `renders/m7/remotion/M7-EndSequence.mp4` after the music.
 - **Waiting on the instrumental**: the card changes are meant to land on its bar lines (`snap`, not set: no track yet). The sequence fits whatever length the track has: if the track is longer, it can fade under the last card; if shorter, it needs a loop or a tail from the human.
+
+## 45. 2026-11-16 — M7: the end cards on the instrumental; 2:35 of its 3:32 (agent; for the human)
+
+Human interventions 26. The cards at reading pace take about 2:21 and the track runs 3:32. Holding the cards to the track's full length would slow them to about 110 words a minute and leave the disclosure up for over a minute, so the music ends when the cards do.
+- **Card changes on the music** (`config/end_cards_m7.json` snap; `timing/credits_grid.json`): each card holds at least its reading time (decisions 44), then changes on the strongest section change within 6 s (or half its reading time, if less), else on the next downbeat. Result: end card 0–13.6 s (in the beatless intro), "Next incident: TBD" 13.6–18.2, fact pages from 18.2 (the kick comes in 4.7 s into page 1), 43.7, 60.0 and 96.9 (the drop), the disclosure from 124.5 (the breakdown) to 154.6. Every card is up 0.6–3.2 s longer than its reading time.
+- **The ending**: the picture fades to black over the last 0.8 s, and the music fades over the last 2.4 s into the track's own two-bar drop-out at 2:34.6 (−78 dB at the cut). The track's last build, final drop and outro (2:35–3:32) go unused. The video runs about 6:43.
+- **Alternatives for the human**: (1) the track's own ending: cut from the drop-out at 2:34.6 to the outro (about 3:08) at a downbeat. That's a music edit, by ear the human's call; it gives about 25 s more for the disclosure or for slower pages. (2) The whole track with longer holds (about 3:32). (3) As is.
+- **Unchanged**: the words, the order, the M5 cards. The holds follow the text: when "[models, dates]" and the other placeholders are filled in, the plan recomputes, and the disclosure may move to the next fade-out point (the track's end).
+- **Level**: the credits are left 2 LU under the song (−15.7 against −13.7 LUFS), as delivered.
