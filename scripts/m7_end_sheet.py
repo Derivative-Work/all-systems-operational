@@ -19,8 +19,10 @@ cols, cap_h = 2, 40
 rows = (len(cards) + cols - 1) // cols
 sheet = Image.new("RGB", (cols * TILE[0] + (cols + 1) * 10, rows * (TILE[1] + cap_h) + (rows + 1) * 10 + 44), (24, 24, 26))
 d = ImageDraw.Draw(sheet)
-d.text((14, 12), f"M7 end sequence: {len(cards)} cards, {total / 30:.1f} s at {cfg['wpm']} words a minute plus "
-       f"{cfg['settle_s']:.0f} s a card (config/end_cards_m7.json); silent until the instrumental is in", fill=(230, 230, 230), font=FONT)
+head = (f"M7 end sequence: {len(cards)} cards, {total / 30:.1f} s; each at least its reading time ({cfg['wpm']} words a minute "
+        f"plus {cfg['settle_s']:.0f} s)") + ("; changes on the instrumental's sections (timing/credits_grid.json)" if cfg.get("snap")
+                                             else "; silent until the instrumental is in")
+d.text((14, 12), head, fill=(230, 230, 230), font=FONT)
 for i, c in enumerate(cards):
     x, y = 10 + (i % cols) * (TILE[0] + 10), 54 + (i // cols) * (TILE[1] + cap_h + 10)
     sheet.paste(Image.open(f"review/m7_end/{c}.png").convert("RGB").resize(TILE, Image.LANCZOS), (x, y))

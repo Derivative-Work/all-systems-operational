@@ -1068,3 +1068,14 @@ Append-only. One entry per generation, render or analysis step.
   - 19 section changes (the 4 beats after a downbeat against the 4 before: more than 2.5 dB in level or 10 dB under 150 Hz), each moved to the strongest onset within 0.2 s; the strongest are the kick's entry (22.87 s), 41.38, 60.04, the drop (96.87), 115.29/117.45, the breakdown (124.47), 160.56.
   - Fade-out points, where the music thins by 5 dB or more: 154.64 s (a two-bar drop-out before the last build), and the track's end (212.4).
 - **Sent** to the human: the full post-filtered track as MP3 320k (`review/m7/audio/all-systems-operational-credits-postfiltered.mp3`, 8.5 MB).
+
+## 62. 2026-11-16 — M7: the end sequence on the instrumental, with its music; the preview
+
+- **Why:** decisions 45.
+- **Code:** `remotion/src/components/EndCards.tsx` reads `timing/credits_grid.json` and, with `config/end_cards_m7.json` snap set (`window_s` 6, `window_frac` 0.5, `picture_fade_s` 0.8, `music_fade_s` 2.4), starts each card on the music; unsnapped, the holds are as in production log 60. `npx tsc` clean.
+- **Render:** `scripts/m7_end.sh` (now also cuts the music and builds the preview) → stills, `review/m7_end/plan.txt` (M7-EndSequence 4,639 frames, 154.63 s; end 408, final 139, fact pages 764, 490, 1,105, 828, disclosure 905 frames), `renders/m7/remotion/M7-EndSequence.mp4` (111 s to render, alongside Blender), `review/m7_end_sheet.jpg`, then:
+  - `ffmpeg … -af "atrim=0:154.6333,afade=t=out:st=152.2333:d=2.4" … audio/credits/credits-m7-end.wav` (the post-filtered instrumental from its start, cut and faded with the sequence; −78 dB at the end).
+  - `review/m7_end_preview.mp4`: the song's last 6 s (video 241.979–247.979 s from `review/m5c3_animatic.mp4`, O23, with the post-filtered v1.3 master's audio, song 233.579–239.579 s), then the sequence with its music; h264 650k, AAC 128k, 160.7 s, 9.4 MB.
+- **Checked:** the music cut's level through the fade (−17 dB at 150 s, −31 at 153, −78 at the end). The changes on the music are as decisions 45 lists.
+- **Sent** to the human: the preview.
+- **For the M7 assembly:** the end sequence and `audio/credits/credits-m7-end.wav` follow O23 at video frame 7439 (song 239.579 s), in place of the M5 O24 and the end cards.
