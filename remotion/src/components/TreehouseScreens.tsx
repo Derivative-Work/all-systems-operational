@@ -5,8 +5,10 @@
 // video call".
 // Guardrails (decisions 30): generic UIs in the video's own palette (theme.ts), no real product's name, logo, colours
 // or layout; invented names; the caller ID is in the 555-0100..0199 fiction range; nothing ties AI-written code to the
-// outage (the code screen is a health check, the agent only reads logs and is blocked); no cause beyond the brief's
-// sources; times follow the brief (Thu Nov 12, the wider outage from 10:26 a.m. PT).
+// outage (the code screen is a health check, the agent only reads logs and is blocked); no screen mentions the July
+// fix, who or what wrote it, or the load tests (the whiteboard's and the brief's tags'); nothing from the report is
+// reproduced; times follow the brief (rev 136: Exchange problems from 8:20 a.m. PT Thu Nov 12, the wider outage from
+// 10:26 a.m. PT).
 // Every screen takes `night` (O08c: late Thursday night; O18: Thursday afternoon) and `phase` (frames: where its loop
 // starts, so each build's shots land on a readable beat).
 import React from 'react';
@@ -145,31 +147,44 @@ export const AlertCall: React.FC<ScreenProps> = ({night, phase = 0}) => {
   );
 };
 
-/* ---------- 3. a laptop: an invented service-health dashboard, the 5xx rate spiking, tiles going red ---------- */
+/* ---------- 3. a laptop: an invented service-health dashboard ---------- */
+// It echoes the sourced story (brief rev 136, fact card: The Register on Microsoft's preliminary report) with invented
+// labels and nothing quoted: the error rate rising from 8:20 a.m. PT (11:20 a.m. ET) and climbing from 10:26 a.m. PT
+// (1:26 p.m. ET); a gateway pool whose unresponsive share climbs past 80%; about 14% of capacity offline; automatic
+// rerouting between pools. No cause, no fix, no change history on screen.
 const TILES: [string, 'down' | 'degraded' | 'ok', number][] = [
   // [service, final state, frame it turns (from phase 0), before that: degraded]
-  ['mailflow-west', 'down', -1], ['authn-edge', 'down', 40], ['cal-sync', 'down', 150],
-  ['files-api', 'ok', -1], ['connector-hub', 'down', 300], ['search-idx', 'degraded', -1],
+  ['mailflow-west', 'down', -1], ['authn-edge', 'down', 40], ['cal-sync', 'down', 150], ['connector-hub', 'down', 300],
 ];
 export const Dashboard: React.FC<ScreenProps> = ({night, phase = 0}) => {
   const f = useCurrentFrame() + phase;
   const r = rng(503);
-  // the 5xx rate from 09:00 to now, one point per 5 minutes: ~0.3% before 09:50, a climb to 10:26, then high with noise
-  const endMin = night ? (23 - 9) * 60 + 47 : (14 - 9) * 60 + 52;
+  // the 5xx rate from 08:00 PT to now, one point per 5 minutes: a first rise from 08:20, the climb from 10:26
+  const startMin = 8 * 60;
+  const nowMin = night ? 23 * 60 + 47 : 14 * 60 + 52;
+  const span = nowMin - startMin;
   const pts: [number, number][] = [];
-  for (let m = 0; m <= endMin; m += 5) {
-    const climb = interpolate(m, [50, 86, 92], [0.3, 18, 36], clamp);
-    const tail = m > 92 ? 30 + 7 * Math.sin(m / 23) + 4 * Math.sin(m / 7.3) : climb;
-    pts.push([m, Math.max(0.2, tail + (r() - 0.5) * (m > 50 ? 5 : 0.3))]);
+  for (let m = 0; m <= span; m += 5) {
+    const tm = startMin + m;
+    let v = interpolate(tm, [500, 520, 600, 626, 660], [0.3, 6, 8, 18, 34], clamp);
+    if (tm > 660) v = 29 + 6 * Math.sin(tm / 23) + 4 * Math.sin(tm / 7.3);
+    pts.push([m, Math.max(0.2, v + (r() - 0.5) * (tm > 500 ? 4 : 0.3))]);
   }
-  const live = 31 + 4 * Math.sin(f / 9) + 2.5 * Math.sin(f / 3.7);
-  pts.push([endMin + 2, live]);
-  const W = 780, H = 470, X0 = 70, Y0 = 70;
-  const xs = (m: number) => X0 + (m / (endMin + 2)) * (W - X0 - 20);
-  const ys = (v: number) => Y0 + H - 50 - (v / 40) * (H - 90);
+  const live = 30 + 4 * Math.sin(f / 9) + 2.5 * Math.sin(f / 3.7);
+  pts.push([span + 2, live]);
+  const X0 = 64, W = 760, Y0 = 50, H = 280;
+  const xs = (m: number) => X0 + (m / (span + 2)) * (W - X0 - 16);
+  const ys = (v: number) => Y0 + H - 36 - (v / 40) * (H - 70);
   const path = pts.map(([m, v], i) => `${i ? 'L' : 'M'}${xs(m).toFixed(1)} ${ys(v).toFixed(1)}`).join(' ');
   const ticks = [];
-  for (let h = 9; h * 60 - 540 <= endMin; h += night ? 3 : 1) ticks.push(h);
+  for (let h = 8; h * 60 <= nowMin; h += night ? 3 : 2) ticks.push(h);
+  // the gateway pool: 60 servers in 20 columns, going unresponsive from the left, the share climbing past 80% within
+  // each build's own frames (O08c: 78 -> 85%; O18: 60 -> 86%, past 80% before O18e)
+  const cf = useCurrentFrame();
+  const share = night ? 0.78 + 0.07 * (cf / 72) : 0.6 + 0.26 * (cf / 576);
+  const nDown = Math.round(share * 60);
+  const downSet = new Set(Array.from({length: 60}, (_, i) => i).filter((i) => (i % 20) * 3 + Math.floor(i / 20) < nDown));
+  const reroute = (f % 45) / 45;
   return (
     <div style={{position: 'absolute', inset: 0, background: D.bg, fontFamily: UI, color: D.text}}>
       <div style={{height: 70, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 34px', background: D.panel,
@@ -180,39 +195,69 @@ export const Dashboard: React.FC<ScreenProps> = ({night, phase = 0}) => {
           <span style={{color: D.muted}}>{clockAt(night, f / 30)} PT</span>
         </div>
       </div>
-      <svg width={820} height={560} style={{position: 'absolute', left: 20, top: 90}}>
-        <text x={X0} y={44} fill={D.text} fontSize={34} fontWeight={700} fontFamily={UI}>5xx error rate</text>
-        <text x={X0 + 300} y={44} fill={D.red} fontSize={46} fontWeight={800} fontFamily={UI}>{live.toFixed(1)}%</text>
-        {[0, 10, 20, 30, 40].map((v) => (
+      {/* the 5xx rate */}
+      <svg width={820} height={330} style={{position: 'absolute', left: 20, top: 82}}>
+        <text x={X0} y={34} fill={D.text} fontSize={32} fontWeight={700} fontFamily={UI}>5xx error rate</text>
+        <text x={X0 + 270} y={36} fill={D.red} fontSize={42} fontWeight={800} fontFamily={UI}>{live.toFixed(1)}%</text>
+        {[0, 20, 40].map((v) => (
           <g key={v}><line x1={X0} x2={W} y1={ys(v)} y2={ys(v)} stroke={D.line} strokeWidth={1.5} />
-            <text x={X0 - 12} y={ys(v) + 8} fill={D.muted} fontSize={22} textAnchor="end" fontFamily={UI}>{v}%</text></g>
+            <text x={X0 - 12} y={ys(v) + 8} fill={D.muted} fontSize={21} textAnchor="end" fontFamily={UI}>{v}%</text></g>
         ))}
-        <line x1={X0} x2={W} y1={ys(5)} y2={ys(5)} stroke={D.amber} strokeWidth={2} strokeDasharray="8 8" />
-        <path d={`${path} L${xs(endMin + 2)} ${ys(0)} L${xs(0)} ${ys(0)} Z`} fill={D.coral} opacity={0.18} />
-        <path d={path} fill="none" stroke={D.coral} strokeWidth={4.5} strokeLinejoin="round" />
-        <circle cx={xs(endMin + 2)} cy={ys(live)} r={9} fill={D.coral} opacity={0.6 + 0.4 * Math.sin(f / 4)} />
+        <path d={`${path} L${xs(span + 2)} ${ys(0)} L${xs(0)} ${ys(0)} Z`} fill={D.coral} opacity={0.18} />
+        <path d={path} fill="none" stroke={D.coral} strokeWidth={4} strokeLinejoin="round" />
+        <circle cx={xs(span + 2)} cy={ys(live)} r={8} fill={D.coral} opacity={0.6 + 0.4 * Math.sin(f / 4)} />
         {ticks.map((h) => (
-          <text key={h} x={xs(h * 60 - 540)} y={ys(0) + 34} fill={D.muted} fontSize={22} textAnchor="middle" fontFamily={UI}>
+          <text key={h} x={xs(h * 60 - startMin)} y={ys(0) + 30} fill={D.muted} fontSize={21} textAnchor="middle" fontFamily={UI}>
             {String(h).padStart(2, '0')}:00</text>
         ))}
       </svg>
-      <div style={{position: 'absolute', left: 860, top: 100, width: 390, display: 'grid', gridTemplateColumns: '1fr', gap: 14}}>
+      {/* the gateway pool */}
+      <div style={{position: 'absolute', left: 84, top: 430, width: 740}}>
+        <div style={{display: 'flex', alignItems: 'baseline', gap: 20}}>
+          <span style={{fontSize: 30, fontWeight: 700}}>gateway pool · unresponsive</span>
+          <span style={{fontSize: 46, fontWeight: 800, color: share >= 0.8 ? D.red : D.amber}}>{Math.round(share * 100)}%</span>
+        </div>
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(20, 1fr)', gap: 7, marginTop: 18}}>
+          {Array.from({length: 60}, (_, i) => (
+            <div key={i} style={{height: 50, borderRadius: 6, background: downSet.has(i) ? D.red : D.green, opacity: downSet.has(i) ? 0.95 : 0.8}} />
+          ))}
+        </div>
+        <div style={{position: 'relative', height: 30, marginTop: 10}}>
+          <div style={{position: 'absolute', left: '80%', top: 0, bottom: 0, borderLeft: `3px dashed ${D.amber}`}} />
+          <span style={{position: 'absolute', left: 'calc(80% + 10px)', top: 0, fontSize: 21, color: D.amber}}>80%</span>
+        </div>
+      </div>
+      {/* right column: capacity, rerouting, services */}
+      <div style={{position: 'absolute', left: 860, top: 92, width: 390, display: 'flex', flexDirection: 'column', gap: 12}}>
+        <div style={{borderRadius: 14, background: D.panel, borderLeft: `14px solid ${D.amber}`, padding: '12px 22px'}}>
+          <div style={{fontSize: 24, color: D.muted}}>capacity offline</div>
+          <div style={{fontSize: 44, fontWeight: 800, color: D.amber}}>13.8%</div>
+        </div>
+        <div style={{borderRadius: 14, background: D.panel, borderLeft: `14px solid ${D.amber}`, padding: '12px 22px'}}>
+          <div style={{fontSize: 24, color: D.muted}}>auto-reroute <span style={{color: D.amber, fontWeight: 700}}>ON</span></div>
+          <svg width={330} height={64} viewBox="0 0 330 64">
+            {['pool a', 'pool b', 'pool c'].map((nm, i) => (
+              <g key={nm}>
+                <rect x={i * 118} y={10} width={86} height={44} rx={8} fill={i === 0 ? D.red : i === 1 ? '#a8463c' : '#6e3c36'} />
+                <text x={i * 118 + 43} y={39} fill="#fff" fontSize={20} fontWeight={700} textAnchor="middle" fontFamily={UI}>{nm}</text>
+                {i < 2 && <path d={`M${i * 118 + 90} 32 L${i * 118 + 114} 32 M${i * 118 + 106} 25 L${i * 118 + 114} 32 L${i * 118 + 106} 39`}
+                  stroke={D.amber} strokeWidth={3.5} fill="none" opacity={0.4 + 0.6 * ((reroute + i * 0.5) % 1)} />}
+              </g>
+            ))}
+          </svg>
+        </div>
         {TILES.map(([name, fin, at]) => {
           const st = at < 0 || f >= at ? fin : 'degraded';
           const c = st === 'down' ? D.red : st === 'degraded' ? D.amber : D.green;
           const flash = at >= 0 && f >= at && f < at + 12 ? 1 : 0;
           return (
-            <div key={name} style={{height: 96, borderRadius: 14, background: flash ? '#3a2422' : D.panel, borderLeft: `14px solid ${c}`,
-              display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 24px'}}>
-              <span style={{fontSize: 30, fontWeight: 650}}>{name}</span>
-              <span style={{fontSize: 26, fontWeight: 750, color: c, textTransform: 'uppercase', letterSpacing: 1}}>{st}</span>
+            <div key={name} style={{height: 74, borderRadius: 14, background: flash ? '#3a2422' : D.panel, borderLeft: `14px solid ${c}`,
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 22px'}}>
+              <span style={{fontSize: 28, fontWeight: 650}}>{name}</span>
+              <span style={{fontSize: 24, fontWeight: 750, color: c, textTransform: 'uppercase', letterSpacing: 1}}>{st}</span>
             </div>
           );
         })}
-      </div>
-      <div style={{position: 'absolute', left: 90, top: 680, fontSize: 24, color: D.muted}}>
-        retries per minute <span style={{color: D.text, fontWeight: 700}}>{Math.round(41000 + 3000 * Math.sin(f / 11))}</span>
-        <span style={{marginLeft: 46}}>p95 latency <span style={{color: D.amber, fontWeight: 700}}>{(4.6 + 0.4 * Math.sin(f / 7)).toFixed(1)} s</span></span>
       </div>
     </div>
   );
