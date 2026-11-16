@@ -35,7 +35,7 @@ BL = Path("renders/m5/frames_blender")      # frame sequences: out of the manife
 SEG = Path("renders/m5/segments")
 O06_CLIP = "assets/gen/clips/O06/O06_s41.mp4"
 O07_TOWER = "assets/gen/stills/O07_fogtower/O07_fogtower_s44.png"
-DISCLOSURE_FRAMES = TS["overlays"]["disclosure"]["end_frame"] - TS["overlays"]["disclosure"]["start_frame"]
+DISCLOSURE_FRAMES = TS["cards"]["disclosure_frames"]          # decisions 18 (was the O17 overlay's length)
 O19A, XF = 175, 10                       # blender/animatic.py: O19's two parts and their cross-fade
 O08_PHONE = (45, 115)                    # O08 inserts (frames in the shot): IT's reply from echo 1 to echo 2,
 O08_TREE = (115, 187)                    # then the treehouse cutaway for 4 beats (decisions 11)
@@ -241,7 +241,7 @@ def segment(sid, o07="server"):
         k = mark("O13", 0)
         return read_video(REM / "M5-O13-Card.mp4", k) + read_video(REM / "M5-O13-Status.mp4", n - k), "remotion card, then status row red"
     if sid == "O17":
-        return over(blender(sid, n), overlay("M5-O17-Disclosure", DISCLOSURE_FRAMES)), "blender motion + disclosure panel"
+        return blender(sid, n), "blender motion (no disclosure panel: decisions 18)"
     if sid == "O18":
         return over(blender(sid, n), overlay("M5-Dramatization", n)), "blender motion, whiteboard movie texture + caption"
     if sid == "O19":

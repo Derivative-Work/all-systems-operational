@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Composition, Sequence, useCurrentFrame, useVideoConfig} from 'remotion';
 import {BEAT, DISCLOSURE_FRAMES, dur, FPS, H, mark, O01_TOTAL, PH, PW, shotFrames, W} from './config';
-import {DisclosurePanel, LiveOverlay} from './components/M5';
+import {LiveOverlay} from './components/M5';
 import {SpikeChart} from './components/SpikeChart';
 import {RealScreens} from './components/RealScreens';
 import {ChatPost} from './components/ChatPost';
@@ -86,7 +86,6 @@ const M5: React.FC = () => (
     <Composition id="M5-O11-Live" component={LiveOverlay} defaultProps={{heys: [mark('O11', 0), mark('O11', 1)], strainAt: mark('O11', 1)}} durationInFrames={shotFrames('O11')} {...full} />
     <Composition id="M5-O12-Freeze" component={BufferingFreeze} defaultProps={{}} durationInFrames={shotFrames('O12')} {...full} />
     <Composition id="M5-O21-Freeze" component={BufferingFreeze} defaultProps={{caption: 'Incident reopened'}} durationInFrames={shotFrames('O21')} {...full} />
-    <Composition id="M5-O17-Disclosure" component={DisclosurePanel} durationInFrames={DISCLOSURE_FRAMES} {...full} />
     {/* textures for the Blender shots and the O04 screen (h264) */}
     <Composition id="M5-O04-PhoneScreen" component={BareChat} defaultProps={{base: 6, heys: [mark('O04', 1)], askAt: mark('O04', 0)}} durationInFrames={shotFrames('O04')} fps={FPS} width={PW} height={PH} />
     <Composition id="M5-O18-Whiteboard" component={BoardAnim} defaultProps={{reveal: O18_REVEAL}} durationInFrames={shotFrames('O18')} fps={FPS} width={BOARD.w} height={BOARD.h} />

@@ -39,16 +39,11 @@
    "O23": 5.379
   }
  },
- "overlays": [
-  {
-   "id": "disclosure",
-   "start": "Chorus 2|0|1",
-   "start_snap": "downbeat",
-   "end": "Post-Chorus 2|0|0",
-   "end_snap": "beat",
-   "note": "The brief puts the disclosure 'after O16' (O15: 'Disclosure card follows'). A full-frame card there would stop the song for the ~25 s its 77 words need, so it's proposed as an overlay panel on O17's chorus (8 lines, about 18 s), off before 'Five-oh-three'. Repeated in the end sequence and the description."
-  }
- ],
+ "overlays": [],
+ "cards": {
+  "disclosure_frames": 540,
+  "_why": "The conflict-of-interest disclosure plays once, as a full card after the fact card (decisions 18; brief rev 121). Its length is the withdrawn O17 overlay's (decisions 7: 18.0 s, 540 frames), kept so the end sequence and the video length stay as they were."
+ },
  "shots": [
   {
    "id": "O01",
@@ -325,7 +320,7 @@
    "id": "O17",
    "cue": "Chorus 2|0|1",
    "snap": "downbeat",
-   "note": "holds chorus 2 and its post-chorus (about 29 s); disclosure overlay over the chorus (overlays)",
+   "note": "holds chorus 2 and its post-chorus (about 29 s); no disclosure overlay (decisions 18: the card plays at the end only)",
    "marks": [
     {
      "what": "mugs up (Hey!)",

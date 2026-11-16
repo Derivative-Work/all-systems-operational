@@ -1,8 +1,7 @@
 // M5 overlays (transparent, composited over the Blender shots):
 // - LiveOverlay (O11, "everybody at once"): the livestream's viewer count spins up and the chat floods on the Hey!s;
 //   Switch strains in a small inset (he's on the wall by the door, out of this shot's frame).
-// - DisclosurePanel (O17): the conflict-of-interest disclosure as a panel over chorus 2 (decisions 7; approved,
-//   human interventions 9); the full card repeats at the end. Text: Cards.tsx DISCLOSURE, the brief's, verbatim.
+// - DisclosurePanel (O17): withdrawn (decisions 18); the full card plays at the end only.
 // Chat handles and lines are invented and generic (brief guardrails: invented names, no real people or quotes).
 import React from 'react';
 import {interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
@@ -60,21 +59,4 @@ export const LiveOverlay: React.FC<{heys: number[]; strainAt: number}> = ({heys,
   );
 };
 
-export const DisclosurePanel: React.FC = () => {
-  const f = useCurrentFrame();
-  const {durationInFrames: d} = useVideoConfig();
-  const o = interpolate(f, [0, 12, d - 12, d], [0, 1, 1, 0], clamp);
-  return (
-    <Frame>
-      <div style={{position: 'absolute', left: 90, bottom: 80, width: 1180, display: 'flex', opacity: o, borderRadius: 10, overflow: 'hidden',
-        boxShadow: '0 10px 30px rgba(0,0,0,0.3)'}}>
-        <div style={{width: 14, background: T.coral, flexShrink: 0}} />
-        <div style={{background: 'rgba(243,237,226,0.94)', padding: '22px 34px 26px', color: T.ink}}>
-          <div style={{fontFamily: STATION, fontSize: 22, fontWeight: 600, letterSpacing: 3, textTransform: 'uppercase', color: T.evergreen,
-            marginBottom: 8}}>Conflict-of-interest disclosure</div>
-          <div style={{fontFamily: STATION, fontSize: 33, lineHeight: 1.36, fontWeight: 450}}>{DISCLOSURE}</div>
-        </div>
-      </div>
-    </Frame>
-  );
-};
+// DisclosurePanel (O17) withdrawn: the disclosure plays at the end only (decisions 18; human interventions 16).

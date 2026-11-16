@@ -8,7 +8,7 @@ Rules (from the human's note, human interventions 13, and the plan):
   angle. The O-shot boundaries stay on the M2 cues (approved, human interventions 9).
 - The Remotion shots (O01, O02, O05, O13, O23, O24, the cards), O06's clip, O07 and O10 stay one shot each; O08's
   inserts (IT's reply, the treehouse cutaway) stay where M5 put them (decisions 11).
-- Every cued event (Switch, ON AIR, the LED, the string lights, the whiteboard lines, the mugs, the disclosure panel,
+- Every cued event (Switch, ON AIR, the LED, the string lights, the whiteboard lines, the mugs,
   the lower thirds) falls in a sub-shot whose camera shows it; each sub-shot lists the marks it covers.
 - Closes never show a face: hands, the kick foot and the SESSION 503 head, the banjo neck, the tambourine, mugs,
   rain on glass, ON AIR, Switch and his conduit, backs of heads, backlit profiles. Cameras sit on the audience side
@@ -235,7 +235,7 @@ P = {
         ("b", "bar:51", "strands", {"type": "m5"}, "the dark runs down every strand"),
     ]),
     "O17": ("cafe", [
-        ("a", "S", "close_kick", {"type": "push", "k": 0.04}, "chorus 2's first downbeat; disclosure panel in"),
+        ("a", "S", "close_kick", {"type": "push", "k": 0.04}, "chorus 2's first downbeat"),
         ("b", "hey:124.69", "wide", {"type": "push", "k": 0.05}, "Hey! 1: mugs up"),
         ("c", "hey:126.86", "mugs_backs", {"type": "push", "k": 0.05}, "Hey! 2: mugs against the glass"),
         ("d", "hey:129.24", "wide_side", {"type": "truck", "d": [-0.3, 0.2, 0]}, "Hey! 3: mugs up"),
@@ -371,7 +371,7 @@ def main():
             subs.append(sub)
     # the end sequence (after O23, as in M5)
     f = SH["O24"]["start_frame"]
-    dis = TS["overlays"]["disclosure"]["end_frame"] - TS["overlays"]["disclosure"]["start_frame"]
+    dis = TS["cards"]["disclosure_frames"]
     for cid, what, n in END:
         n = n or dis
         subs.append(dict(id=cid, shot="O24" if cid.startswith("O24") else cid, source="remotion", camera=None,

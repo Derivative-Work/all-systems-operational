@@ -142,7 +142,7 @@ def main():
     json.dump({"generated_by": "scripts/shot_times.py", "fps": fps, "lead_in_s": lead, "music_end_song": end_music,
                "video_length_s": round(total, 3), "video_frames": round(total * fps),
                "master_sha256": tm["audio"]["sha256"], "shots": {k: out[k] for k in order},
-               "overlays": overlays, "fact_card_after_O24": fact, "short_shots": short},
+               "overlays": overlays, "cards": cfg.get("cards", {}), "fact_card_after_O24": fact, "short_shots": short},
               open(OUT, "w"), indent=1, ensure_ascii=False)
     for k in order:
         s = out[k]

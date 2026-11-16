@@ -64,5 +64,5 @@ const SH = shotTimes.shots as unknown as Record<string, ShotT>;
 export const shotFrames = (id: string) => SH[id].end_frame - SH[id].start_frame;
 /** The frame (from the shot's start) of the i-th mark of a shot. */
 export const mark = (id: string, i: number) => (SH[id].marks ?? [])[i].frame_in_shot;
-/** The disclosure overlay's length (config/shot_cues.json overlays; decisions 7). */
-export const DISCLOSURE_FRAMES = (() => { const o = (shotTimes as unknown as {overlays: Record<string, {start_frame: number; end_frame: number}>}).overlays.disclosure; return o.end_frame - o.start_frame; })();
+/** The disclosure card's length (config/shot_cues.json cards; the withdrawn O17 overlay's, decisions 7 and 18). */
+export const DISCLOSURE_FRAMES = (shotTimes as unknown as {cards: {disclosure_frames: number}}).cards.disclosure_frames;
