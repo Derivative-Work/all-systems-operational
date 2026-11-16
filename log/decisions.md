@@ -180,3 +180,8 @@ Append-only. Deviations from the brief, each with why and who decided.
 
 - The photo is a Blender render of this cafe at the chorus 2 singalong (mugs up), seen from behind the crowd with the band backlit against the windows, warmed and faded as an instant print (production log 31). It is rendered, not generated, as the brief wants for the rooms. It shows the same day's session ("Wed 11/11" is the caption the brief gives, the day before the outage), not an earlier one: the brief doesn't say which.
 - The crowd is in it because the session is a singalong; the human may prefer the band alone. It's a one-line change (hide the crowd before the render).
+
+## 25. 2026-11-16 — M7a: thirteen heroes, not ten to twelve (agent)
+
+- Three or four per set and each set's signature element: rain on glass (O03b), Switch and ON AIR (O10a), the Polaroid close (O14d, since its photo is new), the whiteboard (O18a), the conference phone and chargers (O18e), the skyline in fog and the home-movie grade (O22d). O19a (the deck, moss on the railings, the conifers up close) was added after the conifers and moss were found weak up close; it's the treehouse's only outdoor view. O08c's night cutaway isn't on the board: it uses the same materials with the lights off.
+- No camera was moved. Proposals, not done: none needed for the look; O18e reads only as a dark insert (its camera offset darkens it 0.5 stop; dropping that offset is a one-line change).

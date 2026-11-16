@@ -1,0 +1,50 @@
+M5b build O10: 72 frames, 9.5 s; Switch ON and ON AIR lit at frame 36; crowd performances on 20 people (1 clap, 6 phone, 13 stand; 3 stompers, 4 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 4 kicks, tambourine on 10 hits, lead from the vocal envelope, lean-ins on Hey!s); 5 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.024 (noise-modulated), daylight shafts through the window openings (sun 3.5); rain runs on 5 panes
+00:13.443  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7a/raw/O10a.png'
+M5b O10a: frames 1-72 (72), board:O10, 3.0 s
+M5b build O10 done in 12.4 s
+M5b build O18: 576 frames, 21.0 s; whiteboard: Remotion movie texture; band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 27 kicks, tambourine on 44 hits, lead from the vocal envelope, lean-ins on Hey!s); window/sky light lifts on the Hey!s; M7 haze 0.02 (noise-modulated), daylight shafts through the window openings (sun 2.0); rain runs on 9 panes; drizzle falls (3 volumes, looped)
+00:37.824  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7a/raw/O18a.png'
+M5b O18a: frames 1-144 (144), wide, 3.3 s
+00:39.982  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7a/raw/O18e.png'
+M5b O18e: frames 505-576 (72), table, 2.2 s
+M5b build O18 done in 26.5 s
+M5b build O19a: 175 frames, 18.1 s; door opens frames 1-40; camera out onto the deck and up; band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 5 kicks, tambourine on 13 hits, lead from the vocal envelope, lean-ins on Hey!s); window/sky light lifts on the Hey!s; M7 haze 0.02 (noise-modulated), daylight shafts through the window openings (sun 2.0); rain runs on 9 panes; drizzle falls (3 volumes, looped); door light breaks through
+01:02.170  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7a/raw/O19a.png'
+M5b O19a: frames 1-175 (175), o19a, 4.0 s
+M5b build O19a done in 22.2 s
+M5b build O20: 575 frames, 53.7 s; claps (16); crowd performances on 23 people (10 clap, 8 fist, 5 stand; 5 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 27 kicks, tambourine on 37 hits, lead from the vocal envelope, lean-ins on Hey!s); window/sky light lifts on the Hey!s; rain runs on 0 panes; drizzle falls (1 volumes, looped); fog cards drift; umbrella turns; lamp flickers, Switch strains 199.41-201.80 s
+01:59.243  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7a/raw/O20a.png'
+M5b O20a: frames 1-62 (62), wide, 3.4 s
+02:01.911  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7a/raw/O20c.png'
+M5b O20c: frames 145-206 (62), umbrella, 2.7 s
+M5b build O20 done in 59.8 s
+M5b build O22: 930 frames, 38.7 s; walker 15.2 m up the path and over the crest; walker: planted-foot gait (blender/ep/gait.py), 0.49 m/s, 1.45 steps/s, 0.34 m steps, 15.2 m; no crowd; no band; window/sky light lifts on the Hey!s; rain runs on 0 panes; drizzle falls (1 volumes, looped); fog cards drift; Switch OFF (after O21's drop); walker feet: {'Left': (418, 0.003201059172034232, 6.847239246233706e-05), 'Right': (422, 0.0032000809911229915, 6.0290133901147935e-05)}
+02:43.761  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7a/raw/O22d.png'
+M5b O22d: frames 399-539 (141), skyline, 3.1 s
+M5b build O22 done in 41.8 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+	Command being timed: "blender -b --factory-startup --python blender/coverage_m7.py -- --out renders/m7a/raw --still --subs O10a,O18a,O18e,O19a,O20a,O20c,O22d --size 1920x1080 --log log/render_logs/m7a_pose_check_r2.log"
+	User time (seconds): 807.22
+	System time (seconds): 1056.89
+	Percent of CPU this job got: 1134%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:44.28
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 4476172
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 3153703
+	Voluntary context switches: 660405
+	Involuntary context switches: 34417711
+	Swaps: 0
+	File system inputs: 146
+	File system outputs: 91744
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
