@@ -40,7 +40,7 @@ const Card: React.FC<{heading?: string; children: React.ReactNode; dark?: boolea
   );
 };
 
-export const DISCLOSURE = 'Lyrics by Claude, made by Anthropic. Anthropic’s Microsoft 365 connector broke during this outage, and Claude had outages of its own this year. The creator worked on Outlook and Word at Microsoft almost 10 years ago, and the treehouse meeting room in the bridge is inspired by those years; it doesn’t depict how this incident was handled. Audited by models from other labs: [models, dates].';
+export const DISCLOSURE = 'Lyrics by Claude, made by Anthropic. Anthropic’s Microsoft 365 connector broke during this outage, and Claude had outages of its own this year. The creator worked on Outlook and Word at Microsoft between 2014 and 2017, and the treehouse meeting room in the bridge is inspired by those years; it doesn’t depict how this incident was handled. Audited by models from other labs: [models, dates].';
 
 export const DisclosureCard: React.FC = () => (
   <Card heading="Conflict-of-interest disclosure">

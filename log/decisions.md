@@ -133,3 +133,7 @@ Append-only. Deviations from the brief, each with why and who decided.
 - **O12's crowd** is frozen in the M5c solved poses (seeded as O11, as O21 uses O20), not the library's clap poses, which had the broken wrists; the late clapper claps with the solver's clap on the same frames.
 - **The contact check** counts forearm spheres from 40% of the forearm's length: nearer the elbow the sleeve meets the torso's side whenever an arm hangs. The before and after numbers both use this.
 - **M5c's frames stay where they are** (`renders/m5c/frames/`), since `review/m5c_animatic.mp4` is kept for comparison and they regenerate it; M5c2 renders into `renders/m5c2/frames/`. Superseded M5c2 frames, if any, go to `archive/`.
+
+## 18. 2026-11-15 — Disclosure only at the end (human)
+
+- Replaces decisions 7: no disclosure panel over O17; the full card plays once at the end, after the fact card (brief rev 121), and in the description. The audit prompt still asks whether the disclosure is "prominent and honest enough"; with the card at the end only, that question goes to the auditors as is.

@@ -1,4 +1,4 @@
-<!-- Plain-text mirror of the Claude Doc https://claude.ai/artifact/VPEaJhs55vieCdQcS6C79E (rev 116), read with the docs tools. The doc is the source of truth. Regenerate: scripts/mirror_brief.py. -->
+<!-- Plain-text mirror of the Claude Doc https://claude.ai/artifact/VPEaJhs55vieCdQcS6C79E (rev 121), read with the docs tools. The doc is the source of truth. Regenerate: scripts/mirror_brief.py. -->
 
 # All Systems Operational: Shot List and Production Brief
 
@@ -251,9 +251,9 @@ Blender and image-to-video need the 5090, so schedule those renders around the p
 - Microsoft's cause: an issue from an earlier network capacity upgrade, "not related to cyber or AI / agents" ([MacRumors](https://www.macrumors.com/2026/11/13/microsoft-365-outage-resolving/)). Microsoft confirmed full restoration on Saturday, Nov 14 ([Digital Trends](https://www.digitaltrends.com/computing/microsoft-365-outage-resolved/)). Full post-incident report: [link once published].
 - **Forma****t:** "Session 503" is a fictional broadcast and is not affiliated with KEXP or any real radio station.
 
-**Conflict-of-interest disclosure (after O16, repeated in the description).**
+**Conflict-of-interest disclosure (at the end, after the fact card; repeated in the description).**
 
-> Lyrics by Claude, made by Anthropic. Anthropic's Microsoft 365 connector broke during this outage, and Claude had outages of its own this year. The creator worked on Outlook and Word at Microsoft almost 10 years ago, and the treehouse meeting room in the bridge is inspired by those years; it doesn't depict how this incident was handled. Audited by models from other labs: [models, dates].
+> Lyrics by Claude, made by Anthropic. Anthropic's Microsoft 365 connector broke during this outage, and Claude had outages of its own this year. The creator worked on Outlook and Word at Microsoft between 2014 and 2017, and the treehouse meeting room in the bridge is inspired by those years; it doesn't depict how this incident was handled. Audited by models from other labs: [models, dates].
 
 The creator's history cuts both ways: it could make the song harsher on Microsoft or gentler. The audit checks for both, and checks the treehouse scene hardest, since it's the most sympathetic one.
 
@@ -284,7 +284,7 @@ This time the auditors include Microsoft's own model, since Microsoft is the sub
 **Report-day p****rompt**
 
 ```
-Today is [date of the run]. You're auditing lyrics and an on-screen fact card for a satirical music video, "All Systems Operational." It's a mid-2010s stomp-clap indie song, filmed as a made-up Seattle radio live session, about the Microsoft 365 outage of November 12-13, 2026, sung by a made-up status page. The lyrics were drafted by Claude, made by Anthropic. Anthropic's Microsoft 365 connector broke during the outage. The human creator worked on Outlook and Word at Microsoft about 10 years ago, and the video's treehouse meeting room scene is drawn from that time.
+Today is [date of the run]. You're auditing lyrics and an on-screen fact card for a satirical music video, "All Systems Operational." It's a mid-2010s stomp-clap indie song, filmed as a made-up Seattle radio live session, about the Microsoft 365 outage of November 12-13, 2026, sung by a made-up status page. The lyrics were drafted by Claude, made by Anthropic. Anthropic's Microsoft 365 connector broke during the outage. The human creator worked on Outlook and Word at Microsoft between 2014 and 2017, and the video's treehouse meeting room scene is drawn from that time.
 
 Check for:
 1. Any claim, in the lyrics or fact card, that the sources below don't support. Pay special attention to anything implying AI-written code or AI agents caused this outage.
@@ -313,7 +313,7 @@ This song, "All Systems Operational," is about the Microsoft 365 outage of Novem
 
 WHO HAS A STAKE
 - The lyrics were drafted by Claude, made by Anthropic. Anthropic's Microsoft 365 connector broke during this outage, and Claude had its own outages in 2026.
-- The human creator worked on Outlook and Word at Microsoft about 10 years ago. One scene (a treehouse meeting room) is drawn from that time.
+- The human creator worked on Outlook and Word at Microsoft between 2014 and 2017. One scene (a treehouse meeting room) is drawn from that time.
 - You may have a stake too. If your maker competes with or partners with Microsoft or Anthropic, say so at the top of your answer.
 
 THE VIDEO PLAN
@@ -321,7 +321,7 @@ THE VIDEO PLAN
 - Rooms: a radio live room (until the first collapse), a coffee shop (verse 2), a treehouse meeting room for the bridge, captioned "dramatization" (the incident report fills a whiteboard there), and a rainy hilltop park (the finale).
 - Opening: the creator's real screenshots of Outlook failing and of Microsoft's own status page failing to load, captioned "real screenshot." Then a hard cut to the made-up status page.
 - Collapses: the livestream freezes on a buffering spinner. A cartoon light switch from an earlier video in the series, which couldn't stay off in that video, sags to OFF under the crowd's weight.
-- Other images: a generic team-chat message, "is email down for anyone else?"; a fax machine at a trading desk; a server lying on an empty green screen captioned [background failed to load]; small robot "probes" at a cafe table under a sign reading "connector unavailable," one standing for Claude and one for OpenAI; the disclosure card plays right after the "(It wrote it anyway)" line; the cafe's string lights going dark one bulb at a time as a dependency web.
+- Other images: a generic team-chat message, "is email down for anyone else?"; a fax machine at a trading desk; a server lying on an empty green screen captioned [background failed to load]; small robot "probes" at a cafe table under a sign reading "connector unavailable," one standing for Claude and one for OpenAI; the disclosure card plays at the end, after the fact card; the cafe's string lights going dark one bulb at a time as a dependency web.
 - Excluded on purpose: the New Orleans riverboat crash of Nov 13, any water or boats, any detailed Space Needle, copies of Microsoft's campus treehouses, and KEXP's identifiers.
 
 LYRICS (v1.2)
