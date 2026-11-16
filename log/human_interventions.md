@@ -135,3 +135,14 @@ Append-only. Every human action: when, what, and why.
   - **Guardrail:** the report carries a no-reproduction notice, so quote a few words at most and never show its pages.
   - **Sources:** the preliminary report (EX1550543/MO1550821, copy supplied by the creator) and The Register (Nov 16).
 - **Audio:** the human will repaint the changed sections in Suno and supply a new master and stems later today. Outside the changed sections, and the non-vocal parts inside them, should be unchanged, so the cut and every non-bridge cue should hold. M1's lock and the bridge's vocal timings (the O18 whiteboard cues) wait for it.
+
+## 21. 2026-11-16 — Report date confirmed; brief fixed
+
+- **What:** "Report is dated the 15th. Fix the brief". The agent edited the brief (rev 136 → 141):
+  - the O18 tag and `incident.json`'s denialTag now read "Microsoft, Nov 13, two days before its root-cause report.";
+  - the fact-card bullet reads "That came two days before its preliminary report";
+  - the concept-audit prompt reads "November 12-13" (was 12-14) and "LYRICS (v1.3)".
+- **Updated to match:** the mirror `docs/brief.md`, `config/incident.json` and CLAUDE.md (outage of November 12–13).
+- **Not edited, flagged for the human:**
+  - the Overview's "The turn" still frames the bridge as singing back Nov 13's "earlier network capacity upgrade" line, while v1.3 now sings the July fix;
+  - the concept-audit prompt's SOURCES line still says to paste "Microsoft's post-incident report if published", but the report carries a no-reproduction notice.

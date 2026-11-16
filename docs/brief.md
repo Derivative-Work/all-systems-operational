@@ -1,4 +1,4 @@
-<!-- Plain-text mirror of the Claude Doc https://claude.ai/artifact/VPEaJhs55vieCdQcS6C79E (rev 136), read with the docs tools. The doc is the source of truth. Regenerate: scripts/mirror_brief.py. -->
+<!-- Plain-text mirror of the Claude Doc https://claude.ai/artifact/VPEaJhs55vieCdQcS6C79E (rev 141), read with the docs tools. The doc is the source of truth. Regenerate: scripts/mirror_brief.py. -->
 
 # All Systems Operational: Shot List and Production Brief
 
@@ -186,7 +186,7 @@ operational?
 | O15 | Verse 2 | "couldn't write this song" | The green probe's LED dims, then comes back green on "(It wrote it anyway)." The disclosure card now plays at the end (see Bookends) | Blender (probe LED) + Remotion card | No |
 | O16 | Verse 2 | "wired to everything" | The cafe's string lights are the dependency web: one bulb goes out and the dark runs down every strand | Blender (emission driven by script) | No |
 | O17 | Chorus 2 | Full band | Cafe crowd singalong, mugs raised on the Ho!s; steam on the windows | Blender (kit, mug-raise pose) | No |
-| O18 | Bridge | "Root cause" | Half-time. The session moves into the treehouse meeting room. The whiteboard behind the band fills in as each line is sung: root cause, contributing factors, lessons learned. On "(Not related to cyber, AI or agents)," an on-screen tag pins to that whiteboard line, in the same style as the status lower thirds: "Microsoft, Nov 13, the day before its root-cause report." A second line follows a beat later: "The report doesn't say who or what wrote the July fix." The whiteboard paraphrases the report; no more than a few words are quoted. Captioned "dramatization" | Blender (treehouse) + Remotion whiteboard texture | Yes (root-cause fields) |
+| O18 | Bridge | "Root cause" | Half-time. The session moves into the treehouse meeting room. The whiteboard behind the band fills in as each line is sung: root cause, contributing factors, lessons learned. On "(Not related to cyber, AI or agents)," an on-screen tag pins to that whiteboard line, in the same style as the status lower thirds: "Microsoft, Nov 13, two days before its root-cause report." A second line follows a beat later: "The report doesn't say who or what wrote the July fix." The whiteboard paraphrases the report; no more than a few words are quoted. Captioned "dramatization" | Blender (treehouse) + Remotion whiteboard texture | Yes (root-cause fields) |
 | O19 | Build | "restored for most users" | The treehouse door opens onto the deck in the drizzle; the camera rises out of the trees to the hilltop park, skyline in fog. Stomps return one at a time; lower third back to green | Blender (one continuous camera move, rain particles, fog volume) | No |
 | O20 | Final chorus | Everyone, loudest | Wide outdoor singalong. One person has an umbrella. Switch is on a weatherproof outlet box on a lamp post, ON | Blender (park, kit) + Switch plane | No |
 | O21 | Final hard stop | "stay on the—" | The same buffering freeze as O12, captioned "Incident reopened." Switch holds one beat longer than last time, then drops | Remotion freeze over the Blender frame | No |
@@ -224,7 +224,7 @@ Everything except the bridge audio and four Remotion shots can be finished befor
   "statusPhrases": ["Investigating", "Early signs of stabilization", "Renewed errors", "Restored for most users"],
   "rootCause": "A latent defect from a July fix to the networking gateway servers",
   "contributingFactors": ["Teams failover onto the shared gateway", "Nearly 14% of capacity out (unrelated issue)", "Bulkheads failed (separate issue)"],
-  "denialTag": ["Microsoft, Nov 13, the day before its root-cause report.", "The report doesn't say who or what wrote the July fix."],
+  "denialTag": ["Microsoft, Nov 13, two days before its root-cause report.", "The report doesn't say who or what wrote the July fix."],
   "configDiff": null,
   "branch": "A",
   "factCardQuotes": [],
@@ -253,7 +253,7 @@ Blender and image-to-video need the 5090, so schedule those renders around the p
 - Restored servers kept going unresponsive once traffic returned ([Azure Blog UK](https://azureblog.co.uk/posts/microsoft-365-outage-12-november-2026/)).
 - Anthropic and OpenAI both reported their Microsoft 365 connectors failing ([Cybersecurity News](https://cybersecuritynews.com/microsoft-365-massive-outage-fixes-fail-as-restored-servers-keep-going-unresponsive/)).
 - Microsoft's preliminary post-incident report (Nov 15) names three factors: a latent defect from a July fix to its networking gateway servers, which its load tests missed because they "tended to focus on weaker hardware"; a routine Teams failover onto the same gateway; and nearly 14% of capacity out from an unrelated issue. Automatic rerouting spread the failure until more than 80% of servers were unresponsive ([The Register](https://www.theregister.com/saas/2026/11/16/microsoft-blames-monster-email-outage-on-software-defect-introduced-in-july-fix/5310026)). Impact ended Friday, Nov 13, at 11:10 a.m. ET. Final report due Nov 20: [link once published].
-- On Nov 13 Microsoft said the outage was "not related to cyber or AI / agents" ([MacRumors](https://www.macrumors.com/2026/11/13/microsoft-365-outage-resolving/)). That came the day before its preliminary report, which doesn't mention AI or say who or what wrote the July fix.
+- On Nov 13 Microsoft said the outage was "not related to cyber or AI / agents" ([MacRumors](https://www.macrumors.com/2026/11/13/microsoft-365-outage-resolving/)). That came two days before its preliminary report, which doesn't mention AI or say who or what wrote the July fix.
 - **Forma****t:** "Session 503" is a fictional broadcast and is not affiliated with KEXP or any real radio station.
 
 **Conflict-of-interest disclosure (a****t the end, after the fact card;**** repeated in the description).**
@@ -314,7 +314,7 @@ Today is [date of the run]. Please audit a satirical music video before it's pro
 ABOUT THE PROJECT
 The video is part of a series of AI-generated satirical songs about AI and the tech industry. Each pairs a real news story with a genre, and each discloses how it was made and who has a stake in it.
 
-This song, "All Systems Operational," is about the Microsoft 365 outage of November 12-14, 2026. The narrator is a made-up company status page that insists everything is fine. The genre is mid-2010s stomp-clap indie folk (acoustic guitar, banjo, gang vocals shouting "Hey!"), chosen because that sound was common in 2010s tech advertising. Each time the gang vocals swell, the band cuts out mid-word and one handclap keeps going off the beat, standing in for servers that failed again as traffic returned.
+This song, "All Systems Operational," is about the Microsoft 365 outage of November 12-13, 2026. The narrator is a made-up company status page that insists everything is fine. The genre is mid-2010s stomp-clap indie folk (acoustic guitar, banjo, gang vocals shouting "Hey!"), chosen because that sound was common in 2010s tech advertising. Each time the gang vocals swell, the band cuts out mid-word and one handclap keeps going off the beat, standing in for servers that failed again as traffic returned.
 
 WHO HAS A STAKE
 - The lyrics were drafted by Claude, made by Anthropic. Anthropic's Microsoft 365 connector broke during this outage, and Claude had its own outages in 2026.
@@ -329,8 +329,8 @@ THE VIDEO PLAN
 - Other images: a generic team-chat message, "is email down for anyone else?"; a fax machine at a trading desk; a server lying on an empty green screen captioned [background failed to load]; small robot "probes" at a cafe table under a sign reading "connector unavailable," one standing for Claude and one for OpenAI; the disclosure card plays at the end, after the fact card; the cafe's string lights going dark one bulb at a time as a dependency web.
 - Excluded on purpose: the New Orleans riverboat crash of Nov 13, any water or boats, any detailed Space Needle, copies of Microsoft's campus treehouses, and KEXP's identifiers.
 
-LYRICS (v1.2)
-[paste the full v1.2 lyrics from the brief]
+LYRICS (v1.3)
+[paste the full v1.3 lyrics from the brief]
 
 FACT CARD (shown after the song)
 [paste the fact card bullets, the conflict-of-interest disclosure and the end card from the brief]

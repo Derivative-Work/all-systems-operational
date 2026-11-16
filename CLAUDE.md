@@ -1,6 +1,6 @@
 # All Systems Operational
 
-A mid-2010s stomp-clap indie singalong about the Microsoft 365 outage of November 12–14, 2026, filmed as a made-up Seattle public-radio live session ("Session 503"). The narrator is the status page; every time the gang vocals swell, the stream goes down. A sequel to LGTM. The agent does the production; the human approves at each milestone gate, picks takes, and supplies what the agent can't reach (Suno, Logic Pro, audits in other labs' chat apps, screen captures).
+A mid-2010s stomp-clap indie singalong about the Microsoft 365 outage of November 12–13, 2026, filmed as a made-up Seattle public-radio live session ("Session 503"). The narrator is the status page; every time the gang vocals swell, the stream goes down. A sequel to LGTM. The agent does the production; the human approves at each milestone gate, picks takes, and supplies what the agent can't reach (Suno, Logic Pro, audits in other labs' chat apps, screen captures).
 
 **Start here:** the brief is the Claude Doc https://claude.ai/artifact/VPEaJhs55vieCdQcS6C79E (overview, look and callbacks, style prompt and lyrics v1.2, shot list O01–O24, report branches A–C, rendering plan, `incident.json`, bookends, audit plan, guardrails). Read it with the docs tools, not a web fetch; `docs/brief.md` is a plain-text mirror (`scripts/mirror_brief.py`). The planning chat is captured in `docs/planning_chat/`, the Suno take in `docs/suno/`. The milestone plan is `docs/plan.md`. Then read the latest entries of `log/production_log.md` and `log/human_interventions.md`.
 

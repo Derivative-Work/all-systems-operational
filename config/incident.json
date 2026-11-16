@@ -3,7 +3,7 @@
   "statusPhrases": ["Investigating", "Early signs of stabilization", "Renewed errors", "Restored for most users"],
   "rootCause": "A latent defect from a July fix to the networking gateway servers",
   "contributingFactors": ["Teams failover onto the shared gateway", "Nearly 14% of capacity out (unrelated issue)", "Bulkheads failed (separate issue)"],
-  "denialTag": ["Microsoft, Nov 13, the day before its root-cause report.", "The report doesn't say who or what wrote the July fix."],
+  "denialTag": ["Microsoft, Nov 13, two days before its root-cause report.", "The report doesn't say who or what wrote the July fix."],
   "configDiff": null,
   "branch": "A",
   "factCardQuotes": [],
