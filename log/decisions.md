@@ -239,7 +239,7 @@ Append-only. Deviations from the brief, each with why and who decided.
 
 - The brief's rendering plan says the rooms are "rendered, not generated, so they stay consistent across all four sets and nothing in them can drift toward a real studio, a face or water". Human interventions 19 makes one exception: the park's far plate (the distant city and the far tree lines in layered fog, one plate behind the Blender set) is generated, and O22d is the same plate animated with image-to-video. Everything people touch stays rendered (the ground, the crest, the near firs, the lamp post with Switch, the umbrella); every other shot stays rendered.
 - The plate has no people, faces, text, logos, water, boats or landmark towers; takes with any are rejected (as M4). It stays behind fog, so a tower that half-resolves into a recognisable shape is rejected too.
-- This pass only makes concept stills and plate candidates for the human to pick a direction from (production log 41); the park is not rebuilt yet.
+- This pass only makes concept stills and plate candidates for the human to pick a direction from (production log 42); the park is not rebuilt yet.
 
 ## 33. 2026-11-16 — M7b: the treehouse screens after brief rev 136 (agent; supersedes parts of 30)
 
