@@ -184,3 +184,9 @@ Append-only. Every human action: when, what, and why.
 - **Approved:** the M7d pass as the M7 look, with decisions 43's recommendations: the firs' overcast term kept; the crowd wides (O20a, O21a, and O20j) at 1.8 m with the drop cues; the empty wides (O22a, O22f) raised to 2.4 m with the cues (the lamp's lantern enters the top of the frame); the banjo closes re-aimed; the guitar spot; the brow path kept. "Keep going" also starts the full M7 render, which the last report named as the next step. The bridge cut (the denial tags landing 9 frames into O18c) is kept as recommended.
 - **End cards:** the human has an instrumental track for the credits and end cards (not yet supplied; nothing new in `~/Downloads` at 15:40). Length no longer limits them: the fact card's 15 s, which the M1b report flagged as too short for about 210 words, gives way to reading time, and the cards are to be laid out for reading.
 - **Audio:** the human asked for the post-filtered v1.3 master to listen to before locking M1 (production log 58). Still open: locking M1 after that listen, and where bulkheads belong (the board lists them, the fact card doesn't).
+
+## 26. 2026-11-16 — The credits instrumental
+
+- **What:** "it's in ~/Downloads/All Systems Operational (credits EDM).wav -- you'll need to run the postfilter on it too".
+- **File:** `~/Downloads/All Systems Operational (credits EDM).wav` (file time 17:07; 212.4 s, 16-bit 48 kHz stereo; sha256 `faf569d6…`), copied to `audio/credits/`. The human's instrumental for the credits and end cards (human interventions 25). How it was made isn't stated; the post-filter ran with `--source suno`, as for the master.
+- **Post-filter:** run by the agent (production log 61).
