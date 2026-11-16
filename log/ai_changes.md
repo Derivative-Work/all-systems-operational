@@ -45,3 +45,22 @@ Relative to M7a (approved as the base, human interventions 18); cut, performance
 - **Treehouse:** the cedar walls, roof and floor show; the band stays in silhouette. New on screen: invented incident-night content on every laptop and phone (a failing sign-in, an automated alert call from a 555 number, a service dashboard, a health-check terminal, an unbranded assistant that can't reach the mail connector, a bridge call); a fourth laptop beside the speakerphone; a phone face up on the table. O18e racks from the dashboard to the whiteboard.
 - **Closes:** the instrument closes are a third of a stop brighter.
 - **Polaroid:** the band alone, backlit, from nearer the front.
+
+## 8. 2026-11-16 — M7c: what is new or different on screen (agent)
+
+Relative to M7b (approved as the M7 base, human interventions 22). Cut, performances and the closes' cameras are unchanged; the park's wides and O19b's rise are re-aimed (decisions 36).
+- **Hilltop park, rebuilt from the hill up** (human interventions 18, 22; decisions 35–37):
+  - The ground: a crest lawn rolling to a real brow, the ground falling away beyond it, the slope's firs and bare trees below.
+  - The far plate: the city 2–4 km off, its towers in the cloud base, neighbourhoods and wooded ridges in layered fog, generated and extended to about 128°. The 3D skyline massing is gone.
+  - The lawn: wet, patchy and trodden near the path, with blades along the brow and the path's edges.
+  - A gravel path with granite kerbs, running from the back slope along the walker's line to a new viewpoint terrace, with a short stone wall and a bench at the brow.
+  - Puddles on the path and in a few hollows. No standing water body.
+  - Fir crowns made of clustered sprays at many angles, in irregular groups: big firs framing the crest, young firs on the back slope, firs on the flanks of the drop. Bare deciduous trees below the brow. A few houses deep in the valley fog.
+  - Fog in layers: valley fog below the crest, a drifting near haze, drifting curtains.
+  - A cast-iron park lamp with a warm frosted lantern, carrying the same outlet box and Switch.
+  - O22d is the generated plate with fog drifting, not a Blender shot.
+  - The stray second figure in O22a is gone (decisions 37).
+- **Treehouse:** the firs through the windows and from the deck are the new clustered firs (O08c, O18, O19a).
+- **Treehouse screens:** the assistant's screen reads "assistant · read-only", with no name or initial; its composer reads "Ask about the logs…".
+- **O04:** the question and its +1 count are on the phone from the shot's first frame. The +1 still climbs on the Hey!.
+- **Live room:** the crowd's phones show a camera view of the band, a lock screen or the #it-help chat (generic, unreadable at that size) instead of blank white.

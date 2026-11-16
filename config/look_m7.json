@@ -204,5 +204,732 @@
       "rack_at": 1.3,
       "rack_dur": 0.45
     }
+  },
+  "_doc_m7c": "M7c (production log 44+; human interventions 22; decisions 35+): the hilltop park rebuilt (blender/park_m7c.py, called from blender/look.py's park()), the crowd phones, the camera changes for the new hill. ground: the crest's rim (centre, radii toward the view +Y, the camera side and the sides, m; wobble [m, frequency, phase]) and the profile past it per direction (a convex roll of 'roll' m dropping 'roll_drop', then the steep slope as a gradient, easing to 'far' from 'far_from' over 'far_width'); flat_zone: x and y ranges kept at z 0 (people); relief m. path: width and the points before the walker's line (m). viewpoint: its wall at kerb_s past the rim, radius, the wall's half-angle (deg). trees: hand-placed frame firs [x, y, h, prototype], seeded groups (kind, count, x/y/s ranges, heights, spacing, the view corridor [x centre, half width] where tops stay near the wide's line over the brow, poke m). backdrop: the plate's cylinder (radius m, eye height, px per degree, the panorama column at azimuth 0, the horizon row, azimuth range, lowest elevation). fog: surface fog (distance m, the valley below valley_top m filling over valley_scale m), the near haze volume, the curtains. cameras: park presets replaced (config/coverage_m5c.json's are M5c3's), O19b's keys [fraction, [x, y, height over ground], target, lens]. clip_subs: sub-shots taken from a generated clip in the M7 assembly (scripts/m7_inserts.py), not rendered.",
+  "m7c": {
+    "on": true,
+    "ground": {
+      "centre": [
+        0.5,
+        1.0
+      ],
+      "r_front": 13.6,
+      "r_back": 14.0,
+      "r_side": 22.0,
+      "wobble": [
+        [
+          0.8,
+          3,
+          0.4
+        ],
+        [
+          0.45,
+          7,
+          1.3
+        ],
+        [
+          0.25,
+          11,
+          2.2
+        ]
+      ],
+      "profile": {
+        "front": {
+          "roll": 5.0,
+          "roll_drop": 0.75,
+          "steep": 0.62,
+          "far": 0.22,
+          "far_from": 34.0,
+          "far_width": 26.0
+        },
+        "back": {
+          "roll": 4.0,
+          "roll_drop": 0.45,
+          "steep": 0.32,
+          "far": 0.18,
+          "far_from": 20.0,
+          "far_width": 20.0
+        },
+        "side": {
+          "roll": 4.5,
+          "roll_drop": 0.6,
+          "steep": 0.48,
+          "far": 0.2,
+          "far_from": 26.0,
+          "far_width": 24.0
+        }
+      },
+      "relief": 0.05,
+      "flat_zone": [
+        [
+          -8.5,
+          8.5
+        ],
+        [
+          -9.5,
+          9.0
+        ]
+      ],
+      "extent": {
+        "x": [
+          -180,
+          180
+        ],
+        "y": [
+          -150,
+          260
+        ],
+        "core_x": [
+          -32,
+          32
+        ],
+        "core_y": [
+          -30,
+          48
+        ],
+        "step": 0.3
+      }
+    },
+    "path": {
+      "width": 1.7,
+      "back": [
+        [
+          -1.4,
+          -40.0
+        ],
+        [
+          -0.7,
+          -26.0
+        ],
+        [
+          -0.2,
+          -13.0
+        ],
+        [
+          0.3,
+          -8.5
+        ]
+      ]
+    },
+    "viewpoint": {
+      "kerb_s": -0.35,
+      "radius": 2.0,
+      "wall_deg": 80
+    },
+    "puddles": {
+      "path": [
+        [
+          0.3,
+          0.25,
+          0.7
+        ],
+        [
+          0.48,
+          -0.3,
+          0.45
+        ],
+        [
+          0.62,
+          0.15,
+          0.9
+        ],
+        [
+          0.86,
+          -0.2,
+          0.55
+        ],
+        [
+          0.93,
+          0.3,
+          0.35
+        ]
+      ],
+      "lawn": [
+        [
+          0.42,
+          -1.6,
+          0.45
+        ],
+        [
+          0.95,
+          1.7,
+          0.5
+        ],
+        [
+          0.35,
+          1.7,
+          0.55
+        ]
+      ]
+    },
+    "fringe": {
+      "brow_deg": [
+        15,
+        165
+      ],
+      "brow_n": 900,
+      "per_point": 6,
+      "brow_s": [
+        -0.5,
+        0.9
+      ],
+      "path_y": [
+        -8,
+        13
+      ],
+      "path_per": 4
+    },
+    "trees": {
+      "needle_colour": "#25362a",
+      "bare_protos": 6,
+      "frame": [
+        [
+          -12.6,
+          -1.8,
+          31,
+          0
+        ],
+        [
+          -15.2,
+          6.2,
+          27,
+          3
+        ],
+        [
+          -12.6,
+          12.4,
+          23,
+          6
+        ],
+        [
+          -19.5,
+          -6.5,
+          34,
+          1
+        ],
+        [
+          -17.0,
+          16.5,
+          26,
+          7
+        ],
+        [
+          12.4,
+          -6.8,
+          29,
+          2
+        ],
+        [
+          15.0,
+          2.2,
+          33,
+          4
+        ],
+        [
+          13.4,
+          10.2,
+          24,
+          8
+        ],
+        [
+          18.8,
+          14.2,
+          27,
+          5
+        ],
+        [
+          20.5,
+          -2.5,
+          30,
+          9
+        ]
+      ],
+      "keep_clear": [
+        [
+          0.0,
+          3.5,
+          8.0
+        ],
+        [
+          2.7,
+          -2.6,
+          2.0
+        ],
+        [
+          1.0,
+          -7.0,
+          1.8
+        ],
+        [
+          -5.2,
+          -8.5,
+          2.5
+        ],
+        [
+          0.3,
+          -25.0,
+          1.15
+        ],
+        [
+          0.3,
+          -21.0,
+          1.15
+        ],
+        [
+          0.35,
+          -17.0,
+          1.15
+        ],
+        [
+          0.4,
+          -13.0,
+          1.15
+        ],
+        [
+          3.6,
+          12.8,
+          3.2
+        ]
+      ],
+      "groups": [
+        {
+          "name": "back_young",
+          "kind": "fir",
+          "n": 22,
+          "x": [
+            -7,
+            7
+          ],
+          "y": [
+            -34,
+            -14
+          ],
+          "s": [
+            0.3,
+            30
+          ],
+          "h": [
+            4.5,
+            9.0
+          ],
+          "sep": 0.9
+        },
+        {
+          "name": "back",
+          "kind": "fir",
+          "n": 40,
+          "x": [
+            -45,
+            45
+          ],
+          "y": [
+            -70,
+            -14
+          ],
+          "s": [
+            0.5,
+            90
+          ],
+          "h": [
+            10,
+            28
+          ],
+          "sep": 0.75
+        },
+        {
+          "name": "flank_left",
+          "kind": "fir",
+          "n": 22,
+          "x": [
+            -42,
+            -9
+          ],
+          "y": [
+            6,
+            62
+          ],
+          "s": [
+            1.0,
+            48
+          ],
+          "h": [
+            14,
+            32
+          ],
+          "sep": 0.7
+        },
+        {
+          "name": "flank_right",
+          "kind": "fir",
+          "n": 22,
+          "x": [
+            9,
+            42
+          ],
+          "y": [
+            6,
+            62
+          ],
+          "s": [
+            1.0,
+            48
+          ],
+          "h": [
+            14,
+            32
+          ],
+          "sep": 0.7
+        },
+        {
+          "name": "corridor_bare",
+          "kind": "bare",
+          "n": 18,
+          "x": [
+            -14,
+            16
+          ],
+          "y": [
+            14,
+            64
+          ],
+          "s": [
+            6.0,
+            48
+          ],
+          "h": [
+            8,
+            16
+          ],
+          "sep": 0.6,
+          "corridor": [
+            1.0,
+            16.0
+          ],
+          "poke": [
+            -1.0,
+            1.8
+          ]
+        },
+        {
+          "name": "sides_left",
+          "kind": "fir",
+          "n": 18,
+          "x": [
+            -62,
+            -20
+          ],
+          "y": [
+            -22,
+            22
+          ],
+          "s": [
+            0.5,
+            45
+          ],
+          "h": [
+            12,
+            30
+          ],
+          "sep": 0.7
+        },
+        {
+          "name": "sides_right",
+          "kind": "fir",
+          "n": 18,
+          "x": [
+            20,
+            62
+          ],
+          "y": [
+            -22,
+            22
+          ],
+          "s": [
+            0.5,
+            45
+          ],
+          "h": [
+            12,
+            30
+          ],
+          "sep": 0.7
+        },
+        {
+          "name": "far",
+          "kind": "mix",
+          "fir_share": 0.55,
+          "n": 170,
+          "x": [
+            -130,
+            140
+          ],
+          "y": [
+            40,
+            240
+          ],
+          "s": [
+            40,
+            235
+          ],
+          "h": [
+            12,
+            30
+          ],
+          "sep": 0.5,
+          "dens": 0.35,
+          "corridor": [
+            1.0,
+            45.0
+          ],
+          "poke": [
+            -3.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    "houses": {
+      "n": 12,
+      "x": [
+        -110,
+        120
+      ],
+      "y": [
+        60,
+        230
+      ],
+      "s": [
+        55,
+        215
+      ],
+      "walls": [
+        "#7a7468",
+        "#5e6a6a",
+        "#8a7a5e",
+        "#6a5a52",
+        "#9a958a"
+      ],
+      "roof": "#2e2f30"
+    },
+    "backdrop": {
+      "radius": 2000.0,
+      "eye_z": 1.8,
+      "ppd": 60.0,
+      "centre_px": 3880,
+      "horizon_px": 560,
+      "az": [
+        -115,
+        115
+      ],
+      "el_bottom": -40.0,
+      "gain": 1.0
+    },
+    "fog": {
+      "dist": 130.0,
+      "valley_top": -4.0,
+      "valley_scale": 16.0,
+      "valley_blend": 18.0,
+      "level": "#9aa3a8",
+      "valley": "#8c9294",
+      "sky": "#d7d6d2",
+      "near_density": 0.0022,
+      "near_box": [
+        [
+          -45,
+          45
+        ],
+        [
+          -35,
+          45
+        ],
+        [
+          -25,
+          16
+        ]
+      ],
+      "drift": 0.35,
+      "curtains": [
+        {
+          "y": 36,
+          "x": [
+            -70,
+            70
+          ],
+          "clear": 1.0,
+          "h": 7,
+          "fade_in": 0.3,
+          "fade_out": 0.5,
+          "opacity": 0.5,
+          "noise_u": 6,
+          "drift": 0.01,
+          "bow": -6
+        },
+        {
+          "y": 72,
+          "x": [
+            -120,
+            120
+          ],
+          "clear": 1.5,
+          "h": 11,
+          "fade_in": 0.3,
+          "fade_out": 0.5,
+          "opacity": 0.6,
+          "noise_u": 8,
+          "drift": 0.008,
+          "bow": -10
+        },
+        {
+          "y": 140,
+          "x": [
+            -200,
+            200
+          ],
+          "clear": 2.0,
+          "h": 16,
+          "fade_in": 0.25,
+          "fade_out": 0.5,
+          "opacity": 0.65,
+          "noise_u": 10,
+          "drift": 0.006,
+          "bow": -20
+        },
+        {
+          "y": 320,
+          "x": [
+            -500,
+            500
+          ],
+          "follow": false,
+          "foot": -110,
+          "h": 80,
+          "fade_in": 0.35,
+          "fade_out": 0.6,
+          "opacity": 0.5,
+          "noise_u": 12,
+          "drift": 0.004,
+          "bow": -40
+        }
+      ]
+    },
+    "lamp": {
+      "colour": "#1d2321",
+      "glow": 3.0,
+      "glow_colour": "#ffd8a6",
+      "light": 10.0
+    },
+    "cameras": {
+      "wide": {
+        "loc": [
+          1.0,
+          -7.0,
+          1.8
+        ],
+        "target": [
+          0.3,
+          6.0,
+          1.25
+        ],
+        "lens": 28
+      },
+      "o21": {
+        "loc": [
+          1.0,
+          -6.6,
+          1.8
+        ],
+        "target": [
+          0.3,
+          6.0,
+          1.25
+        ],
+        "lens": 28
+      },
+      "wide_high": {
+        "loc": [
+          -5.2,
+          -8.5,
+          5.4
+        ],
+        "target": [
+          0.8,
+          8.0,
+          0.4
+        ],
+        "lens": 24
+      },
+      "empty": {
+        "loc": [
+          0.3,
+          -7.6,
+          1.85
+        ],
+        "target": [
+          1.3,
+          12.0,
+          1.05
+        ],
+        "lens": 28
+      },
+      "o19b": {
+        "relative": true,
+        "keys": [
+          [
+            0,
+            [
+              0.25,
+              -26.0,
+              1.5
+            ],
+            [
+              0.3,
+              6.0,
+              2.4
+            ],
+            28
+          ],
+          [
+            0.45,
+            [
+              0.3,
+              -18.5,
+              2.5
+            ],
+            [
+              0.3,
+              6.0,
+              1.2
+            ],
+            28
+          ],
+          [
+            1,
+            [
+              0.4,
+              -10.5,
+              3.8
+            ],
+            [
+              0.4,
+              6.0,
+              0.8
+            ],
+            28
+          ]
+        ]
+      }
+    },
+    "clip_subs": [
+      "O22d"
+    ],
+    "crowd_phones": {
+      "emit": 0.55,
+      "kinds": [
+        "camera",
+        "lock",
+        "chat"
+      ]
+    },
+    "volumetric_end_park": 160.0
   }
 }

@@ -49,6 +49,9 @@ STATE = {"room": None, "night": False}
 # with its own camera, the treehouse lift and its screens, the closes' lift. On whenever the look is (coverage_m7);
 # the drops, haze drift and clock are part of the shaders themselves.
 M7B = True
+# M7c (the third look pass, production log 44+; human interventions 22): the hilltop park rebuilt (blender/park_m7c.py),
+# volumetric firs for every forest, the live room's crowd phones; on whenever the look is (config m7c.on).
+M7C = bool(CFG.get("m7c", {}).get("on"))
 
 
 def enable(engine="eevee"):
@@ -56,6 +59,9 @@ def enable(engine="eevee"):
     S.POST_BUILD.append(post_build)
     PR.TREE_HOOK = conifer
     S.DRIZZLE_HOOK = drizzle
+    if M7C:
+        import park_m7c as PK
+        S.hill_z = PK.hill_z            # the lamp post, the O22 walker and O19b's start read the new ground
 
 
 # ---------------------------------------------------------------- node helpers
@@ -933,13 +939,19 @@ def conifer(b, base, h, r, role="evergreen", trunk="trunk", tiers=5):
     key = (mats[0].name, mats[1].name)
     rr = gb.rng(f"m7_tree_{base[0]:.3f}_{base[1]:.3f}")
     k = int(rr.random() * 10)
-    me = PROTOS.get((key, k))
-    try:
-        me = me if me is not None and bpy.data.meshes.get(me.name) == me else None
-    except ReferenceError:                       # a previous build's (the file is reset per build)
-        me = None
-    if me is None:
-        me = PROTOS[(key, k)] = _conifer_mesh(k, mats)
+    if M7C:
+        if mats[0].name.startswith("evergreen_p"):
+            return None                          # the park's trees: blender/park_m7c.py places its own
+        import park_m7c as PK
+        me = PK.fir_proto(k, _m7c_forest_mats(mats), "forest")
+    else:
+        me = PROTOS.get((key, k))
+        try:
+            me = me if me is not None and bpy.data.meshes.get(me.name) == me else None
+        except ReferenceError:                       # a previous build's (the file is reset per build)
+            me = None
+        if me is None:
+            me = PROTOS[(key, k)] = _conifer_mesh(k, mats)
     o = bpy.data.objects.new(f"conifer_{len(bpy.data.objects)}", me)
     gb.link(o)
     o.location = (base[0], base[1], base[2])
@@ -953,10 +965,30 @@ def conifer(b, base, h, r, role="evergreen", trunk="trunk", tiers=5):
         dy = max(-0.6 - base[1], 0.0, base[1] - 6.4)
         clear = math.hypot(dx, dy) - 0.6
         t_low = max(0.0, (-0.6 - base[2]) / hh)            # the lowest point of the house, in tree height
-        reach = 1.15 * CR * (1.0 - t_low) ** 0.92            # the prototype's longest branch there, per unit scale
+        # the prototype's longest branch there, per unit scale (M7c's sprays reach past the branch tips)
+        reach = (1.5 if M7C else 1.15) * CR * (1.0 - t_low) ** 0.92
         rad = min(rad, max(clear, 0.05) / reach)            # a slimmer crown where a tree stands close
     o.scale = (rad, rad, hh)                             # rad: the x-y scale (the prototype's crown is CR wide)
     return o
+
+
+def _m7c_forest_mats(mats):
+    """M7c: the needle and bark materials for the treehouse's forest firs (the M7c prototypes' UVs), fogged as
+    fog_upgrade fogs the forest's own materials (the lighter fog by day, config forest_fog)."""
+    import park_m7c as PK
+    f = mats[0]["fog"]
+    fogc, dist, emit = f["fog"], f["dist"], f["emit"]
+    R = ROOMS.get("treehouse", {})
+    if "forest_fog" in R and emit >= 1.0:
+        fogc, dist = R["forest_fog"]
+    nm = f"m7c_forest_needles_{int(emit * 100)}"
+    m = bpy.data.materials.get(nm)
+    if m is None:
+        def fog(nb, sh):
+            return fog_wrap(nb, sh, fogc, dist, emit)
+        m = PK.needles_mat(nm, "#22332a", fog)
+        PK.bark_mat(nm + "_bark", "#3a2a20", fog)
+    return (m, bpy.data.materials[nm + "_bark"])
 
 
 def drizzle(name, lo, hi, n, rng_name, length=(0.16, 0.3), alpha=0.35, emit=0.6):
@@ -1273,7 +1305,8 @@ def park(st):
     if old is not None:
         old.hide_render = True
         old.hide_viewport = True
-    skyline(fogc)
+    if not M7C:
+        skyline(fogc)
     for o in bpy.data.objects:
         if o.name == "overcast" and o.type == "LIGHT":
             # M3's overcast sun travelled toward +Y (from behind the camera: it lit the crowd's backs and the band's
@@ -1283,6 +1316,11 @@ def park(st):
             o.data.color = gb.lin("#eef1f3")[:3]
             o.data.specular_factor = R.get("sun_spec", 0.2)      # into the lens: its glare turned the wet grass white
             o.rotation_euler = (math.radians(-R.get("sun_elev", 50)), 0.0, math.radians(R.get("sun_yaw", 8)))
+    if M7C:
+        # M7c: the park rebuilt from the hill up (ground, path, trees, the far plate, fog, lamp post)
+        import park_m7c as PK
+        STATE["park_notes"] = PK.build(st, R)
+        return
     park_world(R)
     # a thin fog volume over the crest (people and props in it fade as the trees and ground do; the fog materials
     # carry the far distance), lit by the sky and the soft sun
@@ -1429,7 +1467,7 @@ def settings(b, room):
         ee.volumetric_samples = rc["volumetric_samples"]
         ee.volumetric_shadow_samples = rc["volumetric_shadow_samples"]
         ee.use_volumetric_shadows = True
-        ee.volumetric_end = 40.0 if room != "park" else 120.0
+        ee.volumetric_end = 40.0 if room != "park" else (CFG["m7c"]["volumetric_end_park"] if M7C else 120.0)
         ee.use_overscan = True
         ee.overscan_size = 3.0
         ee.shadow_resolution_scale = 1.0
@@ -1525,9 +1563,46 @@ def clock(b, n):
 
 
 def after_layers(b, n, room, notes):
-    """coverage_m7 runs this after each build's layers (and the replaced steam): the clock."""
+    """coverage_m7 runs this after each build's layers (and the replaced steam): the clock; M7c's crowd phones (the
+    performances' own copies of the crowd exist by now)."""
+    if M7C:
+        # M7c: perf.own_copy's holder ('pose_variants') is excluded from the view layer by poses.finish() at the end of
+        # each set build, but only if it exists by then; in O22 (no crowd, no pose variants) it was made afterwards
+        # for the walker's own copy, so that copy also rendered at the world origin: the second, standing figure
+        # facing the camera in M5c3-M7b's O22a (decisions 37)
+        import poses
+        poses.finish()
+    if M7C and room == "live":
+        notes.append(crowd_phones())
+    if M7C and room == "park" and STATE.get("park_notes"):
+        notes += STATE.pop("park_notes")
     if M7B and room != "void":
         notes.append(clock(b, n))
+
+
+def crowd_phones():
+    """M7c (Part B; decisions 28 left them blank): the live room's crowd phones show a generic camera view of the band,
+    a lock screen or the #it-help chat (remotion/src/components/CrowdPhones.tsx, scripts/m7c_remotion.sh), by turns,
+    at a modest brightness: unreadable at the wides' size, nothing branded."""
+    P_ = CFG["m7c"]["crowd_phones"]
+    tex = gb.ROOT / "assets" / "gen" / "tex" / "m7c"
+    holders = sorted((o for o in bpy.data.objects if o.type == "EMPTY" and o.instance_type == "COLLECTION"
+                      and o.name.startswith("crowd") and o.get("pose") == "phone"), key=lambda o: o.name)
+    done = 0
+    for i, e in enumerate(holders):
+        ph = next((o for o in e.instance_collection.objects if o.type == "MESH"
+                   and o.name.split(".")[0].endswith("_phone") and len(o.material_slots) > 1), None)
+        if ph is None:
+            continue
+        kind = P_["kinds"][i % len(P_["kinds"])]
+        flip = phone_flip(e, ph)
+        sl = ph.material_slots[1]
+        sl.link = "OBJECT"
+        nm = f"m7c_crowd_{kind}_{int(flip)}"
+        sl.material = bpy.data.materials.get(nm) or screen_mat(nm, strength=P_["emit"], phone=True, flip=flip,
+                                                               still=tex / f"crowd_{kind}.jpg")
+        done += 1
+    return f"M7c crowd phones: {done} of {len(holders)} textured"
 
 
 # ---------------------------------------------------------------- steam (coverage.steam's M7b replacement)

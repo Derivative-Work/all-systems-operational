@@ -50,6 +50,31 @@ def _layers_m7(b, n, room, notes):
 
 C.layers = _layers_m7
 
+if LK.M7C:
+    # M7c (production log 44+; decisions 35+): the rebuilt park's cameras (config/look_m7.json m7c.cameras replace the
+    # park presets; O19b's M5 keys are replaced by its rise up the back slope over the new crest), its fog curtains in
+    # place of M5b's fog cards, and the sub-shots a generated clip replaces in the M7 assembly (O22d: not rendered)
+    import park_m7c as PK
+    for _name, _over in LK.CFG["m7c"]["cameras"].items():
+        if _name in C.COV["cameras"]["park"]:
+            _c = C.COV["cameras"]["park"][_name]
+            _c.pop("board", None)
+            _c.update(_over)
+    for _s in C.COV["subs"]:
+        if _s["id"] in LK.CFG["m7c"]["clip_subs"]:
+            _s["source"] = "clip"
+    C.fog_cards = PK.fog_cards
+    _shot = C.A.shot
+
+    def _shot_m7c(sid, n):
+        keys, expo, notes = _shot(sid, n)
+        if sid == "O19b":
+            _sub = next(x for x in C.COV["subs"] if x["id"] == "O19b")
+            keys = PK.o19b_keys(n, _sub["frames"] + _sub.get("xfade_in", 0))
+            notes.append("M7c: O19b rises up the back slope over the crest")
+        return keys, expo, notes
+    C.A.shot = _shot_m7c
+
 FRAMES = _opt("--frames")              # timing runs: only the first N frames of each sub-shot's sequence
 if FRAMES:
     _lr = C.local_range

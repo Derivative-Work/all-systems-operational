@@ -1,0 +1,30 @@
+M5b build O03: 577 frames, 22.1 s; claps on 2 and 4 from the drums' entry (8); crowd performances on 20 people (1 clap, 6 phone, 13 stand; 1 stompers, 4 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 26 kicks, tambourine on 36 hits, lead from the vocal envelope, lean-ins on Hey!s); 5 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.024 (noise-modulated), daylight shafts through the window openings (sun 3.5); rain runs on 5 panes; M7c crowd phones: 6 of 6 textured; M7b clock on 6 shaders from song time 7.26 s
+00:27.780  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7c/fixes/raw/O03f.png'
+M5b O03f: frames 505-577 (73), wide_high, 4.7 s
+M5b build O03 done in 26.8 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+	Command being timed: "blender -b --factory-startup --python blender/coverage_m7.py -- --out renders/m7c/fixes/raw --still --subs O03f --size 1920x1080 --log log/render_logs/m7c_fixes_o03f_pose_check.log"
+	User time (seconds): 47.09
+	System time (seconds): 36.22
+	Percent of CPU this job got: 293%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:28.37
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3846936
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1215470
+	Voluntary context switches: 24001
+	Involuntary context switches: 2000438
+	Swaps: 0
+	File system inputs: 156
+	File system outputs: 18520
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
