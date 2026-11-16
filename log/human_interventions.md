@@ -120,3 +120,4 @@ Append-only. Every human action: when, what, and why.
   - Guardrails for it (agent): generic UIs only, with no real product's logo, colours or layout. Names are invented. The caller ID is a fictional 555-01xx number. No phone at an ear, because of the pose rule that keeps hands 0.20 m from heads.
   - Nothing on any screen ties AI-written code to the outage. The agent screen shows an agent blocked or reading logs, never writing or shipping the fix.
   - The O08c and O18 shots stay captioned "dramatization".
+- **Source of the screen ideas:** "(I don't have any inside information, these are just guesses)". The screen content is the creator's guess at a plausible incident night, not knowledge of how this incident was handled. That matches the disclosure ("it doesn't depict how this incident was handled").
