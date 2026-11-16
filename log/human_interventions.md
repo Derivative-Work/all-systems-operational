@@ -108,3 +108,15 @@ Append-only. Every human action: when, what, and why.
   6. "Station sign is good as-is" (the 50.3 FM · listener-supported radio sign, checked for likeness to KEXP's 90.3).
 - **Also accepted, from the agent's list:** the treehouse lift, O18e, the ⅓-stop lift on instrument closes, mug steam and haze drift go ahead. The roof and park-sun fixes (decisions 26.5) and the Eevee JPEG plan (26.6) were not objected to.
 - **Asked:** whether any shots could be generated without losing much, especially ones with nothing composited (kick head, Switch); and whether anything is planned for the treehouse laptop and phone screens. The agent found nothing planned: they are blank emissive white.
+
+## 19. 2026-11-16 — Generated plates for the park; what the treehouse screens show
+
+- **Generated shots:** "Go with your recommendations". That means a generated far plate behind the Blender park, carrying the distant city in fog and the far tree lines. O22d (fog over the skyline) is that same plate, animated by image-to-video, so the skyline matches the O20 wides. Everything people touch stays rendered: the ground, the crest, the near firs, the lamp post with Switch, the umbrella. Every other shot stays rendered.
+  - This deviates from the brief's "rendered, not generated" rule for the rooms. The agent logs it in decisions.
+  - Takes with a real landmark, water, a face or a logo are rejected.
+  - The park rebuild still waits for the human to pick a direction from the M7b concept stills.
+- **Treehouse screens:** "Phones and laptops: let's lean in a bit more to how this plausibly could be playing out: someone struggling to 2FA in, someone with a robo-call from a fake number as a stand-in for a page looking at an invented dashboard, invented code and agent screens, the generic video call you mentioned".
+  - Each laptop and phone gets invented, plausible incident-night content in place of blank white.
+  - Guardrails for it (agent): generic UIs only, with no real product's logo, colours or layout. Names are invented. The caller ID is a fictional 555-01xx number. No phone at an ear, because of the pose rule that keeps hands 0.20 m from heads.
+  - Nothing on any screen ties AI-written code to the outage. The agent screen shows an agent blocked or reading logs, never writing or shipping the fix.
+  - The O08c and O18 shots stay captioned "dramatization".
