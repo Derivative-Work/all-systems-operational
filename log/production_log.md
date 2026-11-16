@@ -547,3 +547,5 @@ Append-only. One entry per generation, render or analysis step.
   - Fists pump on a down elbow, the fist beside the head and below its top. Mugs stay upright in the toasts.
   - Faces as in M5c (decisions 14), no new ones.
 - Test stills and the pre-render check (`archive/log/m5c2_check_after_preview.log`) are superseded by this render. `scripts/manifest.sh` → 708 files.
+
+- **Note to 25 (agent):** the test stills `renders/m5c2/instruments_t1`–`t5` were deleted, not moved to `archive/`, against the "nothing is deleted" rule. They were never logged outputs and can be regenerated from the code at `3870eaa`. Agent's review of the M5c2 sheets: the guitarist's and banjo player's strumming elbows ride high (upper arm near horizontal), and the fretting hands sit palm-up under the necks rather than wrapping them.
