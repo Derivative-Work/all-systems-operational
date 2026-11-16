@@ -1,4 +1,4 @@
-<!-- Plain-text mirror of the Claude Doc https://claude.ai/artifact/VPEaJhs55vieCdQcS6C79E (rev 121), read with the docs tools. The doc is the source of truth. Regenerate: scripts/mirror_brief.py. -->
+<!-- Plain-text mirror of the Claude Doc https://claude.ai/artifact/VPEaJhs55vieCdQcS6C79E (rev 136), read with the docs tools. The doc is the source of truth. Regenerate: scripts/mirror_brief.py. -->
 
 # All Systems Operational: Shot List and Production Brief
 
@@ -12,7 +12,7 @@
 - **Why Seattle:** it's Microsoft's home region and the creator's, and the live-session video is a format Seattle viewers know on sight. The session is a livestream, so the outage happens to the video itself.
 - **The turn:** Microsoft says the outage "was introduced by an issue during an earlier network capacity upgrade" and was "not related to cyber or AI / agents" ([MacRumors](https://www.macrumors.com/2026/11/13/microsoft-365-outage-resolving/)). The bridge sings that back: the oldest cause in the book, in the year everyone expected a new one.
 - **Fit:** a sequel to LGTM. LGTM is about the approval; this is the bill landing on everyone downstream. Season 2.
-- **Status, Nov 14:** Microsoft confirmed full restoration on Saturday; the full post-incident report is pending. The genre moved from a jazz funeral (no singer read as right for the genre, and the topic didn't justify the borrowing), past a power ballad (too close to Share the Shares) and EDM (too close to other creators in this space).
+- **Status, Nov 1****6****:** Microsoft's preliminary post-incident report (Nov 15) traces the outage to a latent defect from a July fix; the final report is due Nov 20. The genre moved from a jazz funeral (no singer read as right for the genre, and the topic didn't justify the borrowing), past a power ballad (too close to Share the Shares) and EDM (too close to other creators in this space).
 
 ## Look, cast and series callbacks
 
@@ -27,9 +27,9 @@ A made-up listener-supported station's live session, "Session 503," in four room
 - **Switch from Default On:** silent, flat 2D cartoon in mustard, never restyled or voiced. He's the switch that runs the ON AIR sign. Last time Microsoft 365 wouldn't let him switch the AI off; this time it can't stay on.
 - **Other callbacks:** an LGTM sticker on the kick drum (branch B only); the "to be determined" fields echoing Ghost in the Machine's repeated defaults.
 
-## Style prompt and lyrics v1.2
+## Style prompt and lyrics v1.3
 
-v1.1 applies audit round 1 (Gemini), approved by the human on November 14, 2026: "Hey!" as the only shout, a "Five-oh-three" post-chorus, and "cyber" restored to Microsoft's denial in the bridge. v1.2 adds a nostalgia layer for Wednesday, when everything worked: mood words and warmer instruments in the style prompt, a "Remember Wednesday" outro tag, and "was green" in the final chorus. Two swap points stay open for the full report.
+v1.1 applies audit round 1 (Gemini), approved by the human on November 14, 2026: "Hey!" as the only shout, a "Five-oh-three" post-chorus, and "cyber" restored to Microsoft's denial in the bridge. v1.2 adds a nostalgia layer for Wednesday, when everything worked: mood words and warmer instruments in the style prompt, a "Remember Wednesday" outro tag, and "was green" in the final chorus. v1.3 rewrites the bridge from Microsoft's preliminary post-incident report of Nov 15. Both swap points stay open until the final report, due Nov 20.
 
 **Style prompt**
 
@@ -109,12 +109,15 @@ Please stay on the line
 
 [Bridge: half-time, guitar and voice only, earnest]  <- SWAP POINT 1
 Root cause
-An earlier upgrade
-Met a recent change
+A fix from back in July
+Tested on the smaller machines
 Contributing factors
+Teams came over for the night
+An unrelated issue
+And a separate issue
 (Not related to cyber, AI or agents)
 Full report
-To follow
+On the twentieth
 Lessons learned
 (We're committed to doing better)
 
@@ -157,7 +160,7 @@ operational?
 - **Nostalgia:** if the generator ignores the minor iv under "Remember Wednesday," regenerate the outro alone. The verses' thin, old-phone-speaker filter can also be done in the edit.
 
 **Swap points**
-- **Bridge:** rewrite to match the full post-incident report. If it confirms the network change, only "An earlier upgrade / Met a recent change" may need tightening.
+- **Bridge:** v1.3 follows the preliminary report. Check it against the final report due Nov 20, especially anything on the "unrelated" and "separate" issues or on where the July fix came from.
 - **Outro:** the apology quotes Microsoft's statement ([MacRumors](https://www.macrumors.com/2026/11/13/microsoft-365-outage-resolving/)). Swap it if the report's wording differs.
 
 ## Shot list
@@ -167,7 +170,7 @@ operational?
 | # | Section | Lyric or beat | Shot | Asset | Reads incident.json |
 | --- | --- | --- | --- | --- | --- |
 | O01 | Opening bookend | Before the music | Three beats. First, the outage-report spike: a made-up, unlabeled chart drawn from reported Downdetector counts (about 2,400 Outlook reports at 9:50 a.m. PT, past 130,000 by 10:17, GV Wire). Then the creator's real screenshots: a Microsoft 365 app failing on Friday, Nov 13 (placeholder until permission or a new capture), then Microsoft's service status page failing to load, timestamped and captioned "real screenshot". Last, the creator's #it-self-help post, recreated for this song in a generic chat UI with the creator's real name and photo, describing this song: "(my last meme about this, I promise)" is struck through, then "no video yet", then the cursor clicks play and the song starts | Remotion (chart, chat post) + screen captures | No |
-| O02 | Intro | Whistled hook | Hard cut to the made-up status page, every row green, each stamped "Last updated: Thu 12:58 p.m." A page that can't load can't update. One row flips to "Investigating" | Remotion | Yes (status phrases) |
+| O02 | Intro | Whistled hook | Hard cut to the made-up status page, every row green, each stamped "Last updated: Thu 11:15 a.m." A page that can't load can't update. One row flips to "Investigating" | Remotion | Yes (status phrases) |
 | O03 | Intro | "We're investigating reports" | The live room: rain on the windows, band backlit in silhouette, a small standing crowd. Lower third: "All Systems Operational · Live at Session 503" | Blender (live room, kit) + Remotion lower third | No |
 | O04 | Verse 1 | "inbox went still" | Over a crowd member's shoulder, a phone shows a generic team-chat message in #it-help: "is email down for anyone else?" Its +1 count climbs on each Hey! | Blender + Remotion phone texture | No |
 | O05 | Verse 1 | "calendar was empty" | Full-frame phone: a calendar grid draining of events, one box at a time | Remotion | No |
@@ -180,15 +183,15 @@ operational?
 | O12 | Hard stop 1 | "without fai—" | The frame freezes under a buffering spinner. Switch sags to OFF; ON AIR goes dark. One silhouette in the crowd keeps clapping, late | Blender (one kit figure on a clap loop) + Remotion freeze | No |
 | O13 | After the stop | "renewed errors" | A technical-difficulties card: "We'll be right back." Status row back to red | Remotion | Yes (status phrases) |
 | O14 | Verse 2 | "agents that we hired" | Cut to the coffee shop session. Probes at a cafe table with mugs; the table tent reads "connector unavailable". On the wall behind them, a Polaroid of the band in this same room, lit warm, captioned "Wed 11/11" | Blender (cafe, kit, Sandbox Rhapsody probes) + Remotion table-tent texture | No |
-| O15 | Verse 2 | "couldn't write this song" | The green probe's LED dims, then comes back green on "(It wrote it anyway)." Disclosure card follows (see Bookends) | Blender (probe LED) + Remotion card | No |
+| O15 | Verse 2 | "couldn't write this song" | The green probe's LED dims, then comes back green on "(It wrote it anyway)." The disclosure card now plays at the end (see Bookends) | Blender (probe LED) + Remotion card | No |
 | O16 | Verse 2 | "wired to everything" | The cafe's string lights are the dependency web: one bulb goes out and the dark runs down every strand | Blender (emission driven by script) | No |
 | O17 | Chorus 2 | Full band | Cafe crowd singalong, mugs raised on the Ho!s; steam on the windows | Blender (kit, mug-raise pose) | No |
-| O18 | Bridge | "Root cause" | Half-time. The session moves into the treehouse meeting room. The whiteboard behind the band fills in as each line is sung: root cause, contributing factors, lessons learned. The "not related to cyber, AI or agents" line is credited on the whiteboard to Microsoft's Nov 13 statement. Captioned "dramatization" | Blender (treehouse) + Remotion whiteboard texture | Yes (root-cause fields) |
+| O18 | Bridge | "Root cause" | Half-time. The session moves into the treehouse meeting room. The whiteboard behind the band fills in as each line is sung: root cause, contributing factors, lessons learned. On "(Not related to cyber, AI or agents)," an on-screen tag pins to that whiteboard line, in the same style as the status lower thirds: "Microsoft, Nov 13, the day before its root-cause report." A second line follows a beat later: "The report doesn't say who or what wrote the July fix." The whiteboard paraphrases the report; no more than a few words are quoted. Captioned "dramatization" | Blender (treehouse) + Remotion whiteboard texture | Yes (root-cause fields) |
 | O19 | Build | "restored for most users" | The treehouse door opens onto the deck in the drizzle; the camera rises out of the trees to the hilltop park, skyline in fog. Stomps return one at a time; lower third back to green | Blender (one continuous camera move, rain particles, fog volume) | No |
 | O20 | Final chorus | Everyone, loudest | Wide outdoor singalong. One person has an umbrella. Switch is on a weatherproof outlet box on a lamp post, ON | Blender (park, kit) + Switch plane | No |
 | O21 | Final hard stop | "stay on the—" | The same buffering freeze as O12, captioned "Incident reopened." Switch holds one beat longer than last time, then drops | Remotion freeze over the Blender frame | No |
 | O22 | Outro | Whistled hook | The park empties; one silhouette walks off whistling. From "Remember Wednesday" on, the picture takes soft film grain and a warm grade, like a home movie; everything before stays in grey daylight. Lower third: "We are deeply sorry for the disruption" | Blender (kit walk cycle) + Remotion lower third | No |
-| O23 | Outro | "operational?" | Back to the made-up status page; the green row flickers, still stamped "Last updated: Thu 12:58 p.m." | Remotion | No |
+| O23 | Outro | "operational?" | Back to the made-up status page; the green row flickers, still stamped "Last updated: Thu 11:15 a.m." | Remotion | No |
 | O24 | Closing bookend | After the music | End card (see Bookends), then Next incident: TBD | Remotion | No |
 
 ## Branches by report outcome
@@ -197,7 +200,7 @@ Branch A is the working plan, since Microsoft blamed a network capacity upgrade 
 
 | Branch | Trigger | Lyric changes | Shot changes | Fact card |
 | --- | --- | --- | --- | --- |
-| **A. Config or capacity** (current) | The report confirms the network upgrade and change | Tighten the bridge's cause lines only | O18 shows a one-line config diff after the form fills: the whole singalong over one line. O16 stays as drawn | The report's cause, quoted; Microsoft's "not related to AI" line |
+| **A. Config or capacity** (current) | The report confirms the network upgrade and change | Tighten the bridge's cause lines only | O18 shows the July fix circled at the top of the whiteboard: the whole singalong over one fix. O16 stays as drawn | The report's cause, quoted; Microsoft's "not related to AI" line |
 | **B. AI-assisted change named** | The report contradicts the preliminary statement and names an AI-generated or AI-assisted change | Rewrite the bridge; cut "Not related to AI or agents" | Add an LGTM sticker to the kick drum head (O09, O17, O20). O18 quotes the report | The report's exact wording, plus the contradiction with the Nov 13 statement |
 | **C. Vague or late** | No report inside the release window, or one with no clear cause | Bridge keeps the preliminary lines; "Full report / To follow" loops once more | O18's root-cause field ends in a blinking cursor | The preliminary statement, dated; end card reads Root cause: final report pending as of [date] |
 
@@ -219,8 +222,9 @@ Everything except the bridge audio and four Remotion shots can be finished befor
 {
   "asOf": "2026-11-13",
   "statusPhrases": ["Investigating", "Early signs of stabilization", "Renewed errors", "Restored for most users"],
-  "rootCause": "An earlier network capacity upgrade, surfaced by a recent network change",
-  "contributingFactors": ["Not related to cyber or AI / agents"],
+  "rootCause": "A latent defect from a July fix to the networking gateway servers",
+  "contributingFactors": ["Teams failover onto the shared gateway", "Nearly 14% of capacity out (unrelated issue)", "Bulkheads failed (separate issue)"],
+  "denialTag": ["Microsoft, Nov 13, the day before its root-cause report.", "The report doesn't say who or what wrote the July fix."],
   "configDiff": null,
   "branch": "A",
   "factCardQuotes": [],
@@ -243,15 +247,16 @@ Blender and image-to-video need the 5090, so schedule those renders around the p
 **Opening bookend (O01).** The outage-report spike as a made-up chart from reported counts, then the creator's real screenshots with timestamps on screen (no more than 3 seconds together), then the creator's #it-self-help post sharing the song, recreated in a generic chat UI and captioned as a recreation. "(my last meme about this, I promise)" and "no video yet" get struck through, one after the other, and clicking play starts the song on the cut to the green status page.
 
 **Fact card (after O24).** Each line is sourced, and checked against the full report at render time.
-- Exchange Online problems began around 11:17 a.m. ET on Thursday, Nov 12, and the wider outage followed at 1:26 p.m. ([Digital Trends](https://www.digitaltrends.com/computing/microsoft-365-outage-resolved/)). It hit Outlook, Teams, SharePoint, Copilot and Defender in at least 74 countries ([Wire](https://wire.com/en/blog/microsoft-365-outage-november-2026)).
+- Exchange Online problems began at 11:20 a.m. ET on Thursday, Nov 12, per Microsoft's preliminary report, and the wider outage followed at 1:26 p.m. ([Digital Trends](https://www.digitaltrends.com/computing/microsoft-365-outage-resolved/)). It hit Outlook, Teams, SharePoint, Copilot and Defender in at least 74 countries ([Wire](https://wire.com/en/blog/microsoft-365-outage-november-2026)).
 - Almost 130,000 Outlook problem reports came from U.S. users just after 1 p.m. ([Washington Post](https://www.washingtonpost.com/technology/2026/11/13/microsoft-races-address-outage-affecting-users-around-world/)).
 - Some businesses fell back on fax machines to confirm trades ([Crypto Briefing](https://cryptobriefing.com/microsoft-365-outage-74-countries/)).
 - Restored servers kept going unresponsive once traffic returned ([Azure Blog UK](https://azureblog.co.uk/posts/microsoft-365-outage-12-november-2026/)).
 - Anthropic and OpenAI both reported their Microsoft 365 connectors failing ([Cybersecurity News](https://cybersecuritynews.com/microsoft-365-massive-outage-fixes-fail-as-restored-servers-keep-going-unresponsive/)).
-- Microsoft's cause: an issue from an earlier network capacity upgrade, "not related to cyber or AI / agents" ([MacRumors](https://www.macrumors.com/2026/11/13/microsoft-365-outage-resolving/)). Microsoft confirmed full restoration on Saturday, Nov 14 ([Digital Trends](https://www.digitaltrends.com/computing/microsoft-365-outage-resolved/)). Full post-incident report: [link once published].
+- Microsoft's preliminary post-incident report (Nov 15) names three factors: a latent defect from a July fix to its networking gateway servers, which its load tests missed because they "tended to focus on weaker hardware"; a routine Teams failover onto the same gateway; and nearly 14% of capacity out from an unrelated issue. Automatic rerouting spread the failure until more than 80% of servers were unresponsive ([The Register](https://www.theregister.com/saas/2026/11/16/microsoft-blames-monster-email-outage-on-software-defect-introduced-in-july-fix/5310026)). Impact ended Friday, Nov 13, at 11:10 a.m. ET. Final report due Nov 20: [link once published].
+- On Nov 13 Microsoft said the outage was "not related to cyber or AI / agents" ([MacRumors](https://www.macrumors.com/2026/11/13/microsoft-365-outage-resolving/)). That came the day before its preliminary report, which doesn't mention AI or say who or what wrote the July fix.
 - **Forma****t:** "Session 503" is a fictional broadcast and is not affiliated with KEXP or any real radio station.
 
-**Conflict-of-interest disclosure (at the end, after the fact card; repeated in the description).**
+**Conflict-of-interest disclosure (a****t the end, after the fact card;**** repeated in the description).**
 
 > Lyrics by Claude, made by Anthropic. Anthropic's Microsoft 365 connector broke during this outage, and Claude had outages of its own this year. The creator worked on Outlook and Word at Microsoft between 2014 and 2017, and the treehouse meeting room in the bridge is inspired by those years; it doesn't depict how this incident was handled. Audited by models from other labs: [models, dates].
 
@@ -371,7 +376,7 @@ Round 1: Gemini (Google), Nov 14, 2026, no web access. Stake: Google competes wi
 ## Guardrails, review checklist and open items
 
 **Guardrails**
-- No real faces, real people or invented quotes, except the creator's own name and photo in the recreated post (O01; approved by the creator, Nov 15). Every quote on screen is from a linked source.
+- No real faces, real people or invented quotes, except the creator's own name and photo in the recreated post (O01; approved by the creator, Nov 15). Every quote on screen is from a linked source. Microsoft's report carries a no-reproduction notice, so quote a few words at most and never show its pages.
 - No real logos, colors or status-page layouts. The status page and outage graph are made up and unlabeled.
 - Nothing ties AI-written code to this outage unless the full report does.
 - Satirize the status-page language, never the people affected or the jazz-funeral tradition.
@@ -415,3 +420,5 @@ Round 1: Gemini (Google), Nov 14, 2026, no web access. Stake: Google competes wi
 - [Digital Trends: Microsoft's longest outage in years is finally over](https://www.digitaltrends.com/computing/microsoft-365-outage-resolved/)
 - [CNN: email approaching normal levels](https://www.cnn.com/2026/11/12/business/live-news/microsoft-global-outage-intl-hnk)
 - [Life News Agency: recovery holds](https://lifenewsagency.com/microsoft-says-365-outage-came-from-network-upgrade-issue-recovery-holds/)
+- Microsoft, Preliminary Post Incident Report for Microsoft 365, EX1550543/MO1550821, Nov 15, 2026 (admin center; copy supplied by the creator)
+- [The Register: Microsoft blames monster email outage on software defect introduced in July fix](https://www.theregister.com/saas/2026/11/16/microsoft-blames-monster-email-outage-on-software-defect-introduced-in-july-fix/5310026)

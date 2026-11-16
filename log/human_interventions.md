@@ -121,3 +121,17 @@ Append-only. Every human action: when, what, and why.
   - Nothing on any screen ties AI-written code to the outage. The agent screen shows an agent blocked or reading logs, never writing or shipping the fix.
   - The O08c and O18 shots stay captioned "dramatization".
 - **Source of the screen ideas:** "(I don't have any inside information, these are just guesses)". The screen content is the creator's guess at a plausible incident night, not knowledge of how this incident was handled. That matches the disclosure ("it doesn't depict how this incident was handled").
+
+## 20. 2026-11-16 — Brief rev 136: Microsoft's preliminary post-incident report; new master coming
+
+- **What:** "re-read the brief -- it incorporates data from the preliminary PIR from yesterday. I will repaint the song and get you a new master and stems later today (non-vocal parts within changed sections and everything outside of the changed sections should be unaffected)."
+- **The human's brief edits (rev 121 → 136), mirrored into `docs/brief.md`:**
+  - **Lyrics v1.3:** the bridge is rewritten from Microsoft's preliminary report (Nov 15) and grows from 9 lines to 12. "An earlier upgrade / Met a recent change" becomes "A fix from back in July / Tested on the smaller machines". Contributing factors gain "Teams came over for the night / An unrelated issue / And a separate issue". "To follow" becomes "On the twentieth". Both swap points stay open until the final report, due Nov 20.
+  - **O02/O23 stamp:** "Last updated: Thu 11:15 a.m." (was 12:58 p.m.).
+  - **O18:** the whiteboard paraphrases the report, quoting a few words at most. On "(Not related to cyber, AI or agents)" an on-screen tag pins to that line, in the status lower-thirds' style: "Microsoft, Nov 13, the day before its root-cause report." A beat later: "The report doesn't say who or what wrote the July fix."
+  - **Branch A:** no config diff any more. O18 shows the July fix circled at the top of the whiteboard instead.
+  - **`incident.json`:** new rootCause, three contributingFactors and a new `denialTag` field; `config/incident.json` updated to match.
+  - **Fact card:** Exchange problems from 11:20 a.m. ET Thursday (per the report); the report's three factors; impact ended Fri Nov 13 at 11:10 a.m. ET; Nov 13's denial placed the day before the report.
+  - **Guardrail:** the report carries a no-reproduction notice, so quote a few words at most and never show its pages.
+  - **Sources:** the preliminary report (EX1550543/MO1550821, copy supplied by the creator) and The Register (Nov 16).
+- **Audio:** the human will repaint the changed sections in Suno and supply a new master and stems later today. Outside the changed sections, and the non-vocal parts inside them, should be unchanged, so the cut and every non-bridge cue should hold. M1's lock and the bridge's vocal timings (the O18 whiteboard cues) wait for it.

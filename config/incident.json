@@ -1,8 +1,9 @@
 {
   "asOf": "2026-11-13",
   "statusPhrases": ["Investigating", "Early signs of stabilization", "Renewed errors", "Restored for most users"],
-  "rootCause": "An earlier network capacity upgrade, surfaced by a recent network change",
-  "contributingFactors": ["Not related to cyber or AI / agents"],
+  "rootCause": "A latent defect from a July fix to the networking gateway servers",
+  "contributingFactors": ["Teams failover onto the shared gateway", "Nearly 14% of capacity out (unrelated issue)", "Bulkheads failed (separate issue)"],
+  "denialTag": ["Microsoft, Nov 13, the day before its root-cause report.", "The report doesn't say who or what wrote the July fix."],
   "configDiff": null,
   "branch": "A",
   "factCardQuotes": [],
