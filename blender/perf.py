@@ -40,10 +40,19 @@ def bn(b):
     return b if b.startswith(P) else P + b
 
 
+def flex_matrix(side, finger, deg):
+    """The local rotation that flexes a finger joint by deg toward the palm (Body.hand_axes has how it was measured):
+    fingers about Z (- on the left hand, + on the right), the thumb about -X."""
+    if finger == "Thumb":
+        return Matrix.Rotation(math.radians(-deg), 4, "X")
+    return Matrix.Rotation(math.radians(-deg if side == "Left" else deg), 4, "Z")
+
+
 # Wrist limits (degrees) for every hand pose (M5c review): flexion and extension within 25, ulnar deviation 15,
 # radial 10 (a hand aligned with the forearm, a small bend); the forearm turns (pronation/supination) at most
 # TWIST_MAX either way from the rig's rest, so the palm's facing comes from the forearm, not a twisted wrist.
 WRIST = {"flex": 25.0, "ext": 25.0, "uln": 15.0, "rad": 10.0}
+WRIST_LABEL = {}          # pose label -> its own limits (M5c review 2: the fretting hands, decisions 19)
 TWIST_MAX = 175.0
 
 
@@ -149,13 +158,19 @@ class Body:
         self.aim(b2, S + u * dl - self.head(b2))
         return Kn
 
+    def flex(self, side, finger, k, deg):
+        """Flex one finger joint (k = 1, 2, 3) by deg toward the palm (negative: extend), on top of its basis."""
+        b = bn(f"{side}Hand{finger}{k}")
+        self.basis[b] = self.basis[b] @ flex_matrix(side, finger, deg)
+        self.memo = {}
+
     def curl(self, side, deg, thumb=None, fingers=("Index", "Middle", "Ring", "Pinky")):
         for f in fingers:
             for k in (1, 2, 3):
-                self.rot(f"{side}Hand{f}{k}", x=deg)
+                self.flex(side, f, k, deg)
         if thumb is not None:
             for k in (2, 3):
-                self.rot(f"{side}HandThumb{k}", x=thumb)
+                self.flex(side, "Thumb", k, thumb)
 
     # ---- wrists (M5c review, human interventions 15: "people look like they have broken wrists")
     # The neutral wrist is the rig's rest relation of hand to forearm (the mesh undeformed there, within ~6 degrees of
@@ -173,7 +188,16 @@ class Body:
         y = Rh.col[1].normalized()
         t = self.rest[bn(f"{side}HandIndex1")].translation - self.rest[bn(f"{side}HandPinky1")].translation
         t = (t - y * t.dot(y)).normalized()
-        n = t.cross(y) if side == "Left" else y.cross(t)     # checked: finger curls move the tips to +n
+        # The palm side, verified on the mesh (M5c review 2, human interventions 16: "the backs of the hands
+        # clapping"): with the fingers pointing up and the palm toward the viewer, a right hand's thumb is on the
+        # viewer's right, so the palm normal is t x y for the right hand and y x t for the left. The opposite sign
+        # (M5c2's) is the back of the hand: a test render with the faces on its side painted (blender/palm_test.py,
+        # archive/review/m5c3_palm_test/) shows the fingernails on them, and at rest they face away from the thighs.
+        # Finger flexion (toward this palm) is a rotation about the finger bones' local Z, negative on the left
+        # hand and positive on the right; the thumb flexes about its local -X. Measured on the deformed mesh
+        # (fingertip vertices of a library person, blender/palm_test.py): local +X, which M5c and M5c2 used as the
+        # curl, swings the fingers sideways (0.74-0.79 of the tip's motion across the hand).
+        n = y.cross(t) if side == "Left" else t.cross(y)
         Rhi = Rh.inverted()
         v = (Rf.inverted() @ Rh, (Rhi @ n).normalized(), (Rhi @ t).normalized())
         self.memo_static[k] = v
@@ -283,6 +307,18 @@ class Body:
             E = E.lerp(Vector(pole), pole_k)
         self.two_bone(f"{side}Arm", f"{side}ForeArm", wrist, E)
         return self.hand_to(side, y_des, n_des, lim)
+
+    def palm_point(self, side, off=0.018):
+        """The palm's surface centre (between the wrist and the middle finger's root, `off` out of the palm)."""
+        _, n, _ = self.palm(side)
+        return (self.head(f"{side}Hand") + self.head(f"{side}HandMiddle1")) / 2 + n * off
+
+    def arm_angles(self, side):
+        """(upper arm below horizontal, forearm below horizontal) in degrees: + is downward from the shoulder or
+        the elbow. A forearm that rises from the elbow to the wrist is negative."""
+        sh, el, wr = self.head(f"{side}Arm"), self.head(f"{side}ForeArm"), self.head(f"{side}Hand")
+        u, f = (el - sh).normalized(), (wr - el).normalized()
+        return math.degrees(math.asin(max(-1.0, min(1.0, -u.z)))), math.degrees(math.asin(max(-1.0, min(1.0, -f.z))))
 
     def limit_wrist(self, side, lim=None):
         """Bring an already posed hand within the wrist limits (its palm facing as near as it was)."""
@@ -462,7 +498,8 @@ def wrist_stat(body, side, label, key, t):
     for k_, v in (("flex", f), ("ext", -f), ("rad", d), ("uln", -d), ("roll", abs(r))):
         if v > W[k_][0]:
             W[k_] = (round(v, 1), at)
-    if f > WRIST["flex"] + 2 or -f > WRIST["ext"] + 2 or d > WRIST["rad"] + 2 or -d > WRIST["uln"] + 2:
+    L = WRIST_LABEL.get(label, WRIST)
+    if f > L["flex"] + 2 or -f > L["ext"] + 2 or d > L["rad"] + 2 or -d > L["uln"] + 2:
         W["over"] += 1
 
 
@@ -523,7 +560,9 @@ def report_text():
         lines.append(f"  {k}: {v}")
     if R["wrist"]:
         lines.append(f"wrists (degrees; limits flexion {WRIST['flex']:.0f}, extension {WRIST['ext']:.0f}, ulnar "
-                     f"{WRIST['uln']:.0f}, radial {WRIST['rad']:.0f}; 'over' = hand-frames beyond a limit by > 2):")
+                     f"{WRIST['uln']:.0f}, radial {WRIST['rad']:.0f}"
+                     + "".join(f"; {k}: flexion {v['flex']:.0f}, ulnar {v['uln']:.0f}" for k, v in WRIST_LABEL.items())
+                     + "; 'over' = hand-frames beyond its limit by > 2):")
         for lab, W in sorted(R["wrist"].items()):
             lines.append(f"  {lab}: {W['n']} hand-frames, max flexion {W['flex'][0]} ({W['flex'][1]}), extension "
                          f"{W['ext'][0]} ({W['ext'][1]}), ulnar {W['uln'][0]}, radial {W['rad'][0]}, roll "
@@ -531,6 +570,8 @@ def report_text():
     if R.get("contact"):
         import contact
         lines += contact.report_lines(R["contact"])
+    import arm_checks
+    lines += arm_checks.report_lines()
     return "\n".join(lines)
 
 
