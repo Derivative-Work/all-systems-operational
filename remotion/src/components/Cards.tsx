@@ -26,7 +26,7 @@ export const TechnicalDifficulties: React.FC = () => {
   );
 };
 
-const Card: React.FC<{heading?: string; children: React.ReactNode; dark?: boolean}> = ({heading, children, dark}) => {
+export const Card: React.FC<{heading?: string; children: React.ReactNode; dark?: boolean}> = ({heading, children, dark}) => {
   const f = useCurrentFrame();
   return (
     <Frame bg={dark ? T.evergreenDeep : T.paper}>

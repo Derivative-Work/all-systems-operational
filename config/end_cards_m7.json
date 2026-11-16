@@ -1,0 +1,10 @@
+{
+  "_doc": "M7's end sequence over the human's instrumental (human interventions 25: \"don't worry about length, just make it readable\"; decisions 44). remotion/src/components/EndCards.tsx reads this. Each card or page holds for its reading time: its words at wpm, plus settle_s to find the start and take in the layout, never under min_s, rounded up to whole seconds; each card overlaps the next by fade_frames, out of the outgoing card's hold: a card on a different background cross-fades in, one on the same background covers the last and its words fade in (so two pages of text never show through each other); the last card fades to black over 2 x fade_frames. The order is the brief's (Bookends: the end card, then 'Next incident: TBD', the fact card after O24, the disclosure after the fact card). fact_pages splits the brief's fact-card lines (indices into FACTS in remotion/src/components/Cards.tsx; 'format' is the Format line) into pages, in the brief's order, text verbatim. The M5 cards (M5-FactCard and the rest) are unchanged. snap: once the instrumental is in, the card changes move to its nearest bar line (not yet: no track).",
+  "wpm": 160,
+  "settle_s": 2.0,
+  "min_s": 4.0,
+  "fade_frames": 12,
+  "order": ["end", "final", "fact", "disclosure"],
+  "fact_pages": [[0, 1], [2, 3, 4], [5], [6, "format"]],
+  "snap": null
+}

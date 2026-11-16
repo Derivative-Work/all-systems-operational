@@ -15,6 +15,7 @@ import {CrowdCamera, CrowdLock} from './components/CrowdPhones';
 import {CalendarScreen} from './components/Calendar';
 import {BufferingFreeze, CaptionOverlay} from './components/Freeze';
 import {DisclosureCard, EndCard, FactCard, FinalCard, TechnicalDifficulties} from './components/Cards';
+import {END_FRAMES, END_PLAN, EndSequence} from './components/EndCards';
 import {
   BOARD, KICK, KickDrumHead, ONAIR, OnAirSign, POLAROID, Polaroid, SIGN, StationSign, TableTent, TENT, Whiteboard,
 } from './components/Textures';
@@ -154,12 +155,24 @@ const M7C: React.FC = () => (
   </>
 );
 
+/* ---------- M7: the end sequence over the instrumental, each card held for its reading time (config/end_cards_m7.json) ---------- */
+const M7END: React.FC = () => (
+  <>
+    <Composition id="M7-EndSequence" component={EndSequence} durationInFrames={END_FRAMES} {...full} />
+    {/* review: each card or fact page alone, its hold as its length */}
+    {END_PLAN.map((it) => (
+      <Composition key={it.id} id={`M7-End-${it.id}`} component={() => <>{it.el}</>} durationInFrames={it.frames} {...full} />
+    ))}
+  </>
+);
+
 export const Root: React.FC = () => (
   <>
     <M5 />
     <M7B />
     <M7C />
     <M1B />
+    <M7END />
     {/* O01 */}
     <Composition id="O01-Bookend" component={Bookend} durationInFrames={O01_TOTAL} {...full} />
     <Composition id="O01a-SpikeChart" component={SpikeChart} durationInFrames={dur('O01_spike')} {...full} />
