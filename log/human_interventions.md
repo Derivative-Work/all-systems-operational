@@ -146,3 +146,12 @@ Append-only. Every human action: when, what, and why.
 - **Not edited, flagged for the human:**
   - the Overview's "The turn" still frames the bridge as singing back Nov 13's "earlier network capacity upgrade" line, while v1.3 now sings the July fix;
   - the concept-audit prompt's SOURCES line still says to paste "Microsoft's post-incident report if published", but the report carries a no-reproduction notice.
+
+## 22. 2026-11-16 — M7b reviewed: screens, O04 framing, park direction
+
+- **What:** on the M7b look board, screens sheet, park concepts and motion test:
+  1. "Treehouse is good as suggested". The screen content is approved with the assistant's name dropped: "Kestrel" is Microsoft's ASP.NET Core web server, so the screen will read "assistant · read-only". Seat 1's phone keeps the #it-help thread.
+  2. "Framing is good as suggested". O04a keeps the close phone framing without the band, and the question is on screen from the start of the shot.
+  3. "Park suggestions are good". The hill is rebuilt in the direction of concepts 1–2 (park_crest_s41 and park_crest_b_s42): a lawn running to a brow, the ground falling away, roofs and bare trees below, and the city 2–4 km off in the cloud. Far plate 1 (plate_city_s42) goes behind it, with plates 2–3 (plate_ridges_s41/s42) as the far tree lines.
+  4. "Yes, leave the cut alone". No insert for the ringing phone's caller ID or the timeout message.
+- **Also accepted as proposed:** the M7b look as the base for the full M7 render (decisions 34).
