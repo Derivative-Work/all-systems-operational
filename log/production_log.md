@@ -658,3 +658,9 @@ Append-only. One entry per generation, render or analysis step.
   - Eevee: about 15,700 s of rendering plus about 15 min of builds and solves: **about 4.6 h**. Every one of the 8,699 frames in Blender would be about 6 h. Little is gained by static plates: the freezes (O12a, O21a, 132 frames) still move Switch, ON AIR and the late clapper.
   - Cycles: about 17 h (the coffee shop and treehouse estimated at 10 s/frame, not measured).
   - Disk: 6,405 JPEG q92 frames, about 1.4 GB (16-bit PNG would be about 50 GB, more than the 27 GB free). The grade is applied at assembly.
+
+## 34. 2026-11-16 — M7a: the live-room motion test
+
+- **Render:** `/usr/bin/time -v blender -b --factory-startup --python blender/coverage_m7.py -- --out renders/m7a/frames_motion --subs O03a,O03b --size 960x540 --log log/render_logs/m7a_pose_check_motion.log` → 288 JPEG frames (O03a's wide push, then O03b's rain close; the M7 Eevee settings, 64 samples), 5 min 6 s (1.18 and 0.78 s a frame at this size; `log/render_logs/m7a_motion.log`). In `renders/m7a/frames_motion/` (out of the manifest, like every frame sequence).
+- **Assembly:** `.venv/bin/python -I scripts/m7a_board.py --motion` → `review/m7a_motion_test.mp4`: each frame graded (grey, `scripts/grade.py`), h264 960×540 at 650 kb/s, with the audio of `review/m5c3_animatic.mp4` over the same frames (video frames 470–757, 15.67 s on), AAC 128k. 9.60 s, 0.94 MB.
+- **Seen in motion:** the rivulets run down the glass while the beaded drops stay put; the camera's push and handheld drift move through the daylight shafts, which hold their window shapes; the practicals pulse on the kick. The haze's own texture doesn't drift (it's static noise): a slow drift is a two-line addition for M7 if the human wants it.
