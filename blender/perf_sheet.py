@@ -107,7 +107,7 @@ for nm, e in people.items():
         loc = tgt + fwd * 2.3 - left * 0.7 + Vector((0, 0, 0.12))
         lens = 70
         if nm.endswith("_3x"):                  # the same camera, three times the focal length, on the hands
-            tgt = p + fwd * 0.3 + Vector((0, 0, hz - p.z - 0.33))
+            tgt = (C.bone_world(e, "LeftHand") + C.bone_world(e, "RightHand")) / 2
             loc = tgt + fwd * 2.3 - left * 0.7 + Vector((0, 0, 0.12))
             lens = 210
     cam = gb.camera(f"sheet_{nm}", tuple(loc), tuple(tgt), lens)
