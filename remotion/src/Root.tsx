@@ -6,7 +6,8 @@ import {SpikeChart} from './components/SpikeChart';
 import {RealScreens} from './components/RealScreens';
 import {ChatPost} from './components/ChatPost';
 import {StatusPage, StatusState} from './components/StatusPage';
-import {LowerThird, LowerThirdVariant} from './components/LowerThird';
+import {DenialTags, LowerThird, LowerThirdVariant} from './components/LowerThird';
+import pins from '../../timing/o18_pins.json';
 import {PhoneChatBig, PhoneChatProps, PhoneChatScreen} from './components/PhoneChat';
 import {Agent, AlertCall, Dashboard, LAP, ScreenProps, Terminal, TwoFactor, VideoCall} from './components/TreehouseScreens';
 import {FramedPhone, Screen} from './components/Phone';
@@ -41,27 +42,36 @@ const BareChat: React.FC<PhoneChatProps> = (p) => <Frame><Screen bg={T.chatBg}><
 const FramedCal: React.FC<{drainStart?: number; drainEnd?: number}> = (p) => <FramedPhone scale={0.72} top={40}><CalendarScreen {...p} /></FramedPhone>;
 const BareCal: React.FC = () => <Frame><Screen bg="#fcfbf8"><CalendarScreen /></Screen></Frame>;
 
-/* ---------- whiteboard: fill runs 0 -> 1 over the shot (placeholder: line cues come at M2) ---------- */
-const BoardAnim: React.FC<{branch?: 'A' | 'B' | 'C'; configDiff?: string | null; reveal?: Record<string, [number, number]>}> = ({branch, configDiff, reveal}) => {
+/* ---------- whiteboard: fill runs 0 -> 1 over the shot, or each segment on its sung line (reveal) ---------- */
+const BoardAnim: React.FC<{branch?: 'A' | 'B' | 'C'; reveal?: Record<string, [number, number]>; only?: string[]; full?: boolean}> = ({branch, reveal, only, full}) => {
   const f = useCurrentFrame();
   const {durationInFrames: d} = useVideoConfig();
-  return <Whiteboard fill={Math.min(1, f / (d * 0.8))} branch={branch} configDiff={configDiff} reveal={reveal} />;
+  return <Whiteboard fill={full ? 1 : Math.min(1, f / (d * 0.8))} branch={branch} reveal={reveal} only={only} />;
 };
-// review only: what branch A looks like once the report gives a diff; the real line comes from incident.json
-const DIFF_PREVIEW = '[one-line config diff from the report]';
 
 const full = {fps: FPS, width: W, height: H};
+/** Where the denial tags pin, per frame of O18 (timing/o18_pins.json: the board's denial line projected through each
+ * sub-shot's camera, blender/o18_pins.py), and when they go (the cut to O18e). */
+const O18_PINS = pins as unknown as {outAt: number; track: Record<string, [number, number] | null>; bottoms: Record<string, number>};
 
 /* ---------- M5: the animatic's compositions, each its shot's exact length, events on the M2 cue frames ---------- */
-const O18_REVEAL: Record<string, [number, number]> = {
-  'rc-l': [mark('O18', 0), mark('O18', 0) + 12], // "Root cause"
-  rc: [mark('O18', 1), mark('O18', 3) - 6], // "an earlier upgrade ... met a recent change"
-  'cf-l': [mark('O18', 3), mark('O18', 3) + 24], // "Contributing factors"
-  cf0: [mark('O18', 4), mark('O18', 4) + 60], // "not related to cyber, AI or agents"
-  cr0: [mark('O18', 4) + 60, mark('O18', 4) + 72], // its credit
-  'fr-l': [mark('O18', 5), mark('O18', 5) + 24], // "Full report"
-  fr: [mark('O18', 6), mark('O18', 6) + 14], // "to follow"
-  ll: [mark('O18', 7), mark('O18', 7) + 24], // "Lessons learned"
+// Lyrics v1.3 (M1b, production log 52): O18's marks are config/shot_cues.json's, one per bridge line; mark 8 is the
+// second denial tag and mark 13 the repeated last line, so neither writes on the board. The v1.2 board the M5
+// animatic used stays rendered in renders/m5/remotion/M5-O18-Whiteboard.mp4.
+const m18 = (i: number) => mark('O18', i);
+export const O18_REVEAL: Record<string, [number, number]> = {
+  'rc-l': [m18(0), m18(0) + 12], // "Root cause"
+  rc: [m18(1), m18(2) - 6], // "A fix from back in July"
+  circle: [m18(2) - 6, m18(2) + 8], // branch A: the July fix circled as its line ends
+  rt: [m18(2), m18(3) - 6], // "Tested on the smaller machines"
+  'cf-l': [m18(3), m18(3) + 24], // "Contributing factors"
+  cf0: [m18(4), m18(5) - 6], // "Teams came over for the night"
+  cf1: [m18(5), m18(6) - 4], // "An unrelated issue"
+  cf2: [m18(6), m18(7) - 4], // "And a separate issue"
+  nr: [m18(7), m18(7) + 45], // "(Not related to cyber, AI or agents)"; denial tag 1 pins to it
+  'fr-l': [m18(9), m18(9) + 18], // "Full report"
+  fr: [m18(10), m18(10) + 12], // "On the twentieth"
+  ll: [m18(11), m18(11) + 24], // "Lessons learned"
 };
 const M5: React.FC = () => (
   <>
@@ -91,6 +101,17 @@ const M5: React.FC = () => (
     {/* textures for the Blender shots and the O04 screen (h264) */}
     <Composition id="M5-O04-PhoneScreen" component={BareChat} defaultProps={{base: 6, heys: [mark('O04', 1)], askAt: mark('O04', 0)}} durationInFrames={shotFrames('O04')} fps={FPS} width={PW} height={PH} />
     <Composition id="M5-O18-Whiteboard" component={BoardAnim} defaultProps={{reveal: O18_REVEAL}} durationInFrames={shotFrames('O18')} fps={FPS} width={BOARD.w} height={BOARD.h} />
+  </>
+);
+
+/* ---------- M1b: the v1.3 bridge: the whiteboard texture and the two denial tags (transparent overlay) ---------- */
+const M1B: React.FC = () => (
+  <>
+    <Composition id="M7-O18-Whiteboard" component={BoardAnim} defaultProps={{reveal: O18_REVEAL}} durationInFrames={shotFrames('O18')} fps={FPS} width={BOARD.w} height={BOARD.h} />
+    {/* review: the full board, and the denial line alone (its place on the board, for the tags' pin) */}
+    <Composition id="M7-O18-Whiteboard-full" component={BoardAnim} defaultProps={{full: true}} durationInFrames={1} fps={FPS} width={BOARD.w} height={BOARD.h} />
+    <Composition id="M7-O18-Whiteboard-nrOnly" component={BoardAnim} defaultProps={{only: ['nr']}} durationInFrames={1} fps={FPS} width={BOARD.w} height={BOARD.h} />
+    <Composition id="M7-O18-DenialTags" component={DenialTags} defaultProps={{at: [m18(7), m18(8)], ...O18_PINS}} durationInFrames={shotFrames('O18')} {...full} />
   </>
 );
 
@@ -138,6 +159,7 @@ export const Root: React.FC = () => (
     <M5 />
     <M7B />
     <M7C />
+    <M1B />
     {/* O01 */}
     <Composition id="O01-Bookend" component={Bookend} durationInFrames={O01_TOTAL} {...full} />
     <Composition id="O01a-SpikeChart" component={SpikeChart} durationInFrames={dur('O01_spike')} {...full} />
@@ -189,7 +211,6 @@ export const Root: React.FC = () => (
     <Composition id="StationSign" component={StationSign} durationInFrames={1} fps={FPS} width={SIGN.w} height={SIGN.h} />
     <Composition id="O18-Whiteboard" component={BoardAnim} defaultProps={{}} durationInFrames={dur('O18')} fps={FPS} width={BOARD.w} height={BOARD.h} />
     <Composition id="O18-Whiteboard-branchC" component={BoardAnim} defaultProps={{branch: 'C' as const}} durationInFrames={dur('O18')} fps={FPS} width={BOARD.w} height={BOARD.h} />
-    <Composition id="O18-Whiteboard-diffPreview" component={BoardAnim} defaultProps={{branch: 'A' as const, configDiff: DIFF_PREVIEW}} durationInFrames={dur('O18')} fps={FPS} width={BOARD.w} height={BOARD.h} />
 
     {/* end sequence */}
     <Composition id="O15-Disclosure" component={DisclosureCard} durationInFrames={dur('card')} {...full} />

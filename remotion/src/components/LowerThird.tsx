@@ -86,3 +86,44 @@ export const LowerThird: React.FC<{variant: LowerThirdVariant; echoEvery?: numbe
     </Frame>
   );
 };
+
+/** O18 (brief rev 141): on "(Not related to cyber, AI or agents)" a tag in the lower thirds' panel style pins to that
+ * line on the whiteboard; the second line follows a beat later (`at`: the two cue frames). The panel sits where the
+ * lower thirds do; a leader runs from it to the pin, the denial line's left end on screen per frame (`track`, string
+ * keys, null when out of frame; timing/o18_pins.json from blender/o18_pins.py). Both lines go at `outAt`, the cut to
+ * O18e. With an empty track (no projection yet) the pin is `fallback`. */
+export const DenialTags: React.FC<{at: [number, number]; outAt: number; track: Record<string, [number, number] | null>;
+  bottoms?: Record<string, number>; fallback?: [number, number]}> = ({at, outAt, track, bottoms = {0: 110}, fallback = [540, 500]}) => {
+  const f = useCurrentFrame();
+  if (f < at[0] || f >= outAt) return <Frame>{null}</Frame>;
+  const pin = Object.keys(track).length ? track[String(f)] ?? null : fallback;
+  const inP = interpolate(f - at[0], [0, 8], [0, 1], clamp);
+  const in2 = interpolate(f - at[1], [0, 8], [0, 1], clamp);
+  const lines = INCIDENT.denialTag;
+  const [fs, lh, padT, padB, gap] = [38, 48, 18, 20, 10];
+  // the panel's distance from the bottom edge: the latest entry of `bottoms` at or before this frame
+  const left = 110;
+  const bottom = Object.entries(bottoms).map(([k, v]) => [Number(k), v]).filter(([k]) => k <= f).sort((a, b) => a[0] - b[0]).pop()?.[1] ?? 110;
+  const h = padT + lh + in2 * (gap + lh) + padB;   // the panel grows as the second line arrives
+  const top = 1080 - bottom - h;
+  return (
+    <Frame>
+      {pin && (
+        <svg style={{position: 'absolute', inset: 0, opacity: inP}} width={1920} height={1080}>
+          <line x1={pin[0]} y1={pin[1]} x2={left + 48} y2={top} stroke={T.paper} strokeWidth={3} />
+          <circle cx={pin[0]} cy={pin[1]} r={10} fill="none" stroke={T.paper} strokeWidth={3} />
+          <circle cx={pin[0]} cy={pin[1]} r={4} fill={T.coral} />
+        </svg>
+      )}
+      <div style={{position: 'absolute', left, bottom, height: h, display: 'flex', alignItems: 'stretch', opacity: inP,
+        transform: `translateX(${(1 - inP) * -40}px)`, boxShadow: '0 10px 30px rgba(0,0,0,0.25)', borderRadius: 10, overflow: 'hidden'}}>
+        <div style={{width: 16, background: T.coral, flexShrink: 0}} />
+        <div style={{background: T.paper, padding: `${padT}px 34px ${padB}px`, fontFamily: STATION, color: T.ink, whiteSpace: 'nowrap',
+          fontSize: fs, lineHeight: `${lh}px`, overflow: 'hidden'}}>
+          <div style={{fontWeight: 600}}>{lines[0]}</div>
+          <div style={{fontWeight: 500, marginTop: gap, opacity: in2}}>{lines[1]}</div>
+        </div>
+      </div>
+    </Frame>
+  );
+};

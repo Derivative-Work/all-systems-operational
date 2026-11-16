@@ -34,6 +34,8 @@ export type Incident = {
   statusPhrases: string[];
   rootCause: string;
   contributingFactors: string[];
+  /** O18's two on-screen tags, pinned to the whiteboard's denial line (brief rev 141). */
+  denialTag: string[];
   configDiff: string | null;
   branch: Branch;
   factCardQuotes: string[];
@@ -43,7 +45,7 @@ export type Incident = {
 export const INCIDENT = incidentJson as unknown as Incident;
 
 /** The stale stamp on every status row (brief, O02/O23): a page that can't load can't update. */
-export const STAMP = 'Last updated: Thu 12:58 p.m.';
+export const STAMP = 'Last updated: Thu 11:15 a.m.'; // brief rev 136 (was 12:58 p.m.)
 
 /** Deterministic PRNG (mulberry32) seeded from config/seeds.json. */
 export const rng = (salt: number) => {

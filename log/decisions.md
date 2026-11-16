@@ -311,3 +311,17 @@ Only the park presets below changed (`config/look_m7.json` m7c.cameras; `blender
 3. **The doubled "(We're committed to doing better)":** the whiteboard writes it once, on the first; the second is marked but writes nothing.
 4. **Stop 1's first clap** sounds slightly different in v1.3 (production log 52). It is left as delivered and flagged for the human.
 5. **M1 lock:** recommended, with the post-filtered v1.3 master as the video's audio. The plan's M1 gate is the human's.
+
+## 41. 2026-11-16 — M1b: the v1.3 whiteboard and the denial tags (agent; for the human)
+
+1. **The board's words:**
+   - It writes `incident.json`'s root cause and three factors, the lyric's "tested on smaller machines" under the root cause, and Microsoft's Nov 13 words in quotes.
+   - "Lessons learned:" stays blank, as in M5. "Full report:" reads "Nov 20".
+   - `incident.json` has no field for the three new strings, so they sit in `Textures.tsx` (`TESTED`, `DENIAL`, `REPORT_DUE`). Branch B drops the quote line; branch C writes "to follow".
+2. **No credit line under the quote** (M5's "— Microsoft statement, Nov 13"). Tag 1 comes in on the frame the quote starts and credits and dates it, so a credit on the board would say it twice.
+3. **The tags sit where the lower thirds do**, with a leader to a pin on the quote line. They are not beside the line: in O18c the board is small and a panel there would cover the band.
+   - In O18d the panel sits 56 px from the bottom, not 110, so that the board's last line stays clear. The step falls on the cut.
+4. **"(Not related…)" now lands 9 frames into O18c** (side wide); in v1.2 it fell in O18b (board mid). The cut stays as approved. The pin reads in O18c, and O18d (board close) then shows the whole board with both tags.
+   - The alternative is to swap O18b's and O18c's cameras so the tags land on the board-mid framing. Recommendation: keep the cut.
+5. **The M7 render gets its own music map** (`timing/music_map_v13.json`). M5c3 keeps `timing/music_map.json`, so M5c3 still reproduces (the PSNR check). Only the lead inside the repainted span differs.
+6. **For the human: the fact card's length.** The brief's text is now about 210 words on a 15 s card (`config/shot_cues.json` post-roll). At about 3 words a second that needs about 70 s. Options: lengthen the card (and the video), split it in two, or trim. Not changed.

@@ -90,69 +90,105 @@ export const StationSign: React.FC = () => (
 
 /* ---------- whiteboard (O18), handwriting that fills in ---------- */
 export const BOARD = {w: 2400, h: 1500};
-export const CREDIT = '— Microsoft statement, Nov 13';
+/** Lyrics v1.3 (brief rev 141): the board paraphrases Microsoft's preliminary report (Nov 15) in a few words, in the
+ * order of the bridge's lines; the report's own words are never copied onto it. Microsoft's Nov 13 line is quoted
+ * (MacRumors), and the on-screen denial tags (DenialTags, LowerThird.tsx) credit and date it. */
+export const DENIAL = 'not related to cyber or AI / agents';
+export const TESTED = 'tested on smaller machines';
+export const REPORT_DUE = 'Nov 20';
+/** Branch A circles this phrase of the root cause: "the whole singalong over one fix" (brief, report branches). */
+export const CIRCLED = 'July fix';
 
-type Seg = {text: string; color: string; size: number; gapBefore?: number; indent?: number; key: string};
-export const boardSegments = (inc = INCIDENT): Seg[] => {
+type Seg = {text: string; color: string; size: number; indent?: number; key: string};
+export const boardSegments = (inc = INCIDENT, branch: Branch = inc.branch): Seg[] => {
   const ink = '#1f3f8f', red = '#b8322a', black = '#24282c';
   const segs: Seg[] = [
-    {key: 'rc-l', text: 'Root cause: ', color: red, size: 118},
-    {key: 'rc', text: inc.rootCause, color: ink, size: 104},
-    {key: 'cf-l', text: 'Contributing factors:', color: red, size: 118, gapBefore: 40},
+    {key: 'rc-l', text: 'Root cause: ', color: red, size: 100},
+    {key: 'rc', text: inc.rootCause, color: ink, size: 90},
+    {key: 'rt', text: `↳ ${TESTED}`, color: ink, size: 80, indent: 60},
+    {key: 'cf-l', text: 'Contributing factors:', color: red, size: 100},
   ];
-  inc.contributingFactors.forEach((cf, i) => {
-    const quoted = /not related/i.test(cf);
-    segs.push({key: `cf${i}`, text: quoted ? `“${cf}”` : cf, color: ink, size: 104, indent: 60});
-    if (quoted) segs.push({key: `cr${i}`, text: CREDIT, color: black, size: 78, indent: 120});
-  });
-  segs.push({key: 'll', text: 'Lessons learned:', color: red, size: 118, gapBefore: 40});
-  segs.push({key: 'fr-l', text: 'Full report: ', color: red, size: 118, gapBefore: 40});
-  segs.push({key: 'fr', text: 'to follow', color: ink, size: 104});
+  inc.contributingFactors.forEach((cf, i) => segs.push({key: `cf${i}`, text: `– ${cf}`, color: ink, size: 86, indent: 60}));
+  // branch B cuts the denial line from the bridge (brief), so the board drops it too
+  if (branch !== 'B') segs.push({key: 'nr', text: `“${DENIAL}”`, color: black, size: 86, indent: 60});
+  segs.push({key: 'll', text: 'Lessons learned:', color: red, size: 100});
+  segs.push({key: 'fr-l', text: 'Full report: ', color: red, size: 100});
+  segs.push({key: 'fr', text: branch === 'C' ? 'to follow' : REPORT_DUE, color: ink, size: 90});
   return segs;
 };
 
 /** `fill` 0..1 writes the board in, character by character; branch C ends the root cause in a blinking cursor;
- * branch A shows the one-line config diff after the board is full, when configDiff is set. */
-/** M5: `reveal` maps a segment key to [start frame, end frame]: that segment is written in over its own window, on
- * the sung line's cue (the board's order isn't the bridge's: lessons learned is sung after the full report). Segments
- * with no window wait for `fill` as before. */
-export const Whiteboard: React.FC<{fill: number; branch?: Branch; configDiff?: string | null; caption?: boolean; reveal?: Record<string, [number, number]>}> = ({
-  fill, branch = INCIDENT.branch, configDiff = INCIDENT.configDiff, caption = true, reveal,
+ * branch A circles CIRCLED in the root cause once it is written (reveal key 'circle', else when the board is full).
+ * `reveal` maps a segment key to [start frame, end frame]: that segment is written in over its own window, on the
+ * sung line's cue (the board's order isn't the bridge's: lessons learned is sung after the full report). With
+ * `reveal`, segments without a window stay blank. `only` (review) shows just those segments, fully written. */
+export const Whiteboard: React.FC<{fill: number; branch?: Branch; caption?: boolean; reveal?: Record<string, [number, number]>; only?: string[]}> = ({
+  fill, branch = INCIDENT.branch, caption = true, reveal, only,
 }) => {
   const f = useCurrentFrame();
-  const segs = boardSegments();
+  const segs = boardSegments(INCIDENT, branch);
   const total = segs.reduce((n, s) => n + s.text.length, 0);
   let budget = Math.round(fill * total);
-  const shown = reveal
-    ? segs.map((s) => { const w = reveal[s.key]; return w ? Math.round(interpolate(f, w, [0, s.text.length], clamp)) : 0; })
-    : segs.map((s) => { const n = Math.max(0, Math.min(s.text.length, budget)); budget -= s.text.length; return n; });
+  const shown = only
+    ? segs.map((s) => (only.includes(s.key) ? s.text.length : 0))
+    : reveal
+      ? segs.map((s) => { const w = reveal[s.key]; return w ? Math.round(interpolate(f, w, [0, s.text.length], clamp)) : 0; })
+      : segs.map((s) => { const n = Math.max(0, Math.min(s.text.length, budget)); budget -= s.text.length; return n; });
   const blink = Math.floor(f / 12) % 2 === 0;
-  // lay out as lines: a label and its value share a line where the brief pairs them (root cause, full report)
+  const idx = (k: string) => segs.findIndex((s) => s.key === k);
   const span = (i: number) => {
+    if (i < 0) return null;
     const s = segs[i];
     return <span key={s.key} style={{color: s.color, fontSize: s.size}}>{s.text.slice(0, shown[i])}</span>;
   };
-  const idx = (k: string) => segs.findIndex((s) => s.key === k);
-  const rcDone = shown[idx('rc')] === segs[idx('rc')].text.length;
+  // the root cause, with CIRCLED drawn round in red marker (branch A) once its words are written
+  const rcI = idx('rc');
+  const rc = segs[rcI], rcN = shown[rcI], at = rc.text.indexOf(CIRCLED);
+  const rcDone = rcN === rc.text.length;
+  const circleP = branch !== 'A' || at < 0 ? 0
+    : only ? (only.includes('circle') ? 1 : 0)
+      : reveal ? (reveal.circle ? interpolate(f, reveal.circle, [0, 1], clamp) : 0)
+        : (fill >= 1 ? 1 : 0);
+  const rcSpan = at < 0 ? span(rcI) : (
+    <span key="rc" style={{color: rc.color, fontSize: rc.size}}>
+      {rc.text.slice(0, Math.min(rcN, at))}
+      <span style={{position: 'relative', display: 'inline-block'}}>
+        {rc.text.slice(at, Math.max(at, Math.min(rcN, at + CIRCLED.length)))}
+        {circleP > 0 && (() => {
+          // a hand-drawn loop round the words, in pixels (Caveat runs about 0.33 em a character): an ellipse that
+          // overshoots its start, drawn in as the marker moves
+          const w = CIRCLED.length * 0.33 * rc.size + 44, h = rc.size * 1.35;
+          const P = (x: number, y: number) => `${(x / 100 * w).toFixed(1)} ${(y / 100 * h).toFixed(1)}`;
+          const d = `M ${P(10, 22)} C ${P(34, -4)}, ${P(90, -2)}, ${P(98, 40)} C ${P(102, 86)}, ${P(36, 104)}, ${P(8, 80)} `
+            + `C ${P(-4, 62)}, ${P(0, 30)}, ${P(28, 10)}`;
+          return (
+            <svg style={{position: 'absolute', left: -24, top: -0.16 * rc.size, overflow: 'visible'}} width={w} height={h}>
+              <path d={d} fill="none" stroke="#b8322a" strokeWidth={7} strokeLinecap="round" pathLength={1}
+                strokeDasharray="1 1" strokeDashoffset={1 - circleP} />
+            </svg>
+          );
+        })()}
+      </span>
+      {rcN > at + CIRCLED.length ? rc.text.slice(at + CIRCLED.length, rcN) : ''}
+    </span>
+  );
   const lines: React.ReactNode[] = [];
-  lines.push(<div key="l-rc">{span(idx('rc-l'))}{span(idx('rc'))}
+  lines.push(<div key="l-rc">{span(idx('rc-l'))}{rcSpan}
     {branch === 'C' && rcDone && <span style={{display: 'inline-block', width: 10, height: 80, background: '#1f3f8f', marginLeft: 10,
       verticalAlign: '-8px', opacity: blink ? 1 : 0}} />}</div>);
-  lines.push(<div key="l-cf" style={{marginTop: 40}}>{span(idx('cf-l'))}</div>);
+  lines.push(<div key="l-rt" style={{paddingLeft: segs[idx('rt')].indent}}>{span(idx('rt'))}</div>);
+  lines.push(<div key="l-cf" style={{marginTop: 30}}>{span(idx('cf-l'))}</div>);
   segs.forEach((s, i) => {
-    if (/^c[fr]\d/.test(s.key)) lines.push(<div key={`l-${s.key}`} style={{paddingLeft: s.indent}}>{span(i)}</div>);
+    if (/^cf\d/.test(s.key)) lines.push(<div key={`l-${s.key}`} style={{paddingLeft: s.indent}}>{span(i)}</div>);
   });
-  lines.push(<div key="l-ll" style={{marginTop: 40}}>{span(idx('ll'))}</div>);
-  lines.push(<div key="l-fr" style={{marginTop: 40}}>{span(idx('fr-l'))}{span(idx('fr'))}</div>);
+  if (idx('nr') >= 0) lines.push(<div key="l-nr" id="board-nr" style={{paddingLeft: segs[idx('nr')].indent}}>{span(idx('nr'))}</div>);
+  lines.push(<div key="l-ll" style={{marginTop: 30}}>{span(idx('ll'))}</div>);
+  lines.push(<div key="l-fr" style={{marginTop: 30}}>{span(idx('fr-l'))}{span(idx('fr'))}</div>);
   return (
     <Frame bg="#b9bdc0">
       <div style={{position: 'absolute', inset: 34, background: 'linear-gradient(160deg, #fdfdfb 0%, #f2f3f1 60%, #e9ebe9 100%)', borderRadius: 8,
         boxShadow: 'inset 0 0 40px rgba(0,0,0,0.08)'}}>
-        <div style={{position: 'absolute', inset: '90px 140px', fontFamily: HAND, fontWeight: 600, lineHeight: 1.12}}>{lines}</div>
-        {branch === 'A' && configDiff && fill >= 1 && (
-          <div style={{position: 'absolute', left: 150, right: 150, bottom: 130, border: '6px solid #24282c', borderRadius: 18, padding: '18px 34px',
-            fontFamily: HAND, fontSize: 76, fontWeight: 600, color: '#24282c'}}>{configDiff}</div>
-        )}
+        <div style={{position: 'absolute', inset: '80px 130px', fontFamily: HAND, fontWeight: 600, lineHeight: 1.1}}>{lines}</div>
         {caption && (
           <div style={{position: 'absolute', right: 40, bottom: 34, fontFamily: UI, fontSize: 40, fontWeight: 500, color: '#3b4146',
             background: '#fff', border: '2px solid #c9cdd0', borderRadius: 10, padding: '6px 18px'}}>dramatization</div>

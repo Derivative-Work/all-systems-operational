@@ -33,6 +33,7 @@ No random process, so no seed is read.
 Usage: .venv/bin/python -I scripts/music_map.py [--plot]
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -45,7 +46,17 @@ TM = json.load(open("timing/timing_map.json"))
 OUT = Path("timing/music_map.json")
 PNG = Path("review/m5b_music_map.png")
 STEM_DIR = Path("audio/stems")
-STEMS = {p.stem.split(" ", 1)[1].lower().replace(" ", "_"): p for p in sorted(STEM_DIR.glob("*.aif"))}
+# Suno's 12 stems as exported (numbered "N Name.aif"); M1b's repaint and v1.3 lead are kept out of the per-stem list
+STEMS = {p.stem.split(" ", 1)[1].lower().replace(" ", "_"): p for p in sorted(STEM_DIR.glob("*.aif"))
+         if re.fullmatch(r"\d+ [A-Za-z ]+", p.stem)}
+MASTER = CFG["master"]
+if "--v13" in sys.argv:
+    # M1b (production log 53): the v1.3 master and lead (config/timing.json) -> timing/music_map_v13.json, for the M7
+    # render. Without it, the v1.2 inputs (archived) rebuild timing/music_map.json, which the M5c3 cut was made from.
+    STEMS["lead_vocals"] = Path(CFG["stems"]["lead"])
+    OUT, PNG = Path("timing/music_map_v13.json"), Path("review/m1b_music_map.png")
+else:
+    MASTER = "archive/audio/v1.2/track/All Systems Operational.wav"
 FPS = 30
 HOP_S = 0.005
 
@@ -77,8 +88,8 @@ def rms_db(y, sr, win_s):
     return 20 * np.log10(np.sqrt((fr ** 2).mean(1)) + 1e-9)
 
 
-def env01(db, span=30.0):
-    top = np.percentile(db, 99)
+def env01(db, span=30.0, top=None):
+    top = np.percentile(db, 99) if top is None else top
     return np.clip((db - (top - span)) / span, 0, 1)
 
 
@@ -105,10 +116,10 @@ def hits(db, gap, floor_db, min_rise, look=6):
     return out
 
 
-def hit_list(raw):
+def hit_list(raw, p95=None):
     if not raw:
         return []
-    p95 = np.percentile([r for _, r, _ in raw], 95)
+    p95 = np.percentile([r for _, r, _ in raw], 95) if p95 is None else p95
     out = []
     for t, r, lvl in raw:
         i, bb, off = nearest_beat(t)
@@ -139,7 +150,7 @@ def section_at(t):
 
 def main():
     plot = "--plot" in sys.argv
-    mix, sr = load(CFG["master"])
+    mix, sr = load(MASTER)
     dur = len(mix) / sr
     tracks = {"mix": mix}
     for k, p in STEMS.items():
@@ -194,7 +205,15 @@ def main():
                           for b, v in sorted(by.items())} for sec, by in prof.items()}
     tamb = hit_list(hits(rms_db(band(tracks["percussion"], sr, 6000, None), sr, HOP_S), 0.1, -55, 8))
     strums = hit_list(hits(rms_db(band(tracks["guitar"], sr, 1500, 8000), sr, HOP_S), 0.09, -50, 6))
-    lead_on = hit_list(hits(rms_db(band(tracks["lead_vocals"], sr, 200, 4000), sr, HOP_S), 0.15, -45, 9))
+    # --v13: the lead's scales (the envelope's 99th-percentile top, the onsets' 95th-percentile rise) stay the v1.2
+    # lead's, so outside the repainted bridge the lead's envelope and onsets are v1.2's (the stems are identical there)
+    ref = None
+    if "--v13" in sys.argv:
+        y0, _ = load("audio/stems/0 Lead Vocals.aif")
+        ref = {"top": float(np.percentile(rms_db(band(y0, sr, 150, 6000), sr, 1 / FPS), 99)),
+               "p95": float(np.percentile([r for _, r, _ in hits(rms_db(band(y0, sr, 200, 4000), sr, HOP_S), 0.15, -45, 9)], 95))}
+    lead_on = hit_list(hits(rms_db(band(tracks["lead_vocals"], sr, 200, 4000), sr, HOP_S), 0.15, -45, 9),
+                       ref["p95"] if ref else None)
     claps = [{"t": t, **dict(zip(("beat", "bar_beat", "off_ms"), nearest_beat(t)))} for t in TM["events"]["claps"]]
     # strum density per bar
     st_t = np.array([h["t"] for h in strums])
@@ -225,10 +244,10 @@ def main():
                          "level_step_db": round(after - before, 1),
                          "weak": (not h["found"]) or float(bk_rise[k]) < 6})
     # envelopes at 30 fps, song time
-    def env(y, lo=None, hi=None):
+    def env(y, lo=None, hi=None, top=None):
         db = rms_db(y if lo is None else band(y, sr, lo, hi), sr, 1 / FPS)
-        return [round(float(v), 3) for v in env01(db)]
-    envs = {"lead": env(tracks["lead_vocals"], 150, 6000), "backing": env(bk, 150, 6000), "drums": env(d),
+        return [round(float(v), 3) for v in env01(db, top=top)]
+    envs = {"lead": env(tracks["lead_vocals"], 150, 6000, ref["top"] if ref else None), "backing": env(bk, 150, 6000), "drums": env(d),
             "mix": env(mix)}
     ev = TM["events"]
     out = {

@@ -1,0 +1,14 @@
+M5b build O18: 576 frames, 23.8 s; whiteboard: Remotion movie texture; band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 27 kicks, tambourine on 44 hits, lead from the vocal envelope, lean-ins on Hey!s); window/sky light lifts on the Hey!s; M7 haze 0.02 (noise-modulated), daylight shafts through the window openings (sun 2.0); rain runs on 9 panes; drizzle falls (3 volumes, looped); M7b clock on 10 shaders from song time 151.45 s
+M5b O18c: frames 289-432 (144), side, 1.5 s
+M5b O18d: frames 433-504 (72), board_close, 0.8 s
+M5b build O18 done in 26.0 s
+O18 pins: frames 288-503, 0 outside the frame, 0 hidden; outAt 504
+  frame 288: [547.1, 497.2] (cam_O18c)
+  frame 297: [548.6, 500.9] (cam_O18c)
+  frame 342: [533.6, 497.3] (cam_O18c)
+  frame 431: [522.9, 496.8] (cam_O18c)
+  frame 432: [350.0, 577.6] (cam_O18d)
+  frame 503: [417.1, 575.2] (cam_O18d)
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit

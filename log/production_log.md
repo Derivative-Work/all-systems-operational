@@ -933,3 +933,45 @@ Append-only. One entry per generation, render or analysis step.
     - 166.105 s (frame 440 of 576): whiteboard: we're committed to doing better
     - 168.386 s (frame 508 of 576): 'we're committed to doing better', sung again (the repaint doubles the line)
 - **Next:** the Remotion whiteboard (v1.3 text, the July fix circled), the two denial tags, the status stamp (Thu 11:15 a.m.) and the fact card.
+
+## 53. 2026-11-16 — M1b: the v1.3 bridge on screen: the whiteboard, the denial tags, the stamp, the fact card, O18 at the M7 look, the v1.3 music map
+
+- **Remotion** (`npx tsc --noEmit` clean):
+  - `config.ts`: `STAMP` is "Last updated: Thu 11:15 a.m." (brief rev 136; was 12:58 p.m.); the `Incident` type gains `denialTag`.
+  - `Textures.tsx`: the whiteboard rebuilt for lyrics v1.3 (decisions 41).
+    - Root cause (`incident.json`), with "July fix" circled in red marker as its line ends (branch A).
+    - "↳ tested on smaller machines".
+    - Contributing factors: `incident.json`'s three.
+    - Microsoft's Nov 13 words, quoted on a line of their own: "not related to cyber or AI / agents".
+    - "Lessons learned:", left blank as in M5.
+    - "Full report: Nov 20" ("to follow" in branch C).
+    - Removed: the branch-A config-diff box (the brief has no diff any more) and the credit line.
+  - `Root.tsx`: `O18_REVEAL` for O18's v1.3 marks (production log 52), new compositions `M7-O18-Whiteboard`, `-full`, `-nrOnly` and `M7-O18-DenialTags`; the obsolete `O18-Whiteboard-diffPreview` removed. `M5-O18-Whiteboard` now builds the v1.3 board too; M5's v1.2 render stays in `renders/m5/remotion/`, which M5c3 reads, so M5c3 still reproduces.
+  - `LowerThird.tsx`: `DenialTags`, the two tags in the lower thirds' panel (coral tab, paper card, Work Sans). Tag 1 comes in on "(Not" (frame 297 of O18), tag 2 two grid beats later (frame 342); both go at the cut to O18e (frame 504), 6.9 s on screen. A leader line runs from the panel to a pin on the board's quote line.
+  - `Cards.tsx`: the fact card's lines are now the brief's (rev 141), verbatim.
+- **Stills:** `scripts/m1b_stills.sh` (new) → `review/m1b/` (15 PNGs: the board at each line, full, the quote line alone, the tags, O02, O23, the fact card) and `review/m1b_remotion.jpg`; 30 s, CPU.
+  - Fixes after looking:
+    - the full-board composition rendered blank (its fill ran over one frame; it now takes `full`);
+    - the circle drew only part of its loop (its dash length broke under a non-scaling stroke; it is now drawn in pixels);
+    - the circle was too wide (Caveat runs about 0.33 em a character, not 0.42).
+- **The pin:** `blender -b --factory-startup --python blender/o18_pins.py -- --subs O18c,O18d --size 1920x1080 --out <scratch> --log log/render_logs/m1b_o18_pins_pose_check.log` (new) → `timing/o18_pins.json`. 28 s, 1.6 GB RSS; log `log/render_logs/m1b_o18_pins.log`.
+  - It builds O18 as the M7 render does and, instead of rendering, projects board texture pixel (225, 888) of 2400×1500, just left of the quote line's opening mark, through O18c's and O18d's cameras on every frame.
+  - The pin is in frame on all 216 frames, and nothing stands in front of it (ray cast).
+  - The panel sits at the lower thirds' place, 110 px up. In O18d it sits 56 px up (`bottoms`): at 110 it covered the board's last line, "Full report: Nov 20". The first overlay (110 px throughout) is in `archive/renders/m1b/remotion/M7-O18-DenialTags_v1.mov`.
+- **Renders:** `scripts/m1b_remotion.sh` (new); log `log/render_logs/m1b_remotion.log`.
+  - `assets/gen/tex/m1b/M7-O18-Whiteboard/frames/`: 576 JPEGs (q95, 1800×1125), 20 s, 104 MB, out of the manifest like the M7b screens. The M5 movie was 1200×750, soft in O18d's close.
+  - `renders/m1b/remotion/M7-O18-DenialTags.mov`: ProRes 4444, 1920×1080, 576 frames, 16 s.
+- **O18 at the M7 look with the v1.3 board:** `blender -b --factory-startup --python blender/m1b_o18.py -- --out renders/m1b/raw --still --at 0.5 --subs O18a,O18b,O18c,O18d --size 1920x1080 --log log/render_logs/m1b_o18_pose_check.log` (new).
+  - It is `coverage_m7.py` with the whiteboard swapped for the board sequence after the O18 build, mapped as `look.py` maps the M7b screens. 1 min 2 s, 4.1 GB RSS; pose checks pass.
+  - Graded with `scripts/grade.py --look grey` → `renders/m1b/graded/`. Sheet: `.venv/bin/python -I scripts/m1b_sheet.py` (new) → `review/m1b_o18.jpg`: the four sub-shots with the tags composited from the .mov, the board texture, the fact card and the stamp.
+- **Music map for v1.3:** `.venv/bin/python -I scripts/music_map.py --v13 --plot` → `timing/music_map_v13.json`, `review/m1b_music_map.png`.
+  - The singer's motion follows `env_30fps.lead` and O14–O16's string lights follow `lead_onsets`; both were from the v1.2 lead.
+  - The map keeps the v1.2 lead's scales (the envelope's 99th-percentile top and the onsets' 95th-percentile rise). So outside the repainted span (150.98–170.10 s) the lead envelope and onsets equal v1.2's exactly. Inside, 573 envelope frames change, and the lead onsets go from 33 to 48.
+  - The script's default mode now reads the archived v1.2 master and keeps Suno's 12 numbered stems only. Rebuilt that way, `timing/music_map.json` matches the committed file except bar 64's section label and the beat profile of Post-Chorus 2 and the bridge (section bounds come from the v1.3 timing map). Blender reads neither, and the committed file is left as it was (`git checkout`).
+- **Self-check:**
+  - The board quotes only Microsoft's Nov 13 words. "Tested on smaller machines" is the lyric, not the report's wording. The fact card quotes "tended to focus on weaker hardware", which is the brief's own line.
+  - The tags read `incident.json`'s `denialTag`. The stamp reads 11:15 a.m. on every row of O02 and O23.
+  - No readable faces in the four O18 stills. The pin sits on the quote line's opening mark in O18c and O18d.
+  - The fact card fits the frame at 31 px, but it now runs to about 210 words on a 15 s card (decisions 41).
+- **Not yet in the M7 render:** `coverage_m7.py` still shows M5's v1.2 board and reads `timing/music_map.json`. After M7d finishes with `blender/look.py`, the board swap and the v1.3 music map go into the M7 path, and the M7 assembly composites the tags' .mov over O18.
+- **Also restored:** a coverage_m7.py run without `--log` (13:35, the M7d step's) had emptied the committed `log/render_logs/m7a_pose_check.log`. Restored with `git checkout`, and the M7d agent was told.

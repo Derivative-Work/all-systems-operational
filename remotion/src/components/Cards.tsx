@@ -50,12 +50,13 @@ export const DisclosureCard: React.FC = () => (
 
 /** [text, source names] per line (brief, "Fact card"); sources are named, URLs go in the description. */
 export const FACTS: [string, string][] = [
-  ['Exchange Online problems began around 11:17 a.m. ET on Thursday, Nov 12, and the wider outage followed at 1:26 p.m. (Digital Trends). It hit Outlook, Teams, SharePoint, Copilot and Defender in at least 74 countries', '(Wire).'],
+  ['Exchange Online problems began at 11:20 a.m. ET on Thursday, Nov 12, per Microsoft’s preliminary report, and the wider outage followed at 1:26 p.m. (Digital Trends). It hit Outlook, Teams, SharePoint, Copilot and Defender in at least 74 countries', '(Wire).'],
   ['Almost 130,000 Outlook problem reports came from U.S. users just after 1 p.m.', '(Washington Post).'],
   ['Some businesses fell back on fax machines to confirm trades', '(Crypto Briefing).'],
   ['Restored servers kept going unresponsive once traffic returned', '(Azure Blog UK).'],
   ['Anthropic and OpenAI both reported their Microsoft 365 connectors failing', '(Cybersecurity News).'],
-  ['Microsoft’s cause: an issue from an earlier network capacity upgrade, “not related to cyber or AI / agents” (MacRumors). Microsoft confirmed full restoration on Saturday, Nov 14 (Digital Trends). Full post-incident report:', '[link once published].'],
+  ['Microsoft’s preliminary post-incident report (Nov 15) names three factors: a latent defect from a July fix to its networking gateway servers, which its load tests missed because they “tended to focus on weaker hardware”; a routine Teams failover onto the same gateway; and nearly 14% of capacity out from an unrelated issue. Automatic rerouting spread the failure until more than 80% of servers were unresponsive (The Register). Impact ended Friday, Nov 13, at 11:10 a.m. ET. Final report due Nov 20:', '[link once published].'],
+  ['On Nov 13 Microsoft said the outage was “not related to cyber or AI / agents” (MacRumors). That came two days before its preliminary report, which doesn’t mention AI or say who or what wrote the July fix.', ''],
 ];
 export const FORMAT_LINE = '“Session 503” is a fictional broadcast and is not affiliated with KEXP or any real radio station.';
 
