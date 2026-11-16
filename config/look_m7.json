@@ -74,7 +74,8 @@
         "#b4babd",
         48.0
       ],
-      "skylight_gain": 2.2
+      "skylight_gain": 2.2,
+      "exposure_m7b": -0.55
     },
     "park": {
       "exposure": -0.2,
@@ -87,6 +88,121 @@
       "sun_yaw": 8.0,
       "sun_angle": 60.0,
       "near_fog": 0.012
+    }
+  },
+  "_doc_m7b": "M7b (production log 37+; human interventions 18-19): haze_drift (m/s, the 4D noise's evolution per s, the fine layer's share), m7b: the closes' lift (stops) and camera exposure overrides, steam cards, O04's phone and camera, the treehouse's screens (emission, glow lights in W, the fourth laptop and the ringing phone [x, y, rot deg]) and lift lights (W; light-linked to the set only), O18e's rack (s from the sub-shot's start). rooms.treehouse.exposure_m7b replaces its exposure in M7b.",
+  "haze_drift": {
+    "vx": 0.08,
+    "vy": 0.0,
+    "vz": 0.02,
+    "evolve": 0.15,
+    "fine": 0.25
+  },
+  "m7b": {
+    "close_lift": {
+      "cams": [
+        "close_guitar",
+        "close_banjo",
+        "close_fret",
+        "close_strum",
+        "close_tamb",
+        "close_kick",
+        "close_beater"
+      ],
+      "stops": 0.333
+    },
+    "cam_expo_override": {
+      "table": 0.0
+    },
+    "steam": {
+      "w": 0.16,
+      "h": 0.34,
+      "rise": 0.37,
+      "emit": 0.55,
+      "opacity": 0.42,
+      "table_share": 0.5
+    },
+    "o04_phone": {
+      "emit": 0.9
+    },
+    "o04_camera": {
+      "n": 0.36,
+      "y": -0.2,
+      "x": 0.18,
+      "lens": 28,
+      "fstop": 2.8,
+      "frame_x": -0.2,
+      "frame_y": -0.45,
+      "roll_mix": 0.6,
+      "smooth": 5,
+      "drift_m": 0.003,
+      "drift_deg": 0.25
+    },
+    "tree_screens": {
+      "emit_day": 0.9,
+      "emit_night": 2.2,
+      "phone_emit_day": 0.8,
+      "phone_emit_night": 1.6,
+      "gain": {
+        "Agent": 0.55,
+        "VideoCall": 1.0,
+        "Dashboard": 1.0,
+        "Terminal": 1.0
+      },
+      "light_day": 0.0,
+      "light_night": 6.0,
+      "glow_rgb": {
+        "Agent": [
+          0.85,
+          0.9,
+          0.9
+        ],
+        "Terminal": [
+          0.6,
+          0.7,
+          0.72
+        ],
+        "Dashboard": [
+          0.75,
+          0.6,
+          0.6
+        ],
+        "VideoCall": [
+          0.6,
+          0.66,
+          0.72
+        ]
+      },
+      "laptop3": [
+        -0.55,
+        2.62
+      ],
+      "table_phone": [
+        0.45,
+        2.38,
+        37.0
+      ],
+      "table_phone_light_day": 0.0,
+      "table_phone_light_night": 0.4
+    },
+    "tree_lift": {
+      "day": {
+        "down": 90.0,
+        "up": 40.0,
+        "walls": 35.0,
+        "colour": "#efe8de"
+      },
+      "night": {
+        "down": 90.0,
+        "up": 25.0,
+        "walls": 70.0,
+        "colour": "#8fa6c8"
+      }
+    },
+    "o18e": {
+      "focus_from": "m7b_laptop2_screen",
+      "rack_at": 1.3,
+      "rack_dur": 0.45
     }
   }
 }

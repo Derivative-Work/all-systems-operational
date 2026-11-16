@@ -36,6 +36,19 @@ LK.enable(ENGINE)
 C.haze = LK.haze
 C.SETTINGS = LK.settings
 C.EXPOSURE = LK.exposure
+# M7b (production log 37+): steam as rising wisps, the cameras' fixes (O04a follows the phone, O18e racks from the
+# ringing phone, steam cards face the camera), and the shaders' clock keyed after each build's layers
+C.steam = LK.steam
+C.CAMERA_HOOK = LK.camera_hook
+_layers_m5c = C.layers
+
+
+def _layers_m7(b, n, room, notes):
+    _layers_m5c(b, n, room, notes)
+    LK.after_layers(b, n, room, notes)
+
+
+C.layers = _layers_m7
 
 FRAMES = _opt("--frames")              # timing runs: only the first N frames of each sub-shot's sequence
 if FRAMES:

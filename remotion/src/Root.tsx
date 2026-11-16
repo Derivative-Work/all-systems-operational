@@ -7,7 +7,8 @@ import {RealScreens} from './components/RealScreens';
 import {ChatPost} from './components/ChatPost';
 import {StatusPage, StatusState} from './components/StatusPage';
 import {LowerThird, LowerThirdVariant} from './components/LowerThird';
-import {PhoneChatProps, PhoneChatScreen} from './components/PhoneChat';
+import {PhoneChatBig, PhoneChatProps, PhoneChatScreen} from './components/PhoneChat';
+import {Agent, AlertCall, Dashboard, LAP, ScreenProps, Terminal, TwoFactor, VideoCall} from './components/TreehouseScreens';
 import {FramedPhone, Screen} from './components/Phone';
 import {CalendarScreen} from './components/Calendar';
 import {BufferingFreeze, CaptionOverlay} from './components/Freeze';
@@ -93,9 +94,37 @@ const M5: React.FC = () => (
 );
 
 
+/* ---------- M7b: textures for the Blender screens (blender/look.py maps them as image sequences) ---------- */
+// O04's phone, legible at 1080p (human interventions 18); the treehouse's incident-night screens (human interventions
+// 19), each in two builds: O08c's night cutaway (72 frames) and the O18 bridge (the shot's length), with a loop phase
+// per build so the heroes land on a readable beat (production log 37+).
+const BigChat: React.FC<PhoneChatProps> = (p) => <Frame><Screen bg={T.chatBg}><PhoneChatBig {...p} /></Screen></Frame>;
+const onPhone = (C: React.FC<ScreenProps>): React.FC<ScreenProps> => (p) => <Frame><Screen bg="#141b1e"><C {...p} /></Screen></Frame>;
+const onLaptop = (C: React.FC<ScreenProps>): React.FC<ScreenProps> => (p) => <Frame bg="#141b1e"><C {...p} /></Frame>;
+const TREE_SCREENS: [string, React.FC<ScreenProps>, 'phone' | 'laptop', number, number][] = [
+  // id, component, kind, night phase, day phase
+  ['TwoFactor', TwoFactor, 'phone', 50, 80],
+  ['AlertCall', AlertCall, 'phone', 0, 0],
+  ['Dashboard', Dashboard, 'laptop', 160, 0],
+  ['Terminal', Terminal, 'laptop', 0, 0],
+  ['Agent', Agent, 'laptop', 120, 0],
+  ['VideoCall', VideoCall, 'laptop', 0, 0],
+];
+const M7B: React.FC = () => (
+  <>
+    <Composition id="M7-O04-PhoneScreen" component={BigChat} defaultProps={{base: 6, heys: [mark('O04', 1)], askAt: mark('O04', 0)}} durationInFrames={shotFrames('O04')} fps={FPS} width={PW} height={PH} />
+    {TREE_SCREENS.flatMap(([id, C, kind, pn, pd]) => (['night', 'day'] as const).map((v) => (
+      <Composition key={`${id}-${v}`} id={`M7-Tree-${id}-${v}`} component={kind === 'phone' ? onPhone(C) : onLaptop(C)}
+        defaultProps={{night: v === 'night', phase: v === 'night' ? pn : pd}} durationInFrames={v === 'night' ? 72 : shotFrames('O18')} fps={FPS}
+        width={kind === 'phone' ? PW : LAP.w} height={kind === 'phone' ? PH : LAP.h} />
+    )))}
+  </>
+);
+
 export const Root: React.FC = () => (
   <>
     <M5 />
+    <M7B />
     {/* O01 */}
     <Composition id="O01-Bookend" component={Bookend} durationInFrames={O01_TOTAL} {...full} />
     <Composition id="O01a-SpikeChart" component={SpikeChart} durationInFrames={dur('O01_spike')} {...full} />

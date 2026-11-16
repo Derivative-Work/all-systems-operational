@@ -6,7 +6,7 @@ import {interpolate, useCurrentFrame} from 'remotion';
 import {PW} from '../config';
 import {UI} from '../Fonts';
 import {T} from '../theme';
-import {ChannelHeader, Message, PlusOne} from './Chat';
+import {Avatar, ChannelHeader, Message, PlusOne} from './Chat';
 import {clamp} from './Common';
 import {StatusBar} from './Phone';
 
@@ -63,6 +63,45 @@ export const PhoneChatScreen: React.FC<PhoneChatProps> = ({base = 6, heys = [], 
       {/* the caption sits on the screen itself, so it survives the Blender shot */}
       <div style={{position: 'absolute', left: PW / 2, transform: 'translateX(-50%)', top: 1500, fontSize: 36, fontWeight: 500, color: '#fff',
         background: 'rgba(20,26,29,0.7)', padding: '10px 26px', borderRadius: 14}}>dramatization</div>
+    </div>
+  );
+};
+
+/** M7b (human interventions 18: "make sure that the phone's Slack messages are readable when it is visible"): the
+ * O04 screen for the Blender phone, built to be read at about 350 px wide in a 1080p frame. One message, the +1
+ * count and the caption, in big type; same thread, names and cue frames as PhoneChatScreen (no earlier messages, no
+ * composer). The question arrives on 'inbox' (askAt); the count steps on each Hey!. */
+export const PhoneChatBig: React.FC<PhoneChatProps> = ({base = 6, heys = [], askAt = -100}) => {
+  // the holder's thumb hovers over the screen's right half from about 33% of its height down (the library pose), so
+  // the message sits high, above it, with the sender on one small line
+  const f = useCurrentFrame();
+  const n = heys.filter((h) => f >= h).length;
+  const lastHey = [...heys].reverse().find((h) => f >= h);
+  const bump = lastHey === undefined ? 0 : interpolate(f - lastHey, [0, 3, 9], [0, 1, 0], clamp);
+  const aIn = interpolate(f, [askAt, askAt + 6], [0, 1], clamp);
+  const p = IT_HELP.ask.p;
+  return (
+    <div style={{position: 'absolute', inset: 0, background: T.chatBg, fontFamily: UI, color: T.chatText}}>
+      <div style={{background: T.chatCard}}><StatusBar time={IT_HELP.clock} /></div>
+      <ChannelHeader channel={IT_HELP.channel} s={2.0} back />
+      {f >= askAt && (
+        <div style={{margin: '34px 34px 0', opacity: aIn, transform: `translateY(${(1 - aIn) * 60}px)`, background: T.chatCard,
+          borderRadius: 40, border: `3px solid ${T.chatLine}`, boxShadow: '0 4px 10px rgba(20,30,35,0.08)', padding: '30px 44px 44px'}}>
+          <div style={{display: 'flex', alignItems: 'center', gap: 22}}>
+            <Avatar p={p} size={84} />
+            <span style={{fontSize: 54, fontWeight: 700}}>{p.name}</span>
+            <span style={{fontSize: 42, color: T.chatMuted}}>{IT_HELP.ask.time}</span>
+          </div>
+          <div style={{fontSize: 124, fontWeight: 650, lineHeight: 1.1, letterSpacing: -1.5, marginTop: 22}}>{IT_HELP.ask.text}</div>
+          <div style={{display: 'inline-flex', alignItems: 'center', gap: 28, marginTop: 40, padding: '14px 44px', borderRadius: 999,
+            background: T.chatAccentSoft, border: `6px solid ${T.chatAccent}`, color: T.chatAccent, fontSize: 100, fontWeight: 750,
+            transform: `scale(${1 + 0.16 * bump})`, transformOrigin: 'left center'}}>
+            <span>+1</span><span style={{fontVariantNumeric: 'tabular-nums'}}>{base + n}</span>
+          </div>
+        </div>
+      )}
+      <div style={{position: 'absolute', left: PW / 2, transform: 'translateX(-50%)', bottom: 150, fontSize: 64, fontWeight: 600, color: '#fff',
+        background: 'rgba(20,26,29,0.78)', padding: '16px 44px', borderRadius: 22}}>dramatization</div>
     </div>
   );
 };

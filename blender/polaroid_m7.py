@@ -4,8 +4,11 @@ crowd's backs from behind the crowd, the windows a warmer late-afternoon grey an
 Then scripts/grade.py --look instant, and Remotion's O14-Polaroid frames it with the "Wed 11/11" caption
 (remotion/src/components/Textures.tsx, photo prop): assets/gen/tex/polaroid_m7.png, which blender/look.py puts on the
 wall when it exists. M3's placeholder (assets/gen/tex/polaroid.png) is untouched.
-Usage: blender -b --factory-startup --python blender/polaroid_m7.py -- [--out remotion/public/gen/polaroid_photo_m7_raw.png]
-       [--size 1080] [--samples 64]
+M7b (human interventions 18: "Band only Polaroid"): the crowd is hidden and the camera is closer, at about the
+crowd's front line, so the band fills the photo, backlit against the windows; --with-crowd renders M7a's photo
+(the crowd and M7a's camera).
+Usage: blender -b --factory-startup --python blender/polaroid_m7.py -- [--out remotion/public/gen/polaroid_photo_m7b_raw.png]
+       [--size 1080] [--samples 64] [--with-crowd]
 """
 import math
 import sys
@@ -16,6 +19,8 @@ sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE / "ep"))
 argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
 sys.argv = sys.argv[:sys.argv.index("--")] if "--" in sys.argv else sys.argv     # coverage_m7 parses its own options
+# M7b: its own pose-check log (coverage_m7's default is M7a's hero log, which the M7b render overwrote once; restored)
+sys.argv += ["--log", argv[argv.index("--log") + 1] if "--log" in argv else "log/render_logs/m7b_polaroid_pose_check.log"]
 
 import bpy  # noqa: E402
 import coverage_m7 as CM7  # noqa: E402
@@ -32,7 +37,8 @@ def opt(name, default):
 
 
 def main():
-    out = C.ROOT / opt("--out", "remotion/public/gen/polaroid_photo_m7_raw.png")
+    out = C.ROOT / opt("--out", "remotion/public/gen/polaroid_photo_m7b_raw.png")
+    crowd = "--with-crowd" in argv
     size = opt("--size", 1080)
     b = "O17"
     n = A.nframes(b)
@@ -59,7 +65,9 @@ def main():
         nt.links.new(mx.outputs[2], em.inputs["Color"])
     for o in bpy.data.objects:
         if o.type == "LIGHT" and o.name.startswith(("strand_light", "hub_light")):
-            o.data.energy *= 2.5
+            # band only: the string lights no longer reach the band past the crowd, so they front-lit its faces at
+            # M7a's 2.5x; they stay at the room's level and the band stays backlit
+            o.data.energy *= 2.5 if crowd else 0.6
         if o.type == "LIGHT" and o.name.startswith("wl_"):
             o.data.color = gb.lin("#ffe2bd")[:3]
     bm = bpy.data.materials.get("string_bulb")
@@ -67,14 +75,20 @@ def main():
         if nd.type == "MATH" and nd.operation == "MULTIPLY":
             nd.inputs[1].default_value *= 1.4
     gb.into(None)
-    cam = gb.camera("cam_polaroid", (0.45, 3.7, 1.95), (-0.45, 7.7, 1.3), 27)
+    if crowd:
+        cam = gb.camera("cam_polaroid", (0.45, 3.7, 1.95), (-0.45, 7.7, 1.3), 27)
+    else:
+        for o in bpy.data.objects:                      # band only: every crowd member (and their mugs) hidden
+            if o.type == "EMPTY" and o.instance_type == "COLLECTION" and o.name.startswith("crowd"):
+                o.hide_render = True
+        cam = gb.camera("cam_polaroid", (0.25, 4.3, 1.62), (-0.42, 7.6, 1.4), 32)
     cam.data.clip_end = 100.0
     cam.data.dof.use_dof = True
     cam.data.dof.aperture_fstop = 4.0
-    cam.data.dof.focus_distance = 3.9
+    cam.data.dof.focus_distance = 3.9 if crowd else 3.2
     sc.camera = cam
     sc.frame_set(A.mark("O17", 0) + 2)
-    sc.view_settings.exposure = LK.exposure({}, "cafe", 0.0, {}) + 0.5
+    sc.view_settings.exposure = LK.exposure({}, "cafe", 0.0, {}) + (0.5 if crowd else 0.15)
     sc.render.image_settings.file_format = "PNG"
     sc.render.filepath = str(out)
     out.parent.mkdir(parents=True, exist_ok=True)

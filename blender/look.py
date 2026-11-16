@@ -30,7 +30,7 @@ import sys
 from pathlib import Path
 
 import bpy
-from mathutils import Vector
+from mathutils import Euler, Matrix, Vector
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
@@ -44,7 +44,11 @@ CFG = json.loads((gb.ROOT / "config" / "look_m7.json").read_text())
 ROOMS = CFG["rooms"]
 ENGINE = ["eevee"]
 SAMPLES = [None]               # a --samples override (tests)
-STATE = {"room": None}
+STATE = {"room": None, "night": False}
+# M7b (the second look pass, production log 37+): living rain, the haze drift, steam wisps, O04's phone as a texture
+# with its own camera, the treehouse lift and its screens, the closes' lift. On whenever the look is (coverage_m7);
+# the drops, haze drift and clock are part of the shaders themselves.
+M7B = True
 
 
 def enable(engine="eevee"):
@@ -59,9 +63,11 @@ def enable(engine="eevee"):
 class NB:
     """A small builder for shader node trees. Values are sockets or plain numbers/tuples."""
 
-    def __init__(self, m, clear=True):
-        m.use_nodes = True
-        self.m, self.nt = m, m.node_tree
+    def __init__(self, m, clear=True, nt=None):
+        if nt is None:                       # a material's tree, or (M7b) a node group's
+            m.use_nodes = True
+            nt = m.node_tree
+        self.m, self.nt = m, nt
         if clear:
             self.nt.nodes.clear()
 
@@ -510,6 +516,128 @@ def facade(m, base, fogc, dist, height, k=0):
     return m
 
 
+def raindrops_group():
+    """M7b (human interventions 18: "some motion on the water droplets"): rain on glass that lives, as one shader
+    node group used by every pane (rain_glass). Inputs: a, b (metres across and up the pane), t (seconds: the clock,
+    keyed per frame by clock()), seed (per pane), rain (density). Outputs: drop (coverage of drops, soft-edged), lens
+    (the drops' brightness change: each a tiny lens that inverts the sky, bright below, dark rim), trail (wet track),
+    swept (where a running drop has swept the glass: it merges the drops there and clears steam).
+    - Beads, two sizes on two grids (1.1 and 1.9 cm cells): each cell's drop appears and grows (area with time) at
+      a random spot, then vanishes when it has merged into a runner or run off; next cycle it comes back elsewhere
+      (the cycle index re-seeds its spot and size). Phases are random per cell, so it never pulses as a whole.
+    - Runners, in columns 5 cm wide and 18 cm tall (offset per column): a drop collects at the top of its cell, then
+      slides down in three stick-slip jerks along a wiggling track, shrinking as it leaves a thin wet trail and a
+      line of tiny beads; the beads in its path merge into it (swept).
+    Deterministic: a function of the pane position, the seed and t only (white noise on cell ids)."""
+    ng = bpy.data.node_groups.get("m7_raindrops")
+    if ng is not None:
+        return ng
+    ng = bpy.data.node_groups.new("m7_raindrops", "ShaderNodeTree")
+    for nm in ("a", "b", "t", "seed", "rain"):
+        ng.interface.new_socket(nm, in_out="INPUT", socket_type="NodeSocketFloat")
+    for nm in ("drop", "lens", "trail", "swept"):
+        ng.interface.new_socket(nm, in_out="OUTPUT", socket_type="NodeSocketFloat")
+    nb = NB(None, nt=ng)
+    gi, go = nb.n("NodeGroupInput"), nb.n("NodeGroupOutput")
+    a, b, t, seed, rain = (gi.outputs[k] for k in ("a", "b", "t", "seed", "rain"))
+    M = nb.math
+
+    def h3(x, y, z):
+        _, c = nb.white(nb.comb(x, y, z))
+        return nb.sep(c)
+
+    def h1(x, y, z):
+        return nb.white(nb.comb(x, y, z))[0]
+
+    def length2(x, y):
+        return M("SQRT", nb.add(nb.mul(x, x), nb.mul(y, y)))
+
+    def disc(d, r):                                   # 1 inside a drop of radius r, a crisp edge (as M7a's beads)
+        return nb.maprange(d, nb.mul(r, 0.86), r, 1.0, 0.0, smooth=True)
+
+    def lens(dy, d, r):                               # a drop's lens: the sky inverted, bright below, a dark rim
+        ln = nb.maprange(M("DIVIDE", dy, r), -1.0, 1.0, 1.2, 0.55)
+        rim = nb.maprange(M("DIVIDE", d, r), 0.65, 1.0, 1.0, 0.45, smooth=True)
+        return M("SUBTRACT", nb.mul(ln, rim), 1.0)
+
+    # runners
+    cw, ch, g, vs = 0.05, 0.18, 0.4, 0.88
+    col = M("FLOOR", M("DIVIDE", a, cw))
+    bb = nb.madd(h1(col, seed, 3.1), ch * 3.0, b)
+    row = M("FLOOR", M("DIVIDE", bb, ch))
+    u = M("SUBTRACT", M("FRACT", M("DIVIDE", a, cw)), 0.5)
+    v = M("FRACT", M("DIVIDE", bb, ch))
+    n1, n2, n3 = h3(col, row, nb.add(seed, 5.7))
+    n4, n5, n6 = h3(col, row, nb.add(seed, 9.1))
+    active = M("LESS_THAN", n1, nb.mul(rain, 0.5))
+    tau = M("FRACT", nb.add(M("DIVIDE", t, nb.madd(n2, 7.0, 6.0)), n3))        # a 6-13 s cycle per cell
+    s = M("DIVIDE", tau, g, clamp=True)                                        # collecting at the top
+    q = M("DIVIDE", M("SUBTRACT", tau, g), 1.0 - g, clamp=True)                # sliding
+    qk = nb.mul(q, 3.0)
+    f = nb.mul(nb.add(M("FLOOR", qk), nb.maprange(M("FRACT", qk), 0.55, 1.0, 0.0, 1.0, smooth=True)), 1.0 / 3.0)
+    vh = M("SUBTRACT", vs, nb.mul(nb.madd(n4, 0.55, 0.3), f))                 # the head: 30-85% of the cell down
+
+    def track(vv):                                    # across the column (cell widths), wiggling with height
+        y = nb.mul(vv, ch)
+        w = M("SINE", nb.madd(y, 55.0, nb.mul(M("SINE", nb.mul(y, 31.0)), 2.0)))
+        return nb.madd(w, nb.mul(M("SUBTRACT", n6, 0.5), 0.26), nb.mul(M("SUBTRACT", n5, 0.5), 0.45))
+    r0 = nb.madd(n6, 0.0022, 0.0018)
+    endfade = nb.maprange(tau, 0.93, 1.0, 1.0, 0.0)
+    r = nb.mul(nb.mul(nb.mul(r0, M("SQRT", s)), nb.madd(q, -0.35, 1.0)), nb.mul(endfade, active))
+    rs = M("MAXIMUM", r, 1e-6)
+    dy = nb.mul(M("SUBTRACT", v, vh), ch)
+    dd = length2(nb.mul(M("SUBTRACT", u, track(vh)), cw), nb.mul(dy, 0.85))
+    run = disc(dd, rs)
+    run_l = lens(dy, dd, rs)
+    on = nb.mul(nb.mul(M("GREATER_THAN", q, 0.0005), nb.mul(M("GREATER_THAN", v, vh), M("LESS_THAN", v, vs + 0.02))),
+                nb.mul(active, endfade))
+    dist = nb.mul(M("ABSOLUTE", M("SUBTRACT", u, track(v))), cw)
+    tw = nb.mul(r0, 0.42)
+    decay = nb.madd(M("EXPONENT", nb.mul(M("SUBTRACT", v, vh), -ch / 0.07)), 0.6, 0.4)
+    trail = nb.mul(nb.mul(nb.maprange(dist, nb.mul(tw, 0.4), tw, 1.0, 0.0, smooth=True), on), decay)
+    swept = nb.mul(nb.maprange(dist, nb.mul(r0, 2.0), nb.mul(r0, 3.2), 1.0, 0.0), on)
+    by = nb.madd(v, ch / 0.009, nb.mul(n5, 7.0))                               # beads left along the trail
+    bdy = nb.mul(M("SUBTRACT", M("FRACT", by), 0.5), 0.009)
+    bd = length2(dist, bdy)
+    bkeep = M("GREATER_THAN", h1(M("FLOOR", by), col, nb.add(seed, row)), 0.45)
+    bead = nb.mul(disc(bd, 0.0007), nb.mul(on, bkeep))
+    bead_l = lens(bdy, bd, 0.0007)
+
+    # beads that appear and grow, then merge or run off
+    def beads(c, T, dens, k):
+        ix, iy = M("FLOOR", M("DIVIDE", a, c)), M("FLOOR", M("DIVIDE", b, c))
+        sx = M("SUBTRACT", M("FRACT", M("DIVIDE", a, c)), 0.5)
+        sy = M("SUBTRACT", M("FRACT", M("DIVIDE", b, c)), 0.5)
+        x = nb.add(M("DIVIDE", t, T), h1(ix, iy, nb.add(seed, 1.3 + k)))
+        cyc, tau_ = M("FLOOR", x), M("FRACT", x)
+        cx = nb.madd(cyc, 31.7, ix)
+        k1, k2, k3 = h3(cx, iy, nb.add(seed, 2.9 + k))
+        k4, k5, _ = h3(cx, iy, nb.add(seed, 4.4 + k))
+        tend = nb.madd(k5, 0.25, 0.72)
+        grow = M("SQRT", M("DIVIDE", tau_, nb.mul(tend, 0.75), clamp=True))
+        alive = nb.mul(M("LESS_THAN", tau_, tend), M("LESS_THAN", k3, nb.mul(rain, dens)))
+        rr = nb.mul(nb.mul(nb.mul(nb.madd(k4, 0.22, 0.12), c), grow), alive)
+        rr = M("MAXIMUM", rr, 1e-6)
+        ddy = nb.mul(M("SUBTRACT", sy, nb.mul(M("SUBTRACT", k2, 0.5), 0.3)), c)
+        d_ = length2(nb.mul(M("SUBTRACT", sx, nb.mul(M("SUBTRACT", k1, 0.5), 0.3)), c), ddy)
+        keep = M("SUBTRACT", 1.0, swept)
+        return nb.mul(disc(d_, rr), keep), lens(ddy, d_, rr)
+    s1, s1l = beads(0.011, 8.0, 0.72, 0.0)
+    s2, s2l = beads(0.019, 11.0, 0.45, 7.0)
+    drop = M("MAXIMUM", M("MAXIMUM", run, bead), M("MAXIMUM", s1, s2))
+    ldelta = nb.add(nb.add(nb.mul(run, run_l), nb.mul(bead, bead_l)), nb.add(nb.mul(s1, s1l), nb.mul(s2, s2l)))
+    for k, sock in (("drop", drop), ("lens", ldelta), ("trail", trail), ("swept", swept)):
+        ng.links.new(sock, go.inputs[k])
+    return ng
+
+
+def clock_node(nb):
+    """A Value node named m7_clock (seconds), keyed per frame by clock(): the time for the drops, haze and steam."""
+    nd = nb.n("ShaderNodeValue")
+    nd.name = nd.label = "m7_clock"
+    return nd.outputs[0]
+
+
 def rain_glass(m, top="#d9dde0", bottom="#b9bfc4", strength=3.0, rain=1.0, steam=0.0, seed=0.0, see=0.0):
     """Rain on glass, emissive (the grey sky seen through it), M7: a soft out-of-focus outside (a vertical gradient,
     large soft blotches, no shapes), rivulets that wander down the pane (contour lines of a stretched noise, broken
@@ -535,32 +663,40 @@ def rain_glass(m, top="#d9dde0", bottom="#b9bfc4", strength=3.0, rain=1.0, steam
     brk, _ = nb.noise(nb.comb(nb.mul(qx, 3.0), nb.mul(qy, 3.0), nb.mul(qz, 1.2)), 1.0, 1.0, 0.5)
     riv = nb.mul(line, nb.maprange(brk, 0.5, 0.62, 0.0, 1.0))
     riv = nb.mul(riv, rain)
-    # beaded drops (static), each a tiny lens: the sky inverted, a dark rim
-    d, dc, dp = nb.voronoi(P, 95.0, 1.0)
-    rr, gg, _ = nb.sep(dc)
-    rad = nb.madd(rr, 0.28, 0.12)
-    keep = nb.math("LESS_THAN", gg, 0.55 * rain + 0.05)
-    inside = nb.mul(nb.math("LESS_THAN", d, rad), keep)
-    off = nb.math("SUBTRACT", nb.sep(P)[2], nb.sep(dp)[2])
-    dz = nb.math("DIVIDE", nb.mul(off, 95.0), rad)
-    lens = nb.maprange(dz, -1.0, 1.0, 1.2, 0.55)
-    rim = nb.maprange(nb.math("DIVIDE", d, rad), 0.65, 1.0, 1.0, 0.45, smooth=True)
-    dropv = nb.mul(lens, rim)
+    # M7b: the drops live (raindrops_group): beads appear, grow, merge; runners slide and leave trails. The pane's
+    # in-plane metres from its object coordinates: (x or y, z) on the walls' panes, (x, y) on the skylights.
+    px, py, pz = nb.sep(P)
+    _, _, onz = nb.sep(tc.outputs["Normal"])
+    isz = nb.math("GREATER_THAN", nb.math("ABSOLUTE", onz), 0.5)
+    pa = nb.add(nb.mul(nb.add(px, py), nb.math("SUBTRACT", 1.0, isz)), nb.mul(px, isz))
+    pb = nb.add(nb.mul(pz, nb.math("SUBTRACT", 1.0, isz)), nb.mul(py, isz))
+    grp = nb.n("ShaderNodeGroup")
+    grp.node_tree = raindrops_group()
+    nb.put(grp.inputs["a"], pa)
+    nb.put(grp.inputs["b"], pb)
+    nb.put(grp.inputs["t"], clock_node(nb))
+    grp.inputs["seed"].default_value = seed * 7.31 + 0.5
+    grp.inputs["rain"].default_value = rain
+    inside, ldelta = grp.outputs["drop"], grp.outputs["lens"]
+    trail_run, swept = grp.outputs["trail"], grp.outputs["swept"]
     # fine mist
     d2, c2, _ = nb.voronoi(P, 420.0, 1.0)
     r2, _, _ = nb.sep(c2)
     mist = nb.mul(nb.math("LESS_THAN", d2, nb.madd(r2, 0.15, 0.08)), nb.math("LESS_THAN", r2, 0.5 * rain))
     # combine (as a value multiplier on the sky)
     val = nb.math("SUBTRACT", 1.0, nb.mul(mist, 0.12))
-    val = nb.add(val, nb.mul(inside, nb.math("SUBTRACT", dropv, 1.0)))
+    val = nb.add(val, ldelta)
     val = nb.add(val, nb.mul(riv, -0.32))
-    wet = nb.math("MAXIMUM", nb.math("MAXIMUM", riv, inside), nb.mul(mist, 0.5))
+    val = nb.add(val, nb.mul(trail_run, -0.28))
+    wet = nb.math("MAXIMUM", nb.math("MAXIMUM", riv, inside), nb.math("MAXIMUM", nb.mul(mist, 0.5), trail_run))
     if steam:
-        # frost everywhere but along clear drip trails (straight, sparse, running down from beads)
+        # frost everywhere but along clear drip trails (straight, sparse, running down from beads: the old drips) and
+        # (M7b) where a drop is running now: its path is wiped clear behind it
         tx, _ = nb.noise(nb.comb(nb.mul(gx, 30.0), nb.mul(gy, 30.0), nb.mul(gz, 0.4)), 1.0, 1.0, 0.4)
         trail = nb.maprange(nb.math("ABSOLUTE", nb.math("SUBTRACT", tx, 0.5)), 0.0, 0.03, 1.0, 0.0, smooth=True)
         tb, _ = nb.noise(nb.comb(nb.mul(gx, 6.0), nb.mul(gy, 6.0), nb.mul(gz, 2.0)), 1.0, 1.0, 0.5)
         trail = nb.mul(trail, nb.maprange(tb, 0.45, 0.6, 0.0, 1.0))
+        trail = nb.math("MAXIMUM", trail, nb.mul(swept, 0.85))
         frost = nb.mul(steam, nb.math("SUBTRACT", 1.0, nb.math("MAXIMUM", trail, inside)))
         fz, _ = nb.noise(P, 6.0, 3.0, 0.6)
         fr = nb.madd(fz, 0.1, 0.95)
@@ -891,10 +1027,13 @@ def _world(hexcol, strength):
 
 def post_build(room, st):
     STATE["room"] = room
+    STATE["night"] = bool(st.get("night", False))
     upgrade_materials()
     fn = {"live": live, "cafe": cafe, "treehouse": treehouse, "park": park}.get(room)
     if fn:
         fn(st)
+    if M7B and S.OBJ.get("phone_holder") is not None and bpy.data.objects.get("phone_holder") is not None:
+        o04_phone(S.OBJ["phone_holder"])
 
 
 def live(st):
@@ -1003,10 +1142,11 @@ def cafe(st):
     # the Polaroid: the M7 photo (a Blender render of the band in this room, lit warm, framed by Remotion) if made,
     # and a small warm picture light on it
     pol = S.OBJ.get("polaroid")
-    tex = K.TEX / "polaroid_m7.png"
+    pname = "polaroid_m7b" if M7B and (K.TEX / "polaroid_m7b.png").exists() else "polaroid_m7"   # M7b: band only
+    tex = K.TEX / f"{pname}.png"
     if pol is not None and tex.exists():
         pol.data.materials.clear()
-        pol.data.materials.append(K.image_mat("tex_polaroid_m7", "polaroid_m7", "lit", 0.5))
+        pol.data.materials.append(K.image_mat(f"tex_{pname}", pname, "lit", 0.5))
     if pol is not None:
         sp = bpy.data.lights.new("m7_polaroid_light", "SPOT")
         sp.energy, sp.spot_size, sp.spot_blend = R["polaroid_light"], math.radians(48), 0.8
@@ -1121,6 +1261,9 @@ def treehouse(st):
         # rain beyond the back and left windows (seen through the glass), and drips off the eaves
         S.drizzle("drizzle_back", (-5.0, D + 0.4, -2.0), (5.0, D + 6.0, 3.4), 1400, "m7_back_drizzle", alpha=0.3)
         S.drizzle("drizzle_left", (-W / 2 - 6.0, -1.0, -2.0), (-W / 2 - 0.4, D + 1.0, 3.4), 1200, "m7_left_drizzle", alpha=0.3)
+    if M7B:
+        treehouse_lift(night)
+        treehouse_screens(night)
 
 
 def park(st):
@@ -1207,14 +1350,34 @@ def haze(room, density=0.02):
     R = ROOMS.get(room)
     if R is None or "sun" not in R:
         return None
+    if STATE.get("night"):
+        # M7b: O08c's night cutaway had the daylight sun and its shafts (M7a: the haze ignored the time of day); at
+        # night the screens are the light (treehouse_night), and nothing scatters, so no haze at all
+        return "M7 haze: none at night"
     size = {"live": ((0, 5, 2.3), (14, 10, 4.6)), "cafe": ((0, 4.5, 1.8), (12, 9, 3.6)),
             "treehouse": ((0, 3, 1.8), (7, 6, 3.6))}[room]
     m = bpy.data.materials.new("haze")
     nb = NB(m)
     v = nb.n("ShaderNodeVolumePrincipled")
     P, _ = nb.world_pos()
-    n1, _ = nb.noise(P, 0.35, 3.0, 0.6)
-    nb.put(v.inputs["Density"], nb.mul(nb.maprange(n1, 0.3, 0.7, 0.6, 1.4), R["haze"]))
+    # M7b: the haze drifts (production log 34; human interventions 18): its texture slides slowly sideways and up and
+    # evolves (4D noise, W on the clock), with a finer, faster layer, so the shafts live in motion
+    clk = clock_node(nb)
+    dr = CFG["haze_drift"]
+    off = nb.comb(nb.mul(clk, dr["vx"]), nb.mul(clk, dr["vy"]), nb.mul(clk, dr["vz"]))
+    q = nb.n("ShaderNodeVectorMath", operation="SUBTRACT")
+    nb.put(q.inputs[0], P)
+    nb.put(q.inputs[1], off)
+    n4 = nb.n("ShaderNodeTexNoise", noise_dimensions="4D")
+    nb.put(n4.inputs["Vector"], q.outputs[0])
+    nb.put(n4.inputs["W"], nb.mul(clk, dr["evolve"]))
+    n4.inputs["Scale"].default_value, n4.inputs["Detail"].default_value, n4.inputs["Roughness"].default_value = 0.35, 3.0, 0.6
+    q2 = nb.n("ShaderNodeVectorMath", operation="SUBTRACT")
+    nb.put(q2.inputs[0], P)
+    nb.put(q2.inputs[1], nb.comb(nb.mul(clk, dr["vx"] * 2.2), 0.0, nb.mul(clk, dr["vz"] * 3.0)))
+    n2, _ = nb.noise(q2.outputs[0], 1.3, 2.0, 0.55)
+    dens = nb.mul(nb.maprange(n4.outputs[0], 0.3, 0.7, 0.6, 1.4), nb.maprange(n2, 0.35, 0.65, 1.0 - dr["fine"], 1.0 + dr["fine"]))
+    nb.put(v.inputs["Density"], nb.mul(dens, R["haze"]))
     v.inputs["Color"].default_value = (0.92, 0.93, 0.95, 1)
     v.inputs["Anisotropy"].default_value = 0.55
     nb.out(None, v.outputs[0])
@@ -1325,4 +1488,411 @@ def exposure(s, room, expo, cam):
     """The view exposure for one sub-shot: the room's (config/look_m7.json) plus the build's and the camera's offsets
     as M5b had them (they keep the people angles darker than the wides)."""
     R = ROOMS.get(room, {})
-    return K.LOOK["exposure"] + R.get("exposure", 0.0) + expo + CFG["cam_expo_scale"] * cam.get("expo", 0.0)
+    room_e, cam_e, extra = R.get("exposure", 0.0), cam.get("expo", 0.0), 0.0
+    if M7B:
+        # M7b (human interventions 18): a room's own M7b exposure if it has one (the treehouse lift), O18e's -0.5
+        # dropped (cam_expo_override), the instrument closes +1/3 stop (close_lift)
+        name = s.get("camera", "")
+        room_e = R.get("exposure_m7b", room_e)
+        cam_e = CFG["m7b"]["cam_expo_override"].get(name, cam_e)
+        if name in CFG["m7b"]["close_lift"]["cams"]:
+            extra = CFG["m7b"]["close_lift"]["stops"]
+    return K.LOOK["exposure"] + room_e + expo + CFG["cam_expo_scale"] * cam_e + extra
+
+
+# ---------------------------------------------------------------- M7b: the clock, steam, screens, phones, cameras
+# Human interventions 18-19; production log 37+. All reached through post_build, coverage_m7's layers wrapper
+# (after_layers) and coverage.CAMERA_HOOK (camera_hook), so they apply to every M7 render, not to hero frames only.
+
+M7B_TEX = gb.ROOT / "assets" / "gen" / "tex" / "m7b"
+
+
+def clock(b, n):
+    """Key every m7_clock Value node (the rain's drops, the haze drift, the steam) with the song time: local frame 1
+    -> the build's song time at frame 1, one second per 30 frames (linear)."""
+    import coverage as C
+    t0 = C.song_t(b, 1)
+    k = 0
+    for m in bpy.data.materials:
+        if m.node_tree is None:
+            continue
+        for nd in m.node_tree.nodes:
+            if nd.type == "VALUE" and nd.name.startswith("m7_clock"):
+                C.key_series(m.node_tree, f'nodes["{nd.name}"].outputs[0].default_value', 0, [1, n + 1],
+                             [t0, t0 + n / C.FPS])
+                k += 1
+    return f"M7b clock on {k} shaders from song time {t0:.2f} s"
+
+
+def after_layers(b, n, room, notes):
+    """coverage_m7 runs this after each build's layers (and the replaced steam): the clock."""
+    if M7B and room != "void":
+        notes.append(clock(b, n))
+
+
+# ---------------------------------------------------------------- steam (coverage.steam's M7b replacement)
+
+def steam_mat(name, k):
+    """Wisps of steam on a camera-facing card (UV: u across, v up): three thin bands that curl as they rise (a sine
+    travelling up with the pattern, a slow sideways sway), widening and thinning with height, broken into puffs that
+    rise at about 12 cm/s; faint, warm white, fading in at the rim and out at the top."""
+    P_ = CFG["m7b"]["steam"]
+    m = bpy.data.materials.new(name)
+    nb = NB(m)
+    M = nb.math
+    uv = nb.n("ShaderNodeUVMap")
+    u, v, _ = nb.sep(uv.outputs[0])
+    t = clock_node(nb)
+    sd = 3.7 * k + 1.3
+    alpha = None
+    for j in range(3):
+        rise = M("SUBTRACT", v, nb.mul(t, P_["rise"] * (1 + 0.18 * j)))
+        sway, _ = nb.noise(nb.comb(nb.mul(rise, 2.2), sd + 5.0 * j, nb.mul(t, 0.15)), 1.0, 2.0, 0.5)
+        curl = M("SINE", nb.madd(rise, 2 * math.pi * (1.1 + 0.35 * j), sd + 2.1 * j))
+        centre = nb.add(nb.add(0.5 + 0.05 * (j - 1), nb.mul(nb.mul(nb.madd(v, 0.2, 0.04), curl), 0.8)),
+                        nb.mul(nb.mul(M("SUBTRACT", sway, 0.5), 0.5), v))
+        width = nb.madd(v, 0.09, 0.025)
+        dd = M("DIVIDE", M("SUBTRACT", u, centre), width)
+        band = M("EXPONENT", nb.mul(nb.mul(dd, dd), -1.0))
+        puff, _ = nb.noise(nb.comb(nb.mul(u, 3.0), nb.mul(rise, 5.0), sd + 11.0 * j), 1.0, 3.0, 0.55)
+        a_ = nb.mul(nb.mul(band, nb.maprange(puff, 0.4, 0.68, 0.0, 1.0)), 0.9 - 0.2 * j)
+        alpha = a_ if alpha is None else M("MAXIMUM", alpha, a_)
+    fade = nb.mul(nb.maprange(v, 0.0, 0.1, 0.0, 1.0, smooth=True), nb.maprange(v, 0.45, 1.0, 1.0, 0.0, smooth=True))
+    alpha = nb.mul(nb.mul(alpha, fade), P_["opacity"])
+    em = nb.n("ShaderNodeEmission")
+    nb.put(em.inputs["Color"], "#f4eee6")
+    em.inputs["Strength"].default_value = P_["emit"]
+    tr = nb.n("ShaderNodeBsdfTransparent")
+    mx = nb.n("ShaderNodeMixShader")
+    nb.put(mx.inputs[0], alpha)
+    nb.nt.links.new(tr.outputs[0], mx.inputs[1])
+    nb.nt.links.new(em.outputs[0], mx.inputs[2])
+    nb.out(mx.outputs[0])
+    m.surface_render_method = "BLENDED"
+    m["m7"] = True
+    return m
+
+
+def steam(n):
+    """coverage.steam's M7b replacement (human interventions 18: wisps rising and curling, not falling specks): the
+    probes' two mugs and about half the cafe's table mugs (gb.rng m7b_steam) each get a card of wisps, upright and
+    turned to the sub-shot's camera (a Locked Track that camera_hook retargets), its foot at the rim."""
+    P_ = CFG["m7b"]["steam"]
+    mugs = [o for o in (bpy.data.objects.get("pmug0"), bpy.data.objects.get("pmug1")) if o is not None]
+    r = gb.rng("m7b_steam")
+    for nm in sorted(o.name for o in bpy.data.objects if o.name.startswith("mug_t")):
+        if r.random() < P_["table_share"]:
+            mugs.append(bpy.data.objects[nm])
+    for k, mg in enumerate(mugs):
+        p = mg.matrix_world.translation
+        pl = gb.plane(f"m7_steam_{mg.name}", (p.x, p.y, p.z + 0.1 + P_["h"] / 2 - 0.01), (P_["w"], P_["h"]),
+                      steam_mat(f"m7_steam_{mg.name}", k), facing="-Y")
+        pl.visible_shadow = False
+        c = pl.constraints.new("LOCKED_TRACK")
+        c.name, c.track_axis, c.lock_axis = "m7_face_cam", "TRACK_NEGATIVE_Y", "LOCK_Z"
+        c.target = bpy.context.scene.camera
+    return f"M7b steam wisps on {len(mugs)} mugs" if mugs else None
+
+
+# ---------------------------------------------------------------- screens: Remotion image sequences
+
+def seq_image(comp):
+    """The first frame of a Remotion image sequence (scripts/m7b_remotion.sh), loaded as a SEQUENCE image."""
+    files = sorted((M7B_TEX / comp / "frames").glob("*.*"))
+    if not files:
+        raise FileNotFoundError(f"{M7B_TEX / comp}: run scripts/m7b_remotion.sh first")
+    img = bpy.data.images.load(str(files[0]), check_existing=True)
+    img.source = "SEQUENCE"
+    return img, len(files)
+
+
+def screen_mat(name, comp=None, strength=1.0, phone=False, flip=False, still=None):
+    """A lit screen showing a Remotion texture: an image sequence (frame 1 shows its first file) or a still, as
+    emission under a faint glass sheen. phone=True maps it onto the library phone's screen face by the phone's own
+    coordinates (6.7 x 14.3 cm, +Y its top; flip turns it 180 degrees); otherwise the plane's UVs."""
+    m = bpy.data.materials.new(name)
+    nb = NB(m)
+    tex = nb.n("ShaderNodeTexImage")
+    tex.interpolation = "Linear"
+    if still is not None:
+        tex.image = bpy.data.images.load(str(still), check_existing=True)
+    else:
+        img, nfr = seq_image(comp)
+        tex.image = img
+        iu = tex.image_user
+        iu.frame_duration, iu.frame_start, iu.frame_offset = nfr, 1, -1
+        iu.use_auto_refresh, iu.use_cyclic = True, False
+    if phone:
+        tc = nb.n("ShaderNodeTexCoord")
+        x, y, _ = nb.sep(tc.outputs["Object"])
+        u, v = nb.madd(x, 1 / 0.067, 0.5), nb.madd(y, 1 / 0.143, 0.5)
+        if flip:
+            u, v = nb.math("SUBTRACT", 1.0, u), nb.math("SUBTRACT", 1.0, v)
+        nb.put(tex.inputs["Vector"], nb.comb(u, v, 0.0))
+    b = nb.principled("#050506", 0.3, spec=0.25, emit=tex.outputs["Color"], emit_strength=strength)
+    nb.out(b.outputs[0])
+    m["m7"] = True
+    return m
+
+
+def dark_screen(name):
+    m = bpy.data.materials.new(name)
+    nb = NB(m)
+    nb.out(nb.principled("#040405", 0.22, spec=0.4).outputs[0])
+    m["m7"] = True
+    return m
+
+
+def own_copy_keep(e, tag):
+    """perf.own_copy (a local copy of a library person, so its phone can take a texture) with the library's motion
+    loop kept: the person moves exactly as the linked instance did."""
+    import perf as PF
+    srig = next(o for o in e.instance_collection.objects if o.type == "ARMATURE")
+    ad = srig.animation_data
+    act, slot = (ad.action, ad.action_slot) if ad and ad.action else (None, None)
+    coll, rig = PF.own_copy(e, tag)
+    if act is not None:
+        rig.animation_data.action = act
+        if slot is not None and rig.animation_data.action_slot != slot:
+            rig.animation_data.action_slot = slot
+    return coll, rig
+
+
+def phone_of(coll):
+    return next(o for o in coll.objects if o.type == "MESH" and o.name.endswith("_phone"))
+
+
+def phone_frame(e, ph):
+    """World (centre, x, y, normal) of a held phone's screen at the current frame."""
+    bpy.context.view_layer.update()
+    W = e.matrix_world @ Matrix.Translation(-Vector(e.instance_collection.instance_offset)) @ ph.matrix_world
+    R3 = W.to_3x3()
+    return (W @ Vector((0, 0, 0.0045)), (R3 @ Vector((1, 0, 0))).normalized(), (R3 @ Vector((0, 1, 0))).normalized(),
+            (R3 @ Vector((0, 0, 1))).normalized())
+
+
+def phone_flip(e, ph):
+    """True if the phone's +Y points back at its holder (then the texture turns 180 degrees, its top away from them)."""
+    rz = e.rotation_euler.z - math.pi
+    f = Vector((-math.sin(rz), math.cos(rz), 0))
+    return phone_frame(e, ph)[2].dot(f) < 0
+
+
+def held_phone_screen(e, tag, mat_fn):
+    coll, _ = own_copy_keep(e, tag)
+    ph = phone_of(coll)
+    flip = phone_flip(e, ph)
+    sl = ph.material_slots[1]
+    sl.link = "OBJECT"
+    sl.material = mat_fn(flip)
+    return ph, flip
+
+
+def o04_phone(e):
+    """O04's phone (human interventions 18: readable whenever it's visible): the holder's own copy (motion loop kept)
+    and the M7b chat texture on its screen, lit and in perspective, at a brightness that doesn't clip."""
+    P_ = CFG["m7b"]["o04_phone"]
+    ph, flip = held_phone_screen(e, "phone_holder_m7b", lambda fl: screen_mat("m7b_o04_screen", "M7-O04-PhoneScreen",
+                                                                             P_["emit"], phone=True, flip=fl))
+    STATE["o04"] = (e, ph, flip)
+
+
+# ---------------------------------------------------------------- the treehouse: lift, screens
+
+def receivers():
+    """The set's own meshes as built (walls, floor, roof, beams, table, chairs, props): the lift lights' receiver
+    collection, so they light the room and not the people (who stay silhouettes; light linking)."""
+    coll = bpy.data.collections.get("m7b_set") or bpy.data.collections.new("m7b_set")
+    skip = ("pane_", "skylight", "sky_dome", "drizzle", "conifer", "evergreen", "trunk", "forest", "whiteboard",
+            "m7b_", "laptop", "m7_moss", "haze", "pendant")
+    for o in bpy.data.objects:
+        if o.type != "MESH" or o.library is not None or o.name.startswith(skip):
+            continue
+        cols = o.users_collection
+        if not cols or any(c.name.startswith(("perf_", "pv_", "pose_variants", "fig_")) for c in cols):
+            continue
+        if o.name not in coll.objects:
+            coll.objects.link(o)
+    return coll
+
+
+def treehouse_lift(night):
+    """M7b (human interventions 18: lift the treehouse so the cedar and the room read, silhouettes kept near black):
+    soft fills that light only the set (light linking): one down from under the ridge (floor, table, chairs), one up
+    to the roof boards and beams, and washes on the side walls and the back wall round the whiteboard. By day a warm
+    neutral; at night a dim cool blue (the screens are the light)."""
+    L = CFG["m7b"]["tree_lift"]["night" if night else "day"]
+    W, D, H = K.LOOK["rooms"]["treehouse"]["size"]
+    coll = receivers()
+    rig = [("down", (0, D / 2, 3.2), (0, D / 2, 0), (5.5, 4.5)),
+           ("up", (0, D / 2, 1.9), (0, D / 2, 4.0), (5.0, 4.0)),
+           ("wall_l", (-0.8, D / 2, 1.5), (-W / 2, D / 2, 1.4), (4.0, 2.0)),
+           ("wall_r", (0.8, D / 2, 1.5), (W / 2, D / 2, 1.4), (4.0, 2.0)),
+           ("wall_b", (0, D - 2.2, 2.0), (0, D, 1.5), (6.0, 2.4))]
+    for nm, loc, tgt, (sx, sy) in rig:
+        e = L["walls"] if nm.startswith("wall") else L[nm]
+        if e <= 0:
+            continue
+        o = K.area(f"m7b_lift_{nm}", loc, tgt, e, sx, L["colour"], size_y=sy, shadow=True, spec=0.3)
+        o.data.volume_factor = 0.0
+        o.light_linking.receiver_collection = coll
+    return coll
+
+
+TREE_LAPTOPS = {"laptop0": "Agent", "laptop1": "Terminal", "laptop2": "Dashboard", "laptop3": "VideoCall"}
+
+
+def treehouse_screens(night):
+    """M7b (human interventions 19): the incident-night screens (remotion/src/components/TreehouseScreens.tsx) in
+    place of blank white: seat 0's laptop the assistant that can't reach the mail connector, seat 1's the
+    health-check terminal, seat 2's the dashboard; a fourth laptop beside the speakerphone, turned to the room, on the
+    bridge call. Phones: seat 0 fails its second factor, seat 1 reads the #it-help thread (O08's), seat 2's is dark
+    in their hands while an automated alert rings face up on the table by their laptop. At night the screens are the
+    room's light (an area light on each laptop's screen); by day they are dimmer than the windows."""
+    C_ = CFG["m7b"]["tree_screens"]
+    v = "night" if night else "day"
+    lap_scr = bpy.data.materials.get("laptop_screen")
+    x3, y3 = C_["laptop3"]
+    PR.laptop("laptop3", (x3, y3, 0.755), 0.0, lap_scr, open_deg=108)
+    a = math.radians(108 - 90)
+    up, nrm = Vector((0, math.sin(a), math.cos(a))), Vector((0, -math.cos(a), math.sin(a)))
+    centre = Vector((0, 0.11, 0.016)) + up * 0.105 + nrm * 0.0066
+    for nm, comp in TREE_LAPTOPS.items():
+        lap = bpy.data.objects.get(nm)
+        if lap is None:
+            continue
+        pl = gb.plane(f"m7b_{nm}_screen", tuple(centre), (0.29, 0.18),
+                      screen_mat(f"m7b_{nm}_screen", f"M7-Tree-{comp}-{v}", C_[f"emit_{v}"] * C_["gain"].get(comp, 1.0)),
+                      facing="-Y", parent=lap)
+        pl.rotation_euler = (-a, 0, 0)
+        e = C_[f"light_{v}"] * C_["gain"].get(comp, 1.0)
+        if e > 0:
+            bpy.context.view_layer.update()
+            w = lap.matrix_world
+            loc = w @ (centre + nrm * 0.03)
+            o = K.area(f"m7b_{nm}_glow", tuple(loc), tuple(loc + w.to_3x3() @ nrm), e, 0.29,
+                       "#%02x%02x%02x" % tuple(int(255 * c) for c in C_["glow_rgb"].get(comp, (0.8, 0.85, 0.9))),
+                       size_y=0.18, shadow=True, spec=0.0)          # no glare on the keyboard deck
+            o.data.volume_factor = 0.0
+    # phones in hands (the library people's own copies, motion loops kept)
+    pe = C_[f"phone_emit_{v}"]
+    for i, kind in enumerate(("TwoFactor", "it_help", "off")):
+        e = bpy.data.objects.get(f"meeting{i}")
+        if e is None:
+            continue
+        if kind == "off":
+            held_phone_screen(e, f"meeting{i}_m7b", lambda fl: dark_screen("m7b_phone_off"))
+        elif kind == "it_help":
+            held_phone_screen(e, f"meeting{i}_m7b", lambda fl: screen_mat(
+                "m7b_phone_ithelp", strength=pe, phone=True, flip=fl, still=M7B_TEX / "it_help_o08.png"))
+        else:
+            held_phone_screen(e, f"meeting{i}_m7b", lambda fl: screen_mat(
+                "m7b_phone_2fa", f"M7-Tree-TwoFactor-{v}", pe, phone=True, flip=fl))
+    # the automated alert, ringing face up on the table by seat 2's laptop
+    x, y, rot = C_["table_phone"]
+    body = gb.box("m7b_table_phone", (x, y, 0.755 + 0.004), (0.075, 0.155, 0.008), K.mat("phone_body", 0.4),
+                  rot_z=math.radians(rot))
+    gb.plane("m7b_table_phone_screen", (0, 0, 0.0045), (0.067, 0.143),
+             screen_mat("m7b_alert_call", f"M7-Tree-AlertCall-{v}", pe), facing="+Z", parent=body)
+    if C_[f"table_phone_light_{v}"] > 0:
+        K.point("m7b_table_phone_glow", (x, y, 0.80), C_[f"table_phone_light_{v}"], "#d9e4e6", radius=0.04)
+    return "M7b treehouse screens: 4 laptops, 3 held phones, the ringing phone"
+
+
+# ---------------------------------------------------------------- cameras (coverage.CAMERA_HOOK)
+
+def camera_hook(cam, sub, b, f0, f1):
+    for o in bpy.data.objects:
+        for c in o.constraints:
+            if c.name == "m7_face_cam":
+                c.target = cam
+    if not M7B:
+        return
+    if sub["id"] == "O04a" and STATE.get("o04"):
+        o04_camera(cam, sub, b, f0, f1)
+    if sub["id"] == "O18e" and bpy.data.objects.get("m7b_table_phone") is not None:
+        o18e_focus(cam, sub, b, f0, f1)
+
+
+def o04_camera(cam, sub, b, f0, f1):
+    """O04a in M7b (human interventions 18: the phone readable whenever it's visible): the camera over the holder's
+    right shoulder, close (about 37 cm from the screen, 36 degrees off its normal, so the type isn't foreshortened
+    much), following the phone smoothly (a moving average of its screen over +-5 frames), the phone low left in frame
+    with its top up and the band soft beyond; a little handheld drift (seeded m7b_cam_O04a), focus on the screen."""
+    import coverage as C
+    P_ = CFG["m7b"]["o04_camera"]
+    e, ph, flip = STATE["o04"]
+    sc = bpy.context.scene
+    frames = list(range(f0, f1))
+    raw = []
+    for f in frames:
+        sc.frame_set(f)
+        c, xa, ya, n = phone_frame(e, ph)
+        if flip:
+            xa, ya = -xa, -ya
+        raw.append((c, xa, ya, n))
+    lens = P_["lens"]
+    th, tv = 18.0 / lens, 18.0 * 9 / 16 / lens
+    r = gb.rng("m7b_cam_O04a")
+    sines = [(r.uniform(0.15, 0.6), r.uniform(0, 2 * math.pi), r.uniform(0.5, 1.0)) for _ in range(12)]
+
+    def drift(t, ch):
+        return sum(a_ * math.sin(2 * math.pi * fr * t + ph_) for fr, ph_, a_ in sines[ch * 2: ch * 2 + 2]) / 1.5
+    L, R, FD = [], [], []
+    prev = None
+    k = P_["smooth"]
+    for i, f in enumerate(frames):
+        win = raw[max(0, i - k): i + k + 1]
+        c, xa, ya, n = (sum((w[j] for w in win), Vector()) / len(win) for j in range(4))
+        xa, ya, n = xa.normalized(), ya.normalized(), n.normalized()
+        t = C.song_t(b, f)
+        loc = c + n * P_["n"] + ya * P_["y"] + xa * P_["x"]
+        loc = loc + Vector((drift(t, 0), drift(t, 1), drift(t, 2))) * P_["drift_m"]
+        upv = (ya * P_["roll_mix"] + Vector((0, 0, 1)) * (1 - P_["roll_mix"])).normalized()
+        F = (c - loc).normalized()
+        for _ in range(3):                                   # aim so the screen sits at (frame_x, frame_y)
+            right = F.cross(upv).normalized()
+            upc = right.cross(F).normalized()
+            d = (c - loc).normalized()
+            F = (d - right * (P_["frame_x"] * th) - upc * (P_["frame_y"] * tv)).normalized()
+        right = F.cross(upv).normalized()
+        upc = right.cross(F).normalized()
+        rot = Matrix((right, upc, -F)).transposed().to_euler()
+        rot = Euler((rot.x + math.radians(P_["drift_deg"]) * drift(t, 3), rot.y, rot.z + math.radians(P_["drift_deg"]) * drift(t, 4)))
+        if prev is not None:
+            rot.make_compatible(prev)
+        prev = rot.copy()
+        L.append(tuple(loc))
+        R.append(tuple(rot))
+        FD.append((c - loc).length)
+    for j in range(3):
+        C.key_series(cam, "location", j, frames, [v[j] for v in L])
+        C.key_series(cam, "rotation_euler", j, frames, [v[j] for v in R])
+    C.key_series(cam.data, "lens", 0, frames, [lens] * len(frames))
+    cam.data.dof.use_dof = True
+    cam.data.dof.aperture_fstop = P_["fstop"]
+    C.key_series(cam.data, "dof.focus_distance", 0, frames, FD)
+    cam.data.clip_start = 0.02
+
+
+def o18e_focus(cam, sub, b, f0, f1):
+    """O18e in M7b (human interventions 19: "rack from a laptop's dashboard or the ringing phone to the
+    whiteboard"): focus starts on seat 2's dashboard (the nearest screen, about 1 m off: the ringing phone lies 1.5 m
+    off, too flat to the lens for its caller ID to read), holds about a second, then racks to the whiteboard (the
+    preset's rack_to)."""
+    import coverage as C
+    P_ = CFG["m7b"]["o18e"]
+    bpy.context.view_layer.update()
+    ph = bpy.data.objects[P_["focus_from"]].matrix_world.translation.copy()
+    wb = Vector(C.COV["cameras"]["treehouse"]["table"]["dof"]["rack_to"])
+    sc = bpy.context.scene
+    frames = list(range(f0, f1))
+    t_rack = sub["start_t"] + P_["rack_at"]
+    FD = []
+    for f in frames:
+        sc.frame_set(f)
+        loc = cam.matrix_world.translation
+        w = min(1.0, max(0.0, (C.song_t(b, f) - t_rack) / P_["rack_dur"]))
+        d0, d1 = (ph - loc).length, (wb - loc).length
+        FD.append(d0 + (d1 - d0) * w * w * (3 - 2 * w))
+    C.key_series(cam.data, "dof.focus_distance", 0, frames, FD)

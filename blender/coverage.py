@@ -63,6 +63,9 @@ FREEZE = {"O12", "O21"}
 # exposure, camera preset) -> the view exposure. None keeps M5b-M5c3's.
 SETTINGS = None
 EXPOSURE = None
+# M7b: f(camera, sub, build, f0, f1) run after each sub-shot's camera is keyed (M7's camera fixes: O04a follows the
+# phone, O18e racks from the ringing phone; billboards face the camera). None keeps M5b-M5c3's cameras.
+CAMERA_HOOK = None
 NOHAZE = "--nohaze" in sys.argv
 CHORUS = {"Stomp-clap": 0.7, "Chorus 1": 1.0, "Post-Chorus 1": 0.8, "Build 1": 1.0, "Chorus 2": 1.0,
           "Post-Chorus 2": 0.8, "Build 2": 0.6, "Final Chorus": 1.0}
@@ -883,6 +886,8 @@ def make_camera(sub, b, f0, f1, m5_keys, n):
         cam.data.dof.use_dof = True
         cam.data.dof.aperture_fstop = base["fstop"]
         key_series(cam.data, "dof.focus_distance", 0, frames, FD)
+    if CAMERA_HOOK is not None:
+        CAMERA_HOOK(cam, sub, b, f0, f1)
     return cam
 
 
