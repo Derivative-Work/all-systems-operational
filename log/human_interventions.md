@@ -177,3 +177,10 @@ Append-only. Every human action: when, what, and why.
   - The repainted lead vocal, exported from Logic.
   - The other 12 stems and the clap track in the same folder are the Nov 15 exports, unchanged.
 - **Post-filter:** run by the agent this time, with the command the human used for v1.2 (human interventions 3).
+
+## 25. 2026-11-16 — M7d approved; the end cards go over an instrumental; the v1.3 master sent for review
+
+- **What:** on the M7d board, wides options, plates and motion test, and the M1b report: "Much better, keep going. I have an instrumental track for you to put in the credits and end cards so don't worry about length, just make it readable. Send me the audio here so I can review it".
+- **Approved:** the M7d pass as the M7 look, with decisions 43's recommendations: the firs' overcast term kept; the crowd wides (O20a, O21a, and O20j) at 1.8 m with the drop cues; the empty wides (O22a, O22f) raised to 2.4 m with the cues (the lamp's lantern enters the top of the frame); the banjo closes re-aimed; the guitar spot; the brow path kept. "Keep going" also starts the full M7 render, which the last report named as the next step. The bridge cut (the denial tags landing 9 frames into O18c) is kept as recommended.
+- **End cards:** the human has an instrumental track for the credits and end cards (not yet supplied; nothing new in `~/Downloads` at 15:40). Length no longer limits them: the fact card's 15 s, which the M1b report flagged as too short for about 210 words, gives way to reading time, and the cards are to be laid out for reading.
+- **Audio:** the human asked for the post-filtered v1.3 master to listen to before locking M1 (production log 58). Still open: locking M1 after that listen, and where bulkheads belong (the board lists them, the fact card doesn't).
