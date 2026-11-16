@@ -168,3 +168,12 @@ Append-only. Every human action: when, what, and why.
   5. the eye-level wides show the drop mostly as air and distance rather than visible slope;
   6. from the M7b report: the guitar close is still dark and the banjo close sees the instrument edge-on.
 - Approved looks stay as they are outside these points. The whiteboard, tags, stamp, fact card and audio still wait for the new master.
+
+## 24. 2026-11-16 — The v1.3 master and the bridge repaint
+
+- **What:** "new master is in "~/Downloads/All Systems Operational.wav", and the stem of the repaint is in "~/Downloads/All Systems Operational/0a Lead Vocals repaint.aif". I haven't run the postfilter on the master yet; you'll have to do that".
+- **Files** (file times 13:12):
+  - The v1.3 Logic master, with the bridge repainted in Suno to lyrics v1.3.
+  - The repainted lead vocal, exported from Logic.
+  - The other 12 stems and the clap track in the same folder are the Nov 15 exports, unchanged.
+- **Post-filter:** run by the agent this time, with the command the human used for v1.2 (human interventions 3).
