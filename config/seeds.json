@@ -33,5 +33,11 @@
     42,
     43
   ],
-  "_m7c_o22d": "M7c O22d (scripts/m7c_plate.py --o22d, LTX-2.3 image-to-video from the far plate): seeds 41-43, the main seed and the next two; the second-stage noise seed is seed + 1, as M4's clips."
+  "_m7c_o22d": "M7c O22d (scripts/m7c_plate.py --o22d, LTX-2.3 image-to-video from the far plate): seeds 41-43, the main seed and the next two; the second-stage noise seed is seed + 1, as M4's clips.",
+  "m7d_seam": [
+    41,
+    42,
+    43
+  ],
+  "_m7d_seam": "M7d far-plate seam inpaint (scripts/m7d_plate.py --seam, FLUX.2 [dev] with a soft noise mask and differential diffusion across the L1 seam): seeds 41-43, the main seed and the next two, one take each; the pick is in config/m7d_plate.json."
 }

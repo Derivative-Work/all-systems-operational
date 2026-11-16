@@ -1,0 +1,27 @@
+{
+  "_doc": "M7d far-plate seam (human interventions 23, weak point 2; decisions 40): at the L1 seam of the approved M7c panorama (about 22 degrees left of centre, columns near 2560), a hill fades into a vertical bank of fog. A FLUX.2 [dev] inpaint over a band across the seam (differential diffusion: the soft mask's value is the local denoise strength), on a 2048x1440 crop of the panorama for context; the approved panorama is kept everywhere outside the mask (the pick is pasted back through the same mask; checked bit-identical outside it). Model, sampler, steps and guidance as M4, M7b and M7c (config/m7c_plate.json model). Prompt = subject + ', ' + style (M7c's style, constraints written in as 'no ...'). Seeds config/seeds.json m7d_seam. scripts/m7d_plate.py.",
+  "approved_pano": "archive/assets/gen/stills/m7c_park/pano_m7c/pano.png",
+  "crop": [
+    1536,
+    3584
+  ],
+  "mask": {
+    "_doc": "Panorama coordinates. Columns: strength 'core' over [c0, c1], a smoothstep down to 0 over 'feather_x' px on each side. Rows: full over [r0, r1], a smoothstep to 0 over 'feather_y' px above and below (the sky above, already evened in M7c, and the houses and mist band below stay as approved).",
+    "c0": 2380,
+    "c1": 2760,
+    "feather_x": 200,
+    "r0": 230,
+    "r1": 690,
+    "feather_y": 80,
+    "core": 1.0
+  },
+  "subject": "Wide distant panorama from a hilltop on the same misty afternoon: a long dark wooded hill on the left slopes gently down toward the right and dissolves into soft horizontal layers of fog, its conifer tree line continuing unbroken down into the valley behind the low-rise blocks at the city's edge; paler forested ridges behind it fade into the low flat cloud base; the fog lies in horizontal banks across the hillside and the valley, with tree tops showing through it",
+  "seeds_key": "m7d_seam",
+  "pick": "seam_s41",
+  "review": {
+    "_doc": "Agent's notes after viewing each take at full size and pasted into the panorama through the mask at 1:1 (production log 51). Checked for water or a lake-like band, boats, a recognisable tower or landmark, text, faces, logos, and a visible mask edge.",
+    "seam_s41": "PICKED: the hill tapers down to the right into horizontal fog banks, a lower tree line descending behind the low-rise blocks, the far ridges continuing; no vertical fog wall; the thin pale band between the ridges has soft edges and tree tops through its right end (fog, not water); no mask edge visible at 1:1",
+    "seam_s42": "rejected: a bright flat band with a hard top edge between the hill and the lower tree line, close to the lake-like bands rejected in M7b and M7c",
+    "seam_s43": "not picked: a crisp slope with a bright flat patch at its foot beside the blocks, and the upper ridge again ending in a soft vertical fade at the band's right side (the same defect, smaller); no water, text or landmark"
+  }
+}
