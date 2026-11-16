@@ -22,5 +22,16 @@
     41,
     42
   ],
-  "_m7b_park_concepts": "M7b park concept stills and far-plate candidates (scripts/m7b_concepts.py, FLUX.2 [dev]): seeds 41-42, the main seed and the next, two takes per prompt. Reference for agreeing the park's direction, not footage (production log 40)."
+  "_m7b_park_concepts": "M7b park concept stills and far-plate candidates (scripts/m7b_concepts.py, FLUX.2 [dev]): seeds 41-42, the main seed and the next, two takes per prompt. Reference for agreeing the park's direction, not footage (production log 40).",
+  "m7c_plate_extend": [
+    41,
+    42
+  ],
+  "_m7c_plate_extend": "M7c far-plate extension (scripts/m7c_plate.py --extend, FLUX.2 [dev] outpainting with a noise mask and differential diffusion): seeds 41-42, the main seed and the next, two takes per pass; the picked take per pass is in config/m7c_plate.json picks.",
+  "m7c_o22d": [
+    41,
+    42,
+    43
+  ],
+  "_m7c_o22d": "M7c O22d (scripts/m7c_plate.py --o22d, LTX-2.3 image-to-video from the far plate): seeds 41-43, the main seed and the next two; the second-stage noise seed is seed + 1, as M4's clips."
 }

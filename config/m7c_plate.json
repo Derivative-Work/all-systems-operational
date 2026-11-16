@@ -1,0 +1,99 @@
+{
+  "_doc": "M7c far plate (human interventions 19 and 22; decisions 32, 35+): far plate 1 (plate_city_s42, M7b) extended sideways with FLUX.2 [dev] outpainting so the park's wides and O20e's truck stay inside it, the far sides grown from plates 2-3 (plate_ridges_s41/s42) as the far tree lines; then O22d, the same plate animated with LTX-2.3 image-to-video. scripts/m7c_plate.py. Prompt = subject + ', ' + style. FLUX.2 [dev] has no negative prompt, so the constraints are written into the style as 'no ...' (as M4 and M7b). Model, sampler and steps as M4 and M7b (config/m4_stills.json, config/m7b_park_concepts.json). Seeds from config/seeds.json m7c_plate_extend and m7c_o22d.",
+  "model": {
+    "unet": "flux2_dev_fp8mixed.safetensors",
+    "clip": "mistral_3_small_flux2_fp4_mixed.safetensors",
+    "vae": "flux2-vae.safetensors",
+    "steps": 28,
+    "guidance": 4.0,
+    "sampler": "euler"
+  },
+  "source": "assets/gen/stills/m7b_park/plate_city/plate_city_s42.png",
+  "ridges": {
+    "left": "assets/gen/stills/m7b_park/plate_ridges/plate_ridges_s41.png",
+    "right": "assets/gen/stills/m7b_park/plate_ridges/plate_ridges_s42.png"
+  },
+  "_layout": "Panorama columns (px): L2 [0,1280), L1 [1280,2560), the original plate [2560,5120), R1 [5120,6400), R2 [6400,7680). Each pass is a 2560x1440 canvas: 1280 px of the panorama so far and 1280 px to fill. Mask (differential diffusion: the value is the local denoise strength): 1 on the whole new part, ramping to 0 over 'ramp' px into the known part (the seam is blended over the same ramp in the panorama); L2/R2 start from the ridges plate's half next to the city (init_strength on it, 1 over the 'band' px next to the junction). Run 4 of L2/R2 (production log 46): band 520 px with a 200 px soft edge (run 3's 256/64 left a hard vertical edge where the ridges' forest began), init_strength 0.9, and regen_rows: the ridges plates' far town (slab blocks) regenerated at full strength over those rows (M7b took the ridges plates for their tree lines only).",
+  "canvas": [
+    2560,
+    1440
+  ],
+  "ramp": 160,
+  "band": 520,
+  "init_strength": 0.9,
+  "style": "matte painting background plate, photorealistic, overcast, soft flat grey light, layered atmospheric fog, high detail, sharp, no foreground objects, no people, no faces, no text, no letters or numbers, no signs, no logos, no landmarks, no observation towers, every building a generic anonymous office or apartment block, no boats, no ships, no ferries, no water, no lake, no bay, no river, no sea",
+  "passes": {
+    "L1": {
+      "side": "left",
+      "subject": "Wide distant panorama from a hilltop, the same misty afternoon continuing to the left of a generic downtown: the city thins out into low-rise blocks and residential neighbourhoods of small houses and street trees on rolling wooded hills, descending in successively paler grey-green layers of fog, dark conifer tree lines between the neighbourhoods, no tall towers; a low flat cloud base across the top; the lower edge of the frame is mist over the dark tops of distant conifers"
+    },
+    "R1": {
+      "side": "right",
+      "subject": "Wide distant panorama from a hilltop, the same misty afternoon continuing to the right of a generic downtown: the city thins out into low-rise blocks and residential neighbourhoods of small houses and street trees on rolling wooded hills, descending in successively paler grey-green layers of fog, dark conifer tree lines between the neighbourhoods, no tall towers; a low flat cloud base across the top; the lower edge of the frame is mist over the dark tops of distant conifers"
+    },
+    "L2": {
+      "side": "left",
+      "after": "L1",
+      "init": "left",
+      "subject": "Wide distant panorama from a hilltop, the same misty afternoon: forested ridgelines of dark conifers receding into thick fog, each ridge paler than the one before, a few rooftops of small houses in the nearer valleys, no buildings on the ridges, no towers; a low flat cloud base across the top; the lower edge of the frame is mist over the dark tops of distant conifers",
+      "regen_rows": [
+        360,
+        600
+      ]
+    },
+    "R2": {
+      "side": "right",
+      "after": "R1",
+      "init": "right",
+      "subject": "Wide distant panorama from a hilltop, the same misty afternoon: forested ridgelines of dark conifers receding into thick fog, each ridge paler than the one before, a few rooftops of small houses in the nearer valleys, no buildings on the ridges, no towers; a low flat cloud base across the top; the lower edge of the frame is mist over the dark tops of distant conifers",
+      "regen_rows": [
+        360,
+        600
+      ]
+    }
+  },
+  "picks": {
+    "L1": "L1_s42",
+    "R1": "R1_s41",
+    "L2": "L2_s42",
+    "R2": "R2_s42"
+  },
+  "o22d": {
+    "_doc": "O22d (brief: 'fog drifting over the skyline'; human interventions 19: the same plate animated by image-to-video). The input is a crop of the original plate (no extension in it) at LTX's 1280x704 aspect; ComfyUI template video_ltx2_3_i2v as M4's clips (scripts/clips.py), 24 fps, 5 s for the 4.70 s shot; prompt = motion + '. ' + style.",
+    "crop": [
+      318,
+      0,
+      2322,
+      1102
+    ],
+    "size": [
+      1280,
+      704
+    ],
+    "fps": 24,
+    "seconds": 5,
+    "motion": "A locked-off static tripod shot from a hilltop of a distant generic city in fog: the framing never moves, no zoom, no push-in, no pan, no tilt. Thin layers of fog drift slowly sideways across the towers and the wooded hills below them, and the low cloud base slides slowly over the tops of the tallest towers. The buildings and the trees keep their exact shapes. Nothing else moves: no people, no birds, no vehicles, no lights switching on",
+    "style": "Realistic film footage, overcast afternoon, soft flat grey daylight, subtle 35mm film grain, a completely static locked-off camera, every building keeps its exact shape, no people, no faces, no text, no logos, no boats, no ships, no ferries, no water",
+    "pick": "O22d_s41",
+    "review": {
+      "_doc": "Agent's notes after viewing frames 1, 61 and 121 of each take at full size, 1:1 crops of the city and the neighbourhood, and the camera motion (ORB features and a similarity fit, frame 1 to 121; production log 46). Every take: no people, faces, text, logos, water, boats or landmark tower; the buildings keep their shapes.",
+      "O22d_s41": "PICKED: nearly locked (scale 0.997, a slow 23 px drift over 5 s at 1280 wide); the fog bank thickens and drifts over the wooded hill and the houses below the city, the cloud base holds over the tower tops; buildings keep their shapes at 1:1",
+      "O22d_s42": "not picked: the same fog motion with a slow push (scale 1.042) and a 34 px pan; usable as a fallback",
+      "O22d_s43": "rejected: a strong push-in (scale 1.22, 140 px), not the locked or slow camera asked for"
+    }
+  },
+  "review": {
+    "_doc": "Agent's notes after viewing every take at full size and its seam at 1:1 (production log 46). Run 1 (archive/assets/gen/stills/m7c_park/extend_v1/) is rejected: a blurred stripe at each seam.",
+    "L1_s41": "not picked: a pointed church-like spire among the left blocks (generic, but the one sharp vertical on the skyline draws the eye); otherwise clean",
+    "L1_s42": "picked: mid-rise blocks and houses on a wooded hill, ridges behind in the cloud base, fog bands continuing the plate's; seam invisible at 1:1",
+    "R1_s41": "picked: the city's edge into low blocks, a wooded hill and ridges receding right in fog; seam invisible at 1:1",
+    "R1_s42": "not picked: a denser band of mid-rise blocks across the right half; clean, but less recession toward the ridges",
+    "L2_run3": "run 3, both seeds rejected: the ridges plate's far slab blocks kept on the left horizon (tree lines only, M7b)",
+    "R2_run3": "run 3, both seeds rejected: the far slab blocks kept; s41 also a hard vertical edge where the forest begins",
+    "L2_s41": "not picked: a pale fog band with a sharp top edge between two dark ridges (close to M7b's lake-like band on plate_city_s41); otherwise clean, no buildings on the ridges",
+    "L2_s42": "picked: a long forested ridge, soft fog banks with tree tops through them (fog, not water at 1:1), the town of L1 fading into fog at the junction; no slab blocks",
+    "R2_s41": "rejected: a hard vertical edge where the forest begins (x 1680 of the canvas) and a flat green patch like a sports field by it",
+    "R2_s42": "picked: ridges receding right in fog, a forest rising from the right, a few houses; the fog banks read as fog at 1:1; no slab blocks"
+  },
+  "band_soft": 200
+}
