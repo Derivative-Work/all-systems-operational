@@ -185,3 +185,14 @@ Append-only. Deviations from the brief, each with why and who decided.
 
 - Three or four per set and each set's signature element: rain on glass (O03b), Switch and ON AIR (O10a), the Polaroid close (O14d, since its photo is new), the whiteboard (O18a), the conference phone and chargers (O18e), the skyline in fog and the home-movie grade (O22d). O19a (the deck, moss on the railings, the conifers up close) was added after the conifers and moss were found weak up close; it's the treehouse's only outdoor view. O08c's night cutaway isn't on the board: it uses the same materials with the lights off.
 - No camera was moved. Proposals, not done: none needed for the look; O18e reads only as a dark insert (its camera offset darkens it 0.5 stop; dropping that offset is a one-line change).
+
+## 26. 2026-11-16 — M7a look board: calls for the human (agent)
+
+1. **The look, per set:** approve it as the base for M7, or name what to change. Recommendation: approve. The live room and the park are the strongest; the coffee shop is close. The treehouse is the weakest: very dark, the cedar barely reads.
+2. **Shafts from a stylized sun** (decisions 22) rather than strictly flat overcast. Recommendation: keep. The brief asks for beams, and they make the live room.
+3. **Silhouette depth:** people are near-black in Eevee (Cycles' bounce lifts them a little). Recommendation: keep. If the band should show more of the instruments, raise the room exposure by ⅓ stop on the closes only.
+4. **The Polaroid's photo** (decisions 24): the cafe session with the crowd, warm. Recommendation: keep; the band alone is a one-line change.
+5. **Roof and park sun fixes** (decisions 23): they change the look of approved grey-box frames (the treehouse's "skylights" were gaps in the roof; the park's people were lit from behind the camera). Recommendation: accept; both were bugs.
+6. **M7 render plan:** Eevee at 1920×1080, 64 samples, about 4.6 h for the cut's 6,405 Blender frames; JPEG q92 frames (about 1.4 GB), graded at assembly. Recommendation: Eevee. Cycles costs 2.5–5× the time (about 17 h) for softer shafts and a little more bounce.
+7. **Small additions for M7, not done here:** a slow drift in the haze (production log 34); O18e's camera offset (−0.5) dropped so the table reads (decisions 25). Recommendation: do both.
+8. **Likeness** (production log 35): no KEXP identifier or layout found, from text descriptions only. Recommendation: the human glances at the board for likeness to rooms they know.
