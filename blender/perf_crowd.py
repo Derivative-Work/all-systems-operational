@@ -25,6 +25,7 @@ import coverage as C
 import gb
 import perf as PF
 import perf_band as PB
+import perf_grips as G
 import sets as S
 
 
@@ -64,14 +65,45 @@ class Person:
             # the raised one: the higher wrist
             self.fist_side = max(("Left", "Right"), key=lambda s: self.wr[s].z)
         self.rec = PF.Rec(body, PF.CORE + PF.ARMS + PF.LEGS)
+        import contact as CT
+        body.reset()
+        obs = CT.body_obstacles(coll, body)
+        # M5c review: arms that hang at the sides turned out until they clear the body (hips, jackets); the mug
+        # re-seated in the re-posed hand
+        hang = {"stand": ("Left", "Right"), "clap": (), "push": (), "phone": (), "mug_raise": ("Left",),
+                "fist": tuple(x for x in ("Left", "Right") if x != self.fist_side)}.get(self.pose, ())
+        self.abduct = {sd: G.clear_hanging(body, sd, obs) for sd in hang}
+        if self.pose == "mug_raise":
+            G.mug_pose(body, 0.0)
+            seat_mug(coll, body)
+        if self.pose == "fist" and self.fist_side:
+            G.fist_pose(body, self.fist_side, 0.0)
+            for fg in ("Index", "Middle", "Ring", "Pinky"):            # a closed fist, the thumb across it
+                G.curl3(body, self.fist_side, fg, 10, 25, 20)
+            for k_ in (2, 3):
+                body.rot(f"{self.fist_side}HandThumb{k_}", x=35)
+        if self.pose in ("clap", "push") or self.joiner:
+            G.clap_fingers(body)
+        body.keep()
+        self.wr = {s: body.head(f"{s}Hand") for s in ("Left", "Right")}
+        self.checker = CT.Checker(body, obs, PF.REPORT.setdefault("contact", {}), f"{b}:{e.name}")
 
 
-def _arm(body, side, w, pole_out=0.4, aim=None):
-    sg = 1 if side == "Left" else -1
-    sh = body.head(f"{side}Arm")
-    body.two_bone(f"{side}Arm", f"{side}ForeArm", w, sh + Vector((sg * pole_out, 0.15, -0.35)))
-    if aim is not None:
-        body.aim(f"{side}Hand", aim)
+def seat_mug(coll, body):
+    """The mug (parented to the right hand bone by blender/poses.py) re-seated in the re-posed hand: upright, in the
+    curled fingers on the palm side, its handle toward the palm."""
+    mug = next((o for o in coll.objects if "mug" in o.name and o.parent_type == "BONE"), None)
+    if mug is None:
+        return
+    hb = PF.bn("RightHand")
+    y, n, t = body.palm("Right")
+    centre = (body.head("RightHand") + body.head("RightHandMiddle2")) / 2 + n * 0.055
+    hx = -Vector((n.x, n.y, 0)).normalized()                      # the handle toward the palm
+    R = Matrix((hx, Vector((0, 0, 1)).cross(hx), Vector((0, 0, 1)))).transposed()
+    want = Matrix.Translation(centre) @ R.to_4x4()
+    pm = body.M(hb) @ Matrix.Translation((0, body.len[hb], 0))
+    mug.matrix_parent_inverse = Matrix.Identity(4)
+    mug.matrix_basis = pm.inverted() @ want
 
 
 def toast(t, heys):
@@ -124,30 +156,37 @@ def solve(p, t, ch, en, hey, kick13, room):
         body.orient(f"{s}Foot", p.feet[s])
     rel = body.M("Spine2") @ p.sinv
     if p.pose in ("clap", "push") or (p.joiner and ch > 0.05):
-        c = (body.head("LeftArm") + body.head("RightArm")) / 2 + Vector((0, -0.31, -0.27))
         k = PB.clap_amount(t, p.lag_s)
         w_join = 1.0 if p.pose in ("clap", "push") else min(1.0, ch * 1.4)
-        for s, sg in (("Left", 1), ("Right", -1)):
-            gap = 0.052 + (1 - k) * 0.13
-            wc = c + Vector((sg * gap, 0.02 * (1 - k), 0.0))
-            w = (rel @ p.wr[s]).lerp(wc, w_join)
-            aimd = Vector((-sg * 0.08 * k, -0.75, 0.55)) if w_join > 0.5 else None
-            _arm(body, s, w, aim=aimd)
+        if w_join >= 0.999:
+            G.clap_pose(body, k)
+        else:                                  # joining in: the hands come up from the waist into the clap
+            mid = (body.head("LeftArm") + body.head("RightArm")) / 2
+            G.clap_pose(body, k * w_join, c=mid + Vector((0, -0.25 + 0.08 * (1 - w_join), -0.07 - 0.22 * (1 - w_join))))
     elif p.pose == "fist" and p.fist_side:
-        s = p.fist_side
-        up = rel @ p.wr[s] + Vector((0, 0, -0.11))        # M5's fist, lower: the fist below the head's top
-        up.z = min(up.z, body.tail("Head").z - 0.13)      # (the wrist; the fist is ~8 cm above it)
-        down = up + Vector((0, -0.05, -0.17))
         k = max(hey, (p.pumper * ch) * PB.hit_env(t, [x for x in C.BEATS if abs(x - t) < 1.5], pre=0.12, tau=0.25) * 0.8)
-        _arm(body, s, down.lerp(up, min(1.0, k)), pole_out=0.6)
+        G.fist_pose(body, p.fist_side, min(1.0, k))
     elif p.pose == "mug_raise":
-        sh = body.head("RightArm")
-        low = sh + Vector((-0.10, -0.28, -0.30))
-        high = sh + Vector((-0.24, -0.20, 0.09))
-        k = toast(t, C.HEYS) if room == "cafe" else 0.0
-        _arm(body, "Right", low.lerp(high, k), pole_out=0.5, aim=Vector((0, -0.12, 1.0)))
+        G.mug_pose(body, toast(t, C.HEYS) if room == "cafe" else 0.0)
+    for s_ in ("Left", "Right"):
+        body.limit_wrist(s_)
     p.rec.add()
-    PF.check(body, p.e.name, t, PF.rig_offset(body))
+    labels, ck = labels_of(p, ch)
+    PF.check(body, p.e.name, t, PF.rig_offset(body), labels=labels)
+    p.checker.run(t, labels, clap_k=ck(t) if ck else None, other_ok=ck is None)
+
+
+def labels_of(p, ch):
+    """Pose labels per hand for the wrist and contact checks, and the clap amount function when clapping."""
+    if p.pose in ("clap", "push") or (p.joiner and ch > 0.05):
+        lab = "crowd clap" if p.pose in ("clap", "push") else "crowd clap (joining in)"
+        return {"Left": lab, "Right": lab}, (lambda t: PB.clap_amount(t, p.lag_s))
+    if p.pose == "fist" and p.fist_side:
+        o = "Right" if p.fist_side == "Left" else "Left"
+        return {p.fist_side: "crowd fist", o: "crowd fist, other arm"}, None
+    if p.pose == "mug_raise":
+        return {"Right": "crowd mug", "Left": "crowd mug, other arm"}, None
+    return {"Left": f"crowd {p.pose}", "Right": f"crowd {p.pose}"}, None
 
 
 def perform(b, n, room, seed_build=None, freeze_t=None):
@@ -178,6 +217,7 @@ def perform(b, n, room, seed_build=None, freeze_t=None):
         else:
             p.rec.hold(frames)
         PF.REG[p.body.rig.name] = p.rec
+        PF.apply_static(p.body, PF.FINGERS)
     kinds = {}
     for p in people:
         kinds[p.pose] = kinds.get(p.pose, 0) + 1
@@ -187,6 +227,40 @@ def perform(b, n, room, seed_build=None, freeze_t=None):
         return f"crowd frozen at {freeze_t:.2f} s in their M5c poses ({len(people)} people, seeds of {sb})"
     return (f"crowd performances on {len(people)} people ({', '.join(f'{v} {k}' for k, v in sorted(kinds.items()))}; "
             f"{st} stompers, {jo} join the chorus claps)")
+
+
+# ---------------------------------------------------------------- O12: the late clapper
+
+def late_clapper(b, n, close_frames, open_frames=7):
+    """M5c review: O12's late clapper (the one person still moving after the stop) on their own copy, clapping with
+    the solver's clap (blender/perf_grips.py; wrists in range) instead of blender/poses.py's keyed clap_loop: hands
+    together on each frame in close_frames, wide open between (M5b's timing)."""
+    e = S.OBJ.get("late_clapper")
+    if e is None:
+        return None
+    import contact as CT
+    coll, rig = PF.own_copy(e, f"late_clapper_{b}")
+    body = PF.Body(rig)
+    G.clap_fingers(body)
+    body.keep()
+    obs = CT.body_obstacles(coll, body)
+    chk = CT.Checker(body, obs, PF.REPORT.setdefault("contact", {}), f"{b}:late_clapper")
+    rec = PF.Rec(body, PF.CORE + PF.ARMS)
+    lab = {"Left": "O12 late clapper", "Right": "O12 late clapper"}
+    for f in range(1, n + 1):
+        k = 0.0
+        for c in close_frames:
+            k = max(k, 1.0 - abs(f - c) / open_frames)
+        k = k * k * (3 - 2 * k)
+        body.reset()
+        G.clap_pose(body, k, open_gap=0.2)
+        rec.add()
+        PF.check(body, "late_clapper", f / 30.0, labels=lab)
+        chk.run(f / 30.0, lab, clap_k=k)
+    rec.write(np.arange(1, n + 1))
+    PF.REG[rig.name] = rec
+    PF.apply_static(body, PF.FINGERS)
+    return f"late clapper: solver claps closing on frames {list(close_frames)}"
 
 
 # ---------------------------------------------------------------- O22: the walk-off

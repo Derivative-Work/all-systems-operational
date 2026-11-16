@@ -8,6 +8,7 @@ front by a soft fill, from a fixed three-quarter camera. Tiles: renders/m5c/perf
 renders/m5c/perf_sheet/sheet.json (what each tile shows and which hits fall on its frame); scripts/m5c_animatic.py
 --perfsheet tiles them into review/m5c_performance_sheet.jpg.
 Usage: blender -b --factory-startup --python blender/perf_sheet.py -- [--bar 30] [--out renders/m5c/perf_sheet]
+       [--closeup]  (M5c review: M5c2's sheet, renders/m5c2/perf_sheet, adds the crowd clapper at 3x)
 """
 import argparse
 import json
@@ -35,6 +36,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--bar", type=int, default=30)
 ap.add_argument("--build", default="O09")
 ap.add_argument("--out", default="renders/m5c/perf_sheet")
+ap.add_argument("--closeup", action="store_true", help="add the crowd clapper's hands at 3x (M5c review)")
 a = ap.parse_args(argv)
 out = C.ROOT / a.out
 out.mkdir(parents=True, exist_ok=True)
@@ -69,6 +71,8 @@ def pick(pose, cond=lambda e: True):
 for nm, e in (("crowd_clap", pick("clap")), ("crowd_fist", pick("fist")), ("crowd_stand", pick("stand"))):
     if e is not None:
         people[nm] = e
+if a.closeup and "crowd_clap" in people:          # M5c review: the clapper's hands at 3x, so wrists can be judged
+    people["crowd_clap_3x"] = people["crowd_clap"]
 allp = [o for o in bpy.data.objects if o.type == "EMPTY" and o.instance_type == "COLLECTION"]
 gb.into(None)
 K.world("#8a8f94", 0.6)
@@ -102,6 +106,10 @@ for nm, e in people.items():
         tgt = p + fwd * 0.2 + Vector((0, 0, hz - p.z - 0.38))
         loc = tgt + fwd * 2.3 - left * 0.7 + Vector((0, 0, 0.12))
         lens = 70
+        if nm.endswith("_3x"):                  # the same camera, three times the focal length, on the hands
+            tgt = p + fwd * 0.3 + Vector((0, 0, hz - p.z - 0.33))
+            loc = tgt + fwd * 2.3 - left * 0.7 + Vector((0, 0, 0.12))
+            lens = 210
     cam = gb.camera(f"sheet_{nm}", tuple(loc), tuple(tgt), lens)
     cam.data.clip_start = 0.05
     lt = K.area(f"sheet_fill_{nm}", tuple(loc + Vector((0, 0, 0.8)) + left * 0.6), tuple(tgt), 260, 2.0, "#ffffff")
@@ -147,10 +155,12 @@ for t in [h["t"] for h in PB.ALL_KICKS]:
         off.append(max(vals, key=vals.get) - f)            # the beater is most forward (largest X) at the strike
 gb_ = S.OBJ["perf_band"]["guitar"]
 rec = PF.REG[gb_["rig"].name]
-perp = Vector((-math.sin(math.radians(28)), 0, math.cos(math.radians(28))))
+perp0 = gb_["info"]["ins"].D((0, 1, 0))          # across the strings (M5c review: the rebuilt guitar's frame)
 hy = []
 for f in range(1, n + 1):
     body = PF.rec_pose(rec, f - 1)
+    rel = body.M("Spine") @ PB.gbody_spine_inv(body)
+    perp = rel.to_3x3() @ perp0
     hy.append(body.tail("RightHand").dot(perp) - body.head("Spine").dot(perp))
 import numpy as np
 hy = np.array(hy)

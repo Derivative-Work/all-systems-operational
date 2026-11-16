@@ -10,6 +10,8 @@ run with
 Seeds: as M5b, plus gb.rng("m5c_band_<build>"), gb.rng("m5c_crowd_<build>"), gb.rng("m5c_chords").
 Usage: blender -b --factory-startup --python blender/coverage_m5c.py -- [--out renders/m5c/frames] [--only O09]
        [--subs O09d,O20d] [--still] [--at mid]
+       blender -b --factory-startup --python blender/coverage_m5c.py -- --checkonly [O09,O17]  (checks, no render)
+       --log <path>: the check log (default log/render_logs/m5c_pose_check.log)
 """
 import json
 import sys
@@ -56,8 +58,11 @@ def layers(b, n, room, notes):
         sb, t = FREEZE_AT[b]
         note, _ = PB.perform(b, n, freeze_t=t, seed_build=sb)
         notes.append(note)
-        if b == "O21":
-            notes.append(PC.perform(b, n, room, seed_build=sb, freeze_t=t))
+        # M5c review: O12's crowd frozen in their solved M5c poses too (O11's seeds, as O21 uses O20's), not the
+        # library poses; the late clapper claps with the solver's clap
+        notes.append(PC.perform(b, n, room, seed_build=sb, freeze_t=t))
+        if b == "O12":
+            notes.append(PC.late_clapper(b, n, (C.A.mark("O12", 1), C.A.mark("O12", 2))))
     if b == "O22":
         notes.append(PC.walker(b, n))
     for nm in ("pmug0", "pmug1"):                 # the probes' mugs sat 1.8 cm above the table (M3), seen in O14b's close
@@ -127,7 +132,35 @@ def write_report():
     LOG.write_text(txt + "\n")
 
 
+def check_only(only=()):
+    """Build every build's performances (no render) for the pose, wrist and contact checks."""
+    import time
+    order = ["O03", "O04", "O07", "O08", "O08c", "O09", "O10", "O11", "O12", "O14", "O15", "O16", "O17", "O18",
+             "O19a", "O19b", "O20", "O21", "O22"]
+    by = C.subs_by_build()
+    for b in order:
+        subs = by.get(b, [])
+        if not subs or (only and b not in only):
+            continue
+        t0 = time.time()
+        n = C.A.nframes(b)
+        keys, expo, notes = C.A.shot(b, n)
+        layers(b, n, subs[0]["room"], notes)
+        print(f"check {b}: {n} frames, {time.time() - t0:.1f} s", flush=True)
+
+
 if __name__ == "__main__":
+    if "--log" in sys.argv:
+        i = sys.argv.index("--log")
+        LOG = C.ROOT / sys.argv[i + 1]
+        del sys.argv[i:i + 2]
+    if "--checkonly" in sys.argv:
+        i = sys.argv.index("--checkonly")
+        only = set(filter(None, (sys.argv[i + 1] if len(sys.argv) > i + 1 else "").split(",")))
+        check_only(only)
+        write_report()
+        print(PF.report_text(), flush=True)
+        sys.exit(0)
     if "--out" not in sys.argv:
         sys.argv += ["--out", "renders/m5c/frames"]
     C.main()

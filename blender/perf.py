@@ -40,6 +40,13 @@ def bn(b):
     return b if b.startswith(P) else P + b
 
 
+# Wrist limits (degrees) for every hand pose (M5c review): flexion and extension within 25, ulnar deviation 15,
+# radial 10 (a hand aligned with the forearm, a small bend); the forearm turns (pronation/supination) at most
+# TWIST_MAX either way from the rig's rest, so the palm's facing comes from the forearm, not a twisted wrist.
+WRIST = {"flex": 25.0, "ext": 25.0, "uln": 15.0, "rad": 10.0}
+TWIST_MAX = 175.0
+
+
 # ---------------------------------------------------------------- the body: FK and two-bone IK
 
 class Body:
@@ -54,6 +61,7 @@ class Body:
         self.base = dict(self.lib)
         self.basis = dict(self.lib)
         self.memo = {}
+        self.memo_static = {}
 
     # pose
     def reset(self, to=None):
@@ -148,6 +156,143 @@ class Body:
         if thumb is not None:
             for k in (2, 3):
                 self.rot(f"{side}HandThumb{k}", x=thumb)
+
+    # ---- wrists (M5c review, human interventions 15: "people look like they have broken wrists")
+    # The neutral wrist is the rig's rest relation of hand to forearm (the mesh undeformed there, within ~6 degrees of
+    # straight). The palm normal and the thumb side come from the rest finger roots, so they hold on every rig.
+
+    def hand_axes(self, side):
+        """(rel, n_loc, t_loc): the hand's rest orientation in the forearm's frame, and the palm normal (out of the
+        palm) and the thumb-side axis in the hand bone's own frame."""
+        k = ("axes", side)
+        v = self.memo_static.get(k)
+        if v is not None:
+            return v
+        Rh = self.rest[bn(f"{side}Hand")].to_3x3()
+        Rf = self.rest[bn(f"{side}ForeArm")].to_3x3()
+        y = Rh.col[1].normalized()
+        t = self.rest[bn(f"{side}HandIndex1")].translation - self.rest[bn(f"{side}HandPinky1")].translation
+        t = (t - y * t.dot(y)).normalized()
+        n = t.cross(y) if side == "Left" else y.cross(t)     # checked: finger curls move the tips to +n
+        Rhi = Rh.inverted()
+        v = (Rf.inverted() @ Rh, (Rhi @ n).normalized(), (Rhi @ t).normalized())
+        self.memo_static[k] = v
+        return v
+
+    def neutral(self, side):
+        """The hand's neutral frame on the current forearm: (y0, n0, t0) in armature space."""
+        rel, nl, tl = self.hand_axes(side)
+        R = self.M(f"{side}ForeArm").to_3x3() @ rel
+        return R.col[1].normalized(), (R @ nl).normalized(), (R @ tl).normalized(), R
+
+    def palm(self, side):
+        """(y, n, t) of the hand as posed: finger direction, palm normal, thumb side."""
+        _, nl, tl = self.hand_axes(side)
+        R = self.M(f"{side}Hand").to_3x3()
+        return R.col[1].normalized(), (R @ nl).normalized(), (R @ tl).normalized()
+
+    def wrist_angles(self, side):
+        """(flexion, deviation, roll) in degrees: + flexion bends the fingers toward the palm (- is extension),
+        + deviation toward the thumb (radial; - ulnar), roll the hand's twist about its own axis at the wrist."""
+        y0, n0, t0, R0 = self.neutral(side)
+        y, n, t = self.palm(side)
+        f = math.degrees(math.atan2(y.dot(n0), y.dot(y0)))
+        d = math.degrees(math.atan2(y.dot(t0), y.dot(y0)))
+        q = (R0.inverted() @ self.M(f"{side}Hand").to_3x3()).to_quaternion()
+        r = math.degrees(2 * math.atan2(q.y, q.w))
+        r = (r + 180) % 360 - 180
+        return f, d, r
+
+    def forearm_twist(self, side):
+        q = self.basis[bn(f"{side}ForeArm")].to_quaternion()
+        r = math.degrees(2 * math.atan2(q.y, q.w))
+        return (r + 180) % 360 - 180
+
+    def hand_to(self, side, y_des, n_des=None, lim=None, twist_max=None):
+        """Orient the hand: the forearm turns about its own axis (pronation/supination, up to twist_max from rest) so
+        the palm faces n_des as nearly as it can, then the hand starts aligned with the forearm (neutral wrist) and
+        bends toward y_des by at most the wrist limits. Returns the (flexion, deviation) used."""
+        lim = WRIST if lim is None else lim
+        tmax = TWIST_MAX if twist_max is None else twist_max
+        fa = bn(f"{side}ForeArm")
+        a = self.M(fa).col[1].xyz.normalized()
+        y_des = Vector(y_des).normalized()
+        if n_des is not None:
+            # start from the forearm without twist (the swing alone), so the result depends on the pose, not on
+            # what the forearm carried from the previous solve
+            m = self.basis[fa]
+            q = m.to_quaternion()
+            qt = Quaternion((q.w, 0.0, q.y, 0.0))
+            if qt.magnitude > 1e-9:
+                qt.normalize()
+                sw = (q @ qt.inverted()).to_matrix().to_4x4()
+                sw.translation = m.translation
+                self.basis[fa] = sw
+                self.memo = {}
+            _, n0, _, _ = self.neutral(side)
+            nd = Vector(n_des)
+            # the palm normal we want, as seen once the hand bends toward y_des: project both onto the plane
+            # across the forearm and take the signed angle about it
+            p0 = n0 - a * n0.dot(a)
+            p1 = nd - a * nd.dot(a)
+            if p0.length > 1e-6 and p1.length > 1e-6:
+                ang = math.degrees(p0.angle(p1))
+                if p0.cross(p1).dot(a) < 0:
+                    ang = -ang
+                cur = self.forearm_twist(side)
+                new = max(-tmax, min(tmax, cur + ang))
+                self.basis[fa] = self.basis[fa] @ Matrix.Rotation(math.radians(new - cur), 4, "Y")
+                self.memo = {}
+        y0, n0, t0, R0 = self.neutral(side)
+        f = math.degrees(math.atan2(y_des.dot(n0), y_des.dot(y0)))
+        d = math.degrees(math.atan2(y_des.dot(t0), y_des.dot(y0)))
+        f = max(-lim["ext"], min(lim["flex"], f))
+        d = max(-lim["uln"], min(lim["rad"], d))
+        y = (y0 + n0 * math.tan(math.radians(f)) + t0 * math.tan(math.radians(d))).normalized()
+        R = y0.rotation_difference(y).to_matrix() @ R0
+        self.orient(f"{side}Hand", R)
+        return f, d
+
+    def hand_follow(self, side, n_des=None, flex=0.0, dev=0.0, lim=None):
+        """The hand continues along the forearm (neutral wrist), the palm turned toward n_des by the forearm's twist,
+        then bent by flex (+ toward the palm) and dev (+ toward the thumb), clamped to the wrist limits."""
+        lim = WRIST if lim is None else lim
+        a = self.M(f"{side}ForeArm").col[1].xyz.normalized()
+        if n_des is not None:
+            self.hand_to(side, a, n_des, lim)
+        y0, n0, t0, R0 = self.neutral(side)
+        f = max(-lim["ext"], min(lim["flex"], flex))
+        d = max(-lim["uln"], min(lim["rad"], dev))
+        y = (y0 + n0 * math.tan(math.radians(f)) + t0 * math.tan(math.radians(d))).normalized()
+        self.orient(f"{side}Hand", y0.rotation_difference(y).to_matrix() @ R0)
+        return f, d
+
+    def arm_to(self, side, wrist, y_des, n_des=None, flex0=0.0, pole=None, pole_k=0.0, lim=None):
+        """Two-bone arm to `wrist`, the elbow put where the forearm would leave the wrist bent by flex0 toward the
+        palm (so the hand needs little bend), optionally pulled toward `pole` by pole_k; then hand_to."""
+        y_des = Vector(y_des).normalized()
+        a = y_des
+        if n_des is not None and flex0:
+            n = Vector(n_des)
+            n = (n - y_des * n.dot(y_des)).normalized()
+            fr = math.radians(flex0)
+            a = (y_des * math.cos(fr) - n * math.sin(fr)).normalized()
+        L = self.len[bn(f"{side}ForeArm")]
+        E = Vector(wrist) - a * L
+        if pole is not None and pole_k:
+            E = E.lerp(Vector(pole), pole_k)
+        self.two_bone(f"{side}Arm", f"{side}ForeArm", wrist, E)
+        return self.hand_to(side, y_des, n_des, lim)
+
+    def limit_wrist(self, side, lim=None):
+        """Bring an already posed hand within the wrist limits (its palm facing as near as it was)."""
+        y, n, _ = self.palm(side)
+        f, d, r = self.wrist_angles(side)
+        lim = WRIST if lim is None else lim
+        if -lim["ext"] - 0.5 <= f <= lim["flex"] + 0.5 and -lim["uln"] - 0.5 <= d <= lim["rad"] + 0.5 and abs(r) < 10:
+            return False
+        self.hand_to(side, y, n, lim)
+        return True
 
 
 class Rec:
@@ -295,7 +440,7 @@ def body_points(coll, body, zlo, zhi, xr=None):
 
 REG = {}                  # rig name -> Rec (cameras aim at the solved pose: coverage.bone_world is patched)
 CHECK_ON = [True]
-REPORT = {"frames": 0, "people": set(), "viol": {}, "min_hand_head": {}, "straight_fwd": {}, "builds": {}}
+REPORT = {"frames": 0, "people": set(), "viol": {}, "min_hand_head": {}, "straight_fwd": {}, "builds": {}, "wrist": {}}
 BUILD = [""]
 STRAIGHT_DEG = 25.0       # an arm this close to straight ...
 FWD = 0.5                 # ... pointing this much forward (-Y), not down (z > -0.3): the salute/rifle read
@@ -306,7 +451,22 @@ def rig_offset(body):
     return body.rig.matrix_basis.copy()
 
 
-def check(body, who, t, off=None):
+def wrist_stat(body, side, label, key, t):
+    """Wrist angles of one hand on this frame, kept per pose label: max flexion, extension, ulnar and radial
+    deviation and roll, and the frames beyond the limits (WRIST, 2 degrees' slack)."""
+    f, d, r = body.wrist_angles(side)
+    W = REPORT["wrist"].setdefault(label, {"n": 0, "flex": (0.0, ""), "ext": (0.0, ""), "uln": (0.0, ""),
+                                           "rad": (0.0, ""), "roll": (0.0, ""), "over": 0})
+    W["n"] += 1
+    at = f"{key} {side} {t:.2f}s"
+    for k_, v in (("flex", f), ("ext", -f), ("rad", d), ("uln", -d), ("roll", abs(r))):
+        if v > W[k_][0]:
+            W[k_] = (round(v, 1), at)
+    if f > WRIST["flex"] + 2 or -f > WRIST["ext"] + 2 or d > WRIST["rad"] + 2 or -d > WRIST["uln"] + 2:
+        W["over"] += 1
+
+
+def check(body, who, t, off=None, labels=None):
     """The pose rules (blender/poses.py top) on this frame's solved pose, in the figure frame:
     - no arm straight (elbow under STRAIGHT_DEG) pointing forward or forward-and-up;
     - no hand within HAND_HEAD of the head's centre;
@@ -336,6 +496,8 @@ def check(body, who, t, off=None):
         if hand.z > top.z:
             up += 1
             _viol(key, "hand_overhead", t, f"{s} hand {hand.z - top.z:.2f} m above the head")
+        if labels and labels.get(s):
+            wrist_stat(body, s, labels[s], key, t)
     if up == 2:
         _viol(key, "both_overhead", t, "both hands above the head")
 
@@ -359,6 +521,16 @@ def report_text():
     lines.append("closest hands to a head: " + "; ".join(f"{k} {v[0]:.2f} m ({v[2]}, {v[1]:.2f} s)" for k, v in close))
     for k, v in R["builds"].items():
         lines.append(f"  {k}: {v}")
+    if R["wrist"]:
+        lines.append(f"wrists (degrees; limits flexion {WRIST['flex']:.0f}, extension {WRIST['ext']:.0f}, ulnar "
+                     f"{WRIST['uln']:.0f}, radial {WRIST['rad']:.0f}; 'over' = hand-frames beyond a limit by > 2):")
+        for lab, W in sorted(R["wrist"].items()):
+            lines.append(f"  {lab}: {W['n']} hand-frames, max flexion {W['flex'][0]} ({W['flex'][1]}), extension "
+                         f"{W['ext'][0]} ({W['ext'][1]}), ulnar {W['uln'][0]}, radial {W['rad'][0]}, roll "
+                         f"{W['roll'][0]}; over {W['over']}")
+    if R.get("contact"):
+        import contact
+        lines += contact.report_lines(R["contact"])
     return "\n".join(lines)
 
 
