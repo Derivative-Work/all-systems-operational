@@ -1,0 +1,29 @@
+0.000	22.869	intro (no beat)
+22.869	34.453	kick and bass in (level +1.7 dB, under 150 Hz +21.8 dB)
+34.453	39.077	bass out (1 bar) (level -1.7 dB, under 150 Hz -10.5 dB)
+39.077	41.381	bass out (1 bar) (level -0.6 dB, under 150 Hz -14.2 dB)
+41.381	60.043	full band back (level +2.6 dB, under 150 Hz +20.5 dB)
+60.043	76.080	louder section (level +2.3 dB, under 150 Hz +18.8 dB)
+76.080	89.952	bass out, quieter (level -3.0 dB, under 150 Hz -12.7 dB)
+89.952	94.571	quieter: lead-up to the drop (level -2.7 dB, under 150 Hz -8.4 dB)
+94.571	96.869	bass out (1 bar) (level -0.8 dB, under 150 Hz -14.7 dB)
+96.869	115.291	the drop (biggest change) (level +6.3 dB, under 150 Hz +28.8 dB)
+115.291	117.451	bass out (1 bar) (level -2.4 dB, under 150 Hz -24.1 dB)
+117.451	124.469	bass back (level +1.7 dB, under 150 Hz +22.2 dB)
+124.469	133.643	breakdown (level -4.5 dB, under 150 Hz -10.6 dB)
+133.643	135.952	swell (1 bar) (level +3.2 dB, under 150 Hz +14.4 dB)
+135.952	142.677	back down (level -4.1 dB, under 150 Hz -5.8 dB)
+142.677	153.691	build (level +4.3 dB, under 150 Hz +6.4 dB)
+153.691	155.979	drop-out (1 bar) (level -5.4 dB, under 150 Hz -13.4 dB)
+155.979	158.267	back in (1 bar) (level +2.8 dB, under 150 Hz +9.9 dB)
+158.267	160.560	out again (1 bar) (level -2.5 dB, under 150 Hz -9.6 dB)
+160.560	197.616	final drop (level +5.1 dB, under 150 Hz +18.1 dB)
+197.616	212.400	outro (no beat tracked)
+0.000	13.600	CARD end card
+13.600	18.233	CARD Next incident: TBD
+18.233	43.700	CARD fact 1
+43.700	60.033	CARD fact 2
+60.033	96.867	CARD fact 3
+96.867	124.467	CARD fact 4
+124.467	154.633	CARD disclosure
+154.641	154.641	FADE-OUT POINT

@@ -81,7 +81,8 @@ Path("timing/credits_grid.json").write_text(json.dumps({
             "points (audio time, s, from the track's start, which is the end sequence's first frame), for the M7 end "
             "sequence (config/end_cards_m7.json snap).",
     "audio": str(PF), "length_s": round(len(y) / sr, 4),
-    "sections": [{"t": round(float(t), 3), "strength": round(float(abs(d) + abs(dl)), 1)} for t, i, d, dl in bounds],
+    "sections": [{"t": round(float(t), 3), "strength": round(float(abs(d) + abs(dl)), 1), "level_db": round(float(d), 1),
+                  "low_db": round(float(dl), 1), "beat": int(i)} for t, i, d, dl in bounds],
     "downbeats_s": [round(t, 3) for t in intro] + [round(float(b), 3) for b in beats[::4]],
     "ends_s": fades,
     "beats_s": [round(float(b), 4) for b in beats]}, indent=1) + "\n")

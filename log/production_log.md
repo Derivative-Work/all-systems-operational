@@ -1079,3 +1079,15 @@ Append-only. One entry per generation, render or analysis step.
 - **Checked:** the music cut's level through the fade (−17 dB at 150 s, −31 at 153, −78 at the end). The changes on the music are as decisions 45 lists.
 - **Sent** to the human: the preview.
 - **For the M7 assembly:** the end sequence and `audio/credits/credits-m7-end.wav` follow O23 at video frame 7439 (song 239.579 s), in place of the M5 O24 and the end cards.
+
+## 63. 2026-11-16 — M7: the credits track's sections for the human's review
+
+- **Why:** human interventions 27.
+- **`scripts/m7_credits.py`** now also writes each section change's level and low-band change and its beat index into `timing/credits_grid.json`; times, strengths, downbeats and fade-out points are unchanged (compared with the previous file).
+- **`.venv/bin/python -I scripts/m7_credits_sections.py`** (new) →
+  - `review/m7_credits_sections.png` (2400×1400; in the manifest): level and the band under 150 Hz over the track (0.25 s windows, smoothed over 0.75 s), the 19 section changes numbered (bold where the strength is 20 dB or more), the fade-out point (F) and the last tracked beat (B), the end cards' spans under it with the unused 2:34.6–3:32.4 hatched, and a key naming each change. The names are the agent's reading of the measurements.
+  - `review/m7/audio/credits-sections-marked.mp3`: the full post-filtered track with 23 clicks at −14 dBFS: 880 Hz on each section change, 1760 Hz on the card changes that fall on a downbeat and not on a section change (0:13.6, 0:18.2, 0:43.7), and a longer 1760 Hz one on the fade-out point.
+  - `review/m7/credits_sections.txt`: the same as labels (start, end, name; tab-separated, Audacity's format), with the card spans.
+- **Sent** to the human.
+- **Correction:** production log 61 and decisions 45 call the drop-out at the fade-out point "two-bar". The measurements give one bar out (2:33.7), one back in (2:36.0), one out again (2:38.3), then the final drop (2:40.6).
+- **Not marked:** the chart shows the low band falling again around 3:04–3:08 and through most of the outro after 3:17.6. The detector didn't mark these: the first is under its threshold, and no beats were tracked after 3:17.6.

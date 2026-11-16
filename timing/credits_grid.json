@@ -5,79 +5,136 @@
  "sections": [
   {
    "t": 22.869,
-   "strength": 23.5
+   "strength": 23.5,
+   "level_db": 1.7,
+   "low_db": 21.8,
+   "beat": 4
   },
   {
    "t": 34.453,
-   "strength": 12.3
+   "strength": 12.3,
+   "level_db": -1.7,
+   "low_db": -10.5,
+   "beat": 24
   },
   {
    "t": 39.077,
-   "strength": 14.8
+   "strength": 14.8,
+   "level_db": -0.6,
+   "low_db": -14.2,
+   "beat": 32
   },
   {
    "t": 41.381,
-   "strength": 23.1
+   "strength": 23.1,
+   "level_db": 2.6,
+   "low_db": 20.5,
+   "beat": 36
   },
   {
    "t": 60.043,
-   "strength": 21.1
+   "strength": 21.1,
+   "level_db": 2.3,
+   "low_db": 18.8,
+   "beat": 68
   },
   {
    "t": 76.08,
-   "strength": 15.7
+   "strength": 15.7,
+   "level_db": -3.0,
+   "low_db": -12.7,
+   "beat": 96
   },
   {
    "t": 89.952,
-   "strength": 11.0
+   "strength": 11.0,
+   "level_db": -2.7,
+   "low_db": -8.4,
+   "beat": 120
   },
   {
    "t": 94.571,
-   "strength": 15.5
+   "strength": 15.5,
+   "level_db": -0.8,
+   "low_db": -14.7,
+   "beat": 128
   },
   {
    "t": 96.869,
-   "strength": 35.2
+   "strength": 35.2,
+   "level_db": 6.3,
+   "low_db": 28.8,
+   "beat": 132
   },
   {
    "t": 115.291,
-   "strength": 26.5
+   "strength": 26.5,
+   "level_db": -2.4,
+   "low_db": -24.1,
+   "beat": 164
   },
   {
    "t": 117.451,
-   "strength": 23.9
+   "strength": 23.9,
+   "level_db": 1.7,
+   "low_db": 22.2,
+   "beat": 168
   },
   {
    "t": 124.469,
-   "strength": 15.1
+   "strength": 15.1,
+   "level_db": -4.5,
+   "low_db": -10.6,
+   "beat": 180
   },
   {
    "t": 133.643,
-   "strength": 17.6
+   "strength": 17.6,
+   "level_db": 3.2,
+   "low_db": 14.4,
+   "beat": 196
   },
   {
    "t": 135.952,
-   "strength": 9.9
+   "strength": 9.9,
+   "level_db": -4.1,
+   "low_db": -5.8,
+   "beat": 200
   },
   {
    "t": 142.677,
-   "strength": 10.7
+   "strength": 10.7,
+   "level_db": 4.3,
+   "low_db": 6.4,
+   "beat": 212
   },
   {
    "t": 153.691,
-   "strength": 18.8
+   "strength": 18.8,
+   "level_db": -5.4,
+   "low_db": -13.4,
+   "beat": 232
   },
   {
    "t": 155.979,
-   "strength": 12.7
+   "strength": 12.7,
+   "level_db": 2.8,
+   "low_db": 9.9,
+   "beat": 236
   },
   {
    "t": 158.267,
-   "strength": 12.2
+   "strength": 12.2,
+   "level_db": -2.5,
+   "low_db": -9.6,
+   "beat": 240
   },
   {
    "t": 160.56,
-   "strength": 23.2
+   "strength": 23.2,
+   "level_db": 5.1,
+   "low_db": 18.1,
+   "beat": 244
   }
  ],
  "downbeats_s": [
