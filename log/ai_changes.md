@@ -69,3 +69,13 @@ Relative to M7b (approved as the M7 base, human interventions 22). Cut, performa
 
 - The bridge is sung as lyrics v1.3 writes it, in order. "On the twentieth" is sung; Whisper writes "20th".
 - "(We're committed to doing better)" is sung twice: 166.11–168.38 s and 168.39–170.06 s. The brief writes it once; the old bridge sang it once.
+
+## 10. 2026-11-16 — M7d: what is new or different on screen (agent)
+
+Relative to M7c (approved, human interventions 23). Cut times and performances unchanged; every camera unchanged but the banjo closes (decisions 42).
+- **Firs** (the park and the treehouse's forest): the same crowns and silhouettes, now shaded as volumes: the side and tops of each crown turned to the sky lighter grey-green, dark deep inside and under each tier, branches varying in value, a fringe of needles at the sprays' edges, branches showing as thin wood through the gaps. At night (O08c) the forest stays dark.
+- **The far plate:** at about 22° left of centre the wooded hill now slopes down into horizontal fog banks instead of ending in a vertical bank of fog (an inpaint of the generated plate; the rest of the panorama is as approved).
+- **The bare trees below the brow:** fewer fine branches and twigs, slimmer, paler in the fog; the fog shows through them from O20e.
+- **O08c:** behind the forest the back windows show a dark night sky, a little lighter than the trees, and dark fir branches against it; the pale flat shapes (the forest floor in daylight fog) are gone; the rain on the panes is fainter at night.
+- **The hilltop:** a dark iron railing on the viewpoint terrace's wall; six more firs on the front slope either side of the view, their crowns rising from below the brow; a gravel path with kerbs leaving the terrace over the brow down the front slope (visible from O20e). On the back slope, where O19b's rise ends, the path follows the crest's roll: the flat-topped block at the top of the path is gone.
+- **The instrument closes:** a small warm light on the guitar's top in the guitar closes (O09j, O17a), on for those shots only; every banjo close (O09f, O11e, O17f, O20f) now sees the head in three-quarter view from the pot side (it was edge-on from the neck side), with a faint warm light on the live room's.

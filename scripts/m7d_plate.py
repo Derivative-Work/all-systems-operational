@@ -1,4 +1,4 @@
-"""M7d: the far plate's L1 seam (human interventions 23, weak point 2; decisions 40; config/m7d_plate.json).
+"""M7d: the far plate's L1 seam (human interventions 23, weak point 2; decisions 42; config/m7d_plate.json).
 
 At the L1 seam of the approved M7c panorama (about 22 degrees left of centre, columns near 2560) a hill fades into a
 vertical bank of fog. This inpaints a band across the seam with FLUX.2 [dev] (the M7c outpainting graph: VAEEncode,

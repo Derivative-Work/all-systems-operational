@@ -141,6 +141,14 @@ def flat_mask(x, y):
     dp = _seg_dist(x, y, L["path"])
     m = 1 - np.clip((dp - hw - 0.35) / 1.2, 0, 1)
     m = m * m * (3 - 2 * m)
+    O = M7D.get("o19b", {}) if M7D.get("on") else {}
+    if O.get("back_follow"):
+        # M7d (the coordinator's point 7): on the back slope the bed follows the lawn's roll over the crest's back edge
+        # instead of staying level, which left it standing proud as a flat-topped block seen from O19b's start; level
+        # from y0 on (the walker's line, the crowd, the terrace: unchanged)
+        y0, y1 = O["back_follow"]
+        w = np.clip((np.asarray(y, float) - y0) / (y1 - y0), 0, 1)
+        m = m * (w * w * (3 - 2 * w))
     cx, cy = L["centre"]
     dc = np.hypot(np.asarray(x) - cx, np.asarray(y) - cy)
     mt = (dc < L["rp"] + 0.12).astype(float)
@@ -323,10 +331,16 @@ def water_mat():
     return m
 
 
-def needles_mat(name, base, fog_fn):
+def needles_mat(name, base, fog_fn, sky=None, sky_dir=None):
     """Fir needles on the M7c prototypes' sprays (UV: u from the spray's base 0 to its tip 1, v across, 0.5 on the
     twig): needles as a ragged comb along the twig, tapering to the tip, gaps between them; darker toward the inside,
-    lighter tips; a little translucency for the backlight; per-tree tint. fog_fn(nb, shader) -> shader."""
+    lighter tips; a little translucency for the backlight; per-tree tint. fog_fn(nb, shader) -> shader.
+    M7d (FIRS_M7D on): a fringe of needles at each spray's edge, the colour from the mesh's ambient occlusion and its
+    per-branch value, translucency strongest at the crown's skin, and 'sky' (a strength, None for the config's park
+    value): the overcast's light from above on the needles that face it (an emission term on the shading normal, the
+    occlusion and the albedo, under the fog), for forests whose world is kept dark so the people stay silhouettes."""
+    if FIRS_M7D.get("on"):
+        return _needles_m7d(name, base, fog_fn, FIRS_M7D["sky_park"] if sky is None else sky, sky_dir)
     L = _look()
     m = _mat(name)
     nb = L.NB(m)
@@ -363,7 +377,80 @@ def needles_mat(name, base, fog_fn):
     return m
 
 
-def bark_mat(name, base, fog_fn):
+def _needles_m7d(name, base, fog_fn, sky, sky_dir=None):
+    F7 = FIRS_M7D
+    L = _look()
+    m = _mat(name)
+    nb = L.NB(m)
+    oi = nb.n("ShaderNodeObjectInfo")
+    uv = nb.n("ShaderNodeUVMap", uv_map="UVMap")
+    u, v, _ = nb.sep(uv.outputs[0])
+    ao = nb.n("ShaderNodeAttribute", attribute_name="shade").outputs["Fac"]     # occlusion: 0 deep inside, 1 at the tips
+    cl = nb.n("ShaderNodeAttribute", attribute_name="clump").outputs["Fac"]     # the branch's own value
+    dv = nb.mul(nb.math("ABSOLUTE", nb.math("SUBTRACT", v, 0.5)), 2.0)
+    du = nb.mul(nb.math("SUBTRACT", u, 0.55), 2.2)
+    ell = nb.math("SUBTRACT", 1.0, nb.add(nb.mul(dv, dv), nb.mul(du, du)))
+    seed = nb.mul(oi.outputs["Random"], 17.0)
+    clump, _ = nb.noise(nb.comb(nb.mul(u, 3.5), nb.mul(v, 3.0), seed), 1.0, 3.0, 0.6)
+    fine, _ = nb.noise(nb.comb(nb.mul(u, 64.0), nb.mul(v, 46.0), seed), 1.0, 2.0, 0.7)
+    dens = nb.add(nb.mul(ell, 0.9), nb.madd(clump, 0.7, nb.madd(fine, 0.5, -0.69)))
+    # the edge of each spray is a fringe of needles (slanted toward the tip, a little irregular), the core solid
+    fr = F7["fringe"]
+    inner = nb.math("GREATER_THAN", dens, fr["band"])
+    phase = nb.add(nb.mul(u, fr["n"]), nb.add(nb.mul(dv, fr["slant"]), nb.mul(fine, fr["jitter"])))
+    nid, _ = nb.white(nb.comb(nb.math("FLOOR", phase), seed, nb.math("GREATER_THAN", v, 0.5)))   # each needle its own length
+    needle = nb.math("LESS_THAN", nb.math("FRACT", phase), fr["duty"])
+    outer = nb.mul(nb.math("GREATER_THAN", dens, nb.mul(nb.madd(nid, 1.0 - fr["vary"], fr["vary"]), -fr["reach"])), needle)
+    keep = nb.math("MAXIMUM", inner, outer)
+    keep = nb.math("MAXIMUM", keep, nb.mul(nb.math("LESS_THAN", dv, 0.06), nb.math("LESS_THAN", nb.math("ABSOLUTE", du), 0.9)))
+    T = F7["tone"]
+    tone = nb.madd(oi.outputs["Random"], T["tree"], nb.madd(ao, T["ao"], nb.madd(cl, T["clump"], nb.madd(u, T["tip"], T["base"]))))
+    col = nb.ramp(tone, [(0.05, L.tint(base, T["dark"])), (0.45, base), (0.95, L.tint(base, T["light"]))])
+    b = nb.principled(col, 0.7, spec=0.35)
+    tr = nb.n("ShaderNodeBsdfTranslucent")
+    nb.put(tr.inputs["Color"], nb.mix(ao, F7["trans_inner"], F7["trans_outer"]))
+    mx = nb.n("ShaderNodeMixShader")
+    nb.put(mx.inputs[0], nb.mul(ao, F7["trans"]))
+    nb.nt.links.new(b.outputs[0], mx.inputs[1])
+    nb.nt.links.new(tr.outputs[0], mx.inputs[2])
+    lit = mx.outputs[0]
+    if sky > 0:
+        # the overcast is brightest overhead and toward the far view: a soft wrap from that direction on the crown
+        # proxy's normal (world space), so each crown is lit as one volume (the side and top turned to the sky
+        # lighter, the camera-facing middle and the skirt darker), times the occlusion (dark deep inside and under the
+        # tiers), in a lit grey-green needle tone
+        at = nb.n("ShaderNodeAttribute", attribute_name="pn")
+        vt = nb.n("ShaderNodeVectorTransform", vector_type="NORMAL", convert_from="OBJECT", convert_to="WORLD")
+        nb.nt.links.new(at.outputs["Vector"], vt.inputs[0])
+        nm_ = nb.n("ShaderNodeVectorMath", operation="NORMALIZE")
+        nb.nt.links.new(vt.outputs[0], nm_.inputs[0])
+        dp = nb.n("ShaderNodeVectorMath", operation="DOT_PRODUCT")
+        nb.nt.links.new(nm_.outputs[0], dp.inputs[0])
+        sd = sky_dir or F7["sky_dir_park"]
+        ln = math.sqrt(sum(c * c for c in sd))
+        dp.inputs[1].default_value = tuple(c / ln for c in sd)
+        f = nb.math("POWER", nb.math("MAXIMUM", nb.madd(dp.outputs["Value"], 0.5, 0.5), 0.0), F7["sky_pow"])
+        e = nb.n("ShaderNodeEmission")
+        tone_l = nb.ramp(nb.madd(cl, 0.5, nb.madd(oi.outputs["Random"], 0.3, 0.1)),
+                         [(0.0, L.tint(F7["sky_tone"], 0.8)), (1.0, L.tint(F7["sky_tone"], 1.15))])
+        nb.put(e.inputs["Color"], tone_l)
+        nb.put(e.inputs["Strength"], nb.mul(nb.mul(f, nb.math("POWER", ao, F7["sky_ao_pow"])), sky))
+        ad = nb.n("ShaderNodeAddShader")
+        nb.nt.links.new(lit, ad.inputs[0])
+        nb.nt.links.new(e.outputs[0], ad.inputs[1])
+        lit = ad.outputs[0]
+    sh = fog_fn(nb, lit)
+    tp = nb.n("ShaderNodeBsdfTransparent")
+    mk = nb.n("ShaderNodeMixShader")
+    nb.put(mk.inputs[0], keep)
+    nb.nt.links.new(tp.outputs[0], mk.inputs[1])
+    nb.nt.links.new(sh, mk.inputs[2])
+    nb.out(mk.outputs[0])
+    m.surface_render_method = "DITHERED"
+    return m
+
+
+def bark_mat(name, base, fog_fn, spec=0.3, rough=0.85):
     L = _look()
     m = _mat(name)
     nb = L.NB(m)
@@ -371,7 +458,7 @@ def bark_mat(name, base, fog_fn):
     x, y, z = nb.sep(tc.outputs["Object"])
     n1, _ = nb.noise(nb.comb(nb.mul(x, 40.0), nb.mul(y, 40.0), nb.mul(z, 4.0)), 1.0, 5.0, 0.6)
     col = nb.ramp(n1, [(0.3, L.tint(base, 0.55)), (0.7, L.tint(base, 1.15))])
-    b = nb.principled(col, 0.85, spec=0.3, normal=nb.bump(n1, 0.4, 0.01))
+    b = nb.principled(col, rough, spec=spec, normal=nb.bump(n1, 0.4, 0.01))
     nb.out(fog_fn(nb, b.outputs[0]))
     return m
 
@@ -403,8 +490,13 @@ def _mesh(name, verts, faces, mats, mat_idx=None, uvs=None, attrs=None, smooth=F
         uv = me.uv_layers.new(name="UVMap")
         uv.data.foreach_set("uv", np.asarray(uvs, np.float32).ravel())
     for k, vals in (attrs or {}).items():
-        a = me.attributes.new(k, "FLOAT", "POINT")
-        a.data.foreach_set("value", np.asarray(vals, np.float32))
+        arr = np.asarray(vals, np.float32)
+        if arr.ndim == 2:
+            a = me.attributes.new(k, "FLOAT_VECTOR", "POINT")
+            a.data.foreach_set("vector", arr.ravel())
+        else:
+            a = me.attributes.new(k, "FLOAT", "POINT")
+            a.data.foreach_set("value", arr)
     me.update()
     if normals is not None:
         try:
@@ -556,7 +648,7 @@ def build_path(gravel, stone, rng):
             h = top - (zb - 0.3)
             b.box((px, py, top - h / 2), (ln - 0.015, 0.3, h), rot=(0, rng.uniform(-0.015, 0.015), aa + math.pi / 2))
             wall += 1
-        elif rng.random() > 0.04:
+        elif rng.random() > 0.04 and not _on_brow_path(px, py):
             b.box((px, py, 0.0), (ln - 0.02, 0.13, 0.12), rot=(0, 0, aa + math.pi / 2))
         k += 1
         a += da + 0.008
@@ -691,6 +783,9 @@ def fringe_mat():
 
 FIR_PROTOS = {}
 BARE_PROTOS = {}
+# M7d (config/look_m7.json m7d; human interventions 23): the weak points' fixes, on whenever m7d.on is
+M7D = CFG.get("m7d", {})
+FIRS_M7D = M7D.get("firs", {}) if M7D.get("on") else {}
 
 
 def fir_mesh(k, mats, name="fir"):
@@ -702,15 +797,26 @@ def fir_mesh(k, mats, name="fir"):
     r = gb.rng(f"m7c_fir_{k}")
     douglas = k < 6
     verts, faces, uvs, mi, norms, shade = [], [], [], [], [], []
+    # M7d (human interventions 23, weak point 1; decisions 42): the same crowns (M7c's seeded draws untouched; M7d's own
+    # values come from a second stream, gb.rng m7d_fir_k), shaded as volumes: per-vertex normals blended from an
+    # ellipsoid proxy of the whole crown and the branch tier (the tops of the sprays face the sky, the hanging curtains
+    # face down and out), a 'shade' that is ambient occlusion (dark deep in the crown and under the tiers, light at the
+    # tips), a 'clump' value per branch (value variation between clusters), and the branches themselves as thin tubes
+    F7 = FIRS_M7D if FIRS_M7D.get("on") else None
+    rd = gb.rng(f"m7d_fir_{k}")
+    clump, pnv = [], []
 
-    def quad(a, b_, c, d, uv4, mat, nrm, sh):
+    def quad(a, b_, c, d, uv4, mat, nrm, sh, cl=0.5, pn=None):
         i = len(verts)
         verts.extend([a, b_, c, d])
         faces.append((i, i + 1, i + 2, i + 3))
         uvs.extend(uv4)
         mi.append(mat)
-        norms.extend([nrm] * 4)
-        shade.extend([sh] * 4)
+        norms.extend(nrm if isinstance(nrm, list) else [nrm] * 4)
+        shade.extend(sh if isinstance(sh, list) else [sh] * 4)
+        clump.extend([cl] * 4)
+        pn = nrm if pn is None else pn
+        pnv.extend(pn if isinstance(pn, list) else [pn] * 4)
     # trunk
     nseg, ns = 10, 7
     lean = Vector((r.uniform(-0.02, 0.02), r.uniform(-0.02, 0.02), 0))
@@ -753,6 +859,9 @@ def fir_mesh(k, mats, name="fir"):
 
             def rach(u):
                 return base + d * (u * L) + Vector((0, 0, L * (u * math.tan(e0) - droop * u * u + upt * u ** 3)))
+            cl = rd.random() if F7 else 0.5                              # M7d: this branch's value
+            if F7 and F7.get("branches") and L > F7["branch_min"]:
+                _branch_tube(quad, rach, L, F7)
             M = 6 + int(L / 0.14 * 9)
             for s in range(M):
                 u = (s + r.uniform(0.25, 0.75)) / M
@@ -785,11 +894,75 @@ def fir_mesh(k, mats, name="fir"):
                     q1 = p + dirv * lsh
                     hw = ws * 0.5
                     nrm = (out * 0.75 + Vector((0, 0, 0.45)) + dirv.cross(wv).normalized() * 0.2).normalized()
-                    quad(q0 - wv * hw, q0 + wv * hw, q1 + wv * hw * 0.6, q1 - wv * hw * 0.6,
-                         [(0, 0), (0, 1), (1, 1), (1, 0)], 0, tuple(nrm), sh)
+                    q4 = [q0 - wv * hw, q0 + wv * hw, q1 + wv * hw * 0.6, q1 - wv * hw * 0.6]
+                    if F7:
+                        nrm, sh4, pn4 = _spray_shading(q4, out, dirv, wv, yaw == "hang", t, crown, z0, F7)
+                        quad(*q4, [(0, 0), (0, 1), (1, 1), (1, 0)], 0, nrm, sh4, cl, pn4)
+                        continue
+                    quad(*q4, [(0, 0), (0, 1), (1, 1), (1, 0)], 0, tuple(nrm), sh)
+    attrs = {"shade": shade}
+    if F7:
+        attrs["clump"] = clump
+        attrs["pn"] = [tuple(v) for v in pnv]                     # the crown proxy's normal (object space)
     me = _mesh(f"{name}_proto_{k}", verts, faces, mats, mat_idx=mi,
-               uvs=[uv for uv in uvs], attrs={"shade": shade}, smooth=True, normals=norms)
+               uvs=[uv for uv in uvs], attrs=attrs, smooth=True, normals=norms)
     return me
+
+
+def _spray_shading(q4, out, dirv, wv, hang, t, crown, z0, F7):
+    """M7d: per-vertex normals and ambient occlusion for one spray. The normal blends an ellipsoid proxy of the crown
+    (its top faces the sky, its skirt faces down), the branch tier (a spray's top faces up and out, a hanging curtain
+    down and out) and a little of the spray's own facet (turned outward); the occlusion is the vertex's radial depth in
+    the crown at its height (deep inside dark, the tips light) times a tier factor (hanging curtains sit under their
+    branch)."""
+    N = F7["normal"]
+    up = Vector((0, 0, 1))
+    zc = z0 + N["centre"] * (1 - z0)
+    a2, b2 = N["a"] ** 2, (N["b"] * (1 - z0)) ** 2
+    tier = (out * N["tier_out"] + up * (-N["hang_down"] if hang else N["top_up"])).normalized()
+    fac = dirv.cross(wv).normalized()
+    if fac.dot(out) < 0:
+        fac = -fac
+    rmax = max(0.012, 0.14 * 1.3 * crown)
+    ao0, ao_hang = F7["ao"], F7["ao_hang"]
+    nrms, shs, prs = [], [], []
+    for v in q4:
+        pr = Vector((v.x / a2, v.y / a2, (v.z - zc) / b2)).normalized()
+        prs.append(tuple(pr))
+        n = (pr * N["proxy"] + tier * N["tier"] + fac * N["facet"]).normalized()
+        nrms.append(tuple(n))
+        rv = min(1.0, v.xy.length / rmax)
+        sh = (ao0 + (1 - ao0) * rv ** F7["ao_pow"]) * (ao_hang if hang else 1.0) * (F7["ao_low"] + (1 - F7["ao_low"]) * t)
+        shs.append(max(0.0, min(1.0, sh)))
+    return nrms, shs, prs
+
+
+def _branch_tube(quad, rach, L, F7):
+    """M7d: a branch's rachis as a thin tapering four-sided tube (bark), so the nearest firs show wood through the
+    gaps between the sprays."""
+    n_seg, sides = 5, 4
+    r0 = F7["branch_r0"] + F7["branch_rk"] * L
+    rings = []
+    for j in range(n_seg + 1):
+        u = j / n_seg
+        c = rach(u)
+        tg = (rach(min(1.0, u + 0.05)) - rach(max(0.0, u - 0.05))).normalized()
+        a = tg.cross(Vector((0, 0, 1)))
+        if a.length < 1e-5:
+            a = Vector((1, 0, 0))
+        a.normalize()
+        b = tg.cross(a).normalized()
+        rr = r0 * (1 - 0.8 * u)
+        rings.append([(c + (a * math.cos(2 * math.pi * q / sides) + b * math.sin(2 * math.pi * q / sides)) * rr, c)
+                      for q in range(sides)])
+    for j in range(n_seg):
+        for q in range(sides):
+            p0, c0 = rings[j][q]
+            p1, _ = rings[j][(q + 1) % sides]
+            p2, c1 = rings[j + 1][(q + 1) % sides]
+            p3, _ = rings[j + 1][q]
+            nr = [tuple((p - c).normalized()) for p, c in ((p0, c0), (p1, c0), (p2, c1), (p3, c1))]
+            quad(p0, p1, p2, p3, [(0, 0), (1, 0), (1, 1), (0, 1)], 1, nr, 0.3)
 
 
 def fir_proto(k, mats, tag):
@@ -806,13 +979,20 @@ def fir_proto(k, mats, tag):
 
 def bare_mesh(k, mat):
     """A bare deciduous tree (maple- or alder-like, November), 1 m tall: a trunk forking into limbs, four more levels
-    of branches (upward, spreading, the last drooping a little) and twigs, as thin 5-sided tubes."""
+    of branches (upward, spreading, the last drooping a little) and twigs, as thin 5-sided tubes.
+    M7d (human interventions 23, weak point 3; config m7d.bare): thinner, with fewer of the finest branches and twigs,
+    so the fog reads through them: the same seeded draws (the limbs keep their shapes); a second stream (gb.rng
+    m7d_bare_k) decides which fine branches and twigs are kept, and the branches from the second level on are slimmer."""
     r = gb.rng(f"m7c_bare_{k}")
+    B7 = M7D.get("bare", {}) if M7D.get("on") else {}
+    rd = gb.rng(f"m7d_bare_{k}")
     verts, faces = [], []
+    zmax = [0.0]
 
-    def tube(a, b_, ra, rb, n=5):
+    def tube(a, b_, ra, rb, n=5, show=True):
+        zmax[0] = max(zmax[0], a.z, b_.z)
         d = (b_ - a)
-        if d.length < 1e-6:
+        if d.length < 1e-6 or not show:
             return
         q = d.normalized()
         u = q.cross(Vector((0, 0, 1)) if abs(q.z) < 0.95 else Vector((1, 0, 0))).normalized()
@@ -825,7 +1005,7 @@ def bare_mesh(k, mat):
         for j in range(n):
             faces.append((i0 + j, i0 + (j + 1) % n, i0 + n + (j + 1) % n, i0 + n + j))
 
-    def branch(p, d, L, rad, lvl):
+    def branch(p, d, L, rad, lvl, show=True):
         if lvl > 5:
             return
         n_seg = 3
@@ -834,13 +1014,16 @@ def bare_mesh(k, mat):
         for s in range(n_seg):
             dd = (dd + Vector((r.uniform(-0.25, 0.25), r.uniform(-0.25, 0.25), 0.12 - 0.07 * lvl))).normalized()
             pts.append(pts[-1] + dd * (L / n_seg))
+        rs = B7.get("slim", 1.0) if B7 and lvl >= 2 else 1.0
         for s in range(n_seg):
-            tube(pts[s], pts[s + 1], rad * (1 - 0.25 * s / n_seg), rad * (1 - 0.25 * (s + 1) / n_seg))
+            tube(pts[s], pts[s + 1], rs * rad * (1 - 0.25 * s / n_seg), rs * rad * (1 - 0.25 * (s + 1) / n_seg), show=show)
         if lvl == 5:
             for _ in range(int(r.uniform(2, 5))):
                 a = pts[int(r.uniform(1, n_seg + 1))]
                 tw = (dd + Vector((r.uniform(-0.8, 0.8), r.uniform(-0.8, 0.8), r.uniform(-0.2, 0.6)))).normalized()
-                tube(a, a + tw * L * r.uniform(0.25, 0.5), 0.0011, 0.0005, n=3)
+                keep = show and (not B7 or rd.random() < B7["twig_keep"])
+                tube(a, a + tw * L * r.uniform(0.25, 0.5), 0.0011 * (B7.get("twig_slim", 1.0) if B7 else 1.0), 0.0005, n=3,
+                     show=keep)
             return
         nc = int(r.uniform(2, 4)) if lvl > 0 else int(r.uniform(2, 4))
         for c in range(nc):
@@ -850,7 +1033,10 @@ def bare_mesh(k, mat):
             axis = Vector((r.uniform(-1, 1), r.uniform(-1, 1), 0)).normalized()
             nd = (Matrix.Rotation(ang, 3, axis.cross(dd).normalized() if axis.cross(dd).length > 1e-4 else Vector((1, 0, 0))) @ dd)
             nd = (Matrix.Rotation(2 * math.pi * c / nc + r.uniform(-0.4, 0.4), 3, dd) @ nd).normalized()
-            branch(at, nd, L * r.uniform(0.6, 0.76), rad * r.uniform(0.55, 0.68), lvl + 1)
+            ch = show
+            if B7 and lvl + 1 >= B7["thin_from"]:
+                ch = show and rd.random() < B7["keep"][str(lvl + 1)]
+            branch(at, nd, L * r.uniform(0.6, 0.76), rad * r.uniform(0.55, 0.68), lvl + 1, ch)
     h_fork = r.uniform(0.25, 0.4)
     tube(Vector((0, 0, -0.03)), Vector((r.uniform(-0.02, 0.02), r.uniform(-0.02, 0.02), h_fork)), 0.026, 0.02, n=7)
     top = Vector((0, 0, h_fork))
@@ -859,9 +1045,9 @@ def bare_mesh(k, mat):
         d = Vector((math.cos(a) * 0.45, math.sin(a) * 0.45, 1.0)).normalized()
         branch(top, d, r.uniform(0.28, 0.38), 0.016, 1)
     me = _mesh(f"m7c_bare_proto_{k}", verts, faces, [mat], smooth=True)
-    # normalise to 1 m tall
-    zmax = max(v[2] for v in verts)
-    me.transform(Matrix.Scale(1.0 / zmax, 4))
+    # normalise to 1 m tall (M7d: by the tree's full height, so thinning doesn't rescale it)
+    zm = zmax[0] if B7 else max(v[2] for v in verts)
+    me.transform(Matrix.Scale(1.0 / zm, 4))
     return me
 
 
@@ -880,7 +1066,14 @@ def trees(fog_fn):
     the placed list [(kind, x, y, h, radius)] for the clearance checks."""
     T = P["trees"]
     fir_m = [needles_mat("m7c_needles", T["needle_colour"], fog_fn), bark_mat("m7c_fir_bark", "#3a2c22", fog_fn)]
-    bare_m = bark_mat("m7c_bare_bark", "#4a463f", fog_fn)
+    if M7D.get("on") and M7D.get("bare"):
+        # M7d (weak point 3): the bare trees paler and in more aerial perspective (a shorter fog distance), so the
+        # fog reads through them from O20e
+        B7 = M7D["bare"]
+        bare_m = bark_mat("m7c_bare_bark", B7["colour"], lambda nb, sh: park_fog(nb, sh, dist=B7["fog_dist"]),
+                          spec=B7["spec"], rough=B7["rough"])
+    else:
+        bare_m = bark_mat("m7c_bare_bark", "#4a463f", fog_fn)
     protos = [fir_proto(k, fir_m, "park") for k in range(10)]
     bares = [bare_mesh(k, bare_m) for k in range(T["bare_protos"])]
     rng = gb.rng("m7c_trees")
@@ -996,6 +1189,127 @@ def houses(rng, wall_mats, roof_mat):
     o = b.obj("m7c_houses")
     o.visible_shadow = False
     return n
+
+
+# ---------------------------------------------------------------- M7d: the drop made legible from eye level
+
+def _brow_cfg():
+    return M7D.get("brow", {}) if M7D.get("on") and M7D.get("brow", {}).get("on") else {}
+
+
+def _on_brow_path(x, y):
+    B = _brow_cfg()
+    if not B.get("path"):
+        return False
+    return float(_seg_dist(np.array([x]), np.array([y]), B["path"]["pts"])[0]) < B["path"]["width"] / 2 + 0.15
+
+
+def _sightline(cam, x, y):
+    """z of the line from a camera over the brow, at (x, y)."""
+    th = math.atan2(y - cam[1], x - cam[0])
+    for dd in np.arange(5, 60, 0.25):
+        px, py = cam[0] + dd * math.cos(th), cam[1] + dd * math.sin(th)
+        if rim_s(px, py)[0] > 0.0:
+            break
+    zb = float(ground_z(px, py))
+    D = math.hypot(x - cam[0], y - cam[1])
+    return cam[2] + (zb - cam[2]) * D / dd
+
+
+def brow_cues(placed, protos, gravel, stone):
+    """M7d (human interventions 23, weak point 5; config m7d.brow): cues that make the drop legible in the eye-level
+    wides without moving a camera. Fir crowns rising from below the brow on either side of the view (their tops a few
+    metres over the brow's sight line from the wide, their trunks hidden by the crest); a path that leaves the
+    viewpoint terrace and goes over the brow down the front slope (gravel and kerbs following the ground); a railing
+    along the terrace's retaining wall, as a viewpoint over a drop has. Trees standing on the new path are hidden."""
+    B = _brow_cfg()
+    notes = []
+    if not B:
+        return notes
+    rng = gb.rng("m7d_brow")
+    cam = np.array(P["cameras"]["wide"]["loc"])
+    n = 0
+    for x, y, poke, k in B.get("crowns", []):
+        zg = float(ground_z(x, y))
+        h = _sightline(cam, x, y) + poke - zg
+        rad = 0.14 * h
+        if any(q[0] == "fir" and math.hypot(x - q[1], y - q[2]) < B["crown_sep"] * (rad + q[4]) for q in placed):
+            notes.append(f"brow crown at ({x}, {y}) skipped: too near a tree")
+            continue
+        place(protos[k], f"m7d_crown_{len(placed)}", x, y, h, rng.uniform(0.92, 1.08), rng=rng)
+        placed.append(("fir", x, y, h, rad))
+        n += 1
+    notes.append(f"M7d brow: {n} fir crowns below the brow")
+    if B.get("path"):
+        bp = B["path"]
+        hw = bp["width"] / 2
+        c, tg, nm = _path_frame(bp["pts"], 0.25)
+        acr = np.linspace(-1, 1, 7)
+        verts, faces = [], []
+        for i in range(len(c)):
+            for a in acr:
+                x, y = c[i] + nm[i] * a * hw
+                verts.append((x, y, float(ground_z(x, y)) + 0.015 + 0.008 * (1 - a * a)))
+        m_ = len(acr)
+        for i in range(len(c) - 1):
+            for j in range(m_ - 1):
+                faces.append((i * m_ + j, i * m_ + j + 1, (i + 1) * m_ + j + 1, (i + 1) * m_ + j))
+        _obj("m7d_brow_path", _mesh("m7d_brow_path", verts, faces, [gravel], smooth=True))
+        b = gb.Builder([stone])
+        kerbs = 0
+        tlen = np.concatenate([[0], np.cumsum(np.hypot(*np.diff(c, axis=0).T))])
+        import bmesh
+        for side in (-1, 1):
+            s_ = 0.3
+            while s_ < tlen[-1] - 0.5:
+                ln = rng.uniform(0.45, 0.8)
+                i = min(int(np.searchsorted(tlen, s_ + ln / 2)), len(c) - 1)
+                p_ = c[i] + nm[i] * side * (hw + 0.06)
+                ta, tb = p_ - tg[i] * ln / 2, p_ + tg[i] * ln / 2
+                pitch = math.atan2(float(ground_z(*tb) - ground_z(*ta)), ln)
+                z = float(ground_z(*p_)) + 0.02
+                cube = bmesh.ops.create_cube(b.bm, size=1.0)
+                Mk = (Matrix.Translation((p_[0], p_[1], z - 0.04)) @ Matrix.Rotation(math.atan2(tg[i][1], tg[i][0]), 4, "Z")
+                      @ Matrix.Rotation(-pitch, 4, "Y") @ Matrix.Diagonal((ln - 0.02, 0.13, 0.14, 1.0)))
+                b._tag(cube["verts"], 0, Mk)
+                kerbs += 1
+                s_ += ln + rng.uniform(0.005, 0.03)
+        ko = gb.mesh_obj("m7d_brow_kerbs", b.to_mesh("m7d_brow_kerbs"))
+        _bevel(ko, 0.012)
+        hid = 0
+        for i, q in enumerate(placed):
+            if float(_seg_dist(np.array([q[1]]), np.array([q[2]]), bp["pts"])[0]) < hw + bp["clear"]:
+                for nm_ in (f"m7c_{q[0]}_{i}", f"m7d_crown_{i}"):
+                    o = bpy.data.objects.get(nm_)
+                    if o is not None:
+                        o.hide_render = o.hide_viewport = True
+                        hid += 1
+        notes.append(f"M7d brow path: {tlen[-1]:.1f} m over the brow, {kerbs} kerbs, {hid} trees on its line hidden")
+    if B.get("rail"):
+        R_ = B["rail"]
+        L = layout()
+        cx, cy = L["centre"]
+        rp = L["rp"]
+        dx, dy = L["dir"]
+        a_dir = math.atan2(dy, dx)
+        iron = bpy.data.materials.get("m7c_bench_iron") or painted_mat("m7c_bench_iron", "#1e2220", 0.5, 0.4)
+        b = PR.B([iron])
+        half = math.radians(P["viewpoint"]["wall_deg"] - R_["inset_deg"])
+        rr = rp + 0.12
+        npost = max(2, int(2 * half * rr / R_["spacing"]) + 1)
+        z0 = 0.38
+        prev = None
+        for i in range(npost):
+            a = a_dir - half + 2 * half * i / (npost - 1)
+            x, y = cx + rr * math.cos(a), cy + rr * math.sin(a)
+            b.bx((x, y, z0 + R_["height"] / 2), (0.04, 0.04, R_["height"]), 0, rot=(0, 0, a))
+            if prev is not None:
+                for zz in (z0 + R_["height"], z0 + R_["height"] * 0.55):
+                    b.rod((prev[0], prev[1], zz), (x, y, zz), 0.018, 0, segs=8)
+            prev = (x, y)
+        b.obj("m7d_rail")
+        notes.append(f"M7d rail: {npost} posts along the terrace wall")
+    return notes
 
 
 # ---------------------------------------------------------------- the far plate, fog and sky
@@ -1250,6 +1564,9 @@ def build(st, R):
     nbl = grass_fringe(fringe_mat(), gb.rng("m7c_fringe"))
     placed, nf, nbp = trees(lambda nb, sh: park_fog(nb, sh))
     STATE["trees"] = placed
+    if _brow_cfg():
+        notes += brow_cues(placed, [fir_proto(k, None, "park") for k in range(10)],
+                           bpy.data.materials["m7c_gravel"], bpy.data.materials["m7c_stone"])
     walls = [painted_mat(f"m7c_wall{k}", c, 0.8) for k, c in enumerate(P["houses"]["walls"])]
     nh = houses(gb.rng("m7c_houses"), walls, painted_mat("m7c_roof", P["houses"]["roof"], 0.7))
     if (TEX / "park_backdrop.png").exists():

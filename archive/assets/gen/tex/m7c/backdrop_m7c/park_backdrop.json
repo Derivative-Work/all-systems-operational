@@ -1,0 +1,38 @@
+{
+ "_doc": "scripts/m7c_plate.py --compose: park_backdrop.png holds scene-linear emission / scale (Non-Color), alpha in A; the sky and valley-fog colours (scene-linear) the 3D matches to the plate's top and its mist band; display values (0..1 sRGB) for the record.",
+ "scale": 9.149999618530273,
+ "size": [
+  7680,
+  1440
+ ],
+ "sky_lin": [
+  1.477143448629568,
+  1.3913072658476504,
+  1.2732433329981936
+ ],
+ "sky_display": [
+  0.8470588326454163,
+  0.8392156958580017,
+  0.8274509906768799
+ ],
+ "fog_lin": [
+  0.207873139064192,
+  0.21735397595225084,
+  0.22391490038756867
+ ],
+ "fog_display": [
+  0.4627451002597809,
+  0.4745098054409027,
+  0.48235294222831726
+ ],
+ "level_lin": [
+  0.3046080839832622,
+  0.37849025598695224,
+  0.44452244466089
+ ],
+ "level_display": [
+  0.5607843399047852,
+  0.6117647290229797,
+  0.6470588445663452
+ ]
+}

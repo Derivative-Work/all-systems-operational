@@ -52,6 +52,10 @@ M7B = True
 # M7c (the third look pass, production log 44+; human interventions 22): the hilltop park rebuilt (blender/park_m7c.py),
 # volumetric firs for every forest, the live room's crowd phones; on whenever the look is (config m7c.on).
 M7C = bool(CFG.get("m7c", {}).get("on"))
+# M7d (the fourth look pass, production log 50+; human interventions 23): the known weak points (volumetric fir
+# shading, thinner bare trees, the far plate's seam, O08c's night outside, the drop cues, the instrument closes, the
+# back path at O19b's start); on whenever the look is (config m7d.on)
+M7D = bool(CFG.get("m7d", {}).get("on"))
 
 
 def enable(engine="eevee"):
@@ -986,7 +990,12 @@ def _m7c_forest_mats(mats):
     if m is None:
         def fog(nb, sh):
             return fog_wrap(nb, sh, fogc, dist, emit)
-        m = PK.needles_mat(nm, "#22332a", fog)
+        sky = None
+        if M7D and PK.FIRS_M7D.get("on"):
+            # M7d: the treehouse's world is kept near black (the band stays a silhouette), so the forest firs get the
+            # overcast from above as their own term; dim at night
+            sky = PK.FIRS_M7D["sky_forest"] if emit >= 1.0 else PK.FIRS_M7D["sky_forest_night"]
+        m = PK.needles_mat(nm, "#22332a", fog, sky=sky, sky_dir=PK.FIRS_M7D.get("sky_dir_forest") if sky is not None else None)
         PK.bark_mat(nm + "_bark", "#3a2a20", fog)
     return (m, bpy.data.materials[nm + "_bark"])
 
@@ -1296,6 +1305,34 @@ def treehouse(st):
     if M7B:
         treehouse_lift(night)
         treehouse_screens(night)
+    if M7D and night:
+        treehouse_night_outside()
+
+
+def treehouse_night_outside():
+    """M7d (human interventions 23, weak point 4; decisions 39.8): O08c's panes showed pale, flat shapes behind the
+    forest. They were the forest floor 9 m down: sets.py makes its fog material with the default emit (1.0) at night
+    too, so fog_upgrade gave it the day's pale forest fog (#b4babd); the firs in front left it showing as pale patches.
+    At night the floor takes the night fog, dim (as the night firs), and a night sky, a little lighter than the forest,
+    stands behind the trees (an emissive cylinder kept out of the light probes, as the day's sky dome), so the outside
+    reads as dark forest against the sky."""
+    N = CFG["m7d"]["night"]
+    m = bpy.data.materials.get("forest_floor")
+    if m is not None:
+        grass(m, "#2a2e22", N["floor_fog"], N["floor_dist"], N["floor_emit"])
+        m["m7"] = True
+    S.sky_dome((0, 3, 0), N["sky_r"], N["sky"], N["sky_strength"])
+    o = bpy.data.objects.get("sky_dome")
+    if o is not None:
+        o.location.z = N["sky_z"]
+    # the rain on the panes glowed as a grey speckle over everything outside: dimmer at night (the drops catch only the
+    # night sky), so the trees read through them
+    for m in bpy.data.materials:
+        if m.get("window") and m.node_tree is not None:
+            for nd in m.node_tree.nodes:
+                if nd.type == "EMISSION":
+                    nd.inputs["Strength"].default_value *= N["pane_gain"]
+    return "M7d night outside: the forest floor in the night fog, a night sky behind the forest"
 
 
 def park(st):
@@ -1883,6 +1920,8 @@ def camera_hook(cam, sub, b, f0, f1):
                 c.target = cam
     if not M7B:
         return
+    if M7D and sub.get("camera") in CFG["m7d"]["closes"]["guitar"]["energy"]:      # the closes' small light
+        guitar_light(cam, sub, b, f0, f1)
     if sub["id"] == "O04a" and STATE.get("o04"):
         o04_camera(cam, sub, b, f0, f1)
     if sub["id"] == "O18e" and bpy.data.objects.get("m7b_table_phone") is not None:
@@ -1971,3 +2010,99 @@ def o18e_focus(cam, sub, b, f0, f1):
         d0, d1 = (ph - loc).length, (wb - loc).length
         FD.append(d0 + (d1 - d0) * w * w * (3 - 2 * w))
     C.key_series(cam.data, "dof.focus_distance", 0, frames, FD)
+
+
+# ---------------------------------------------------------------- M7d: the instrument closes (human interventions 23, 6)
+
+def _instrument(role, prefix):
+    """(object, world matrix) of a band member's instrument mesh at the current frame (inside the player's instanced
+    collection: the performances' own copy)."""
+    e = S.OBJ["band"][role]
+    bpy.context.view_layer.update()
+    coll = e.instance_collection
+    objs = list(coll.all_objects) if coll is not None else []
+    ob = next((o for o in objs if o.type == "MESH" and o.name.split(".")[0] == prefix), None)
+    if ob is None:
+        ob = next((o for o in objs if o.type == "MESH" and o.name.startswith(prefix)), None)
+    if ob is None:
+        return None, None
+    return ob, e.matrix_world @ ob.matrix_world
+
+
+def banjo_three_quarter(sub, b, base):
+    """M7d (weak point 6): a close_banjo camera re-aimed so the head reads in three-quarter view (every close_banjo
+    saw the pot edge-on from the neck side). Same distance to the target, the same lens, cut, move and drift (they are
+    applied to this base by coverage.make_camera); the camera swings round toward the front of the head, on the side it
+    was already on, to config m7d.closes.banjo angle off the head's normal, a little above it, aimed at the pot."""
+    import coverage as C
+    P_ = CFG["m7d"]["closes"]["banjo"]
+    P_ = {**P_, **P_.get("subs", {}).get(sub["id"], {})}           # a sub-shot's own angle or side, where one is set
+    bpy.context.scene.frame_set(int((sub["start_frame"] + sub["end_frame"]) / 2 - C.build_vstart(b) + 1))
+    ob, M = _instrument("banjo", "banjo")
+    if ob is None:
+        return base
+    import instruments as IN
+    pot = M @ Vector((IN.POT_C, 0, 0))
+    R3 = M.to_3x3().normalized()
+    nrm = (R3 @ Vector((0, 0, 1))).normalized()                    # out of the head
+    neck = (R3 @ Vector((1, 0, 0))).normalized()                   # toward the neck
+    loc0, tgt0 = Vector(base["loc"]), Vector(base["tgt"])
+    dist = (loc0 - tgt0).length
+    nh = Vector((nrm.x, nrm.y, 0)).normalized()
+    d0 = loc0 - tgt0
+    side = (1.0 if nh.cross(Vector((d0.x, d0.y, 0))).z >= 0 else -1.0) * P_.get("flip", 1.0)
+    dh = Matrix.Rotation(math.radians(P_["angle"]) * side, 3, "Z") @ nh
+    el = math.radians(P_["elev"])
+    tgt = pot + neck * P_["tgt_neck"] + Vector((0, 0, P_["tgt_dz"]))
+    loc = tgt + (dh * math.cos(el) + Vector((0, 0, math.sin(el)))) * dist * P_.get("dist_k", 1.0)
+    out = dict(base)
+    out["loc"], out["tgt"] = loc, tgt
+    if base.get("focus") is not None:
+        out["focus"] = pot.copy()
+    ang = math.degrees(math.acos(max(-1.0, min(1.0, (loc - pot).normalized().dot(nrm)))))
+    print(f"M7d {sub['id']}: close_banjo re-aimed, {ang:.0f} deg off the head's normal "
+                                             f"(was {math.degrees(math.acos(max(-1.0, min(1.0, (loc0 - pot).normalized().dot(nrm))))):.0f}), "
+                                             f"{dist:.2f} m")
+    return out
+
+
+def guitar_light(cam, sub, b, f0, f1):
+    """M7d (weak point 6): the guitar closes were still dark at +1/3 stop. A small warm soft light low beside the
+    guitar, keyed on only for this sub-shot's frames (constant keys), so no other angle of the build changes: it
+    grazes the top across from the side away from the camera and catches the binding and the lacquer, like the spill
+    of a practical near the band. Exposure unchanged (the closes' +1/3 stop)."""
+    import coverage as C
+    P_ = CFG["m7d"]["closes"]["guitar"]
+    e_ = P_["energy"].get(sub["camera"], {})
+    E = e_.get(sub["room"], e_.get("any", 0.0)) if isinstance(e_, dict) else e_
+    if E <= 0:
+        return
+    sc = bpy.context.scene
+    sc.frame_set((f0 + f1) // 2)
+    role = P_["role"].get(sub["camera"], "guitar")
+    ob, M = _instrument(role, role)
+    if ob is None:
+        return
+    bb = [M @ Vector(v) for v in ob.bound_box]
+    ctr = sum(bb, Vector()) / 8
+    R3 = M.to_3x3().normalized()
+    top = (R3 @ Vector((0, 0, 1))).normalized()
+    cl = cam.matrix_world.translation
+    tocam = (cl - ctr).normalized()
+    if top.dot(tocam) < 0:
+        top = -top
+    side = top.cross(Vector((0, 0, 1))).normalized()
+    if side.dot(tocam) > 0:
+        side = -side                                                 # from the side away from the camera
+    a = math.radians(P_["graze_deg"])
+    d = (top * math.cos(a) + side * math.sin(a) + Vector((0, 0, P_["up"]))).normalized()
+    loc = ctr + d * P_["dist"]
+    ld = bpy.data.lights.new(f"m7d_close_light_{sub['id']}", "SPOT")
+    ld.energy, ld.color, ld.shadow_soft_size = E, gb.lin(P_["colour"])[:3], P_["radius"]
+    ld.spot_size, ld.spot_blend = math.radians(P_["spot_deg"]), 0.7
+    ld.specular_factor, ld.volume_factor = P_["spec"], 0.0
+    o = gb.link(bpy.data.objects.new(ld.name, ld))
+    o.location = tuple(loc)
+    o.rotation_euler = gb.look_rot(tuple(loc), tuple(ctr))
+    C.key_prop(o.data, "energy", [f0 - 1, f0, f1 - 1, f1], [0.0, E, E, 0.0], interp="CONSTANT")
+    print(f"M7d {sub['id']}: a {E} W spot on the {role}, {P_['graze_deg']} deg off its top", flush=True)
