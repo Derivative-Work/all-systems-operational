@@ -1056,3 +1056,15 @@ Append-only. One entry per generation, render or analysis step.
 - **First pass:** with every card cross-faded, two pages of text showed through each other for 0.4 s at each page turn; replaced (same file names) before review. The first layout, with each page's text block centred, moved the heading from page to page; replaced with a fixed-height block.
 - **Sent** to the human: the sheet and the movie.
 - **Note:** the M7 Blender render ran alongside (production log 59); O03a took 2.65 s a frame (2.37 s in production log 33's timing), in part from these renders sharing the CPU.
+
+## 61. 2026-11-16 — M7: the credits instrumental post-filtered and analysed
+
+- **Why:** human interventions 26.
+- **Post-filter:** in `~/Code/music-deslop` at 68441e2 (clean tree, as for the master): `/usr/bin/time -v uv run --frozen python -m postfilter.infer --in <repo>/audio/credits/All\ Systems\ Operational\ (credits\ EDM).wav --out <repo>/audio/postfilter/.new-credits-deslopped.wav --ckpt ../music-deslop-data/release/m6f_10k.safetensors --source suno` (25.7 s, 6.1 GB peak RSS, no fallback passages; `log/render_logs/m7_credits_postfilter.log`), alongside the M7 Blender render. Renamed to `audio/postfilter/all-systems-operational-credits-deslopped.wav`: s24, 212.4 s, sha256 `e11526f5…`.
+- **Analysis:** `.venv/bin/python -I scripts/m7_credits.py` (new) → `timing/credits_grid.json`, `log/render_logs/m7_credits_analysis.log`:
+  - The post-filter changed it by −33.2 dB re its input (the master: −33.6), most at 211 s (−28.6 dB). Sample peak −3.98 dBFS (input −4.12).
+  - Loudness (ffmpeg ebur128): input −15.8 LUFS, post-filtered −15.7 LUFS; the post-filtered master −13.7 LUFS. Left as delivered: the credits sit 2 LU under the song.
+  - Tempo drifts from about 103.2 bpm (0.581 s a beat) at the start to 105.1 (0.571 s) by 2:00, so a straight grid fits badly (beats off it by up to 0.3 s). Beats are tracked instead (librosa's dynamic programming, 310 beats, 20.6–197.6 s); the intro (0–20.6 s) and the outro have no beat. Downbeats: every fourth tracked beat from the first, which the kick's entry (22.87 s) and nearly every section change confirm; the intro's bar lines extrapolated back.
+  - 19 section changes (the 4 beats after a downbeat against the 4 before: more than 2.5 dB in level or 10 dB under 150 Hz), each moved to the strongest onset within 0.2 s; the strongest are the kick's entry (22.87 s), 41.38, 60.04, the drop (96.87), 115.29/117.45, the breakdown (124.47), 160.56.
+  - Fade-out points, where the music thins by 5 dB or more: 154.64 s (a two-bar drop-out before the last build), and the track's end (212.4).
+- **Sent** to the human: the full post-filtered track as MP3 320k (`review/m7/audio/all-systems-operational-credits-postfiltered.mp3`, 8.5 MB).
