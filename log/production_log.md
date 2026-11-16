@@ -1031,3 +1031,11 @@ Append-only. One entry per generation, render or analysis step.
   - It prints "M1b: music map timing/music_map_v13.json", and the build notes say "M1b: the v1.3 whiteboard (576 frames, 1800x1125)".
   - Against production log 53's `renders/m1b/raw/` stills: O18c PSNR 72.8 dB, O18d 97.7 dB, with no pixel off by more than 30. The O18c difference is the singer's pose on the v1.3 lead envelope.
 - **Left for the M7 assembly:** composite `renders/m1b/remotion/M7-O18-DenialTags.mov` over O18.
+
+## 58. 2026-11-16 — M1b: the post-filtered v1.3 master for the human's listen
+
+- **Why:** human interventions 25 ("Send me the audio here so I can review it"), before locking M1.
+- **Encodes** (review copies; the WAVs stay the sources):
+  - `ffmpeg -i audio/postfilter/all-systems-operational-master-deslopped.wav -c:a libmp3lame -b:a 320k … review/m1b/audio/all-systems-operational-v13-postfiltered.mp3` (239.6 s, 9.6 MB).
+  - Stop 1's first clap, the one place outside the bridge where v1.3 differs from v1.2 (production log 52): 90–100 s of the post-filtered v1.2 master (`archive/audio/v1.2/postfilter/`), 1.5 s of silence, then 90–100 s of the post-filtered v1.3, each with 50 ms fades → `review/m1b/audio/stop1-clap-v12-then-v13.mp3` (21.5 s, 0.9 MB). The clap is at 4.4 s into each half (94.38 s in the master, 1:42.8 in the video).
+- **Sent** to the human with SendUserFile.
