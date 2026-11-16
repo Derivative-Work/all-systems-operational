@@ -175,3 +175,8 @@ Append-only. Deviations from the brief, each with why and who decided.
 - **Park sun:** M3's "overcast" sun travelled toward +Y, from behind the camera, so it lit the crowd's backs and the band's faces. That is why every grey-box park shot had fully lit, colourful people (decisions 14, 16). M7's comes from behind the band, high and soft (50° up, 60° wide), with its glare on the wet grass cut, and the sky is brighter behind the band than behind the camera.
 - **Replaced, not restyled:** M3's cone-stack trees (conifer prototypes), the box skyline (a fog-flattened massing), the 4 mm drizzle (1.5 mm, fainter, 1.6× as many: drizzle, not a downpour), the treehouse's moss pebbles (finer cushions in drifts and hanging strands).
 - **Polaroid:** M3's placeholder photo is replaced by a Blender render (decisions 24).
+
+## 24. 2026-11-16 — M7a: the Polaroid's photo is the cafe session, rendered (agent; for the human)
+
+- The photo is a Blender render of this cafe at the chorus 2 singalong (mugs up), seen from behind the crowd with the band backlit against the windows, warmed and faded as an instant print (production log 31). It is rendered, not generated, as the brief wants for the rooms. It shows the same day's session ("Wed 11/11" is the caption the brief gives, the day before the outage), not an earlier one: the brief doesn't say which.
+- The crowd is in it because the session is a singalong; the human may prefer the band alone. It's a one-line change (hide the crowd before the render).
