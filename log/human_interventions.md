@@ -155,3 +155,16 @@ Append-only. Every human action: when, what, and why.
   3. "Park suggestions are good". The hill is rebuilt in the direction of concepts 1–2 (park_crest_s41 and park_crest_b_s42): a lawn running to a brow, the ground falling away, roofs and bare trees below, and the city 2–4 km off in the cloud. Far plate 1 (plate_city_s42) goes behind it, with plates 2–3 (plate_ridges_s41/s42) as the far tree lines.
   4. "Yes, leave the cut alone". No insert for the ringing phone's caller ID or the timeout message.
 - **Also accepted as proposed:** the M7b look as the base for the full M7 render (decisions 34).
+
+## 23. 2026-11-16 — M7c approved; one more pass on the known weak points
+
+- **What:** on the M7c park board, plates sheet, motion test and fixes sheet: "These are great, keep going on what you already recognize as weak".
+- **Approved:** the M7c park as the M7 park, with decisions 39's recommendations: the camera changes (decisions 36), the extended far plate with the sky evened across its seams, O22d as the generated LTX-2.3 take s41, the stray O22a figure removed in the M7 path, Switch 12.5 cm lower, and the crowd phones' content. Not chosen separately: the 2.4 m option for the eye-level wides, which belongs to the weak point below.
+- **Next (M7d), the weak points already flagged to the human:**
+  1. the firs shade flat up close (clustered cards);
+  2. at the L1 seam of the far plate, about 22° left of centre, a hill fades into a vertical bank of fog;
+  3. the bare trees at the brow are dark and dense from O20e;
+  4. O08c's night window panes show pale, flat shapes behind the forest (decisions 39.8);
+  5. the eye-level wides show the drop mostly as air and distance rather than visible slope;
+  6. from the M7b report: the guitar close is still dark and the banjo close sees the instrument edge-on.
+- Approved looks stay as they are outside these points. The whiteboard, tags, stamp, fact card and audio still wait for the new master.
