@@ -7,6 +7,17 @@ real logo, screenshot or face (METADATA: those stay in the bookend).
   G  "EVERY LIGHT IS GREEN": the server on the chroma green (O07a), ringed
   H  "503 / PLEASE STAY ON THE LINE": the ON AIR sign (O11g)
   I  "THE STATUS PAGE" vs "THE SERVERS": the made-up banner beside the treehouse dashboard, its 83% ringed (O18e)
+Human interventions 42, "the web of lights or dashboards" (board: --only J,K,L,M,N,P,Q --board thumbnail_options_web.jpg):
+  J  "EVERYTHING IS WIRED TO EVERYTHING": the cafe's string lights with only the hub bulb out, ringed (O16a frame 22)
+  K  "AND EVERYTHING IS GONE.": the dark running out from the hub, the type in the hole (O16a frame 24)
+  L  the made-up "All systems operational" banner across the web lit (frame 21) and out (frame 32)
+  M  "WIRED TO EVERYTHING": the web beside the night dashboard
+Human interventions 43 ("more light for the wire to be visible ... use just the screens"): J-M from the string lights
+rendered again with more light (blender/thumbnail_m7.py); the treehouse's screens flat, close together (O is skipped:
+it reads as a shot number):
+  N  "SOME USERS MAY BE EXPERIENCING": the dashboard beside the terminal, the alert ringing in front, the pool ringed
+  P  the made-up "All systems operational" banner over the dashboard, its red gateway pool ringed
+  Q  "WE ARE AWARE.": the dashboard, terminal, ringing alert and timed-out sign-in in a pile
 Frames: the M7e render (renders/m7/frames/<sub>/), or 4K stills for the tight crops: blender -b --factory-startup
 --python blender/coverage_m7.py -- --out <scratch> --still --at 0.2 --subs O20i,O15a --size 3840x2160, saved as
 review/thumbnail/frames/O20i_4k_020.png and O15a_4k_020.png (git-ignored; log/render_logs/thumbnail_bait_stills.log).
@@ -261,8 +272,168 @@ def opt_I(st):
     return p
 
 
+# human interventions 42: "Try options that have the web of lights or dashboards". The cafe's string lights (O16a: the
+# hub bulb goes out on frame 22, the dark runs down the strands from 23, all out by 28) and the treehouse dashboard at
+# night (O08c, on "Some users may / be experiencing"). 4K stills at those frames (git-ignored, review/thumbnail/frames/
+# O16a_4k_f<N>.png, O08c_4k_f36.png; log/render_logs/thumbnail_web_stills.log), else the 1080p render. Human
+# interventions 43 ("more light for the wire to be visible"): the string lights again by blender/thumbnail_m7.py, the
+# strands thicker, exposure +2.5 stops with the bulbs at 0.18 and their point lights at 6x (O16a_lit_4k_f<N>.png;
+# log/render_logs/thumbnail_web_lit.log).
+
+def at(sub, k, stills, tag=""):
+    """Frame k (1-based, as the render numbers them) of a sub-shot: the 4K still if there is one, else the render."""
+    p = Path(stills or "review/thumbnail/frames", f"{sub}{tag}_4k_f{k}.png")
+    if p.exists():
+        return cv2.imread(str(p), cv2.IMREAD_UNCHANGED)[:, :, :3]
+    return cv2.imread(str(Path("renders/m7/frames", sub, f"{k:04d}.jpg")))
+
+
+def opt_J(st):
+    """The one bulb out: the hub dark, every strand still lit."""
+    p = plate(at("O16a", 22, st, LIT), WEB_CROP, "cafe", gain=1.15, sat=1.25, contrast=0.3)
+    p = shade(p, "bottom", 0.42, 235)
+    p = ring(p, HUB_RING)
+    p = words(p, (W // 2, 498), [[("EVERYTHING IS WIRED", WHITE)], [("TO ", WHITE), ("EVERYTHING", YELLOW)]], 92,
+              anchor="ma")
+    return p
+
+
+def opt_K(st):
+    """The dark running down the strands from the hub, the type in the hole it leaves."""
+    p = plate(at("O16a", 24, st, LIT), WEB_CROP, "cafe", gain=1.15, sat=1.25, contrast=0.3)
+    p = words(p, (W // 2, 214), [[("AND EVERYTHING", WHITE)], [("IS ", WHITE), ("GONE.", YELLOW)]], 118, anchor="ma")
+    return p
+
+
+def opt_L(st):
+    """The web lit on the left, out on the right, the made-up status banner across the seam."""
+    lit = plate(at("O16a", 21, st, LIT), WEB_CROP, "cafe", gain=1.15, sat=1.25, contrast=0.3)
+    out = plate(at("O16a", 32, st, LIT), WEB_CROP, "cafe", gain=0.75, sat=1.1, contrast=0.3)     # the power off
+    mask = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(mask).polygon([(700, 0), (W, 0), (W, H), (580, H)], fill=255)
+    p = Image.composite(out, lit, mask)
+    ImageDraw.Draw(p).line([(700, 0), (580, H)], fill=WHITE, width=10)
+    p = banner(p, (130, 300), 1.0)
+    return p
+
+
+# human interventions 43: "...or put computers and phones closer together or use just the screens without them". The
+# treehouse's screens as Remotion renders them for the Blender textures (remotion/src/components/TreehouseScreens.tsx),
+# flat at twice their size: npx remotion still M7-Tree-<Screen>-night <png> --frame=<f> --scale=<2 laptop, 1 phone>
+# (Dashboard 66, Terminal 60, AlertCall 20, TwoFactor 40), in review/thumbnail/frames/screens/ (git-ignored); set
+# close together in a bezel, with a little perspective and their own glow, over the treehouse at night out of focus.
+SCREENS = Path("review/thumbnail/frames/screens")
+
+
+def device(name, kind):
+    """A screen in a dark bezel with rounded corners (RGBA) and the bezel's width."""
+    img = Image.open(SCREENS / f"{name}.png").convert("RGBA")
+    w, h = img.size
+    b, r = (int(0.03 * w), int(0.028 * w)) if kind == "laptop" else (int(0.045 * w), int(0.14 * w))
+    dev = Image.new("RGBA", (w + 2 * b, h + 2 * b), (0, 0, 0, 0))
+    ImageDraw.Draw(dev).rounded_rectangle([0, 0, w + 2 * b - 1, h + 2 * b - 1], r, fill=(12, 13, 15, 255),
+                                          outline=(64, 66, 72, 255), width=max(3, b // 7))
+    m = Image.new("L", (w, h), 0)
+    ImageDraw.Draw(m).rounded_rectangle([0, 0, w - 1, h - 1], max(6, r - b), fill=255)
+    dev.paste(img, (b, b), m)
+    return dev, b
+
+
+def place(pil, name, kind, quad, glow=0.45):
+    """A screen warped onto quad (top left, top right, bottom right, bottom left) with a drop shadow and a glow; returns
+    the picture and a function from the screen's own pixels to the thumbnail's."""
+    dev, b = device(name, kind)
+    side = max(math.dist(quad[0], quad[1]), math.dist(quad[3], quad[2]))
+    s = min(1.0, 1.4 * side / dev.width)
+    dev = dev.resize((int(dev.width * s), int(dev.height * s)), Image.LANCZOS)
+    w, h = dev.size
+    M = cv2.getPerspectiveTransform(np.float32([[0, 0], [w, 0], [w, h], [0, h]]), np.float32(quad))
+    a = cv2.warpPerspective(np.array(dev), M, (W, H), flags=cv2.INTER_CUBIC, borderValue=(0, 0, 0, 0))
+    lay = Image.fromarray(a, "RGBA")
+    alpha = lay.split()[3]
+    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sh.paste((0, 0, 0, 200), (10, 18), alpha)
+    pil = Image.alpha_composite(pil, sh.filter(ImageFilter.GaussianBlur(14)))
+    if glow:
+        g = lay.convert("RGB").filter(ImageFilter.GaussianBlur(46))
+        base = np.asarray(pil.convert("RGB"), np.float32)
+        add = np.asarray(g, np.float32) * glow
+        pil = Image.fromarray(np.clip(255 - (255 - base) * (255 - add) / 255, 0, 255).astype(np.uint8)).convert("RGBA")
+    pil = Image.alpha_composite(pil, lay)
+
+    def to(x, y):
+        p = M @ np.array([(x + b) * s, (y + b) * s, 1.0])
+        return p[0] / p[2], p[1] / p[2]
+    return pil, to
+
+
+def night_room(st, blur=18, dark=0.45):
+    """The treehouse at night (O08c), out of focus and dimmed, as a backdrop."""
+    p = plate(at("O08c", 36, st), (0.25, 0.1, 0.75), "grey", gain=1.2, sat=1.2)
+    p = p.filter(ImageFilter.GaussianBlur(blur))
+    return Image.blend(Image.new("RGBA", (W, H), (4, 5, 7, 255)), p, dark)
+
+
+def box_of(to, x0, y0, x1, y1, pad=14):
+    pts = [to(x0, y0), to(x1, y0), to(x1, y1), to(x0, y1)]
+    return (min(p[0] for p in pts) - pad, min(p[1] for p in pts) - pad, max(p[0] for p in pts) + pad,
+            max(p[1] for p in pts) + pad)
+
+
+def opt_M(st):
+    """Split: the string lights on the left, the dashboard (flat) on the right."""
+    left = plate(at("O16a", 21, st, LIT), WEB_CROP, "cafe", gain=1.0, sat=1.2, contrast=0.25)
+    right = night_room(st)
+    right, to = place(right, "Dashboard-night", "laptop", [(632, 214), (1262, 198), (1268, 612), (604, 636)], glow=0.4)
+    mask = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(mask).polygon([(640, 0), (W, 0), (W, H), (560, H)], fill=255)
+    p = Image.composite(right, left, mask)
+    ImageDraw.Draw(p).line([(640, 0), (560, H)], fill=WHITE, width=10)
+    p = words(p, (36, 30), [[("WIRED TO", WHITE)], [("EVERYTHING", YELLOW)]], 84, stroke=9)
+    return p
+
+
+def opt_N(st):
+    """The dashboard and the terminal side by side, the alert ringing in front: "SOME USERS MAY BE EXPERIENCING"."""
+    p = night_room(st)
+    p, _ = place(p, "Terminal-night", "laptop", [(26, 250), (520, 232), (530, 560), (20, 580)], glow=0.3)
+    p, to = place(p, "Dashboard-night", "laptop", [(400, 214), (1150, 238), (1140, 700), (392, 712)])
+    p, _ = place(p, "AlertCall-night", "phone", [(1048, 300), (1262, 318), (1236, 776), (1016, 760)], glow=0.25)
+    p = ring(p, box_of(to, 120, 800, 1700, 1360, pad=8))
+    p = words(p, (W // 2, 14), [[("SOME USERS MAY", WHITE)], [("BE ", WHITE), ("EXPERIENCING", YELLOW)]], 92,
+              anchor="ma")
+    return p
+
+
+def opt_P(st):
+    """The dashboard close, nearly full frame, under the made-up "All systems operational" banner."""
+    p = night_room(st)
+    p, to = place(p, "Dashboard-night", "laptop", [(70, 150), (1230, 120), (1250, 860), (52, 880)], glow=0.35)
+    p = banner(p, (130, 28), 1.0)
+    p = ring(p, box_of(to, 120, 800, 1700, 1360, pad=8))
+    return p
+
+
+def opt_Q(st):
+    """Laptops and phones in a pile, all failing at once: "WE ARE AWARE."."""
+    p = night_room(st)
+    p, _ = place(p, "Terminal-night", "laptop", [(560, 40), (1250, 80), (1236, 500), (548, 470)], glow=0.25)
+    p, to = place(p, "Dashboard-night", "laptop", [(250, 250), (930, 228), (944, 660), (240, 700)])
+    p, _ = place(p, "TwoFactor-night", "phone", [(36, 280), (240, 260), (282, 700), (64, 726)], glow=0.25)
+    p, _ = place(p, "AlertCall-night", "phone", [(960, 330), (1160, 350), (1130, 790), (920, 774)], glow=0.25)
+    p = words(p, (40, 22), [[("WE ARE ", WHITE), ("AWARE.", YELLOW)]], 120)
+    return p
+
+
+WEB_CROP = (0.0, 0.0, 1.0)
+HUB_RING = (560, 240, 720, 380)
+LIT = "_lit"
+
 OPTIONS = {"E": ("everything_is_fine", opt_E), "F": ("chatbot_inbox", opt_F), "G": ("every_light_green", opt_G),
-           "H": ("503_on_air", opt_H), "I": ("status_vs_servers", opt_I)}
+           "H": ("503_on_air", opt_H), "I": ("status_vs_servers", opt_I), "J": ("wired_to_everything", opt_J),
+           "K": ("everything_is_gone", opt_K), "L": ("lights_out_operational", opt_L),
+           "M": ("lights_vs_dashboard", opt_M), "N": ("screens_some_users", opt_N),
+           "P": ("screens_dashboard_operational", opt_P), "Q": ("screens_we_are_aware", opt_Q)}
 
 
 def main():
@@ -270,6 +441,7 @@ def main():
     ap.add_argument("--stills", default="review/thumbnail/frames", help="4K stills, found by sub-shot name")
     ap.add_argument("--only", default="")
     ap.add_argument("--out", default="review/thumbnail")
+    ap.add_argument("--board", default="thumbnail_options_bait.jpg")
     a = ap.parse_args()
     keys = a.only.split(",") if a.only else list(OPTIONS)
     made = []
@@ -289,7 +461,7 @@ def main():
         board.paste(im.resize((cell, cell * 9 // 16), Image.LANCZOS), (12, y))
         board.paste(im.resize((small, small * 9 // 16), Image.LANCZOS), (cell + 24, y))
         d.text((cell + 24, y + small * 9 // 16 + 10), f"{k}  {name}", font=font(18, "SemiBold"), fill=(230, 230, 230))
-    out = os.path.join(a.out, "thumbnail_options_bait.jpg")
+    out = os.path.join(a.out, a.board)
     board.save(out, quality=88)
     print(out)
 

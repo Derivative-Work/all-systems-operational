@@ -1,0 +1,135 @@
+== O16a --at 0.3775 (f21)
+M1b: music map timing/music_map_v13.json
+M7e props: kick drum and pedal, mugs, server rack, chairs remodelled; props smooth-shaded with hard edges
+LIFT O16: guitar strum lift: 126 of 126 frames lifted, max 4.2 cm, largest frame-to-frame change 0.2 cm; capped (left in the instrument) on 1 frames, deepest 5.5 cm at frames [60]; residual max 0.0 cm on 0 frames; biggest jumps at [(63, 2.6, 2.8, 2.8), (91, 2.7, 2.5, 2.5), (64, 2.8, 3.0, 3.0), (90, 2.9, 2.7, 2.7)]
+LIFT O16: banjo strum lift: 126 of 126 frames lifted, max 2.5 cm, largest frame-to-frame change 0.0 cm; capped (left in the instrument) on 0 frames, deepest 0.0 cm at frames []; residual max 0.0 cm on 0 frames; biggest jumps at [(104, 2.4, 2.4, 2.4), (103, 2.4, 2.4, 2.4), (105, 2.4, 2.4, 2.4), (102, 2.4, 2.4, 2.4)]
+M7e people fill 120 W a spot
+M5b build O16: 126 frames, 35.8 s; bulb cascade frames 19-92; pmug0 set down on the table; pmug1 set down on the table; crowd performances on 16 people (2 clap, 5 mug_raise, 9 stand; 7 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 3 kicks, tambourine on 8 hits, lead from the vocal envelope, lean-ins on Hey!s); 15 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.012 (noise-modulated), daylight shafts through the window openings (sun 1.6); rain runs on 5 panes; 183 bulbs chase 7 sung syllables; M7b steam wisps on 10 mugs; M7b clock on 16 shaders from song time 118.44 s
+00:45.285  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/web4k/O16a_f21/O16a.png'
+M5b O16a: frames 1-54 (54), hub, 8.5 s
+M5b build O16 done in 44.3 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+== O16a --at 0.3963 (f22)
+M1b: music map timing/music_map_v13.json
+M7e props: kick drum and pedal, mugs, server rack, chairs remodelled; props smooth-shaded with hard edges
+LIFT O16: guitar strum lift: 126 of 126 frames lifted, max 4.2 cm, largest frame-to-frame change 0.2 cm; capped (left in the instrument) on 1 frames, deepest 5.5 cm at frames [60]; residual max 0.0 cm on 0 frames; biggest jumps at [(63, 2.6, 2.8, 2.8), (91, 2.7, 2.5, 2.5), (64, 2.8, 3.0, 3.0), (90, 2.9, 2.7, 2.7)]
+LIFT O16: banjo strum lift: 126 of 126 frames lifted, max 2.5 cm, largest frame-to-frame change 0.0 cm; capped (left in the instrument) on 0 frames, deepest 0.0 cm at frames []; residual max 0.0 cm on 0 frames; biggest jumps at [(104, 2.4, 2.4, 2.4), (103, 2.4, 2.4, 2.4), (105, 2.4, 2.4, 2.4), (102, 2.4, 2.4, 2.4)]
+M7e people fill 120 W a spot
+M5b build O16: 126 frames, 36.2 s; bulb cascade frames 19-92; pmug0 set down on the table; pmug1 set down on the table; crowd performances on 16 people (2 clap, 5 mug_raise, 9 stand; 7 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 3 kicks, tambourine on 8 hits, lead from the vocal envelope, lean-ins on Hey!s); 15 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.012 (noise-modulated), daylight shafts through the window openings (sun 1.6); rain runs on 5 panes; 183 bulbs chase 7 sung syllables; M7b steam wisps on 10 mugs; M7b clock on 16 shaders from song time 118.44 s
+00:46.263  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/web4k/O16a_f22/O16a.png'
+M5b O16a: frames 1-54 (54), hub, 9.1 s
+M5b build O16 done in 45.3 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+== O16a --at 0.4152 (f23)
+M1b: music map timing/music_map_v13.json
+M7e props: kick drum and pedal, mugs, server rack, chairs remodelled; props smooth-shaded with hard edges
+LIFT O16: guitar strum lift: 126 of 126 frames lifted, max 4.2 cm, largest frame-to-frame change 0.2 cm; capped (left in the instrument) on 1 frames, deepest 5.5 cm at frames [60]; residual max 0.0 cm on 0 frames; biggest jumps at [(63, 2.6, 2.8, 2.8), (91, 2.7, 2.5, 2.5), (64, 2.8, 3.0, 3.0), (90, 2.9, 2.7, 2.7)]
+LIFT O16: banjo strum lift: 126 of 126 frames lifted, max 2.5 cm, largest frame-to-frame change 0.0 cm; capped (left in the instrument) on 0 frames, deepest 0.0 cm at frames []; residual max 0.0 cm on 0 frames; biggest jumps at [(104, 2.4, 2.4, 2.4), (103, 2.4, 2.4, 2.4), (105, 2.4, 2.4, 2.4), (102, 2.4, 2.4, 2.4)]
+M7e people fill 120 W a spot
+M5b build O16: 126 frames, 36.1 s; bulb cascade frames 19-92; pmug0 set down on the table; pmug1 set down on the table; crowd performances on 16 people (2 clap, 5 mug_raise, 9 stand; 7 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 3 kicks, tambourine on 8 hits, lead from the vocal envelope, lean-ins on Hey!s); 15 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.012 (noise-modulated), daylight shafts through the window openings (sun 1.6); rain runs on 5 panes; 183 bulbs chase 7 sung syllables; M7b steam wisps on 10 mugs; M7b clock on 16 shaders from song time 118.44 s
+00:45.582  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/web4k/O16a_f23/O16a.png'
+M5b O16a: frames 1-54 (54), hub, 8.5 s
+M5b build O16 done in 44.6 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+== O16a --at 0.4340 (f24)
+M1b: music map timing/music_map_v13.json
+M7e props: kick drum and pedal, mugs, server rack, chairs remodelled; props smooth-shaded with hard edges
+LIFT O16: guitar strum lift: 126 of 126 frames lifted, max 4.2 cm, largest frame-to-frame change 0.2 cm; capped (left in the instrument) on 1 frames, deepest 5.5 cm at frames [60]; residual max 0.0 cm on 0 frames; biggest jumps at [(63, 2.6, 2.8, 2.8), (91, 2.7, 2.5, 2.5), (64, 2.8, 3.0, 3.0), (90, 2.9, 2.7, 2.7)]
+LIFT O16: banjo strum lift: 126 of 126 frames lifted, max 2.5 cm, largest frame-to-frame change 0.0 cm; capped (left in the instrument) on 0 frames, deepest 0.0 cm at frames []; residual max 0.0 cm on 0 frames; biggest jumps at [(104, 2.4, 2.4, 2.4), (103, 2.4, 2.4, 2.4), (105, 2.4, 2.4, 2.4), (102, 2.4, 2.4, 2.4)]
+M7e people fill 120 W a spot
+M5b build O16: 126 frames, 35.9 s; bulb cascade frames 19-92; pmug0 set down on the table; pmug1 set down on the table; crowd performances on 16 people (2 clap, 5 mug_raise, 9 stand; 7 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 3 kicks, tambourine on 8 hits, lead from the vocal envelope, lean-ins on Hey!s); 15 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.012 (noise-modulated), daylight shafts through the window openings (sun 1.6); rain runs on 5 panes; 183 bulbs chase 7 sung syllables; M7b steam wisps on 10 mugs; M7b clock on 16 shaders from song time 118.44 s
+00:45.446  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/web4k/O16a_f24/O16a.png'
+M5b O16a: frames 1-54 (54), hub, 8.6 s
+M5b build O16 done in 44.5 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+== O16a --at 0.5850 (f32)
+M1b: music map timing/music_map_v13.json
+M7e props: kick drum and pedal, mugs, server rack, chairs remodelled; props smooth-shaded with hard edges
+LIFT O16: guitar strum lift: 126 of 126 frames lifted, max 4.2 cm, largest frame-to-frame change 0.2 cm; capped (left in the instrument) on 1 frames, deepest 5.5 cm at frames [60]; residual max 0.0 cm on 0 frames; biggest jumps at [(63, 2.6, 2.8, 2.8), (91, 2.7, 2.5, 2.5), (64, 2.8, 3.0, 3.0), (90, 2.9, 2.7, 2.7)]
+LIFT O16: banjo strum lift: 126 of 126 frames lifted, max 2.5 cm, largest frame-to-frame change 0.0 cm; capped (left in the instrument) on 0 frames, deepest 0.0 cm at frames []; residual max 0.0 cm on 0 frames; biggest jumps at [(104, 2.4, 2.4, 2.4), (103, 2.4, 2.4, 2.4), (105, 2.4, 2.4, 2.4), (102, 2.4, 2.4, 2.4)]
+M7e people fill 120 W a spot
+M5b build O16: 126 frames, 36.6 s; bulb cascade frames 19-92; pmug0 set down on the table; pmug1 set down on the table; crowd performances on 16 people (2 clap, 5 mug_raise, 9 stand; 7 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 3 kicks, tambourine on 8 hits, lead from the vocal envelope, lean-ins on Hey!s); 15 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.012 (noise-modulated), daylight shafts through the window openings (sun 1.6); rain runs on 5 panes; 183 bulbs chase 7 sung syllables; M7b steam wisps on 10 mugs; M7b clock on 16 shaders from song time 118.44 s
+00:46.293  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/web4k/O16a_f32/O16a.png'
+M5b O16a: frames 1-54 (54), hub, 8.7 s
+M5b build O16 done in 45.3 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+== O08c --at 0.5 (f36)
+M1b: music map timing/music_map_v13.json
+M7e props: kick drum and pedal, mugs, server rack, chairs remodelled; props smooth-shaded with hard edges
+M5b build O08c: 72 frames, 6.7 s; M7 haze: none at night; rain runs on 9 panes; M7b clock on 9 shaders from song time 48.35 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4182 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4184 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4175 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4184 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4178 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4179 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4185 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4176 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4178 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4183 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4184 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4178 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4185 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4179 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4173 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4182 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4177 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4176 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4183 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4177 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4178 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4185 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4175 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4186 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4173 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4177 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4180 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4182 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4180 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4183 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4175 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4178 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4183 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4177 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4186 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4184 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4177 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4178 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4177 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4174 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4184 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4173 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (41700:13.511  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/web4k/O08c_f36/O08c.png'
+M5b O08c: frames 1-72 (72), board:O08c, 5.8 s
+M5b build O08c done in 12.5 s
+6 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4185 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4179 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4175 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4188 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4178 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4176 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4180 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4177 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4182 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4179 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4182 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4178 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4175 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4184 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4179 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4178 / 4096)
+Error: Shadow buffer full, may result in missing shadows and lower performance. (4181 / 4096)
+
+Blender quit

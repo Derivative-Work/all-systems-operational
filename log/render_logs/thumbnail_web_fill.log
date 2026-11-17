@@ -1,0 +1,51 @@
+M1b: music map timing/music_map_v13.json
+M7e props: kick drum and pedal, mugs, server rack, chairs remodelled; props smooth-shaded with hard edges
+LIFT O16: guitar strum lift: 126 of 126 frames lifted, max 4.2 cm, largest frame-to-frame change 0.2 cm; capped (left in the instrument) on 1 frames, deepest 5.5 cm at frames [60]; residual max 0.0 cm on 0 frames; biggest jumps at [(63, 2.6, 2.8, 2.8), (91, 2.7, 2.5, 2.5), (64, 2.8, 3.0, 3.0), (90, 2.9, 2.7, 2.7)]
+LIFT O16: banjo strum lift: 126 of 126 frames lifted, max 2.5 cm, largest frame-to-frame change 0.0 cm; capped (left in the instrument) on 0 frames, deepest 0.0 cm at frames []; residual max 0.0 cm on 0 frames; biggest jumps at [(104, 2.4, 2.4, 2.4), (103, 2.4, 2.4, 2.4), (105, 2.4, 2.4, 2.4), (102, 2.4, 2.4, 2.4)]
+M7e people fill 120 W a spot
+M5b build O16: 126 frames, 36.0 s; bulb cascade frames 19-92; pmug0 set down on the table; pmug1 set down on the table; crowd performances on 16 people (2 clap, 5 mug_raise, 9 stand; 7 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 3 kicks, tambourine on 8 hits, lead from the vocal envelope, lean-ins on Hey!s); 15 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.012 (noise-modulated), daylight shafts through the window openings (sun 1.6); rain runs on 5 panes; 183 bulbs chase 7 sung syllables; M7b steam wisps on 10 mugs; M7b clock on 16 shaders from song time 118.44 s
+00:45.942  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a_f22_fill0_wire0.png'
+THUMB O16a frame 22: fill 0 W, wires +0 mm -> /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a_f22_fill0_wire0.png
+00:53.447  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a_f22_fill250_wire0.004.png'
+THUMB O16a frame 22: fill 250 W, wires +4 mm -> /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a_f22_fill250_wire0.004.png
+01:00.869  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a_f22_fill600_wire0.006.png'
+THUMB O16a frame 22: fill 600 W, wires +6 mm -> /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a_f22_fill600_wire0.006.png
+01:08.279  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a_f22_fill1500_wire0.006.png'
+THUMB O16a frame 22: fill 1500 W, wires +6 mm -> /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a_f22_fill1500_wire0.006.png
+01:15.945  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a_f24_fill0_wire0.png'
+THUMB O16a frame 24: fill 0 W, wires +0 mm -> /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a_f24_fill0_wire0.png
+01:23.204  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a_f24_fill250_wire0.004.png'
+THUMB O16a frame 24: fill 250 W, wires +4 mm -> /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a_f24_fill250_wire0.004.png
+01:30.583  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a_f24_fill600_wire0.006.png'
+THUMB O16a frame 24: fill 600 W, wires +6 mm -> /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a_f24_fill600_wire0.006.png
+01:38.620  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a_f24_fill1500_wire0.006.png'
+THUMB O16a frame 24: fill 1500 W, wires +6 mm -> /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a_f24_fill1500_wire0.006.png
+01:46.417  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/O16a.png'
+M5b O16a: frames 1-54 (54), hub, 69.4 s
+M5b build O16 done in 105.4 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+	Command being timed: "blender -b --factory-startup --python blender/thumbnail_m7.py -- --out /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill --still --subs O16a --size 3840x2160 --log /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webfill/pose.log --web-frames 22,24 --web-variants 0:0,250:0.004,600:0.006,1500:0.006"
+	User time (seconds): 189.64
+	System time (seconds): 125.81
+	Percent of CPU this job got: 295%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:46.93
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 4373472
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 4126543
+	Voluntary context switches: 87491
+	Involuntary context switches: 2795663
+	Swaps: 0
+	File system inputs: 156
+	File system outputs: 40
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

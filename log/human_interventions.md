@@ -289,3 +289,13 @@ Append-only. Every human action: when, what, and why.
 
 - **What:** after the description fix (production log 82): "where is the thumbnail" (sent: `review/thumbnail/thumbnail.jpg`, option C), then "Give me more clickbait-adjacent thumbnail options".
 - **Agent's reading:** louder, not misleading. Big outlined type, red rings and arrows, punchier colour and a face (the Little Switch, the probe), with every line a lyric or a fact the video states; nothing ties AI to the cause, and no real logo, screenshot or face. Five options, E to I, beside A to D; thumbnail C stays the pick until the human says otherwise. The master's credits slide still says 40: rebuilt once, after the pick, rather than after every message (production log 83).
+
+## 42. 2026-11-17 — Thumbnails with the string lights or the dashboards
+
+- **What:** after options E–I (production log 83): "Try options that have the web of lights or dashboards".
+- **Agent's reading:** the web of lights is O16's dependency web, the cafe's string lights ("one bulb goes out and the dark runs down every strand"); the dashboards are the treehouse laptops' invented service-health dashboard, at night in O08c (on "Some users may / be experiencing") and by day in O18e (already in C and I). Five more, J to N, in E–I's louder style, each line a lyric; nothing ties AI to the cause; no real logo, screenshot or face. Thumbnail C stays the pick until the human says otherwise; the credits slide (40) is rebuilt once, after the pick.
+
+## 43. 2026-11-17 — The wires lit; the screens close together
+
+- **What:** while J–N were being drafted (the agent had said it was looking at the string lights, O16, and the night dashboards, O08c): "You might need to make new renders with more light for the wire to be visible, or put computers and phones closer together or use just the screens without them to make something viable".
+- **Agent's reading:** two of the three, for the thumbnail only (the video's frames don't change). The string lights rendered again with more light: exposure up and the bulbs down to match, the strands' own lights up, the strands thicker, so the web reads as wires from the hub against the ceiling. The screens without the room: the treehouse's own screens (the dashboard, the health-check terminal, the ringing alert, the timed-out sign-in) rendered flat and set close together, which also puts the computers and phones together.

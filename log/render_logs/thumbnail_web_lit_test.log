@@ -1,0 +1,24 @@
+M1b: music map timing/music_map_v13.json
+M7e props: kick drum and pedal, mugs, server rack, chairs remodelled; props smooth-shaded with hard edges
+LIFT O16: guitar strum lift: 126 of 126 frames lifted, max 4.2 cm, largest frame-to-frame change 0.2 cm; capped (left in the instrument) on 1 frames, deepest 5.5 cm at frames [60]; residual max 0.0 cm on 0 frames; biggest jumps at [(63, 2.6, 2.8, 2.8), (91, 2.7, 2.5, 2.5), (64, 2.8, 3.0, 3.0), (90, 2.9, 2.7, 2.7)]
+LIFT O16: banjo strum lift: 126 of 126 frames lifted, max 2.5 cm, largest frame-to-frame change 0.0 cm; capped (left in the instrument) on 0 frames, deepest 0.0 cm at frames []; residual max 0.0 cm on 0 frames; biggest jumps at [(104, 2.4, 2.4, 2.4), (103, 2.4, 2.4, 2.4), (105, 2.4, 2.4, 2.4), (102, 2.4, 2.4, 2.4)]
+M7e people fill 120 W a spot
+M5b build O16: 126 frames, 36.0 s; bulb cascade frames 19-92; pmug0 set down on the table; pmug1 set down on the table; crowd performances on 16 people (2 clap, 5 mug_raise, 9 stand; 7 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 3 kicks, tambourine on 8 hits, lead from the vocal envelope, lean-ins on Hey!s); 15 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.012 (noise-modulated), daylight shafts through the window openings (sun 1.6); rain runs on 5 panes; 183 bulbs chase 7 sung syllables; M7b steam wisps on 10 mugs; M7b clock on 16 shaders from song time 118.44 s
+00:39.577  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webtest/O16a_f22_v0.png'
+THUMB O16a frame 22 v0 {'prac': '8'} -> /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webtest/O16a_f22_v0.png
+00:40.914  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webtest/O16a_f22_v1.png'
+THUMB O16a frame 22 v1 {'ev': '1.5', 'bulb': '0.35', 'prac': '4'} -> /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webtest/O16a_f22_v1.png
+00:42.276  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webtest/O16a_f22_v2.png'
+THUMB O16a frame 22 v2 {'ev': '1.5', 'bulb': '0.35', 'fill': '4000'} -> /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webtest/O16a_f22_v2.png
+00:43.606  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webtest/O16a_f22_v3.png'
+THUMB O16a frame 22 v3 {'wirecol': '#9a948c', 'wire': '0.004', 'prac': '4'} -> /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webtest/O16a_f22_v3.png
+00:44.939  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webtest/O16a_f22_v4.png'
+THUMB O16a frame 22 v4 {'wirecol': '#d9d2c4', 'wire': '0.004', 'ev': '0.5', 'bulb': '0.7'} -> /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webtest/O16a_f22_v4.png
+00:46.261  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webtest/O16a_f22_v5.png'
+THUMB O16a frame 22 v5 {'ev': '2.5', 'bulb': '0.18', 'prac': '6'} -> /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webtest/O16a_f22_v5.png
+00:47.620  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/webtest/O16a.png'
+M5b O16a: frames 1-54 (54), hub, 10.7 s
+M5b build O16 done in 46.7 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
