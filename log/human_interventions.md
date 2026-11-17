@@ -216,3 +216,26 @@ Append-only. Every human action: when, what, and why.
 - **What:** "Also assemble a cut with the frames you already have so I can examine the issues unrelated to these". Then, while it was being set up: "is it running".
 - **Answer to "is it running":** the renders were, but the agent's wait loops weren't ending: each looked for its job by name (`pgrep -f`) and matched its own command line. They were stopped and replaced by waits on process ids; the queued O03d/O11e re-render had been held up by one of them (production log 67).
 - **Sent** (production log 67): the review cut from 0:00 to 4:26 and its sub-shot sheet.
+
+## 32. 2026-11-16 — Notes on review cut 2; the open calls answered
+
+- **What:** on review cut 2 (production log 68):
+  - "Let's just cut the "license" screen (primarily for time, no need to rewrite history). For the status page, re-animate the loading on the favicon, and start zoomed in to the URL."
+  - "Get a few more seconds back on the intro by ensuring that the first downbeat lands right when the shown play button is clicked."
+  - "Check for gray box geometry. The drum kit and banjo are showing hard corners on round surfaces. The drum kit's rim is floating in air. The server is clearly gray box, as are the coffee mugs."
+  - "The kick drummer's foot is clipping into the kick drum arm."
+  - "Check for flicker -- I'm seeing some on the banjo that appears to be z fighting."
+  - "Check the guitar and banjo hand animations -- on one of them the hand is moving so fast that it's flickering."
+  - "The "ON AIR" flicker is far too fast -- I don't want this to be an epilepsy risk"
+  - "Check camera movement -- particularly at "the agents that we hired", it's reading as shaky hands rather than handheld"
+  - "Check the phone and laptop screens at O18 -- it seems that some of them just got black as their texture"
+  - "Make the film grade start immediately on O22b rather than waiting for "remember Wednesday""
+  - "I recognize the brief calls for silhouettes. Give me some other options for lighting levels for the people so I can make a call on that."
+- **The open calls** (decisions 43–46, production log 63–68):
+  - O22b: "Framing of O22b is fine as-is" (decisions 46, option 1).
+  - The credits: "Credits is fine as-is -- keep the fade-out" (decisions 45, option 3: the cards end at 2:34.6 with the fade).
+  - "We're good on M1 lock": M1 (the v1.3 master and the clap A/B) is locked.
+  - "Bulkheads line is fine as-is".
+  - The "No license found" capture: "Cut the "no license found" from the video". `review/m3_screens.jpg` stays in history ("no need to rewrite history").
+  - The credits instrumental: "Credits instrumental by Suno -- it's a cover of the original. Share page for extracting details https://suno.com/s/O0W4sNwIfZk21s3g".
+- **Agent's reading:** "the first downbeat" is the song's first bar line at 2.44 s (song time); before it there is 1.0 s of silence and a two-beat lead-in of quiet taps and strums (1.2–2.4 s). Starting the song at the downbeat on the click means the song's audio starts there; the lead-in is cut, not played before the click (music before the play button is pressed would contradict the post). Still open: the people's lighting level (options to be sent).
