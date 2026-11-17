@@ -1564,9 +1564,10 @@ def people_fill(room):
     warm front light on the band and the front of the crowd, as a live session's stage wash, from the audience side
     (two spots up at 2.8 m, 4.5 m out from the band, 2.2 m either side of its centre; in the park a broad area light,
     a bounce off the overcast). The level is config/look_m7.json m7e.people_fill.level (watts a spot; 0 is the
-    brief's silhouettes, as approved) or ASO_FILL for the options board. The room's own light is unchanged."""
+    brief's silhouettes) or m7e.people_fill.rooms for a room (human interventions 34: 120 W, the park 40 W), or
+    ASO_FILL for the options board. The room's own light is unchanged."""
     P_ = CFG["m7e"]["people_fill"]
-    w = float(os.environ.get("ASO_FILL", P_["level"]))
+    w = float(os.environ.get("ASO_FILL", P_.get("rooms", {}).get(room, P_["level"])))
     if w <= 0 or room == "void":
         return None
     band = [o for o in (bpy.data.objects.get(f"band_{r}") for r in ("guitar", "banjo", "kick", "tamb", "singer")) if o]

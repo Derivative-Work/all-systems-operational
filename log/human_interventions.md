@@ -245,3 +245,9 @@ Append-only. Every human action: when, what, and why.
 - **What** (while the agent was on the notes of human interventions 32): "When you get the chance: I also updated the master at ~/Downloads/All Systems Operational.wav (mostly adding reverb to the hard cuts so they read as intentional) -- you'll need to run the postfilter again before using it".
 - **File:** `~/Downloads/All Systems Operational.wav` (file time 23:56; 48 kHz stereo f32, 239.58 s, the same length to the sample as v1.3; sha256 `5cd6f653…`). Called v1.4 in the logs. The stems weren't re-exported.
 - **Post-filter:** run by the agent, with the command used for v1.3 (production log 69). M1 stays locked (human interventions 32); this is the human's own change to it.
+
+## 34. 2026-11-17 — The people's lighting picked
+
+- **What:** on the lighting options (decisions 50, `review/m7/lighting_options.jpg`): "for lighting: let's go with C for everything except the park, which should be B".
+- **Set:** `config/look_m7.json` m7e.people_fill: 120 W a spot in the live room, the cafe and the treehouse (C, the soft wash), 40 W in the park (B, a hint). The brief's "every performer is a silhouette" gives way to a backlit look with the people readable; faces stay dim.
+- **The M7e render** had started at level A (production log 72): stopped in its first build (O03, two sub-shots), those frames moved to `archive/renders/m7/frames_m7e_levelA_stopped/` and its logs renamed `*_levelA_stopped.log`; restarted at the picked levels.

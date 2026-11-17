@@ -407,3 +407,7 @@ Human interventions 32: "I recognize the brief calls for silhouettes. Give me so
 - **What changes:** at B the band's and crowd's clothes and instruments start to read, faces stay in shadow; at C the band reads clearly (the guitar's top, the banjo, suits), faces dim; D and E light faces fully and flatten the window backlight. In the park D and E light a visible pool on the grass (a floodlight look); B or C keep it overcast.
 - **Recommendation:** B, or C for the band only, if the silhouettes go. Either keeps the backlit look and the brief's mood while the people read as people; past C the rooms look staged.
 - The full re-render (production log 72) is at A, as approved. Any other level is one number (`config/look_m7.json` m7e.people_fill.level) and another full render (about 4.5 h).
+
+## 51. 2026-11-17 — The people's lighting: C, the park B (the human's call)
+
+Human interventions 34 settles decisions 50: the soft wash (C, 120 W a spot) in the live room, the cafe and the treehouse; a hint (B, 40 W) in the park, where C's bounce would start to read as a floodlight on the grass. A deviation from the brief's "Every performer is a silhouette against window light": the people now read as people against the windows, the backlight kept. The guardrails are unaffected (generated figures, no real faces). The brief's look section and the README's description of the look follow at the next update.
