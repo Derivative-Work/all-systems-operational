@@ -1,0 +1,47 @@
+O01    228 f  1 shots  remotion
+O02    146 f  1 shots  remotion
+O03    577 f  6 shots  blender motion + lower third
+O04    143 f  1 shots  blender motion (the phone's screen rendered in Blender, M7b)
+O05    145 f  1 shots  remotion
+O06    144 f  1 shots  clip O06_s41 cropped to fill, from 0.00 s at native speed
+O07    109 f  1 shots  blender motion (server on chroma green) + caption
+O08    324 f  7 shots  blender motion + echo lower thirds; inserts: Remotion phone (IT reply), blender treehouse cutaway
+O09    866 f  12 shots  blender motion + uptime lower third
+O10     72 f  1 shots  blender motion
+O11    216 f  7 shots  blender motion + live overlay (viewers, chat, Switch inset)
+O12     90 f  1 shots  blender freeze (clapper, Switch, ON AIR) + buffering
+O13     54 f  1 shots  remotion card, then status row red
+O14    433 f  5 shots  blender motion
+O15    162 f  1 shots  blender motion
+O16    126 f  2 shots  blender motion
+O17    864 f  12 shots  blender motion (no disclosure panel: decisions 18)
+O18    576 f  5 shots  blender motion (v1.3 board) + caption + denial tags
+O19    360 f  5 shots  blender motion, two parts cross-faded + lower third
+O20    575 f  10 shots  blender motion
+O21     42 f  1 shots  blender freeze (Switch drops) + buffering, caption
+O22    930 f  7 shots  blender motion (walk-off), O22d clip, graded + lower third
+O23    161 f  1 shots  remotion
+renders/m7/master/all-systems-operational-master.mp4: 11982 frames, 399.400 s; first-pass frames in: none
+	Command being timed: ".venv/bin/python -I scripts/m7_master.py"
+	User time (seconds): 2212.06
+	System time (seconds): 160.30
+	Percent of CPU this job got: 219%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 17:59.98
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 21992212
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 30
+	Minor (reclaiming a frame) page faults: 59711333
+	Voluntary context switches: 3051870
+	Involuntary context switches: 1448036
+	Swaps: 0
+	File system inputs: 3024288
+	File system outputs: 2196848
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

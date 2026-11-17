@@ -7,7 +7,7 @@ for the upload. The same cut, frames, grade, inserts, overlays, end sequence and
   labels     none (the review cut's sub-shot labels are for review only)
   video      h264 High, CRF 14, preset slow, yuv420p, per segment, joined without re-encoding
   audio      AAC-LC 384 kb/s, 48 kHz stereo (YouTube's recommendation for stereo)
-Usage: .venv/bin/python -I scripts/m7_master.py [--out renders/m7/master/all-systems-operational-master.mp4]
+Usage: .venv/bin/python -I scripts/m7_master.py [--out renders/m7/master/all-systems-operational-master.mp4] [--remux]
 """
 import argparse
 import subprocess
@@ -64,10 +64,15 @@ def encode_end(seg):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=OUT)
+    ap.add_argument("--remux", action="store_true", help="only the audio again, on the joined picture already built")
     a = ap.parse_args()
     setup()
     R.encode_end = encode_end
     Path(a.out).parent.mkdir(parents=True, exist_ok=True)
+    if a.remux:
+        n, d = R.mux(A.SEG / "joined.mp4", a.out)
+        print(f"{a.out}: {n} frames, {d:.3f} s (remuxed)")
+        return
     R.main_run(argparse.Namespace(out=a.out, share=False, share_end_s=18.3, pending=""))
 
 

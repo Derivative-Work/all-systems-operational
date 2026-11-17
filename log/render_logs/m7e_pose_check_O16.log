@@ -1,0 +1,82 @@
+pose check: 2646 solved frames, 21 figures (build:instance)
+violations: none
+closest hands to a head: O16:band_tamb 0.38 m (Left, 122.47 s); O16:band_kick 0.44 m (Right, 118.44 s); O16:crowd6 0.45 m (Right, 120.94 s); O16:crowd12 0.45 m (Right, 118.47 s); O16:crowd7 0.49 m (Right, 118.44 s); O16:crowd2 0.50 m (Right, 120.34 s); O16:crowd8 0.53 m (Right, 120.31 s); O16:crowd1 0.55 m (Right, 119.61 s)
+wrists (degrees; limits flexion 25, extension 25, ulnar 15, radial 10; guitar fretting: flexion 40, ulnar 20; banjo fretting: flexion 40, ulnar 20; kick player clap: flexion 25, ulnar 15; crowd clap: flexion 25, ulnar 15; crowd clap (joining in): flexion 25, ulnar 15; O12 late clapper: flexion 25, ulnar 15; 'over' = hand-frames beyond its limit by > 2):
+  banjo fretting: 126 hand-frames, max flexion 38.4 (O16:band_banjo Left 119.47s), extension 0.0 (), ulnar 20.0, radial 0.0, roll 0.0; over 0
+  banjo picking: 126 hand-frames, max flexion 16.9 (O16:band_banjo Right 119.81s), extension 0.0 (), ulnar 0.0, radial 0.0, roll 0.0; over 0
+  crowd clap: 504 hand-frames, max flexion 0.0 (), extension 40.0 (O16:crowd6 Right 121.07s), ulnar 0.0, radial 10.0, roll 0.0; over 0
+  crowd mug: 630 hand-frames, max flexion 0.0 (O16:crowd8 Right 122.57s), extension 0.0 (O16:crowd8 Right 122.61s), ulnar 0.0, radial 0.0, roll 0.0; over 0
+  crowd mug, other arm: 630 hand-frames, max flexion 0.0 (O16:crowd8 Left 122.61s), extension 0.0 (O16:crowd13 Left 122.61s), ulnar 0.0, radial 0.0, roll 0.0; over 0
+  crowd stand: 2268 hand-frames, max flexion 0.0 (O16:crowd9 Right 122.61s), extension 0.0 (O16:crowd5 Left 122.61s), ulnar 0.0, radial 0.0, roll 0.0; over 0
+  guitar fretting: 126 hand-frames, max flexion 40.0 (O16:band_guitar Left 122.51s), extension 0.0 (), ulnar 20.0, radial 9.1, roll 0.0; over 0
+  guitar strumming: 126 hand-frames, max flexion 25.0 (O16:band_guitar Right 121.27s), extension 0.0 (), ulnar 0.0, radial 0.0, roll 0.0; over 0
+  kick player clap: 252 hand-frames, max flexion 0.0 (), extension 40.0 (O16:band_kick Right 121.04s), ulnar 5.3, radial 10.0, roll 0.0; over 0
+  lead free hand: 126 hand-frames, max flexion 0.0 (), extension 0.0 (O16:band_singer Right 122.61s), ulnar 0.0, radial 0.0, roll 0.0; over 0
+  lead on the mic stand: 126 hand-frames, max flexion 10.0 (O16:band_singer Left 122.61s), extension 0.0 (), ulnar 0.0, radial 0.0, roll 0.0; over 0
+  tambourine hand: 126 hand-frames, max flexion 0.0 (O16:band_tamb Right 122.61s), extension 0.0 (O16:band_tamb Right 119.24s), ulnar 0.0, radial 0.0, roll 0.0; over 0
+  tambourine slap hand: 126 hand-frames, max flexion 0.0 (O16:band_tamb Left 122.47s), extension 0.0 (O16:band_tamb Left 122.61s), ulnar 0.0, radial 0.0, roll 0.0; over 0
+contacts (hand, finger and forearm spheres vs meshes; clipping = more than 4 mm in; per pose label and obstacle: hand-frames checked, hand-frames clipping, deepest):
+  banjo fretting vs instrument: 126 hand-frames, clipping on 5, deepest 29.7 mm (O16:band_banjo 121.14s finger banjo)
+  banjo fretting vs mic stand: 126 hand-frames, clipping on 0, deepest 0.0 mm ()
+  banjo fretting vs own body: 126 hand-frames, clipping on 0, deepest 0.0 mm ()
+  banjo picking vs instrument: 126 hand-frames, clipping on 0, deepest 0.4 mm (O16:band_banjo 118.91s finger banjo)
+  banjo picking vs mic stand: 126 hand-frames, clipping on 0, deepest 0.0 mm ()
+  banjo picking vs own body: 126 hand-frames, clipping on 0, deepest 0.0 mm ()
+  crowd clap vs other hand: 252 hand-frames, clipping on 0, deepest 0.8 mm (O16:crowd6 118.54s  other hand)
+  crowd clap vs own body: 504 hand-frames, clipping on 0, deepest 0.0 mm ()
+  crowd mug vs own body: 630 hand-frames, clipping on 0, deepest 0.0 mm ()
+  crowd mug, other arm vs own body: 630 hand-frames, clipping on 0, deepest 0.0 mm ()
+  crowd stand vs own body: 2268 hand-frames, clipping on 0, deepest 0.0 mm ()
+  guitar fretting vs instrument: 126 hand-frames, clipping on 11, deepest 42.1 mm (O16:band_guitar 118.51s palm guitar)
+  guitar fretting vs mic stand: 126 hand-frames, clipping on 0, deepest 0.0 mm ()
+  guitar fretting vs own body: 126 hand-frames, clipping on 0, deepest 0.0 mm ()
+  guitar strumming vs instrument: 126 hand-frames, clipping on 0, deepest 0.0 mm ()
+  guitar strumming vs mic stand: 126 hand-frames, clipping on 0, deepest 0.0 mm ()
+  guitar strumming vs own body: 126 hand-frames, clipping on 0, deepest 0.0 mm ()
+  kick player clap vs instrument: 252 hand-frames, clipping on 0, deepest 0.0 mm ()
+  kick player clap vs other hand: 126 hand-frames, clipping on 0, deepest 1.3 mm (O16:band_kick 118.44s  other hand)
+  kick player clap vs own body: 252 hand-frames, clipping on 0, deepest 0.0 mm ()
+  lead free hand vs mic stand: 126 hand-frames, clipping on 0, deepest 0.0 mm ()
+  lead free hand vs own body: 126 hand-frames, clipping on 0, deepest 0.0 mm ()
+  lead on the mic stand vs own body: 126 hand-frames, clipping on 0, deepest 0.0 mm ()
+  tambourine hand vs mic stand: 126 hand-frames, clipping on 0, deepest 0.0 mm ()
+  tambourine hand vs own body: 126 hand-frames, clipping on 0, deepest 0.0 mm ()
+  tambourine slap hand vs instrument: 126 hand-frames, clipping on 6, deepest 24.0 mm (O16:band_tamb 119.64s forearm tambourine)
+  tambourine slap hand vs mic stand: 126 hand-frames, clipping on 0, deepest 0.0 mm ()
+  tambourine slap hand vs own body: 126 hand-frames, clipping on 0, deepest 0.0 mm ()
+  closed claps, crowd clap: 3 frames, palm gap min -0.8 mm, median -0.3, max 0.8 (0 = touching; negative = into each other)
+  closed claps, kick player clap: 1 frames, palm gap min -1.3 mm, median -1.3, max -1.3 (0 = touching; negative = into each other)
+arm and hand checks (blender/arm_checks.py; counts are hand-frames failing / checked):
+  banjo fretting: index, middle or ring tip off the fretboard: 0 of 126
+  banjo fretting: knuckles not below the treble edge: 0 of 126
+  banjo fretting: palm facing the neck, min (cos) 0.9189 (O16:band_banjo 120.37s)
+  banjo fretting: palm more than 3.5 cm off the neck: 0 of 126
+  banjo fretting: palm not facing the neck (more than 60 deg off): 0 of 126
+  banjo fretting: palm to the neck's surface, max (m) 0.0149 (O16:band_banjo 120.24s)
+  banjo fretting: thumb neither behind the neck nor over its top: 0 of 126
+  banjo picking: forearm (first half) to the rest edge, max (m) 0.0236 (O16:band_banjo 122.34s)
+  banjo picking: forearm below horizontal, min (deg) 27.3963 (O16:band_banjo 122.34s)
+  banjo picking: forearm more than 2.5 cm off the rest edge: 0 of 126
+  banjo picking: hand above the elbow: 0 of 126
+  banjo picking: upper arm below horizontal, min (deg) 45.6778 (O16:band_banjo 119.24s)
+  banjo picking: upper arm under 45 deg below horizontal: 0 of 126
+  crowd clap: closed clap with a palm not facing the other hand: 0 of 3
+  crowd clap: closed clap, palm facing the other hand, min (cos) 0.9879 (O16:crowd6 118.54s)
+  crowd clap: closed claps, palm facing (cos, min/median): 0.99 / 0.99
+  guitar fretting: index, middle or ring tip off the fretboard: 8 of 126
+  guitar fretting: knuckles not below the treble edge: 0 of 126
+  guitar fretting: palm facing the neck, min (cos) 0.9446 (O16:band_guitar 118.44s)
+  guitar fretting: palm more than 3.5 cm off the neck: 8 of 126
+  guitar fretting: palm not facing the neck (more than 60 deg off): 0 of 126
+  guitar fretting: palm to the neck's surface, max (m) 0.067 (O16:band_guitar 118.57s)
+  guitar fretting: thumb neither behind the neck nor over its top: 8 of 126
+  guitar strumming: forearm (first half) to the rest edge, max (m) 0.012 (O16:band_guitar 121.21s)
+  guitar strumming: forearm below horizontal, min (deg) 24.3279 (O16:band_guitar 120.11s)
+  guitar strumming: forearm more than 2.5 cm off the rest edge: 0 of 126
+  guitar strumming: hand above the elbow: 0 of 126
+  guitar strumming: upper arm below horizontal, min (deg) 47.4597 (O16:band_guitar 122.24s)
+  guitar strumming: upper arm under 45 deg below horizontal: 0 of 126
+  kick player clap: closed clap with a palm not facing the other hand: 0 of 1
+  kick player clap: closed clap, palm facing the other hand, min (cos) 0.9587 (O16:band_kick 118.44s)
+  kick player clap: closed claps, palm facing (cos, min/median): 0.96 / 0.96
+closest mouth to mic grille per build and singer (m, s): O16:band_banjo 0.073; O16:band_guitar 0.083; O16:band_singer 0.075; O16:band_tamb 0.078

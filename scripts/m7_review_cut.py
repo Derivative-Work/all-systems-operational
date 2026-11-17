@@ -144,23 +144,46 @@ def main_run(a):
     joined = A.SEG / "joined.mp4"
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(joined)],
                    check=True)
+    nframes, dur = mux(joined, a.out)
+    json.dump({"shots": how_of, "subs": SOURCES}, open(SOURCES_JSON, "w"), indent=1)
+    first = sorted(k for k, v in SOURCES.items() if v.startswith("M7 first pass"))
+    print(f"{a.out}: {nframes} frames, {dur:.3f} s; first-pass frames in: {', '.join(first) or 'none'}")
+
+
+def mux(joined, out):
+    """The joined picture with its audio: the song from its first downbeat (shot_times song_audio_from_s, 2.4 s) on the
+    cut from the post to O02 (human interventions 32), trimmed there, a 10 ms fade in, placed at the cut, to O24; then
+    the credits music. ffmpeg 8's adelay shifts the timestamps rather than writing silence, and the asetpts after the
+    trim then pulled the song back to 0 (the first master, production log 81): aresample=async writes the silence.
+    Checked after: no sound before the cut, sound just after it."""
     nframes = int(subprocess.run(["ffprobe", "-v", "error", "-count_frames", "-select_streams", "v:0", "-show_entries",
                                   "stream=nb_read_frames", "-of", "csv=p=0", str(joined)], capture_output=True,
                                  text=True).stdout.strip())
     dur, t24 = nframes / FPS, O24_FRAME / FPS
-    # the song from its first downbeat (shot_times song_audio_from_s, 2.4 s) on the cut from the post to O02 (human
-    # interventions 32): trimmed there, a 10 ms fade in, placed at the cut
     lead, head = A.TS["lead_in_s"], A.TS.get("song_audio_from_s", 0.0)
+    cut = lead + head
     af = (f"[1:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=start={head:.4f},asetpts=PTS-STARTPTS,"
-          f"afade=t=in:d=0.01,adelay={int(round((lead + head) * 1000))}:all=1,"
+          f"afade=t=in:d=0.01,adelay={int(round(cut * 1000))}:all=1,aresample=async=1:first_pts=0,"
           f"apad=whole_dur={t24:.4f},atrim=start=0:end={t24:.4f},asetpts=PTS-STARTPTS[s];"
           f"[2:a]aformat=sample_rates=48000:channel_layouts=stereo,asetpts=PTS-STARTPTS[c];"
           f"[s][c]concat=n=2:v=0:a=1,apad=whole_dur={dur:.4f},atrim=end={dur:.4f}[a]")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(joined), "-i", SONG, "-i", CREDITS, "-filter_complex", af,
-                    "-map", "0:v", "-map", "[a]", "-c:v", "copy"] + AUDIO + ["-movflags", "+faststart", a.out], check=True)
-    json.dump({"shots": how_of, "subs": SOURCES}, open(SOURCES_JSON, "w"), indent=1)
-    first = sorted(k for k, v in SOURCES.items() if v.startswith("M7 first pass"))
-    print(f"{a.out}: {nframes} frames, {dur:.3f} s; first-pass frames in: {', '.join(first) or 'none'}")
+                    "-map", "0:v", "-map", "[a]", "-c:v", "copy"] + AUDIO + ["-movflags", "+faststart", str(out)],
+                   check=True)
+    before, after = level_db(out, 0.0, cut - 0.05), level_db(out, cut, 2.0)
+    print(f"audio: {before} dB max before the cut at {cut:.2f} s, {after} dB max in the 2 s after it")
+    if before > -60 or after < -30:
+        raise SystemExit(f"{out}: the song is not placed at the cut ({before} dB before, {after} dB after)")
+    return nframes, dur
+
+
+def level_db(path, t0, d):
+    """The peak level (dB) of the audio from t0 for d seconds (-inf as -200)."""
+    e = subprocess.run(["ffmpeg", "-v", "info", "-ss", f"{t0:.3f}", "-t", f"{d:.3f}", "-i", str(path), "-vn", "-af",
+                        "volumedetect", "-f", "null", "-"], capture_output=True, text=True).stderr
+    m = [ln for ln in e.splitlines() if "max_volume:" in ln]
+    v = m[-1].split("max_volume:")[1].split()[0] if m else "-inf"
+    return -200.0 if "inf" in v else float(v)
 
 
 def share(a):

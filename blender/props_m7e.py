@@ -365,7 +365,11 @@ _HELD = {}
 def held_mug_mesh(role):
     """poses._mug_mesh's big diner mug (8 x 12 cm, centred on its origin, handle toward +X), turned."""
     if role in _HELD:
-        return _HELD[role]
+        try:
+            _HELD[role].name    # still in bpy.data? (a session that builds several shots resets the scene between them)
+            return _HELD[role]
+        except ReferenceError:
+            del _HELD[role]
     b = gb.Builder([K.mat(role, 0.35), K.mat("coffee", 0.1)])
     b.roles = [role, "coffee"]
     b.i = lambda r: b.roles.index(r)
