@@ -5,8 +5,7 @@ YouTube metadata for the main video, ready to paste at upload once the checklist
 **Before uploading:**
 - **The final report** (due November 20): read it, confirm the branch (A is the working plan; brief, "Branches by report outcome"), check the bridge, the whiteboard and the fact card against it, and fill in the fact card's "[link once published]". If it names an AI-assisted change, the description's "What happened" changes with the card.
 - **The audits** (M6): run in each lab's app and logged in `log/audits/`. Fill in "[models, dates]" in the disclosure card, the description and the README.
-- **The end card's placeholders:** "music by [generator]" and "Audit log: [repo link]" (https://github.com/Derivative-Work/all-systems-operational).
-- **The credits music:** how it was made, for the end card, the credits below and the README.
+- **The end card's placeholders:** "music by [generator]" (Suno: the song and the credits instrumental are both Suno V6) and "Audit log: [repo link]" (https://github.com/Derivative-Work/all-systems-operational).
 - **The "No license found" capture** (0:02–0:05): permission from the person who posted it, or the creator's own capture in its place. Either way, decide about `review/m3_screens.jpg` before the repository goes public: the M3 contact sheet shows the placeholder as one small tile, and it has been in git since 710f260.
 - **Re-check the news and every link** the day before. Everything here is as of November 16.
 - **Make the repository public.** The end card and the description link to it; it's private until then.
@@ -86,7 +85,7 @@ The outage-report spike at the start is drawn from Downdetector counts reported 
 CREDITS
 Words: Claude, audited by [models, dates]
 Music: Suno V6, edited and mastered by a human in Logic Pro; post-filtered with music-deslop (M6f 10k)
-Credits music: [how it was made]
+Credits music: an instrumental cover of the song in Suno V6, post-filtered with music-deslop
 Rooms and people: Blender, with the people kit from Ever Present (MPFB, MakeHuman CC0 assets)
 Two shots: FLUX.2 [dev] and LTX-2.3 in ComfyUI
 Screens, cards and edit: Claude Code with Opus 5.5 (Remotion)

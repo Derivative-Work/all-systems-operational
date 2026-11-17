@@ -35,6 +35,8 @@ models/
 # snapshot JSON and Markdown are kept; the raw page dumps and API responses are not.
 docs/suno/resp_*.json
 docs/suno/page.html
+docs/suno_credits/resp_*.json
+docs/suno_credits/page.html
 docs/planning_chat/planning_chat.html
 
 # Review stills (large): in the manifest; the contact sheets (review/*.jpg) stay in git
