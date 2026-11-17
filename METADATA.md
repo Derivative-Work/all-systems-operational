@@ -9,13 +9,13 @@ YouTube metadata for the main video, ready to paste at upload once the checklist
 - **Re-check the news and every link** the day before. Everything here is as of November 16.
 - **Make the repository public.** The end card and the description link to it; it's private until then.
 - **Intervention count:** update the number in the description (`grep -c '^## ' log/human_interventions.md`; 28 on 2026-11-16).
-- **Chapters:** recompute from the final cut (`timing/shot_times.json`, and the end sequence's plan in `review/m7_end/plan.txt`). The ones below are the current cut's (the intro's chapter starts at 0:10, not at the song's 0:08.4, because YouTube wants each chapter at least 10 s long): the song as timed now and the end cards fading at 2:34.6 into the credits music (decisions 45, still open).
+- **Chapters:** recompute from the final cut (`timing/shot_times.json`, and the end sequence's plan in `review/m7_end/plan.txt`). The ones below are the current cut's, from the shots' starts (the intro's chapter starts at 0:10, not at the song's 0:07.6, because YouTube wants each chapter at least 10 s long; the song starts on its first downbeat, decisions 47): the end cards fade at 2:34.6 into the credits music (decisions 45; kept, human interventions 32).
 
 ---
 
 ## Main video (16:9, 1920×1080, 30 fps)
 
-**File:** to come at M7/M8 (6:42.6 with the current end sequence: the 8.4 s bookend, the song's 3:59.6, then 2:34.6 of cards). Captions: `lyrics/as_sung_lines_video.srt` (72 cues, the v1.3 lyrics as sung, line by line, in video time). Thumbnail: not made yet.
+**File:** to come at M7/M8 (6:39.4 with the current end sequence: the 7.6 s bookend, the song from its first downbeat, 3:57.2, then 2:34.6 of cards). Captions: `lyrics/as_sung_lines_video.srt` (72 cues, the v1.3 lyrics as sung, line by line, in video time). Thumbnail: not made yet.
 
 ### Title
 
@@ -44,19 +44,19 @@ https://github.com/Derivative-Work/all-systems-operational
 CHAPTERS
 0:00 The outage, for real
 0:10 Intro: we're investigating reports
-0:34 Verse 1: the inbox went still
-0:52 Pre-chorus: we are aware
-1:03 Chorus: all systems operational
-1:32 Build: everybody at once
-1:47 Verse 2: the agents that we hired
-2:11 Chorus 2
-2:39 Bridge: root cause
-2:59 Build: restored for most users
-3:11 Final chorus
-3:30 Outro: remember Wednesday?
-4:08 End card
-4:26 What happened
-6:12 Disclosure
+0:31 Verse 1: the inbox went still
+0:49 Pre-chorus: we are aware
+1:00 Chorus: all systems operational
+1:29 Build: everybody at once
+1:43 Verse 2: the agents that we hired
+2:07 Chorus 2
+2:36 Bridge: root cause
+2:55 Build: restored for most users
+3:07 Final chorus
+3:27 Outro: remember Wednesday?
+4:04 End card
+4:23 What happened
+6:09 Disclosure
 
 WHAT HAPPENED
 (As of November 16, 2026.)

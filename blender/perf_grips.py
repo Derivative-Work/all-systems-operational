@@ -631,7 +631,7 @@ class Strumming:
         best[3]["n_ok"] = n_ok
         self.E_hold, self.W_hold, self.hold_info = best[1], best[2], best[3]
 
-    def solve(self, rel, h, flex, first=False):
+    def solve(self, rel, h, flex, first=False, lift=None, max_extra=None):
         """Each frame: the hold's elbow carried by the spine; the pick point moved by the stroke h across the
         strings; the forearm turns about the elbow to put the pick finger on it, the wrist bent by flex; the hand
         lifted off the top a little at a time if any sphere is still in the body."""
@@ -643,13 +643,27 @@ class Strumming:
         P = rel @ ins.P(self.P0) + Y * h
         n = (R3 @ ins.D(self.n_l)).normalized()
         W, _ = self.place(E, P, flex, rel @ self.W_hold, iters=3, n=n)
+        tot = 0.0
+        if lift:                                     # M7e: the lift smoothed over time (blender/perf_band.py)
+            W = W + Zt * lift
+            tot = lift
+            body.two_bone("RightArm", "RightForeArm", W, E)
+            body.hand_follow("Right", n, flex, 0.0)
+        capped = 0.0
         for _ in range(12):
             pen = arm_penetration_rel(body, "Right", self.ob, rel)
             if pen <= 0.002:
                 break
-            W = W + Zt * (pen * 0.6 + 0.002)
+            step = pen * 0.6 + 0.002
+            if max_extra is not None and tot + step - (lift or 0.0) > max_extra:
+                capped = pen                         # M7e: no one-frame jump; what's left is logged
+                break
+            W = W + Zt * step
+            tot += step
             body.two_bone("RightArm", "RightForeArm", W, E)
             body.hand_follow("Right", n, flex, 0.0)
+        self.lifts = getattr(self, "lifts", []) + [tot]
+        self.capped = getattr(self, "capped", []) + [capped]
         return W
 
 

@@ -60,7 +60,13 @@
     "kick_hoop": "#2a1c14",
     "phone_body": "#2a2b2d",
     "brick": "#e4e2dc",
-    "paper": "#efe8da"
+    "paper": "#efe8da",
+    "chrome": "#c9cbce",
+    "drum_head": "#e9e4d8",
+    "coffee": "#2a170d",
+    "rubber": "#151516",
+    "felt": "#d8d2c4",
+    "rack_door": "#1e2024"
   },
   "rooms": {
     "live": {

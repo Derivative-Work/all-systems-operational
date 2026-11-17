@@ -1,0 +1,42 @@
+{
+ "generated_by": "scripts/motion_check.py",
+ "win": 13,
+ "subs": [
+  {
+   "sub": "O09f",
+   "frames": 71,
+   "shake_rms_px": 6.22,
+   "shake_peak_px": 10.0,
+   "shake_vel_rms_px": 2.32,
+   "smooth_speed_px": 2.77,
+   "confidence": 0.896
+  },
+  {
+   "sub": "O11f",
+   "frames": 18,
+   "shake_rms_px": 2.26,
+   "shake_peak_px": 3.2,
+   "shake_vel_rms_px": 0.58,
+   "smooth_speed_px": 1.95,
+   "confidence": 0.986
+  },
+  {
+   "sub": "O14c",
+   "frames": 58,
+   "shake_rms_px": 0.27,
+   "shake_peak_px": 1.13,
+   "shake_vel_rms_px": 0.08,
+   "smooth_speed_px": 0.49,
+   "confidence": 0.883
+  },
+  {
+   "sub": "O14b",
+   "frames": 72,
+   "shake_rms_px": 0.24,
+   "shake_peak_px": 0.7,
+   "shake_vel_rms_px": 0.14,
+   "smooth_speed_px": 0.56,
+   "confidence": 0.887
+  }
+ ]
+}

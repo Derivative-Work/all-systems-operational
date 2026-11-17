@@ -1,0 +1,3 @@
+{"sub": "O03c", "build": "O03", "frames": 72, "clip_frames": {"kick_pedal_board": 68}, "min_d": {"kick_pedal_base": 0.0097, "kick_pedal_board": 0.0, "kick_pedal_beater": 0.0355, "kick_pedal_chain": 0.0333}, "closest_f": 304, "closest_d": 0.0}
+{"sub": "O14b", "build": "O14", "frames": 72, "clip_frames": {"kick_pedal_board": 68}, "min_d": {"kick_pedal_base": 0.0096, "kick_pedal_board": 0.0, "kick_pedal_beater": 0.0355, "kick_pedal_chain": 0.0333}, "closest_f": 88, "closest_d": 0.0}
+{"sub": "O19c", "build": "O19b", "frames": 36, "clip_frames": {"kick_pedal_board": 32}, "min_d": {"kick_pedal_base": 0.0097, "kick_pedal_board": 0.0, "kick_pedal_beater": 0.0365, "kick_pedal_chain": 0.0338}, "closest_f": 126, "closest_d": 0.0}

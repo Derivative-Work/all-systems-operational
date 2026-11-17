@@ -1,0 +1,307 @@
+{
+ "generated_by": "scripts/flash_check.py",
+ "video": "review/m7_cut_v2.mp4",
+ "frames": 12078,
+ "from_s": 0.0,
+ "rule": "fail: a 10-degree field with > 3 flashes (>= 7 alternating transitions, each over a quarter of it at once) in the last second; field_share: the share of field positions failing",
+ "peak": {
+  "general": {
+   "fields": 209,
+   "t": 102.267
+  },
+  "red": {
+   "fields": 1,
+   "t": 102.067
+  }
+ },
+ "failing_spans": [
+  {
+   "kind": "red",
+   "from_frame": 3062,
+   "to_frame": 3064,
+   "from_t": 102.067,
+   "to_t": 102.133,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3065,
+   "to_frame": 3065,
+   "from_t": 102.167,
+   "to_t": 102.167,
+   "max_share": 0.001
+  },
+  {
+   "kind": "red",
+   "from_frame": 3065,
+   "to_frame": 3065,
+   "from_t": 102.167,
+   "to_t": 102.167,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3066,
+   "to_frame": 3066,
+   "from_t": 102.2,
+   "to_t": 102.2,
+   "max_share": 0.001
+  },
+  {
+   "kind": "red",
+   "from_frame": 3066,
+   "to_frame": 3066,
+   "from_t": 102.2,
+   "to_t": 102.2,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3067,
+   "to_frame": 3067,
+   "from_t": 102.233,
+   "to_t": 102.233,
+   "max_share": 0.001
+  },
+  {
+   "kind": "red",
+   "from_frame": 3067,
+   "to_frame": 3067,
+   "from_t": 102.233,
+   "to_t": 102.233,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3068,
+   "to_frame": 3068,
+   "from_t": 102.267,
+   "to_t": 102.267,
+   "max_share": 0.194
+  },
+  {
+   "kind": "red",
+   "from_frame": 3068,
+   "to_frame": 3068,
+   "from_t": 102.267,
+   "to_t": 102.267,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3069,
+   "to_frame": 3069,
+   "from_t": 102.3,
+   "to_t": 102.3,
+   "max_share": 0.194
+  },
+  {
+   "kind": "red",
+   "from_frame": 3069,
+   "to_frame": 3069,
+   "from_t": 102.3,
+   "to_t": 102.3,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3070,
+   "to_frame": 3070,
+   "from_t": 102.333,
+   "to_t": 102.333,
+   "max_share": 0.194
+  },
+  {
+   "kind": "red",
+   "from_frame": 3070,
+   "to_frame": 3070,
+   "from_t": 102.333,
+   "to_t": 102.333,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3071,
+   "to_frame": 3071,
+   "from_t": 102.367,
+   "to_t": 102.367,
+   "max_share": 0.194
+  },
+  {
+   "kind": "red",
+   "from_frame": 3071,
+   "to_frame": 3071,
+   "from_t": 102.367,
+   "to_t": 102.367,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3072,
+   "to_frame": 3072,
+   "from_t": 102.4,
+   "to_t": 102.4,
+   "max_share": 0.194
+  },
+  {
+   "kind": "red",
+   "from_frame": 3072,
+   "to_frame": 3072,
+   "from_t": 102.4,
+   "to_t": 102.4,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3073,
+   "to_frame": 3073,
+   "from_t": 102.433,
+   "to_t": 102.433,
+   "max_share": 0.194
+  },
+  {
+   "kind": "red",
+   "from_frame": 3073,
+   "to_frame": 3073,
+   "from_t": 102.433,
+   "to_t": 102.433,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3074,
+   "to_frame": 3074,
+   "from_t": 102.467,
+   "to_t": 102.467,
+   "max_share": 0.194
+  },
+  {
+   "kind": "red",
+   "from_frame": 3074,
+   "to_frame": 3074,
+   "from_t": 102.467,
+   "to_t": 102.467,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3075,
+   "to_frame": 3075,
+   "from_t": 102.5,
+   "to_t": 102.5,
+   "max_share": 0.194
+  },
+  {
+   "kind": "red",
+   "from_frame": 3075,
+   "to_frame": 3075,
+   "from_t": 102.5,
+   "to_t": 102.5,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3076,
+   "to_frame": 3076,
+   "from_t": 102.533,
+   "to_t": 102.533,
+   "max_share": 0.194
+  },
+  {
+   "kind": "red",
+   "from_frame": 3076,
+   "to_frame": 3076,
+   "from_t": 102.533,
+   "to_t": 102.533,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3077,
+   "to_frame": 3077,
+   "from_t": 102.567,
+   "to_t": 102.567,
+   "max_share": 0.194
+  },
+  {
+   "kind": "red",
+   "from_frame": 3077,
+   "to_frame": 3077,
+   "from_t": 102.567,
+   "to_t": 102.567,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3078,
+   "to_frame": 3078,
+   "from_t": 102.6,
+   "to_t": 102.6,
+   "max_share": 0.002
+  },
+  {
+   "kind": "red",
+   "from_frame": 3078,
+   "to_frame": 3078,
+   "from_t": 102.6,
+   "to_t": 102.6,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3079,
+   "to_frame": 3079,
+   "from_t": 102.633,
+   "to_t": 102.633,
+   "max_share": 0.002
+  },
+  {
+   "kind": "red",
+   "from_frame": 3079,
+   "to_frame": 3079,
+   "from_t": 102.633,
+   "to_t": 102.633,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3080,
+   "to_frame": 3080,
+   "from_t": 102.667,
+   "to_t": 102.667,
+   "max_share": 0.001
+  },
+  {
+   "kind": "red",
+   "from_frame": 3080,
+   "to_frame": 3080,
+   "from_t": 102.667,
+   "to_t": 102.667,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3081,
+   "to_frame": 3081,
+   "from_t": 102.7,
+   "to_t": 102.7,
+   "max_share": 0.001
+  },
+  {
+   "kind": "red",
+   "from_frame": 3081,
+   "to_frame": 3081,
+   "from_t": 102.7,
+   "to_t": 102.7,
+   "max_share": 0.001
+  },
+  {
+   "kind": "general",
+   "from_frame": 3082,
+   "to_frame": 3082,
+   "from_t": 102.733,
+   "to_t": 102.733,
+   "max_share": 0.001
+  }
+ ]
+}

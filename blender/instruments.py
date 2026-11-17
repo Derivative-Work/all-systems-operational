@@ -53,7 +53,10 @@ def mats():
 
 
 class IB(gb.Builder):
-    """gb.Builder with oriented cylinders, rods, boxes in any orientation and prisms from 2D outlines."""
+    """gb.Builder with oriented cylinders, rods, boxes in any orientation and prisms from 2D outlines.
+    M7E (blender/props_m7e.py install, the M7 look only; human interventions 32: "hard corners on round surfaces"):
+    rings and prisms' sides shaded smooth (the edge split keeps their corners), the banjo's pot rebuilt."""
+    M7E = False
 
     def __init__(self, M):
         self.keys = list(M)
@@ -89,7 +92,7 @@ class IB(gb.Builder):
             fs.append(self.bm.faces.new([bot[i], bot[(i + 1) % n], top[(i + 1) % n], top[i]]))
         for f in fs:
             f.material_index = self.mi(k)
-            f.smooth = False
+            f.smooth = self.M7E
         bmesh.ops.recalc_face_normals(self.bm, faces=fs)
 
     def ring(self, c, r0, r1, z0, z1, k, segs=48, a0=0.0, a1=2 * math.pi):
@@ -114,6 +117,8 @@ class IB(gb.Builder):
                 fs.append(self.bm.faces.new([ib[i], it[i], ot[i], ob[i]]))
         for f in fs:
             f.material_index = self.mi(k)
+            if self.M7E:
+                f.smooth = True
         bmesh.ops.recalc_face_normals(self.bm, faces=fs)
 
 
@@ -323,18 +328,21 @@ def banjo(name):
     B = IB(M)
     c = Vector((POT_C, 0, 0))
     # pot: head, tension hoop, wooden rim, flange, resonator, brackets
-    B.cyl(c + Vector((0, 0, -0.001)), HEAD_R, 0.002, "head", segs=56)
-    B.ring(c, HEAD_R - 0.002, HEAD_R + 0.006, -0.002, 0.007, "hoop", segs=56)                 # tension hoop
-    B.ring(c, HEAD_R - 0.012, HEAD_R + 0.008, -0.068, -0.002, "rim", segs=56)                 # rim
-    B.ring(c, HEAD_R + 0.006, 0.172, -0.034, -0.029, "hoop", segs=56)                         # flange
-    B.ring(c, 0.163, 0.172, -0.078, -0.029, "rim", segs=56)                                   # resonator sides
-    B.cyl(c + Vector((0, 0, -0.076)), 0.165, 0.005, "rim", segs=56)                           # resonator back (shallow)
+    if B.M7E:
+        _pot_m7e(B, c)
+    else:
+        B.cyl(c + Vector((0, 0, -0.001)), HEAD_R, 0.002, "head", segs=56)
+        B.ring(c, HEAD_R - 0.002, HEAD_R + 0.006, -0.002, 0.007, "hoop", segs=56)                 # tension hoop
+        B.ring(c, HEAD_R - 0.012, HEAD_R + 0.008, -0.068, -0.002, "rim", segs=56)                 # rim
+        B.ring(c, HEAD_R + 0.006, 0.172, -0.034, -0.029, "hoop", segs=56)                         # flange
+        B.ring(c, 0.163, 0.172, -0.078, -0.029, "rim", segs=56)                                   # resonator sides
+        B.cyl(c + Vector((0, 0, -0.076)), 0.165, 0.005, "rim", segs=56)                           # resonator back (shallow)
     nb = 24
     for k in range(nb):
         a = 2 * math.pi * (k + 0.5) / nb
         d = Vector((math.cos(a), math.sin(a), 0))
         B.rod(c + d * (HEAD_R + 0.008) + Vector((0, 0, 0.004)), c + d * (HEAD_R + 0.016) + Vector((0, 0, -0.03)),
-              0.0022, "chrome", segs=6)                                                          # hooks and nuts
+              0.0022, "chrome", segs=10 if B.M7E else 6)                                         # hooks and nuts
         B.cyl(c + d * (HEAD_R + 0.016) + Vector((0, 0, -0.026)), 0.0035, 0.008, "chrome", segs=6)
     # armrest over the hoop on the tail side, toward the bass side (where the picking forearm lies)
     B.ring(c, HEAD_R + 0.0, HEAD_R + 0.016, 0.009, 0.015, "hoop", segs=24,
@@ -399,6 +407,22 @@ def banjo(name):
     pts = {"pot": c, "head_r": HEAD_R, "x5": x5, "armrest": (100, 178), "heelpin": Vector((heel_x + 0.03, 0, -0.06)),
            "endpin": Vector((c.x - 0.172, 0, -0.05)), "tail_x": t0}
     return o, Spec("banjo", N, sy, sz, 4, pts, 0.078, [])
+
+
+def _pot_m7e(B, c, S=144):
+    """M7e: the banjo's pot turned from profiles, no two faces in one plane (the grey box's flange and resonator
+    shared their top face and outer band: z-fighting, human interventions 32), 144 sides (was 56)."""
+    import props_m7e as PM
+    R = HEAD_R
+    # the head a thin closed solid (an open sheet confused the picking arm's penetration test: perf_grips.Strumming)
+    PM.lathe(B, [(0.0, 0.0), (R - 0.003, 0.0), (R + 0.0006, -0.0015), (R + 0.0012, -0.004), (R - 0.0004, -0.004),
+                 (R - 0.0032, -0.0016), (0.0, -0.0016)], "head", c, (0, 0, 1), S)
+    PM.lathe(B, PM.rrect(R - 0.012, R + 0.003, -0.066, -0.002, 0.003), "rim", c, (0, 0, 1), S, closed=True)
+    PM.lathe(B, PM.rrect(R - 0.0015, R + 0.0065, -0.003, 0.0075, 0.003), "hoop", c, (0, 0, 1), S, closed=True)
+    PM.lathe(B, PM.rrect(R + 0.003, 0.1705, -0.035, -0.0295, 0.002), "hoop", c, (0, 0, 1), S, closed=True)
+    PM.lathe(B, [(0.0, -0.0785), (0.158, -0.0785), (0.1665, -0.0765), (0.1708, -0.0715), (0.172, -0.066),
+                 (0.172, -0.0385), (0.1712, -0.0362), (0.1695, -0.0357), (0.1672, -0.0362), (0.1655, -0.0385),
+                 (0.1655, -0.068), (0.163, -0.0728), (0.157, -0.0745), (0.0, -0.0745)], "rim", c, (0, 0, 1), S)
 
 
 # ---------------------------------------------------------------- placing an instrument on a player

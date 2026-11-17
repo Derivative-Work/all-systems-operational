@@ -26,7 +26,11 @@ import aso_kit as K  # noqa: E402
 
 
 class B(gb.Builder):
-    """gb.Builder with oriented cylinders and tori, by palette role."""
+    """gb.Builder with oriented cylinders and tori, by palette role.
+    M7E (set by blender/props_m7e.py install, the M7 look only): boxes with rounded edges, larger cylinders with more
+    sides, real tori, and objects shaded smooth with edges over 46 degrees kept hard (human interventions 32: the
+    grey box shaded every face smooth)."""
+    M7E = False
 
     def __init__(self, roles, rough=None):
         self.roles = list(roles)
@@ -38,6 +42,8 @@ class B(gb.Builder):
     def cyl(self, c, r, h, role, axis=(0, 0, 1), r2=None, segs=20, caps=True, spin=0.0):
         # spin (radians) turns the cylinder about its own axis first: bmesh puts the first corner on +X, so a 4-sided
         # one has its corners on the axes; spin=pi/4 puts them on the diagonals (M7: the park lantern, production log 66)
+        if self.M7E and max(r, r2 or 0.0) >= 0.03 and segs > 4:
+            segs = max(segs, 64)
         res = bmesh.ops.create_cone(self.bm, cap_ends=caps, segments=segs, radius1=r, radius2=r if r2 is None else r2,
                                     depth=h)
         rot = Vector((0, 0, 1)).rotation_difference(Vector(axis).normalized()).to_matrix().to_4x4()
@@ -50,9 +56,17 @@ class B(gb.Builder):
         self.cyl((a + b) / 2, r, (b - a).length, role, axis=b - a, segs=segs)
 
     def bx(self, c, size, role, rot=(0, 0, 0)):
+        if self.M7E:
+            import props_m7e as PM
+            PM.bbox(self, c, size, role, 0.004, rot=rot)
+            return
         self.box(c, size, self.i(role), rot)
 
     def torus(self, c, R, r, role, axis=(0, 0, 1), segs=24):
+        if self.M7E:
+            import props_m7e as PM
+            PM.torus(self, c, R, r, role, axis, max(segs * 3, 48), 10)
+            return
         # a ring of short rods approximates the torus
         pts = [Vector((R * math.cos(2 * math.pi * k / segs), R * math.sin(2 * math.pi * k / segs), 0)) for k in range(segs)]
         rot = Vector((0, 0, 1)).rotation_difference(Vector(axis).normalized()).to_matrix()
@@ -60,7 +74,11 @@ class B(gb.Builder):
             self.rod(Vector(c) + rot @ pts[k], Vector(c) + rot @ pts[(k + 1) % segs], r, role, segs=6)
 
     def obj(self, name, parent=None, loc=(0, 0, 0), rot_z=0.0):
-        return gb.mesh_obj(name, self.to_mesh(name), loc, rot_z, parent)
+        o = gb.mesh_obj(name, self.to_mesh(name), loc, rot_z, parent)
+        if self.M7E:
+            import props_m7e as PM
+            PM.finish(o)
+        return o
 
 
 def _outline_guitar(n=40, lower=0.19, upper=0.145, waist=0.12, L=0.48):

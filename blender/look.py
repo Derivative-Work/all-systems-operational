@@ -26,6 +26,7 @@ textures; Little Switch's plane is untouched; the station's look stays generic (
 """
 import json
 import math
+import os
 import sys
 from pathlib import Path
 
@@ -56,6 +57,9 @@ M7C = bool(CFG.get("m7c", {}).get("on"))
 # shading, thinner bare trees, the far plate's seam, O08c's night outside, the drop cues, the instrument closes, the
 # back path at O19b's start); on whenever the look is (config m7d.on)
 M7D = bool(CFG.get("m7d", {}).get("on"))
+# M7e (human interventions 32): the remodelled props, the camera's handheld feel, the picking hand, the flicker-safe
+# ON AIR sign and park lamp; ASO_M7E_OFF=1 renders without it (comparisons only)
+M7E = bool(CFG.get("m7e", {}).get("on")) and os.environ.get("ASO_M7E_OFF") != "1"
 # M1b (production log 57; human interventions 24): lyrics v1.3 on screen: O18's v1.3 whiteboard (config m1b.on); the v1.3
 # music map is chosen in coverage_m7.py, before coverage.py reads it
 M1B = bool(CFG.get("m1b", {}).get("on"))
@@ -63,6 +67,14 @@ M1B = bool(CFG.get("m1b", {}).get("on"))
 
 def enable(engine="eevee"):
     ENGINE[0] = engine
+    if M7E:                             # the remodelled props (blender/props_m7e.py), before any build makes them
+        import coverage as C
+        import perf_band as PB
+        import props_m7e as PM
+        print(PM.install(), flush=True)
+        C.HANDHELD = CFG["m7e"]["handheld"]
+        C.ONAIR_SAFE = CFG["m7e"]["flicker"]
+        PB.PICKING = CFG["m7e"]["picking"]
     S.POST_BUILD.append(post_build)
     PR.TREE_HOOK = conifer
     S.DRIZZLE_HOOK = drizzle
@@ -385,6 +397,37 @@ def painted(m, base, rough=0.5, metal=0.0, coat=0.0, var=0.05):
     col = nb.mix(1.0, base, nb.comb(t, t, t), "MULTIPLY")
     r = nb.madd(n1, 0.15, rough - 0.07)
     b = nb.principled(col, r, metal=metal, coat=coat)
+    nb.out(b.outputs[0])
+    return m
+
+
+def perforated(m, base, pitch=0.011, hole=0.62, rough=0.4):
+    """M7e: a rack door's perforated steel (round holes on a staggered grid, in the object's x-z plane); in the holes,
+    the dark inside with a few status LEDs (a cell in 60 green, one in 400 amber)."""
+    nb = NB(m)
+    tc = nb.n("ShaderNodeTexCoord")
+    x, _, z = nb.sep(tc.outputs["Object"])
+    rz = nb.math("DIVIDE", z, pitch * 0.866)
+    row = nb.math("FLOOR", rz)
+    off = nb.mul(nb.math("FLOORED_MODULO", row, 2.0), 0.5)
+    ux = nb.add(nb.math("DIVIDE", x, pitch), off)
+    fu = nb.math("SUBTRACT", nb.math("FRACT", ux), 0.5)
+    fv = nb.mul(nb.math("SUBTRACT", nb.math("FRACT", rz), 0.5), 0.866)
+    d = nb.math("SQRT", nb.add(nb.mul(fu, fu), nb.mul(fv, fv)))
+    inside = nb.maprange(d, hole * 0.5 - 0.05, hole * 0.5 + 0.03, 1.0, 0.0, smooth=True)
+    cell, _ = nb.white(nb.comb(nb.math("FLOOR", ux), row, 0.0))
+    # the servers' status lights: on every fourth row of holes (a unit's pitch), in a band down one side of the door
+    band = nb.mul(nb.maprange(x, -0.235, -0.225, 0.0, 1.0), nb.maprange(x, -0.15, -0.14, 1.0, 0.0))
+    unit = nb.maprange(nb.math("FLOORED_MODULO", row, 4.0), 0.5, 0.6, 1.0, 0.0)
+    lit = nb.mul(band, unit)
+    g = nb.mul(nb.maprange(cell, 0.72, 0.73, 0.0, 1.0), lit)
+    a = nb.mul(nb.maprange(cell, 0.985, 0.986, 0.0, 1.0), lit)
+    ledc = nb.mix(g, "#000000", "#5fe39a")
+    ledc = nb.mix(a, ledc, "#ffb347")
+    glow = nb.mul(nb.math("MAXIMUM", g, a), inside)
+    col = nb.mix(inside, base, "#050506")
+    rr = nb.madd(inside, 1.0 - rough, rough)
+    b = nb.principled(col, rr, metal=nb.math("SUBTRACT", 0.6, nb.mul(inside, 0.6)), emit=ledc, emit_strength=glow)
     nb.out(b.outputs[0])
     return m
 
@@ -763,7 +806,8 @@ ROLE = {
     "chair_a": lambda m: painted(m, "#6e2e24", 0.45, coat=0.2),
     "chair_b": lambda m: painted(m, "#2f4a3e", 0.45, coat=0.2),
     "chair_c": lambda m: wood(m, "#9a7444", 0.05, 0.6, rough=0.45, coat=0.2, obj=True),
-    "chair_d": lambda m: painted(m, "#222226", 0.35, metal=0.6),
+    # M7e: a dark slate, not near-black (the treehouse's shell chairs read as black screens: human interventions 32)
+    "chair_d": lambda m: painted(m, "#3e464b", 0.4, metal=0.25) if M7E else painted(m, "#222226", 0.35, metal=0.6),
     "mug": lambda m: ceramic(m, "#e8e2d6"),
     "mug2": lambda m: ceramic(m, "#c46a3a"),
     "mug3": lambda m: ceramic(m, "#3f5a6a"),
@@ -785,6 +829,15 @@ ROLE = {
     "paper": lambda m: painted(m, "#efe8da", 0.9),
     "spruce": lambda m: wood(m, "#c9a36a", 0.06, 0.6, rough=0.35, coat=0.7, obj=True, vary=0.05),
     "rosewood": lambda m: wood(m, "#3a2216", 0.06, 0.6, rough=0.4, coat=0.5, obj=True, vary=0.05),
+    # M7e (blender/props_m7e.py; human interventions 32): the remodelled props' parts
+    "chrome": lambda m: painted(m, "#c9cbce", 0.14, metal=1.0, var=0.02),
+    "drum_head": lambda m: painted(m, "#e9e4d8", 0.62, var=0.07),
+    "coffee": lambda m: painted(m, "#2a170d", 0.06, coat=1.0, var=0.03),
+    "rubber": lambda m: painted(m, "#151516", 0.85, var=0.04),
+    "felt": lambda m: fabric(m, "#d8d2c4", weave=900.0),
+    "rack": lambda m: painted(m, "#1a1b1e", 0.42, metal=0.55, var=0.03),
+    "rack_face": lambda m: painted(m, "#0e0f11", 0.6, metal=0.3, var=0.03),
+    "rack_door": lambda m: perforated(m, "#25272b"),
 }
 INST = {
     "inst_top_spruce": lambda m: wood(m, "#c9a36a", 0.035, 0.6, rough=0.3, coat=0.75, obj=True, vary=0.03, gap=0.0),
@@ -1078,6 +1131,28 @@ def post_build(room, st):
         fn(st)
     if M7B and S.OBJ.get("phone_holder") is not None and bpy.data.objects.get("phone_holder") is not None:
         o04_phone(S.OBJ["phone_holder"])
+    if M7E and room == "cafe":
+        probe_mugs()
+
+
+def probe_mugs(r_max=0.32, top=0.7575):
+    """M7e: the probes' two mugs stood 0.39 m from the probe table's centre (its radius is 0.38) and 1.8 cm above
+    its top (blender/sets.py, M3): over the edge, in the air. Moved in to r_max and down onto the top; O14b's close on
+    pmug0 moves with it (camera_hook), so its framing and focus are as approved."""
+    t = bpy.data.objects.get("probe_table")
+    STATE["mug_delta"] = {}
+    if t is None:
+        return
+    c = t.location
+    for nm in ("pmug0", "pmug1"):
+        o = bpy.data.objects.get(nm)
+        if o is None:
+            continue
+        d = Vector((o.location.x - c.x, o.location.y - c.y, 0.0))
+        new = Vector((c.x, c.y, top)) + (d.normalized() * min(d.length, r_max) if d.length > 1e-6 else Vector())
+        STATE["mug_delta"][nm] = new - o.location
+        o.location = new
+    bpy.context.view_layer.update()            # the steam wisps (steam) read the mugs' world positions
 
 
 def live(st):
@@ -1484,10 +1559,56 @@ def haze(room, density=0.02):
 
 # ---------------------------------------------------------------- render settings, compositor
 
+def people_fill(room):
+    """M7e options (human interventions 32: "Give me some other options for lighting levels for the people"): a soft,
+    warm front light on the band and the front of the crowd, as a live session's stage wash, from the audience side
+    (two spots up at 2.8 m, 4.5 m out from the band, 2.2 m either side of its centre; in the park a broad area light,
+    a bounce off the overcast). The level is config/look_m7.json m7e.people_fill.level (watts a spot; 0 is the
+    brief's silhouettes, as approved) or ASO_FILL for the options board. The room's own light is unchanged."""
+    P_ = CFG["m7e"]["people_fill"]
+    w = float(os.environ.get("ASO_FILL", P_["level"]))
+    if w <= 0 or room == "void":
+        return None
+    band = [o for o in (bpy.data.objects.get(f"band_{r}") for r in ("guitar", "banjo", "kick", "tamb", "singer")) if o]
+    crowd = [o for o in bpy.data.objects if o.name.startswith("crowd") and o.type == "EMPTY"]
+    if not band:
+        return None
+    c = sum((o.matrix_world.translation for o in band), Vector()) / len(band)
+    c.z = 0.0
+    if crowd:
+        d = sum((o.matrix_world.translation for o in crowd), Vector()) / len(crowd) - c
+    else:                                          # the band faces its local -Y
+        d = band[0].matrix_world.to_3x3() @ Vector((0, -1, 0))
+    d.z = 0.0
+    d.normalize()
+    lat = Vector((-d.y, d.x, 0.0))
+    tgt = c + Vector((0, 0, 1.3))
+    col = gb.lin(P_["colour"])[:3]
+    if room == "park":
+        o = K.area("m7e_fill_park", tuple(c + d * 6.0 + Vector((0, 0, 1.6))), tuple(tgt), w * P_["park_gain"], 6.0,
+                   P_["colour"], size_y=3.0, shadow=True, spec=0.3)
+        o.data.volume_factor = 0.0
+        return f"M7e people fill {w:g} W (park bounce)"
+    for k, sgn in enumerate((-1, 1)):
+        loc = c + d * P_["dist"] + lat * (sgn * P_["spread"]) + Vector((0, 0, P_["height"]))
+        ld = bpy.data.lights.new(f"m7e_fill{k}", "SPOT")
+        ld.energy, ld.color = w, col
+        ld.spot_size, ld.spot_blend, ld.shadow_soft_size = math.radians(P_["cone_deg"]), 0.7, P_["radius"]
+        ld.use_shadow, ld.volume_factor = True, P_["haze"]
+        o = gb.link(bpy.data.objects.new(f"m7e_fill{k}", ld))
+        o.location = loc
+        o.rotation_euler = gb.look_rot(tuple(loc), tuple(tgt))
+    return f"M7e people fill {w:g} W a spot"
+
+
 def settings(b, room):
     """After coverage.main's render settings: a second material pass (the performances' props and the instruments
     were added after the set), then Eevee or Cycles settings and the bloom."""
     upgrade_materials()
+    if M7E:
+        note = people_fill(room)
+        if note:
+            print(note, flush=True)
     sc = bpy.context.scene
     rc = CFG["render"]
     sc.render.filter_size = rc["filter_size"]
@@ -1916,7 +2037,13 @@ def treehouse_screens(night):
         e = bpy.data.objects.get(f"meeting{i}")
         if e is None:
             continue
-        if kind == "off":
+        if kind == "off" and M7E:
+            # M7e (human interventions 32: "some of them just got black as their texture"): the dark phone read as
+            # an untextured one; it shows the lock screen (M7c's crowd phones'), dim
+            held_phone_screen(e, f"meeting{i}_m7b", lambda fl: screen_mat(
+                "m7e_phone_lock", strength=pe * 0.55, phone=True, flip=fl,
+                still=gb.ROOT / "assets" / "gen" / "tex" / "m7c" / "crowd_lock.jpg"))
+        elif kind == "off":
             held_phone_screen(e, f"meeting{i}_m7b", lambda fl: dark_screen("m7b_phone_off"))
         elif kind == "it_help":
             held_phone_screen(e, f"meeting{i}_m7b", lambda fl: screen_mat(
@@ -1963,6 +2090,11 @@ def hide_from_camera(sub):
 
 def camera_hook(cam, sub, b, f0, f1):
     hide_from_camera(sub)
+    if M7E and sub.get("camera") == "mug_steam" and STATE.get("mug_delta", {}).get("pmug0") is not None:
+        # M7e: the close follows the mug it frames (probe_mugs): the keyed camera carried by an offset parent
+        rig = bpy.data.objects.get("m7e_mug_cam_offset") or gb.link(bpy.data.objects.new("m7e_mug_cam_offset", None))
+        rig.location = STATE["mug_delta"]["pmug0"]
+        cam.parent = rig
     for o in bpy.data.objects:
         for c in o.constraints:
             if c.name == "m7_face_cam":

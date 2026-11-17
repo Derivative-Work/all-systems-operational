@@ -424,11 +424,52 @@ def haze(room, density=0.02):
     return f"haze volume {density} with {spots} window beams"
 
 
+def safe_dips(ts, t0, t1, r, cfg):
+    """M7e: a brightness per frame (1 lit, cfg dim at the bottom of a dip) for a flicker from t0 to t1 that stays
+    under the photosensitive-seizure limit: at most one dip each min_gap_s (so under 3 a second), each dip_s long,
+    easing in and out over ease_s, the gaps closing toward t1."""
+    dips, t = [], t0 + r.uniform(0.05, cfg["min_gap_s"])
+    while t < t1:
+        p = (t - t0) / max(t1 - t0, 1e-3)
+        d = r.uniform(*cfg["dip_s"])
+        dips.append((t, min(t + d, t1)))
+        t += d + cfg["min_gap_s"] * (1.0 + (1.0 - p) * r.uniform(0.3, 1.2))
+    lvl = np.ones(len(ts))
+    e = cfg["ease_s"]
+    for i, tt in enumerate(ts):
+        for a, z in dips:
+            if a - e <= tt <= z + e:
+                w = min(1.0, (tt - (a - e)) / e, ((z + e) - tt) / e)
+                lvl[i] = min(lvl[i], 1.0 - (1.0 - cfg["dim"]) * w)
+    return lvl, dips
+
+
+def _emit_input(m):
+    for nd in m.node_tree.nodes:
+        if nd.type == "EMISSION":
+            return nd, nd.inputs["Strength"]
+    return node_input(m, "BSDF_PRINCIPLED", "Emission Strength")
+
+
 def onair_flicker(b, n, t0, t1):
     """ON AIR (the live room) flickers from song time t0 to t1 (the last beats before stop 1)."""
     lit = S.OBJ.get("onair")
     if lit is None:
         return None
+    if ONAIR_SAFE is not None:                   # M7e: slow dips in brightness, not a per-frame blink
+        frames = np.arange(1, n + 1)
+        ts = np.array([song_t(b, f) for f in frames])
+        lvl, dips = safe_dips(ts, t0, t1, gb.rng(f"m7e_onair_{b}"), ONAIR_SAFE)
+        m = lit.active_material
+        nd, inp = _emit_input(m)
+        if inp is not None:
+            key_series(m.node_tree, f'nodes["{nd.name}"].inputs[{list(nd.inputs).index(inp)}].default_value', 0, frames,
+                       inp.default_value * lvl)
+        g = bpy.data.objects.get("onair_glow")
+        if g:
+            key_series(g.data, "energy", 0, frames, g.data.energy * lvl)
+        lit.hide_render = False
+        return f"ON AIR dims {len(dips)} times {t0:.2f}-{t1:.2f} s (M7e, at most one dip each {ONAIR_SAFE['min_gap_s']} s)"
     unlit = A.twin(lit, "onair_unlit", "lit", 0.15)
     r = gb.rng(f"m5b_onair_{b}")
     frames = np.arange(1, n + 1)
@@ -458,8 +499,11 @@ def lamp_flicker(b, n, t0, t1):
         nd, inp = node_input(m, "BSDF_PRINCIPLED", "Emission Strength")
         if inp is not None:
             v = np.full(n, inp.default_value)
+            if ONAIR_SAFE is not None:           # M7e: slow dips, not a per-frame blink
+                lvl, _ = safe_dips(ts, t0, t1, gb.rng(f"m7e_lamp_{b}"), ONAIR_SAFE)
+                v = v * lvl
             for i, t in enumerate(ts):
-                if t0 <= t < t1 and r.random() < 0.25 + 0.4 * (t - t0) / (t1 - t0):
+                if ONAIR_SAFE is None and t0 <= t < t1 and r.random() < 0.25 + 0.4 * (t - t0) / (t1 - t0):
                     v[i] = 0.2
             key_series(m.node_tree, f'nodes["{nd.name}"].inputs[{list(nd.inputs).index(inp)}].default_value', 0, frames,
                        v, "CONSTANT")
@@ -467,7 +511,10 @@ def lamp_flicker(b, n, t0, t1):
     sw = S.OBJ.get("switch")
     if sw is not None:
         x0, z0 = sw.location.x, sw.location.z
-        jit = np.array([(0.004 * math.sin(i * 2.7) if t0 <= t < t1 else 0.0) for i, t in enumerate(ts)])
+        if ONAIR_SAFE is None:
+            jit = np.array([(0.004 * math.sin(i * 2.7) if t0 <= t < t1 else 0.0) for i, t in enumerate(ts)])
+        else:                                    # M7e: a tremble at 5 Hz, not a jump every frame (13 Hz)
+            jit = np.array([(0.003 * math.sin(2 * math.pi * 5.0 * (t - t0)) if t0 <= t < t1 else 0.0) for t in ts])
         key_series(sw, "location", 0, frames, x0 + jit)
         key_series(sw, "location", 2, frames, z0 - np.array([0.01 * min(1, max(0, (t - t0) / (t1 - t0))) for t in ts]))
         notes.append("Switch strains")
@@ -788,6 +835,10 @@ def walker_pos(f):
     return Vector([_find(w, "location", i).evaluate(f) for i in range(3)])
 
 
+HANDHELD = None          # M7e: the handheld drift's settings (blender/look.py sets them from config/look_m7.json)
+ONAIR_SAFE = None       # M7e: the ON AIR sign's and the park lamp's flicker, dips at most ~2.4 a second
+
+
 def make_camera(sub, b, f0, f1, m5_keys, n):
     """Key one camera for local frames f0..f1-1 (inclusive of a pre-roll for dissolves)."""
     room_cams = COV["cameras"][sub["room"]]
@@ -813,6 +864,15 @@ def make_camera(sub, b, f0, f1, m5_keys, n):
     if mv["type"] == "hold" or sub["id"].startswith("O04"):
         amp_p, amp_r = 0.0, 0.0                                 # freezes; O04's phone is pinned in the edit
     sines = [(r.uniform(0.12, 0.75), r.uniform(0, 2 * math.pi), r.uniform(0.4, 1.0)) for _ in range(18)]
+    hh = HANDHELD
+    if hh is not None:
+        # M7e (config/look_m7.json m7e.handheld): the same draws, slower; rotation as a share of the lens's field
+        lo, hi = hh["freq"]
+        sines = [(lo + (fr - 0.12) / 0.63 * (hi - lo), ph, a) for fr, ph, a in sines]
+        fk = base["framing"] if base["framing"] in ("wide", "mid", "close") else "mid"
+        if amp_p or amp_r:
+            fov = math.degrees(2 * math.atan(18.0 / base["lens"]))
+            amp_p, amp_r = hh["amp_pos"][fk], math.radians(hh["amp_rot_frac"][fk] * fov)
 
     def drift(t, ch):
         s = 0.0
@@ -858,9 +918,14 @@ def make_camera(sub, b, f0, f1, m5_keys, n):
                 loc, tgt = loc + d, tgt + d
             rot = gb.look_rot(tuple(loc), tuple(tgt))
         # handheld drift and the kick bump
-        bump = env_hits(t, kick_t, tau=0.07, attack=0.02, weights=kick_w) if mv["type"] != "hold" else 0.0
+        if hh is None:
+            bump = env_hits(t, kick_t, tau=0.07, attack=0.02, weights=kick_w) if mv["type"] != "hold" else 0.0
+            kb = {"wide": 1.0, "mid": 0.8, "close": 0.5}.get(base["framing"], 0.8)
+        else:
+            kb = hh["kick_bump"].get(base["framing"], 0.0)
+            bump = env_hits(t, kick_t, tau=hh["bump_tau"], attack=hh["bump_attack"], weights=kick_w) \
+                if mv["type"] != "hold" and kb > 0 else 0.0
         bump = min(bump, 1.2)
-        kb = {"wide": 1.0, "mid": 0.8, "close": 0.5}.get(base["framing"], 0.8)
         loc = loc + Vector((drift(t, 0), drift(t, 1), drift(t, 2))) * amp_p + Vector((0, 0, -0.007 * kb * bump))
         e = Euler((rot.x + drift(t, 3) * amp_r - math.radians(0.18) * kb * bump, rot.y + drift(t, 4) * amp_r * 0.5,
                    rot.z + drift(t, 5) * amp_r))

@@ -1,0 +1,98 @@
+{"sub": "O03a", "frames": 144, "shake_rms_px": 0.26, "shake_peak_px": 0.52, "shake_vel_rms_px": 0.09, "smooth_speed_px": 0.2, "confidence": 0.935}
+{"sub": "O03b", "frames": 144, "shake_rms_px": 1.08, "shake_peak_px": 2.5, "shake_vel_rms_px": 0.18, "smooth_speed_px": 2.56, "confidence": 0.854}
+{"sub": "O03c", "frames": 72, "shake_rms_px": 1.12, "shake_peak_px": 4.09, "shake_vel_rms_px": 1.06, "smooth_speed_px": 0.54, "confidence": 0.908}
+{"sub": "O03d", "frames": 72, "shake_rms_px": 25.74, "shake_peak_px": 67.43, "shake_vel_rms_px": 14.71, "smooth_speed_px": 5.64, "confidence": 0.939}
+{"sub": "O03e", "frames": 72, "shake_rms_px": 2.55, "shake_peak_px": 9.46, "shake_vel_rms_px": 2.14, "smooth_speed_px": 1.6, "confidence": 0.906}
+{"sub": "O03f", "frames": 73, "shake_rms_px": 0.8, "shake_peak_px": 2.58, "shake_vel_rms_px": 0.86, "smooth_speed_px": 0.27, "confidence": 0.908}
+{"sub": "O04a", "frames": 143, "shake_rms_px": 2.92, "shake_peak_px": 6.92, "shake_vel_rms_px": 1.87, "smooth_speed_px": 0.69, "confidence": 0.905}
+{"sub": "O07a", "frames": 109, "shake_rms_px": 0.94, "shake_peak_px": 3.46, "shake_vel_rms_px": 0.85, "smooth_speed_px": 0.31, "confidence": 0.976}
+{"sub": "O08a", "frames": 45, "shake_rms_px": 0.89, "shake_peak_px": 2.33, "shake_vel_rms_px": 0.71, "smooth_speed_px": 0.44, "confidence": 0.907}
+{"sub": "O08c", "frames": 72, "shake_rms_px": 1.15, "shake_peak_px": 4.15, "shake_vel_rms_px": 0.97, "smooth_speed_px": 0.5, "confidence": 0.966}
+{"sub": "O08d", "frames": 65, "shake_rms_px": 1.03, "shake_peak_px": 4.85, "shake_vel_rms_px": 1.11, "smooth_speed_px": 0.4, "confidence": 0.878}
+{"sub": "O08e", "frames": 37, "shake_rms_px": 5.82, "shake_peak_px": 9.78, "shake_vel_rms_px": 3.85, "smooth_speed_px": 2.23, "confidence": 0.516}
+{"sub": "O08f", "frames": 18, "shake_rms_px": 4.64, "shake_peak_px": 11.03, "shake_vel_rms_px": 4.02, "smooth_speed_px": 1.37, "confidence": 0.95}
+{"sub": "O08g", "frames": 17, "shake_rms_px": 3.49, "shake_peak_px": 5.88, "shake_vel_rms_px": 2.05, "smooth_speed_px": 1.32, "confidence": 0.767}
+{"sub": "O09a", "frames": 73, "shake_rms_px": 0.78, "shake_peak_px": 2.22, "shake_vel_rms_px": 0.64, "smooth_speed_px": 0.38, "confidence": 0.904}
+{"sub": "O09b", "frames": 53, "shake_rms_px": 26.97, "shake_peak_px": 72.49, "shake_vel_rms_px": 14.52, "smooth_speed_px": 9.31, "confidence": 0.91}
+{"sub": "O09c", "frames": 81, "shake_rms_px": 17.04, "shake_peak_px": 49.39, "shake_vel_rms_px": 9.93, "smooth_speed_px": 2.99, "confidence": 0.846}
+{"sub": "O09d", "frames": 63, "shake_rms_px": 12.24, "shake_peak_px": 26.37, "shake_vel_rms_px": 6.17, "smooth_speed_px": 3.69, "confidence": 0.892}
+{"sub": "O09e", "frames": 92, "shake_rms_px": 0.78, "shake_peak_px": 1.96, "shake_vel_rms_px": 0.56, "smooth_speed_px": 0.49, "confidence": 0.942}
+{"sub": "O09f", "frames": 71, "shake_rms_px": 6.69, "shake_peak_px": 12.57, "shake_vel_rms_px": 2.92, "smooth_speed_px": 2.93, "confidence": 0.846}
+{"sub": "O09g", "frames": 73, "shake_rms_px": 3.4, "shake_peak_px": 10.54, "shake_vel_rms_px": 2.3, "smooth_speed_px": 2.27, "confidence": 0.835}
+{"sub": "O09h", "frames": 72, "shake_rms_px": 17.63, "shake_peak_px": 61.29, "shake_vel_rms_px": 10.06, "smooth_speed_px": 5.65, "confidence": 0.912}
+{"sub": "O09i", "frames": 72, "shake_rms_px": 0.8, "shake_peak_px": 2.37, "shake_vel_rms_px": 0.75, "smooth_speed_px": 0.25, "confidence": 0.933}
+{"sub": "O09j", "frames": 72, "shake_rms_px": 5.2, "shake_peak_px": 9.48, "shake_vel_rms_px": 2.37, "smooth_speed_px": 3.09, "confidence": 0.859}
+{"sub": "O09k", "frames": 72, "shake_rms_px": 22.0, "shake_peak_px": 74.48, "shake_vel_rms_px": 12.11, "smooth_speed_px": 5.39, "confidence": 0.876}
+{"sub": "O09l", "frames": 72, "shake_rms_px": 1.51, "shake_peak_px": 3.11, "shake_vel_rms_px": 0.75, "smooth_speed_px": 3.78, "confidence": 0.857}
+{"sub": "O10a", "frames": 72, "shake_rms_px": 0.52, "shake_peak_px": 1.09, "shake_vel_rms_px": 0.22, "smooth_speed_px": 0.56, "confidence": 0.927}
+{"sub": "O11a", "frames": 63, "shake_rms_px": 0.91, "shake_peak_px": 2.36, "shake_vel_rms_px": 0.44, "smooth_speed_px": 0.46, "confidence": 0.91}
+{"sub": "O11b", "frames": 45, "shake_rms_px": 16.71, "shake_peak_px": 48.25, "shake_vel_rms_px": 12.3, "smooth_speed_px": 5.03, "confidence": 0.86}
+{"sub": "O11c", "frames": 25, "shake_rms_px": 0.61, "shake_peak_px": 1.06, "shake_vel_rms_px": 0.17, "smooth_speed_px": 0.54, "confidence": 0.928}
+{"sub": "O11d", "frames": 29, "shake_rms_px": 3.6, "shake_peak_px": 8.71, "shake_vel_rms_px": 2.26, "smooth_speed_px": 2.17, "confidence": 0.898}
+{"sub": "O11e", "frames": 18, "shake_rms_px": 4.04, "shake_peak_px": 7.02, "shake_vel_rms_px": 2.08, "smooth_speed_px": 1.15, "confidence": 0.862}
+{"sub": "O11f", "frames": 18, "shake_rms_px": 2.33, "shake_peak_px": 3.12, "shake_vel_rms_px": 1.01, "smooth_speed_px": 1.63, "confidence": 0.923}
+{"sub": "O11g", "frames": 18, "shake_rms_px": 1.61, "shake_peak_px": 2.41, "shake_vel_rms_px": 0.82, "smooth_speed_px": 0.65, "confidence": 0.645}
+{"sub": "O12a", "frames": 90, "shake_rms_px": 0.02, "shake_peak_px": 0.1, "shake_vel_rms_px": 0.02, "smooth_speed_px": 0.05, "confidence": 0.932}
+{"sub": "O14a", "frames": 73, "shake_rms_px": 0.87, "shake_peak_px": 2.67, "shake_vel_rms_px": 0.87, "smooth_speed_px": 0.32, "confidence": 0.881}
+{"sub": "O14b", "frames": 72, "shake_rms_px": 3.88, "shake_peak_px": 12.46, "shake_vel_rms_px": 3.07, "smooth_speed_px": 2.13, "confidence": 0.915}
+{"sub": "O14c", "frames": 144, "shake_rms_px": 0.97, "shake_peak_px": 3.77, "shake_vel_rms_px": 0.39, "smooth_speed_px": 0.87, "confidence": 0.852}
+{"sub": "O14d", "frames": 72, "shake_rms_px": 1.66, "shake_peak_px": 2.84, "shake_vel_rms_px": 0.37, "smooth_speed_px": 3.52, "confidence": 0.96}
+{"sub": "O14e", "frames": 72, "shake_rms_px": 2.07, "shake_peak_px": 5.03, "shake_vel_rms_px": 1.04, "smooth_speed_px": 2.09, "confidence": 0.919}
+{"sub": "O15a", "frames": 162, "shake_rms_px": 3.66, "shake_peak_px": 11.89, "shake_vel_rms_px": 2.65, "smooth_speed_px": 2.11, "confidence": 0.954}
+{"sub": "O16a", "frames": 54, "shake_rms_px": 1.48, "shake_peak_px": 4.47, "shake_vel_rms_px": 1.1, "smooth_speed_px": 0.49, "confidence": 0.896}
+{"sub": "O16b", "frames": 72, "shake_rms_px": 0.32, "shake_peak_px": 1.08, "shake_vel_rms_px": 0.09, "smooth_speed_px": 0.45, "confidence": 0.941}
+{"sub": "O17a", "frames": 62, "shake_rms_px": 6.77, "shake_peak_px": 11.15, "shake_vel_rms_px": 3.53, "smooth_speed_px": 1.95, "confidence": 0.807}
+{"sub": "O17b", "frames": 65, "shake_rms_px": 1.03, "shake_peak_px": 2.83, "shake_vel_rms_px": 0.95, "smooth_speed_px": 0.37, "confidence": 0.884}
+{"sub": "O17c", "frames": 71, "shake_rms_px": 5.81, "shake_peak_px": 32.34, "shake_vel_rms_px": 4.25, "smooth_speed_px": 1.77, "confidence": 0.86}
+{"sub": "O17d", "frames": 71, "shake_rms_px": 0.68, "shake_peak_px": 2.52, "shake_vel_rms_px": 0.68, "smooth_speed_px": 0.25, "confidence": 0.882}
+{"sub": "O17e", "frames": 91, "shake_rms_px": 1.54, "shake_peak_px": 4.56, "shake_vel_rms_px": 1.26, "smooth_speed_px": 0.91, "confidence": 0.878}
+{"sub": "O17f", "frames": 72, "shake_rms_px": 5.39, "shake_peak_px": 10.93, "shake_vel_rms_px": 2.76, "smooth_speed_px": 2.47, "confidence": 0.852}
+{"sub": "O17g", "frames": 72, "shake_rms_px": 3.13, "shake_peak_px": 10.67, "shake_vel_rms_px": 1.69, "smooth_speed_px": 1.95, "confidence": 0.884}
+{"sub": "O17h", "frames": 45, "shake_rms_px": 15.62, "shake_peak_px": 51.82, "shake_vel_rms_px": 9.17, "smooth_speed_px": 9.41, "confidence": 0.918}
+{"sub": "O17i", "frames": 99, "shake_rms_px": 0.88, "shake_peak_px": 3.22, "shake_vel_rms_px": 0.76, "smooth_speed_px": 0.39, "confidence": 0.891}
+{"sub": "O17j", "frames": 72, "shake_rms_px": 24.31, "shake_peak_px": 96.52, "shake_vel_rms_px": 18.78, "smooth_speed_px": 3.76, "confidence": 0.854}
+{"sub": "O17k", "frames": 72, "shake_rms_px": 0.72, "shake_peak_px": 2.13, "shake_vel_rms_px": 0.64, "smooth_speed_px": 0.22, "confidence": 0.931}
+{"sub": "O17l", "frames": 72, "shake_rms_px": 4.35, "shake_peak_px": 12.32, "shake_vel_rms_px": 2.22, "smooth_speed_px": 2.87, "confidence": 0.873}
+{"sub": "O18a", "frames": 144, "shake_rms_px": 0.43, "shake_peak_px": 1.66, "shake_vel_rms_px": 0.29, "smooth_speed_px": 0.29, "confidence": 0.925}
+{"sub": "O18b", "frames": 144, "shake_rms_px": 1.2, "shake_peak_px": 3.36, "shake_vel_rms_px": 0.4, "smooth_speed_px": 1.52, "confidence": 0.937}
+{"sub": "O18c", "frames": 144, "shake_rms_px": 0.98, "shake_peak_px": 3.23, "shake_vel_rms_px": 0.85, "smooth_speed_px": 0.4, "confidence": 0.927}
+{"sub": "O18d", "frames": 72, "shake_rms_px": 1.47, "shake_peak_px": 4.28, "shake_vel_rms_px": 0.97, "smooth_speed_px": 2.37, "confidence": 0.9}
+{"sub": "O18e", "frames": 72, "shake_rms_px": 1.93, "shake_peak_px": 6.58, "shake_vel_rms_px": 1.58, "smooth_speed_px": 1.12, "confidence": 0.928}
+{"sub": "O19a", "frames": 175, "shake_rms_px": 1.69, "shake_peak_px": 5.01, "shake_vel_rms_px": 0.35, "smooth_speed_px": 4.51, "confidence": 0.89}
+{"sub": "O19b", "frames": 123, "shake_rms_px": 1.0, "shake_peak_px": 3.07, "shake_vel_rms_px": 0.69, "smooth_speed_px": 1.16, "confidence": 0.853}
+{"sub": "O19c", "frames": 36, "shake_rms_px": 1.73, "shake_peak_px": 5.11, "shake_vel_rms_px": 1.4, "smooth_speed_px": 1.03, "confidence": 0.879}
+{"sub": "O19d", "frames": 18, "shake_rms_px": 9.85, "shake_peak_px": 20.1, "shake_vel_rms_px": 5.84, "smooth_speed_px": 3.72, "confidence": 0.883}
+{"sub": "O19e", "frames": 18, "shake_rms_px": 8.22, "shake_peak_px": 12.7, "shake_vel_rms_px": 4.71, "smooth_speed_px": 2.85, "confidence": 0.549}
+{"sub": "O20a", "frames": 62, "shake_rms_px": 0.27, "shake_peak_px": 0.71, "shake_vel_rms_px": 0.14, "smooth_speed_px": 0.19, "confidence": 0.928}
+{"sub": "O20b", "frames": 82, "shake_rms_px": 52.01, "shake_peak_px": 193.15, "shake_vel_rms_px": 44.05, "smooth_speed_px": 9.53, "confidence": 0.875}
+{"sub": "O20c", "frames": 62, "shake_rms_px": 0.89, "shake_peak_px": 2.63, "shake_vel_rms_px": 0.31, "smooth_speed_px": 0.99, "confidence": 0.892}
+{"sub": "O20d", "frames": 63, "shake_rms_px": 9.78, "shake_peak_px": 27.65, "shake_vel_rms_px": 6.01, "smooth_speed_px": 3.4, "confidence": 0.848}
+{"sub": "O20e", "frames": 90, "shake_rms_px": 0.39, "shake_peak_px": 1.3, "shake_vel_rms_px": 0.33, "smooth_speed_px": 0.54, "confidence": 0.89}
+{"sub": "O20f", "frames": 72, "shake_rms_px": 6.38, "shake_peak_px": 11.62, "shake_vel_rms_px": 3.08, "smooth_speed_px": 2.07, "confidence": 0.807}
+{"sub": "O20g", "frames": 36, "shake_rms_px": 2.77, "shake_peak_px": 6.55, "shake_vel_rms_px": 1.32, "smooth_speed_px": 1.07, "confidence": 0.838}
+{"sub": "O20h", "frames": 36, "shake_rms_px": 8.51, "shake_peak_px": 13.84, "shake_vel_rms_px": 3.92, "smooth_speed_px": 3.1, "confidence": 0.871}
+{"sub": "O20i", "frames": 36, "shake_rms_px": 3.65, "shake_peak_px": 7.88, "shake_vel_rms_px": 6.61, "smooth_speed_px": 1.05, "confidence": 0.949}
+{"sub": "O20j", "frames": 36, "shake_rms_px": 0.09, "shake_peak_px": 0.18, "shake_vel_rms_px": 0.04, "smooth_speed_px": 0.06, "confidence": 0.93}
+{"sub": "O21a", "frames": 42, "shake_rms_px": 0.04, "shake_peak_px": 0.13, "shake_vel_rms_px": 0.01, "smooth_speed_px": 0.06, "confidence": 0.928}
+{"sub": "O22a", "frames": 109, "shake_rms_px": 0.69, "shake_peak_px": 2.1, "shake_vel_rms_px": 0.57, "smooth_speed_px": 0.32, "confidence": 0.874}
+{"sub": "O22b", "frames": 144, "shake_rms_px": 1.43, "shake_peak_px": 3.88, "shake_vel_rms_px": 1.05, "smooth_speed_px": 0.9, "confidence": 0.946}
+{"sub": "O22c", "frames": 145, "shake_rms_px": 2.82, "shake_peak_px": 13.16, "shake_vel_rms_px": 1.65, "smooth_speed_px": 6.31, "confidence": 0.529}
+{"sub": "O22e", "frames": 141, "shake_rms_px": 5.07, "shake_peak_px": 10.68, "shake_vel_rms_px": 4.8, "smooth_speed_px": 1.69, "confidence": 0.886}
+{"sub": "O22f", "frames": 145, "shake_rms_px": 0.41, "shake_peak_px": 1.14, "shake_vel_rms_px": 0.17, "smooth_speed_px": 0.33, "confidence": 0.877}
+{"sub": "O22g", "frames": 105, "shake_rms_px": 1.15, "shake_peak_px": 2.58, "shake_vel_rms_px": 0.6, "smooth_speed_px": 0.84, "confidence": 0.91}
+most shake:
+  O20b   rms  52.01  peak 193.15  vel 44.05  drift  9.53 px/f  conf 0.88
+  O09b   rms  26.97  peak  72.49  vel 14.52  drift  9.31 px/f  conf 0.91
+  O03d   rms  25.74  peak  67.43  vel 14.71  drift  5.64 px/f  conf 0.94
+  O17j   rms  24.31  peak  96.52  vel 18.78  drift  3.76 px/f  conf 0.85
+  O09k   rms  22.00  peak  74.48  vel 12.11  drift  5.39 px/f  conf 0.88
+  O09h   rms  17.63  peak  61.29  vel 10.06  drift  5.65 px/f  conf 0.91
+  O09c   rms  17.04  peak  49.39  vel  9.93  drift  2.99 px/f  conf 0.85
+  O11b   rms  16.71  peak  48.25  vel 12.30  drift  5.03 px/f  conf 0.86
+  O17h   rms  15.62  peak  51.82  vel  9.17  drift  9.41 px/f  conf 0.92
+  O09d   rms  12.24  peak  26.37  vel  6.17  drift  3.69 px/f  conf 0.89
+  O19d   rms   9.85  peak  20.10  vel  5.84  drift  3.72 px/f  conf 0.88
+  O20d   rms   9.78  peak  27.65  vel  6.01  drift  3.40 px/f  conf 0.85
+  O20h   rms   8.51  peak  13.84  vel  3.92  drift  3.10 px/f  conf 0.87
+  O19e   rms   8.22  peak  12.70  vel  4.71  drift  2.85 px/f  conf 0.55
+  O17a   rms   6.77  peak  11.15  vel  3.53  drift  1.95 px/f  conf 0.81

@@ -1,0 +1,6 @@
+lift/run.log:LIFT O09: guitar strum lift: 763 of 866 frames lifted, max 4.8 cm, largest frame-to-frame change 3.7 cm
+lift/run.log:LIFT O09: banjo strum lift: 866 of 866 frames lifted, max 13.3 cm, largest frame-to-frame change 9.1 cm
+lift5/run.log:LIFT O09: guitar strum lift: 866 of 866 frames lifted, max 5.4 cm, largest frame-to-frame change 0.3 cm; capped (left in the instrument) on 2 frames, deepest 6.0 cm at frames [413, 752]; residual max 0.0 cm on 0 frames; biggest jumps at [(341, 1.7, 2.0, 2.0), (342, 2.0, 2.3, 2.3), (589, 5.4, 5.1, 5.1), (343, 2.3, 2.6, 2.6)]
+lift5/run.log:LIFT O09: banjo strum lift: 866 of 866 frames lifted, max 4.7 cm, largest frame-to-frame change 0.2 cm; capped (left in the instrument) on 1 frames, deepest 8.5 cm at frames [577]; residual max 0.0 cm on 0 frames; biggest jumps at [(570, 3.5, 3.6, 3.6), (595, 3.6, 3.5, 3.5), (571, 3.6, 3.8, 3.8), (569, 3.3, 3.5, 3.5)]
+lift_off/run.log:LIFT O09: guitar strum lift: 763 of 866 frames lifted, max 4.8 cm, largest frame-to-frame change 3.7 cm
+lift_off/run.log:LIFT O09: banjo strum lift: 866 of 866 frames lifted, max 5.5 cm, largest frame-to-frame change 3.3 cm

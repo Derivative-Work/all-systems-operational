@@ -385,3 +385,25 @@ Human interventions 32. The brief's O01 is three beats before the music, with "t
 ## 48. 2026-11-17 — O22's home-movie grade from the first frame of O22b (agent, on the human's note)
 
 The brief: "From 'Remember Wednesday' on, the picture takes soft film grain and a warm grade, like a home movie". Human interventions 32: "Make the film grade start immediately on O22b rather than waiting for 'remember Wednesday'". The grade now comes in on the cut to O22b (Switch, off), 51 frames (1.7 s) before "Remember", so it never changes inside a shot (`config/look_m7.json` m7e.home_grade_from).
+
+## 49. 2026-11-17 — M7e: the review notes' fixes, and what they change in approved looks (agent)
+
+Human interventions 32. Fixes, not changes of design; where a fix changes something approved, it is listed here.
+- **Props remodelled** (`blender/props_m7e.py`): the kick drum, its pedal, the mugs, the server rack and the chairs; every grey-box prop smooth-shaded with hard edges, boxes with rounded edges. Same sizes, places and colours, except:
+  - the kick drum now has a batter head (the grey box's player side was open: its inside showed in a pedal-side view);
+  - the pedal's heel is 5 cm further back and its axle higher, so the kick player's right foot sits 5 cm further back (the shoe went through the beater on 67 of 72 frames of O03c; now 3.6 cm clear);
+  - the probes' two mugs (O14, O15) moved onto their table (they overhung its edge in mid-air) and O14b's close moves with its mug;
+  - the dark chairs (`chair_d`) a dark slate rather than near-black, the treehouse's shell chairs no longer flat slabs (they read as black screens);
+  - in the treehouse, the third held phone shows a dim lock screen (M7c's) instead of a dark screen (it read as a missing texture). The meeting room's other screens were already textured.
+- **The banjo's pot** rebuilt from profiles: the flange and the resonator shared their top face and outer band (z-fighting: the flicker on the banjo).
+- **The handheld camera** (every moving sub-shot): the drift slower, its rotation scaled to the lens (the long closes shook most), and the kick bump on the wides only, softer. On O14b (the stomp back, "the agents that we hired") the measured shake falls from 3.9 px RMS to 0.24.
+- **The banjo's picking hand** half as fast with smaller finger moves, and both instrument arms' lift off the instrument smoothed over time: it jumped up to 3.3 cm (banjo) and 3.7 cm (guitar) from one frame to the next (the flicker). Where the arm-penetration test spikes on a single frame (2–3 frames a build, 6–8.5 cm), the hand is no longer lifted for it (a lift capped at 6 mm above the smoothed one); those frames are logged by build.
+- **ON AIR and the park lamp:** the flicker into stop 1 and stop 2 is now at most one dip each 0.42 s, to 35% (not off), easing in and out. ON AIR dims twice in its last 1.2 s. Switch's strain is a 5 Hz tremble, not a 13 Hz jump. The flash check (`scripts/flash_check.py`) found the ON AIR flicker the only failing passage in review cut 2 (102.1–102.7 s); the new ON AIR frames pass. The lamp and O23's status flicker passed already.
+
+## 50. 2026-11-17 — The people's lighting: options for the human (agent)
+
+Human interventions 32: "I recognize the brief calls for silhouettes. Give me some other options for lighting levels for the people so I can make a call on that." The brief: "Every performer is a silhouette against window light; no faces." The people are generated figures (MakeHuman CC0 assets), not real people, so a lit face is a style call, not a guardrail one.
+- **Options** (`review/m7/lighting_options.jpg`, five shots each): a warm front wash from the audience side, as a live session's stage lights (`blender/look.py` people_fill: two soft spots 2.8 m up, 4.5 m out from the band; in the park a broad bounce), at A 0 W (the silhouettes as approved), B 40 W, C 120 W, D 350 W, E 900 W a spot. The rooms' own light is unchanged.
+- **What changes:** at B the band's and crowd's clothes and instruments start to read, faces stay in shadow; at C the band reads clearly (the guitar's top, the banjo, suits), faces dim; D and E light faces fully and flatten the window backlight. In the park D and E light a visible pool on the grass (a floodlight look); B or C keep it overcast.
+- **Recommendation:** B, or C for the band only, if the silhouettes go. Either keeps the backlit look and the brief's mood while the people read as people; past C the rooms look staged.
+- The full re-render (production log 72) is at A, as approved. Any other level is one number (`config/look_m7.json` m7e.people_fill.level) and another full render (about 4.5 h).

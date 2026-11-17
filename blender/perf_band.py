@@ -64,6 +64,41 @@ def tamb_hits():
 TAMB_H = tamb_hits()
 
 
+# M7e (config/look_m7.json m7e.picking, set by blender/look.py): the banjo's picking hand slower, the arms' lift
+# smoothed; None keeps M5c's
+PICKING = None
+PICK0 = {"finger_rate": 4, "finger_deg": 14.0, "bounce_rate": 2, "bounce": 0.006, "flex_deg": 4.0}
+
+
+def guitar_stroke(t, ge, info):
+    """The strumming hand's stroke across the strings (m) and the wrist's flex, leading the stroke."""
+    e8, a8 = strum_phase(t)
+    A = a8 * (0.25 + 0.75 * min(1.0, ge / 0.7)) if ge > 0.05 else 0.05
+    return -A * math.sin(math.pi * e8) * 0.065, info["strum"].flex0 - 8.0 * A * math.cos(math.pi * e8)
+
+
+def banjo_stroke(t, ge, info):
+    """The picking hand's bounce (m) and the wrist's flex."""
+    drive = min(1.0, ge / 0.7) if ge > 0.05 else 0.0
+    pk = PICKING or PICK0
+    w = math.sin(2 * math.pi * C.beat_pos(t) * pk["bounce_rate"])
+    return pk["bounce"] * drive * w, info["strum"].flex0 + pk["flex_deg"] * drive * w
+
+
+def smooth_lift(L, k):
+    """M7e: the strumming/picking hand's lift off the instrument, per frame, made smooth over time: a running maximum
+    over +-k frames, then a running mean over the same window, so it is never less than the frame needed (each
+    window holds that frame's maximum) and changes by at most a (2k+1)th of its range a frame (it jumped up to 9 cm
+    a frame: human interventions 32, "the hand is moving so fast that it's flickering")."""
+    L = np.asarray(L, float)
+    if k <= 0 or len(L) < 2:
+        return L
+    P_ = np.pad(L, k, mode="edge")
+    mx = np.array([P_[i:i + 2 * k + 1].max() for i in range(len(L))])
+    P2 = np.pad(mx, k, mode="edge")
+    return np.convolve(P2, np.ones(2 * k + 1) / (2 * k + 1), mode="valid")
+
+
 # ---------------------------------------------------------------- timing curves
 
 def strum_crossings():
@@ -324,6 +359,25 @@ def perform(b, n, freeze_t=None, seed_build=None):
         [f"LeftHand{f}{k}" for f in ("Index", "Middle", "Ring", "Pinky") for k in (1, 2, 3)]
         if role in ("guitar", "banjo") else [])) for role in roles}
     board_v, beater_v = [], []
+    # M7e: a first pass for the strumming and picking arms' lift off the instruments, smoothed (smooth_lift)
+    LIFT = {"guitar": None, "banjo": None}
+    k_lift = (PICKING or {}).get("lift_smooth", 0)
+    if k_lift and freeze_t is None:
+        for _pass in range(2):              # the second from the first's smoothed lift (a lift applied at once can
+            for i, t in enumerate(ts):      # meet the instrument where the stepped one didn't: its extra smoothed too)
+                bi = C.bar_index(t)
+                ge, en = GUITAR_E[bi], C.DRUMS_E[bi]
+                lean = lean_amount(t) * LEAN_DEG
+                for role, body, info in (("guitar", gbody, ginfo), ("banjo", bbody, binfo)):
+                    body.reset()
+                    stand[role].pre(t, en, lean)
+                    stand[role].legs()
+                    rel = body.M("Spine") @ gbody_spine_inv(body)
+                    h, fl = (guitar_stroke if role == "guitar" else banjo_stroke)(t, ge, info)
+                    info["strum"].solve(rel, h, fl, lift=None if LIFT[role] is None else LIFT[role][i])
+            for role, info in (("guitar", ginfo), ("banjo", binfo)):
+                LIFT[role] = smooth_lift(info["strum"].lifts, k_lift)
+                info["strum"].lifts, info["strum"].capped = [], []
     PF.CHECK_ON[0] = True
     for i, t in enumerate(ts):
         if freeze_t is not None and i > 0:
@@ -342,10 +396,9 @@ def perform(b, n, freeze_t=None, seed_build=None):
         stand["guitar"].pre(t, en, lean)
         stand["guitar"].legs()
         rel = body.M("Spine") @ gbody_spine_inv(gbody)
-        e8, a8 = strum_phase(t)
-        A = a8 * (0.25 + 0.75 * min(1.0, ge / 0.7)) if ge > 0.05 else 0.05
-        h = -A * math.sin(math.pi * e8) * 0.065
-        ginfo["strum"].solve(rel, h, ginfo["strum"].flex0 - 8.0 * A * math.cos(math.pi * e8))   # the wrist leads the stroke
+        h, fl = guitar_stroke(t, ge, ginfo)
+        ginfo["strum"].solve(rel, h, fl, lift=None if LIFT["guitar"] is None else LIFT["guitar"][i],
+                             max_extra=None if LIFT["guitar"] is None else 0.006)
         fk = FRETS["guitar"][prev_k] * (1 - wslide) + FRETS["guitar"][cur_k] * wslide
         ginfo["fret"].solve(rel, fk)
         ginfo["strap"].add()
@@ -358,11 +411,14 @@ def perform(b, n, freeze_t=None, seed_build=None):
         rel = body.M("Spine") @ gbody_spine_inv(bbody)
         drive = min(1.0, ge / 0.7) if ge > 0.05 else 0.0
         bp = C.beat_pos(t)
-        bounce = 0.006 * drive * math.sin(2 * math.pi * bp * 2)
-        binfo["strum"].solve(rel, bounce, binfo["strum"].flex0 + 4.0 * drive * math.sin(2 * math.pi * bp * 2))
+        pk = PICKING or PICK0
+        bounce, bfl = banjo_stroke(t, ge, binfo)
+        binfo["strum"].solve(rel, bounce, bfl, lift=None if LIFT["banjo"] is None else LIFT["banjo"][i],
+                             max_extra=None if LIFT["banjo"] is None else 0.006)
         for f_, ph in (("Index", 0.0), ("Middle", 0.5)):
-            body.flex("Right", f_, 1, 14 * drive * math.sin(2 * math.pi * (bp * 4 + ph)))
-        body.flex("Right", "Thumb", 1, 8 * drive * math.sin(2 * math.pi * (bp * 4 + 0.75)))
+            body.flex("Right", f_, 1, pk["finger_deg"] * drive * math.sin(2 * math.pi * (bp * pk["finger_rate"] + ph)))
+        body.flex("Right", "Thumb", 1, pk["finger_deg"] * 8 / 14 * drive
+                  * math.sin(2 * math.pi * (bp * pk["finger_rate"] + 0.75)))
         fk = FRETS["banjo"][prev_k] * (1 - wslide) + FRETS["banjo"][cur_k] * wslide
         binfo["fret"].solve(rel, fk)
         binfo["strap"].add()
@@ -433,6 +489,20 @@ def perform(b, n, freeze_t=None, seed_build=None):
                 PF._viol(f"{b}:band_kick", "leg_in_drum", t, f"{nm_} tail {tuple(round(v, 2) for v in pt)}")
         board_v.append(PP.board_rot(toe))
         beater_v.append(PP.beater_rot(PP.REST_BEATER + (PP.STRIKE_BEATER - PP.REST_BEATER) * kv))
+    for nm_, info in (("guitar", ginfo), ("banjo", binfo)):
+        L_ = np.array(getattr(info["strum"], "lifts", []) or [0.0])
+        jump = np.abs(np.diff(L_)) if len(L_) > 1 else np.zeros(1)
+        notes_lift = (f"{nm_} strum lift: {int((L_ > 0.003).sum())} of {len(L_)} frames lifted, max {L_.max() * 100:.1f} cm, "
+                      f"largest frame-to-frame change {jump.max() * 100:.1f} cm")
+        if LIFT[nm_] is not None and len(LIFT[nm_]) == len(L_):
+            res = L_ - LIFT[nm_]
+            top = np.argsort(-jump)[:4]
+            cp = np.array(getattr(info["strum"], "capped", []) or [0.0])
+            notes_lift += (f"; capped (left in the instrument) on {int((cp > 0).sum())} frames, deepest {cp.max() * 100:.1f} cm "
+                           f"at frames {[int(k) + 1 for k in np.argsort(-cp)[:3] if cp[k] > 0]}")
+            notes_lift += (f"; residual max {res.max() * 100:.1f} cm on {int((res > 0.003).sum())} frames; biggest jumps at "
+                           f"{[(int(k), round(float(L_[k]) * 100, 1), round(float(L_[k + 1]) * 100, 1), round(float(LIFT[nm_][k + 1]) * 100, 1)) for k in top]}")
+        print(f"LIFT {b}: {notes_lift}", flush=True)
     for info in (ginfo, binfo):
         info["strap"].write(frames, hold=freeze_t is not None)
     for role, rc in recs.items():
