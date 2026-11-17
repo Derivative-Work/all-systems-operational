@@ -201,3 +201,7 @@ Append-only. Every human action: when, what, and why.
 - **What:** "I created https://github.com/Derivative-Work/all-systems-operational and gave you access. Push up what you have, then prepare the repo (which will be public) like the others".
 - **Repository:** private and empty when the push began. Pushing is allowed from here on; it was "never push" until now. The Ever Present material that isn't relicensed stays off it (CLAUDE.md); the relicensed kit in `blender/ep/` goes up.
 - **Checked before the push** (all 89 commits, every path ever tracked): no keys or tokens, and no email addresses in tracked files. Every commit is by the human's GitHub address, the same as the other series repos. The creator's real screenshots, the Slack captures and the avatar crop are git-ignored and were never committed. Nothing from Microsoft's post-incident report beyond the brief's short quotes. One tracked image shows the placeholder "No license found" capture (human interventions 6): `review/m3_screens.jpg`, committed in 710f260, has it as one thumbnail (about 140 px wide, no names or addresses). For the human to settle before the repo goes public.
+
+## 29. 2026-11-16 — Render progress asked for
+
+- **What:** "How's it looking now". Sent (production log 65): a contact sheet of the finished M7 sub-shots and the O08a comparison strip.
