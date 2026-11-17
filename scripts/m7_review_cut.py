@@ -6,8 +6,9 @@ The M5c3 assembly (scripts/m5c3_animatic.py -> m5c2 -> m5b -> animatic.py: the c
 M7's changes:
   frames     renders/m7/frames/<sub>/ (blender/coverage_m7.py), or the first pass in archive/renders/m7/frames_v1/<sub>/
              while a sub-shot is being re-rendered (production log 66); its label says so
-  grade      every rendered frame through scripts/grade.py, at 960x540: the cafe warm, O22 home from "Remember
-             Wednesday" (per frame, from O22's first mark), the rest grey; grain seeded by the video frame
+  grade      every rendered frame through scripts/grade.py, at 960x540: the cafe warm, O22 home from the first frame
+             of O22b (config/look_m7.json m7e.home_grade_from; human interventions 32), the rest grey; grain seeded
+             by the video frame
   O22d       the generated clip (scripts/m7_inserts.py), home grade, in place of the Blender sub-shot
   O04        the phone's screen is rendered in Blender since M7b, so M5's pinned screen is not composited
   O18        M5's caption plus the v1.3 denial tags (renders/m1b/remotion/M7-O18-DenialTags.mov)
@@ -15,7 +16,8 @@ M7's changes:
   Remotion   M5's compositions re-rendered with the current code (renders/m7/remotion_review/, scripts/m5_remotion.sh
              with M5_REMOTION_OUT): the status stamp is v1.3's "Thu 11:15 a.m." (production log 53)
   end        renders/m7/remotion/M7-EndSequence.mp4 (scripts/m7_end.sh) in place of M5's O24 and cards
-  audio      the post-filtered v1.3 master from 8.4 s to O24 (video frame 7439), then audio/credits/credits-m7-end.wav
+  audio      the post-filtered master (v1.4 since production log 69) from its first downbeat (song 2.4 s) on the cut to
+             O02 (7.6 s) to O24, then audio/credits/credits-m7-end.wav
 Usage: .venv/bin/python -I scripts/m7_review_cut.py [--out review/m7_cut_v1.mp4]
        .venv/bin/python -I scripts/m7_review_cut.py --share [--share-end-s 18.3]   (h264 650 kb/s, AAC 128k, 960x540,
        from the start to O24 + share-end-s: the end card and "Next incident: TBD"; the cards after are as the preview)
@@ -43,13 +45,14 @@ A.SEG = Path("renders/m7/review_segments")
 A.REM = Path("renders/m7/remotion_review")
 END_MP4 = Path("renders/m7/remotion/M7-EndSequence.mp4")
 TAGS = Path("renders/m1b/remotion/M7-O18-DenialTags.mov")
-SONG = "audio/postfilter/all-systems-operational-master-deslopped.wav"       # v1.3, post-filtered (production log 52)
+SONG = "audio/postfilter/all-systems-operational-master-deslopped.wav"       # post-filtered (v1.4: production log 69)
 CREDITS = "audio/credits/credits-m7-end.wav"                                  # production log 62
 O24_FRAME = A.SHOTS["O24"]["start_frame"]
 LOOK_M7 = json.loads(Path("config/look_m7.json").read_text())
 CLIP_SUBS = set(LOOK_M7["m7c"]["clip_subs"])
 LOOK = {"live": "grey", "cafe": "cafe", "treehouse": "grey", "park": "grey", "void": "grey"}
-HOME_FROM = A.SHOTS["O22"]["start_frame"] + A.mark("O22", 0)
+# the home-movie grade from the first frame of O22b (human interventions 32; it was O22's first mark, "Remember")
+HOME_FROM = next(s["start_frame"] for s in M.subs_of("O22") if s["id"] == LOOK_M7.get("m7e", {}).get("home_grade_from", "O22b"))
 OUT = "review/m7_cut_v1.mp4"
 SOURCES = {}
 PENDING = set()          # --pending: sub-shots whose frames on disk are still the first pass, fix queued
@@ -143,8 +146,11 @@ def main_run(a):
                                   "stream=nb_read_frames", "-of", "csv=p=0", str(joined)], capture_output=True,
                                  text=True).stdout.strip())
     dur, t24 = nframes / FPS, O24_FRAME / FPS
-    lead = A.TS["lead_in_s"]
-    af = (f"[1:a]aformat=sample_rates=48000:channel_layouts=stereo,adelay={int(round(lead * 1000))}:all=1,"
+    # the song from its first downbeat (shot_times song_audio_from_s, 2.4 s) on the cut from the post to O02 (human
+    # interventions 32): trimmed there, a 10 ms fade in, placed at the cut
+    lead, head = A.TS["lead_in_s"], A.TS.get("song_audio_from_s", 0.0)
+    af = (f"[1:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=start={head:.4f},asetpts=PTS-STARTPTS,"
+          f"afade=t=in:d=0.01,adelay={int(round((lead + head) * 1000))}:all=1,"
           f"apad=whole_dur={t24:.4f},atrim=start=0:end={t24:.4f},asetpts=PTS-STARTPTS[s];"
           f"[2:a]aformat=sample_rates=48000:channel_layouts=stereo,asetpts=PTS-STARTPTS[c];"
           f"[s][c]concat=n=2:v=0:a=1,apad=whole_dur={dur:.4f},atrim=end={dur:.4f}[a]")

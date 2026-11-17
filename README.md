@@ -28,9 +28,9 @@ This repository is the production record the video's end card points to. Claude 
 
 ## What's real, and what's made up
 
-Real, in the opening bookend (0:00–0:08) only:
-- **The creator's screenshots (0:02–0:05):** Microsoft's status page failing to load ("real screenshot · Thu, Nov 12, 1:07 p.m. ET") and the "No license found" error ("real screenshot · Fri, Nov 13"). They're the only real logos and interfaces in the video, there so the made-up status page never reads as Microsoft's. The "No license found" capture is a placeholder until it has permission or is replaced by the creator's own.
-- **The creator's post (0:05–0:08):** the creator sharing this song in their #it-self-help channel, recreated in a generic chat UI and captioned "recreation". The creator's own name and photo are the one real-person exception, with their approval.
+Real, in the opening bookend (0:00–0:07) only:
+- **The creator's screenshot (0:02–0:04):** Microsoft's status page failing to load ("real screenshot · Thu, Nov 12, 1:07 p.m. ET"), opening close on the tab and the address bar. The tab's loading indicator, frozen in the capture, is drawn turning over it; nothing else in it is changed. It's the only real logo and interface in the video, there so the made-up status page never reads as Microsoft's. A second capture, a "No license found" error, was a placeholder and is cut from the video; one small tile of it remains in an early contact sheet in the history (`review/m3_screens.jpg`).
+- **The creator's post (0:04–0:07):** the creator sharing this song in their #it-self-help channel, recreated in a generic chat UI and captioned "recreation". The creator's own name and photo are the one real-person exception, with their approval.
 
 Made up, everywhere else:
 - **The outage-report spike (0:00–0:02):** an unlabeled chart drawn from reported Downdetector counts ([GV Wire, Nov 12](https://gvwire.com/2026/11/12/microsoft-outlook-down-for-thousands-of-users-downdetector-shows/)), not a capture.

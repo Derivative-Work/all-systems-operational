@@ -6,7 +6,6 @@ YouTube metadata for the main video, ready to paste at upload once the checklist
 - **The final report** (due November 20): read it, confirm the branch (A is the working plan; brief, "Branches by report outcome"), check the bridge, the whiteboard and the fact card against it, and fill in the fact card's "[link once published]". If it names an AI-assisted change, the description's "What happened" changes with the card.
 - **The audits** (M6): run in each lab's app and logged in `log/audits/`. Fill in "[models, dates]" in the disclosure card, the description and the README.
 - **The end card's placeholders:** "music by [generator]" (Suno: the song and the credits instrumental are both Suno V6) and "Audit log: [repo link]" (https://github.com/Derivative-Work/all-systems-operational).
-- **The "No license found" capture** (0:02–0:05): permission from the person who posted it, or the creator's own capture in its place. Either way, decide about `review/m3_screens.jpg` before the repository goes public: the M3 contact sheet shows the placeholder as one small tile, and it has been in git since 710f260.
 - **Re-check the news and every link** the day before. Everything here is as of November 16.
 - **Make the repository public.** The end card and the description link to it; it's private until then.
 - **Intervention count:** update the number in the description (`grep -c '^## ' log/human_interventions.md`; 28 on 2026-11-16).
@@ -39,7 +38,7 @@ On November 12–13, 2026, Microsoft 365 went down for most of a day: Outlook, T
 
 A disclosure: the lyrics were drafted by Claude, made by Anthropic. Anthropic's Microsoft 365 connector broke during this outage, and Claude had outages of its own this year. The creator worked on Outlook and Word at Microsoft between 2014 and 2017, and the treehouse meeting room in the bridge is inspired by those years; it doesn't depict how this incident was handled. Audited by models from other labs: [models, dates].
 
-Made with AI: the song by Suno (edited and mastered by a human in Logic Pro), the words by Claude, the video by Claude Code in Blender and Remotion, two shots by FLUX.2 and LTX-2.3. The screenshots at the start are real; everything else on screen is made up. A human approved each stage and picked the takes. Each of those 28 interventions is logged, along with every prompt and production step:
+Made with AI: the song by Suno (edited and mastered by a human in Logic Pro), the words by Claude, the video by Claude Code in Blender and Remotion, two shots by FLUX.2 and LTX-2.3. The screenshot at the start is real; everything else on screen is made up. A human approved each stage and picked the takes. Each of those 28 interventions is logged, along with every prompt and production step:
 https://github.com/Derivative-Work/all-systems-operational
 
 CHAPTERS
@@ -111,11 +110,11 @@ All Systems Operational, AI music video, AI generated, AI satire, Microsoft 365 
 |---|---|
 | Category | Music |
 | Audience | Not made for kids |
-| Altered or synthetic content | **Yes.** The singing voice is AI-generated, and the rooms, people and two shots are rendered or generated. The real screenshots at the start are captioned "real screenshot"; the chat post is captioned "recreation", the #it-help chat and the treehouse "dramatization". |
+| Altered or synthetic content | **Yes.** The singing voice is AI-generated, and the rooms, people and two shots are rendered or generated. The real screenshot at the start is captioned "real screenshot"; the chat post is captioned "recreation", the #it-help chat and the treehouse "dramatization". |
 | Language / caption language | English / English |
 | Captions | Upload `lyrics/as_sung_lines_video.srt` as English subtitles (72 cues, the lyrics as sung, line by line). Regenerate it if report day changes the bridge. |
 | License | Standard YouTube License. YouTube's only Creative Commons option is CC BY, which would drop the NC-SA terms; the description states the licence instead. |
-| Thumbnail | To come. Not the real screenshots or the creator's photo: those stay in the bookend. |
+| Thumbnail | To come. Not the real screenshot or the creator's photo: those stay in the bookend. |
 | Chapters | From the description (first chapter at 0:00; each over 10 s). |
 | End screen | Over the disclosure card's last 20 s (from about 6:22). Put the elements in the bottom corners, clear of the card's text. |
 | Comments | Open. |

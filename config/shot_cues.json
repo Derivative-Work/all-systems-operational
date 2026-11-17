@@ -1,11 +1,11 @@
 {
  "_doc": "Start cue of every shot in the brief's shot list (O01-O24, rev 116); a shot ends where the next starts. Cues (scripts/shot_times.py): 'Section|line|word' = that word's start in timing/timing_map.json (indices from 0, as in lyrics/as_sung.txt); 'end:'/'mid:' its end or middle; 't:<s>' a song time; 'event:<name>' an event in the timing map ('event:claps:<i>' the i-th clap); 'hey:Section|line' / 'echo:Section|line' the backing Hey! or echo after that line; 'bars_before:<ID>:<n>' / 'beats_after:<ID or cue>:<n>' n bars or beats from the beat nearest that time; 'pre'/'post' for shots before or after the music. 'snap': 'downbeat' or 'beat' moves the start onto the nearest one within max_snap_s (default 0.45 s for a downbeat, 0.3 s for a beat), only inside the grid's reliable spans. 'marks': timed events inside a shot, same cue syntax, for the animatic and the Remotion compositions. Times are song time (the master); video time = song time + lead_in_s.",
  "fps": 30,
- "lead_in_s": 8.4,
- "_lead_in_why": "The opening bookend (O01) plays before the song; the click on play is the cut to O02 at song time 0. Proposed 8.4 s = 252 frames = 14 beats of 18 frames: the outage-report spike 2.4 s (4 beats), the two real screenshots 2.4 s together (the brief caps them at 3 s), the recreated #it-self-help post 3.6 s (the two strike-throughs, the cursor, the click on play). The Remotion placeholder is 8.2 s (2.0 + 2.6 + 3.6). The song's own grid, extended back, has a beat at 0.06 s, so the bookend's beats run into the song's to within 60 ms. The master opens with 1.09 s of silence after the click (first sound 1.09 s, first beat 1.26 s).",
+ "lead_in_s": 5.2,
+ "_lead_in_why": "The opening bookend (O01) plays before the song; the click on play is the cut to O02 at song time 0. Proposed 8.4 s = 252 frames = 14 beats of 18 frames: the outage-report spike 2.4 s (4 beats), the two real screenshots 2.4 s together (the brief caps them at 3 s), the recreated #it-self-help post 3.6 s (the two strike-throughs, the cursor, the click on play). The Remotion placeholder is 8.2 s (2.0 + 2.6 + 3.6). The song's own grid, extended back, has a beat at 0.06 s, so the bookend's beats run into the song's to within 60 ms. The master opens with 1.09 s of silence after the click (first sound 1.09 s, first beat 1.26 s). Human interventions 32 (\"cut the license screen\"; \"the first downbeat lands right when the shown play button is clicked\"): the licence capture is cut and the status page alone gets 1.6 s (it opens on the tab and the address bar, then pulls back); the song's first 2.4 s (1.0 s of silence and a two-beat lead-in of taps and strums) aren't played: the audio starts at song 2.4 s, 15-40 ms before the first downbeat's attack (2.415-2.44 s), on the cut from the post to O02. So O01 is 7.6 s (228 frames: 2.4 + 1.6 + 3.6), O02 starts at song 2.4 s, and video time = song time + 5.2 s (156 frames; was 8.4 s, 252). Everything after the cut is 3.2 s (96 frames) earlier than in review cuts 1 and 2.",
  "lead_in_parts_s": {
   "O01_spike": 2.4,
-  "O01_real": 2.4,
+  "O01_real": 1.6,
   "O01_chat": 3.6
  },
  "post_roll": {
@@ -19,9 +19,9 @@
   "BEAT_frames": 18,
   "DUR_s": {
    "O01_spike": 2.4,
-   "O01_real": 2.4,
+   "O01_real": 1.6,
    "O01_chat": 3.6,
-   "O02": 7.256,
+   "O02": 4.856,
    "O03": 19.229,
    "O04": 4.774,
    "O05": 4.84,
@@ -52,8 +52,8 @@
   },
   {
    "id": "O02",
-   "cue": "t:0",
-   "note": "the click on play cuts here; 1.09 s of silence, then the whistled hook",
+   "cue": "t:2.4",
+   "note": "the click on play cuts here, on the song's first downbeat (human interventions 32): the song's first 2.4 s aren't played; the whistled hook from the downbeat",
    "marks": [
     {
      "what": "one row flips to 'Investigating'",

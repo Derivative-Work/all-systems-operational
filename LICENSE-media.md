@@ -30,9 +30,9 @@ The code is under the MIT licence instead: see [LICENSE](LICENSE).
 - **The probe kit** (`blender/lib/`): from Sandbox Rhapsody, by the same author, MIT.
 - **Little Switch** (`remotion/src/defaultOn/`): the rig and palette are copied unchanged from Default On, by the same
   author, and stay under that project's terms; the frames of the cameo are covered as above.
-- **The real captures in the opening bookend** (`assets/screenshots/`): Microsoft's interfaces and logos belong to
-  Microsoft, and the "No license found" capture is a placeholder pending permission or replacement (the M3 contact sheet,
-  `review/m3_screens.jpg`, shows it as one tile). They appear as a documentary record and aren't licensed here.
+- **The real capture in the opening bookend** (`assets/screenshots/`): Microsoft's interface and logos belong to
+  Microsoft. It appears as a documentary record and isn't licensed here. Nor is the "No license found" capture, a
+  placeholder cut from the video, which the M3 contact sheet (`review/m3_screens.jpg`) shows as one tile.
 - **The fonts** in `remotion/public/fonts/` (Inter, Work Sans, Caveat, Noto Sans Mono): SIL Open Font License 1.1,
   licence text beside each font (`SOURCES.md`).
 - **The image-to-video graph** (`comfy/api/video_ltx2_3_i2v.api.json`): the API form of ComfyUI's template, Comfy Org,

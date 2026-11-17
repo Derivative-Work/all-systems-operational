@@ -1,7 +1,8 @@
 """M2: resolve every shot cue (config/shot_cues.json) to song time, video time and frames: timing/shot_times.json.
 
 Adapted from Ever Present's scripts/shot_times.py (commit 726343c; itself from The Distillation Job). Changes: 30 fps
-(Remotion); video time = song time + the bookend lead-in (shot_cues lead_in_s); snapping to a downbeat or a beat per
+(Remotion); video time = song time + the bookend lead-in (shot_cues lead_in_s; the song's audio starts at the first
+song shot's cue, O02's, so the song's head before it isn't played: human interventions 32); snapping to a downbeat or a beat per
 shot, inside the grid's reliable spans; cues for the stops, the claps, the backing Hey!s and echoes; timed marks
 inside shots; overlays; the post-roll after the music. Cue syntax: the _doc in config/shot_cues.json.
 Shot IDs are checked against the brief's shot list in docs/brief.md.
@@ -99,11 +100,12 @@ def main():
     o24_len = pr["O24_end_card_s"] + pr["O24_final_card_s"]
     vf = lambda song_t: round((song_t + lead) * fps)
     out, short = {}, []
+    head = rows[0]["t"]                     # the song's first shot starts here: before it the song isn't played (O01)
     for s in cfg["shots"]:
         if s["cue"] == "pre":
-            out[s["id"]] = {"placement": "before the music", "song_start": -lead, "song_end": 0.0,
-                            "video_start": 0.0, "video_end": lead, "duration": lead,
-                            "start_frame": 0, "end_frame": vf(0.0), "parts_s": cfg["lead_in_parts_s"], "note": s.get("note")}
+            out[s["id"]] = {"placement": "before the music", "song_start": -lead, "song_end": round(head, 3),
+                            "video_start": 0.0, "video_end": round(head + lead, 3), "duration": round(head + lead, 3),
+                            "start_frame": 0, "end_frame": vf(head), "parts_s": cfg["lead_in_parts_s"], "note": s.get("note")}
     for i, r in enumerate(rows):
         end = rows[i + 1]["t"] if i + 1 < len(rows) else end_music
         d = {"song_start": round(r["t"], 3), "song_end": round(end, 3), "duration": round(end - r["t"], 3),
@@ -139,7 +141,10 @@ def main():
             "start_frame": vf(end_music + o24_len), "end_frame": vf(end_music + o24_len + pr["fact_card_s"])}
     order = [s["id"] for s in cfg["shots"]]
     total = end_music + lead + o24_len + pr["fact_card_s"]
-    json.dump({"generated_by": "scripts/shot_times.py", "fps": fps, "lead_in_s": lead, "music_end_song": end_music,
+    if abs(sum(cfg["lead_in_parts_s"].values()) - (head + lead)) > 1e-6:
+        raise SystemExit("O01's parts don't add up to the lead-in plus the song's unplayed head")
+    json.dump({"generated_by": "scripts/shot_times.py", "fps": fps, "lead_in_s": lead, "song_audio_from_s": round(head, 3),
+               "music_end_song": end_music,
                "video_length_s": round(total, 3), "video_frames": round(total * fps),
                "master_sha256": tm["audio"]["sha256"], "shots": {k: out[k] for k in order},
                "overlays": overlays, "cards": cfg.get("cards", {}), "fact_card_after_O24": fact, "short_shots": short},

@@ -1,7 +1,8 @@
 // O01, beat 3: the creator's #it-self-help post sharing this song, recreated in the generic chat UI with the creator's
 // real name and photo (the one approved real-person exception, brief guardrails; the photo is cropped from his own
 // message in assets/screenshots/slack-5.png). Captioned "recreation". "(my last meme about this, I promise)" is struck
-// through, then "no video yet as this is breaking news"; then the cursor clicks play and the song starts on the cut.
+// through, then "no video yet as this is breaking news"; then the cursor clicks play and the song starts on the cut,
+// on its first downbeat.
 import React from 'react';
 import {Easing, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 import {UI} from '../Fonts';
@@ -46,8 +47,10 @@ export type ChatPostTiming = {strike1: number; strike2: number; cursorIn: number
 export const ChatPost: React.FC<{timing?: Partial<ChatPostTiming>}> = ({timing}) => {
   const f = useCurrentFrame();
   const {durationInFrames: d} = useVideoConfig();
-  // defaults scale with the composition: hold, strike, strike, move, click near the end (the song starts on the cut)
-  const t: ChatPostTiming = {strike1: Math.round(d * 0.2), strike2: Math.round(d * 0.4), cursorIn: Math.round(d * 0.55), click: d - 10, ...timing};
+  // defaults scale with the composition: hold, strike, strike, move, click at the end. The press shows on the last two
+  // frames and the cut to O02 is the release, on the song's first downbeat (human interventions 32; it was 10 frames
+  // before the cut, with the song's silence and lead-in after it)
+  const t: ChatPostTiming = {strike1: Math.round(d * 0.2), strike2: Math.round(d * 0.4), cursorIn: Math.round(d * 0.55), click: d - 3, ...timing};
   const s1 = interpolate(f, [t.strike1, t.strike1 + 9], [0, 1], clamp);
   const s2 = interpolate(f, [t.strike2, t.strike2 + 11], [0, 1], clamp);
   const move = interpolate(f, [t.cursorIn, t.click - 4], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
