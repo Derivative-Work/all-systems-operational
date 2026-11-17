@@ -304,3 +304,9 @@ Append-only. Every human action: when, what, and why.
 
 - **What:** after options J–Q (production log 84): "Make a version of P with more readable text at thumbnail size".
 - **Agent's reading:** at the size a feed shows (about 360 wide, 168 in the sidebar), P's banner was small and the dashboard's own words were specks. Two versions beside P: P2, the banner across the whole width in a heavier weight and the dashboard closer (the pool's tiles, its 84%, the DOWN column), and P3, P2 with one of the dashboard's own DOWN tags as a big stamp, the one word that still reads at 168 wide. No new words: the banner is the made-up status page's, DOWN is on the dashboard. Thumbnail C stays the pick until the human says otherwise; the credits slide (40) is rebuilt once, after the pick.
+
+## 45. 2026-11-17 — Thumbnail P3; a vertical cut
+
+- **What:** on P2 and P3 (production log 85): "Let's go with P3. Suggest options for a vertical cut".
+- **Picked:** thumbnail P3, the dashboard close under the full-width banner with the DOWN stamp. It replaces C.
+- **Agent's reading:** the pick closes the thumbnail, so the master's credits slide is rebuilt once now, at this entry's count (45), as said with options E–I. "Suggest options" asks for choices, not a build: the vertical cut's shapes, lengths and what each costs, with sample frames, before anything is rendered.
