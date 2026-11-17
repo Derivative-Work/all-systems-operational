@@ -8,6 +8,7 @@
 import React from 'react';
 import {AbsoluteFill, interpolate, Sequence, useCurrentFrame} from 'remotion';
 import cfg from '../../../config/end_cards_m7.json';
+import release from '../../../config/release.json';
 import grid from '../../../timing/credits_grid.json';
 import {FPS, INCIDENT} from '../config';
 import {STATION, UI} from '../Fonts';
@@ -66,6 +67,30 @@ export const FactPage: React.FC<{page: number}> = ({page}) => (
   </Card>
 );
 
+/* ---------- the credits (human interventions 39: "a proper credits slide ... much like the previous songs") ---------- */
+type Credits = {title: string; label: string; lines: [string, string][]};
+const CR = (cfg as unknown as {credits: Credits}).credits;
+const fill = (t: string) => t.replace('{interventions}', String(release.interventions)).replace('{repo_url}', release.repo_url);
+export const CREDIT_LINES: [string, string][] = CR.lines.map(([k, v]) => [k, fill(v)]);
+const creditWords = () => words(CR.label, CR.title, ...CREDIT_LINES.flat());
+
+export const CreditsCard: React.FC = () => (
+  <Card dark>
+    <div style={{fontFamily: STATION, fontSize: 28, fontWeight: 600, letterSpacing: 4, textTransform: 'uppercase', color: T.coral}}>
+      {CR.label}</div>
+    <div style={{fontFamily: STATION, fontSize: 76, fontWeight: 650, letterSpacing: -1.2, marginTop: 10, marginBottom: 40}}>{CR.title}</div>
+    <div style={{display: 'grid', gridTemplateColumns: 'max-content 1fr', columnGap: 44, rowGap: 16, fontFamily: STATION,
+      fontSize: 36, lineHeight: 1.3}}>
+      {CREDIT_LINES.map(([k, v]) => (
+        <React.Fragment key={k}>
+          <div style={{color: '#a9c2b6', fontWeight: 500}}>{k}</div>
+          <div style={{color: '#f3ecdf'}}>{nb(v)}</div>
+        </React.Fragment>
+      ))}
+    </div>
+  </Card>
+);
+
 export type EndItem = {id: string; words: number; read: number; frames: number; from: number; dark: boolean; el: React.ReactNode};
 
 type Snap = {window_s: number; window_frac: number; picture_fade_s: number; music_fade_s: number};
@@ -87,9 +112,12 @@ const snapTo = (need: number, read: number) => {
  * fade_frames before its hold ends; snapped, it starts on the music. */
 const ITEMS: Omit<EndItem, 'from' | 'frames'>[] = (() => {
   const items: Omit<EndItem, 'from' | 'frames'>[] = [];
-  const add = (id: string, n: number, dark: boolean, el: React.ReactNode) => items.push({id, words: n, read: readS(n), dark, el});
+  const add = (id: string, n: number, dark: boolean, el: React.ReactNode, wpm = cfg.wpm) =>
+    items.push({id, words: n, read: Math.max(cfg.min_s, (n / wpm) * 60 + cfg.settle_s), dark, el});
   for (const k of cfg.order) {
-    if (k === 'end') {
+    if (k === 'credits') {
+      add('credits', creditWords(), true, <CreditsCard />, (cfg as unknown as {credits_wpm: number}).credits_wpm);
+    } else if (k === 'end') {
       const extra = INCIDENT.branch === 'C' ? `Root cause: final report pending as of ${INCIDENT.asOf}` : '';
       add('end', words(END_TITLE, END_BODY, extra), true, <EndCard />);
     } else if (k === 'final') {

@@ -273,3 +273,9 @@ Append-only. Every human action: when, what, and why.
 - **What:** "Checked WaPo, it confirms the 130k number. The original of the GitHub/Slack profile photo is in ~/Downloads/aarmea-github.jpg -- once it's in, send me the opening bookend and credits for me to review. Note that the contrast on the "last updated" is not great on your suggested thumbnail. Fix that, and also suggest some more -- I'm thinking one of the treehouse scenes."
 - **Checked by the human:** the Washington Post link (production log 77) and its "almost 130,000" figure.
 - **File:** `~/Downloads/aarmea-github.jpg` (1480×1480 JPEG, file time 01:36, sha256 `84b0b8da…`), the creator's profile photo, the original of the 66 px avatar cropped from a Slack capture. Copied in at 256 px without its EXIF data to `remotion/public/real/creator_avatar.png` (git-ignored, as the creator's captures are); the 66 px crop moved to `archive/remotion/real/` (also ignored).
+
+## 39. 2026-11-17 — Thumbnail C; a credits slide; "(slop warning)" highlighted
+
+- **What:** on the thumbnail options and the review pieces (production log 79): "Yes, go with C. Also add a proper credits slide to this one, much like the previous songs (excluding Ever Present, whose subject matter was serious enough to warrant skipping it)". Then: "right, also animate highlighting the "(slop warning)" on the Slack screen to serve as the in-video AI disclosure (in addition to YouTube's label)".
+- **Picked:** thumbnail C, the treehouse dashboard under the banner.
+- **Agent's reading:** "the previous songs" are the series' earlier videos, whose end cards open with a credits list (Read Only's first end page; Not Yet's end card): satire label, concept, lyrics, music, video, the real images, the intervention count, the production log. This video's end card said the same in a sentence (the brief's). Ever Present has none and isn't the model.

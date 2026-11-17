@@ -4,7 +4,22 @@
   "settle_s": 2.0,
   "min_s": 4.0,
   "fade_frames": 12,
-  "order": ["end", "final", "fact", "disclosure"],
+  "order": ["credits", "final", "fact", "disclosure"],
+  "_doc_credits": "Human interventions 39: \"add a proper credits slide to this one, much like the previous songs (excluding Ever Present...)\": the credits as a list, as Read Only's and Not Yet's end cards, in place of the brief's end-card sentence (it said the same in prose). {interventions} and {repo_url} come from config/release.json (written by scripts/m7_end.sh from log/human_interventions.md). The list is scanned rather than read, so it holds for its words at credits_wpm.",
+  "credits_wpm": 260,
+  "credits": {
+    "title": "All Systems Operational",
+    "label": "AI-generated satire",
+    "lines": [
+      ["Concept and opening", "the creator"],
+      ["Lyrics", "Claude (Anthropic), audited by Gemini (Google)"],
+      ["Music", "Suno, mastered by the creator, post-filtered with music-deslop"],
+      ["Video", "Claude Code, with Blender, Remotion, FLUX.2 [dev] and LTX-2.3"],
+      ["The only real images", "the creator’s screenshot and photo"],
+      ["Human interventions", "{interventions}, each logged"],
+      ["Full production log", "{repo_url}"]
+    ]
+  },
   "fact_pages": [[0, 1], [2, 3, 4], [5], [6, "format"]],
   "snap": {"window_s": 6.0, "window_frac": 0.5, "picture_fade_s": 0.8, "music_fade_s": 2.4}
 }

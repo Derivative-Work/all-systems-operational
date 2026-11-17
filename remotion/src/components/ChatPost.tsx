@@ -1,8 +1,9 @@
 // O01, beat 3: the creator's #it-self-help post sharing this song, recreated in the generic chat UI with the creator's
 // real name and photo (the one approved real-person exception, brief guardrails; the photo is the creator's original
 // profile photo at 256 px, human interventions 38; it was a 66 px crop of their message in
-// assets/screenshots/slack-5.png). Captioned "recreation". "(my last meme about this, I promise)" is struck through,
-// then "no video yet as this is breaking news"; then the cursor clicks play and the song starts on the cut,
+// assets/screenshots/slack-5.png). Captioned "recreation". "(slop warning)" is highlighted first, the in-video AI
+// disclosure (human interventions 39); then "(my last meme about this, I promise)" is struck through, then "no video
+// yet as this is breaking news"; then the cursor clicks play and the song starts on the cut,
 // on its first downbeat.
 import React from 'react';
 import {Easing, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
@@ -37,13 +38,25 @@ const Strike: React.FC<{p: number; children: React.ReactNode}> = ({p, children})
   </span>
 );
 
+/** A highlighter swipe behind text, left to right (p 0..1): the in-video AI disclosure on "(slop warning)" (human
+ * interventions 39: "animate highlighting the "(slop warning)" on the Slack screen to serve as the in-video AI
+ * disclosure"). Amber marker, slightly ragged ends, under the text. */
+const Highlight: React.FC<{p: number; children: React.ReactNode}> = ({p, children}) => (
+  <span style={{position: 'relative', display: 'inline-block'}}>
+    <span style={{position: 'absolute', left: -8, top: '8%', height: '88%', width: `calc(${p * 100}% + ${p * 16}px)`,
+      background: 'rgba(255, 205, 64, 0.85)', borderRadius: '6px 10px 8px 5px', transform: 'skewX(-6deg)',
+      boxShadow: p > 0 ? '0 0 0 2px rgba(255, 205, 64, 0.25)' : 'none'}} />
+    <span style={{position: 'relative'}}>{children}</span>
+  </span>
+);
+
 const Cursor: React.FC = () => (
   <svg width={44} height={58} viewBox="0 0 22 29">
     <path d="M1 1 L1 23 L6.5 18 L10.5 27 L14 25.5 L10 17 L17.5 17 Z" fill="#111" stroke="#fff" strokeWidth={1.6} strokeLinejoin="round" />
   </svg>
 );
 
-export type ChatPostTiming = {strike1: number; strike2: number; cursorIn: number; click: number};
+export type ChatPostTiming = {highlight: number; strike1: number; strike2: number; cursorIn: number; click: number};
 
 export const ChatPost: React.FC<{timing?: Partial<ChatPostTiming>}> = ({timing}) => {
   const f = useCurrentFrame();
@@ -51,7 +64,10 @@ export const ChatPost: React.FC<{timing?: Partial<ChatPostTiming>}> = ({timing})
   // defaults scale with the composition: hold, strike, strike, move, click at the end. The press shows on the last two
   // frames and the cut to O02 is the release, on the song's first downbeat (human interventions 32; it was 10 frames
   // before the cut, with the song's silence and lead-in after it)
-  const t: ChatPostTiming = {strike1: Math.round(d * 0.2), strike2: Math.round(d * 0.4), cursorIn: Math.round(d * 0.55), click: d - 3, ...timing};
+  const t: ChatPostTiming = {highlight: Math.round(d * 0.07), strike1: Math.round(d * 0.24), strike2: Math.round(d * 0.42),
+    cursorIn: Math.round(d * 0.56), click: d - 3, ...timing};
+  // the highlight first (the disclosure, as the post appears), then the two strike-throughs
+  const hl = interpolate(f, [t.highlight, t.highlight + 12], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
   const s1 = interpolate(f, [t.strike1, t.strike1 + 9], [0, 1], clamp);
   const s2 = interpolate(f, [t.strike2, t.strike2 + 11], [0, 1], clamp);
   const move = interpolate(f, [t.cursorIn, t.click - 4], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
@@ -71,7 +87,7 @@ export const ChatPost: React.FC<{timing?: Partial<ChatPostTiming>}> = ({timing})
               <svg width={26} height={26} viewBox="0 0 24 24"><path d="M4 5h16v10H9l-5 4z" fill="none" stroke={T.chatAccent} strokeWidth={2.2} strokeLinejoin="round" /></svg>
               {POST.replies}</div>}>
             <div><Strike p={s1}>{POST.lines[0]}</Strike></div>
-            <div>{POST.lines[1]}</div>
+            <div><Highlight p={hl}>{POST.lines[1]}</Highlight></div>
             <div style={{marginTop: 14}}>{POST.lines[2]}</div>
             <div>{POST.lines[3]}</div>
             <div><Strike p={s2}>{POST.lines[4]}</Strike></div>

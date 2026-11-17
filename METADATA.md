@@ -12,7 +12,7 @@ YouTube metadata for the main video, ready to paste at upload once the checklist
 
 ## Main video (16:9, 1920×1080, 30 fps)
 
-**File:** to come at M7/M8 (6:39.4 with the current end sequence: the 7.6 s bookend, the song from its first downbeat, 3:57.2, then 2:34.6 of cards). Captions: `lyrics/as_sung_lines_video.srt` (72 cues, the v1.3 lyrics as sung, line by line, in video time). Thumbnail: `review/thumbnail/thumbnail.jpg` (1280×720, `scripts/thumbnail.py`).
+**File:** to come at M7/M8 (6:39.4 with the current end sequence: the 7.6 s bookend, the song from its first downbeat, 3:57.2, then 2:34.6 of cards). Captions: `lyrics/as_sung_lines_video.srt` (72 cues, the v1.3 lyrics as sung, line by line, in video time). Thumbnail: `review/thumbnail/thumbnail.jpg` (1280×720, `scripts/thumbnail.py`; option C, the human's pick).
 
 ### Title
 
@@ -51,8 +51,8 @@ CHAPTERS
 2:55 Build: restored for most users
 3:07 Final chorus
 3:27 Outro: remember Wednesday?
-4:04 End card
-4:20 What happened
+4:04 Credits
+4:25 What happened
 6:09 Disclosure
 
 WHAT HAPPENED
@@ -107,11 +107,11 @@ All Systems Operational, AI music video, AI generated, AI satire, Microsoft 365 
 |---|---|
 | Category | Music |
 | Audience | Not made for kids |
-| Altered or synthetic content | **Yes.** The singing voice is AI-generated, and the rooms, people and two shots are rendered or generated. The real screenshot at the start is captioned "real screenshot"; the chat post is captioned "recreation", the #it-help chat and the treehouse "dramatization". |
+| Altered or synthetic content | **Yes.** The singing voice is AI-generated, and the rooms, people and two shots are rendered or generated. The real screenshot at the start is captioned "real screenshot"; the chat post is captioned "recreation" and its "(slop warning)" is highlighted as the in-video AI disclosure, the #it-help chat and the treehouse "dramatization". |
 | Language / caption language | English / English |
 | Captions | Upload `lyrics/as_sung_lines_video.srt` as English subtitles (72 cues, the lyrics as sung, line by line). Regenerate it if report day changes the bridge. |
 | License | Standard YouTube License. YouTube's only Creative Commons option is CC BY, which would drop the NC-SA terms; the description states the licence instead. |
-| Thumbnail | `review/thumbnail/thumbnail.jpg`: the live room with the made-up status page's banner and its stale stamp. Not the real screenshot or the creator's photo: those stay in the bookend. |
+| Thumbnail | `review/thumbnail/thumbnail.jpg`: the treehouse table's dashboard (the pool 83% unresponsive, services down) under the made-up status page's banner and its stale stamp (option C, human interventions 39). Not the real screenshot or the creator's photo: those stay in the bookend. |
 | Chapters | From the description (first chapter at 0:00; each over 10 s). |
 | End screen | Over the disclosure card's last 20 s (from about 6:22). Put the elements in the bottom corners, clear of the card's text. |
 | Comments | Open. |

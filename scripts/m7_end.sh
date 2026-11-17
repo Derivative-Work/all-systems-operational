@@ -13,6 +13,9 @@ cd "$(git rev-parse --show-toplevel)"
 quiet() { grep -v -i -e zod -e "version mismatch" -e "^-*$" -e "wrong versions" -e "breakages" -e "React context" -e "Type errors" \
   -e "Failed renders" -e "resolve:" -e "package.json has" -e "Remove the" -e "Run .npx" -e "^$" || true; }
 mkdir -p review/m7_end renders/m7/remotion
+# the credits' {interventions} and {repo_url} (human interventions 39): config/release.json, from the log as it stands
+N=$(grep -c '^## ' log/human_interventions.md)
+printf '{\n "_doc": "Written by scripts/m7_end.sh: the end credits'"'"' {interventions} (the entries in log/human_interventions.md) and {repo_url}.",\n "interventions": %s,\n "repo_url": "github.com/Derivative-Work/all-systems-operational"\n}\n' "$N" > config/release.json
 npx remotion compositions remotion/src/index.ts 2>/dev/null | awk '$1 ~ /^M7-End/ {print $1, $4}' > review/m7_end/plan.txt
 while read -r id n; do
   [ "$id" = M7-EndSequence ] && continue
