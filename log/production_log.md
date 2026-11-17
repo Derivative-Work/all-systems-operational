@@ -1248,3 +1248,13 @@ Append-only. One entry per generation, render or analysis step.
 
 - **Command:** `.venv/bin/python -I scripts/thumbnail.py` (new) → `review/thumbnail/thumbnail.jpg` (1280×720): frame 101 of O03a from the M7e render (the picked lighting), graded grey, darkened toward the top, the made-up status page's banner ("All systems operational", its green and check) and stale stamp ("Last updated: Thu 11:15 a.m."), in Work Sans (OFL). No real screenshot, logo or person (METADATA).
 - METADATA: the thumbnail and the link check noted.
+
+## 79. 2026-11-17 — The original photo in the chat post; the bookend and credits pieces for review; thumbnail options
+
+- **Why:** human interventions 38.
+- **The photo:** `remotion/public/real/creator_avatar.png` 256×256 from the original (Lanczos, EXIF dropped). `M5-O01` re-rendered at both sizes (`M5_REMOTION_SCALE=1 M5_REMOTION_OUT=renders/m7/remotion_master scripts/m5_remotion.sh M5-O01`; the same into `renders/m7/remotion_review` at 0.5).
+- **Review pieces:** `.venv/bin/python -I scripts/m7_pieces.py` (new; `log/render_logs/m7_pieces.log`), from the master's own segments (`scripts/m7_master.py` setup) into `renders/m7/pieces/`:
+  - `review/m7_bookend.mp4`: O01, O02 and O03's first 3 s at 1080p (15.5 s), the song from its downbeat on the cut at 7.6 s (silence to 7.58 s, the attack from 7.60 s; checked on the file). ffmpeg 8's `adelay` shifts timestamps instead of writing silence, so a first build had the audio track start at 7.6 s with no samples before it; `aresample=async=1:first_pts=0` fills the gap. Review cut 2 had real silence (checked), so the review cut and the master, whose concat fills it, are unaffected.
+  - `review/m7_credits.mp4`: O23 with the song's last 5.4 s, then the end sequence with the credits music (2:40, 1080p, 9.7 MB).
+  - O03 there is the M7e render from before the set-props pass (production log 75); its re-render is queued.
+- **Thumbnails** (`scripts/thumbnail.py`: the stamp now on a dark backing, SemiBold 32; a frame path, `--look`, `--gain`, `--banner top|bottom`, `--crop`): stills of O18a, O18b, O18c (at 0.85) and O18d, O18e (first frame) at 1920×1080 with the M7e look and the picked lighting (scratch, then `review/thumbnail/frames/`, git-ignored). Options: A the live room (`review/thumbnail/thumbnail_A_live.jpg`, also `thumbnail.jpg`), B the band in the treehouse before the whiteboard (O18a, gain 1.25), C the treehouse table's dashboard, the pool 83% unresponsive and services down (O18e cropped to the laptop, gain 1.35), D the band before the board, the banner at the bottom (O18b, gain 1.2); sheet `review/thumbnail/thumbnail_options.jpg`.

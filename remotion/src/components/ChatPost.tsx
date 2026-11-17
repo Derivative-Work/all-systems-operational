@@ -1,7 +1,8 @@
 // O01, beat 3: the creator's #it-self-help post sharing this song, recreated in the generic chat UI with the creator's
-// real name and photo (the one approved real-person exception, brief guardrails; the photo is cropped from his own
-// message in assets/screenshots/slack-5.png). Captioned "recreation". "(my last meme about this, I promise)" is struck
-// through, then "no video yet as this is breaking news"; then the cursor clicks play and the song starts on the cut,
+// real name and photo (the one approved real-person exception, brief guardrails; the photo is the creator's original
+// profile photo at 256 px, human interventions 38; it was a 66 px crop of their message in
+// assets/screenshots/slack-5.png). Captioned "recreation". "(my last meme about this, I promise)" is struck through,
+// then "no video yet as this is breaking news"; then the cursor clicks play and the song starts on the cut,
 // on its first downbeat.
 import React from 'react';
 import {Easing, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
