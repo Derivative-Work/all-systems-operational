@@ -55,6 +55,8 @@ LOOK = {"live": "grey", "cafe": "cafe", "treehouse": "grey", "park": "grey", "vo
 HOME_FROM = next(s["start_frame"] for s in M.subs_of("O22") if s["id"] == LOOK_M7.get("m7e", {}).get("home_grade_from", "O22b"))
 OUT = "review/m7_cut_v1.mp4"
 SOURCES = {}
+AUDIO = ["-c:a", "aac", "-b:a", "192k"]         # scripts/m7_master.py: AAC 384k at 48 kHz
+SOURCES_JSON = "renders/m7/review_cut_sources.json"
 PENDING = set()          # --pending: sub-shots whose frames on disk are still the first pass, fix queued
 
 
@@ -155,9 +157,8 @@ def main_run(a):
           f"[2:a]aformat=sample_rates=48000:channel_layouts=stereo,asetpts=PTS-STARTPTS[c];"
           f"[s][c]concat=n=2:v=0:a=1,apad=whole_dur={dur:.4f},atrim=end={dur:.4f}[a]")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(joined), "-i", SONG, "-i", CREDITS, "-filter_complex", af,
-                    "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart",
-                    a.out], check=True)
-    json.dump({"shots": how_of, "subs": SOURCES}, open("renders/m7/review_cut_sources.json", "w"), indent=1)
+                    "-map", "0:v", "-map", "[a]", "-c:v", "copy"] + AUDIO + ["-movflags", "+faststart", a.out], check=True)
+    json.dump({"shots": how_of, "subs": SOURCES}, open(SOURCES_JSON, "w"), indent=1)
     first = sorted(k for k, v in SOURCES.items() if v.startswith("M7 first pass"))
     print(f"{a.out}: {nframes} frames, {dur:.3f} s; first-pass frames in: {', '.join(first) or 'none'}")
 
