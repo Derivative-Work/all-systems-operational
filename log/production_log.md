@@ -1158,3 +1158,15 @@ Append-only. One entry per generation, render or analysis step.
   - With O08a (production log 66), every sub-shot has its full count. Pose checks: no violations; no tracebacks.
 - **By eye:** O03d's hands are clear from frame 1 (frames 1, 20 and 36); O11e's banjo from frame 1; O08a opens on the room; the lantern is square in O22g, O22f and O20e.
 - **Review cut 2:** `.venv/bin/python -I scripts/m7_review_cut.py --out review/m7_cut_v2.mp4` (`log/render_logs/m7_review_cut_v2.log`): 12,078 frames, 402.600 s, no first-pass frames; `--share` → `review/m7_cut_v2_share.mp4` (0:00–4:26.3, 24.6 MB). Sent.
+
+## 69. 2026-11-16 — M1: the v1.4 master (reverb on the hard cuts) post-filtered and compared with v1.3
+
+- **Why:** human interventions 33.
+- **Inputs:** `~/Downloads/All Systems Operational.wav` copied to `audio/track/All Systems Operational.wav` (48 kHz stereo f32, 239.58 s, sha256 `5cd6f653…`). The v1.3 master and its post-filtered output moved to `archive/audio/v1.3/track/` and `archive/audio/v1.3/postfilter/` (`mv`).
+- **Comparison with v1.3** (a scratch script; 0.1 s blocks, a block "differs" above 1e-4): 0-sample lag; identical in 2,347 of 2,396 blocks. It differs only at the hard cuts and the end:
+  - stop 1, 93.4–95.1 s (up to −13 dBFS): the band's cut at 93.8 s now decays through reverb;
+  - stop 2, 201.4–202.6 s and 203.1–203.4 s (up to −19 dBFS): after the cut at 201.8 s the gap holds a reverb tail falling to −116 dB by 203.0 s, where v1.3 dropped to −91 dB at once; the band's return at 203.19 s is unchanged;
+  - the ending, 237.8–239.5 s (up to −1.3 dBFS): a smooth fade to −117 dB, where v1.3 still sounded at −44 dB in its last 100 ms.
+- **Post-filter:** in `~/Code/music-deslop` at 68441e2 (clean tree): `/usr/bin/time -v uv run --frozen python -m postfilter.infer --in <repo>/audio/track/All\ Systems\ Operational.wav --out <repo>/audio/postfilter/.new-deslopped.wav --ckpt ../music-deslop-data/release/m6f_10k.safetensors --source suno` (21.1 s, 6.7 GB peak RSS; `log/render_logs/m1c_postfilter.log`). Renamed to `audio/postfilter/all-systems-operational-master-deslopped.wav`: s24, sample peak −0.83 dBFS, −13.7 LUFS, LRA 9.5 LU, sha256 `7e300840…`. Against the post-filtered v1.3 it differs as the masters do; elsewhere by −44 dBFS or less (the filter's reach around a change).
+- **Timing unchanged:** the cuts are on the same samples and nothing else moved, so `timing/timing_map.json`, the music map and `timing/shot_times.json` (still recording v1.3's sha256) stand. Re-running `scripts/timing_map.py` on v1.4 would move stop 2's measured time (the first sample after which the peak stays under −80 dBFS) about 0.7 s later, onto the reverb tail rather than the cut.
+- The review cut and the master assembly read the post-filtered master by its path, so they take v1.4 from now on.

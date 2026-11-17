@@ -239,3 +239,9 @@ Append-only. Every human action: when, what, and why.
   - The "No license found" capture: "Cut the "no license found" from the video". `review/m3_screens.jpg` stays in history ("no need to rewrite history").
   - The credits instrumental: "Credits instrumental by Suno -- it's a cover of the original. Share page for extracting details https://suno.com/s/O0W4sNwIfZk21s3g".
 - **Agent's reading:** "the first downbeat" is the song's first bar line at 2.44 s (song time); before it there is 1.0 s of silence and a two-beat lead-in of quiet taps and strums (1.2–2.4 s). Starting the song at the downbeat on the click means the song's audio starts there; the lead-in is cut, not played before the click (music before the play button is pressed would contradict the post). Still open: the people's lighting level (options to be sent).
+
+## 33. 2026-11-16 — An updated master (v1.4): reverb on the hard cuts
+
+- **What** (while the agent was on the notes of human interventions 32): "When you get the chance: I also updated the master at ~/Downloads/All Systems Operational.wav (mostly adding reverb to the hard cuts so they read as intentional) -- you'll need to run the postfilter again before using it".
+- **File:** `~/Downloads/All Systems Operational.wav` (file time 23:56; 48 kHz stereo f32, 239.58 s, the same length to the sample as v1.3; sha256 `5cd6f653…`). Called v1.4 in the logs. The stems weren't re-exported.
+- **Post-filter:** run by the agent, with the command used for v1.3 (production log 69). M1 stays locked (human interventions 32); this is the human's own change to it.

@@ -1,0 +1,24 @@
+/home/antiai-aiclub/Projects/all-systems-operational/audio/track/All Systems Operational.wav -> /home/antiai-aiclub/Projects/all-systems-operational/audio/postfilter/.new-deslopped.wav (239.6 s, strength 1.0, latent null)
+	Command being timed: "uv run --frozen python -m postfilter.infer --in /home/antiai-aiclub/Projects/all-systems-operational/audio/track/All Systems Operational.wav --out /home/antiai-aiclub/Projects/all-systems-operational/audio/postfilter/.new-deslopped.wav --ckpt ../music-deslop-data/release/m6f_10k.safetensors --source suno"
+	User time (seconds): 23.28
+	System time (seconds): 7.22
+	Percent of CPU this job got: 144%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:21.06
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 6673288
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 49
+	Minor (reclaiming a frame) page faults: 508368
+	Voluntary context switches: 3316
+	Involuntary context switches: 560
+	Swaps: 0
+	File system inputs: 92608
+	File system outputs: 134784
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
