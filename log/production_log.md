@@ -1205,3 +1205,11 @@ Append-only. One entry per generation, render or analysis step.
 - **Lighting options** (decisions 50): `ASO_FILL=<w> blender -b --factory-startup --python blender/coverage_m7.py -- --out <scratch>/w<w> --still --at mid --subs O03a,O09c,O17b,O18a,O20a --size 1600x900 --log <scratch>/w<w>/pose.log` for w = 0, 40, 120, 350, 900; `.venv/bin/python -I scripts/m7e_lighting_board.py <scratch> --levels 0,40,120,350,900 --names ... --cell 560` → `review/m7/lighting_options.jpg` (graded as in the edit). Rendered before the last fixes (the banjo head, chair colour, mugs); for the light only.
 - **METADATA:** chapters and length for the new timeline (production log 71): 6:39.4.
 - **Next:** the full M7e render at level A (`M7_PASS=m7e scripts/m7_render.sh`, the M7d frames moved to `archive/renders/m7/frames_m7d/` first), then the clearance check and review cut 3.
+
+## 73. 2026-11-17 — M7e: the laptops (after Not Yet's)
+
+- **Why:** human interventions 35.
+- **Code:** `blender/props_m7e.py` `laptop` (installed as `aso_props.laptop` with the other M7e props): the base, a keyboard well and Not Yet's key layout (`KEY_ROWS`, blank keys), the speaker grille, a trackpad, a hinge barrel, a rounded lid at the grey box's size and hinge, the screen panel inset in the bezel so the treehouse's screen textures (`treehouse_screens`) sit 1 mm in front of it. New roles `laptop_key`, `laptop_pad`, `laptop_well` (`blender/look.py`, `config/aso_look.json`). The laptops are only in the treehouse (O08c, O18).
+- **Checked:** stills of O18c and O18e (`review/m7/m7e_laptops.jpg`, brightened): keyboards, trackpads and bezels read; the screens' textures sit on the lids as before.
+- **The M7e render** (production log 72; restarted at the picked lighting, human interventions 34) was on its first build (O03) when this went in; O08c and O18, the builds with laptops, render with it.
+- **README:** the look's line now says backlit with a soft front wash (decisions 51).

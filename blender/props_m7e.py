@@ -19,6 +19,9 @@ still reproduce.
   diner mugs the same, at their size.
 - The server rack: rounded body, a perforated front door in a frame (blender/look.py "rack_door"), a lock handle,
   hinges, a status strip, split side panels with recessed grips, vents, casters and levelling feet.
+- Laptops (human interventions 35: "the laptops are clearly gray-box as well. See Not Yet's laptop rather than
+  re-inventing"): Not Yet's laptop at this one's size: a keyboard in its layout, the grille, trackpad, hinge barrel,
+  a rounded lid, the screen inset in its bezel.
 - Chairs: the bentwood (a turned seat, splayed legs, a leg ring, a bent back hoop), the shell chair (a moulded shell
   on four dowel legs: the grey box's flat back read as a black screen in the treehouse), the ladder-back (turned
   posts, finials, bowed slats, stretchers), the bar chair (a turned seat, a foot ring).
@@ -419,6 +422,51 @@ def server_rack(name, loc, rot=(0, 0, 0)):
     return o
 
 
+# ---------------------------------------------------------------- laptops
+
+# Not Yet's laptop keyboard (../not-yet scenes/blender/sets/nursery.py, the maintainer's laptop; MIT, same author):
+# a half-height function row, then five rows of 15 units (1 u = 18.5 mm), widths in units. Blank keys here (props
+# carry no text).
+KEY_ROWS = [(0.5, [1.5] + [1] * 12 + [1.5]),
+            (1, [1] * 13 + [2]),
+            (1, [1.5] + [1] * 12 + [1.5]),
+            (1, [1.75] + [1] * 11 + [2.25]),
+            (1, [2.25] + [1] * 10 + [2.75]),
+            (1, [1, 1, 1, 1.25, 5.5, 1.25, 1, 1, 1, 1])]
+
+
+def laptop(name, loc, rot_z, screen_mat=None, open_deg=105):
+    """As aso_props.laptop (0.32 x 0.22 m, the hinge at local (0, 0.11, 0.016), the lid opened open_deg, the user at
+    local -Y; blank, no logo), built as Not Yet's: a rounded base with a full keyboard (its layout), a speaker
+    grille, a trackpad, a hinge barrel, and a rounded lid with the screen (screen_mat) inset in its bezel. The
+    treehouse's screen textures (blender/look.py treehouse_screens) sit 1 mm in front of the screen."""
+    b = PR.B(["laptop", "laptop_key", "laptop_pad", "laptop_well"] + ([screen_mat] if screen_mat else []))
+    bbox(b, (0, 0, 0.0075), (0.32, 0.22, 0.015), "laptop", 0.004)
+    bbox(b, (0, 0.034, 0.0146), (0.288, 0.108, 0.001), "laptop_well", 0.0006)          # the keyboard well
+    u, gap, kz = 0.0185, 0.0032, 0.0152
+    yk = 0.086
+    for h, row in KEY_ROWS:
+        x = -7.5 * u
+        for w in row:
+            x0, x1, y0, y1 = x + gap / 2, x + w * u - gap / 2, yk - h * u + gap / 2, yk - gap / 2
+            bbox(b, ((x0 + x1) / 2, (y0 + y1) / 2, kz + 0.0012), (x1 - x0, y1 - y0, 0.0024), "laptop_key", 0.0007, segs=2)
+            x += w * u
+        yk -= h * u
+    bbox(b, (0, 0.097, 0.0152), (0.27, 0.007, 0.0006), "laptop_well", 0.0002)          # the speaker grille
+    bbox(b, (0, -0.063, 0.0152), (0.11, 0.066, 0.0006), "laptop_pad", 0.002)            # the trackpad
+    hinge = Vector((0, 0.11, 0.016))
+    tube(b, [hinge + Vector((-0.13, -0.004, -0.001)), hinge + Vector((0.13, -0.004, -0.001))], "laptop_key", 0.0062,
+         sides=16)
+    a = math.radians(open_deg - 90)
+    up = Vector((0, math.sin(a), math.cos(a)))
+    nrm = Vector((0, -math.cos(a), math.sin(a)))                                       # toward the user
+    axes = (Vector((1, 0, 0)), -nrm, up)
+    bbox(b, hinge + up * 0.107 + nrm * 0.002, (0.32, 0.006, 0.214), "laptop", 0.003, axes=axes)
+    if screen_mat:
+        bbox(b, hinge + up * 0.108 + nrm * 0.0052, (0.296, 0.0008, 0.186), 4, 0.0, axes=axes)
+    return finish(b.obj(name, None, loc, rot_z))
+
+
 # ---------------------------------------------------------------- chairs
 
 def chair(name, loc, rot_z, role, style=0):
@@ -523,5 +571,6 @@ def install():
     PR.mug = mug
     PR.server_rack = server_rack
     PR.chair = chair
+    PR.laptop = laptop
     PO._mug_mesh = held_mug_mesh
     return "M7e props: kick drum and pedal, mugs, server rack, chairs remodelled; props smooth-shaded with hard edges"

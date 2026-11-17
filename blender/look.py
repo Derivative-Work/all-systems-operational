@@ -838,6 +838,9 @@ ROLE = {
     "rack": lambda m: painted(m, "#1a1b1e", 0.42, metal=0.55, var=0.03),
     "rack_face": lambda m: painted(m, "#0e0f11", 0.6, metal=0.3, var=0.03),
     "rack_door": lambda m: perforated(m, "#25272b"),
+    "laptop_key": lambda m: painted(m, "#2b2c2f", 0.55, var=0.03),
+    "laptop_pad": lambda m: brushed(m, "#8e9095", 0.22),
+    "laptop_well": lambda m: painted(m, "#1c1d1f", 0.6, var=0.03),
 }
 INST = {
     "inst_top_spruce": lambda m: wood(m, "#c9a36a", 0.035, 0.6, rough=0.3, coat=0.75, obj=True, vary=0.03, gap=0.0),

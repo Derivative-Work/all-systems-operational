@@ -251,3 +251,8 @@ Append-only. Every human action: when, what, and why.
 - **What:** on the lighting options (decisions 50, `review/m7/lighting_options.jpg`): "for lighting: let's go with C for everything except the park, which should be B".
 - **Set:** `config/look_m7.json` m7e.people_fill: 120 W a spot in the live room, the cafe and the treehouse (C, the soft wash), 40 W in the park (B, a hint). The brief's "every performer is a silhouette" gives way to a backlit look with the people readable; faces stay dim.
 - **The M7e render** had started at level A (production log 72): stopped in its first build (O03, two sub-shots), those frames moved to `archive/renders/m7/frames_m7e_levelA_stopped/` and its logs renamed `*_levelA_stopped.log`; restarted at the picked levels.
+
+## 35. 2026-11-17 — The laptops
+
+- **What** (on the before/after sheet, `review/m7/m7e_props_before_after.jpg`, while the M7e render was running): "one more thing from that screenshot: the laptops are clearly gray-box as well. See Not Yet's laptop rather than re-inventing".
+- **Agent's reading:** Not Yet (`../not-yet`, MIT, same author) builds its maintainer's laptop in `scenes/blender/sets/nursery.py`: a bevelled base, a full keyboard (a half-height function row and five 15-unit rows, 1 u = 18.5 mm), a grille, a trackpad, a hinge barrel and a bevelled lid. Adapted at this laptop's size and hinge; Not Yet's key legends and its font aren't brought across (the props here carry no text). Not Yet isn't modified.

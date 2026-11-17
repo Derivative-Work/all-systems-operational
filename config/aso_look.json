@@ -66,7 +66,10 @@
     "coffee": "#2a170d",
     "rubber": "#151516",
     "felt": "#d8d2c4",
-    "rack_door": "#1e2024"
+    "rack_door": "#1e2024",
+    "laptop_key": "#2b2c2f",
+    "laptop_pad": "#8e9095",
+    "laptop_well": "#1c1d1f"
   },
   "rooms": {
     "live": {
