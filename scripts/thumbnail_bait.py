@@ -18,6 +18,10 @@ it reads as a shot number):
   N  "SOME USERS MAY BE EXPERIENCING": the dashboard beside the terminal, the alert ringing in front, the pool ringed
   P  the made-up "All systems operational" banner over the dashboard, its red gateway pool ringed
   Q  "WE ARE AWARE.": the dashboard, terminal, ringing alert and timed-out sign-in in a pile
+Human interventions 44, "a version of P with more readable text at thumbnail size" (board: --only P,P2,P3 --board
+thumbnail_options_P.jpg):
+  P2 P's banner across the whole width, heavier, and the dashboard closer: the pool's tiles, its 84%, the DOWN column
+  P3 P2 with one of the dashboard's DOWN tags as a stamp, big enough to read in the feed
 Frames: the M7e render (renders/m7/frames/<sub>/), or 4K stills for the tight crops: blender -b --factory-startup
 --python blender/coverage_m7.py -- --out <scratch> --still --at 0.2 --subs O20i,O15a --size 3840x2160, saved as
 review/thumbnail/frames/O20i_4k_020.png and O15a_4k_020.png (git-ignored; log/render_logs/thumbnail_bait_stills.log).
@@ -174,10 +178,10 @@ def ring(pil, box, width=12, colour=RED):
     return Image.alpha_composite(pil, lay)
 
 
-def banner(pil, xy, scale=1.0):
+def banner(pil, xy, scale=1.0, weight="Bold"):
     """The made-up status page's banner (scripts/thumbnail.py), at a scale."""
     x0, y0 = xy
-    F1 = font(int(64 * scale), "Bold")
+    F1 = font(int(64 * scale), weight)
     text = "All systems operational"
     d = ImageDraw.Draw(pil)
     tw = d.textlength(text, font=F1)
@@ -414,6 +418,36 @@ def opt_P(st):
     return p
 
 
+def zoom(sx0, sy0, sx1, sx_to, tilt=(0, 0, 0, 0)):
+    """A laptop quad that puts the screen's own pixels sx0..sx1 (x) across thumbnail x sx_to[0]..sx_to[1], and screen
+    row sy0 at thumbnail y sx_to[2], unskewed; tilt nudges the four corners' y (top left, top right, bottom right,
+    bottom left) for a little perspective."""
+    b = int(0.03 * 2560)
+    k = (sx_to[1] - sx_to[0]) / (sx1 - sx0)
+    X = lambda x: sx_to[0] + (x - sx0) * k
+    Y = lambda y: sx_to[2] + (y - sy0) * k
+    x0, x1, y0, y1 = X(-b), X(2560 + b), Y(-b), Y(1600 + b)
+    return [(x0, y0 + tilt[0]), (x1, y0 + tilt[1]), (x1, y1 + tilt[2]), (x0, y1 + tilt[3])]
+
+
+def opt_P2(st):
+    """P for the feed (human interventions 44: "more readable text at thumbnail size"): the banner across the whole
+    width in a heavier weight, and the dashboard closer, on the pool's red tiles, its 84% and the DOWN column."""
+    p = night_room(st)
+    p, to = place(p, "Dashboard-night", "laptop", zoom(150, 640, 2520, (14, 1306, 290), (0, -12, 0, 10)),
+                  glow=0.3)
+    p = ring(p, box_of(to, 120, 860, 1660, 1350, pad=6))
+    p = banner(p, (18, 18), 1.33, "ExtraBold")
+    return p
+
+
+def opt_P3(st):
+    """P2 with one of the dashboard's own DOWN tags as a stamp, big enough to read in the feed."""
+    p = opt_P2(st)
+    p = sticker(p, (1040, 590), "DOWN", 150, angle=-9)
+    return p
+
+
 def opt_Q(st):
     """Laptops and phones in a pile, all failing at once: "WE ARE AWARE."."""
     p = night_room(st)
@@ -433,7 +467,8 @@ OPTIONS = {"E": ("everything_is_fine", opt_E), "F": ("chatbot_inbox", opt_F), "G
            "H": ("503_on_air", opt_H), "I": ("status_vs_servers", opt_I), "J": ("wired_to_everything", opt_J),
            "K": ("everything_is_gone", opt_K), "L": ("lights_out_operational", opt_L),
            "M": ("lights_vs_dashboard", opt_M), "N": ("screens_some_users", opt_N),
-           "P": ("screens_dashboard_operational", opt_P), "Q": ("screens_we_are_aware", opt_Q)}
+           "P": ("screens_dashboard_operational", opt_P), "Q": ("screens_we_are_aware", opt_Q),
+           "P2": ("screens_dashboard_operational_big", opt_P2), "P3": ("screens_dashboard_operational_down", opt_P3)}
 
 
 def main():

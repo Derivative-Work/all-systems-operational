@@ -299,3 +299,8 @@ Append-only. Every human action: when, what, and why.
 
 - **What:** while J–N were being drafted (the agent had said it was looking at the string lights, O16, and the night dashboards, O08c): "You might need to make new renders with more light for the wire to be visible, or put computers and phones closer together or use just the screens without them to make something viable".
 - **Agent's reading:** two of the three, for the thumbnail only (the video's frames don't change). The string lights rendered again with more light: exposure up and the bulbs down to match, the strands' own lights up, the strands thicker, so the web reads as wires from the hub against the ceiling. The screens without the room: the treehouse's own screens (the dashboard, the health-check terminal, the ringing alert, the timed-out sign-in) rendered flat and set close together, which also puts the computers and phones together.
+
+## 44. 2026-11-17 — P, readable in the feed
+
+- **What:** after options J–Q (production log 84): "Make a version of P with more readable text at thumbnail size".
+- **Agent's reading:** at the size a feed shows (about 360 wide, 168 in the sidebar), P's banner was small and the dashboard's own words were specks. Two versions beside P: P2, the banner across the whole width in a heavier weight and the dashboard closer (the pool's tiles, its 84%, the DOWN column), and P3, P2 with one of the dashboard's own DOWN tags as a big stamp, the one word that still reads at 168 wide. No new words: the banner is the made-up status page's, DOWN is on the dashboard. Thumbnail C stays the pick until the human says otherwise; the credits slide (40) is rebuilt once, after the pick.
