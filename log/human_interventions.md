@@ -279,3 +279,8 @@ Append-only. Every human action: when, what, and why.
 - **What:** on the thumbnail options and the review pieces (production log 79): "Yes, go with C. Also add a proper credits slide to this one, much like the previous songs (excluding Ever Present, whose subject matter was serious enough to warrant skipping it)". Then: "right, also animate highlighting the "(slop warning)" on the Slack screen to serve as the in-video AI disclosure (in addition to YouTube's label)".
 - **Picked:** thumbnail C, the treehouse dashboard under the banner.
 - **Agent's reading:** "the previous songs" are the series' earlier videos, whose end cards open with a credits list (Read Only's first end page; Not Yet's end card): satire label, concept, lyrics, music, video, the real images, the intervention count, the production log. This video's end card said the same in a sentence (the brief's). Ever Present has none and isn't the model.
+
+## 40. 2026-11-17 — The subtitles; the description too long
+
+- **What:** after the master (production log 81): "Are the subtitles there for me to use as well" (answered: `lyrics/as_sung_lines_video.srt`, sent), then "description is too long".
+- **Agent's reading:** YouTube caps a description at 5,000 characters; METADATA's was 5,201. Cut what the description said twice (the outage's reach and the restored servers, in WHAT HAPPENED; who made what, in CREDITS; the Gemini audit, in CREDITS; the music-deslop checkpoint's name), not the disclosure, the facts, the sources or the chapters: 4,772 characters. This entry makes 40 interventions, so the credits slide and the description say 40 (production log 82).

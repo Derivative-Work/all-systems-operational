@@ -5,7 +5,7 @@ YouTube metadata for the main video, ready to paste at upload once the checklist
 **Before uploading:**
 - **Re-check the news and every link** before the upload. Links checked November 17 (production log 77): all live but the Washington Post's, which refuses automated fetches; open it in a browser (the human confirmed its 130,000 figure on November 17). The repository's link works once it's public. If the check is later than November 17, update "As of" under WHAT HAPPENED.
 - **Make the repository public.** The end card and the description link to it; it's private until then.
-- **Intervention count:** update the number in the description (`grep -c '^## ' log/human_interventions.md`; 39 on 2026-11-17, as the master's credits slide reads). If more are logged before the upload, run `scripts/m7_end.sh` and `scripts/m7_master.py` again so the slide agrees.
+- **Intervention count:** update the number in the description (`grep -c '^## ' log/human_interventions.md`; 40 on 2026-11-17, as the master's credits slide reads). If more are logged before the upload, run `scripts/m7_end.sh` and `scripts/m7_master.py` again so the slide agrees.
 - **Chapters:** recompute from the final cut (`timing/shot_times.json`, and the end sequence's plan in `review/m7_end/plan.txt`). The ones below are the current cut's, from the shots' starts (the intro's chapter starts at 0:10, not at the song's 0:07.6, because YouTube wants each chapter at least 10 s long; the song starts on its first downbeat, decisions 47): the end cards fade at 2:34.6 into the credits music (decisions 45; kept, human interventions 32).
 
 ---
@@ -31,11 +31,11 @@ Alternatives:
 ```
 AI-generated satire. A stomp-clap singalong sung by a status page, filmed as a made-up Seattle radio live session. Every time the gang vocals swell, the stream goes down.
 
-On November 12–13, 2026, Microsoft 365 went down for most of a day: Outlook, Teams, SharePoint, Copilot and Defender, in at least 74 countries. Restored servers kept going unresponsive once traffic returned. Here it is in the earnest, everybody-together voice of a 2010s tech ad.
+On November 12–13, 2026, Microsoft 365 went down for most of a day. Here it is in the earnest, everybody-together voice of a 2010s tech ad.
 
-A disclosure: the lyrics were drafted by Claude, made by Anthropic. Anthropic's Microsoft 365 connector broke during this outage, and Claude had outages of its own this year. The creator worked on Outlook and Word at Microsoft between 2014 and 2017, and the treehouse meeting room in the bridge is inspired by those years; it doesn't depict how this incident was handled. Before production, Gemini (Google) audited the lyrics and plan, Nov 14.
+A disclosure: the lyrics were drafted by Claude, made by Anthropic. Anthropic's Microsoft 365 connector broke during this outage, and Claude had outages of its own this year. The creator worked on Outlook and Word at Microsoft between 2014 and 2017, and the treehouse meeting room in the bridge is inspired by those years; it doesn't depict how this incident was handled.
 
-Made with AI: the song by Suno (edited and mastered by a human in Logic Pro), the words by Claude, the video by Claude Code in Blender and Remotion, two shots by FLUX.2 and LTX-2.3. The status-page screenshot and the creator's profile photo at the start are real; everything else on screen is made up. A human approved each stage and picked the takes. Each of those 39 interventions is logged, along with every prompt and production step:
+Made with AI (credits below). The status-page screenshot and the creator's profile photo at the start are real; everything else on screen is made up. A human approved each stage and picked the takes; all 40 of those interventions are logged, with every prompt and production step:
 https://github.com/Derivative-Work/all-systems-operational
 
 CHAPTERS
@@ -74,14 +74,14 @@ Azure Blog UK: https://azureblog.co.uk/posts/microsoft-365-outage-12-november-20
 Cybersecurity News: https://cybersecuritynews.com/microsoft-365-massive-outage-fixes-fail-as-restored-servers-keep-going-unresponsive/
 The Register: https://www.theregister.com/saas/2026/11/16/microsoft-blames-monster-email-outage-on-software-defect-introduced-in-july-fix/5310026
 MacRumors: https://www.macrumors.com/2026/11/13/microsoft-365-outage-resolving/
-The outage-report spike at the start is drawn from Downdetector counts reported by GV Wire: https://gvwire.com/2026/11/12/microsoft-outlook-down-for-thousands-of-users-downdetector-shows/
+The opening spike: Downdetector counts reported by GV Wire: https://gvwire.com/2026/11/12/microsoft-outlook-down-for-thousands-of-users-downdetector-shows/
 
 "Session 503" is a fictional broadcast, inspired by Seattle's live radio sessions. It is not affiliated with KEXP or any real radio station.
 
 CREDITS
 Words: Claude, audited before production by Gemini (Google), Nov 14
-Music: Suno V6, edited and mastered by a human in Logic Pro; post-filtered with music-deslop (M6f 10k)
-Credits music: an instrumental cover of the song in Suno V6, post-filtered with music-deslop
+Music: Suno V6, edited and mastered by a human in Logic Pro; post-filtered with music-deslop
+Credits music: an instrumental cover in Suno V6, post-filtered the same way
 Rooms and people: Blender, with the people kit from Ever Present (MPFB, MakeHuman CC0 assets)
 Two shots: FLUX.2 [dev] and LTX-2.3 in ComfyUI
 Screens, cards and edit: Claude Code with Opus 5.5 (Remotion)
