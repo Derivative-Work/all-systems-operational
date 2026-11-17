@@ -1937,7 +1937,32 @@ def treehouse_screens(night):
 
 # ---------------------------------------------------------------- cameras (coverage.CAMERA_HOOK)
 
+_HIDDEN = []
+
+
+def hide_from_camera(sub):
+    """M7 fixes (production log 66): objects the camera sits inside or against in one sub-shot, hidden from camera
+    rays for that sub-shot only; they keep their shadows and light (config/look_m7.json fixes.hide_from_camera)."""
+    while _HIDDEN:
+        o = _HIDDEN.pop()
+        try:
+            o.visible_camera = True
+        except ReferenceError:          # removed with its build (each build rebuilds the scene)
+            pass
+    for nm in CFG.get("fixes", {}).get("hide_from_camera", {}).get(sub["id"], []):
+        o = bpy.data.objects.get(nm)
+        if o is None:
+            continue
+        # a person is a collection instance (perf.own_copy): hide the instancer and everything it instances
+        group = [o] + (list(o.instance_collection.all_objects) if o.instance_type == "COLLECTION" and o.instance_collection else [])
+        for x in group:
+            if x.visible_camera:
+                x.visible_camera = False
+                _HIDDEN.append(x)
+
+
 def camera_hook(cam, sub, b, f0, f1):
+    hide_from_camera(sub)
     for o in bpy.data.objects:
         for c in o.constraints:
             if c.name == "m7_face_cam":

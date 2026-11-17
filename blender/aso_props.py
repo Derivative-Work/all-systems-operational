@@ -35,10 +35,14 @@ class B(gb.Builder):
     def i(self, role):
         return role if isinstance(role, int) else self.roles.index(role)
 
-    def cyl(self, c, r, h, role, axis=(0, 0, 1), r2=None, segs=20, caps=True):
+    def cyl(self, c, r, h, role, axis=(0, 0, 1), r2=None, segs=20, caps=True, spin=0.0):
+        # spin (radians) turns the cylinder about its own axis first: bmesh puts the first corner on +X, so a 4-sided
+        # one has its corners on the axes; spin=pi/4 puts them on the diagonals (M7: the park lantern, production log 66)
         res = bmesh.ops.create_cone(self.bm, cap_ends=caps, segments=segs, radius1=r, radius2=r if r2 is None else r2,
                                     depth=h)
         rot = Vector((0, 0, 1)).rotation_difference(Vector(axis).normalized()).to_matrix().to_4x4()
+        if spin:
+            rot = rot @ Matrix.Rotation(spin, 4, "Z")
         self._tag(res["verts"], self.i(role), Matrix.Translation(c) @ rot)
 
     def rod(self, a, b, r, role, segs=8):

@@ -1,0 +1,102 @@
+M1b: music map timing/music_map_v13.json
+M5b build O10: 72 frames, 9.9 s; Switch ON and ON AIR lit at frame 36; crowd performances on 20 people (1 clap, 6 phone, 13 stand; 3 stompers, 4 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 4 kicks, tambourine on 10 hits, lead from the vocal envelope, lean-ins on Hey!s); 5 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.024 (noise-modulated), daylight shafts through the window openings (sun 3.5); rain runs on 5 panes; M7c crowd phones: 6 of 6 textured; M7b clock on 6 shaders from song time 84.21 s
+00:14.185  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0001.jpg'
+00:15.852  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0002.jpg'
+00:17.406  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0003.jpg'
+00:18.957  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0004.jpg'
+00:20.493  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0005.jpg'
+00:22.050  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0006.jpg'
+00:23.583  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0007.jpg'
+00:25.126  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0008.jpg'
+00:26.662  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0009.jpg'
+00:28.237  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0010.jpg'
+00:29.909  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0011.jpg'
+00:31.521  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0012.jpg'
+00:33.084  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0013.jpg'
+00:34.622  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0014.jpg'
+00:36.162  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0015.jpg'
+00:37.730  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0016.jpg'
+00:39.308  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0017.jpg'
+00:40.878  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0018.jpg'
+00:42.428  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0019.jpg'
+00:44.067  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0020.jpg'
+00:45.735  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0021.jpg'
+00:47.294  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0022.jpg'
+00:48.840  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0023.jpg'
+00:50.396  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0024.jpg'
+00:51.955  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0025.jpg'
+00:53.503  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0026.jpg'
+00:55.046  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0027.jpg'
+00:56.585  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0028.jpg'
+00:58.129  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0029.jpg'
+00:59.646  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0030.jpg'
+01:01.142  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0031.jpg'
+01:02.664  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0032.jpg'
+01:04.197  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0033.jpg'
+01:05.723  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0034.jpg'
+01:07.273  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0035.jpg'
+01:08.849  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0036.jpg'
+01:10.385  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0037.jpg'
+01:11.932  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0038.jpg'
+01:13.537  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0039.jpg'
+01:15.226  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0040.jpg'
+01:16.807  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0041.jpg'
+01:18.339  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0042.jpg'
+01:19.877  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0043.jpg'
+01:21.399  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0044.jpg'
+01:22.931  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0045.jpg'
+01:24.451  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0046.jpg'
+01:25.955  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0047.jpg'
+01:27.471  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0048.jpg'
+01:29.074  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0049.jpg'
+01:30.719  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0050.jpg'
+01:32.246  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0051.jpg'
+01:33.772  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0052.jpg'
+01:35.285  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0053.jpg'
+01:36.791  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0054.jpg'
+01:38.296  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0055.jpg'
+01:39.810  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0056.jpg'
+01:41.320  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0057.jpg'
+01:42.822  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0058.jpg'
+01:44.446  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0059.jpg'
+01:46.050  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0060.jpg'
+01:47.574  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0061.jpg'
+01:49.149  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0062.jpg'
+01:50.699  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0063.jpg'
+01:52.242  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0064.jpg'
+01:53.801  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0065.jpg'
+01:55.348  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0066.jpg'
+01:56.879  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0067.jpg'
+01:58.456  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0068.jpg'
+02:00.080  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0069.jpg'
+02:01.669  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0070.jpg'
+02:03.191  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0071.jpg'
+02:04.717  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O10a/0072.jpg'
+M5b O10a: frames 1-72 (72), board:O10, 113.7 s
+M5b build O10 done in 123.6 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+	Command being timed: "blender -b --factory-startup --python blender/coverage_m7.py -- --out renders/m7/frames --only O10 --size 1920x1080 --log log/render_logs/m7_pose_check_O10.log"
+	User time (seconds): 417.27
+	System time (seconds): 241.61
+	Percent of CPU this job got: 526%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:05.21
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3494624
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 4978441
+	Voluntary context switches: 154110
+	Involuntary context switches: 13805441
+	Swaps: 0
+	File system inputs: 178
+	File system outputs: 12112
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

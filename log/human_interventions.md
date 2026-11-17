@@ -205,3 +205,8 @@ Append-only. Every human action: when, what, and why.
 ## 29. 2026-11-16 — Render progress asked for
 
 - **What:** "How's it looking now". Sent (production log 65): a contact sheet of the finished M7 sub-shots and the O08a comparison strip.
+
+## 30. 2026-11-16 — "Also check the lamppost"; progress asked for again
+
+- **What:** while the agent was diagnosing O08a's wipe: "also check the lamppost". Then, again: "How's it looking now".
+- **Agent's reading:** check the park lamppost both for a camera against or inside it (the O08a fault) and for how it looks. Both done (production log 66): no camera near it; its lantern's tray, cap and roof were turned 45° from the panes, now fixed; O22b's walker is hidden behind the post for about half the shot, left for the human (decisions 46).

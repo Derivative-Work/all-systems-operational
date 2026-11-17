@@ -1,0 +1,20 @@
+O03: exit 0, 1348 s, 6 sub-shots; Maximum resident set size (kbytes): 4000480
+O04: exit 0, 254 s, 1 sub-shots; Maximum resident set size (kbytes): 3619516
+O07: exit 0, 31 s, 1 sub-shots; Maximum resident set size (kbytes): 964140
+O08: exit 0, 431 s, 5 sub-shots; Maximum resident set size (kbytes): 3790092
+O08c: exit 0, 100 s, 1 sub-shots; Maximum resident set size (kbytes): 2453796
+O09: exit 0, 1992 s, 12 sub-shots; Maximum resident set size (kbytes): 4047792
+O10: exit 0, 125 s, 1 sub-shots; Maximum resident set size (kbytes): 3494624
+O11: exit 0, 507 s, 7 sub-shots; Maximum resident set size (kbytes): 3742244
+O12: exit 0, 102 s, 1 sub-shots; Maximum resident set size (kbytes): 3475160
+O14: exit 0, 993 s, 5 sub-shots; Maximum resident set size (kbytes): 3913608
+O15: exit 0, 367 s, 1 sub-shots; Maximum resident set size (kbytes): 3618916
+O16: exit 0, 400 s, 2 sub-shots; Maximum resident set size (kbytes): 3726732
+O17: exit 0, 2321 s, 12 sub-shots; Maximum resident set size (kbytes): 4205512
+O18: exit 0, 2526 s, 5 sub-shots; Maximum resident set size (kbytes): 3215316
+O19a: exit 0, 334 s, 1 sub-shots; Maximum resident set size (kbytes): 2980556
+O19b: exit 0, 521 s, 4 sub-shots; Maximum resident set size (kbytes): 4225384
+O20: exit 0, 1500 s, 10 sub-shots; Maximum resident set size (kbytes): 4578228
+O21: exit 0, 164 s, 1 sub-shots; Maximum resident set size (kbytes): 3945588
+O22: exit 0, 1737 s, 6 sub-shots; Maximum resident set size (kbytes): 2492988
+M7 render: 15753 s; 6264 frames, 999M

@@ -1,0 +1,4 @@
+pose check: 0 solved frames, 0 figures (build:instance)
+violations: none
+closest hands to a head: 
+  O22 walker feet on the plank (stance frames, max and mean slide per frame, m): {'Left': (418, 0.0032, 0.0001), 'Right': (422, 0.0032, 0.0001)}

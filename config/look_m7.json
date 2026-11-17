@@ -1158,5 +1158,7 @@
     "on": true,
     "music_map": "music_map_v13.json",
     "whiteboard": "assets/gen/tex/m1b/M7-O18-Whiteboard/frames"
-  }
+  },
+  "_doc_fixes": "M7 render fixes after the full render (production log 66). hide_from_camera: per sub-shot, objects the camera sits inside or against, hidden from camera rays for that sub-shot only (blender/look.py hide_from_camera; they keep their shadows and light). O08a: the M5 move starts at (6.1, 1.0, 1.55), inside the live room floor lamp's shade (blender/sets.py lamp_shade, radius 0.22 m at (6.1, 0.8, 1.65)), which filled the first 17 frames from 2 to 4 cm off the lens; the shade is behind the camera once it is out. O03d: the camera trucks through crowd14, the clapper crowd15's neighbour, for its first 36 frames (a dark blur). O11e: crowd19 stands between the camera and the banjo, the camera inside her for 7 of its 18 frames. Found by blender/camera_clearance.py (every frame of every sub-shot). A person is hidden whole: the instancer and everything it instances.",
+  "fixes": {"hide_from_camera": {"O08a": ["lamp_shade"], "O03d": ["crowd14"], "O11e": ["crowd19"]}}
 }

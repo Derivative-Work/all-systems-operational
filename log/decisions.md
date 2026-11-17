@@ -367,3 +367,9 @@ Human interventions 26. The cards at reading pace take about 2:21 and the track 
 - **Alternatives for the human**: (1) the track's own ending: cut from the drop-out at 2:34.6 to the outro (about 3:08) at a downbeat. That's a music edit, by ear the human's call; it gives about 25 s more for the disclosure or for slower pages. (2) The whole track with longer holds (about 3:32). (3) As is.
 - **Unchanged**: the words, the order, the M5 cards. The holds follow the text: when "[models, dates]" and the other placeholders are filled in, the plan recomputes, and the disclosure may move to the next fade-out point (the track's end).
 - **Level**: the credits are left 2 LU under the song (−15.7 against −13.7 LUFS), as delivered.
+
+## 46. 2026-11-16 — M7: render fixes for things at the lens, and the lantern (agent; for the human)
+
+- **Hidden from the camera, one sub-shot each:** the floor-lamp shade in O08a, `crowd14` in O03d, `crowd19` in O11e. The camera sat inside each for 0.2 to 1.2 s (production log 66). They keep their shadows and light; the shade is behind the camera once it's out, so nothing else in O08a changes. In O03d and O11e a crowd member who stood right at the lens is gone from a 2.4 s and a 0.6 s close: the subject (crowd15's hands, the banjo) is now clear from the first frame. The alternative, moving each camera's start, changes the approved framings; the cameras are as approved.
+- **The lantern's tray, cap and roof turned 45°** to match its panes: a build mistake, not a design change. The lamp's size, colour, glow and light are unchanged.
+- **For the human: O22b.** The walker passes behind the lamppost and the Switch box for about half the 4.8 s Switch close; only slivers show. Options: (1) keep it (the shot is about Switch, and the walker is incidental); (2) move the camera about 25 cm sideways so he walks past the post in view, a framing change to an approved shot, checked on stills first.

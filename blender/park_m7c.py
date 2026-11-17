@@ -1519,9 +1519,11 @@ def lamp_post(old):
     for zc, rc in ((z0 + 0.62, 0.09), (z0 + 2.35, 0.07)):
         b.cyl((0, 0, zc), rc, 0.05, 0, segs=24)
     b.cyl((0, 0, z0 + 3.3), 0.05, 0.18, 0, r2=0.115, segs=24)       # the flared neck
-    # the lantern: a tray, four frosted panes (tapering out to the top), corner posts, a pyramid cap and finial
+    # the lantern: a tray, four frosted panes (tapering out to the top), corner posts, a pyramid cap and finial. The
+    # panes' corners are on the diagonals; the tray, cap and pyramid are spun pi/4 to match (production log 66: they
+    # had their corners on the axes, so the roof overhung askew and the panes' corners stood out past the tray)
     zl0, zl1 = z0 + 3.42, z0 + 3.86
-    b.cyl((0, 0, zl0 - 0.02), 0.13, 0.04, 0, segs=4)
+    b.cyl((0, 0, zl0 - 0.02), 0.13, 0.04, 0, segs=4, spin=math.pi / 4)
     for q in range(4):
         a = math.pi / 4 + q * math.pi / 2
         a1 = a + math.pi / 2
@@ -1530,8 +1532,8 @@ def lamp_post(old):
         f = bm.faces.new([bm.verts.new(v) for v in p0])
         f.material_index = 2
         b.rod((0.105 * math.cos(a), 0.105 * math.sin(a), zl0), (0.155 * math.cos(a), 0.155 * math.sin(a), zl1), 0.008, 0, segs=6)
-    b.cyl((0, 0, zl1 + 0.015), 0.18, 0.03, 0, segs=4)
-    b.cyl((0, 0, zl1 + 0.12), 0.17, 0.18, 0, r2=0.015, segs=4)
+    b.cyl((0, 0, zl1 + 0.015), 0.18, 0.03, 0, segs=4, spin=math.pi / 4)
+    b.cyl((0, 0, zl1 + 0.12), 0.17, 0.18, 0, r2=0.015, segs=4, spin=math.pi / 4)
     b.cyl((0, 0, zl1 + 0.25), 0.012, 0.08, 0, segs=8)
     b.ball((0, 0, zl1 + 0.3), 0.022, 0)
     # M3's outlet box and its propped cover (aso_props.lamp_post), at M7b's height

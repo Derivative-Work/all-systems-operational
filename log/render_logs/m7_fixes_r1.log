@@ -1,0 +1,92 @@
+M1b: music map timing/music_map_v13.json
+M5b build O08: 324 frames, 19.2 s; crowd performances on 20 people (1 clap, 6 phone, 13 stand; 6 stompers, 5 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 27 kicks, tambourine on 25 hits, lead from the vocal envelope, lean-ins on Hey!s); 5 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.024 (noise-modulated), daylight shafts through the window openings (sun 3.5); rain runs on 5 panes; M7c crowd phones: 6 of 6 textured; M7b clock on 6 shaders from song time 44.52 s
+00:26.771  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0001.jpg'
+00:29.758  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0002.jpg'
+00:33.007  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0003.jpg'
+00:36.367  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0004.jpg'
+00:39.400  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0005.jpg'
+00:42.615  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0006.jpg'
+00:45.491  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0007.jpg'
+00:48.181  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0008.jpg'
+00:50.891  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0009.jpg'
+00:53.822  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0010.jpg'
+00:56.440  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0011.jpg'
+00:59.080  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0012.jpg'
+01:01.697  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0013.jpg'
+01:04.280  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0014.jpg'
+01:06.834  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0015.jpg'
+01:09.380  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0016.jpg'
+01:11.947  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0017.jpg'
+01:14.707  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0018.jpg'
+01:17.269  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0019.jpg'
+01:19.854  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0020.jpg'
+01:22.411  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0021.jpg'
+01:25.002  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0022.jpg'
+01:27.874  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0023.jpg'
+01:31.447  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0024.jpg'
+01:34.487  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0025.jpg'
+01:37.306  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0026.jpg'
+01:40.648  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0027.jpg'
+01:43.951  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0028.jpg'
+01:46.838  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0029.jpg'
+01:49.668  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0030.jpg'
+01:52.600  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0031.jpg'
+01:55.871  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0032.jpg'
+01:59.048  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0033.jpg'
+02:01.915  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0034.jpg'
+02:04.717  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0035.jpg'
+02:07.921  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0036.jpg'
+02:11.111  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0037.jpg'
+02:13.994  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0038.jpg'
+02:16.592  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0039.jpg'
+02:19.230  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0040.jpg'
+02:21.844  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0041.jpg'
+02:24.617  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0042.jpg'
+02:27.704  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0043.jpg'
+02:30.324  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0044.jpg'
+02:32.960  render           | Saved: '/home/antiai-aiclub/Projects/all-systems-operational/renders/m7/frames/O08a/0045.jpg'
+M5b O08a: frames 1-45 (45), board:O08, 131.6 s
+M5b build O08 done in 150.8 s
+M5b build O19b: 195 frames, 57.2 s; camera rises over the crest; claps (5); M7c: O19b rises up the back slope over the crest; crowd performances on 23 people (10 clap, 8 fist, 5 stand; 9 stompers, 0 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 18 kicks, tambourine on 18 hits, lead from the vocal envelope, lean-ins on Hey!s); window/sky light lifts on the Hey!s; rain runs on 0 panes; drizzle falls (1 volumes, looped); M7c fog curtains drift on the clock; umbrella turns; sky brightens on the restored lines; M7d brow: 6 fir crowns below the brow; M7d brow path: 22.5 m over the brow, 68 kerbs, 1 trees on its line hidden; M7d rail: 5 posts along the terrace wall; the far plate on its cylinder; M7c park: ground 92680 verts, path with 140 kerbs and a 12-block wall, 9 puddles, 8040 blades, 224 firs (10 prototypes) and 122 bare trees, 12 houses, 4 fog curtains; M7b clock on 6 shaders from song time 176.15 s
+Traceback (most recent call last):
+  File "/home/antiai-aiclub/Projects/all-systems-operational/blender/coverage_m7.py", line 128, in <module>
+    C.main()
+    ~~~~~~^^
+  File "/home/antiai-aiclub/Projects/all-systems-operational/blender/coverage.py", line 995, in main
+    cam = make_camera(s, b, f0, f1, keys, n)
+  File "/home/antiai-aiclub/Projects/all-systems-operational/blender/coverage.py", line 892, in make_camera
+    CAMERA_HOOK(cam, sub, b, f0, f1)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/antiai-aiclub/Projects/all-systems-operational/blender/look.py", line 1956, in camera_hook
+    hide_from_camera(sub)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "/home/antiai-aiclub/Projects/all-systems-operational/blender/look.py", line 1947, in hide_from_camera
+    _HIDDEN.pop().visible_camera = True
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ReferenceError: StructRNA of type Object has been removed
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+	Command being timed: "blender -b --factory-startup --python blender/coverage_m7.py -- --out renders/m7/frames --subs O08a,O19b,O20e,O22a,O22f,O22g --size 1920x1080 --log log/render_logs/m7_pose_check_fixes.log"
+	User time (seconds): 606.86
+	System time (seconds): 358.63
+	Percent of CPU this job got: 450%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:34.47
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3652440
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 3736135
+	Voluntary context switches: 382019
+	Involuntary context switches: 135141473
+	Swaps: 0
+	File system inputs: 149792
+	File system outputs: 16216
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,82 @@
+{"sub": "O19a", "build": "O19a", "camera": "o19a", "frames": 175, "near_frames": 7, "max_rays": 15, "min_d": 0.0296, "min_f": 101, "objects": {"haze_volume": 0.0296}, "clip_start": 0.03}
+{"sub": "O19b", "build": "O19b", "camera": "o19b", "frames": 123, "near_frames": 0, "max_rays": 0, "min_d": 1.9805, "min_f": 45, "objects": {}, "clip_start": 0.03}
+{"sub": "O19c", "build": "O19b", "camera": "close_kick", "frames": 36, "near_frames": 0, "max_rays": 0, "min_d": 0.9372, "min_f": 35, "objects": {}, "clip_start": 0.03}
+{"sub": "O19d", "build": "O19b", "camera": "close_hands", "frames": 18, "near_frames": 0, "max_rays": 0, "min_d": 0.5354, "min_f": 14, "objects": {}, "clip_start": 0.03}
+{"sub": "O19e", "build": "O19b", "camera": "close_beater", "frames": 18, "near_frames": 0, "max_rays": 0, "min_d": 0.3693, "min_f": 18, "objects": {}, "clip_start": 0.03}
+{"sub": "O20a", "build": "O20", "camera": "wide", "frames": 62, "near_frames": 0, "max_rays": 0, "min_d": 5.4936, "min_f": 61, "objects": {}, "clip_start": 0.03}
+{"sub": "O20b", "build": "O20", "camera": "close_hands", "frames": 82, "near_frames": 0, "max_rays": 0, "min_d": 0.5549, "min_f": 11, "objects": {}, "clip_start": 0.03}
+{"sub": "O20c", "build": "O20", "camera": "umbrella", "frames": 62, "near_frames": 0, "max_rays": 0, "min_d": 1.4813, "min_f": 54, "objects": {}, "clip_start": 0.03}
+{"sub": "O20d", "build": "O20", "camera": "lean_back", "frames": 63, "near_frames": 1, "max_rays": 1, "min_d": 0.0753, "min_f": 14, "objects": {"drizzle": 0.0753}, "clip_start": 0.03}
+{"sub": "O20e", "build": "O20", "camera": "wide_high", "frames": 90, "near_frames": 0, "max_rays": 0, "min_d": 1.6591, "min_f": 57, "objects": {}, "clip_start": 0.03}
+{"sub": "O20f", "build": "O20", "camera": "close_banjo", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 1.0913, "min_f": 21, "objects": {}, "clip_start": 0.03}
+{"sub": "O20g", "build": "O20", "camera": "backs", "frames": 36, "near_frames": 0, "max_rays": 0, "min_d": 3.0028, "min_f": 36, "objects": {}, "clip_start": 0.03}
+{"sub": "O20h", "build": "O20", "camera": "close_strum", "frames": 36, "near_frames": 0, "max_rays": 0, "min_d": 0.5738, "min_f": 36, "objects": {}, "clip_start": 0.03}
+{"sub": "O20i", "build": "O20", "camera": "switch", "frames": 36, "near_frames": 0, "max_rays": 0, "min_d": 0.97, "min_f": 35, "objects": {}, "clip_start": 0.03}
+{"sub": "O20j", "build": "O20", "camera": "o21", "frames": 36, "near_frames": 0, "max_rays": 0, "min_d": 3.7643, "min_f": 29, "objects": {}, "clip_start": 0.03}
+{"sub": "O21a", "build": "O21", "camera": "o21", "frames": 42, "near_frames": 0, "max_rays": 0, "min_d": 5.5727, "min_f": 1, "objects": {}, "clip_start": 0.03}
+{"sub": "O22a", "build": "O22", "camera": "empty", "frames": 109, "near_frames": 0, "max_rays": 0, "min_d": 1.8473, "min_f": 43, "objects": {}, "clip_start": 0.03}
+{"sub": "O22b", "build": "O22", "camera": "switch", "frames": 144, "near_frames": 0, "max_rays": 0, "min_d": 1.013, "min_f": 143, "objects": {}, "clip_start": 0.03}
+{"sub": "O22c", "build": "O22", "camera": "walker_feet", "frames": 145, "near_frames": 0, "max_rays": 0, "min_d": 0.988, "min_f": 73, "objects": {}, "clip_start": 0.03}
+{"sub": "O22e", "build": "O22", "camera": "walker_back", "frames": 141, "near_frames": 2, "max_rays": 1, "min_d": 0.0874, "min_f": 37, "objects": {"drizzle": 0.0874}, "clip_start": 0.03}
+{"sub": "O22f", "build": "O22", "camera": "empty", "frames": 145, "near_frames": 1, "max_rays": 1, "min_d": 0.0833, "min_f": 60, "objects": {"drizzle.001": 0.0833}, "clip_start": 0.03}
+{"sub": "O22g", "build": "O22", "camera": "lamp_rain", "frames": 105, "near_frames": 0, "max_rays": 0, "min_d": 1.6988, "min_f": 103, "objects": {}, "clip_start": 0.03}
+{"sub": "O03a", "build": "O03", "camera": "wide_back", "frames": 144, "near_frames": 0, "max_rays": 0, "min_d": 2.8535, "min_f": 144, "objects": {}, "clip_start": 0.03}
+{"sub": "O03b", "build": "O03", "camera": "rain", "frames": 144, "near_frames": 0, "max_rays": 0, "min_d": 0.9161, "min_f": 58, "objects": {}, "clip_start": 0.03}
+{"sub": "O03c", "build": "O03", "camera": "close_kick", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 0.9907, "min_f": 72, "objects": {}, "clip_start": 0.03}
+{"sub": "O03d", "build": "O03", "camera": "close_hands", "frames": 72, "near_frames": 43, "max_rays": 15, "min_d": 0.0003, "min_f": 36, "objects": {"Human.103": 0.0003}, "clip_start": 0.03}
+{"sub": "O03e", "build": "O03", "camera": "mid_band", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 0.6562, "min_f": 64, "objects": {}, "clip_start": 0.03}
+{"sub": "O03f", "build": "O03", "camera": "wide_high", "frames": 73, "near_frames": 0, "max_rays": 0, "min_d": 2.7959, "min_f": 73, "objects": {}, "clip_start": 0.03}
+{"sub": "O04a", "build": "O04", "camera": "board:O04", "frames": 143, "near_frames": 143, "max_rays": 3, "min_d": 0.1097, "min_f": 11, "objects": {"Human.364": 0.1097}, "clip_start": 0.02}
+{"sub": "O07a", "build": "O07", "camera": "board:O07", "frames": 109, "near_frames": 0, "max_rays": 0, "min_d": 3.6054, "min_f": 19, "objects": {}, "clip_start": 0.03}
+{"sub": "O08a", "build": "O08", "camera": "board:O08", "frames": 45, "near_frames": 38, "max_rays": 15, "min_d": 0.0007, "min_f": 38, "objects": {"lamp_shade": 0.0007}, "clip_start": 0.03}
+{"sub": "O08d", "build": "O08", "camera": "console", "frames": 65, "near_frames": 0, "max_rays": 0, "min_d": 1.8878, "min_f": 62, "objects": {}, "clip_start": 0.03}
+{"sub": "O08e", "build": "O08", "camera": "close_beater", "frames": 37, "near_frames": 0, "max_rays": 0, "min_d": 0.3826, "min_f": 32, "objects": {}, "clip_start": 0.03}
+{"sub": "O08f", "build": "O08", "camera": "close_hands", "frames": 18, "near_frames": 0, "max_rays": 0, "min_d": 0.5664, "min_f": 16, "objects": {}, "clip_start": 0.03}
+{"sub": "O08g", "build": "O08", "camera": "backs", "frames": 17, "near_frames": 0, "max_rays": 0, "min_d": 0.7337, "min_f": 17, "objects": {}, "clip_start": 0.03}
+{"sub": "O08c", "build": "O08c", "camera": "board:O08c", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 1.2909, "min_f": 68, "objects": {}, "clip_start": 0.03}
+{"sub": "O09a", "build": "O09", "camera": "wide_high", "frames": 73, "near_frames": 0, "max_rays": 0, "min_d": 3.0815, "min_f": 21, "objects": {}, "clip_start": 0.03}
+{"sub": "O09b", "build": "O09", "camera": "close_hands", "frames": 53, "near_frames": 0, "max_rays": 0, "min_d": 0.5394, "min_f": 1, "objects": {}, "clip_start": 0.03}
+{"sub": "O09c", "build": "O09", "camera": "mid_band", "frames": 81, "near_frames": 0, "max_rays": 0, "min_d": 0.6479, "min_f": 42, "objects": {}, "clip_start": 0.03}
+{"sub": "O09d", "build": "O09", "camera": "lean_back", "frames": 63, "near_frames": 0, "max_rays": 0, "min_d": 0.5232, "min_f": 60, "objects": {}, "clip_start": 0.03}
+{"sub": "O09e", "build": "O09", "camera": "wide_left", "frames": 92, "near_frames": 0, "max_rays": 0, "min_d": 4.4955, "min_f": 88, "objects": {}, "clip_start": 0.03}
+{"sub": "O09f", "build": "O09", "camera": "close_banjo", "frames": 71, "near_frames": 0, "max_rays": 0, "min_d": 1.0463, "min_f": 20, "objects": {}, "clip_start": 0.03}
+{"sub": "O09g", "build": "O09", "camera": "backs", "frames": 73, "near_frames": 0, "max_rays": 0, "min_d": 0.8287, "min_f": 64, "objects": {}, "clip_start": 0.03}
+{"sub": "O09h", "build": "O09", "camera": "close_fret", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 0.5492, "min_f": 44, "objects": {}, "clip_start": 0.03}
+{"sub": "O09i", "build": "O09", "camera": "wide_back", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 2.8085, "min_f": 72, "objects": {}, "clip_start": 0.03}
+{"sub": "O09j", "build": "O09", "camera": "close_guitar", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 1.0606, "min_f": 61, "objects": {}, "clip_start": 0.03}
+{"sub": "O09k", "build": "O09", "camera": "close_hands2", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 0.556, "min_f": 61, "objects": {}, "clip_start": 0.03}
+{"sub": "O09l", "build": "O09", "camera": "rain", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 0.9481, "min_f": 4, "objects": {}, "clip_start": 0.03}
+{"sub": "O10a", "build": "O10", "camera": "board:O10", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 2.0766, "min_f": 71, "objects": {}, "clip_start": 0.03}
+{"sub": "O11a", "build": "O11", "camera": "crush", "frames": 63, "near_frames": 0, "max_rays": 0, "min_d": 1.947, "min_f": 63, "objects": {}, "clip_start": 0.03}
+{"sub": "O11b", "build": "O11", "camera": "close_hands", "frames": 45, "near_frames": 0, "max_rays": 0, "min_d": 0.5238, "min_f": 1, "objects": {}, "clip_start": 0.03}
+{"sub": "O11c", "build": "O11", "camera": "switch_cord", "frames": 25, "near_frames": 0, "max_rays": 0, "min_d": 2.0167, "min_f": 25, "objects": {}, "clip_start": 0.03}
+{"sub": "O11d", "build": "O11", "camera": "backs", "frames": 29, "near_frames": 0, "max_rays": 0, "min_d": 0.7154, "min_f": 29, "objects": {}, "clip_start": 0.03}
+{"sub": "O11e", "build": "O11", "camera": "close_banjo", "frames": 18, "near_frames": 7, "max_rays": 15, "min_d": 0.0008, "min_f": 7, "objects": {"Human.female_elegantsuit01.007": 0.0008}, "clip_start": 0.03}
+{"sub": "O11f", "build": "O11", "camera": "mid_band", "frames": 18, "near_frames": 0, "max_rays": 0, "min_d": 1.0507, "min_f": 18, "objects": {}, "clip_start": 0.03}
+{"sub": "O11g", "build": "O11", "camera": "onair", "frames": 18, "near_frames": 0, "max_rays": 0, "min_d": 1.0555, "min_f": 18, "objects": {}, "clip_start": 0.03}
+{"sub": "O12a", "build": "O12", "camera": "board:O12c", "frames": 90, "near_frames": 0, "max_rays": 0, "min_d": 2.9309, "min_f": 1, "objects": {}, "clip_start": 0.03}
+{"sub": "O14a", "build": "O14", "camera": "wide", "frames": 73, "near_frames": 0, "max_rays": 0, "min_d": 3.3001, "min_f": 73, "objects": {}, "clip_start": 0.03}
+{"sub": "O14b", "build": "O14", "camera": "mug_steam", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 0.5585, "min_f": 69, "objects": {}, "clip_start": 0.03}
+{"sub": "O14c", "build": "O14", "camera": "probes", "frames": 144, "near_frames": 0, "max_rays": 0, "min_d": 0.7652, "min_f": 125, "objects": {}, "clip_start": 0.03}
+{"sub": "O14d", "build": "O14", "camera": "polaroid", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 0.9629, "min_f": 10, "objects": {}, "clip_start": 0.03}
+{"sub": "O14e", "build": "O14", "camera": "tent", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 0.3855, "min_f": 72, "objects": {}, "clip_start": 0.03}
+{"sub": "O15a", "build": "O15", "camera": "probe_close", "frames": 162, "near_frames": 0, "max_rays": 0, "min_d": 0.5617, "min_f": 138, "objects": {}, "clip_start": 0.03}
+{"sub": "O16a", "build": "O16", "camera": "hub", "frames": 54, "near_frames": 0, "max_rays": 0, "min_d": 2.0623, "min_f": 28, "objects": {}, "clip_start": 0.03}
+{"sub": "O16b", "build": "O16", "camera": "strands", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 3.4222, "min_f": 2, "objects": {}, "clip_start": 0.03}
+{"sub": "O17a", "build": "O17", "camera": "close_strum", "frames": 62, "near_frames": 0, "max_rays": 0, "min_d": 0.5762, "min_f": 60, "objects": {}, "clip_start": 0.03}
+{"sub": "O17b", "build": "O17", "camera": "wide", "frames": 65, "near_frames": 0, "max_rays": 0, "min_d": 3.3338, "min_f": 64, "objects": {}, "clip_start": 0.03}
+{"sub": "O17c", "build": "O17", "camera": "mugs_backs", "frames": 71, "near_frames": 0, "max_rays": 0, "min_d": 1.3485, "min_f": 2, "objects": {}, "clip_start": 0.03}
+{"sub": "O17d", "build": "O17", "camera": "wide_side", "frames": 71, "near_frames": 0, "max_rays": 0, "min_d": 3.3313, "min_f": 69, "objects": {}, "clip_start": 0.03}
+{"sub": "O17e", "build": "O17", "camera": "mugs_backs", "frames": 91, "near_frames": 0, "max_rays": 0, "min_d": 0.7067, "min_f": 80, "objects": {}, "clip_start": 0.03}
+{"sub": "O17f", "build": "O17", "camera": "close_banjo", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 1.0162, "min_f": 13, "objects": {}, "clip_start": 0.03}
+{"sub": "O17g", "build": "O17", "camera": "backs", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 0.8338, "min_f": 62, "objects": {}, "clip_start": 0.03}
+{"sub": "O17h", "build": "O17", "camera": "close_hands", "frames": 45, "near_frames": 0, "max_rays": 0, "min_d": 0.5594, "min_f": 1, "objects": {}, "clip_start": 0.03}
+{"sub": "O17i", "build": "O17", "camera": "wide_high", "frames": 99, "near_frames": 0, "max_rays": 0, "min_d": 0.6388, "min_f": 98, "objects": {}, "clip_start": 0.03}
+{"sub": "O17j", "build": "O17", "camera": "close_tamb", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 1.0579, "min_f": 58, "objects": {}, "clip_start": 0.03}
+{"sub": "O17k", "build": "O17", "camera": "strands", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 2.7391, "min_f": 65, "objects": {}, "clip_start": 0.03}
+{"sub": "O17l", "build": "O17", "camera": "mid_band", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 0.7568, "min_f": 72, "objects": {}, "clip_start": 0.03}
+{"sub": "O18a", "build": "O18", "camera": "wide", "frames": 144, "near_frames": 0, "max_rays": 0, "min_d": 1.5287, "min_f": 73, "objects": {}, "clip_start": 0.03}
+{"sub": "O18b", "build": "O18", "camera": "board_mid", "frames": 144, "near_frames": 0, "max_rays": 0, "min_d": 2.946, "min_f": 117, "objects": {}, "clip_start": 0.03}
+{"sub": "O18c", "build": "O18", "camera": "side", "frames": 144, "near_frames": 0, "max_rays": 0, "min_d": 2.6724, "min_f": 144, "objects": {}, "clip_start": 0.03}
+{"sub": "O18d", "build": "O18", "camera": "board_close", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 0.6982, "min_f": 62, "objects": {}, "clip_start": 0.03}
+{"sub": "O18e", "build": "O18", "camera": "table", "frames": 72, "near_frames": 0, "max_rays": 0, "min_d": 0.4513, "min_f": 72, "objects": {}, "clip_start": 0.03}

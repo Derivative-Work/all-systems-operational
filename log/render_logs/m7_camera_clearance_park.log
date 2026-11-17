@@ -1,0 +1,104 @@
+M1b: music map timing/music_map_v13.json
+M5b build O19a: 175 frames, 21.5 s; door opens frames 1-40; camera out onto the deck and up; band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 5 kicks, tambourine on 13 hits, lead from the vocal envelope, lean-ins on Hey!s); window/sky light lifts on the Hey!s; M7 haze 0.02 (noise-modulated), daylight shafts through the window openings (sun 2.0); rain runs on 9 panes; drizzle falls (3 volumes, looped); door light breaks through; M7b clock on 10 shaders from song time 170.65 s
+CLEARANCE O19a: 7/175 frames near (<0.25 m), max 15/15 rays, min 0.0296 m at frame 101, {'haze_volume': 0.0296}
+00:28.570  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O19a.png'
+M5b O19a: frames 1-175 (175), o19a, 5.7 s
+M5b build O19a done in 27.2 s
+M5b build O19b: 195 frames, 50.3 s; camera rises over the crest; claps (5); M7c: O19b rises up the back slope over the crest; crowd performances on 23 people (10 clap, 8 fist, 5 stand; 9 stompers, 0 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 18 kicks, tambourine on 18 hits, lead from the vocal envelope, lean-ins on Hey!s); window/sky light lifts on the Hey!s; rain runs on 0 panes; drizzle falls (1 volumes, looped); M7c fog curtains drift on the clock; umbrella turns; sky brightens on the restored lines; M7d brow: 6 fir crowns below the brow; M7d brow path: 22.5 m over the brow, 68 kerbs, 1 trees on its line hidden; M7d rail: 5 posts along the terrace wall; the far plate on its cylinder; M7c park: ground 92680 verts, path with 140 kerbs and a 12-block wall, 9 puddles, 8040 blades, 224 firs (10 prototypes) and 122 bare trees, 12 houses, 4 fog curtains; M7b clock on 6 shaders from song time 176.15 s
+CLEARANCE O19b: 0/123 frames near (<0.25 m), max 0/15 rays, min 1.9805 m at frame 45, {}
+01:28.485  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O19b.png'
+M5b O19b: frames 1-123 (123), o19b, 9.6 s
+CLEARANCE O19c: 0/36 frames near (<0.25 m), max 0/15 rays, min 0.9372 m at frame 35, {}
+01:30.912  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O19c.png'
+M5b O19c: frames 124-159 (36), close_kick, 2.4 s
+CLEARANCE O19d: 0/18 frames near (<0.25 m), max 0/15 rays, min 0.5354 m at frame 14, {}
+01:32.898  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O19d.png'
+M5b O19d: frames 160-177 (18), close_hands on crowd20, 2.0 s
+CLEARANCE O19e: 0/18 frames near (<0.25 m), max 0/15 rays, min 0.3693 m at frame 18, {}
+01:34.461  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O19e.png'
+M5b O19e: frames 178-195 (18), close_beater, 1.6 s
+M5b build O19b done in 65.9 s
+M5b build O20: 575 frames, 68.4 s; claps (16); crowd performances on 23 people (10 clap, 8 fist, 5 stand; 5 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 27 kicks, tambourine on 37 hits, lead from the vocal envelope, lean-ins on Hey!s); window/sky light lifts on the Hey!s; rain runs on 0 panes; drizzle falls (1 volumes, looped); M7c fog curtains drift on the clock; umbrella turns; lamp flickers, Switch strains 199.41-201.80 s; M7d brow: 6 fir crowns below the brow; M7d brow path: 22.5 m over the brow, 68 kerbs, 1 trees on its line hidden; M7d rail: 5 posts along the terrace wall; the far plate on its cylinder; M7c park: ground 92680 verts, path with 140 kerbs and a 12-block wall, 9 puddles, 8040 blades, 224 firs (10 prototypes) and 122 bare trees, 12 houses, 4 fog curtains; M7b clock on 6 shaders from song time 182.64 s
+CLEARANCE O20a: 0/62 frames near (<0.25 m), max 0/15 rays, min 5.4936 m at frame 61, {}
+02:48.938  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O20a.png'
+M5b O20a: frames 1-62 (62), wide, 6.0 s
+CLEARANCE O20b: 0/82 frames near (<0.25 m), max 0/15 rays, min 0.5549 m at frame 11, {}
+02:54.436  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O20b.png'
+M5b O20b: frames 63-144 (82), close_hands on crowd20, 5.5 s
+CLEARANCE O20c: 0/62 frames near (<0.25 m), max 0/15 rays, min 1.4813 m at frame 54, {}
+02:57.976  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O20c.png'
+M5b O20c: frames 145-206 (62), umbrella, 3.5 s
+CLEARANCE O20d: 1/63 frames near (<0.25 m), max 1/15 rays, min 0.0753 m at frame 14, {'drizzle': 0.0753}
+03:01.606  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O20d.png'
+M5b O20d: frames 207-269 (63), lean_back, 3.6 s
+CLEARANCE O20e: 0/90 frames near (<0.25 m), max 0/15 rays, min 1.6591 m at frame 57, {}
+03:05.820  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O20e.png'
+M5b O20e: frames 270-359 (90), wide_high, 4.2 s
+M7d O20f: close_banjo re-aimed, 37 deg off the head's normal (was 85), 1.28 m
+CLEARANCE O20f: 0/72 frames near (<0.25 m), max 0/15 rays, min 1.0913 m at frame 21, {}
+03:10.102  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O20f.png'
+M5b O20f: frames 360-431 (72), close_banjo, 4.3 s
+CLEARANCE O20g: 0/36 frames near (<0.25 m), max 0/15 rays, min 3.0028 m at frame 36, {}
+03:12.873  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O20g.png'
+M5b O20g: frames 432-467 (36), backs on crowd20, 2.8 s
+CLEARANCE O20h: 0/36 frames near (<0.25 m), max 0/15 rays, min 0.5738 m at frame 36, {}
+03:15.496  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O20h.png'
+M5b O20h: frames 468-503 (36), close_strum, 2.6 s
+CLEARANCE O20i: 0/36 frames near (<0.25 m), max 0/15 rays, min 0.97 m at frame 35, {}
+03:18.617  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O20i.png'
+M5b O20i: frames 504-539 (36), switch, 3.1 s
+CLEARANCE O20j: 0/36 frames near (<0.25 m), max 0/15 rays, min 3.7643 m at frame 29, {}
+03:22.529  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O20j.png'
+M5b O20j: frames 540-575 (36), o21, 3.9 s
+M5b build O20 done in 108.1 s
+M5b build O21: 42 frames, 46.7 s; frozen; Switch holds to frame 19, then drops; band frozen at 201.77 s in their M5c holds; crowd frozen at 201.77 s in their M5c poses (23 people, seeds of O20); freeze: no M5b motion; M7d brow: 6 fir crowns below the brow; M7d brow path: 22.5 m over the brow, 68 kerbs, 1 trees on its line hidden; M7d rail: 5 posts along the terrace wall; the far plate on its cylinder; M7c park: ground 92680 verts, path with 140 kerbs and a 12-block wall, 9 puddles, 8040 blades, 224 firs (10 prototypes) and 122 bare trees, 12 houses, 4 fog curtains; M7b clock on 6 shaders from song time 201.80 s
+CLEARANCE O21a: 0/42 frames near (<0.25 m), max 0/15 rays, min 5.5727 m at frame 1, {}
+04:14.027  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O21a.png'
+M5b O21a: frames 1-42 (42), o21, 4.8 s
+M5b build O21 done in 51.5 s
+M5b build O22: 930 frames, 51.3 s; walker 15.2 m up the path and over the crest; walker: planted-foot gait (blender/ep/gait.py), 0.49 m/s, 1.45 steps/s, 0.34 m steps, 15.2 m; no crowd; no band; window/sky light lifts on the Hey!s; rain runs on 0 panes; drizzle falls (1 volumes, looped); M7c fog curtains drift on the clock; Switch OFF (after O21's drop); walker feet: {'Left': (418, 0.003201059172034232, 6.847239246233706e-05), 'Right': (422, 0.0032000809911229915, 6.0290133901147935e-05)}; M7d brow: 6 fir crowns below the brow; M7d brow path: 22.5 m over the brow, 68 kerbs, 1 trees on its line hidden; M7d rail: 5 posts along the terrace wall; the far plate on its cylinder; M7c park: ground 92680 verts, path with 140 kerbs and a 12-block wall, 9 puddles, 8040 blades, 224 firs (10 prototypes) and 122 bare trees, 12 houses, 4 fog curtains; M7b clock on 6 shaders from song time 203.19 s
+CLEARANCE O22a: 0/109 frames near (<0.25 m), max 0/15 rays, min 1.8473 m at frame 43, {}
+05:07.366  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O22a.png'
+M5b O22a: frames 1-109 (109), empty, 2.0 s
+CLEARANCE O22b: 0/144 frames near (<0.25 m), max 0/15 rays, min 1.013 m at frame 143, {}
+05:09.184  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O22b.png'
+M5b O22b: frames 110-253 (144), switch, 1.8 s
+CLEARANCE O22c: 0/145 frames near (<0.25 m), max 0/15 rays, min 0.988 m at frame 73, {}
+05:11.300  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O22c.png'
+M5b O22c: frames 254-398 (145), walker_feet, 2.1 s
+CLEARANCE O22e: 2/141 frames near (<0.25 m), max 1/15 rays, min 0.0874 m at frame 37, {'drizzle': 0.0874}
+05:13.504  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O22e.png'
+M5b O22e: frames 540-680 (141), walker_back, 2.2 s
+CLEARANCE O22f: 1/145 frames near (<0.25 m), max 1/15 rays, min 0.0833 m at frame 60, {'drizzle.001': 0.0833}
+05:15.494  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O22f.png'
+M5b O22f: frames 681-825 (145), empty, 2.0 s
+CLEARANCE O22g: 0/105 frames near (<0.25 m), max 0/15 rays, min 1.6988 m at frame 103, {}
+05:17.072  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out/O22g.png'
+M5b O22g: frames 826-930 (105), lamp_rain, 1.6 s
+M5b build O22 done in 63.0 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+	Command being timed: "blender -b --factory-startup --python blender/camera_clearance.py -- --only O19a,O19b,O20,O21,O22 --still --at first --size 320x180 --samples 1 --out /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out --log /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/pose_park.log --report log/render_logs/m7_camera_clearance.jsonl"
+	User time (seconds): 1804.29
+	System time (seconds): 1632.44
+	Percent of CPU this job got: 1079%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 5:18.25
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 4750324
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 145
+	Minor (reclaiming a frame) page faults: 3769031
+	Voluntary context switches: 1379966
+	Involuntary context switches: 335108965
+	Swaps: 0
+	File system inputs: 336366
+	File system outputs: 112
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

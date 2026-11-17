@@ -1,0 +1,242 @@
+M1b: music map timing/music_map_v13.json
+M5b build O03: 577 frames, 23.5 s; claps on 2 and 4 from the drums' entry (8); crowd performances on 20 people (1 clap, 6 phone, 13 stand; 1 stompers, 4 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 26 kicks, tambourine on 36 hits, lead from the vocal envelope, lean-ins on Hey!s); 5 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.024 (noise-modulated), daylight shafts through the window openings (sun 3.5); rain runs on 5 panes; M7c crowd phones: 6 of 6 textured; M7b clock on 6 shaders from song time 7.26 s
+CLEARANCE O03a: 0/144 frames near (<0.25 m), max 0/15 rays, min 2.8535 m at frame 144, {}
+00:33.129  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O03a.png'
+M5b O03a: frames 1-144 (144), wide_back, 8.2 s
+CLEARANCE O03b: 0/144 frames near (<0.25 m), max 0/15 rays, min 0.9161 m at frame 58, {}
+00:38.037  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O03b.png'
+M5b O03b: frames 145-288 (144), rain, 4.9 s
+CLEARANCE O03c: 0/72 frames near (<0.25 m), max 0/15 rays, min 0.9907 m at frame 72, {}
+00:41.692  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O03c.png'
+M5b O03c: frames 289-360 (72), close_kick, 3.7 s
+CLEARANCE O03d: 43/72 frames near (<0.25 m), max 15/15 rays, min 0.0003 m at frame 36, {'Human.103': 0.0003}
+00:46.665  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O03d.png'
+M5b O03d: frames 361-432 (72), close_hands on crowd15, 5.0 s
+CLEARANCE O03e: 0/72 frames near (<0.25 m), max 0/15 rays, min 0.6562 m at frame 64, {}
+00:51.220  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O03e.png'
+M5b O03e: frames 433-504 (72), mid_band, 4.5 s
+CLEARANCE O03f: 0/73 frames near (<0.25 m), max 0/15 rays, min 2.7959 m at frame 73, {}
+00:56.421  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O03f.png'
+M5b O03f: frames 505-577 (73), wide_high, 5.2 s
+M5b build O03 done in 55.1 s
+M5b build O04: 143 frames, 11.4 s; crowd performances on 20 people (1 clap, 6 phone, 13 stand; 5 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 5 kicks, tambourine on 5 hits, lead from the vocal envelope, lean-ins on Hey!s); 5 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.024 (noise-modulated), daylight shafts through the window openings (sun 3.5); rain runs on 5 panes; M7c crowd phones: 6 of 6 textured; M7b clock on 6 shaders from song time 26.48 s
+CLEARANCE O04a: 143/143 frames near (<0.25 m), max 3/15 rays, min 0.1097 m at frame 11, {'Human.364': 0.1097}
+01:22.516  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O04a.png'
+M5b O04a: frames 1-143 (143), board:O04, 14.7 s
+M5b build O04 done in 26.1 s
+M5b build O07: 109 frames, 0.2 s; 
+CLEARANCE O07a: 0/109 frames near (<0.25 m), max 0/15 rays, min 3.6054 m at frame 19, {}
+01:22.842  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O07a.png'
+M5b O07a: frames 1-109 (109), board:O07, 0.1 s
+M5b build O07 done in 0.3 s
+M5b build O08: 324 frames, 17.5 s; crowd performances on 20 people (1 clap, 6 phone, 13 stand; 6 stompers, 5 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 27 kicks, tambourine on 25 hits, lead from the vocal envelope, lean-ins on Hey!s); 5 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.024 (noise-modulated), daylight shafts through the window openings (sun 3.5); rain runs on 5 panes; M7c crowd phones: 6 of 6 textured; M7b clock on 6 shaders from song time 44.52 s
+CLEARANCE O08a: 38/45 frames near (<0.25 m), max 15/15 rays, min 0.0007 m at frame 38, {'lamp_shade': 0.0007}
+01:45.011  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O08a.png'
+M5b O08a: frames 1-45 (45), board:O08, 4.7 s
+CLEARANCE O08d: 0/65 frames near (<0.25 m), max 0/15 rays, min 1.8878 m at frame 62, {}
+01:49.229  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O08d.png'
+M5b O08d: frames 188-252 (65), console, 4.3 s
+CLEARANCE O08e: 0/37 frames near (<0.25 m), max 0/15 rays, min 0.3826 m at frame 32, {}
+01:51.616  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O08e.png'
+M5b O08e: frames 253-289 (37), close_beater, 2.3 s
+CLEARANCE O08f: 0/18 frames near (<0.25 m), max 0/15 rays, min 0.5664 m at frame 16, {}
+01:54.353  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O08f.png'
+M5b O08f: frames 290-307 (18), close_hands on crowd15, 2.7 s
+CLEARANCE O08g: 0/17 frames near (<0.25 m), max 0/15 rays, min 0.7337 m at frame 17, {}
+01:56.557  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O08g.png'
+M5b O08g: frames 308-324 (17), backs on crowd17, 2.2 s
+M5b build O08 done in 33.8 s
+M5b build O08c: 72 frames, 7.0 s; M7 haze: none at night; rain runs on 9 panes; M7b clock on 9 shaders from song time 48.35 s
+CLEARANCE O08c: 0/72 frames near (<0.25 m), max 0/15 rays, min 1.2909 m at frame 68, {}
+02:06.711  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O08c.png'
+M5b O08c: frames 1-72 (72), board:O08c, 3.1 s
+M5b build O08c done in 10.1 s
+M5b build O09: 866 frames, 32.2 s; claps (24); crowd performances on 17 people (6 clap, 6 fist, 5 stand; 6 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 63 kicks, tambourine on 74 hits, lead from the vocal envelope, lean-ins on Hey!s); 5 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.024 (noise-modulated), daylight shafts through the window openings (sun 3.5); rain runs on 5 panes; M7c crowd phones: 0 of 0 textured; M7b clock on 6 shaders from song time 55.34 s
+CLEARANCE O09a: 0/73 frames near (<0.25 m), max 0/15 rays, min 3.0815 m at frame 21, {}
+02:44.099  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O09a.png'
+M5b O09a: frames 1-73 (73), wide_high, 5.1 s
+CLEARANCE O09b: 0/53 frames near (<0.25 m), max 0/15 rays, min 0.5394 m at frame 1, {}
+02:47.682  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O09b.png'
+M5b O09b: frames 74-126 (53), close_hands on crowd18, 3.6 s
+CLEARANCE O09c: 0/81 frames near (<0.25 m), max 0/15 rays, min 0.6479 m at frame 42, {}
+02:52.638  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O09c.png'
+M5b O09c: frames 127-207 (81), mid_band, 4.9 s
+CLEARANCE O09d: 0/63 frames near (<0.25 m), max 0/15 rays, min 0.5232 m at frame 60, {}
+02:56.121  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O09d.png'
+M5b O09d: frames 208-270 (63), lean_back, 3.5 s
+CLEARANCE O09e: 0/92 frames near (<0.25 m), max 0/15 rays, min 4.4955 m at frame 88, {}
+03:00.151  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O09e.png'
+M5b O09e: frames 271-362 (92), wide_left, 4.0 s
+M7d O09f: close_banjo re-aimed, 36 deg off the head's normal (was 89), 1.23 m
+M7d O09f: a 1.0 W spot on the banjo, 60.0 deg off its top
+CLEARANCE O09f: 0/71 frames near (<0.25 m), max 0/15 rays, min 1.0463 m at frame 20, {}
+03:03.427  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O09f.png'
+M5b O09f: frames 363-433 (71), close_banjo, 3.3 s
+CLEARANCE O09g: 0/73 frames near (<0.25 m), max 0/15 rays, min 0.8287 m at frame 64, {}
+03:07.781  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O09g.png'
+M5b O09g: frames 434-506 (73), backs on crowd18, 4.4 s
+CLEARANCE O09h: 0/72 frames near (<0.25 m), max 0/15 rays, min 0.5492 m at frame 44, {}
+03:11.271  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O09h.png'
+M5b O09h: frames 507-578 (72), close_fret, 3.5 s
+CLEARANCE O09i: 0/72 frames near (<0.25 m), max 0/15 rays, min 2.8085 m at frame 72, {}
+03:15.225  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O09i.png'
+M5b O09i: frames 579-650 (72), wide_back, 4.0 s
+M7d O09j: a 2.0 W spot on the guitar, 60.0 deg off its top
+CLEARANCE O09j: 0/72 frames near (<0.25 m), max 0/15 rays, min 1.0606 m at frame 61, {}
+03:18.834  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O09j.png'
+M5b O09j: frames 651-722 (72), close_guitar, 3.6 s
+CLEARANCE O09k: 0/72 frames near (<0.25 m), max 0/15 rays, min 0.556 m at frame 61, {}
+03:22.193  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O09k.png'
+M5b O09k: frames 723-794 (72), close_hands2 on crowd12, 3.4 s
+CLEARANCE O09l: 0/72 frames near (<0.25 m), max 0/15 rays, min 0.9481 m at frame 4, {}
+03:25.008  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O09l.png'
+M5b O09l: frames 795-866 (72), rain, 2.8 s
+M5b build O09 done in 78.3 s
+M5b build O10: 72 frames, 10.4 s; Switch ON and ON AIR lit at frame 36; crowd performances on 20 people (1 clap, 6 phone, 13 stand; 3 stompers, 4 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 4 kicks, tambourine on 10 hits, lead from the vocal envelope, lean-ins on Hey!s); 5 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.024 (noise-modulated), daylight shafts through the window openings (sun 3.5); rain runs on 5 panes; M7c crowd phones: 6 of 6 textured; M7b clock on 6 shaders from song time 84.21 s
+CLEARANCE O10a: 0/72 frames near (<0.25 m), max 0/15 rays, min 2.0766 m at frame 71, {}
+03:39.081  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O10a.png'
+M5b O10a: frames 1-72 (72), board:O10, 3.7 s
+M5b build O10 done in 14.1 s
+M5b build O11: 216 frames, 20.3 s; claps (6); crowd performances on 20 people (6 clap, 6 fist, 8 push; 7 stompers, 0 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 7 kicks, tambourine on 12 hits, lead from the vocal envelope, lean-ins on Hey!s); 5 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.024 (noise-modulated), daylight shafts through the window openings (sun 3.5); rain runs on 5 panes; ON AIR flickers 92.61-93.80 s; M7c crowd phones: 0 of 0 textured; M7b clock on 6 shaders from song time 86.60 s
+CLEARANCE O11a: 0/63 frames near (<0.25 m), max 0/15 rays, min 1.947 m at frame 63, {}
+04:05.380  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O11a.png'
+M5b O11a: frames 1-63 (63), crush, 6.0 s
+CLEARANCE O11b: 0/45 frames near (<0.25 m), max 0/15 rays, min 0.5238 m at frame 1, {}
+04:08.332  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O11b.png'
+M5b O11b: frames 64-108 (45), close_hands on crowd7, 3.0 s
+CLEARANCE O11c: 0/25 frames near (<0.25 m), max 0/15 rays, min 2.0167 m at frame 25, {}
+04:10.133  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O11c.png'
+M5b O11c: frames 109-133 (25), switch_cord, 1.8 s
+CLEARANCE O11d: 0/29 frames near (<0.25 m), max 0/15 rays, min 0.7154 m at frame 29, {}
+04:13.265  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O11d.png'
+M5b O11d: frames 134-162 (29), backs on crowd3, 3.1 s
+M7d O11e: close_banjo re-aimed, 36 deg off the head's normal (was 89), 1.23 m
+M7d O11e: a 1.0 W spot on the banjo, 60.0 deg off its top
+CLEARANCE O11e: 7/18 frames near (<0.25 m), max 15/15 rays, min 0.0008 m at frame 7, {'Human.female_elegantsuit01.007': 0.0008}
+04:15.254  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O11e.png'
+M5b O11e: frames 163-180 (18), close_banjo, 2.0 s
+CLEARANCE O11f: 0/18 frames near (<0.25 m), max 0/15 rays, min 1.0507 m at frame 18, {}
+04:17.623  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O11f.png'
+M5b O11f: frames 181-198 (18), mid_band, 2.4 s
+CLEARANCE O11g: 0/18 frames near (<0.25 m), max 0/15 rays, min 1.0555 m at frame 18, {}
+04:19.216  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O11g.png'
+M5b O11g: frames 199-216 (18), onair, 1.6 s
+M5b build O11 done in 40.1 s
+M5b build O12: 90 frames, 9.5 s; frozen; late clapper closes on frames [19, 55]; Switch drops and ON AIR dark at frame 4; band frozen at 93.77 s in their M5c holds; crowd frozen at 93.77 s in their M5c poses (19 people, seeds of O11); late clapper: solver claps closing on frames [19, 55]; freeze: no M5b motion; M7c crowd phones: 0 of 0 textured; M7b clock on 5 shaders from song time 93.80 s
+CLEARANCE O12a: 0/90 frames near (<0.25 m), max 0/15 rays, min 2.9309 m at frame 1, {}
+04:34.083  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O12a.png'
+M5b O12a: frames 1-90 (90), board:O12c, 5.4 s
+M5b build O12 done in 14.9 s
+M5b build O14: 433 frames, 45.0 s; pmug0 set down on the table; pmug1 set down on the table; crowd performances on 16 people (2 clap, 5 mug_raise, 9 stand; 4 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 19 kicks, tambourine on 35 hits, lead from the vocal envelope, lean-ins on Hey!s); 16 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.012 (noise-modulated), daylight shafts through the window openings (sun 1.6); rain runs on 5 panes; 183 bulbs chase 32 sung syllables; M7b steam wisps on 10 mugs; M7b clock on 16 shaders from song time 98.61 s
+CLEARANCE O14a: 0/73 frames near (<0.25 m), max 0/15 rays, min 3.3001 m at frame 73, {}
+05:23.857  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O14a.png'
+M5b O14a: frames 1-73 (73), wide, 4.7 s
+CLEARANCE O14b: 0/72 frames near (<0.25 m), max 0/15 rays, min 0.5585 m at frame 69, {}
+05:26.346  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O14b.png'
+M5b O14b: frames 74-145 (72), mug_steam, 2.5 s
+CLEARANCE O14c: 0/144 frames near (<0.25 m), max 0/15 rays, min 0.7652 m at frame 125, {}
+05:30.509  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O14c.png'
+M5b O14c: frames 146-289 (144), probes, 4.2 s
+CLEARANCE O14d: 0/72 frames near (<0.25 m), max 0/15 rays, min 0.9629 m at frame 10, {}
+05:32.890  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O14d.png'
+M5b O14d: frames 290-361 (72), polaroid, 2.4 s
+CLEARANCE O14e: 0/72 frames near (<0.25 m), max 0/15 rays, min 0.3855 m at frame 72, {}
+05:35.331  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O14e.png'
+M5b O14e: frames 362-433 (72), tent, 2.4 s
+M5b build O14 done in 61.2 s
+M5b build O15: 162 frames, 36.4 s; LED dims frames 72-80, back at 121-126; pmug0 set down on the table; pmug1 set down on the table; crowd performances on 16 people (2 clap, 5 mug_raise, 9 stand; 5 stompers, 6 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 12 kicks, tambourine on 13 hits, lead from the vocal envelope, lean-ins on Hey!s); 16 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.012 (noise-modulated), daylight shafts through the window openings (sun 1.6); rain runs on 5 panes; 183 bulbs chase 14 sung syllables; M7b steam wisps on 10 mugs; M7b clock on 16 shaders from song time 113.03 s
+CLEARANCE O15a: 0/162 frames near (<0.25 m), max 0/15 rays, min 0.5617 m at frame 138, {}
+06:16.470  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O15a.png'
+M5b O15a: frames 1-162 (162), probe_close, 4.8 s
+M5b build O15 done in 41.1 s
+M5b build O16: 126 frames, 35.8 s; bulb cascade frames 19-92; pmug0 set down on the table; pmug1 set down on the table; crowd performances on 16 people (2 clap, 5 mug_raise, 9 stand; 7 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 3 kicks, tambourine on 8 hits, lead from the vocal envelope, lean-ins on Hey!s); 15 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.012 (noise-modulated), daylight shafts through the window openings (sun 1.6); rain runs on 5 panes; 183 bulbs chase 7 sung syllables; M7b steam wisps on 10 mugs; M7b clock on 16 shaders from song time 118.44 s
+CLEARANCE O16a: 0/54 frames near (<0.25 m), max 0/15 rays, min 2.0623 m at frame 28, {}
+06:55.096  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O16a.png'
+M5b O16a: frames 1-54 (54), hub, 2.9 s
+CLEARANCE O16b: 0/72 frames near (<0.25 m), max 0/15 rays, min 3.4222 m at frame 2, {}
+07:00.308  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O16b.png'
+M5b O16b: frames 55-126 (72), strands, 5.2 s
+M5b build O16 done in 43.8 s
+M5b build O17: 864 frames, 56.3 s; mugs up on [62, 127, 199, 270]; claps (24); pmug0 set down on the table; pmug1 set down on the table; crowd performances on 16 people (7 clap, 8 mug_raise, 1 stand; 6 stompers, 1 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 61 kicks, tambourine on 50 hits, lead from the vocal envelope, lean-ins on Hey!s); 16 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.012 (noise-modulated), daylight shafts through the window openings (sun 1.6); rain runs on 5 panes; 183 bulbs chase 44 sung syllables; M7b steam wisps on 10 mugs; M7b clock on 16 shaders from song time 122.65 s
+M7d O17a: a 1.2 W spot on the guitar, 60.0 deg off its top
+CLEARANCE O17a: 0/62 frames near (<0.25 m), max 0/15 rays, min 0.5762 m at frame 60, {}
+08:00.257  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O17a.png'
+M5b O17a: frames 1-62 (62), close_strum, 3.6 s
+CLEARANCE O17b: 0/65 frames near (<0.25 m), max 0/15 rays, min 3.3338 m at frame 64, {}
+08:03.940  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O17b.png'
+M5b O17b: frames 63-127 (65), wide, 3.7 s
+CLEARANCE O17c: 0/71 frames near (<0.25 m), max 0/15 rays, min 1.3485 m at frame 2, {}
+08:08.201  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O17c.png'
+M5b O17c: frames 128-198 (71), mugs_backs, 4.3 s
+CLEARANCE O17d: 0/71 frames near (<0.25 m), max 0/15 rays, min 3.3313 m at frame 69, {}
+08:12.070  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O17d.png'
+M5b O17d: frames 199-269 (71), wide_side, 3.9 s
+CLEARANCE O17e: 0/91 frames near (<0.25 m), max 0/15 rays, min 0.7067 m at frame 80, {}
+08:17.122  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O17e.png'
+M5b O17e: frames 270-360 (91), mugs_backs, 5.0 s
+M7d O17f: close_banjo re-aimed, 36 deg off the head's normal (was 89), 1.22 m
+CLEARANCE O17f: 0/72 frames near (<0.25 m), max 0/15 rays, min 1.0162 m at frame 13, {}
+08:20.209  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O17f.png'
+M5b O17f: frames 361-432 (72), close_banjo, 3.1 s
+CLEARANCE O17g: 0/72 frames near (<0.25 m), max 0/15 rays, min 0.8338 m at frame 62, {}
+08:24.040  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O17g.png'
+M5b O17g: frames 433-504 (72), backs on crowd10, 3.8 s
+CLEARANCE O17h: 0/45 frames near (<0.25 m), max 0/15 rays, min 0.5594 m at frame 1, {}
+08:27.029  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O17h.png'
+M5b O17h: frames 505-549 (45), close_hands on crowd12, 3.0 s
+CLEARANCE O17i: 0/99 frames near (<0.25 m), max 0/15 rays, min 0.6388 m at frame 98, {}
+08:31.929  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O17i.png'
+M5b O17i: frames 550-648 (99), wide_high, 4.9 s
+CLEARANCE O17j: 0/72 frames near (<0.25 m), max 0/15 rays, min 1.0579 m at frame 58, {}
+08:34.754  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O17j.png'
+M5b O17j: frames 649-720 (72), close_tamb, 2.8 s
+CLEARANCE O17k: 0/72 frames near (<0.25 m), max 0/15 rays, min 2.7391 m at frame 65, {}
+08:38.425  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O17k.png'
+M5b O17k: frames 721-792 (72), strands, 3.7 s
+CLEARANCE O17l: 0/72 frames near (<0.25 m), max 0/15 rays, min 0.7568 m at frame 72, {}
+08:42.865  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O17l.png'
+M5b O17l: frames 793-864 (72), mid_band, 4.4 s
+M5b build O17 done in 102.6 s
+M5b build O18: 576 frames, 23.3 s; whiteboard: Remotion movie texture; band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 27 kicks, tambourine on 44 hits, lead from the vocal envelope, lean-ins on Hey!s); window/sky light lifts on the Hey!s; M7 haze 0.02 (noise-modulated), daylight shafts through the window openings (sun 2.0); rain runs on 9 panes; drizzle falls (3 volumes, looped); M7b clock on 10 shaders from song time 151.45 s; M1b: the v1.3 whiteboard (576 frames, 1800x1125)
+CLEARANCE O18a: 0/144 frames near (<0.25 m), max 0/15 rays, min 1.5287 m at frame 73, {}
+09:11.179  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O18a.png'
+M5b O18a: frames 1-144 (144), wide, 5.0 s
+CLEARANCE O18b: 0/144 frames near (<0.25 m), max 0/15 rays, min 2.946 m at frame 117, {}
+09:15.942  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O18b.png'
+M5b O18b: frames 145-288 (144), board_mid, 4.8 s
+CLEARANCE O18c: 0/144 frames near (<0.25 m), max 0/15 rays, min 2.6724 m at frame 144, {}
+09:20.052  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O18c.png'
+M5b O18c: frames 289-432 (144), side, 4.1 s
+CLEARANCE O18d: 0/72 frames near (<0.25 m), max 0/15 rays, min 0.6982 m at frame 62, {}
+09:21.642  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O18d.png'
+M5b O18d: frames 433-504 (72), board_close, 1.6 s
+CLEARANCE O18e: 0/72 frames near (<0.25 m), max 0/15 rays, min 0.4513 m at frame 72, {}
+09:25.177  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2/O18e.png'
+M5b O18e: frames 505-576 (72), table, 3.5 s
+M5b build O18 done in 42.3 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+	Command being timed: "blender -b --factory-startup --python blender/camera_clearance.py -- --only O03,O04,O07,O08,O08c,O09,O10,O11,O12,O14,O15,O16,O17,O18 --still --at first --size 320x180 --samples 1 --out /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/out2 --log /tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/clear/pose_rest.log --report log/render_logs/m7_camera_clearance.jsonl --ignore drizzle,haze_volume"
+	User time (seconds): 3039.40
+	System time (seconds): 2076.90
+	Percent of CPU this job got: 902%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 9:26.61
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 5227964
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 183
+	Minor (reclaiming a frame) page faults: 6818317
+	Voluntary context switches: 1045084
+	Involuntary context switches: 306877491
+	Swaps: 0
+	File system inputs: 343818
+	File system outputs: 280
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
