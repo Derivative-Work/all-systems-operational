@@ -1243,3 +1243,8 @@ Append-only. One entry per generation, render or analysis step.
 - **Remotion at full size:** `scripts/m5_remotion.sh` takes `M5_REMOTION_SCALE` (default 0.5). `M5_REMOTION_SCALE=1 M5_REMOTION_OUT=renders/m7/remotion_master scripts/m5_remotion.sh M5-O01 M5-O02 M5-O05 M5-O08-Phone M5-O13-Card M5-O13-Status M5-O23 M5-O03-LT M5-O08-LT M5-O09-LT M5-O19-LT M5-O22-LT M5-O07-Caption M5-Dramatization M5-O11-Live M5-O12-Freeze M5-O21-Freeze` (`log/render_logs/m7_master_remotion.log`; 1920×1080). A first start at the old scale was stopped after M5-O01 (its file re-rendered at full size).
 - **Test:** O01, O02 and O03 built at 1080p into a scratch folder: 228, 146 and 577 frames at 1920×1080, no labels; O03 in 91 s (about 25 min for the whole video).
 - **Links** (METADATA's): every news source answers 200 to a plain request except two. GV Wire refuses scripted requests (403), but a fetch shows the article with the cited figures (2,400 at 9:50 a.m. PT; 130,000 by 10:17, typed "130,00" in its update). The Washington Post refuses any automated fetch (to be opened in a browser before the upload). The repository answers 404 while private.
+
+## 78. 2026-11-17 — The thumbnail
+
+- **Command:** `.venv/bin/python -I scripts/thumbnail.py` (new) → `review/thumbnail/thumbnail.jpg` (1280×720): frame 101 of O03a from the M7e render (the picked lighting), graded grey, darkened toward the top, the made-up status page's banner ("All systems operational", its green and check) and stale stamp ("Last updated: Thu 11:15 a.m."), in Work Sans (OFL). No real screenshot, logo or person (METADATA).
+- METADATA: the thumbnail and the link check noted.

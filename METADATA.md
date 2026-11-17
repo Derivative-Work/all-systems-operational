@@ -3,7 +3,7 @@
 YouTube metadata for the main video, ready to paste at upload once the checklist below is done. Written by the agent; the human uploads. **Draft as of November 17, 2026:** the final render is under way. The upload doesn't wait for Microsoft's final report (human interventions 37).
 
 **Before uploading:**
-- **Re-check the news and every link** the day before. Everything here is as of November 16.
+- **Re-check the news and every link** before the upload. Links checked November 17 (production log 77): all live but the Washington Post's, which refuses automated fetches; open it in a browser. The repository's link works once it's public.
 - **Make the repository public.** The end card and the description link to it; it's private until then.
 - **Intervention count:** update the number in the description (`grep -c '^## ' log/human_interventions.md`; 37 on 2026-11-17).
 - **Chapters:** recompute from the final cut (`timing/shot_times.json`, and the end sequence's plan in `review/m7_end/plan.txt`). The ones below are the current cut's, from the shots' starts (the intro's chapter starts at 0:10, not at the song's 0:07.6, because YouTube wants each chapter at least 10 s long; the song starts on its first downbeat, decisions 47): the end cards fade at 2:34.6 into the credits music (decisions 45; kept, human interventions 32).
@@ -12,7 +12,7 @@ YouTube metadata for the main video, ready to paste at upload once the checklist
 
 ## Main video (16:9, 1920×1080, 30 fps)
 
-**File:** to come at M7/M8 (6:39.4 with the current end sequence: the 7.6 s bookend, the song from its first downbeat, 3:57.2, then 2:34.6 of cards). Captions: `lyrics/as_sung_lines_video.srt` (72 cues, the v1.3 lyrics as sung, line by line, in video time). Thumbnail: not made yet.
+**File:** to come at M7/M8 (6:39.4 with the current end sequence: the 7.6 s bookend, the song from its first downbeat, 3:57.2, then 2:34.6 of cards). Captions: `lyrics/as_sung_lines_video.srt` (72 cues, the v1.3 lyrics as sung, line by line, in video time). Thumbnail: `review/thumbnail/thumbnail.jpg` (1280×720, `scripts/thumbnail.py`).
 
 ### Title
 
@@ -111,7 +111,7 @@ All Systems Operational, AI music video, AI generated, AI satire, Microsoft 365 
 | Language / caption language | English / English |
 | Captions | Upload `lyrics/as_sung_lines_video.srt` as English subtitles (72 cues, the lyrics as sung, line by line). Regenerate it if report day changes the bridge. |
 | License | Standard YouTube License. YouTube's only Creative Commons option is CC BY, which would drop the NC-SA terms; the description states the licence instead. |
-| Thumbnail | To come. Not the real screenshot or the creator's photo: those stay in the bookend. |
+| Thumbnail | `review/thumbnail/thumbnail.jpg`: the live room with the made-up status page's banner and its stale stamp. Not the real screenshot or the creator's photo: those stay in the bookend. |
 | Chapters | From the description (first chapter at 0:00; each over 10 s). |
 | End screen | Over the disclosure card's last 20 s (from about 6:22). Put the elements in the bottom corners, clear of the card's text. |
 | Comments | Open. |
