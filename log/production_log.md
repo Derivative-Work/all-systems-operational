@@ -1149,3 +1149,12 @@ Append-only. One entry per generation, render or analysis step.
 - **Checks:** `M.check` (`log/render_logs/m7_review_cut_check.log`): every planned cut is on its frame but O11g (+2) and O12a (−1), the same as M5c3's check (motion inside the shot), and the three rows for M5's end cards, which this cut doesn't use. `M.sheet` → `review/m7_cut_v1_sheet.jpg` (94 sub-shots, mid frames; the four "O24-end" to "disclosure" tiles are at M5's end-card times, so they show the new end sequence at those times). Looked at: grades, overlays, the tags, O22d and the end sequence are where they should be.
 - **Share:** `.venv/bin/python -I scripts/m7_review_cut.py --share` → `review/m7_cut_v1_share.mp4`: 0:00–4:26.3 (O24 + 18.3 s: the end card and "Next incident: TBD"; the fact pages and disclosure are as in the end preview, production log 62), h264 650 kb/s, AAC 128k, 24.6 MB. The whole cut at that rate would be 39 MB, over the 30 MB limit for review files. Sent.
 - **Wait loops (correction):** the earlier waits for the clearance check, the Remotion renders and the re-render used `while pgrep -f "<name>"`, which matched their own command lines and never ended. Stopped (TaskStop); the O03d/O11e re-render now waits on process ids (`kill -0`).
+
+## 68. 2026-11-16 — M7: the fixed sub-shots re-rendered; review cut 2
+
+- **Re-renders** (decisions 46; old frames in `archive/renders/m7/frames_v1/`):
+  - `blender -b --factory-startup --python blender/coverage_m7.py -- --out renders/m7/frames --subs O19b,O20e,O22a,O22f,O22g --size 1920x1080 --log log/render_logs/m7_pose_check_fixes_r2.log` (the lantern; 26 min 15 s; `m7_fixes_r2.log`): 123, 90, 109, 145 and 105 frames.
+  - `… --subs O03d,O11e … --log log/render_logs/m7_pose_check_fixes_r3.log` (the neighbours hidden; 3 min 57 s; `m7_fixes_r3.log`): 72 and 18 frames.
+  - With O08a (production log 66), every sub-shot has its full count. Pose checks: no violations; no tracebacks.
+- **By eye:** O03d's hands are clear from frame 1 (frames 1, 20 and 36); O11e's banjo from frame 1; O08a opens on the room; the lantern is square in O22g, O22f and O20e.
+- **Review cut 2:** `.venv/bin/python -I scripts/m7_review_cut.py --out review/m7_cut_v2.mp4` (`log/render_logs/m7_review_cut_v2.log`): 12,078 frames, 402.600 s, no first-pass frames; `--share` → `review/m7_cut_v2_share.mp4` (0:00–4:26.3, 24.6 MB). Sent.
