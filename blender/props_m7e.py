@@ -25,6 +25,9 @@ still reproduce.
 - The treehouse table's other props (human interventions 36): the speakerphone (a domed hub, three tapered arms
   with grilles, a mute ring), the chargers (smooth cables lying on the table, plugs, rounded bricks), the ringing
   phone (a rounded body), the table and its legs (rounded edges).
+- The sets' own boxes and cylinders (gb.box, gb.cyl: the console and monitors, the ON AIR box, the espresso
+  machine, the counter, shelves, sills, window frames, conduits, lamp stands, pendants...): boxes up to 6 m rounded,
+  small cylinders with more sides and smooth; walls, floors, ceilings, decks and volumes as they were.
 - Chairs: the bentwood (a turned seat, splayed legs, a leg ring, a bent back hoop), the shell chair (a moulded shell
   on four dowel legs: the grey box's flat back read as a black screen in the treehouse), the ladder-back (turned
   posts, finials, bowed slats, stretchers), the bar chair (a turned seat, a foot ring).
@@ -633,6 +636,31 @@ def _shell(b, role, h, nu=26, nv=30, t=0.007):
             g.smooth = True
 
 
+# ---------------------------------------------------------------- the sets' own boxes and cylinders
+
+_GB = {}
+SKIP = ("volume", "sky", "floor", "ceiling", "wall", "ground", "path", "deck", "stilt", "fog")
+
+
+def gb_box(name, center, size, m, parent=None, rot_z=0.0):
+    """gb.box for M7e: a prop-sized box (6 m or less, not a wall, floor, volume...) with rounded edges."""
+    o = _GB["box"](name, center, size, m, parent, rot_z)
+    if max(size) <= 6.0 and min(size) >= 0.004 and not any(k in name.lower() for k in SKIP):
+        round_edges(o, min(0.008, 0.2 * min(size)))
+    return o
+
+
+def gb_cyl(name, center, r, h, m, parent=None, n=16, axis="Z", r2=None):
+    """gb.cyl for M7e: smaller cylinders with 24 sides or more (48 from 5 cm), smooth with hard rims."""
+    plain = any(k in name.lower() for k in SKIP) or max(r, r2 or 0.0) >= 1.0
+    if not plain:
+        n = max(n, 24 if max(r, r2 or 0.0) < 0.05 else 48)
+    o = _GB["cyl"](name, center, r, h, m, parent, n, axis, r2)
+    if not plain:
+        finish(o)
+    return o
+
+
 # ---------------------------------------------------------------- install
 
 def install():
@@ -651,4 +679,7 @@ def install():
     PR.conference_phone = conference_phone
     PR.charger_tangle = charger_tangle
     PO._mug_mesh = held_mug_mesh
+    if "box" not in _GB:                         # the sets' own boxes and cylinders (sets.py, look.py): props only
+        _GB["box"], _GB["cyl"] = gb.box, gb.cyl
+        gb.box, gb.cyl = gb_box, gb_cyl
     return "M7e props: kick drum and pedal, mugs, server rack, chairs remodelled; props smooth-shaded with hard edges"
