@@ -210,3 +210,9 @@ Append-only. Every human action: when, what, and why.
 
 - **What:** while the agent was diagnosing O08a's wipe: "also check the lamppost". Then, again: "How's it looking now".
 - **Agent's reading:** check the park lamppost both for a camera against or inside it (the O08a fault) and for how it looks. Both done (production log 66): no camera near it; its lantern's tray, cap and roof were turned 45° from the panes, now fixed; O22b's walker is hidden behind the post for about half the shot, left for the human (decisions 46).
+
+## 31. 2026-11-16 — A review cut from the frames as they stand
+
+- **What:** "Also assemble a cut with the frames you already have so I can examine the issues unrelated to these". Then, while it was being set up: "is it running".
+- **Answer to "is it running":** the renders were, but the agent's wait loops weren't ending: each looked for its job by name (`pgrep -f`) and matched its own command line. They were stopped and replaced by waits on process ids; the queued O03d/O11e re-render had been held up by one of them (production log 67).
+- **Sent** (production log 67): the review cut from 0:00 to 4:26 and its sub-shot sheet.

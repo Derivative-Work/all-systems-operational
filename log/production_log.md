@@ -1132,3 +1132,20 @@ Append-only. One entry per generation, render or analysis step.
 - **Re-renders** (old frames moved to `archive/renders/m7/frames_v1/<sub>/`):
   - `--subs O08a,O19b,O20e,O22a,O22f,O22g` (`log/render_logs/m7_fixes_r1.log`): O08a done (45 frames, 132 s); then the hook raised `ReferenceError` restoring `lamp_shade`, removed with the O08 build, and Blender exited 0 anyway. Fixed (the restore skips removed objects).
   - `--subs O19b,O20e,O22a,O22f,O22g` (`m7_fixes_r2.log`) and then `--subs O03d,O11e` (`m7_fixes_r3.log`): running.
+
+## 67. 2026-11-16 — M7: the review cut from the frames as they stand (960×540)
+
+- **Why:** human interventions 31.
+- **Remotion:** M5's screens, cards and overlays re-rendered with the current code, at --scale=0.5 as in M5, into a new folder: `M5_REMOTION_OUT=renders/m7/remotion_review scripts/m5_remotion.sh M5-O01 M5-O02 M5-O05 M5-O08-Phone M5-O13-Card M5-O13-Status M5-O23 M5-O03-LT M5-O08-LT M5-O09-LT M5-O19-LT M5-O22-LT M5-O07-Caption M5-Dramatization M5-O11-Live M5-O12-Freeze M5-O21-Freeze` (about 3 min, CPU; `log/render_logs/m7_review_remotion.log`). `scripts/m5_remotion.sh` takes `M5_REMOTION_OUT`; without it, it writes to `renders/m5/remotion` as before. The reason: M5's O02, O13 status and O23 still had M5's status stamp, not v1.3's "Thu 11:15 a.m." (production log 53).
+- **Assembly:** `.venv/bin/python -I scripts/m7_review_cut.py --pending O03d,O11e` (new; `log/render_logs/m7_review_cut.log`) → `review/m7_cut_v1.mp4`: 960×540, 30 fps, h264 CRF 18 + AAC 192k, 12,078 frames = 402.600 s (O01–O23 7,439 frames, then the end sequence's 4,639), 59 MB. It is the M5c3 assembly (cut, composites, labels) with M7's changes:
+  - every rendered frame graded with `scripts/grade.py` at 960×540: the cafe warm, O22 home from its first mark (per frame), the rest grey, the grain seeded by the video frame;
+  - O22d is the generated clip (`scripts/m7_inserts.py`);
+  - O04 without M5's pinned phone screen (rendered in Blender since M7b);
+  - O18 with M5's caption plus the denial tags (`renders/m1b/remotion/M7-O18-DenialTags.mov`);
+  - O22 without M5's home-movie filter (the grade does it);
+  - the end sequence `renders/m7/remotion/M7-EndSequence.mp4` scaled to 960×540;
+  - audio: the post-filtered v1.3 master from 8.4 s to O24 (frame 7439), then `audio/credits/credits-m7-end.wav`.
+  - First-pass frames, labelled "[first pass]": O22f and O22g (from `archive/renders/m7/frames_v1/`, being re-rendered with the lantern fix), O03d and O11e (`--pending`: their fix's re-render queued). O08a, O19b, O20e and O22a are the fixed renders. Sources per sub-shot in `renders/m7/review_cut_sources.json`.
+- **Checks:** `M.check` (`log/render_logs/m7_review_cut_check.log`): every planned cut is on its frame but O11g (+2) and O12a (−1), the same as M5c3's check (motion inside the shot), and the three rows for M5's end cards, which this cut doesn't use. `M.sheet` → `review/m7_cut_v1_sheet.jpg` (94 sub-shots, mid frames; the four "O24-end" to "disclosure" tiles are at M5's end-card times, so they show the new end sequence at those times). Looked at: grades, overlays, the tags, O22d and the end sequence are where they should be.
+- **Share:** `.venv/bin/python -I scripts/m7_review_cut.py --share` → `review/m7_cut_v1_share.mp4`: 0:00–4:26.3 (O24 + 18.3 s: the end card and "Next incident: TBD"; the fact pages and disclosure are as in the end preview, production log 62), h264 650 kb/s, AAC 128k, 24.6 MB. The whole cut at that rate would be 39 MB, over the 30 MB limit for review files. Sent.
+- **Wait loops (correction):** the earlier waits for the clearance check, the Remotion renders and the re-render used `while pgrep -f "<name>"`, which matched their own command lines and never ended. Stopped (TaskStop); the O03d/O11e re-render now waits on process ids (`kill -0`).

@@ -6,9 +6,10 @@
 # (the O04 phone screen, the O18 whiteboard, which blender/animatic.py maps as a movie texture). CPU only, --gl=swangle,
 # concurrency 2 (remotion.config.ts).
 # Usage: scripts/m5_remotion.sh [composition-id ...]   (no args: all)
+#        M5_REMOTION_OUT=<dir> scripts/m5_remotion.sh ...   (another folder; the M7 review cut uses renders/m7/remotion_review)
 set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
-out=renders/m5/remotion
+out=${M5_REMOTION_OUT:-renders/m5/remotion}
 mkdir -p "$out"
 quiet() { grep -v -i -e zod -e "version mismatch" -e "^-*$" -e "wrong versions" -e "breakages" -e "React context" -e "Type errors" \
   -e "Failed renders" -e "resolve:" -e "package.json has" -e "Remove the" -e "Run .npx" -e "^$" || true; }
