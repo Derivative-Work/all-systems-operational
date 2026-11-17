@@ -1132,6 +1132,8 @@ def post_build(room, st):
     fn = {"live": live, "cafe": cafe, "treehouse": treehouse, "park": park}.get(room)
     if fn:
         fn(st)
+    if M7E and room == "treehouse":
+        round_treehouse_table()
     if M7B and S.OBJ.get("phone_holder") is not None and bpy.data.objects.get("phone_holder") is not None:
         o04_phone(S.OBJ["phone_holder"])
     if M7E and room == "cafe":
@@ -1307,6 +1309,15 @@ def cafe(st):
             pots.capsule((x, D - 0.1, 0.93), tuple(tip), 0.004, 1)
             pots.ball(tuple(tip), 0.035, 1, scale=(1.6, 0.4, 0.9))
     pots.obj("m7_plants")
+
+
+def round_treehouse_table():
+    """M7e (human interventions 36): the conference table's top and legs, grey-box slabs, with rounded edges."""
+    import props_m7e as PM
+    for nm, off in (("ctable", 0.006), ("ctable_leg-1", 0.004), ("ctable_leg1", 0.004), ("wb_tray", 0.004)):
+        o = bpy.data.objects.get(nm)
+        if o is not None and o.type == "MESH":
+            PM.round_edges(o, off)
 
 
 def treehouse(st):
@@ -2057,8 +2068,13 @@ def treehouse_screens(night):
                 "m7b_phone_2fa", f"M7-Tree-TwoFactor-{v}", pe, phone=True, flip=fl))
     # the automated alert, ringing face up on the table by seat 2's laptop
     x, y, rot = C_["table_phone"]
-    body = gb.box("m7b_table_phone", (x, y, 0.755 + 0.004), (0.075, 0.155, 0.008), K.mat("phone_body", 0.4),
-                  rot_z=math.radians(rot))
+    if M7E:                                    # M7e: a rounded body (human interventions 36)
+        import props_m7e as PM
+        body = PM.phone_body("m7b_table_phone", (x, y, 0.755 + 0.004), (0.075, 0.155, 0.008), None,
+                             rot_z=math.radians(rot))
+    else:
+        body = gb.box("m7b_table_phone", (x, y, 0.755 + 0.004), (0.075, 0.155, 0.008), K.mat("phone_body", 0.4),
+                      rot_z=math.radians(rot))
     gb.plane("m7b_table_phone_screen", (0, 0, 0.0045), (0.067, 0.143),
              screen_mat("m7b_alert_call", f"M7-Tree-AlertCall-{v}", pe), facing="+Z", parent=body)
     if C_[f"table_phone_light_{v}"] > 0:

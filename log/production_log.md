@@ -1213,3 +1213,10 @@ Append-only. One entry per generation, render or analysis step.
 - **Checked:** stills of O18c and O18e (`review/m7/m7e_laptops.jpg`, brightened): keyboards, trackpads and bezels read; the screens' textures sit on the lids as before.
 - **The M7e render** (production log 72; restarted at the picked lighting, human interventions 34) was on its first build (O03) when this went in; O08c and O18, the builds with laptops, render with it.
 - **README:** the look's line now says backlit with a soft front wash (decisions 51).
+
+## 74. 2026-11-17 — M7e: the treehouse table's other props
+
+- **Why:** human interventions 36.
+- **Code** (`blender/props_m7e.py`, installed with the other M7e props): `conference_phone` (a domed hub, three tapered rounded arms with speaker grilles and feet, a mute ring and key), `charger_tangle` (the grey box's random draws kept, so the same layout: the cables smooth curves lying on the table, a plug with its strain relief at each loose end, the bricks rounded and sitting on the table with their cables' boots), `phone_body` (the ringing phone, rounded, used by `blender/look.py` treehouse_screens), `round_edges` (bevels a grey-box box in place: the conference table's top and legs and the whiteboard tray, `round_treehouse_table` in `blender/look.py`).
+- **Checked:** stills of O18c and O18e (`review/m7/m7e_treehouse_table.jpg`, brightened).
+- **The M7e render** was on its second build (O04) when this went in; the treehouse builds (O08c, O18) render with it.

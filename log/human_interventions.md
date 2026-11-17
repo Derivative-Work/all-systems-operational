@@ -256,3 +256,8 @@ Append-only. Every human action: when, what, and why.
 
 - **What** (on the before/after sheet, `review/m7/m7e_props_before_after.jpg`, while the M7e render was running): "one more thing from that screenshot: the laptops are clearly gray-box as well. See Not Yet's laptop rather than re-inventing".
 - **Agent's reading:** Not Yet (`../not-yet`, MIT, same author) builds its maintainer's laptop in `scenes/blender/sets/nursery.py`: a bevelled base, a full keyboard (a half-height function row and five 15-unit rows, 1 u = 18.5 mm), a grille, a trackpad, a hinge barrel and a bevelled lid. Adapted at this laptop's size and hinge; Not Yet's key legends and its font aren't brought across (the props here carry no text). Not Yet isn't modified.
+
+## 36. 2026-11-17 — The rest of the treehouse table
+
+- **What** (right after human interventions 35): "while you're at it also check the rest of the props on that table...".
+- **Checked:** the conference table's speakerphone (three boxes and a cylinder), the charger tangle (zigzags of straight five-sided rods 8 mm above the table, brick boxes 1 cm above it), the ringing phone (a box), the table and its legs (sharp slabs). All grey box; all remodelled (production log 74).

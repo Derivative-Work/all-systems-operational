@@ -22,6 +22,9 @@ still reproduce.
 - Laptops (human interventions 35: "the laptops are clearly gray-box as well. See Not Yet's laptop rather than
   re-inventing"): Not Yet's laptop at this one's size: a keyboard in its layout, the grille, trackpad, hinge barrel,
   a rounded lid, the screen inset in its bezel.
+- The treehouse table's other props (human interventions 36): the speakerphone (a domed hub, three tapered arms
+  with grilles, a mute ring), the chargers (smooth cables lying on the table, plugs, rounded bricks), the ringing
+  phone (a rounded body), the table and its legs (rounded edges).
 - Chairs: the bentwood (a turned seat, splayed legs, a leg ring, a bent back hoop), the shell chair (a moulded shell
   on four dowel legs: the grey box's flat back read as a black screen in the treehouse), the ladder-back (turned
   posts, finials, bowed slats, stretchers), the bar chair (a turned seat, a foot ring).
@@ -467,6 +470,79 @@ def laptop(name, loc, rot_z, screen_mat=None, open_deg=105):
     return finish(b.obj(name, None, loc, rot_z))
 
 
+# ---------------------------------------------------------------- the treehouse table's other props
+# (human interventions 36: "while you're at it also check the rest of the props on that table")
+
+def conference_phone(name, loc):
+    """As aso_props.conference_phone (the three-legged star speakerphone; generic, no brand): a domed hub, three
+    tapered rounded arms with speaker grilles, a mute ring, rubber feet."""
+    b = PR.B(["phone_body", "metal", "laptop_well", "rubber"])
+    lathe(b, [(0.0, 0.0), (0.066, 0.0), (0.071, 0.003), (0.073, 0.014), (0.07, 0.024), (0.058, 0.031), (0.03, 0.035),
+              (0.0, 0.0355)], "phone_body", (0, 0, 0), (0, 0, 1), 72)
+    lathe(b, rrect(0.024, 0.031, 0.0335, 0.0375, 0.0015), "metal", (0, 0, 0), (0, 0, 1), 64, closed=True)   # mute ring
+    lathe(b, rdisc(0.022, 0.0345, 0.0362, 0.001), "laptop_well", (0, 0, 0), (0, 0, 1), 48)                   # its key
+    for k in range(3):
+        a = 2 * math.pi * k / 3 + math.pi / 2
+        d = Vector((math.cos(a), math.sin(a), 0.0))
+        pts = [d * 0.03 + Vector((0, 0, 0.013)), d * 0.12 + Vector((0, 0, 0.0115)), d * 0.2 + Vector((0, 0, 0.01))]
+        tube(b, catmull(pts, 6), "phone_body", 0.0105, 0.04, sides=20, caps=True, taper=(1.0, 0.62))
+        b.ball(tuple(d * 0.2 + Vector((0, 0, 0.01))), 1.0, b.i("phone_body"), scale=(0.025, 0.025, 0.0064))
+        side = Vector((-d.y, d.x, 0.0))
+        bbox(b, d * 0.135 + Vector((0, 0, 0.0198)), (0.07, 0.034, 0.0012), "laptop_well", 0.0012,
+             axes=(d, side, Vector((0, 0, 1))))                                                                # grille
+        lathe(b, rdisc(0.008, 0.0, 0.003, 0.001), "rubber", tuple(d * 0.17), (0, 0, 1), 12)                    # foot
+    return finish(b.obj(name, None, loc))
+
+
+def charger_tangle(name, loc, rng, n=7, spread=0.45):
+    """As aso_props.charger_tangle, with the same draws (so the same layout): cables as smooth curves lying on the
+    table (the grey box's were straight segments 8 mm above it, their bricks 1 cm up), a plug with its strain relief
+    at the loose end, the bricks rounded with their cable's boot."""
+    b = PR.B(["cable", "brick", "metal"])
+    r = 0.0026
+    for k in range(n):
+        p0 = Vector((rng.uniform(-spread, spread), rng.uniform(-spread * 0.5, spread * 0.5), r))
+        pts = [p0]
+        for j in range(6):
+            pts.append(pts[-1] + Vector((rng.uniform(-0.14, 0.14), rng.uniform(-0.1, 0.1), 0.0)))
+        path = catmull(pts, 8)
+        tube(b, path, "cable", r, sides=10, caps=False)
+        d0 = (path[0] - path[1]).normalized()
+        tube(b, [path[0], path[0] + d0 * 0.012], "cable", r * 1.5, sides=10, taper=(1.0, 1.25))         # strain relief
+        tube(b, [path[0] + d0 * 0.012, path[0] + d0 * 0.022], "brick", 0.0045, 0.0032, sides=12)          # plug
+        tube(b, [path[0] + d0 * 0.022, path[0] + d0 * 0.03], "metal", 0.0018, 0.0042, sides=10)           # its tip
+        if k % 2 == 0:
+            rz = rng.uniform(0, 3)
+            c = pts[-1] + Vector((0, 0, 0.0125 - r))
+            bbox(b, c, (0.06, 0.05, 0.025), "brick", 0.006, rot=(0, 0, rz))
+            dl = (path[-1] - path[-2]).normalized()
+            tube(b, [path[-1] - dl * 0.03, path[-1]], "cable", r * 1.6, sides=10, taper=(1.0, 1.35))      # boot
+    return finish(b.obj(name, None, loc))
+
+
+def phone_body(name, loc, size, mat, rot_z=0.0):
+    """A phone lying face up (blender/look.py's ringing table phone): rounded body, the camera bump underneath."""
+    b = PR.B(["phone_body", "metal"])
+    w, l, t = size
+    bbox(b, (0, 0, 0), (w, l, t), "phone_body", min(w, l) * 0.12, segs=4)
+    bbox(b, (-w * 0.25, l * 0.33, -t / 2 - 0.0008), (w * 0.38, w * 0.38, 0.0018), "phone_body", 0.004)
+    o = finish(b.obj(name, None, loc, rot_z))
+    return o
+
+
+def round_edges(o, offset, segs=3):
+    """Round a grey-box box object's edges in place (its mesh beveled, smooth with hard edges over 46 degrees)."""
+    me = o.data
+    bm = bmesh.new()
+    bm.from_mesh(me)
+    sx, sy, sz = (abs(v) for v in o.scale)
+    off = offset / max(1e-6, min(sx, sy, sz)) if (sx, sy, sz) != (1, 1, 1) else offset
+    bmesh.ops.bevel(bm, geom=list(bm.edges), offset=off, segments=segs, profile=0.5, affect="EDGES", clamp_overlap=True)
+    bm.to_mesh(me)
+    bm.free()
+    finish(o)
+
+
 # ---------------------------------------------------------------- chairs
 
 def chair(name, loc, rot_z, role, style=0):
@@ -572,5 +648,7 @@ def install():
     PR.server_rack = server_rack
     PR.chair = chair
     PR.laptop = laptop
+    PR.conference_phone = conference_phone
+    PR.charger_tangle = charger_tangle
     PO._mug_mesh = held_mug_mesh
     return "M7e props: kick drum and pedal, mugs, server rack, chairs remodelled; props smooth-shaded with hard edges"
