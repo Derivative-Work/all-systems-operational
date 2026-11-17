@@ -284,3 +284,8 @@ Append-only. Every human action: when, what, and why.
 
 - **What:** after the master (production log 81): "Are the subtitles there for me to use as well" (answered: `lyrics/as_sung_lines_video.srt`, sent), then "description is too long".
 - **Agent's reading:** YouTube caps a description at 5,000 characters; METADATA's was 5,201. Cut what the description said twice (the outage's reach and the restored servers, in WHAT HAPPENED; who made what, in CREDITS; the Gemini audit, in CREDITS; the music-deslop checkpoint's name), not the disclosure, the facts, the sources or the chapters: 4,772 characters. This entry makes 40 interventions, so the credits slide and the description say 40 (production log 82).
+
+## 41. 2026-11-17 — More thumbnails, louder
+
+- **What:** after the description fix (production log 82): "where is the thumbnail" (sent: `review/thumbnail/thumbnail.jpg`, option C), then "Give me more clickbait-adjacent thumbnail options".
+- **Agent's reading:** louder, not misleading. Big outlined type, red rings and arrows, punchier colour and a face (the Little Switch, the probe), with every line a lyric or a fact the video states; nothing ties AI to the cause, and no real logo, screenshot or face. Five options, E to I, beside A to D; thumbnail C stays the pick until the human says otherwise. The master's credits slide still says 40: rebuilt once, after the pick, rather than after every message (production log 83).

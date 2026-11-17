@@ -1,0 +1,23 @@
+M1b: music map timing/music_map_v13.json
+M7e props: kick drum and pedal, mugs, server rack, chairs remodelled; props smooth-shaded with hard edges
+LIFT O15: guitar strum lift: 162 of 162 frames lifted, max 4.7 cm, largest frame-to-frame change 0.2 cm; capped (left in the instrument) on 0 frames, deepest 0.0 cm at frames []; residual max 0.0 cm on 0 frames; biggest jumps at [(139, 1.9, 1.7, 1.7), (138, 2.2, 1.9, 1.9), (137, 2.4, 2.2, 2.2), (136, 2.6, 2.4, 2.4)]
+LIFT O15: banjo strum lift: 162 of 162 frames lifted, max 2.4 cm, largest frame-to-frame change 0.0 cm; capped (left in the instrument) on 0 frames, deepest 0.0 cm at frames []; residual max 0.0 cm on 0 frames; biggest jumps at [(83, 2.4, 2.4, 2.4), (82, 2.4, 2.4, 2.4), (84, 2.4, 2.4, 2.4), (81, 2.4, 2.4, 2.4)]
+M7e people fill 120 W a spot
+M5b build O15: 162 frames, 36.7 s; LED dims frames 72-80, back at 121-126; pmug0 set down on the table; pmug1 set down on the table; crowd performances on 16 people (2 clap, 5 mug_raise, 9 stand; 5 stompers, 6 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 12 kicks, tambourine on 13 hits, lead from the vocal envelope, lean-ins on Hey!s); 16 practicals pulse on the kick; window/sky light lifts on the Hey!s; M7 haze 0.012 (noise-modulated), daylight shafts through the window openings (sun 1.6); rain runs on 5 panes; 183 bulbs chase 14 sung syllables; M7b steam wisps on 10 mugs; M7b clock on 16 shaders from song time 113.03 s
+00:46.415  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/bait4k/O15a.png'
+M5b O15a: frames 1-162 (162), probe_close, 8.8 s
+M5b build O15 done in 45.4 s
+LIFT O20: guitar strum lift: 575 of 575 frames lifted, max 5.3 cm, largest frame-to-frame change 0.3 cm; capped (left in the instrument) on 1 frames, deepest 4.9 cm at frames [98]; residual max 0.0 cm on 0 frames; biggest jumps at [(394, 3.7, 3.4, 3.4), (395, 3.4, 3.1, 3.1), (393, 3.9, 3.7, 3.7), (456, 1.9, 1.6, 1.6)]
+LIFT O20: banjo strum lift: 575 of 575 frames lifted, max 4.7 cm, largest frame-to-frame change 0.2 cm; capped (left in the instrument) on 0 frames, deepest 0.0 cm at frames []; residual max 0.0 cm on 0 frames; biggest jumps at [(322, 3.6, 3.5, 3.5), (297, 3.5, 3.6, 3.6), (321, 3.8, 3.6, 3.6), (298, 3.6, 3.8, 3.8)]
+M7e people fill 40 W (park bounce)
+M5b build O20: 575 frames, 61.9 s; claps (16); crowd performances on 23 people (10 clap, 8 fist, 5 stand; 5 stompers, 3 join the chorus claps); band holds and performances (strums on the guitar stem's onsets, banjo picking, kick pedal on 27 kicks, tambourine on 37 hits, lead from the vocal envelope, lean-ins on Hey!s); window/sky light lifts on the Hey!s; rain runs on 0 panes; drizzle falls (1 volumes, looped); M7c fog curtains drift on the clock; umbrella turns; lamp flickers, Switch strains 199.41-201.80 s; M7d brow: 6 fir crowns below the brow; M7d brow path: 22.5 m over the brow, 68 kerbs, 1 trees on its line hidden; M7d rail: 5 posts along the terrace wall; the far plate on its cylinder; M7c park: ground 92680 verts, path with 140 kerbs and a 12-block wall, 9 puddles, 8040 blades, 224 firs (10 prototypes) and 122 bare trees, 12 houses, 4 fog curtains; M7b clock on 6 shaders from song time 182.64 s
+01:57.585  render           | Saved: '/tmp/claude-1000/-home-antiai-aiclub-Projects-all-systems-operational/4f4aa941-014b-46e8-926e-d79eb5e703e4/scratchpad/bait4k/O20i.png'
+M5b O20i: frames 504-539 (36), switch, 9.3 s
+M5b build O20 done in 71.2 s
+Blender 5.2.4 LTS (hash cd5dc428cce1 built 2026-11-10 01:31:47)
+
+Blender quit
+
+real	1m58.219s
+user	6m21.855s
+sys	6m27.140s
