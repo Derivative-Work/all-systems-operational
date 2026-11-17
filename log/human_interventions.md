@@ -261,3 +261,9 @@ Append-only. Every human action: when, what, and why.
 
 - **What** (right after human interventions 35): "while you're at it also check the rest of the props on that table...".
 - **Checked:** the conference table's speakerphone (three boxes and a cylinder), the charger tangle (zigzags of straight five-sided rods 8 mm above the table, brick boxes 1 cm above it), the ringing phone (a box), the table and its legs (sharp slabs). All grey box; all remodelled (production log 74).
+
+## 37. 2026-11-17 — Toward the upload: no wait for the final report; the Gemini audit; the report's IDs on the card
+
+- **What:** "What else do you need from me before cutting an upload-ready version of this? I'm trying to catch the news cycle of outages of, well, everything (not just M365). I'm good on the bias checks at this point, and I've already reviewed the primary sources (especially the preliminary PIR for EX1550543/MO1550821, accessible only via the M365 admin portal; it doesn't seem like there's much a full PIR would add)." Then, to the agent's two questions (the audits; the final report's line): "There was one Gemini audit before you got started whose changes were already rolled into the brief -- see ~/Downloads/all-systems-operational-gemini-audit.md. Put the report ID in the card so admins know which one to look for."
+- **Decided by the human:** the upload doesn't wait for Microsoft's final report (due November 20; M8 report day is dropped); the bias checks are done with the one pre-production Gemini audit (the brief's other auditors and the report-day pass aren't run); the preliminary report's IDs go on the fact card.
+- **File:** `~/Downloads/all-systems-operational-gemini-audit.md` (12,597 bytes, file time 2026-11-17 01:24, sha256 `d9b8c318…`), the auditor's output dated November 14, 2026, copied unchanged to `log/audits/r1_gemini_2026-11-14.md`. The brief's audit log already records its findings and resolutions (round 1, v1.1).

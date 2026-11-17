@@ -22,7 +22,7 @@ const HEADING = 'What happened';
 const NB = '\u00a0';
 /** Display only (the words are the brief's): no line break inside a source's name, a time, a date or a percentage. */
 const nb = (t: string) => t
-  .replace(/\(([^()]+)\)/g, (m) => m.replace(/ /g, NB))
+  .replace(/\(([^()]+)\)/g, (m) => (m.split(' ').length <= 4 ? m.replace(/ /g, NB) : m))   // a source's name, not a long aside
   .replace(/ (a\.m\.|p\.m\.|ET\b)/g, `${NB}$1`)
   .replace(/\b(Nov|July) (\d)/g, `$1${NB}$2`)
   .replace(/\[([^\]]+)\]/g, (m) => m.replace(/ /g, NB));

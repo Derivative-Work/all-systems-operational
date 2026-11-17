@@ -40,7 +40,7 @@ export const Card: React.FC<{heading?: string; children: React.ReactNode; dark?:
   );
 };
 
-export const DISCLOSURE = 'Lyrics by Claude, made by Anthropic. Anthropic’s Microsoft 365 connector broke during this outage, and Claude had outages of its own this year. The creator worked on Outlook and Word at Microsoft between 2014 and 2017, and the treehouse meeting room in the bridge is inspired by those years; it doesn’t depict how this incident was handled. Audited by models from other labs: [models, dates].';
+export const DISCLOSURE = 'Lyrics by Claude, made by Anthropic. Anthropic’s Microsoft 365 connector broke during this outage, and Claude had outages of its own this year. The creator worked on Outlook and Word at Microsoft between 2014 and 2017, and the treehouse meeting room in the bridge is inspired by those years; it doesn’t depict how this incident was handled. Before production, Gemini (Google) audited the lyrics and plan, Nov 14.';
 
 export const DisclosureCard: React.FC = () => (
   <Card heading="Conflict-of-interest disclosure">
@@ -55,7 +55,7 @@ export const FACTS: [string, string][] = [
   ['Some businesses fell back on fax machines to confirm trades', '(Crypto Briefing).'],
   ['Restored servers kept going unresponsive once traffic returned', '(Azure Blog UK).'],
   ['Anthropic and OpenAI both reported their Microsoft 365 connectors failing', '(Cybersecurity News).'],
-  ['Microsoft’s preliminary post-incident report (Nov 15) names three factors: a latent defect from a July fix to its networking gateway servers, which its load tests missed because they “tended to focus on weaker hardware”; a routine Teams failover onto the same gateway; and nearly 14% of capacity out from an unrelated issue. Automatic rerouting spread the failure until more than 80% of servers were unresponsive (The Register). Impact ended Friday, Nov 13, at 11:10 a.m. ET. Final report due Nov 20:', '[link once published].'],
+  ['Microsoft’s preliminary post-incident report (Nov 15; EX1550543/MO1550821 in the Microsoft 365 admin center) names three factors: a latent defect from a July fix to its networking gateway servers, which its load tests missed because they “tended to focus on weaker hardware”; a routine Teams failover onto the same gateway; and nearly 14% of capacity out from an unrelated issue. Automatic rerouting spread the failure until more than 80% of servers were unresponsive (The Register). Impact ended Friday, Nov 13, at 11:10 a.m. ET. Final report due Nov 20.', ''],
   ['On Nov 13 Microsoft said the outage was “not related to cyber or AI / agents” (MacRumors). That came two days before its preliminary report, which doesn’t mention AI or say who or what wrote the July fix.', ''],
 ];
 export const FORMAT_LINE = '“Session 503” is a fictional broadcast and is not affiliated with KEXP or any real radio station.';
@@ -78,7 +78,7 @@ export const FactCard: React.FC = () => (
 );
 
 export const END_TITLE = 'All Systems Operational.';
-export const END_BODY = 'Lyrics by Claude, music by [generator], video by Claude Code. Human interventions are listed in the production log. Audit log: [repo link].';
+export const END_BODY = 'Lyrics by Claude, music by Suno, video by Claude Code. Human interventions are listed in the production log. Audit log: github.com/Derivative-Work/all-systems-operational';
 
 export const EndCard: React.FC = () => (
   <Card dark>

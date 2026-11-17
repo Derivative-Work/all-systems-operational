@@ -1,8 +1,8 @@
 M7-EndSequence 4639
-M7-End-end 408
-M7-End-final 139
-M7-End-fact1 764
-M7-End-fact2 490
+M7-End-end 335
+M7-End-final 143
+M7-End-fact1 763
+M7-End-fact2 560
 M7-End-fact3 1105
 M7-End-fact4 828
 M7-End-disclosure 905

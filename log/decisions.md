@@ -411,3 +411,11 @@ Human interventions 32: "I recognize the brief calls for silhouettes. Give me so
 ## 51. 2026-11-17 — The people's lighting: C, the park B (the human's call)
 
 Human interventions 34 settles decisions 50: the soft wash (C, 120 W a spot) in the live room, the cafe and the treehouse; a hint (B, 40 W) in the park, where C's bounce would start to read as a floodlight on the grass. A deviation from the brief's "Every performer is a silhouette against window light": the people now read as people against the windows, the backlight kept. The guardrails are unaffected (generated figures, no real faces). The brief's look section and the README's description of the look follow at the next update.
+
+## 52. 2026-11-17 — Upload before the final report; one audit; the report's IDs on the fact card (human's calls, agent's wording)
+
+Human interventions 37.
+- **No report day (M8):** the brief's plan holds the video for Microsoft's final post-incident report (due Nov 20) and runs the bridge, whiteboard and fact card against it. The human has read the preliminary report in the Microsoft 365 admin center and expects the final one to add little. Branch A (the brief's working plan) stands. The fact card's "Final report due Nov 20: [link once published]" becomes "Final report due Nov 20."
+- **The IDs:** the preliminary report line reads "Microsoft's preliminary post-incident report (Nov 15; EX1550543/MO1550821 in the Microsoft 365 admin center)", so an admin can find it. They're IDs, not quoted text, so the report's no-reproduction notice isn't touched. The same in the description and the README.
+- **The audit:** the disclosure's "Audited by models from other labs: [models, dates]" would overstate one run; it reads "Before production, Gemini (Google) audited the lyrics and plan, Nov 14." The README says which planned audits weren't run.
+- **The end card:** "music by Suno" (the song and the credits instrumental are both Suno V6) and "Audit log: github.com/Derivative-Work/all-systems-operational" (the repository is public by upload).
