@@ -5,7 +5,7 @@ YouTube metadata for the main video, ready to paste at upload once the checklist
 **Before uploading:**
 - **Re-check the news and every link** before the upload. Links checked November 17 (production log 77): all live but the Washington Post's, which refuses automated fetches; open it in a browser (the human confirmed its 130,000 figure on November 17). The repository's link works once it's public. If the check is later than November 17, update "As of" under WHAT HAPPENED.
 - **Make the repository public.** The end card and the description link to it; it's private until then.
-- **Intervention count:** update the number in the description (`grep -c '^## ' log/human_interventions.md`; 45 on 2026-11-17, as the master's credits slide reads). If more are logged before the upload, run `scripts/m7_end.sh` and `scripts/m7_master.py --end-only` again so the slide agrees.
+- **Intervention count:** update the number in the description (`grep -c '^## ' log/human_interventions.md`; the master's credits slide reads 45, built 2026-11-17; the log is at 46). If more are logged before the upload, run `scripts/m7_end.sh` and `scripts/m7_master.py --end-only` again so the slide agrees.
 - **Chapters:** recompute from the final cut (`timing/shot_times.json`, and the end sequence's plan in `review/m7_end/plan.txt`). The ones below are the current cut's, from the shots' starts (the intro's chapter starts at 0:10, not at the song's 0:07.6, because YouTube wants each chapter at least 10 s long; the song starts on its first downbeat, decisions 47): the end cards fade at 2:34.6 into the credits music (decisions 45; kept, human interventions 32).
 
 ---
@@ -116,3 +116,43 @@ All Systems Operational, AI music video, AI generated, AI satire, Microsoft 365 
 | End screen | Over the disclosure card's last 20 s (from about 6:22). Put the elements in the bottom corners, clear of the card's text. |
 | Comments | Open. |
 | Visibility | Unlisted for a check pass, then public. |
+
+---
+
+## Short (vertical cut A, 1080×1920, 30 fps)
+
+**File:** `renders/vertical/all-systems-operational-short-A.mp4` (53.9 s, 12 MB; `scripts/vertical_short.py`, human interventions 46): "We are aware" through the first chorus and the build to the first hard stop ("without fai—"), "We'll be right back" and "We're seeing renewed errors". Stacked: the made-up status page on top (every row green; Mail turns to "Renewed errors" at the end, the banner doesn't), the 16:9 picture, the lyric below, "AI-GENERATED SATIRE" throughout. Captions are burned in. Upload it after the main video is public, so the description and the related-video link can point to it.
+
+### Title
+
+Recommended (54 characters):
+
+```
+All Systems Operational — the status page sings along
+```
+
+Alternatives:
+- `Every light is green (the stream is down)`
+- `The Microsoft 365 outage as a stomp-clap singalong`
+
+### Description
+
+```
+AI-generated satire: the Microsoft 365 outage of November 12–13, 2026, as a stomp-clap singalong sung by a status page. Every time the gang vocals swell, the stream goes down.
+
+Full video: <the main video's link>
+
+Made with AI: lyrics drafted by Claude (made by Anthropic, whose Microsoft 365 connector broke in this outage), music by Suno, video by Claude Code with Blender and Remotion. A human approved each stage. Everything on screen is made up. Production log: https://github.com/Derivative-Work/all-systems-operational
+
+#AIgenerated #satire #Shorts
+```
+
+### Settings
+
+| Setting | Value |
+|---|---|
+| Altered or synthetic content | **Yes** (the singing voice, the rooms and people). |
+| Related video | The main video. |
+| Category / audience | Music / not made for kids. |
+| Captions | Burned in; no subtitle file. |
+| Thumbnail | Shorts pick a frame; in the app, choose one from the chorus (about 0:11, the status banner over the singer). |

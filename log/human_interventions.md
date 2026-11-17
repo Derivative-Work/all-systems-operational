@@ -310,3 +310,9 @@ Append-only. Every human action: when, what, and why.
 - **What:** on P2 and P3 (production log 85): "Let's go with P3. Suggest options for a vertical cut".
 - **Picked:** thumbnail P3, the dashboard close under the full-width banner with the DOWN stamp. It replaces C.
 - **Agent's reading:** the pick closes the thumbnail, so the master's credits slide is rebuilt once now, at this entry's count (45), as said with options E–I. "Suggest options" asks for choices, not a build: the vertical cut's shapes, lengths and what each costs, with sample frames, before anything is rendered.
+
+## 46. 2026-11-17 — The vertical cut: A, stacked
+
+- **What:** on the vertical-cut options (production log 86): "Yes make A stacked".
+- **Picked:** section A ("We are aware" through the first chorus and the build to hard stop 1, about 54 s) in the stacked shape (the made-up status page over the 16:9 picture, the lyric below).
+- **Agent's reading:** as the mockups showed, with the status page drawn again at phone width so its banner reads (the mockup's was the 1080p page cropped, its banner 37 px); the cut ends on "We're seeing renewed errors", before the band comes back in, so it loops back into "We are aware". At the end the panel itself shows the renewed errors (the banner stays green) while the picture holds "We'll be right back.", rather than showing the status page twice. "AI-GENERATED SATIRE" stays on screen: the Short has no bookend, where the video's disclosure is. The log now counts 46 while the master's credits slide and the description say 45: METADATA's checklist rebuilds the end once more before the upload.

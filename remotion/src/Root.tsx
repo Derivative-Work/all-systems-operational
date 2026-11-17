@@ -185,6 +185,12 @@ export const Root: React.FC = () => (
       <Composition key={id} id={id} component={StatusPage} defaultProps={{state}} durationInFrames={dur(k)} {...full} />
     ))}
 
+    {/* the vertical cut's top panel (human interventions 46): the page at phone width, every row green; render with --scale=1.5 */}
+    <Composition id="Vertical-StatusPage" component={StatusPage} defaultProps={{state: 'allGreen' as StatusState, pageWidth: 672, headerPad: 30}}
+      durationInFrames={1} fps={FPS} width={720} height={400} />
+    <Composition id="Vertical-StatusPage-renewed" component={StatusPage}
+      defaultProps={{state: 'renewedErrors' as StatusState, pageWidth: 672, headerPad: 30}} durationInFrames={25} fps={FPS} width={720} height={400} />
+
     {/* lower thirds (transparent) */}
     {([['O03-LowerThird', 'title', 'O03'], ['O08-LowerThird', 'echo', 'O08'], ['O09-LowerThird', 'uptime', 'O09'],
       ['O19-LowerThird', 'restored', 'O19'], ['O22-LowerThird', 'sorry', 'O22']] as [string, LowerThirdVariant, 'O03' | 'O08' | 'O09' | 'O19' | 'O22'][]).map(

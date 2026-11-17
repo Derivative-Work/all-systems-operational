@@ -1,0 +1,166 @@
+"""The vertical cut, A stacked (human interventions 46: "Yes make A stacked"), 1080x1920 for YouTube Shorts:
+  section   "We are aware" through chorus 1, the build and hard stop 1 ("without fai—") to "We'll be right back" and
+            "We're seeing renewed errors": the master's frames 1492 (O08's cut) to 3108, 53.87 s, ending in the rest
+            before the band comes back in (103.7 s)
+  top       the made-up status page at phone width (Remotion Vertical-StatusPage, every row green), the narrator on screen
+            the whole time; when the video's own status page shows the renewed errors (O13's second card, master frame
+            3089), this panel shows them instead (Vertical-StatusPage-renewed) and the picture holds "We'll be right back."
+  middle    the master's picture, 16:9, full width (1080x608), with its own lower thirds, viewer count and spinner
+  below     the lyric as sung (lyrics/as_sung_lines_video.srt), the echoes and Hey!s on their own line in coral
+  tag       "AI-GENERATED SATIRE" (the credits slide's eyebrow) for the whole cut: the Short has no bookend, which is
+            where the video's own disclosure is
+  clear     the strips YouTube Shorts covers: the top 140 px, the bottom 330, and the buttons down the right (x > 950)
+            beside the captions
+Parts: npx remotion still Vertical-StatusPage renders/vertical/parts/status_green.png --frame=0 --scale=1.5 --gl=swangle;
+       npx remotion render Vertical-StatusPage-renewed renders/vertical/parts/renewed --sequence --image-format=png
+       --scale=1.5 --gl=swangle
+Usage: .venv/bin/python -I scripts/vertical_short.py [--out renders/vertical/all-systems-operational-short-A.mp4]
+       [--still <clip frame> <png>] (one frame, for checking the layout)
+"""
+import argparse
+import re
+import subprocess
+from pathlib import Path
+
+import cv2
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont
+
+MASTER = "renders/m7/master/all-systems-operational-master.mp4"
+SRT = "lyrics/as_sung_lines_video.srt"
+PARTS = Path("renders/vertical/parts")
+FPS = 30
+START, END = 1492, 3108          # master frames: O08's cut; the rest before the band's downbeat at 103.7 s
+FLIP = 3089                      # O13's status card (the card's 29 frames from 3060)
+HOLD = FLIP - 1                  # the card's last frame, held under the panel's renewed errors
+VW, VH = 1080, 1920
+BG = (14, 17, 19)
+WHITE = (255, 253, 248)          # remotion/src/theme.ts white
+CORAL = (226, 100, 62)           # coral
+TAG_Y, PANEL_Y, PANEL_H, PIC_Y, CAP_Y = 150, 205, 530, 765, 1405
+CAP_CX, CAP_W = 505, 860         # captions centred left of the Shorts buttons
+
+
+def font(sz, w="ExtraBold"):
+    f = ImageFont.truetype("remotion/public/fonts/WorkSans-VF.ttf", sz)
+    f.set_variation_by_name(w)
+    return f
+
+
+def srt_cues():
+    out = []
+    for block in Path(SRT).read_text().strip().split("\n\n"):
+        ln = block.strip().splitlines()
+        a, b = [sum(float(x) * m for x, m in zip(t.replace(",", ".").split(":"), (3600, 60, 1))) for t in ln[1].split(" --> ")]
+        out.append((a, b, " ".join(ln[2:])))
+    return out
+
+
+def wrap(d, text, F, width):
+    lines, cur = [], ""
+    for w in text.split():
+        t = f"{cur} {w}".strip()
+        if d.textlength(t, font=F) <= width or not cur:
+            cur = t
+        else:
+            lines.append(cur)
+            cur = w
+    return lines + [cur]
+
+
+def caption_layer(text):
+    """The lyric: the line in white, wrapped; an ending (echo) or (Hey!) on its own line in coral."""
+    m = re.match(r"^(.*?)\s*\(([^)]*)\)\s*$", text)
+    main, echo = (m.group(1), m.group(2)) if m and m.group(1) else (text, "")
+    lay = Image.new("RGBA", (VW, 260), (0, 0, 0, 0))
+    d = ImageDraw.Draw(lay)
+    F, Fe = font(70), font(54, "Bold")
+    y = 0
+    for ln in wrap(d, main, F, CAP_W):
+        d.text((CAP_CX, y), ln, font=F, fill=WHITE, anchor="ma")
+        y += 76
+    if echo:
+        d.text((CAP_CX, y + 6), f"({echo})", font=Fe, fill=CORAL, anchor="ma")
+    return lay
+
+
+def base():
+    v = Image.new("RGB", (VW, VH), BG)
+    d = ImageDraw.Draw(v)
+    F = font(30, "SemiBold")
+    x = 48
+    for ch in "AI-GENERATED SATIRE":
+        d.text((x, TAG_Y), ch, font=F, fill=CORAL)
+        x += d.textlength(ch, font=F) + 4                      # letterspaced, as the credits slide's eyebrow
+    return v
+
+
+def panel(img):
+    return np.asarray(img.convert("RGB").crop((0, 0, VW, PANEL_H)))
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", default="renders/vertical/all-systems-operational-short-A.mp4")
+    ap.add_argument("--still", nargs=2)
+    a = ap.parse_args()
+    green = panel(Image.open(PARTS / "status_green.png"))
+    renewed = [panel(Image.open(p)) for p in sorted((PARTS / "renewed").glob("*.png"))]
+    canvas = np.asarray(base()).copy()
+    t0 = START / FPS
+    cues = [(s - t0, e - t0, caption_layer(t)) for s, e, t in srt_cues() if e > t0 and s < END / FPS]
+    n = END - START
+
+    def frame(k, pic):
+        f = canvas.copy()
+        m = START + k
+        f[PANEL_Y:PANEL_Y + PANEL_H] = green if m < FLIP else renewed[min(m - FLIP, len(renewed) - 1)]
+        f[PIC_Y:PIC_Y + 608] = cv2.resize(pic, (VW, 608), interpolation=cv2.INTER_AREA)
+        t = k / FPS
+        im = Image.fromarray(f)
+        for s, e, lay in cues:
+            if s <= t < e:
+                fade = min(1.0, (t - s) * FPS / 3)                # in over 3 frames
+                if fade < 1:
+                    lay = lay.copy()
+                    lay.putalpha(lay.split()[3].point(lambda v: int(v * fade)))
+                im.paste(lay, (0, CAP_Y), lay)
+        return np.asarray(im)
+
+    rd = subprocess.Popen(["ffmpeg", "-v", "error", "-ss", f"{t0:.6f}", "-i", MASTER, "-frames:v", str(n), "-f", "rawvideo",
+                           "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
+    if a.still:
+        want = int(a.still[0])
+        for k in range(want + 1):
+            pic = np.frombuffer(rd.stdout.read(1920 * 1080 * 3), np.uint8).reshape(1080, 1920, 3)
+        rd.kill()
+        Image.fromarray(frame(want, pic)).save(a.still[1])
+        print(a.still[1])
+        return
+    Path(a.out).parent.mkdir(parents=True, exist_ok=True)
+    dur = n / FPS
+    wr = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{VW}x{VH}", "-r", str(FPS),
+                           "-i", "-", "-ss", f"{t0:.6f}", "-t", f"{dur:.6f}", "-i", MASTER, "-map", "0:v", "-map", "1:a",
+                           "-af", f"afade=t=in:d=0.02,afade=t=out:st={dur - 0.066:.3f}:d=0.066",
+                           "-c:v", "libx264", "-profile:v", "high", "-preset", "slow", "-crf", "16", "-pix_fmt", "yuv420p",
+                           "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709",
+                           "-c:a", "aac", "-b:a", "384k", "-ar", "48000", "-movflags", "+faststart", "-shortest", a.out],
+                          stdin=subprocess.PIPE)
+    held = None
+    for k in range(n):
+        raw = rd.stdout.read(1920 * 1080 * 3)
+        pic = np.frombuffer(raw, np.uint8).reshape(1080, 1920, 3)
+        if START + k == HOLD:
+            held = pic
+        if START + k > HOLD and held is not None:
+            pic = held
+        wr.stdin.write(frame(k, pic).tobytes())
+    wr.stdin.close()
+    rd.wait()
+    if wr.wait():
+        raise SystemExit("ffmpeg failed")
+    print(f"{a.out}: {n} frames, {dur:.3f} s")
+
+
+if __name__ == "__main__":
+    main()

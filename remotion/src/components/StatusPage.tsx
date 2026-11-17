@@ -29,7 +29,9 @@ const Pill: React.FC<{look: Look; dim?: number}> = ({look, dim = 0}) => (
   </div>
 );
 
-export const StatusPage: React.FC<{state: StatusState; flipAt?: number; row?: number}> = ({state, flipAt, row = 0}) => {
+// pageWidth and headerPad narrow the page for the vertical cut (human interventions 46); the defaults are the video's.
+export const StatusPage: React.FC<{state: StatusState; flipAt?: number; row?: number; pageWidth?: number; headerPad?: number}> = (
+  {state, flipAt, row = 0, pageWidth = 1500, headerPad = 120}) => {
   const f = useCurrentFrame();
   const {durationInFrames: d} = useVideoConfig();
   const at = flipAt ?? Math.round(d / 2);
@@ -39,11 +41,11 @@ export const StatusPage: React.FC<{state: StatusState; flipAt?: number; row?: nu
   return (
     <Frame bg="#eef0ec">
       <div style={{position: 'absolute', inset: 0, fontFamily: UI, color: T.ink}}>
-        <div style={{height: 92, background: '#fff', borderBottom: '1px solid #dfe2dc', display: 'flex', alignItems: 'center', padding: '0 120px', gap: 22}}>
+        <div style={{height: 92, background: '#fff', borderBottom: '1px solid #dfe2dc', display: 'flex', alignItems: 'center', padding: `0 ${headerPad}px`, gap: 22}}>
           <svg width={42} height={42} viewBox="0 0 42 42"><circle cx={21} cy={21} r={17} fill="none" stroke={T.ink} strokeWidth={5} /><circle cx={21} cy={21} r={6} fill={T.ink} /></svg>
           <div style={{fontSize: 36, fontWeight: 700}}>Service status</div>
         </div>
-        <div style={{width: 1500, margin: '36px auto 0'}}>
+        <div style={{width: pageWidth, margin: '36px auto 0'}}>
           <div style={{background: T.ok, color: '#fff', borderRadius: 18, padding: '26px 40px', display: 'flex', alignItems: 'center', gap: 24,
             fontSize: 46, fontWeight: 700}}><Check size={54} />{BANNER}</div>
           <div style={{marginTop: 26, background: '#fff', borderRadius: 18, border: '1px solid #dfe2dc', overflow: 'hidden'}}>

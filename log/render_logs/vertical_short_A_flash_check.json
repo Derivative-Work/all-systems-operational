@@ -1,0 +1,18 @@
+{
+ "generated_by": "scripts/flash_check.py",
+ "video": "renders/vertical/all-systems-operational-short-A.mp4",
+ "frames": 1616,
+ "from_s": 0.0,
+ "rule": "fail: a 10-degree field with > 3 flashes (>= 7 alternating transitions, each over a quarter of it at once) in the last second; field_share: the share of field positions failing",
+ "peak": {
+  "general": {
+   "fields": 0,
+   "t": 0.0
+  },
+  "red": {
+   "fields": 0,
+   "t": 0.0
+  }
+ },
+ "failing_spans": []
+}
