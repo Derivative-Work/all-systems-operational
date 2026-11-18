@@ -1,0 +1,19 @@
+total 2013548
+-rw-rw-r-- 1 antiai-aiclub antiai-aiclub        568 Nov 17 21:56 SHA256SUMS
+-rw-rw-r-- 1 antiai-aiclub antiai-aiclub       4603 Nov 17 21:56 all_systems_operational.en.srt
+-rw-rw-r-- 2 antiai-aiclub antiai-aiclub  387171710 Nov 17 21:54 all_systems_operational_1920x1080.mp4
+-rw-rw-r-- 2 antiai-aiclub antiai-aiclub   15027635 Nov 17 19:54 all_systems_operational_short_1080x1920.mp4
+-rw-rw-r-- 1 antiai-aiclub antiai-aiclub     197075 Nov 17 21:56 all_systems_operational_thumbnail.jpg
+-rw-rw-r-- 1 antiai-aiclub antiai-aiclub 1264578560 Nov 17 21:56 inputs.tar
+-rw-rw-r-- 1 antiai-aiclub antiai-aiclub  394874880 Nov 17 21:56 takes.tar
+639b3ffd2fe3101705f626f5a640bfaa241a4f31976b5365e8c6024b4240aea3  all_systems_operational_1920x1080.mp4
+bc15f6f8bcb7e7df8bc5393aa43ed24dc44defa778b520ddcefb76cf3653541c  all_systems_operational_short_1080x1920.mp4
+5569883990ee284db950eeeb0e140261976812aebab9d2096e8a57dc7c60aa9d  all_systems_operational.en.srt
+97420a03222a044a483af07e94f7141e271a7f6c354d59cb2b1fd542de8fe8cf  all_systems_operational_thumbnail.jpg
+2eec128a07e1764871fec3a2ffe098140322851def12ee4e59774eeefab2fcd3  inputs.tar
+69dbf1e6c748cfb7cd9dfc22f69103da432c4e2e974e4db64a88ad5de5a12a81  takes.tar
+https://github.com/Derivative-Work/all-systems-operational/releases/tag/untagged-942dc88d6aeccdb89b81
+
+real	8m15.357s
+user	0m4.334s
+sys	0m4.122s

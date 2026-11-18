@@ -1355,3 +1355,18 @@ Append-only. One entry per generation, render or analysis step.
 - **News:** a web search finds nothing after the preliminary report (November 15). Coverage from November 14 ("not to blame AI … a botched network upgrade", Windows Latest) agrees with the description. The final report is due November 20. "As of November 17" stands.
 - **Chapters:** each matches `timing/shot_times.json` (O04 0:31.68, O08 0:49.72, O09 1:00.54, O10 1:29.41, O14 1:43.81, O17 2:07.85, O18 2:36.65, O19 2:55.85, O20 3:07.84, O21 3:27.00) and the end sequence's plan: it starts at frame 7,343 (4:04.77), the facts after the credits and "Next incident" (617 frames) at 4:25.3, and the disclosure at frame 11,077 (6:09.2). No change.
 - **METADATA:** the description's count 45 → 49 (4,772 characters). The checklist now records the release checks, the repository already public, and the count built for the release, and adds what follows the upload. **README:** "Reproducing it" describes the v1.0 release (`scripts/release.sh`) and lists what isn't in the archive. Manifest updated.
+
+## 91. 2026-11-17 — Release: draft GitHub release v1.0
+
+- **Why:** human interventions 49. The release follows Read-Only's and Not Yet's (a draft release, published after the uploads) and Folks Like Us's and Buy It on Margin's (the production archive in tar parts).
+- **Staging:** `scripts/release.sh` (new) → `release/` (git-ignored; the two videos hard-linked).
+  - The files: `all_systems_operational_1920x1080.mp4` (the master), `all_systems_operational_short_1080x1920.mp4` (the Short), `all_systems_operational.en.srt`, `all_systems_operational_thumbnail.jpg` (P3), and `SHA256SUMS`.
+  - `inputs.tar` (1.26 GB): the Logic master, Suno's stems, the post-filtered master and credits music, the credits music as downloaded and as cut, and the v1.2 and v1.3 masters.
+  - `takes.tar` (395 MB): every generated still, plate, clip and texture under `assets/gen/` and `archive/assets/gen/`, without the Remotion frame folders.
+  - The script checks every part is under 2 GiB, and every file in the tars is in `MANIFEST.sha256` (or, for one small JSON record, in git). The 121 manifest entries it covers verify against the files.
+  - Left out: Apple's loop (`audio/extra/`), the creator's captures and photo, the figure library, the regenerable renders, and the session transcript (it holds the creator's private captures).
+  - The first run stopped at that tracked JSON (`archive/assets/gen/tex/m7c/backdrop_m7c/park_backdrop.json`); the check now also accepts files in git.
+- **Draft:** `scripts/release.sh --draft <scratchpad>/release_notes.md` (`log/render_logs/release_v1.0_draft.log`, 8 min 15 s): `gh release create v1.0 --draft --target main`, "All Systems Operational v1.0". It is a draft, so only collaborators can see it, and the tag is created when it's published.
+  - The notes follow Read-Only's: what the video is, the conflict of interest, the files table, what's left out, and the licences. The YouTube links are placeholders.
+  - Each of the 7 uploaded assets' SHA-256 (GitHub's digest) matches the local file. The master's matches `MANIFEST.sha256`.
+- **Left for the human:** open the Washington Post and GV Wire links in a browser; upload the main video to YouTube with `METADATA.md` (unlisted for a check pass, then public), then the Short; send the two links. Then the agent fills in the links (the release notes, the Short's description, the README, the repository's homepage) and publishes the release.

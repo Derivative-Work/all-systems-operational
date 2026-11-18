@@ -39,10 +39,11 @@ tar -cf "$R/takes.tar" --exclude='*/frames' assets/gen archive/assets/gen
 for f in "$R"/*; do
   (( $(stat -c %s "$f") < 2147483648 )) || { echo "$f is over 2 GiB" >&2; exit 1; }
 done
-# every file in the tars as the manifest lists it
+# every file in the tars as the manifest lists it (or in git, as one small record under archive/ is)
 for t in inputs takes; do
   tar -tf "$R/$t.tar" | grep -v '/$' | while IFS= read -r f; do
-    grep -qF "  $f" MANIFEST.sha256 || { echo "$f: not in MANIFEST.sha256" >&2; exit 1; }
+    grep -qF "  $f" MANIFEST.sha256 || git ls-files --error-unmatch "$f" >/dev/null 2>&1 \
+      || { echo "$f: not in MANIFEST.sha256 or git" >&2; exit 1; }
   done
 done
 (grep -F -e "  renders/m7/master/all-systems-operational-master.mp4" -e "  renders/vertical/all-systems-operational-short-A.mp4" \
