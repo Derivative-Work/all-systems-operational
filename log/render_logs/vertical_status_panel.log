@@ -1,0 +1,41 @@
+-------------
+Version mismatch:
+Extra packages with wrong versions:
+  - zod: installed 3.25.76, required 4.5.4
+    See: https://www.remotion.dev/docs/zod-types/
+
+You may experience breakages such as:
+- React context and hooks not working
+- Type errors and feature incompatibilities
+- Failed renders and unclear errors
+
+To resolve:
+- Make sure your package.json has all Remotion packages pointing to the same version.
+- Remove the `^` character in front of a version to pin a package.
+- For zod, install exact version 4.5.4 (run: npx remotion add zod).
+- Run `npx remotion versions --log=verbose` to see the path of the modules resolved.
+-------------
+
+	Command being timed: "npx remotion render Vertical-Status renders/vertical/parts/status --sequence --image-format=png --scale=1.5 --gl=swangle --concurrency=8 --log=error"
+	User time (seconds): 6.22
+	System time (seconds): 0.94
+	Percent of CPU this job got: 45%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:15.61
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 640204
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1
+	Minor (reclaiming a frame) page faults: 221267
+	Voluntary context switches: 25921
+	Involuntary context switches: 559
+	Swaps: 0
+	File system inputs: 9568
+	File system outputs: 295392
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

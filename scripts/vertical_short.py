@@ -2,18 +2,19 @@
   section   "We are aware" through chorus 1, the build and hard stop 1 ("without fai—") to "We'll be right back" and
             "We're seeing renewed errors": the master's frames 1492 (O08's cut) to 3108, 53.87 s, ending in the rest
             before the band comes back in (103.7 s)
-  top       the made-up status page at phone width (Remotion Vertical-StatusPage, every row green), the narrator on screen
-            the whole time; when the video's own status page shows the renewed errors (O13's second card, master frame
-            3089), this panel shows them instead (Vertical-StatusPage-renewed) and the picture holds "We'll be right back."
+  top       the made-up status page at phone width (Remotion Vertical-Status), the narrator on screen the whole time; its
+            rows follow the song (human interventions 47; config/vertical_status.json): Investigating one by one on "We are
+            aware ... everything", "Early signs of stabilization" on the line, the mail back on "open up the mail",
+            "Renewed errors" on "We're seeing renewed errors"; the banner stays green. From O13's second card (the video's
+            own status page, master frame 3089) the picture holds "We'll be right back." rather than show the page twice
   middle    the master's picture, 16:9, full width (1080x608), with its own lower thirds, viewer count and spinner
   below     the lyric as sung (lyrics/as_sung_lines_video.srt), the echoes and Hey!s on their own line in coral
   tag       "AI-GENERATED SATIRE" (the credits slide's eyebrow) for the whole cut: the Short has no bookend, which is
             where the video's own disclosure is
   clear     the strips YouTube Shorts covers: the top 140 px, the bottom 330, and the buttons down the right (x > 950)
             beside the captions
-Parts: npx remotion still Vertical-StatusPage renders/vertical/parts/status_green.png --frame=0 --scale=1.5 --gl=swangle;
-       npx remotion render Vertical-StatusPage-renewed renders/vertical/parts/renewed --sequence --image-format=png
-       --scale=1.5 --gl=swangle
+Parts: npx remotion render Vertical-Status renders/vertical/parts/status --sequence --image-format=png --scale=1.5
+       --gl=swangle --concurrency=8 (1080x558, one per frame of the cut)
 Usage: .venv/bin/python -I scripts/vertical_short.py [--out renders/vertical/all-systems-operational-short-A.mp4]
        [--still <clip frame> <png>] (one frame, for checking the layout)
 """
@@ -31,13 +32,12 @@ SRT = "lyrics/as_sung_lines_video.srt"
 PARTS = Path("renders/vertical/parts")
 FPS = 30
 START, END = 1492, 3108          # master frames: O08's cut; the rest before the band's downbeat at 103.7 s
-FLIP = 3089                      # O13's status card (the card's 29 frames from 3060)
-HOLD = FLIP - 1                  # the card's last frame, held under the panel's renewed errors
+HOLD = 3088                      # O13's card's last frame (29 frames from 3060), held over its status card (3089 on)
 VW, VH = 1080, 1920
 BG = (14, 17, 19)
 WHITE = (255, 253, 248)          # remotion/src/theme.ts white
 CORAL = (226, 100, 62)           # coral
-TAG_Y, PANEL_Y, PANEL_H, PIC_Y, CAP_Y = 150, 205, 530, 765, 1405
+TAG_Y, PANEL_Y, PANEL_H, PIC_Y, CAP_Y = 140, 186, 558, 766, 1400
 CAP_CX, CAP_W = 505, 860         # captions centred left of the Shorts buttons
 
 
@@ -95,26 +95,23 @@ def base():
     return v
 
 
-def panel(img):
-    return np.asarray(img.convert("RGB").crop((0, 0, VW, PANEL_H)))
-
-
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="renders/vertical/all-systems-operational-short-A.mp4")
     ap.add_argument("--still", nargs=2)
     a = ap.parse_args()
-    green = panel(Image.open(PARTS / "status_green.png"))
-    renewed = [panel(Image.open(p)) for p in sorted((PARTS / "renewed").glob("*.png"))]
+    status = sorted((PARTS / "status").glob("*.png"))
+    if len(status) != END - START:
+        raise SystemExit(f"{PARTS / 'status'}: {len(status)} frames, not {END - START}")
     canvas = np.asarray(base()).copy()
     t0 = START / FPS
-    cues = [(s - t0, e - t0, caption_layer(t)) for s, e, t in srt_cues() if e > t0 and s < END / FPS]
+    # the lines that start in the cut (the one before ends 0.2 s in: its last word, unsung here)
+    cues = [(s - t0, e - t0, caption_layer(t)) for s, e, t in srt_cues() if s >= t0 and s < END / FPS]
     n = END - START
 
     def frame(k, pic):
         f = canvas.copy()
-        m = START + k
-        f[PANEL_Y:PANEL_Y + PANEL_H] = green if m < FLIP else renewed[min(m - FLIP, len(renewed) - 1)]
+        f[PANEL_Y:PANEL_Y + PANEL_H] = np.asarray(Image.open(status[k]).convert("RGB"))
         f[PIC_Y:PIC_Y + 608] = cv2.resize(pic, (VW, 608), interpolation=cv2.INTER_AREA)
         t = k / FPS
         im = Image.fromarray(f)
