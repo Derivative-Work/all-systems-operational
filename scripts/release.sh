@@ -8,6 +8,9 @@
 #   all_systems_operational_short_1080x1920.mp4  the Short (renders/vertical/all-systems-operational-short-A.mp4)
 #   all_systems_operational.en.srt               the main video's captions (lyrics/as_sung_lines_video.srt)
 #   all_systems_operational_thumbnail.jpg        the thumbnail (review/thumbnail/thumbnail.jpg, option P3)
+#   All.Systems.Operational.logicx.zip          the human's Logic Pro project for the master, with Suno's stems (the human
+#                added it to the draft by hand, human interventions 50; kept as uploaded in audio/logic/). Apple's clap loop
+#                is referenced, not included: Logic offers to install Apple's pack when the project opens
 #   inputs.tar   the audio git doesn't hold, none of which can be regenerated: audio/track (the human's Logic master with
 #                the hard stops), audio/stems (Suno's stems and the v1.3 repaint's lead), audio/postfilter (the
 #                post-filtered master and credits music; the post-filter model is private), audio/credits (the credits
@@ -27,15 +30,17 @@ TAG=v1.0
 R=release
 P=all_systems_operational
 mkdir -p "$R"
-rm -f "$R"/*.mp4 "$R"/*.srt "$R"/*.jpg "$R"/*.tar "$R"/SHA256SUMS
+rm -f "$R"/*.mp4 "$R"/*.srt "$R"/*.jpg "$R"/*.tar "$R"/*.zip "$R"/SHA256SUMS
 ln renders/m7/master/all-systems-operational-master.mp4 "$R/${P}_1920x1080.mp4"
 ln renders/vertical/all-systems-operational-short-A.mp4 "$R/${P}_short_1080x1920.mp4"
 cp lyrics/as_sung_lines_video.srt "$R/$P.en.srt"
 cp review/thumbnail/thumbnail.jpg "$R/${P}_thumbnail.jpg"
+LOGIC=All.Systems.Operational.logicx.zip
+ln "audio/logic/$LOGIC" "$R/$LOGIC"
 tar -cf "$R/inputs.tar" audio/track audio/stems audio/postfilter audio/credits archive/audio
 tar -cf "$R/takes.tar" --exclude='*/frames' assets/gen archive/assets/gen
-(cd "$R" && sha256sum "${P}_1920x1080.mp4" "${P}_short_1080x1920.mp4" "$P.en.srt" "${P}_thumbnail.jpg" inputs.tar takes.tar \
-  > SHA256SUMS)
+(cd "$R" && sha256sum "${P}_1920x1080.mp4" "${P}_short_1080x1920.mp4" "$P.en.srt" "${P}_thumbnail.jpg" "$LOGIC" inputs.tar \
+  takes.tar > SHA256SUMS)
 for f in "$R"/*; do
   (( $(stat -c %s "$f") < 2147483648 )) || { echo "$f is over 2 GiB" >&2; exit 1; }
 done
@@ -53,6 +58,6 @@ ls -l "$R"
 cat "$R/SHA256SUMS"
 if [[ ${1:-} == --draft ]]; then
   gh release create "$TAG" --draft --target main --title "All Systems Operational v1.0" --notes-file "$2" \
-    "$R/${P}_1920x1080.mp4" "$R/${P}_short_1080x1920.mp4" "$R/$P.en.srt" "$R/${P}_thumbnail.jpg" "$R/inputs.tar" \
-    "$R/takes.tar" "$R/SHA256SUMS"
+    "$R/${P}_1920x1080.mp4" "$R/${P}_short_1080x1920.mp4" "$R/$P.en.srt" "$R/${P}_thumbnail.jpg" "$R/$LOGIC" \
+    "$R/inputs.tar" "$R/takes.tar" "$R/SHA256SUMS"
 fi

@@ -1,6 +1,6 @@
 # Upload metadata
 
-YouTube metadata for the main video, ready to paste at upload once the checklist below is done. Written by the agent; the human uploads. **Ready as of November 17, 2026** (human interventions 49): the master is built with the credits slide at 49 (production log 90). The files are in the draft v1.0 release (production log 91). The upload doesn't wait for Microsoft's final report (human interventions 37).
+YouTube metadata for the main video and the Short. Written by the agent; the human uploads. **Uploaded November 17, 2026** (human interventions 50): the main video is public at https://www.youtube.com/watch?v=J7RzSh6_usU, and the Short is at https://youtube.com/shorts/pvGGqmej0QY (private, scheduled). The master was built with the credits slide at 49 (production log 90). The files are in the [v1.0 release](https://github.com/Derivative-Work/all-systems-operational/releases/tag/v1.0) (production log 91–92). The upload doesn't wait for Microsoft's final report (human interventions 37).
 
 **Before uploading:**
 - **Re-check the news and every link** before the upload. Last checked November 17 for the release (production log 90):
@@ -12,7 +12,7 @@ YouTube metadata for the main video, ready to paste at upload once the checklist
 - **Intervention count:** the credits slide and the description read 49 (`grep -c '^## ' log/human_interventions.md`), built 2026-11-17 for the release (human interventions 49). Entries logged after that, such as the uploads and the links, come after the video and don't change it. For a new build: `scripts/m7_end.sh`, then `scripts/m7_master.py --end-only`, then `scripts/release.sh`.
 - **Chapters:** checked against the final cut on November 17 (production log 90): each is its shot's start (`timing/shot_times.json`) or an end card's (`review/m7_end/plan.txt`). The intro's chapter starts at 0:10, not at the song's 0:07.6, because YouTube wants each chapter at least 10 s long (the song starts on its first downbeat, decisions 47). The end cards fade at 2:34.6 into the credits music (decisions 45; kept, human interventions 32).
 
-**After the upload:** send the agent the two YouTube links. It puts them in the Short's description ("Full video"), the README, the repository's homepage and the release notes, then publishes the release.
+**After the upload (done, production log 92):** the two YouTube links are in the Short's description below ("Full video"), the README and the release notes, and the release is published. The repository's homepage (About → Website) is left for the human: the agent's GitHub token can't change repository settings. If the Short is already uploaded without it, paste the "Full video" line into its description in YouTube Studio.
 
 ---
 
@@ -22,7 +22,9 @@ YouTube metadata for the main video, ready to paste at upload once the checklist
 
 ### Title
 
-Recommended (62 characters):
+**As uploaded** (the human's, human interventions 50): `Unexpected inbox zero? — All Systems Operational`.
+
+Recommended before the upload (62 characters):
 
 ```
 All Systems Operational — a stomp-clap singalong by a status page
@@ -127,7 +129,7 @@ All Systems Operational, AI music video, AI generated, AI satire, Microsoft 365 
 
 ## Short (vertical cut A, 1080×1920, 30 fps)
 
-**File:** `renders/vertical/all-systems-operational-short-A.mp4` (63.4 s, 15 MB; `scripts/vertical_short.py`, human interventions 46–48): "We are aware" through the first chorus and the build to the first hard stop ("without fai—"), "We'll be right back" and "We're seeing renewed errors", then four bars of the cafe through "The agents that we hired to read the mail for us", the rows still red. Over a minute, which Shorts allow (up to 3 minutes). Stacked: the made-up status page on top, its rows following the song (Investigating one by one from "We are aware", "Early signs of stabilization" on that line, the mail back on "open up the mail", "Renewed errors" at the end; the banner stays green; human interventions 47), the 16:9 picture, the lyric below, "AI-GENERATED SATIRE" throughout. Captions are burned in. Upload it after the main video is public, so the description and the related-video link can point to it.
+**File:** `renders/vertical/all-systems-operational-short-A.mp4` (63.4 s, 15 MB; `scripts/vertical_short.py`, human interventions 46–48): "We are aware" through the first chorus and the build to the first hard stop ("without fai—"), "We'll be right back" and "We're seeing renewed errors", then four bars of the cafe through "The agents that we hired to read the mail for us", the rows still red. Over a minute, which Shorts allow (up to 3 minutes). Stacked: the made-up status page on top, its rows following the song (Investigating one by one from "We are aware", "Early signs of stabilization" on that line, the mail back on "open up the mail", "Renewed errors" at the end; the banner stays green; human interventions 47), the 16:9 picture, the lyric below, "AI-GENERATED SATIRE" throughout. Captions are burned in. Uploaded after the main video, private and scheduled: https://youtube.com/shorts/pvGGqmej0QY.
 
 ### Title
 
@@ -146,7 +148,7 @@ Alternatives:
 ```
 AI-generated satire: the Microsoft 365 outage of November 12–13, 2026, as a stomp-clap singalong sung by a status page. Every time the gang vocals swell, the stream goes down.
 
-Full video: <the main video's link>
+Full video: https://www.youtube.com/watch?v=J7RzSh6_usU
 
 Made with AI: lyrics drafted by Claude (made by Anthropic, whose Microsoft 365 connector broke in this outage), music by Suno, video by Claude Code with Blender and Remotion. A human approved each stage. Everything on screen is made up. Production log: https://github.com/Derivative-Work/all-systems-operational
 

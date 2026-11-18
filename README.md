@@ -2,13 +2,15 @@
 
 **AI-generated satire.** A mid-2010s stomp-clap singalong about the Microsoft 365 outage of November 12–13, 2026, filmed as a made-up Seattle public-radio live session, "Session 503". The narrator is the status page, singing in the earnest, everybody-together voice of a 2010s tech ad. Every time the gang vocals swell, the stream goes down: the band cuts out mid-word, the picture freezes under a buffering spinner, and one handclap keeps going, late. That's the retry collapse: Microsoft's restored servers kept going unresponsive once traffic returned.
 
-> **Status, November 17, 2026: final render.** The final-look render (M7) is under way; the video isn't published yet. It doesn't wait for Microsoft's final post-incident report (due November 20): the creator read the preliminary one (EX1550543/MO1550821, in the Microsoft 365 admin center) and expects the final one to add little.
+**Watch:** [the video](https://www.youtube.com/watch?v=J7RzSh6_usU) · [the Short](https://youtube.com/shorts/pvGGqmej0QY) · [the release](https://github.com/Derivative-Work/all-systems-operational/releases/tag/v1.0) (the files and the production archive)
+
+> **Published November 17, 2026.** It didn't wait for Microsoft's final post-incident report (due November 20): the creator read the preliminary one (EX1550543/MO1550821, in the Microsoft 365 admin center) and expects the final one to add little.
 
 **Conflict of interest:** the lyrics were drafted by Claude, made by Anthropic. Anthropic's Microsoft 365 connector broke during this outage, and Claude had outages of its own this year. The creator worked on Outlook and Word at Microsoft between 2014 and 2017, and the treehouse meeting room in the bridge is inspired by those years; it doesn't depict how this incident was handled. The disclosure card at the end says all of this. Before production, Gemini (Google) audited the lyrics and the concept (November 14, no web access; `log/audits/`); Claude proposed the responses as the conflicted party and the human decided each one (the brief's audit log). The other audits the brief planned (Microsoft Copilot, ChatGPT, Grok, an open-weights model, and a second pass on the final bridge and fact card) weren't run.
 
 **Nothing on screen ties AI-written code to this outage.** Microsoft said on November 13 that the outage was "not related to cyber or AI / agents"; its preliminary report (November 15) traces it to a latent defect from a July fix and doesn't say who or what wrote that fix. The video says exactly that and no more, unless the full report does.
 
-This repository is the production record the video's end card points to. Claude Code produced the video. A human approved each milestone, picked the takes, made the Suno generation and the Logic Pro master, supplied the credits music and made the screenshots. Each of those 37 interventions so far is logged.
+This repository is the production record the video's end card points to. Claude Code produced the video. A human approved each milestone, picked the takes, made the Suno generation and the Logic Pro master, supplied the credits music and made the screenshots. Each of those interventions is logged; the video's credits count the 49 up to its final build.
 
 **The production log and decisions are written by the agent and are a record, not a statement of fact about Microsoft or anyone else:** where they discuss the outage, the fact card and its sources are the reference.
 
@@ -72,9 +74,10 @@ The brief lists every source the production used ([`docs/brief.md`](docs/brief.m
 
 ## Reproducing it
 
-Large files (audio, screenshots, the figure library, generated stills and clips, renders, the edit) are not in git; [`MANIFEST.sha256`](MANIFEST.sha256) lists them with checksums. The production archive is the [v1.0 release](https://github.com/Derivative-Work/all-systems-operational/releases), built by [`scripts/release.sh`](scripts/release.sh). It holds:
+Large files (audio, screenshots, the figure library, generated stills and clips, renders, the edit) are not in git; [`MANIFEST.sha256`](MANIFEST.sha256) lists them with checksums. The production archive is the [v1.0 release](https://github.com/Derivative-Work/all-systems-operational/releases/tag/v1.0), built by [`scripts/release.sh`](scripts/release.sh). It holds:
 
 - the two upload files (the main video and the Short), with the captions and the thumbnail;
+- `All.Systems.Operational.logicx.zip`: the creator's Logic Pro project for the master, with Suno's stems. Apple's clap loop is referenced, not included: Logic offers to install Apple's pack when the project opens;
 - `inputs.tar`: the audio that git doesn't hold and that can't be regenerated;
 - `takes.tar`: every generated still and clip, used or not;
 - `SHA256SUMS`.

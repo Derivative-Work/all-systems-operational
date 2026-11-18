@@ -336,3 +336,12 @@ Append-only. Every human action: when, what, and why.
   - in the draft: the two upload files, the captions, the thumbnail, the audio git doesn't hold, and every generated still and clip, each part under GitHub's 2 GiB limit.
 
   The repository has been public since it was created (November 16), so that checklist item is already done. Left for the human: the YouTube uploads (the main video, then the Short); then the agent fills in the links and the release is published. The session transcript stays out of the release: it holds the creator's private captures.
+
+## 50. 2026-11-17 — Uploaded; the Logic project in the release
+
+- **What:** after the draft release (production log 91): "Main video link (public) https://www.youtube.com/watch?v=J7RzSh6_usU / Short link (private for now, scheduled) https://youtube.com/shorts/pvGGqmej0QY / I manually added the Logic project to the release (the Apple clap is added by reference: it is not included in the project and Logic prompts to install the package from Apple on open)".
+- **Done by the human:**
+  - the main video uploaded and public, titled "Unexpected inbox zero? — All Systems Operational" (not METADATA's recommended title);
+  - the Short uploaded, private and scheduled;
+  - `All.Systems.Operational.logicx.zip` (309 MB) added to the draft release.
+- **Agent's reading:** as said with the draft, the links go into the release notes, the Short's description, the README and the repository's homepage, and then the release is published. Before that, the Logic project's contents were listed, so the notes describe it and its checksum joins `SHA256SUMS`: the project, Suno's twelve stems and the repaint section as WAV, and the project's backups. No Apple loop is in it (`Media/Samples` is empty). The licence's list of music gains the project.

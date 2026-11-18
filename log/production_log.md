@@ -1370,3 +1370,17 @@ Append-only. One entry per generation, render or analysis step.
   - The notes follow Read-Only's: what the video is, the conflict of interest, the files table, what's left out, and the licences. The YouTube links are placeholders.
   - Each of the 7 uploaded assets' SHA-256 (GitHub's digest) matches the local file. The master's matches `MANIFEST.sha256`.
 - **Left for the human:** open the Washington Post and GV Wire links in a browser; upload the main video to YouTube with `METADATA.md` (unlisted for a check pass, then public), then the Short; send the two links. Then the agent fills in the links (the release notes, the Short's description, the README, the repository's homepage) and publishes the release.
+
+## 92. 2026-11-17 — Release: the links; the Logic project
+
+- **Why:** human interventions 50 (the uploads; the Logic project added to the draft).
+- **The links:** checked with YouTube's oEmbed endpoint (a plain request). The main video answers 200: "Unexpected inbox zero? — All Systems Operational", Derivative Work. The Short answers 403, as a private video does until its scheduled time. They went into:
+  - the release notes ("Watch");
+  - the README (a "Watch" line in place of the M7 status note, which said the video wasn't published; the "37 interventions so far" line now says the credits count the 49 up to the final build);
+  - METADATA (the status, the title as uploaded, the Short's "Full video" line, and the after-upload step marked done).
+- **The repository's homepage:** `gh repo edit --homepage` failed: "HTTP 403: Resource not accessible by personal access token". The token can't change repository settings, so this is left for the human.
+- **The Logic project:** `All.Systems.Operational.logicx.zip` downloaded from the draft (asset 761662630, through the API) → `audio/logic/` (git-ignored, now in the manifest); sha256 `c18fa0a6…`, the same as GitHub's digest.
+  - Its listing (73 files, 595 MB unpacked): the project data, its backups, a preview movie and window snapshot (Logic's track view, looked at), Suno's twelve stems as WAV, and the repaint section (`All Systems Operational [2m28s-2m47s].wav`).
+  - `Media/Samples/` is empty, so Apple's loop isn't in it, as the human said.
+- **Release:** `scripts/release.sh` hard-links the project into `release/` and lists it in `SHA256SUMS`. Staged again: the tars came out byte-identical to the ones uploaded. `gh release upload v1.0 release/SHA256SUMS --clobber` (digest `d25a646e…`, matches). `gh release edit v1.0 --notes-file <scratchpad>/release_notes.md` adds the links and a row for the project. The draft holds 8 assets.
+- **LICENSE-media:** the music it covers now names the Logic project; the Apple loop's line says the project refers to the loop without including it. Manifest updated.

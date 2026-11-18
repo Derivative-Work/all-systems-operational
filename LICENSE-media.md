@@ -11,8 +11,9 @@ The code is under the MIT licence instead: see [LICENSE](LICENSE).
 ## What this covers
 
 - The video in all its cuts, with its captions and thumbnail.
-- The music: the Suno v6 take and its v1.3 repaint, their stems, the Logic masters with the hard stops, the clap track
-  as used, and the post-filtered masters; the credits music as post-filtered and cut for the end sequence.
+- The music: the Suno v6 take and its v1.3 repaint, their stems, the Logic project and the Logic masters with the hard
+  stops, the clap track as used, and the post-filtered masters; the credits music as post-filtered and cut for the end
+  sequence.
 - The rendered frames, the generated stills, plates and clips, and the figure library as built (`assets/figures/`).
 - The on-screen text: status page, lower thirds, cards, the recreated chat post and every other label, and the frames
   the code renders from them.
@@ -40,7 +41,8 @@ The code is under the MIT licence instead: see [LICENSE](LICENSE).
 - **Remotion**, which renders the screens and cards, is not part of this repository; it is used under its own
   [Remotion License](https://www.remotion.dev/license).
 - **The Clap 2 - Warm Embers loop** is one of Apple's Logic Pro loops, used in the music under Apple's terms for its
-  loops; the loop itself isn't offered here.
+  loops; the loop itself isn't offered here. The Logic project in the release refers to it without including it (Logic
+  offers to install Apple's pack when the project opens).
 - **The auditors' outputs** in `log/audits/` are kept verbatim as a record of the audit, only as far as each
   provider's terms allow.
 - **The Suno page records** in `docs/suno/` are Suno's metadata for the take, kept as a record.
