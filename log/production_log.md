@@ -1384,3 +1384,10 @@ Append-only. One entry per generation, render or analysis step.
   - `Media/Samples/` is empty, so Apple's loop isn't in it, as the human said.
 - **Release:** `scripts/release.sh` hard-links the project into `release/` and lists it in `SHA256SUMS`. Staged again: the tars came out byte-identical to the ones uploaded. `gh release upload v1.0 release/SHA256SUMS --clobber` (digest `d25a646e…`, matches). `gh release edit v1.0 --notes-file <scratchpad>/release_notes.md` adds the links and a row for the project. The draft holds 8 assets.
 - **LICENSE-media:** the music it covers now names the Logic project; the Apple loop's line says the project refers to the loop without including it. Manifest updated.
+
+## 93. 2026-11-17 — Release v1.0 published
+
+- **Why:** human interventions 50: with the links in, the release is published, as the draft said.
+- **Command:** `gh release edit v1.0 --draft=false --latest` → https://github.com/Derivative-Work/all-systems-operational/releases/tag/v1.0 ("All Systems Operational v1.0", latest, 8 assets).
+  - The tag `v1.0` is on 84d1517, the commit with the links.
+  - The page answers 200 without signing in.
