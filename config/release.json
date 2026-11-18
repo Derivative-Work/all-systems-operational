@@ -1,5 +1,5 @@
 {
  "_doc": "Written by scripts/m7_end.sh: the end credits' {interventions} (the entries in log/human_interventions.md) and {repo_url}.",
- "interventions": 45,
+ "interventions": 49,
  "repo_url": "github.com/Derivative-Work/all-systems-operational"
 }

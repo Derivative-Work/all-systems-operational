@@ -1340,3 +1340,18 @@ Append-only. One entry per generation, render or analysis step.
 - **Panel:** `npx remotion render Vertical-Status renders/vertical/parts/status --sequence --image-format=png --scale=1.5 --gl=swangle --concurrency=8` (`log/render_logs/vertical_status_panel_v3.log`, 18 s): 1,903 frames.
 - **Captions:** "The agents that we hired to read the mail for us" wrapped to three lines and pushed "(Hey!)" off the caption strip (seen on the first run's contact sheet): a line now steps down from 70 px to 66, 62 or 58 until it takes two lines.
 - **The cut:** `.venv/bin/python -I scripts/vertical_short.py` (`log/render_logs/vertical_short_A_v3.log`, 28 s) → `renders/vertical/all-systems-operational-short-A.mp4`: 1,903 frames, 63.433 s, 15 MB. The previous version and its panel frames are in `archive/renders/vertical/` (`*_v2*`). Checks: `scripts/flash_check.py` no failing frames; peak −1.0 dB, mean −17.0 dB; the last 40 ms at −37 dB.
+
+## 90. 2026-11-17 — Release: the count at 49; links, news and chapters checked
+
+- **Why:** human interventions 49 ("go ahead and prepare the release").
+- **End sequence:** `scripts/m7_end.sh` (`log/render_logs/m7_end_r8.log`, 2 min 6 s). `config/release.json` interventions 49; the plan is unchanged at 4,639 frames. The previous sequence is in `archive/renders/m7/remotion_end_m7/M7-EndSequence_r7.mp4`.
+- **Master:** `scripts/m7_master.py --end-only` (`log/render_logs/m7_master_end49.log`, 52 s): 11,982 frames, 399.400 s; −90.3 dB before the cut at 7.60 s, −1.6 dB after it.
+  - The credits slide reads "49, each logged" (looked at, 4:17).
+  - The 45 master and its share copy are in `archive/renders/m7/master/` (`*_45.mp4`).
+  - Share copy: the same ffmpeg command as production log 86 → `review/m7_master_share.mp4` (21 MB).
+- **Flash check:** `.venv/bin/python -I scripts/flash_check.py renders/m7/master/all-systems-operational-master.mp4 --out log/render_logs/m7_master_flash_check_49.json` (`m7_master_flash_check_49.log`): no failing frames.
+- **Links:** plain `curl -L` requests, no browser user agent. Every source in the description returned 200, and so did the repository and the Default On and Sandbox Rhapsody links. Two refused automated requests: GV Wire (403; it answered on November 17's earlier check, production log 77) and the Washington Post (no answer). METADATA asks the human to open both in a browser before the upload.
+- **Repository:** public since it was created. GitHub's `PublicEvent` is at 2026-11-16 22:33:59Z, the creation time, so METADATA's "make the repository public" item is done. Tracked files were checked again: no email addresses, no file from `assets/screenshots/` or `remotion/public/real/`, no `.aif`.
+- **News:** a web search finds nothing after the preliminary report (November 15). Coverage from November 14 ("not to blame AI … a botched network upgrade", Windows Latest) agrees with the description. The final report is due November 20. "As of November 17" stands.
+- **Chapters:** each matches `timing/shot_times.json` (O04 0:31.68, O08 0:49.72, O09 1:00.54, O10 1:29.41, O14 1:43.81, O17 2:07.85, O18 2:36.65, O19 2:55.85, O20 3:07.84, O21 3:27.00) and the end sequence's plan: it starts at frame 7,343 (4:04.77), the facts after the credits and "Next incident" (617 frames) at 4:25.3, and the disclosure at frame 11,077 (6:09.2). No change.
+- **METADATA:** the description's count 45 → 49 (4,772 characters). The checklist now records the release checks, the repository already public, and the count built for the release, and adds what follows the upload. **README:** "Reproducing it" describes the v1.0 release (`scripts/release.sh`) and lists what isn't in the archive. Manifest updated.

@@ -72,13 +72,22 @@ The brief lists every source the production used ([`docs/brief.md`](docs/brief.m
 
 ## Reproducing it
 
-Large files (audio, screenshots, the figure library, generated stills and clips, renders, the edit) are not in git; [`MANIFEST.sha256`](MANIFEST.sha256) lists them with checksums. A release archive with the video, the audio that can't be regenerated, and every still and clip the production made comes with publication.
+Large files (audio, screenshots, the figure library, generated stills and clips, renders, the edit) are not in git; [`MANIFEST.sha256`](MANIFEST.sha256) lists them with checksums. The production archive is the [v1.0 release](https://github.com/Derivative-Work/all-systems-operational/releases), built by [`scripts/release.sh`](scripts/release.sh). It holds:
 
-Until then, the commands are in the production log, step by step, and each script's header says what it reads and writes.
+- the two upload files (the main video and the Short), with the captions and the thumbnail;
+- `inputs.tar`: the audio that git doesn't hold and that can't be regenerated;
+- `takes.tar`: every generated still and clip, used or not;
+- `SHA256SUMS`.
+
+Everything else regenerates. The commands are in the production log, step by step, and each script's header says what it reads and writes.
 - **Environment:** `uv sync` (Python, pinned in `uv.lock`), `PUPPETEER_SKIP_DOWNLOAD=1 npm install` (Remotion 4.0.534), Blender 5.2, and ComfyUI for the generated shots.
 - **Seeds:** every random process reads its seed from [`config/seeds.json`](config/seeds.json) (main seed 41). Stills and clips with the same seed, weights and ComfyUI version should match on the same GPU (production used an NVIDIA GeForce RTX 5090, 32 GB); expect small differences elsewhere.
-- **Can't be regenerated:** the song (Suno doesn't give the same song twice), the Logic master, and the credits music. The post-filter model is private for now, so the archive will keep the post-filtered audio.
-- **Not in the archive:** the Slack screenshots the creator supplied as text-style reference only (private).
+- **Can't be regenerated:** the song (Suno doesn't give the same song twice), the Logic master, and the credits music. The post-filter model is private for now, so the archive keeps the post-filtered audio.
+- **Not in the archive:**
+  - the creator's captures: the Slack screenshots, supplied as text-style reference only (private), and the real screenshot and photo in the opening bookend;
+  - Apple's Logic loop in the clap track, used under Apple's terms;
+  - the figure library, rebuilt from [`blender/ep/`](blender/ep/);
+  - the Claude Code session transcript, which holds the private captures.
 
 ## Licences
 

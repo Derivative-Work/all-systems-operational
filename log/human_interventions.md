@@ -326,3 +326,13 @@ Append-only. Every human action: when, what, and why.
 
 - **What:** on the Short with the panel following the song (production log 88): "Add four more bars at the end so the "renewed errors" has time to be visible".
 - **Agent's reading:** four bars further into the song: from the band's downbeat as it comes back in (the cafe, O14, 103.82 s), four bars of 2.4 s, through "The agents that we hired to read the mail for us (Hey!)". The fourth bar ends on 113.42 s, but the next line's pickup "Are" starts at 113.21, so the cut ends at 113.17, faded over 0.3 s: the rows stay red for 10.9 s. The picture runs on into the cafe after the held card. The Short is 63.4 s, over a minute; Shorts allow up to 3 minutes.
+
+## 49. 2026-11-17 — Prepare the release
+
+- **What:** after the Short at 63.4 s (production log 89): "go ahead and prepare the release".
+- **Agent's reading:** METADATA's checklist, and the release the way the series' earlier videos made theirs: a draft v1.0 GitHub release (Read-Only, Not Yet) holding the production archive in tar parts (Folks Like Us, Buy It on Margin). The steps:
+  - the master's credits slide and the description at this entry's count (49);
+  - the links and the news checked again, and the chapters against the cut;
+  - in the draft: the two upload files, the captions, the thumbnail, the audio git doesn't hold, and every generated still and clip, each part under GitHub's 2 GiB limit.
+
+  The repository has been public since it was created (November 16), so that checklist item is already done. Left for the human: the YouTube uploads (the main video, then the Short); then the agent fills in the links and the release is published. The session transcript stays out of the release: it holds the creator's private captures.

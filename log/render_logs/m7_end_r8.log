@@ -1,0 +1,26 @@
+M7-EndSequence.mp4 105 s
+review/m7_end_sheet.jpg (1950, 2414)
+review/m7_end_preview.mp4 160.667000,9674933
+	Command being timed: "scripts/m7_end.sh"
+	User time (seconds): 165.83
+	System time (seconds): 10.98
+	Percent of CPU this job got: 140%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:05.71
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1694256
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1894907
+	Voluntary context switches: 961936
+	Involuntary context switches: 1722
+	Swaps: 0
+	File system inputs: 1960
+	File system outputs: 144504
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

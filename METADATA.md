@@ -1,12 +1,18 @@
 # Upload metadata
 
-YouTube metadata for the main video, ready to paste at upload once the checklist below is done. Written by the agent; the human uploads. **Draft as of November 17, 2026:** the master is built (production log 81). The upload doesn't wait for Microsoft's final report (human interventions 37).
+YouTube metadata for the main video, ready to paste at upload once the checklist below is done. Written by the agent; the human uploads. **Ready as of November 17, 2026** (human interventions 49): the master is built with the credits slide at 49 (production log 90). The files are in the draft v1.0 release (production log 91). The upload doesn't wait for Microsoft's final report (human interventions 37).
 
 **Before uploading:**
-- **Re-check the news and every link** before the upload. Links checked November 17 (production log 77): all live but the Washington Post's, which refuses automated fetches; open it in a browser (the human confirmed its 130,000 figure on November 17). The repository's link works once it's public. If the check is later than November 17, update "As of" under WHAT HAPPENED.
-- **Make the repository public.** The end card and the description link to it; it's private until then.
-- **Intervention count:** update the number in the description (`grep -c '^## ' log/human_interventions.md`; the master's credits slide reads 45, built 2026-11-17; the log is at 48). If more are logged before the upload, run `scripts/m7_end.sh` and `scripts/m7_master.py --end-only` again so the slide agrees.
-- **Chapters:** recompute from the final cut (`timing/shot_times.json`, and the end sequence's plan in `review/m7_end/plan.txt`). The ones below are the current cut's, from the shots' starts (the intro's chapter starts at 0:10, not at the song's 0:07.6, because YouTube wants each chapter at least 10 s long; the song starts on its first downbeat, decisions 47): the end cards fade at 2:34.6 into the credits music (decisions 45; kept, human interventions 32).
+- **Re-check the news and every link** before the upload. Last checked November 17 for the release (production log 90):
+  - Every link answers but two that refuse automated fetches, so open them in a browser: the Washington Post's (the human confirmed its 130,000 figure on November 17) and GV Wire's (403).
+  - The repository's own links work: it has been public since it was created, November 16.
+  - Nothing new in the news since the preliminary report; the final report is due November 20.
+
+  If the upload is later than November 17, check again and update "As of" under WHAT HAPPENED.
+- **Intervention count:** the credits slide and the description read 49 (`grep -c '^## ' log/human_interventions.md`), built 2026-11-17 for the release (human interventions 49). Entries logged after that, such as the uploads and the links, come after the video and don't change it. For a new build: `scripts/m7_end.sh`, then `scripts/m7_master.py --end-only`, then `scripts/release.sh`.
+- **Chapters:** checked against the final cut on November 17 (production log 90): each is its shot's start (`timing/shot_times.json`) or an end card's (`review/m7_end/plan.txt`). The intro's chapter starts at 0:10, not at the song's 0:07.6, because YouTube wants each chapter at least 10 s long (the song starts on its first downbeat, decisions 47). The end cards fade at 2:34.6 into the credits music (decisions 45; kept, human interventions 32).
+
+**After the upload:** send the agent the two YouTube links. It puts them in the Short's description ("Full video"), the README, the repository's homepage and the release notes, then publishes the release.
 
 ---
 
@@ -35,7 +41,7 @@ On November 12–13, 2026, Microsoft 365 went down for most of a day. Here it is
 
 A disclosure: the lyrics were drafted by Claude, made by Anthropic. Anthropic's Microsoft 365 connector broke during this outage, and Claude had outages of its own this year. The creator worked on Outlook and Word at Microsoft between 2014 and 2017, and the treehouse meeting room in the bridge is inspired by those years; it doesn't depict how this incident was handled.
 
-Made with AI (credits below). The status-page screenshot and the creator's profile photo at the start are real; everything else on screen is made up. A human approved each stage and picked the takes; all 45 of those interventions are logged, with every prompt and production step:
+Made with AI (credits below). The status-page screenshot and the creator's profile photo at the start are real; everything else on screen is made up. A human approved each stage and picked the takes; all 49 of those interventions are logged, with every prompt and production step:
 https://github.com/Derivative-Work/all-systems-operational
 
 CHAPTERS
