@@ -5,7 +5,7 @@ YouTube metadata for the main video, ready to paste at upload once the checklist
 **Before uploading:**
 - **Re-check the news and every link** before the upload. Links checked November 17 (production log 77): all live but the Washington Post's, which refuses automated fetches; open it in a browser (the human confirmed its 130,000 figure on November 17). The repository's link works once it's public. If the check is later than November 17, update "As of" under WHAT HAPPENED.
 - **Make the repository public.** The end card and the description link to it; it's private until then.
-- **Intervention count:** update the number in the description (`grep -c '^## ' log/human_interventions.md`; the master's credits slide reads 45, built 2026-11-17; the log is at 47). If more are logged before the upload, run `scripts/m7_end.sh` and `scripts/m7_master.py --end-only` again so the slide agrees.
+- **Intervention count:** update the number in the description (`grep -c '^## ' log/human_interventions.md`; the master's credits slide reads 45, built 2026-11-17; the log is at 48). If more are logged before the upload, run `scripts/m7_end.sh` and `scripts/m7_master.py --end-only` again so the slide agrees.
 - **Chapters:** recompute from the final cut (`timing/shot_times.json`, and the end sequence's plan in `review/m7_end/plan.txt`). The ones below are the current cut's, from the shots' starts (the intro's chapter starts at 0:10, not at the song's 0:07.6, because YouTube wants each chapter at least 10 s long; the song starts on its first downbeat, decisions 47): the end cards fade at 2:34.6 into the credits music (decisions 45; kept, human interventions 32).
 
 ---
@@ -121,7 +121,7 @@ All Systems Operational, AI music video, AI generated, AI satire, Microsoft 365 
 
 ## Short (vertical cut A, 1080×1920, 30 fps)
 
-**File:** `renders/vertical/all-systems-operational-short-A.mp4` (53.9 s, 13 MB; `scripts/vertical_short.py`, human interventions 46 and 47): "We are aware" through the first chorus and the build to the first hard stop ("without fai—"), "We'll be right back" and "We're seeing renewed errors". Stacked: the made-up status page on top, its rows following the song (Investigating one by one from "We are aware", "Early signs of stabilization" on that line, the mail back on "open up the mail", "Renewed errors" at the end; the banner stays green; human interventions 47), the 16:9 picture, the lyric below, "AI-GENERATED SATIRE" throughout. Captions are burned in. Upload it after the main video is public, so the description and the related-video link can point to it.
+**File:** `renders/vertical/all-systems-operational-short-A.mp4` (63.4 s, 15 MB; `scripts/vertical_short.py`, human interventions 46–48): "We are aware" through the first chorus and the build to the first hard stop ("without fai—"), "We'll be right back" and "We're seeing renewed errors", then four bars of the cafe through "The agents that we hired to read the mail for us", the rows still red. Over a minute, which Shorts allow (up to 3 minutes). Stacked: the made-up status page on top, its rows following the song (Investigating one by one from "We are aware", "Early signs of stabilization" on that line, the mail back on "open up the mail", "Renewed errors" at the end; the banner stays green; human interventions 47), the 16:9 picture, the lyric below, "AI-GENERATED SATIRE" throughout. Captions are burned in. Upload it after the main video is public, so the description and the related-video link can point to it.
 
 ### Title
 

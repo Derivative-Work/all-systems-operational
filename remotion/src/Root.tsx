@@ -7,6 +7,7 @@ import {RealScreens} from './components/RealScreens';
 import {ChatPost} from './components/ChatPost';
 import {StatusPage, StatusState} from './components/StatusPage';
 import {VerticalStatus} from './components/VerticalStatus';
+import VERTICAL from '../../config/vertical_status.json';
 import {DenialTags, LowerThird, LowerThirdVariant} from './components/LowerThird';
 import pins from '../../timing/o18_pins.json';
 import {PhoneChatBig, PhoneChatProps, PhoneChatScreen} from './components/PhoneChat';
@@ -187,7 +188,7 @@ export const Root: React.FC = () => (
     ))}
 
     {/* the vertical cut's status panel (human interventions 47): the rows follow the song; render with --scale=1.5 */}
-    <Composition id="Vertical-Status" component={VerticalStatus} durationInFrames={1616} fps={FPS} width={720} height={372} />
+    <Composition id="Vertical-Status" component={VerticalStatus} durationInFrames={VERTICAL.end_frame - VERTICAL.start_frame} fps={FPS} width={720} height={372} />
 
     {/* lower thirds (transparent) */}
     {([['O03-LowerThird', 'title', 'O03'], ['O08-LowerThird', 'echo', 'O08'], ['O09-LowerThird', 'uptime', 'O09'],

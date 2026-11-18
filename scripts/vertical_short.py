@@ -1,12 +1,15 @@
 """The vertical cut, A stacked (human interventions 46: "Yes make A stacked"), 1080x1920 for YouTube Shorts:
   section   "We are aware" through chorus 1, the build and hard stop 1 ("without fai—") to "We'll be right back" and
-            "We're seeing renewed errors": the master's frames 1492 (O08's cut) to 3108, 53.87 s, ending in the rest
-            before the band comes back in (103.7 s)
+            "We're seeing renewed errors", then four bars of the cafe as the band comes back in (human interventions 48:
+            "so the 'renewed errors' has time to be visible"), through "The agents that we hired to read the mail for us
+            (Hey!)": the master's frames 1492 (O08's cut) to 3395 (config/vertical_status.json), 63.43 s, ending just
+            before the pickup "Are (waiting in the lobby)" at 113.21 s, the sound faded over its last 0.3 s
   top       the made-up status page at phone width (Remotion Vertical-Status), the narrator on screen the whole time; its
             rows follow the song (human interventions 47; config/vertical_status.json): Investigating one by one on "We are
             aware ... everything", "Early signs of stabilization" on the line, the mail back on "open up the mail",
             "Renewed errors" on "We're seeing renewed errors"; the banner stays green. From O13's second card (the video's
-            own status page, master frame 3089) the picture holds "We'll be right back." rather than show the page twice
+            own status page, master frames 3089-3113) the picture holds "We'll be right back." rather than show the page
+            twice, until the cafe (O14, 3114)
   middle    the master's picture, 16:9, full width (1080x608), with its own lower thirds, viewer count and spinner
   below     the lyric as sung (lyrics/as_sung_lines_video.srt), the echoes and Hey!s on their own line in coral
   tag       "AI-GENERATED SATIRE" (the credits slide's eyebrow) for the whole cut: the Short has no bookend, which is
@@ -19,6 +22,7 @@ Usage: .venv/bin/python -I scripts/vertical_short.py [--out renders/vertical/all
        [--still <clip frame> <png>] (one frame, for checking the layout)
 """
 import argparse
+import json
 import re
 import subprocess
 from pathlib import Path
@@ -31,8 +35,10 @@ MASTER = "renders/m7/master/all-systems-operational-master.mp4"
 SRT = "lyrics/as_sung_lines_video.srt"
 PARTS = Path("renders/vertical/parts")
 FPS = 30
-START, END = 1492, 3108          # master frames: O08's cut; the rest before the band's downbeat at 103.7 s
-HOLD = 3088                      # O13's card's last frame (29 frames from 3060), held over its status card (3089 on)
+SPAN = json.loads(Path("config/vertical_status.json").read_text())
+START, END = SPAN["start_frame"], SPAN["end_frame"]
+HOLD, CAFE = 3088, 3114          # O13's card's last frame (29 frames from 3060), held over its status card; O14
+FADE_S = 0.3
 VW, VH = 1080, 1920
 BG = (14, 17, 19)
 WHITE = (255, 253, 248)          # remotion/src/theme.ts white
@@ -74,11 +80,16 @@ def caption_layer(text):
     main, echo = (m.group(1), m.group(2)) if m and m.group(1) else (text, "")
     lay = Image.new("RGBA", (VW, 260), (0, 0, 0, 0))
     d = ImageDraw.Draw(lay)
-    F, Fe = font(70), font(54, "Bold")
+    Fe = font(54, "Bold")
+    for sz in (70, 66, 62, 58):                                 # two lines at most, clear of the Shorts title
+        F = font(sz)
+        lines = wrap(d, main, F, CAP_W)
+        if len(lines) <= 2:
+            break
     y = 0
-    for ln in wrap(d, main, F, CAP_W):
+    for ln in lines:
         d.text((CAP_CX, y), ln, font=F, fill=WHITE, anchor="ma")
-        y += 76
+        y += int(sz * 1.09)
     if echo:
         d.text((CAP_CX, y + 6), f"({echo})", font=Fe, fill=CORAL, anchor="ma")
     return lay
@@ -138,7 +149,7 @@ def main():
     dur = n / FPS
     wr = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{VW}x{VH}", "-r", str(FPS),
                            "-i", "-", "-ss", f"{t0:.6f}", "-t", f"{dur:.6f}", "-i", MASTER, "-map", "0:v", "-map", "1:a",
-                           "-af", f"afade=t=in:d=0.02,afade=t=out:st={dur - 0.066:.3f}:d=0.066",
+                           "-af", f"afade=t=in:d=0.02,afade=t=out:st={dur - FADE_S:.3f}:d={FADE_S}",
                            "-c:v", "libx264", "-profile:v", "high", "-preset", "slow", "-crf", "16", "-pix_fmt", "yuv420p",
                            "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709",
                            "-c:a", "aac", "-b:a", "384k", "-ar", "48000", "-movflags", "+faststart", "-shortest", a.out],
@@ -149,7 +160,7 @@ def main():
         pic = np.frombuffer(raw, np.uint8).reshape(1080, 1920, 3)
         if START + k == HOLD:
             held = pic
-        if START + k > HOLD and held is not None:
+        if HOLD < START + k < CAFE and held is not None:
             pic = held
         wr.stdin.write(frame(k, pic).tobytes())
     wr.stdin.close()

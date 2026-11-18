@@ -1,5 +1,8 @@
 {
  "_doc": "The vertical cut's status panel (human interventions 47: 'make the top status reflect what's actually happening in the song at that moment'). Video time (s), on the lead vocal's words (timing/whisper_lead_v13.json + 5.2). Each event sets its rows' state, one row after another, stagger_s apart. The banner never changes (brief: 'the banner never changes, whatever the rows say'). States: ok 'Operational', investigating, stabilizing, renewed: config/incident.json statusPhrases 0, 1, 2.",
+ "start_frame": 1492,
+ "end_frame": 3395,
+ "_span": "master frames: O08's cut (49.73 s) to 113.17 s, four bars after the band comes back in (human interventions 48), just before the pickup 'Are (waiting in the lobby)'",
  "t0": 49.7333,
  "initial": {"Mail": "investigating"},
  "events": [
